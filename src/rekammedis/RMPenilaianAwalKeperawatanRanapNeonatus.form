@@ -6275,7 +6275,7 @@
                             </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="1">
-                                <StringItem index="0" value="28-11-2023 13:20:02"/>
+                                <StringItem index="0" value="22-12-2023 09:37:59"/>
                               </StringArray>
                             </Property>
                             <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -6605,6 +6605,8 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumpty1">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="4"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumpty1" noResource="true"/>
                           </Properties>
@@ -6671,6 +6673,8 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumpty2">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="2"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumpty2" noResource="true"/>
                           </Properties>
@@ -6739,9 +6743,14 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumpty3">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="4"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumpty3" noResource="true"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NilaiHumptyDumpty3ActionPerformed"/>
+                          </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="790" y="1930" width="60" height="23"/>
@@ -6806,6 +6815,8 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumpty4">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="3"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumpty4" noResource="true"/>
                           </Properties>
@@ -6874,6 +6885,8 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumpty5">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="4"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumpty5" noResource="true"/>
                           </Properties>
@@ -6941,6 +6954,8 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumpty6">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="3"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumpty6" noResource="true"/>
                           </Properties>
@@ -7008,6 +7023,8 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumpty7">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="3"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumpty7" noResource="true"/>
                           </Properties>
@@ -7043,6 +7060,8 @@
                         <Component class="widget.TextBox" name="NilaiHumptyDumptyTotal">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="23"/>
                             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                             <Property name="name" type="java.lang.String" value="NilaiHumptyDumptyTotal" noResource="true"/>
                           </Properties>
@@ -7348,7 +7367,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
-                            <StringItem index="0" value="28-11-2023"/>
+                            <StringItem index="0" value="22-12-2023"/>
                           </StringArray>
                         </Property>
                         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -7376,7 +7395,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
-                            <StringItem index="0" value="28-11-2023"/>
+                            <StringItem index="0" value="22-12-2023"/>
                           </StringArray>
                         </Property>
                         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>

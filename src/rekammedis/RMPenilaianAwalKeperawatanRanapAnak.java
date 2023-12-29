@@ -1566,7 +1566,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
       }
     });
 
-    internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian Awal Keperawatan Rawat Inap Umum ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+    internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian Awal Keperawatan Rawat Inap Anak ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
     internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
     internalFrame1.setName("internalFrame1"); // NOI18N
     internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -1838,7 +1838,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     Anamnesis.setBounds(74, 100, 130, 23);
 
     TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-    TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2023 12:25:41" }));
+    TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2023 09:37:48" }));
     TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
     TglAsuhan.setName("TglAsuhan"); // NOI18N
     TglAsuhan.setOpaque(false);
@@ -4681,6 +4681,8 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel242.setBounds(700, 2290, 75, 23);
 
     NilaiHumptyDumpty1.setEditable(false);
+    NilaiHumptyDumpty1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumpty1.setText("4");
     NilaiHumptyDumpty1.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumpty1.setName("NilaiHumptyDumpty1"); // NOI18N
     FormInput.add(NilaiHumptyDumpty1);
@@ -4718,6 +4720,8 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel246.setBounds(700, 2320, 75, 23);
 
     NilaiHumptyDumpty2.setEditable(false);
+    NilaiHumptyDumpty2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumpty2.setText("2");
     NilaiHumptyDumpty2.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumpty2.setName("NilaiHumptyDumpty2"); // NOI18N
     FormInput.add(NilaiHumptyDumpty2);
@@ -4755,6 +4759,8 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel249.setBounds(700, 2350, 75, 23);
 
     NilaiHumptyDumpty3.setEditable(false);
+    NilaiHumptyDumpty3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumpty3.setText("4");
     NilaiHumptyDumpty3.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumpty3.setName("NilaiHumptyDumpty3"); // NOI18N
     FormInput.add(NilaiHumptyDumpty3);
@@ -4792,6 +4798,8 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel252.setBounds(700, 2380, 75, 23);
 
     NilaiHumptyDumpty4.setEditable(false);
+    NilaiHumptyDumpty4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumpty4.setText("3");
     NilaiHumptyDumpty4.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumpty4.setName("NilaiHumptyDumpty4"); // NOI18N
     FormInput.add(NilaiHumptyDumpty4);
@@ -4829,6 +4837,8 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel255.setBounds(700, 2410, 75, 23);
 
     NilaiHumptyDumpty5.setEditable(false);
+    NilaiHumptyDumpty5.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumpty5.setText("4");
     NilaiHumptyDumpty5.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumpty5.setName("NilaiHumptyDumpty5"); // NOI18N
     FormInput.add(NilaiHumptyDumpty5);
@@ -4866,6 +4876,8 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel258.setBounds(700, 2440, 75, 23);
 
     NilaiHumptyDumpty6.setEditable(false);
+    NilaiHumptyDumpty6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumpty6.setText("3");
     NilaiHumptyDumpty6.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumpty6.setName("NilaiHumptyDumpty6"); // NOI18N
     FormInput.add(NilaiHumptyDumpty6);
@@ -4903,13 +4915,15 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel261.setBounds(700, 2470, 75, 23);
 
     NilaiHumptyDumpty7.setEditable(false);
+    NilaiHumptyDumpty7.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumpty7.setText("3");
     NilaiHumptyDumpty7.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumpty7.setName("NilaiHumptyDumpty7"); // NOI18N
     FormInput.add(NilaiHumptyDumpty7);
     NilaiHumptyDumpty7.setBounds(780, 2470, 60, 23);
 
     TingkatHumptyDumpty.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-    TingkatHumptyDumpty.setText("Tingkat Resiko : Risiko Rendah (7 - 11), Tindakan : Intervensi pencegahan risiko jatuh standar");
+    TingkatHumptyDumpty.setText("Tingkat Resiko : Risiko Tinggi >12, Tindakan : Intervensi pencegahan risiko jatuh standar");
     TingkatHumptyDumpty.setName("TingkatHumptyDumpty"); // NOI18N
     FormInput.add(TingkatHumptyDumpty);
     TingkatHumptyDumpty.setBounds(50, 2520, 650, 23);
@@ -4920,6 +4934,8 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel270.setBounds(700, 2520, 75, 23);
 
     NilaiHumptyDumptyTotal.setEditable(false);
+    NilaiHumptyDumptyTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    NilaiHumptyDumptyTotal.setText("23");
     NilaiHumptyDumptyTotal.setFocusTraversalPolicyProvider(true);
     NilaiHumptyDumptyTotal.setName("NilaiHumptyDumptyTotal"); // NOI18N
     FormInput.add(NilaiHumptyDumptyTotal);
@@ -5648,7 +5664,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     panelGlass9.add(jLabel19);
 
     DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-    DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2023" }));
+    DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2023" }));
     DTPCari1.setDisplayFormat("dd-MM-yyyy");
     DTPCari1.setName("DTPCari1"); // NOI18N
     DTPCari1.setOpaque(false);
@@ -5662,7 +5678,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     panelGlass9.add(jLabel21);
 
     DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-    DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2023" }));
+    DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2023" }));
     DTPCari2.setDisplayFormat("dd-MM-yyyy");
     DTPCari2.setName("DTPCari2"); // NOI18N
     DTPCari2.setOpaque(false);
@@ -7817,9 +7833,9 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     }else if(SkalaHumptyDumpty1.getSelectedIndex()==1){
       NilaiHumptyDumpty1.setText("3");
     }else if(SkalaHumptyDumpty1.getSelectedIndex()==2){
-      NilaiHumptyDumpty1.setText("1");
+      NilaiHumptyDumpty1.setText("2");
     }else{
-      NilaiHumptyDumpty1.setText("0");
+      NilaiHumptyDumpty1.setText("1");
     }
     isTotalResikoHumptyDumpty();
   }//GEN-LAST:event_SkalaHumptyDumpty1ItemStateChanged

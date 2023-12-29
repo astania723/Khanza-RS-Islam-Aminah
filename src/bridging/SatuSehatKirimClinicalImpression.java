@@ -580,7 +580,7 @@ public class SatuSehatKirimClinicalImpression extends javax.swing.JDialog {
                         json = "{" +
                                     "\"resourceType\": \"ClinicalImpression\"," +
                                     "\"status\": \"completed\"," +
-                                    "\"description\" : \""+tbObat.getValueAt(i,10).toString()+"\"," +
+                                    "\"description\" : \""+tbObat.getValueAt(i,10).toString().replaceAll("(\r\n|\r|\n|\n\r)"," ")+"\"," +
                                     "\"subject\" : {"+
                                        "\"reference\" : \"Patient/"+idpasien+"\","+
                                        "\"display\" : \""+tbObat.getValueAt(i,4).toString()+"\""+
@@ -594,7 +594,7 @@ public class SatuSehatKirimClinicalImpression extends javax.swing.JDialog {
                                     "\"assessor\" : {"+
                                       "\"reference\" : \"Practitioner/"+iddokter+"\""+
                                     "},"+
-                                    "\"summary\" : \""+tbObat.getValueAt(i,11).toString()+"\","+
+                                    "\"summary\" : \""+tbObat.getValueAt(i,11).toString().replaceAll("(\r\n|\r|\n|\n\r)"," ")+"\","+
                                     "\"finding\": [" +
                                         "{" +
                                             "\"itemCodeableConcept\": {"+
