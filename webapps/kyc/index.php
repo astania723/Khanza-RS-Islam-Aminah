@@ -11,10 +11,10 @@ include('auth.php');
 include('function.php');
 
 // nama petugas/operator Fasilitas Pelayanan Kesehatan (Fasyankes) yang akan melakukan validasi
-$agent_name = 'Maruf Putra Sakaninggara';
+$agent_name = 'Nama';
 
 // NIK petugas/operator Fasilitas Pelayanan Kesehatan (Fasyankes) yang akan melakukan validasi
-$agent_nik ='3505041605970001';
+$agent_nik ='NIK';
 
 // auth to satusehat
 $auth_result = authenticateWithOAuth2($client_id, $client_secret, $auth_url);
