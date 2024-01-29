@@ -31,7 +31,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgPulang extends javax.swing.JDialog {
+public final class DlgPulang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();

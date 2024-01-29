@@ -26,7 +26,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgCariPetugas extends javax.swing.JDialog {
+public final class DlgCariPetugas extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -442,11 +442,19 @@ public class DlgCariPetugas extends javax.swing.JDialog {
             Valid.tabelKosong(tabMode);
             response = root.path("petugas");
             if(response.isArray()){
-                for(JsonNode list:response){
-                    if(list.path("NIP").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("NamaPetugas").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("Jabatan").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                if(TCari.getText().trim().isEmpty()){
+                    for(JsonNode list:response){
                         tabMode.addRow(new Object[]{
                             list.path("NIP").asText(),list.path("NamaPetugas").asText(),list.path("JK").asText(),list.path("TmpLahir").asText(),list.path("TglLahir").asText(),list.path("GD").asText(),list.path("Agama").asText(),list.path("SttsNikah").asText(),list.path("Alamat").asText(),list.path("Jabatan").asText(),list.path("NoTelp").asText()
                         });
+                    }
+                }else{
+                    for(JsonNode list:response){
+                        if(list.path("NIP").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("NamaPetugas").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("Jabatan").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                            tabMode.addRow(new Object[]{
+                                list.path("NIP").asText(),list.path("NamaPetugas").asText(),list.path("JK").asText(),list.path("TmpLahir").asText(),list.path("TglLahir").asText(),list.path("GD").asText(),list.path("Agama").asText(),list.path("SttsNikah").asText(),list.path("Alamat").asText(),list.path("Jabatan").asText(),list.path("NoTelp").asText()
+                            });
+                        }
                     }
                 }
             }

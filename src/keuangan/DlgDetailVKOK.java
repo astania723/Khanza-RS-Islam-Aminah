@@ -28,7 +28,8 @@ import javax.swing.table.TableColumn;
 public class DlgDetailVKOK extends javax.swing.JDialog {
     private final Connection koneksi=koneksiDB.condb();
     private final sekuel Sequel=new sekuel();
-    private DefaultTableModel tabModeOperasi,tabModeOperasi2;
+    private final DefaultTableModel tabModeOperasi;
+    private DefaultTableModel tabModeOperasi2;
     private validasi Valid=new validasi();
     private ResultSet rs,rstindakan;
     private PreparedStatement ps,pstindakan;

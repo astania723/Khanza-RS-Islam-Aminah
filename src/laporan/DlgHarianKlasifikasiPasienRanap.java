@@ -24,9 +24,9 @@ import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariCaraBayar;
 
 public class DlgHarianKlasifikasiPasienRanap extends javax.swing.JDialog {
-    private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
-    private Connection koneksi=koneksiDB.condb();
+    private final sekuel Sequel=new sekuel();
+    private final validasi Valid=new validasi();
+    private final Connection koneksi=koneksiDB.condb();
     private PreparedStatement ps;
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private DlgCariBangsal bangsal=new DlgCariBangsal(null,false);
@@ -114,7 +114,7 @@ public class DlgHarianKlasifikasiPasienRanap extends javax.swing.JDialog {
             public void windowDeactivated(WindowEvent e) {}
         });
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
 
     /** This method is called from within the constructor to
      * initialize the form.

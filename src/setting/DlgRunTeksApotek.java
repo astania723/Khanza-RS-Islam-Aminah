@@ -42,7 +42,8 @@ import javax.swing.table.TableColumn;
  * @author perpustakaan
  */
 public class DlgRunTeksApotek extends javax.swing.JDialog {
-    private DefaultTableModel tabMode,tabmode2;
+    private final DefaultTableModel tabMode;
+    private DefaultTableModel tabmode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

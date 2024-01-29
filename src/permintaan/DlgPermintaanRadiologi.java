@@ -49,7 +49,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author dosen
  */
-public class DlgPermintaanRadiologi extends javax.swing.JDialog {
+public final class DlgPermintaanRadiologi extends javax.swing.JDialog {
     private DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1090,7 +1090,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
             response = root.path("permintaanradiologi");
             if(cara_bayar_radiologi.equals("Yes")&&kelas_radiologi.equals("No")){
                 if(response.isArray()){
-                    if(TCariPeriksa.getText().trim().equals("")){
+                    if(TCariPeriksa.getText().trim().isEmpty()){
                         for(JsonNode list:response){
                             if((list.path("KodePJ").asText().equals(Penjab.getText())||list.path("KodePJ").asText().equals("-"))){
                                 tabMode.addRow(new Object[]{
@@ -1110,7 +1110,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                 }
             }else if(cara_bayar_radiologi.equals("No")&&kelas_radiologi.equals("No")){
                 if(response.isArray()){
-                    if(TCariPeriksa.getText().trim().equals("")){
+                    if(TCariPeriksa.getText().trim().isEmpty()){
                         for(JsonNode list:response){
                             tabMode.addRow(new Object[]{
                                 false,list.path("KodePeriksa").asText(),list.path("NamaPemeriksaan").asText()
@@ -1128,7 +1128,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                 }
             }else if(cara_bayar_radiologi.equals("Yes")&&kelas_radiologi.equals("Yes")){
                 if(response.isArray()){
-                    if(TCariPeriksa.getText().trim().equals("")){
+                    if(TCariPeriksa.getText().trim().isEmpty()){
                         for(JsonNode list:response){
                             if((list.path("Kelas").asText().equals(kelas.trim())||list.path("Kelas").asText().equals("-"))&&(list.path("KodePJ").asText().equals(Penjab.getText())||list.path("KodePJ").asText().equals("-"))){
                                 tabMode.addRow(new Object[]{
@@ -1148,7 +1148,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                 }
             }else if(cara_bayar_radiologi.equals("No")&&kelas_radiologi.equals("Yes")){
                 if(response.isArray()){
-                    if(TCariPeriksa.getText().trim().equals("")){
+                    if(TCariPeriksa.getText().trim().isEmpty()){
                         for(JsonNode list:response){
                             if(list.path("Kelas").asText().equals(kelas.trim())||list.path("Kelas").asText().equals("-")){
                                 tabMode.addRow(new Object[]{

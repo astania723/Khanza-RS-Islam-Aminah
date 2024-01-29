@@ -2273,7 +2273,7 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
             } catch (Exception e) {
             } 
             try {
-                param.put("intraoral",getClass().getResource("/picture/intraoral.png").openStream()); ; 
+                param.put("intraoral",getClass().getResource("/picture/intraoral.png").openStream()); 
             } catch (Exception e) {
             } 
             try {

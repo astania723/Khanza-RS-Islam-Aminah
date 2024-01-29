@@ -1,7 +1,7 @@
 package laporan;
+import fungsi.akses;
 import fungsi.koneksiDB;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -49,7 +49,7 @@ public class DlgRL4ASebab extends javax.swing.JDialog {
         LoadHTML.setDocument(doc);
         LoadHTML1.setDocument(doc);
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private int i=0;
 
     /** This method is called from within the constructor to

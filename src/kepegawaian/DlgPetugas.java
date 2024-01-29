@@ -1061,7 +1061,6 @@ public class DlgPetugas extends javax.swing.JDialog {
                 if(tabMode.getRowCount()!=0){tampil();}
                 emptTeks();
             } catch (SQLException ex) {
-                return;
             }            
         }
 }//GEN-LAST:event_BtnEditActionPerformed

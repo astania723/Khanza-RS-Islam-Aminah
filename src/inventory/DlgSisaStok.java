@@ -24,12 +24,12 @@ public class DlgSisaStok extends javax.swing.JDialog {
     private final validasi Valid=new validasi();
     private final Connection koneksi=koneksiDB.condb();
     private final sekuel Sequel=new sekuel();
-    private PreparedStatement ps,ps2;
-    private ResultSet rs,rs2;
+    private PreparedStatement ps;
+    private ResultSet rs;
     private StringBuilder htmlContent;
     private String[] posisigudang;
     private int i=0,kolom=0,no=0;
-    private double total=0,stok=0;
+    private double total=0,stok=0,totalaset=0;
     private String qrystok="",aktifkanbatch="no",hppfarmasi="";
     private DlgCariJenis jenis = new DlgCariJenis(null, false);
     private DlgCariKategori kategori = new DlgCariKategori(null, false);
@@ -595,7 +595,16 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             i=Sequel.cariInteger("select count(nm_bangsal) from bangsal where status='1' and kd_bangsal<>'-' ");
             posisigudang=new String[i];
             htmlContent = new StringBuilder();
-            htmlContent.append("<tr class='isi'><td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='27px'>No.</td><td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='70px'>Kode Barang</td><td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='150px'>Nama Barang</td><td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='50px'>Satuan</td><td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='75px'>Harga Satuan</td><td valign='middle' bgcolor='#FFFAFA' align='center' colspan='").append(i).append(2).append("'>Sisa Stok</td></tr>");
+            htmlContent.append(                             
+                "<tr class='isi'>"+
+                    "<td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='27px'>No.</td>"+
+                    "<td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='70px'>Kode Barang</td>"+
+                    "<td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='150px'>Nama Barang</td>"+
+                    "<td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='50px'>Satuan</td>"+
+                    "<td valign='middle' bgcolor='#FFFAFA' align='center' rowspan='2' width='75px'>Harga Satuan</td>"+
+                    "<td valign='middle' bgcolor='#FFFAFA' align='center' colspan='"+(i+2)+"'>Sisa Stok</td>"+
+                "</tr>"
+            );
             
             htmlContent.append(                             
                 "<tr class='isi'>");
@@ -606,7 +615,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 while(rs.next()){
                     posisigudang[kolom]=rs.getString("kd_bangsal");
                     kolom++;
-                    htmlContent.append("<td valign='middle' bgcolor='#FFFAFA' align='center' width='75px'>").append(rs.getString("nm_bangsal")).append("</td>");
+                    htmlContent.append("<td valign='middle' bgcolor='#FFFAFA' align='center' width='75px'>"+rs.getString("nm_bangsal")+"</td>");
                 }
             } catch (Exception e) {
                 System.out.println("Akun Bayar : "+e);
@@ -625,6 +634,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             );  
             
             no=1;
+            totalaset=0;
             
             if(aktifkanbatch.equals("yes")){
                 qrystok="select sum(stok) from gudangbarang where kode_brng=? and kd_bangsal=? and no_batch<>'' and no_faktur<>''";
@@ -647,15 +657,33 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 rs=ps.executeQuery();
                 while(rs.next()){
                     total=0;
-                    htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(no).append("</td><td valign='middle' align='left'>").append(rs.getString("kode_brng")).append("</td><td valign='middle' align='left'>").append(rs.getString("nama_brng")).append("</td><td valign='middle' align='left'>").append(rs.getString("kode_sat")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("dasar"))).append("</td>");
+                    htmlContent.append(                             
+                        "<tr class='isi'>"+
+                            "<td valign='middle' align='center'>"+no+"</td>"+
+                            "<td valign='middle' align='left'>"+rs.getString("kode_brng")+"</td>"+
+                            "<td valign='middle' align='left'>"+rs.getString("nama_brng")+"</td>"+
+                            "<td valign='middle' align='left'>"+rs.getString("kode_sat")+"</td>"+
+                            "<td valign='middle' align='right'>"+Valid.SetAngka(rs.getDouble("dasar"))+"</td>");
                     for(i=0;i<kolom;i++){
                         stok=Sequel.cariIsiAngka2(qrystok,rs.getString("kode_brng"),posisigudang[i]);
-                        htmlContent.append("<td valign='middle' align='right'>").append(Valid.SetAngka(stok)).append("</td>");
+                        htmlContent.append("<td valign='middle' align='right'>"+Valid.SetAngka(stok)+"</td>");
                         total=total+stok;
                     }
-                    htmlContent.append("<td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("dasar")*total)).append("</td></tr>");     
+                    totalaset=totalaset+(rs.getDouble("dasar")*total);
+                    htmlContent.append( 
+                            "<td valign='middle' align='right'>"+Valid.SetAngka(total)+"</td>"+
+                            "<td valign='middle' align='right'>"+Valid.SetAngka(rs.getDouble("dasar")*total)+"</td>"+
+                        "</tr>"
+                    );     
                     no++;  
                 }
+                htmlContent.append(                             
+                    "<tr class='isi'>"+
+                        "<td valign='middle' align='center'></td>"+
+                        "<td valign='middle' align='left' colspan='"+(kolom+5)+"'>Total Nilai Aset Obat, Alkes & BHP Medis</td>"+
+                        "<td valign='middle' align='right'>"+Valid.SetAngka(totalaset)+"</td>"+
+                    "</tr>"
+                ); 
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
             } finally{

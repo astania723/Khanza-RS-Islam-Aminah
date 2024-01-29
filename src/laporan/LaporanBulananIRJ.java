@@ -81,7 +81,7 @@ public class LaporanBulananIRJ extends javax.swing.JDialog {
         
         Valid.LoadTahun(Tahun);
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private int i=0;
 
     /** This method is called from within the constructor to

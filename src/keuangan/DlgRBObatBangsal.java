@@ -69,7 +69,7 @@ public class DlgRBObatBangsal extends javax.swing.JDialog {
                 
         bangsal.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {;}
+            public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override

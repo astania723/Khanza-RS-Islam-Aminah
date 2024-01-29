@@ -26,7 +26,7 @@ import javax.swing.table.TableColumn;
  *
  * @author perpustakaan
  */
-public class KeuanganRingkasanHutangVendorNonMedis extends javax.swing.JDialog {
+public final class KeuanganRingkasanHutangVendorNonMedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();

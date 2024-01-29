@@ -35,7 +35,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgCariAturanPakai extends javax.swing.JDialog {
+public final class DlgCariAturanPakai extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private PreparedStatement ps;
@@ -414,11 +414,19 @@ public class DlgCariAturanPakai extends javax.swing.JDialog {
             Valid.tabelKosong(tabMode);
             response = root.path("aturanpakai");
             if(response.isArray()){
-                for(JsonNode list:response){
-                    if(list.path("AturanPakai").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                if(TCari.getText().trim().isEmpty()){
+                    for(JsonNode list:response){
                         tabMode.addRow(new Object[]{
                             list.path("AturanPakai").asText()
                         });
+                    }
+                }else{
+                    for(JsonNode list:response){
+                        if(list.path("AturanPakai").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                            tabMode.addRow(new Object[]{
+                                list.path("AturanPakai").asText()
+                            });
+                        }
                     }
                 }
             }

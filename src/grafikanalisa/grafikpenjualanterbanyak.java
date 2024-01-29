@@ -47,28 +47,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class grafikpenjualanterbanyak extends JDialog {
     private static PreparedStatement ps;
     private static ResultSet rs;
-    private static Connection koneksi=koneksiDB.condb();
-    /**
-           * Creates a new demo instance.
-           *
-           * @param title  the frame title.
-           */
-      public grafikpenjualanterbanyak(String title,String symbol) {
-        // super(title);
-          setTitle(title);
-         JPanel chartPanel = createDemoPanel(symbol);
-         
-         chartPanel.setSize(screen.width,screen.height);
-         setContentPane(chartPanel);       
-         
-         //setSize(screen.width,screen.height);
-         setModal(true);
-         //setUndecorated(true);
-         setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
-         pack();
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-      }
-      private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private static final Connection koneksi=koneksiDB.condb();
         /**
            * Creates a dataset.
            *
@@ -163,7 +142,7 @@ public class grafikpenjualanterbanyak extends JDialog {
              NumberAxis rangeAxis1 = new NumberAxis("Nilai Barang(Rp)");
              rangeAxis1.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer1 = new LineAndShapeRenderer();
-             renderer1.setDefaultToolTipGenerator(
+             renderer1.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              CategoryPlot subplot1 = new CategoryPlot(dataset1, null, rangeAxis1,
                      renderer1);
@@ -173,7 +152,7 @@ public class grafikpenjualanterbanyak extends JDialog {
              NumberAxis rangeAxis2 = new NumberAxis("Barang Terjual");
              rangeAxis2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              BarRenderer renderer2 = new BarRenderer();
-             renderer2.setDefaultToolTipGenerator(
+             renderer2.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              CategoryPlot subplot2 = new CategoryPlot(dataset2, null, rangeAxis2,
                      renderer2);
@@ -202,6 +181,27 @@ public class grafikpenjualanterbanyak extends JDialog {
          public static JPanel createDemoPanel(String symbol) {
              JFreeChart chart = createChart(symbol);
              return new ChartPanel(chart);
+         }
+         private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+         /**
+          * Creates a new demo instance.
+          *
+          * @param title  the frame title.
+          */
+         public grafikpenjualanterbanyak(String title,String symbol) {
+           // super(title);
+           setTitle(title);
+           JPanel chartPanel = createDemoPanel(symbol);
+           
+           chartPanel.setSize(screen.width,screen.height);
+           setContentPane(chartPanel);
+           
+           //setSize(screen.width,screen.height);
+           setModal(true);
+           //setUndecorated(true);
+           setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
+           pack();
+           setDefaultCloseOperation(DISPOSE_ON_CLOSE);
          }
 
          /**

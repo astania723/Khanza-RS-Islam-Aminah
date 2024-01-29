@@ -42,9 +42,9 @@ import simrskhanza.DlgCariPoli;
  * @author perpustakaan
  */
 public class Dlg10ObatTerbanyakPoli extends javax.swing.JDialog {
-    private Connection koneksi=koneksiDB.condb();
-    private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
+    private final Connection koneksi=koneksiDB.condb();
+    private final sekuel Sequel=new sekuel();
+    private final validasi Valid=new validasi();
     private PreparedStatement pspoli,psobat,pspenjab;
     private ResultSet rspoli,rsobat,rspenjab;
     private int i=0,a=0,c;   

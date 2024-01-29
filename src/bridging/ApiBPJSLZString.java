@@ -7,9 +7,9 @@ package bridging;
 import java.util.*;
 
 public class ApiBPJSLZString {
-    private static char[] keyStrBase64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".toCharArray();
-    private static char[] keyStrUriSafe = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$".toCharArray();
-    private static Map<char[], Map<Character, Integer>> baseReverseDic = new HashMap<char[], Map<Character, Integer>>();
+    private static final char[] keyStrBase64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".toCharArray();
+    private static final char[] keyStrUriSafe = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$".toCharArray();
+    private static final Map<char[], Map<Character, Integer>> baseReverseDic = new HashMap<char[], Map<Character, Integer>>();
 
     private static char getBaseValue(char[] alphabet, Character character) {
         Map<Character, Integer> map = baseReverseDic.get(alphabet);
@@ -98,9 +98,6 @@ public class ApiBPJSLZString {
         });
     }
 
-    private static abstract class CompressFunctionWrapper {
-        public abstract char doFunc(int i);
-    }
 
     public static String compress(String uncompressed) {
         return ApiBPJSLZString._compress(uncompressed, 16, new CompressFunctionWrapper() {
@@ -325,14 +322,6 @@ public class ApiBPJSLZString {
         return context_data.toString();
     }
 
-    private static abstract class DecompressFunctionWrapper {
-        public abstract char doFunc(int i);
-    }
-    protected static class DecData {
-        public char val;
-        public int position;
-        public int index;		
-    }
 
     public static String f(int i) {
         return String.valueOf((char) i);
@@ -524,5 +513,16 @@ public class ApiBPJSLZString {
 
     private static int powerOf2(int power) {
         return 1 << power;
+    }
+    private static abstract class CompressFunctionWrapper {
+      public abstract char doFunc(int i);
+    }
+    private static abstract class DecompressFunctionWrapper {
+      public abstract char doFunc(int i);
+    }
+    protected static class DecData {
+      public char val;
+      public int position;
+      public int index;
     }
 }

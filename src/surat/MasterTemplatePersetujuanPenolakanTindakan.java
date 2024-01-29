@@ -1,10 +1,10 @@
 package surat;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -717,7 +717,7 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
 }//GEN-LAST:event_tbDokterKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(TindakanKedokteran.getText().trim().equals("")){
+        if(TindakanKedokteran.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"Maaf, Pilih dulu data yang akan Anda hapus dengan menklik data pada tabel...!!!");
             tbDokter.requestFocus();
         }else{
@@ -740,13 +740,13 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Biaya.getText().trim().equals("")){
+        }else if(Biaya.getText().trim().isEmpty()){
             Valid.textKosong(Biaya,"Perkiraan Biaya");
-        }else if(Diagnosa.getText().trim().equals("")){
+        }else if(Diagnosa.getText().trim().isEmpty()){
             Valid.textKosong(Diagnosa,"Diagnosa");
-        }else if(TindakanKedokteran.getText().trim().equals("")){
+        }else if(TindakanKedokteran.getText().trim().isEmpty()){
             Valid.textKosong(TindakanKedokteran,"Tindakan Kedokteran");
         }else{
             if(Valid.editTabletf(tabMode,"template_persetujuan_penolakan_tindakan","kode_template","?","kode_template=?,diagnosa=?,tindakan=?,indikasi_tindakan=?,tata_cara=?,tujuan=?,risiko=?,komplikasi=?,prognosis=?,alternatif_dan_risikonya=?,lain_lain=?,biaya=?",13,new String[]{
@@ -801,13 +801,13 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Biaya.getText().trim().equals("")){
+        }else if(Biaya.getText().trim().isEmpty()){
             Valid.textKosong(Biaya,"Perkiraan Biaya");
-        }else if(Diagnosa.getText().trim().equals("")){
+        }else if(Diagnosa.getText().trim().isEmpty()){
             Valid.textKosong(Diagnosa,"Diagnosa");
-        }else if(TindakanKedokteran.getText().trim().equals("")){
+        }else if(TindakanKedokteran.getText().trim().isEmpty()){
             Valid.textKosong(TindakanKedokteran,"Tindakan Kedokteran");
         }else{
             if(Sequel.menyimpantf("template_persetujuan_penolakan_tindakan","?,?,?,?,?,?,?,?,?,?,?,?","No.Template",12,new String[]{

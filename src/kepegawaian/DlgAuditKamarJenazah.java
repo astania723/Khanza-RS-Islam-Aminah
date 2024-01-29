@@ -6,10 +6,10 @@
 package kepegawaian;
 
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -881,7 +881,7 @@ public class DlgAuditKamarJenazah extends javax.swing.JDialog {
                     ttlaudit6=ttlaudit6+audit6;
                     audit7=Double.parseDouble(rs.getString("audit7").replaceAll("Ya","1").replaceAll("Tidak","0"));;
                     ttlaudit7=ttlaudit7+audit7;
-                    audit8=Double.parseDouble(rs.getString("audit8").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    audit8=Double.parseDouble(rs.getString("audit8").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit8=ttlaudit8+audit8;
                     ttlpenilaian=ttlpenilaian+(((audit1+audit2+audit3+
                             audit4+audit5+audit6+audit7+

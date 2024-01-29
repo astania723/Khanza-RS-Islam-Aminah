@@ -226,10 +226,14 @@ public class RMDataResumePasien extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(carikeluhan.getTable().getSelectedRow()!= -1){
-                    Keluhan.append(carikeluhan.getTable().getValueAt(carikeluhan.getTable().getSelectedRow(),2).toString()+", ");
-                    Keluhan.requestFocus();
-                }
+//                if(carikeluhan.getTable().getSelectedRow()!= -1){
+                  for(i=0;i<carikeluhan.getTable().getRowCount();i++){
+                    if(carikeluhan.getTable().getValueAt(i, 0).toString().equals("true")){
+                      Keluhan.append(carikeluhan.getTable().getValueAt(i,3).toString()+", ");
+                      Keluhan.requestFocus();
+                    }
+                  } 
+//                }
             }
             @Override
             public void windowIconified(WindowEvent e) {}
@@ -248,10 +252,16 @@ public class RMDataResumePasien extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(caripemeriksaan.getTable().getSelectedRow()!= -1){
-                    Keluhan.append(caripemeriksaan.getTable().getValueAt(caripemeriksaan.getTable().getSelectedRow(),2).toString()+", ");
+                for(i=0;i<caripemeriksaan.getTable().getRowCount();i++){
+                  if(caripemeriksaan.getTable().getValueAt(i, 0).toString().equals("true")){
+                    Keluhan.append(caripemeriksaan.getTable().getValueAt(i,3).toString()+", ");
                     Keluhan.requestFocus();
+                  }
                 }
+//                if(caripemeriksaan.getTable().getSelectedRow()!= -1){
+//                    PemeriksaanFisik.append(caripemeriksaan.getTable().getValueAt(caripemeriksaan.getTable().getSelectedRow(),2).toString()+", ");
+//                    PemeriksaanFisik.requestFocus();
+//                }
             }
             @Override
             public void windowIconified(WindowEvent e) {}
@@ -270,10 +280,16 @@ public class RMDataResumePasien extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(cariradiologi.getTable().getSelectedRow()!= -1){
-                    PemeriksaanPenunjang.append(cariradiologi.getTable().getValueAt(cariradiologi.getTable().getSelectedRow(),2).toString()+", ");
+                for(i=0;i<cariradiologi.getTable().getRowCount();i++){
+                  if(cariradiologi.getTable().getValueAt(i, 0).toString().equals("true")){
+                    PemeriksaanPenunjang.append(cariradiologi.getTable().getValueAt(i,3).toString()+", ");
                     PemeriksaanPenunjang.requestFocus();
+                  }
                 }
+//                if(cariradiologi.getTable().getSelectedRow()!= -1){
+//                    PemeriksaanRad.append(cariradiologi.getTable().getValueAt(cariradiologi.getTable().getSelectedRow(),2).toString()+", ");
+//                    PemeriksaanRad.requestFocus();
+//                }
             }
             @Override
             public void windowIconified(WindowEvent e) {}
@@ -292,10 +308,16 @@ public class RMDataResumePasien extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(carilaborat.getTable().getSelectedRow()!= -1){
-                    HasilLaborat.append(carilaborat.getTable().getValueAt(carilaborat.getTable().getSelectedRow(),2).toString()+", ");
+                for(i=0;i<carilaborat.getTable().getRowCount();i++){
+                  if(carilaborat.getTable().getValueAt(i, 0).toString().equals("true")){
+                    HasilLaborat.append(carilaborat.getTable().getValueAt(i,3).toString()+", ");
                     HasilLaborat.requestFocus();
+                  }
                 }
+//                if(carilaborat.getTable().getSelectedRow()!= -1){
+//                    HasilLaborat.append(carilaborat.getTable().getValueAt(carilaborat.getTable().getSelectedRow(),2).toString()+", ");
+//                    HasilLaborat.requestFocus();
+//                }
             }
             @Override
             public void windowIconified(WindowEvent e) {}
@@ -314,10 +336,16 @@ public class RMDataResumePasien extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(cariobat.getTable().getSelectedRow()!= -1){
-                    Obat2an.append(cariobat.getTable().getValueAt(cariobat.getTable().getSelectedRow(),2).toString()+", ");
+                for(i=0;i<cariobat.getTable().getRowCount();i++){
+                  if(cariobat.getTable().getValueAt(i, 0).toString().equals("true")){
+                    Obat2an.append(cariobat.getTable().getValueAt(i,3).toString()+", ");
                     Obat2an.requestFocus();
+                  }
                 }
+//                if(cariobat.getTable().getSelectedRow()!= -1){
+//                    ObatSelamaDiRS.append(cariobat.getTable().getValueAt(cariobat.getTable().getSelectedRow(),2).toString()+", ");
+//                    ObatSelamaDiRS.requestFocus();
+//                }
             }
             @Override
             public void windowIconified(WindowEvent e) {}

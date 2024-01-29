@@ -1120,7 +1120,7 @@ public class DlgAuditPembuanganLimbah extends javax.swing.JDialog {
                     ttlkotak_sampah_dalam_kondisi_bersih=ttlkotak_sampah_dalam_kondisi_bersih+kotak_sampah_dalam_kondisi_bersih;
                     pembersihan_tempat_sampah_dengan_desinfekten=Double.parseDouble(rs.getString("pembersihan_tempat_sampah_dengan_desinfekten").replaceAll("Ya","1").replaceAll("Tidak","0"));;
                     ttlpembersihan_tempat_sampah_dengan_desinfekten=ttlpembersihan_tempat_sampah_dengan_desinfekten+pembersihan_tempat_sampah_dengan_desinfekten;
-                    pembersihan_penampungan_sementara_dengan_desinfekten=Double.parseDouble(rs.getString("pembersihan_penampungan_sementara_dengan_desinfekten").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    pembersihan_penampungan_sementara_dengan_desinfekten=Double.parseDouble(rs.getString("pembersihan_penampungan_sementara_dengan_desinfekten").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlpembersihan_penampungan_sementara_dengan_desinfekten=ttlpembersihan_penampungan_sementara_dengan_desinfekten+pembersihan_penampungan_sementara_dengan_desinfekten;
                     ttlpenilaian=ttlpenilaian+(((pemisahan_limbah_oleh_penghasil_limbah+limbah_infeksius_dimasukkan_kantong_kuning+limbah_noninfeksius_dimasukkan_kantong_hitam+
                             limbah_tigaperempat_diikat+limbah_segera_dibawa_kepembuangan_sementara+kotak_sampah_dalam_kondisi_bersih+pembersihan_tempat_sampah_dengan_desinfekten+

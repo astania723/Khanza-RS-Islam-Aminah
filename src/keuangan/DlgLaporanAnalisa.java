@@ -1,9 +1,9 @@
 package keuangan;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import inventory.DlgBarang;
 import inventory.DlgCariGolongan;
 import inventory.DlgCariJenis;
@@ -24,8 +24,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariPoli;
 import simrskhanza.DlgCariCaraBayar;
+import simrskhanza.DlgCariPoli;
 
 public class DlgLaporanAnalisa extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -692,7 +692,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             "rawat_inap_dr.kd_dokter=dokter.kd_dokter where rawat_inap_dr.no_rawat=?");
                     try {
                         pstindakan.setString(1,rspoli.getString("no_rawat"));
-                        rstindakan=pstindakan.executeQuery();;
+                        rstindakan=pstindakan.executeQuery();
                         while(rstindakan.next()){
                             tabMode.addRow(new Object[]{"",rspoli.getString(1),rspoli.getString(2),rspoli.getString(3),dokterranap,rstindakan.getString(1),rstindakan.getString(2),(rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana")) });
                         }                           

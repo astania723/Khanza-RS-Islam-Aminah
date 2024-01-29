@@ -265,7 +265,7 @@ public class DlgRL4BSebab extends javax.swing.JDialog {
         ChkInput.setSelected(false);
         isForm();
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private int i=0;
 
     /** This method is called from within the constructor to

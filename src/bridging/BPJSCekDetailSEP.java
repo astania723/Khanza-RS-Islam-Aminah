@@ -353,6 +353,9 @@ public class BPJSCekDetailSEP extends javax.swing.JDialog {
                 tabMode.addRow(new Object[]{
                     "","   Nomor Surat",": "+response.path("kontrol").path("noSurat").asText()
                 });
+                tabMode.addRow(new Object[]{
+                    "eSEP",": "+response.path("eSEP").asText()
+                });
             }else {
                 JOptionPane.showMessageDialog(null,nameNode.path("message").asText());                
             }   

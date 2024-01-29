@@ -12,7 +12,7 @@ import uz.ncipro.calendar.JDateTimePicker;
  *
  * @author khanzasoft
  */
-public class Tanggal extends JDateTimePicker {
+public final class Tanggal extends JDateTimePicker {
     public Tanggal(){
         super();
         //setBackground(new Color(245,160,245));

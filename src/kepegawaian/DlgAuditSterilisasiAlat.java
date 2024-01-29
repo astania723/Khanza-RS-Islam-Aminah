@@ -1233,7 +1233,7 @@ public class DlgAuditSterilisasiAlat extends javax.swing.JDialog {
                     ttlaudit9=ttlaudit9+audit9;
                     audit10=Double.parseDouble(rs.getString("audit10").replaceAll("Ya","1").replaceAll("Tidak","0"));;
                     ttlaudit10=ttlaudit10+audit10;
-                    audit11=Double.parseDouble(rs.getString("audit11").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    audit11=Double.parseDouble(rs.getString("audit11").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit11=ttlaudit11+audit11;
                     ttlpenilaian=ttlpenilaian+(((audit1+audit2+audit3+
                             audit4+audit5+audit6+audit7+

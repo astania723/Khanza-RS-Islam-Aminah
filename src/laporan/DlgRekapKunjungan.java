@@ -42,8 +42,8 @@ public class DlgRekapKunjungan extends javax.swing.JDialog {
         
         Valid.LoadTahun(ThnCari);
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
-    private int i=0;
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final int i=0;
 
     /** This method is called from within the constructor to
      * initialize the form.

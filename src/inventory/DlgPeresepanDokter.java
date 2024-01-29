@@ -45,7 +45,7 @@ import widget.Button;
  *
  * @author dosen
  */
-public class DlgPeresepanDokter extends javax.swing.JDialog {
+public final class DlgPeresepanDokter extends javax.swing.JDialog {
     private final DefaultTableModel tabModeResep,tabModeDetailResepRacikan,tabModeResepRacikan;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -105,7 +105,8 @@ public class DlgPeresepanDokter extends javax.swing.JDialog {
         for (i = 0; i < 12; i++) {
             TableColumn column = tbResep.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(20);
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }else if(i==1){
                 column.setPreferredWidth(45);
             }else if(i==2){
@@ -1973,12 +1974,12 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     public void isCek(){   
         BtnTambah.setEnabled(akses.getresep_dokter());
         TCari.requestFocus();
-        if(!DEPOAKTIFOBAT.equals("")){
+        if(!DEPOAKTIFOBAT.isEmpty()){
             bangsal=DEPOAKTIFOBAT;
         }else{
             if(status.equals("ralan")){
                 bangsal=Sequel.cariIsi("select set_depo_ralan.kd_bangsal from set_depo_ralan where set_depo_ralan.kd_poli=?",Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
-                if(bangsal.equals("")){
+                if(bangsal.isEmpty()){
                     bangsal=bangsaldefault;
                 }
             }else if(status.equals("ranap")){
@@ -2026,7 +2027,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         
         DTPBeri.setDate(tanggal);
         KdDokter.setText(Sequel.cariIsi("select dpjp_ranap.kd_dokter from dpjp_ranap where dpjp_ranap.no_rawat=?",norwt));
-        if(KdDokter.getText().equals("")){
+        if(KdDokter.getText().isEmpty()){
             KdDokter.setText(Sequel.cariIsi("select reg_periksa.kd_dokter from reg_periksa where reg_periksa.no_rawat=?",norwt));
         }
         NmDokter.setText(dokter.tampil3(KdDokter.getText()));
@@ -3960,7 +3961,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                             }else{
                                 if(Sequel.menyimpantf2("resep_dokter","?,?,?,?","data",4,new String[]{
                                     NoResep.getText(),tbResep.getValueAt(i,3).toString(),
-                                    ""+(Double.parseDouble(tbResep.getValueAt(i,1).toString())),
+                                    ""+(Double.valueOf(tbResep.getValueAt(i,1).toString())),
                                     tbResep.getValueAt(i,2).toString()
                                 })==false){
                                     sukses=false;
@@ -3979,7 +3980,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     }else{
                         if(Sequel.menyimpantf2("resep_dokter","?,?,?,?","data",4,new String[]{
                             NoResep.getText(),tbResep.getValueAt(i,3).toString(),
-                            ""+(Double.parseDouble(tbResep.getValueAt(i,1).toString())),
+                            ""+(Double.valueOf(tbResep.getValueAt(i,1).toString())),
                             tbResep.getValueAt(i,2).toString()
                         })==false){
                             sukses=false;

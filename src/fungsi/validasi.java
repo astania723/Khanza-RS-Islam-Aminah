@@ -51,17 +51,12 @@ import widget.Button;
 import widget.ComboBox;
 import widget.Tanggal;
 import widget.TextArea;
+import widget.TextBox;
 /**
  *
  * @author Owner
  */
-public class validasi {
-    /**
-     * Converts milliseconds to days
-     */
-    public static int milliToDay(long milli) {
-        return (int) ((double) milli / (1000 * 24 * 60 * 60));
-    }
+public final class validasi {
     private int a,j,i,result=0;
     private String s,s1,auto,PEMBULATANHARGAOBAT=koneksiDB.PEMBULATANHARGAOBAT();
     private final Connection connect=koneksiDB.condb();
@@ -79,7 +74,7 @@ public class validasi {
     private boolean status=true;
     private final Calendar now = Calendar.getInstance();
     private final int year=(now.get(Calendar.YEAR));
-    private String[] nomina={"","satu","dua","tiga","empat","lima","enam",
+    private final String[] nomina={"","satu","dua","tiga","empat","lima","enam",
                          "tujuh","delapan","sembilan","sepuluh","sebelas"};
     
     public validasi(){
@@ -91,7 +86,7 @@ public class validasi {
         j=s.length();
         s1="";
         for(i = 1;i<=pnj-j;i++){
-            s1 += "0";
+            s1=s1+"0";
         }
         teks.setText(strAwal+s1+s);
     }
@@ -106,10 +101,11 @@ public class validasi {
                j=s.length();
                s1="";
                for(i = 1;i<=pnj-j;i++){
-                   s1 += "0";
+                   s1=s1+"0";
                }
                teks.setText(strAwal+s1+s);      
             }catch(Exception e){
+               System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -120,6 +116,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -133,10 +130,11 @@ public class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1 += "0";
+                    s1=s1+"0";
                 }
                 teks.setText(strAwal+s1+s);
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
              }finally{
                 if(rs != null){
                     rs.close();
@@ -147,6 +145,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -163,10 +162,11 @@ public class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1 += "0";
+                    s1=s1+"0";
                 }
                 teks.setText(strAwal+s1+s);
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(rs != null){
@@ -178,6 +178,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -194,10 +195,11 @@ public class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1 += "0";
+                    s1=s1+"0";
                 }
                 teks.setText((strAwal+s1+s).substring(4,6)+(strAwal+s1+s).substring(2,4)+(strAwal+s1+s).substring(0,2));
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(rs != null){
@@ -209,6 +211,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -225,10 +228,11 @@ public class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1 += "0";
+                    s1=s1+"0";
                 }
                 teks.setText((strAwal+s1+s).substring(2,4)+(strAwal+s1+s).substring(0,2)+(strAwal+s1+s).substring(4,6));
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(rs != null){
@@ -240,6 +244,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -256,10 +261,11 @@ public class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1 += "0";
+                    s1=s1+"0";
                 }
                 teks.setText(s1+s+strAwal);
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(rs != null){
@@ -271,6 +277,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -285,10 +292,11 @@ public class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1 += "0";
+                    s1=s1+"0";
                 }
                 auto=strAwal+s1+s;             
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(rs != null){
@@ -300,6 +308,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return auto;        
@@ -319,10 +328,11 @@ public class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1 += "0";
+                    s1=s1+"0";
                 }
                 auto=strAwal+s1+s;
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(rs != null){
@@ -334,6 +344,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return auto;
@@ -441,6 +452,7 @@ public class validasi {
             workbook1.write();
             workbook1.close();
         } catch (IOException | WriteException ex) {
+            System.out.println("Notifikasi : "+ex);
         }
     }
 
@@ -494,6 +506,7 @@ public class validasi {
                     a++;
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -504,6 +517,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -527,7 +541,8 @@ public class validasi {
     public int jumlahHari(int month,int year){ 
         Calendar calendar=Calendar.getInstance(); 
         calendar.set(year, month-1,1); 
-        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH); 
+        int days = calendar.getActualMaximum(Calendar.DAY_OF_MONTH); 
+        return days; 
     } 
     
     public void loadCombo(JComboBox cmb,String query){
@@ -542,6 +557,7 @@ public class validasi {
                     a++;
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -552,6 +568,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
 
@@ -589,6 +606,7 @@ public class validasi {
                 fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar + reportDirName + File.separatorChar + reportName);
                 if (fileRpt.isFile()) { // Cek apakah file RptMaster.jasper ada
                     fullPath = fileRpt.toString();
+                    System.out.println("Found Report File at : " + fullPath);
                 } // end if
             } // end for i
         } // end if
@@ -608,10 +626,12 @@ public class validasi {
                     jasperViewer.setLocationRelativeTo(null);
                     jasperViewer.setVisible(true);
                 } catch (Exception rptexcpt) {
+                    System.out.println("Report Can't view because : " + rptexcpt);
                     JOptionPane.showMessageDialog(null,"Report Can't view because : "+ rptexcpt);
                 }
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
     
@@ -632,6 +652,7 @@ public class validasi {
                 fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar + reportDirName + File.separatorChar + reportName);
                 if (fileRpt.isFile()) { // Cek apakah file RptMaster.jasper ada
                     fullPath = fileRpt.toString();
+                    System.out.println("Found Report File at : " + fullPath);
                 } // end if
             } // end for i
         } // end if
@@ -645,10 +666,12 @@ public class validasi {
                     JasperExportManager.exportReportToPdfFile(jasperPrint,"./"+reportDirName+"/"+reportName.replaceAll("jasper","pdf"));
                     Desktop.getDesktop().open(f);
                 } catch (Exception rptexcpt) {
+                    System.out.println("Report Can't view because : " + rptexcpt);
                     JOptionPane.showMessageDialog(null,"Report Can't view because : "+ rptexcpt);
                 }
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
     
@@ -669,6 +692,7 @@ public class validasi {
                 fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar + reportDirName + File.separatorChar + reportName);
                 if (fileRpt.isFile()) { // Cek apakah file RptMaster.jasper ada
                     fullPath = fileRpt.toString();
+                    System.out.println("Found Report File at : " + fullPath);
                 } // end if
             } // end for i
         } // end if
@@ -688,10 +712,12 @@ public class validasi {
                     jasperViewer.setLocationRelativeTo(null);
                     jasperViewer.setVisible(true);
                 } catch (Exception rptexcpt) {
+                    System.out.println("Report Can't view because : " + rptexcpt);
                     JOptionPane.showMessageDialog(null,"Report Can't view because : "+ rptexcpt);
                 }
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
     
@@ -711,6 +737,7 @@ public class validasi {
                 fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar + reportDirName + File.separatorChar + reportName);
                 if (fileRpt.isFile()) { // Cek apakah file RptMaster.jrxml ada
                     fullPath = fileRpt.toString();
+                    System.out.println("Found Report File at : " + fullPath);
                 } // end if
             } // end for i
         } // end if
@@ -732,6 +759,7 @@ public class validasi {
                 jasperViewer.setLocationRelativeTo(null);
                 jasperViewer.setVisible(true);
             } catch (Exception rptexcpt) {
+                System.out.println("Report Can't view because : " + rptexcpt);
                 JOptionPane.showMessageDialog(null,"Report Can't view because : "+ rptexcpt);
             } finally{
                 if(rs!=null){
@@ -742,6 +770,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
     
@@ -761,6 +790,7 @@ public class validasi {
                 fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar + reportDirName + File.separatorChar + reportName);
                 if (fileRpt.isFile()) { // Cek apakah file RptMaster.jrxml ada
                     fullPath = fileRpt.toString();
+                    System.out.println("Found Report File at : " + fullPath);
                 } // end if
             } // end for i
         } // end if
@@ -776,6 +806,7 @@ public class validasi {
                 JasperExportManager.exportReportToPdfFile(jasperPrint,"./"+reportDirName+"/"+reportName.replaceAll("jasper","pdf"));
                 Desktop.getDesktop().open(f);
             } catch (Exception rptexcpt) {
+                System.out.println("Report Can't view because : " + rptexcpt);
                 JOptionPane.showMessageDialog(null,"Report Can't view because : "+ rptexcpt);
             } finally{
                 if(rs!=null){
@@ -786,6 +817,7 @@ public class validasi {
                 }
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
@@ -798,6 +830,7 @@ public class validasi {
                 jasperViewer.setVisible(true);
                 //JasperViewer.viewReport(JasperFillManager.fillReport(JasperCompileManager.compileReport("./report/"+reportName),parameters,connect),false);
         } catch (Exception ex) {
+           System.out.println("Notifikasi : "+ex);
         } 
     }
 
@@ -941,6 +974,22 @@ public class validasi {
     }
     
     public void pindah2(KeyEvent evt, ComboBox kiri, Button kanan) {
+        if(evt.getKeyCode()==KeyEvent.VK_TAB){
+            kanan.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            kiri.requestFocus();
+        }
+    }
+
+    public void pindah2(KeyEvent evt, TextArea kiri, Tanggal kanan) {
+        if(evt.getKeyCode()==KeyEvent.VK_TAB){
+            kanan.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            kiri.requestFocus();
+        }
+    }
+
+    public void pindah2(KeyEvent evt, Button kiri, TextBox kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
@@ -1114,12 +1163,11 @@ public class validasi {
                 String[] browsers = {"x-www-browser","epiphany", "firefox", "mozilla", "konqueror","chrome","chromium","netscape","opera","links","lynx","midori"};
                 // Build a command string which looks like "browser1 "url" || browser2 "url" ||..."
                 StringBuilder cmd = new StringBuilder();
-                for(i=0; i<browsers.length; i++) {
-                    cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/").append(url).append("\" ");
-                }
+                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/").append(url).append( "\" ");
                 rt.exec(new String[] { "sh", "-c", cmd.toString() });
             } 
         }catch (Exception e){
+            System.out.println("Notif Browser : "+e);
         } 
     }
     
@@ -1135,12 +1183,11 @@ public class validasi {
                 String[] browsers = {"x-www-browser","epiphany", "firefox", "mozilla", "konqueror","chrome","chromium","netscape","opera","links","lynx","midori"};
                 // Build a command string which looks like "browser1 "url" || browser2 "url" ||..."
                 StringBuilder cmd = new StringBuilder();
-                for(i=0; i<browsers.length; i++) {
-                    cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append(url).append( "\" ");
-                }
+                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append(url).append( "\" ");
                 rt.exec(new String[] { "sh", "-c", cmd.toString() });
             } 
         }catch (Exception e){
+            System.out.println("Notif Browser : "+e);
         } 
     }
     
@@ -1148,6 +1195,7 @@ public class validasi {
         try{
            desktop.print(new File(new java.net.URI("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+url)));  
         }catch (Exception e) {
+           System.out.println(e);
         }
     }
 
@@ -1220,7 +1268,8 @@ public class validasi {
     
     public Date SetTgl2(String tgl){
         try {
-           return new SimpleDateFormat("yyyy-MM-dd").parse(tgl.replaceAll("'",""));
+           Date dtpa = new SimpleDateFormat("yyyy-MM-dd").parse(tgl.replaceAll("'",""));
+           return dtpa;
         } catch (ParseException ex) {
            return new Date();
         }
@@ -1388,10 +1437,14 @@ public class validasi {
     
     public int daysOld(String path) {
         file=new File(path);
-        if (file.lastModified() < 1) {
-            return 0;
-        }
+        if (file.lastModified() < 1) return 0;
         return milliToDay(Calendar.getInstance().getTimeInMillis() - file.lastModified());
     }
 
+    /**
+     * Converts milliseconds to days
+     */
+    public static int milliToDay(long milli) {
+        return (int) ((double) milli / (1000 * 24 * 60 * 60));
+    }
 }

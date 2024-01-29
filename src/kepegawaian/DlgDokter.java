@@ -12,11 +12,11 @@
 
 package kepegawaian;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -931,7 +931,6 @@ public class DlgDokter extends javax.swing.JDialog {
                 tampil();
                 emptTeks();
             } catch (Exception ex) {
-                return;
             }            
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
@@ -1074,7 +1073,6 @@ public class DlgDokter extends javax.swing.JDialog {
                 if(tabMode.getRowCount()!=0){tampil();}
                 emptTeks();
             } catch (SQLException ex) {
-                return;
             }            
         }
 }//GEN-LAST:event_BtnEditActionPerformed

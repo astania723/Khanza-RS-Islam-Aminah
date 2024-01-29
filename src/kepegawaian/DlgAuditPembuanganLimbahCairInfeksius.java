@@ -1072,7 +1072,7 @@ public class DlgAuditPembuanganLimbahCairInfeksius extends javax.swing.JDialog {
                     ttlaudit4=ttlaudit4+audit4;
                     audit5=Double.parseDouble(rs.getString("audit5").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit5=ttlaudit5+audit5;
-                    audit6=Double.parseDouble(rs.getString("audit6").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    audit6=Double.parseDouble(rs.getString("audit6").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit6=ttlaudit6+audit6;
                     ttlpenilaian=ttlpenilaian+(((audit1+audit2+audit3+
                             audit4+audit5+audit6)/6)*100);

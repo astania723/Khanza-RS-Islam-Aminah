@@ -50,7 +50,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public class ICareRiwayatPerawatan extends javax.swing.JDialog {
+public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private ApiICareBPJS api=new ApiICareBPJS();
     private String link="",utc="",requestJson="";

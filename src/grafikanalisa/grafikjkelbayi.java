@@ -45,24 +45,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Via
  */
 public class grafikjkelbayi extends JDialog {
-      sekuel Sequel = new sekuel();
-      validasi Valid = new validasi();
-      public grafikjkelbayi(String title,String symbol) {
-        // super(title);
-          setTitle(title);
-         JPanel chartPanel = createDemoPanel(symbol);
-         
-         chartPanel.setSize(screen.width,screen.height);
-         setContentPane(chartPanel);       
-         
-         //setSize(screen.width,screen.height);
-         setModal(true);
-         //setUndecorated(true);
-         setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
-         pack();
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-      }
-      Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
         /**
            * Creates a dataset.
            *
@@ -139,7 +121,7 @@ public class grafikjkelbayi extends JDialog {
              NumberAxis rangeAxis1 = new NumberAxis("Jumlah");
              rangeAxis1.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer1 = new LineAndShapeRenderer();
-             renderer1.setDefaultToolTipGenerator(
+             renderer1.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              CategoryPlot subplot1 = new CategoryPlot(dataset1, null, rangeAxis1,
                      renderer1);
@@ -149,7 +131,7 @@ public class grafikjkelbayi extends JDialog {
              NumberAxis rangeAxis2 = new NumberAxis("Jumlah");
              rangeAxis2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              BarRenderer renderer2 = new BarRenderer();
-             renderer2.setDefaultToolTipGenerator(
+             renderer2.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              CategoryPlot subplot2 = new CategoryPlot(dataset2, null, rangeAxis2,
                      renderer2);
@@ -179,6 +161,24 @@ public class grafikjkelbayi extends JDialog {
          public static JPanel createDemoPanel(String symbol) {
              JFreeChart chart = createChart(symbol);
              return new ChartPanel(chart);
+         }
+         sekuel Sequel = new sekuel();
+         validasi Valid = new validasi();
+         Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+         public grafikjkelbayi(String title,String symbol) {
+           // super(title);
+           setTitle(title);
+           JPanel chartPanel = createDemoPanel(symbol);
+           
+           chartPanel.setSize(screen.width,screen.height);
+           setContentPane(chartPanel);
+           
+           //setSize(screen.width,screen.height);
+           setModal(true);
+           //setUndecorated(true);
+           setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
+           pack();
+           setDefaultCloseOperation(DISPOSE_ON_CLOSE);
          }
 
          /**

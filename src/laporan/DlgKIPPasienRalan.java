@@ -83,7 +83,7 @@ public class DlgKIPPasienRalan extends javax.swing.JDialog {
             public void windowDeactivated(WindowEvent e) {}
         });
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private int i=0,z=0;
 
     /** This method is called from within the constructor to

@@ -46,25 +46,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Via
  */
 public class grafiksqlttv extends JDialog {
-      sekuel Sequel = new sekuel();
-      validasi Valid = new validasi();
-      public grafiksqlttv(String title,String query,String kolom,String kolom2,String kolom3,String kolom4) {
-        // super(title);
-         setTitle(title);
-         JPanel chartPanel = createDemoPanel(query,kolom,kolom2,kolom3,kolom4);
-         
-         chartPanel.setSize(screen.width,screen.height);
-         setContentPane(chartPanel);       
-         
-         //setSize(screen.width,screen.height);
-         setModal(true);
-         //setUndecorated(true);
-         setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
-         pack();
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-         chartPanel.setBackground(Color.BLACK);
-      }
-      Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
         /**
            * Creates a dataset.
            *
@@ -209,7 +190,7 @@ public class grafiksqlttv extends JDialog {
              NumberAxis rangeAxis1 = new NumberAxis("Suhu(ᵒC)");
              rangeAxis1.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer1 = new LineAndShapeRenderer();
-             renderer1.setDefaultToolTipGenerator(
+             renderer1.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              CategoryPlot subplot1 = new CategoryPlot(dataset1, null, rangeAxis1,
                      renderer1);
@@ -219,7 +200,7 @@ public class grafiksqlttv extends JDialog {
              NumberAxis rangeAxis2 = new NumberAxis("Nadi(x/menit)");
              rangeAxis2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer2 = new LineAndShapeRenderer();
-             renderer2.setDefaultToolTipGenerator(
+             renderer2.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              CategoryPlot subplot2 = new CategoryPlot(dataset2, null, rangeAxis2,
                      renderer2);
@@ -229,7 +210,7 @@ public class grafiksqlttv extends JDialog {
              NumberAxis rangeAxis3 = new NumberAxis("RR(x/menit)");
              rangeAxis3.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer3 = new LineAndShapeRenderer();
-             renderer3.setDefaultToolTipGenerator(
+             renderer3.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              CategoryPlot subplot3 = new CategoryPlot(dataset3, null, rangeAxis3,
                      renderer3);
@@ -239,7 +220,7 @@ public class grafiksqlttv extends JDialog {
              NumberAxis rangeAxis4 = new NumberAxis("SpO2(%)");
              rangeAxis4.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer4 = new LineAndShapeRenderer();
-             renderer4.setDefaultToolTipGenerator(
+             renderer4.setBaseToolTipGenerator(
                      new StandardCategoryToolTipGenerator());
              renderer4.setSeriesPaint(0, Color.BLACK);
              CategoryPlot subplot4 = new CategoryPlot(dataset4, null, rangeAxis4,
@@ -271,6 +252,25 @@ public class grafiksqlttv extends JDialog {
          public static JPanel createDemoPanel(String query,String kolom,String kolom2,String kolom3,String kolom4) {
              JFreeChart chart = createChart(query,kolom,kolom2,kolom3,kolom4);
              return new ChartPanel(chart);
+         }
+         sekuel Sequel = new sekuel();
+         validasi Valid = new validasi();
+         Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+         public grafiksqlttv(String title,String query,String kolom,String kolom2,String kolom3,String kolom4) {
+           // super(title);
+           setTitle(title);
+           JPanel chartPanel = createDemoPanel(query,kolom,kolom2,kolom3,kolom4);
+           
+           chartPanel.setSize(screen.width,screen.height);
+           setContentPane(chartPanel);
+           
+           //setSize(screen.width,screen.height);
+           setModal(true);
+           //setUndecorated(true);
+           setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
+           pack();
+           setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+           chartPanel.setBackground(Color.BLACK);
          }
 
          /**

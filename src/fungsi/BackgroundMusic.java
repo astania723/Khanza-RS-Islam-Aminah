@@ -18,7 +18,7 @@ import javazoom.jl.player.Player;
 public class BackgroundMusic {
 
     private static Player player;
-    private String filename;
+    private final String filename;
     Thread playMusic;
     // constructor that takes the name of an MP3 file
 

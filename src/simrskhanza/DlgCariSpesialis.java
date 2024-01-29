@@ -36,7 +36,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgCariSpesialis extends javax.swing.JDialog {
+public final class DlgCariSpesialis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -404,11 +404,20 @@ public class DlgCariSpesialis extends javax.swing.JDialog {
             Valid.tabelKosong(tabMode);
             response = root.path("spesialis");
             if(response.isArray()){
-                for(JsonNode list:response){
-                    if(list.path("KodeSpesialis").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("NamaSpesialis").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                if(TCari.getText().trim().isEmpty()){
+                    for(JsonNode list:response){
                         tabMode.addRow(new Object[]{
                             list.path("KodeSpesialis").asText(),list.path("NamaSpesialis").asText()
-                        });                    }
+                        }); 
+                    }
+                }else{
+                    for(JsonNode list:response){
+                        if(list.path("KodeSpesialis").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("NamaSpesialis").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                            tabMode.addRow(new Object[]{
+                                list.path("KodeSpesialis").asText(),list.path("NamaSpesialis").asText()
+                            });                    
+                        }
+                    }
                 }
             }
             myObj.close();

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 public class DlgCashflow extends javax.swing.JDialog {
-    private DefaultTableModel tabMode;
+    private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Jurnal jur=new Jurnal();
@@ -345,27 +345,25 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     i++;
                 }                    
             }
-            
-            /*rs=koneksi.prepareStatement("select rekening.kd_rek, rekening.nm_rek, sum(rekeningtahun.saldo_awal) "+
-                                           "from rekening inner join rekeningtahun "+
-                                           "on rekening.kd_rek=rekeningtahun.kd_rek "+
-                                           "where rekening.tipe='N' and rekening.balance='K' "+
-                                           "and rekeningtahun.thn between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"").substring(0,4)+"' "+
-                                           "and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"").substring(0,4)+"' "+
-                                           "group by rekening.kd_rek order by rekening.kd_rek").executeQuery();
-            while(rs.next()){
-                debkred=rs.getDouble(3)+Sequel.cariIsiAngka("select (sum(detailjurnal.kredit)-sum(detailjurnal.debet)) "+
-                         "from jurnal inner join detailjurnal on detailjurnal.no_jurnal=jurnal.no_jurnal where "+
-                         "detailjurnal.kd_rek='"+rs.getString(1)+"' and jurnal.tgl_jurnal between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+
-                         "' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'");
-                if(debkred<0){
-                    debkred=debkred*(-1);
-                }
-                
-                kasawal=kasawal+debkred;
-                tabMode.addRow(new Object[]{"",i+". "+rs.getString(2),df2.format(debkred)});   
-                i++;
-            }*/;
+         /*rs=koneksi.prepareStatement("select rekening.kd_rek, rekening.nm_rek, sum(rekeningtahun.saldo_awal) "+
+         "from rekening inner join rekeningtahun "+
+         "on rekening.kd_rek=rekeningtahun.kd_rek "+
+         "where rekening.tipe='N' and rekening.balance='K' "+
+         "and rekeningtahun.thn between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"").substring(0,4)+"' "+
+         "and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"").substring(0,4)+"' "+
+         "group by rekening.kd_rek order by rekening.kd_rek").executeQuery();
+         while(rs.next()){
+         debkred=rs.getDouble(3)+Sequel.cariIsiAngka("select (sum(detailjurnal.kredit)-sum(detailjurnal.debet)) "+
+         "from jurnal inner join detailjurnal on detailjurnal.no_jurnal=jurnal.no_jurnal where "+
+         "detailjurnal.kd_rek='"+rs.getString(1)+"' and jurnal.tgl_jurnal between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+
+         "' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'");
+         if(debkred<0){
+         debkred=debkred*(-1);
+         }
+         kasawal=kasawal+debkred;
+         tabMode.addRow(new Object[]{"",i+". "+rs.getString(2),df2.format(debkred)});
+         i++;
+         }*/
             tabMode.addRow(new Object[]{"","Jumlah Total Kas Awal : ",df2.format(kasawal)});
             
             //penerimaan kas

@@ -35,7 +35,8 @@ import javax.swing.table.TableColumn;
  * @author dosen
  */
 public class DlgPenelusuranLogin extends javax.swing.JDialog {
-    private DefaultTableModel tabMode,tabMode2;
+    private final DefaultTableModel tabMode;
+    private DefaultTableModel tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

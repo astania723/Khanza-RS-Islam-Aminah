@@ -32,7 +32,7 @@ import javax.swing.table.TableColumn;
  * @author dosen
  */
 public class InventarisKategori extends javax.swing.JDialog {
-    private DefaultTableModel tabMode;
+    private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

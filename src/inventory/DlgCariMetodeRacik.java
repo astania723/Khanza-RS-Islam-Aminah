@@ -36,7 +36,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgCariMetodeRacik extends javax.swing.JDialog {
+public final class DlgCariMetodeRacik extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private PreparedStatement ps;
@@ -425,12 +425,21 @@ public class DlgCariMetodeRacik extends javax.swing.JDialog {
             response = root.path("metoderacik");
             i=1;
             if(response.isArray()){
-                for(JsonNode list:response){
-                    if(list.path("NamaRacik").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                if(TCari.getText().trim().isEmpty()){
+                    for(JsonNode list:response){
                         tabMode.addRow(new Object[]{
                             i+"",list.path("KodeRacik").asText(),list.path("NamaRacik").asText()
                         });
                         i++;
+                    }
+                }else{
+                    for(JsonNode list:response){
+                        if(list.path("NamaRacik").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                            tabMode.addRow(new Object[]{
+                                i+"",list.path("KodeRacik").asText(),list.path("NamaRacik").asText()
+                            });
+                            i++;
+                        }
                     }
                 }
             }

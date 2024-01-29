@@ -57,10 +57,10 @@ public class GrafikPengajuanAsetStatus extends javax.swing.JDialog {
         initComponents();
         
         tabMode=new DefaultTableModel(null,new Object[]{"Status","Jumlah Pengajuan","Persentase Jumlah(%)","Nilai Pengajuan","Persentase Nilai(%)"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.Double.class,java.lang.String.class 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];

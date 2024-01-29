@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public class ApotekBPJSCekReferensiPoli extends javax.swing.JDialog {
+public final class ApotekBPJSCekReferensiPoli extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -348,9 +348,9 @@ public class ApotekBPJSCekReferensiPoli extends javax.swing.JDialog {
                 Valid.tabelKosong(tabMode);
                 response = mapper.readTree(api.Decrypt(root.path("response").asText(),utc));
                 //response = root.path("response");
-                if(response.path("poli").isArray()){
+                if(response.path("list").isArray()){
                     i=1;
-                    for(JsonNode list:response.path("poli")){
+                    for(JsonNode list:response.path("list")){
                         tabMode.addRow(new Object[]{
                             i+".",list.path("kode").asText(),list.path("nama").asText()
                         });

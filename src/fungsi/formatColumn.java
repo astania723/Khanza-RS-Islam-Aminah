@@ -31,7 +31,7 @@ public class formatColumn {
         switch (format) {
             case 0:{
                 class CurrRender extends DefaultTableCellRenderer{
-                CurrRender(){
+                public CurrRender(){
                     super();
                     setHorizontalAlignment(SwingConstants.RIGHT);
                 }

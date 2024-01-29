@@ -15,16 +15,13 @@ package bridging;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
-import java.awt.Dimension;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
@@ -32,7 +29,10 @@ import java.awt.event.WindowListener;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -42,7 +42,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class ApotekBPJSCekReferensiSettingPPK extends javax.swing.JDialog {
+public class ApotekBPJSCekReferensiSettingPPK extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -342,7 +342,7 @@ public final class ApotekBPJSCekReferensiSettingPPK extends javax.swing.JDialog 
     }//GEN-LAST:event_KodePPKKeyPressed
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
-        if(KodePPK.getText().trim().equals("")){
+        if(KodePPK.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"Silahkan masukkan faskes terlebih dahulu..!!");
             BtnFaskes.requestFocus();
         }else{

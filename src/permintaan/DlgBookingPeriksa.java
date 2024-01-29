@@ -284,7 +284,7 @@ public class DlgBookingPeriksa extends javax.swing.JFrame {
         
         dokter.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {;}
+            public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override
@@ -307,7 +307,7 @@ public class DlgBookingPeriksa extends javax.swing.JFrame {
         
         dokter2.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {;}
+            public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override

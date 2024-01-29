@@ -37,7 +37,7 @@ public class DlgDemografiUmurKunjungan extends javax.swing.JDialog {
     private DlgKecamatan kecamatan=new DlgKecamatan(null,false);
     private DlgKelurahan kelurahan=new DlgKelurahan(null,false);
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
-    private sekuel Sequel = new sekuel();
+    private final sekuel Sequel = new sekuel();
     private PreparedStatement ps,ps2,ps3;
     private ResultSet rs,rs2;
     private String querytambahan,querydokter,querypoli,querycarabayar,tambahanquery;
@@ -275,7 +275,7 @@ public class DlgDemografiUmurKunjungan extends javax.swing.JDialog {
         ChkInput.setSelected(false);
         isForm();
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private int i=0;
 
     /** This method is called from within the constructor to

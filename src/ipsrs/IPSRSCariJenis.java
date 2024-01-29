@@ -37,7 +37,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class IPSRSCariJenis extends javax.swing.JDialog {
+public final class IPSRSCariJenis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -420,11 +420,19 @@ public class IPSRSCariJenis extends javax.swing.JDialog {
             Valid.tabelKosong(tabMode);
             response = root.path("jenisipsrs");
             if(response.isArray()){
-                for(JsonNode list:response){
-                    if(list.path("NamaJenis").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                if(TCari.getText().trim().isEmpty()){
+                    for(JsonNode list:response){
                         tabMode.addRow(new Object[]{
                             list.path("KodeJenis").asText(),list.path("NamaJenis").asText()
                         });
+                    }
+                }else{
+                    for(JsonNode list:response){
+                        if(list.path("NamaJenis").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                            tabMode.addRow(new Object[]{
+                                list.path("KodeJenis").asText(),list.path("NamaJenis").asText()
+                            });
+                        }
                     }
                 }
             }

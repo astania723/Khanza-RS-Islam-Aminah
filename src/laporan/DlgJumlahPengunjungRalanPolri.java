@@ -24,7 +24,8 @@ public class DlgJumlahPengunjungRalanPolri extends javax.swing.JDialog {
     private ResultSet rs,rs2,rs3;
     private String[] kodecari,kodebayar;
     private StringBuilder htmlContent;
-    private int kolom=0,jumlahcari=0,jumlahcarabayar=0,total=0,i=0,no=0;
+    private int kolom = 0;
+    private int jumlahcari=0,jumlahcarabayar=0,total=0,i=0,no=0;
     
     /** Creates new form DlgProgramStudi
      * @param parent

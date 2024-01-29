@@ -57,9 +57,9 @@ public class DlgBerkasKepegawaian extends javax.swing.JDialog {
     private final JProgressBar progressBar = new JProgressBar();
     private final JLabel lblStatus = new JLabel();
     private WebEngine engine;
-    private Connection koneksi=koneksiDB.condb();
+    private final Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
+    private final validasi Valid=new validasi();
     private PreparedStatement ps,ps2;
     private ResultSet rs,rs2;
     private DlgCariPegawai pegawai=new DlgCariPegawai(null,false);

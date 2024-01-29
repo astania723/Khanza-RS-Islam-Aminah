@@ -72,6 +72,7 @@ public class DlgAbout extends javax.swing.JDialog {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("::[ About Program ]::");
@@ -355,10 +356,17 @@ public class DlgAbout extends javax.swing.JDialog {
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(50, 50, 50));
-        jLabel35.setText("RS Haji Kamino Way Kanan, RS PKU Jatinom Klaten, dll");
+        jLabel35.setText("RS Haji Kamino Way Kanan, RS PKU Jatinom Klaten, RS Khalisah,");
         jLabel35.setName("jLabel35"); // NOI18N
         panelGlass4.add(jLabel35);
         jLabel35.setBounds(126, 180, 320, 14);
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel36.setText("RS Alam Medica Bumiayu, dll");
+        jLabel36.setName("jLabel36"); // NOI18N
+        panelGlass4.add(jLabel36);
+        jLabel36.setBounds(126, 200, 320, 14);
 
         internalFrame1.add(panelGlass4);
         panelGlass4.setBounds(7, 155, 454, 370);
@@ -421,6 +429,7 @@ public class DlgAbout extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

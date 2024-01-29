@@ -39,9 +39,9 @@ import javax.swing.table.TableColumn;
  */
 public class DlgJumlahMacamDiet extends javax.swing.JDialog {
     private DefaultTableModel tabMode;
-    private Connection koneksi=koneksiDB.condb();
-    private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
+    private final Connection koneksi=koneksiDB.condb();
+    private final sekuel Sequel=new sekuel();
+    private final validasi Valid=new validasi();
     private PreparedStatement ps;
     private ResultSet rs;
     private String dateString,dayOfWeek,hari;

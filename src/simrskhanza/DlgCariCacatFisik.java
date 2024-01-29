@@ -36,7 +36,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgCariCacatFisik extends javax.swing.JDialog {
+public final class DlgCariCacatFisik extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -428,11 +428,19 @@ public class DlgCariCacatFisik extends javax.swing.JDialog {
             Valid.tabelKosong(tabMode);
             response = root.path("cacatfisik");
             if(response.isArray()){
-                for(JsonNode list:response){
-                    if(list.path("Cacat").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                if(TCari.getText().trim().isEmpty()){
+                    for(JsonNode list:response){
                         tabMode.addRow(new Object[]{
                             list.path("ID").asText(),list.path("Cacat").asText()
                         });
+                    }
+                }else{
+                    for(JsonNode list:response){
+                        if(list.path("Cacat").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
+                            tabMode.addRow(new Object[]{
+                                list.path("ID").asText(),list.path("Cacat").asText()
+                            });
+                        }
                     }
                 }
             }

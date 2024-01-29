@@ -21,7 +21,6 @@ public class koneksiDBFUJI {
     private static final Properties prop = new Properties();  
     private static final MysqlDataSource dataSource=new MysqlDataSource();
     
-    public koneksiDBFUJI(){} 
     public static Connection condb(){ 
         if(connection == null){
             try{
@@ -37,5 +36,6 @@ public class koneksiDBFUJI {
         }
         return connection;        
     }
+    public koneksiDBFUJI(){}
     
 }

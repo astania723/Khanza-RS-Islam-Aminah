@@ -39,7 +39,7 @@ import javax.swing.table.TableColumn;
  * @author dosen
  */
 public class PerpustakaanKoleksi extends javax.swing.JDialog {
-    private DefaultTableModel tabMode;
+    private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private PreparedStatement ps;

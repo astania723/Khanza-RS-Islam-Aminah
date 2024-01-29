@@ -368,7 +368,7 @@ public class DlgCariPermintaanLabPA extends javax.swing.JDialog {
         
         dokter.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {;}
+            public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override

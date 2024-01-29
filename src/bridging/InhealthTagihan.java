@@ -39,7 +39,9 @@ import javax.swing.table.TableColumn;
  * @author perpustakaan
  */
 public class InhealthTagihan extends javax.swing.JDialog {
-    private DefaultTableModel tabMode,tabModeTagihanKamar,tabModeTagihanRalan;
+
+  private final DefaultTableModel tabMode;
+    private DefaultTableModel tabModeTagihanKamar,tabModeTagihanRalan;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

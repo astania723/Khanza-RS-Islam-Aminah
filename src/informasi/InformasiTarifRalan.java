@@ -10,8 +10,6 @@
  */
 
 package informasi;
-import simrskhanza.DlgKtgPerawatan;
-import simrskhanza.DlgCariPoli;
 import fungsi.WarnaTable;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
@@ -28,6 +26,8 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import simrskhanza.DlgCariCaraBayar;
+import simrskhanza.DlgCariPoli;
+import simrskhanza.DlgKtgPerawatan;
 
 /**
  *

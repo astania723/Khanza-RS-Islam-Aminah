@@ -43,7 +43,8 @@ import laporan.DlgCariPenyakit;
  * @author perpustakaan
  */
 public class DlgRujukMasuk extends javax.swing.JDialog {
-    private DefaultTableModel tabMode,tabMode2;
+    private final DefaultTableModel tabMode;
+    private DefaultTableModel tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

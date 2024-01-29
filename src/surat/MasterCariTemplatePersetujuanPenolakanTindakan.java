@@ -12,10 +12,10 @@
 package surat;
 
 import fungsi.WarnaTable4;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -31,7 +31,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class MasterCariTemplatePersetujuanPenolakanTindakan extends javax.swing.JDialog {
+public class MasterCariTemplatePersetujuanPenolakanTindakan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();

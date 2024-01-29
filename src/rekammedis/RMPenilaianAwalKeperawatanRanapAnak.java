@@ -718,16 +718,16 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
         tabModeMasalah=new DefaultTableModel(null,new Object[]{
                 "P","KODE","MASALAH KEPERAWATAN"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -755,16 +755,16 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
         tabModeRencana=new DefaultTableModel(null,new Object[]{
                 "P","KODE","RENCANA KEPERAWATAN"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -4653,7 +4653,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel240.setText("1. Usia");
     jLabel240.setName("jLabel240"); // NOI18N
     FormInput.add(jLabel240);
-    jLabel240.setBounds(50, 2290, 450, 23);
+    jLabel240.setBounds(50, 2290, 300, 23);
 
     jLabel241.setText("Skala :");
     jLabel241.setName("jLabel241"); // NOI18N
@@ -4692,7 +4692,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel243.setText("2. Jenis Kelamin");
     jLabel243.setName("jLabel243"); // NOI18N
     FormInput.add(jLabel243);
-    jLabel243.setBounds(50, 2320, 450, 23);
+    jLabel243.setBounds(50, 2320, 300, 23);
 
     jLabel244.setText("Skala :");
     jLabel244.setName("jLabel244"); // NOI18N
@@ -4731,7 +4731,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel247.setText("3. Diagnosis");
     jLabel247.setName("jLabel247"); // NOI18N
     FormInput.add(jLabel247);
-    jLabel247.setBounds(50, 2350, 450, 23);
+    jLabel247.setBounds(50, 2350, 300, 23);
 
     jLabel248.setText("Skala :");
     jLabel248.setName("jLabel248"); // NOI18N
@@ -4770,7 +4770,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel250.setText("4. Gangguan Kognitif");
     jLabel250.setName("jLabel250"); // NOI18N
     FormInput.add(jLabel250);
-    jLabel250.setBounds(50, 2380, 450, 23);
+    jLabel250.setBounds(50, 2380, 300, 23);
 
     jLabel251.setText("Skala :");
     jLabel251.setName("jLabel251"); // NOI18N
@@ -4809,7 +4809,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel253.setText("5. Faktor Lingkungan");
     jLabel253.setName("jLabel253"); // NOI18N
     FormInput.add(jLabel253);
-    jLabel253.setBounds(50, 2410, 450, 23);
+    jLabel253.setBounds(50, 2410, 300, 23);
 
     jLabel254.setText("Skala :");
     jLabel254.setName("jLabel254"); // NOI18N
@@ -4848,7 +4848,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel256.setText("6. Respon Terhadap Pembedahan Sedasi / Anastesi");
     jLabel256.setName("jLabel256"); // NOI18N
     FormInput.add(jLabel256);
-    jLabel256.setBounds(50, 2440, 450, 23);
+    jLabel256.setBounds(50, 2440, 300, 23);
 
     jLabel257.setText("Skala :");
     jLabel257.setName("jLabel257"); // NOI18N
@@ -4887,7 +4887,7 @@ public class RMPenilaianAwalKeperawatanRanapAnak extends javax.swing.JDialog {
     jLabel259.setText("7. Penggunaan Medikamentosa");
     jLabel259.setName("jLabel259"); // NOI18N
     FormInput.add(jLabel259);
-    jLabel259.setBounds(50, 2470, 490, 23);
+    jLabel259.setBounds(50, 2470, 300, 23);
 
     jLabel260.setText("Skala :");
     jLabel260.setName("jLabel260"); // NOI18N

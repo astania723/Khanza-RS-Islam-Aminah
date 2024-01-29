@@ -18,17 +18,15 @@ package grafikanalisa;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import java.awt.Font;
-
-import javax.swing.JPanel;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JPanel;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -47,21 +45,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Via
  */
 public class grafiksql3 extends JDialog {
-      sekuel Sequel = new sekuel();
-      validasi Valid = new validasi();
-      public grafiksql3(String title,String query,String query2,String Kolom,String Kolom2) {
-        // super(title);
-         setTitle(title);
-         JPanel chartPanel = createDemoPanel(query,query2,Kolom,Kolom2);
-         
-         chartPanel.setSize(screen.width,screen.height);
-         setContentPane(chartPanel); 
-         setModal(true);
-         setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
-         pack();
-         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-      }
-      Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
         /**
            * Creates a dataset.
            *
@@ -130,7 +113,7 @@ public class grafiksql3 extends JDialog {
              NumberAxis rangeAxis1 = new NumberAxis("Jumlah");
              rangeAxis1.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer1 = new LineAndShapeRenderer();
-             renderer1.setDefaultToolTipGenerator(new StandardCategoryToolTipGenerator());
+             renderer1.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator());
              CategoryPlot subplot1 = new CategoryPlot(dataset1, null, rangeAxis1,renderer1);
              subplot1.setDomainGridlinesVisible(true);
 
@@ -138,7 +121,7 @@ public class grafiksql3 extends JDialog {
              NumberAxis rangeAxis2 = new NumberAxis("Jumlah");
              rangeAxis2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
              LineAndShapeRenderer renderer2 = new LineAndShapeRenderer();
-             renderer2.setDefaultToolTipGenerator(new StandardCategoryToolTipGenerator());
+             renderer2.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator());
              CategoryPlot subplot2 = new CategoryPlot(dataset2, null, rangeAxis2,renderer2);
              subplot2.setDomainGridlinesVisible(true);
 
@@ -161,6 +144,21 @@ public class grafiksql3 extends JDialog {
          public static JPanel createDemoPanel(String query,String query2,String kolom,String kolom2) {
              JFreeChart chart = createChart(query,query2,kolom,kolom2);
              return new ChartPanel(chart);
+         }
+         sekuel Sequel = new sekuel();
+         validasi Valid = new validasi();
+         Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+         public grafiksql3(String title,String query,String query2,String Kolom,String Kolom2) {
+           // super(title);
+           setTitle(title);
+           JPanel chartPanel = createDemoPanel(query,query2,Kolom,Kolom2);
+           
+           chartPanel.setSize(screen.width,screen.height);
+           setContentPane(chartPanel);
+           setModal(true);
+           setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
+           pack();
+           setDefaultCloseOperation(DISPOSE_ON_CLOSE);
          }
 
          /**

@@ -32,9 +32,9 @@ import smsobj.Status;
  */
 public class SMSReadService {
     private Status status=null;
-    private JTextArea textArea;
+    private final JTextArea textArea;
     Service service;
-    private Connection koneksi;
+    private final Connection koneksi;
 
     public SMSReadService(Connection koneksi,JTextArea textArea){
         this.koneksi = koneksi;

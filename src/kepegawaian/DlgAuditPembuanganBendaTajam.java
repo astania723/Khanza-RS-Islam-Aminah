@@ -1057,7 +1057,7 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
                     ttlsafety_box_tigaperempat_diganti=ttlsafety_box_tigaperempat_diganti+safety_box_tigaperempat_diganti;
                     safety_box_keadaan_bersih=Double.parseDouble(rs.getString("safety_box_keadaan_bersih").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlsafety_box_keadaan_bersih=ttlsafety_box_keadaan_bersih+safety_box_keadaan_bersih;
-                    saftey_box_tertutup_setelah_digunakan=Double.parseDouble(rs.getString("saftey_box_tertutup_setelah_digunakan").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    saftey_box_tertutup_setelah_digunakan=Double.parseDouble(rs.getString("saftey_box_tertutup_setelah_digunakan").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlsaftey_box_tertutup_setelah_digunakan=ttlsaftey_box_tertutup_setelah_digunakan+saftey_box_tertutup_setelah_digunakan;
                     ttlpenilaian=ttlpenilaian+(((setiap_injeksi_needle_langsung_dimasukkan_safety_box+setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box+setiap_benda_tajam_jarum_dimasukkan_safety_box+
                             safety_box_tigaperempat_diganti+safety_box_keadaan_bersih+saftey_box_tertutup_setelah_digunakan)/6)*100);

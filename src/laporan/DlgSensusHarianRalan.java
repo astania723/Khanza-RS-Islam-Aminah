@@ -42,7 +42,8 @@ import simrskhanza.DlgKabupaten;
  * @author perpustakaan
  */
 public class DlgSensusHarianRalan extends javax.swing.JDialog {
-    private DefaultTableModel tabmode,tabmode2;
+    private final DefaultTableModel tabmode;
+    private DefaultTableModel tabmode2;
     private final Connection koneksi=koneksiDB.condb();
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();

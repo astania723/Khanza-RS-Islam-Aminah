@@ -32,13 +32,14 @@ import simrskhanza.DlgCariBangsal;
 
 public class InventoryStokAkhirFarmasiPerTanggal extends javax.swing.JDialog {
     private DefaultTableModel tabMode;
-    private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
-    private Connection koneksi=koneksiDB.condb();    
+    private final sekuel Sequel=new sekuel();
+    private final validasi Valid=new validasi();
+    private final Connection koneksi=koneksiDB.condb();    
     private PreparedStatement ps;
     private ResultSet rs;
     private DlgCariBangsal bangsal=new DlgCariBangsal(null,false);
-    private String pilihan="",dateString,dayOfWeek,hari,h1="",h2="",h3="",h4="",h5="",h6="",h7="",h8="",h9="",h10="",h11="",h12="",h13="",
+    private String pilihan = "";
+    private String dateString,dayOfWeek,hari,h1="",h2="",h3="",h4="",h5="",h6="",h7="",h8="",h9="",h10="",h11="",h12="",h13="",
                    h14="",h15="",h16="",h17="",h18="",h19="",h20="",h21="",h22="",h23="",h24="",h25="",h26="",h27="",h28="",h29="",h30="",h31="";
     private String stokawal="",s1="",s2="",s3="",s4="",s5="",s6="",s7="",s8="",s9="",s10="",s11="",s12="",s13="",s14="",s15="",s16="",s17="",s18="",s19="",s20="",
                    s21="",s22="",s23="",s24="",s25="",s26="",s27="",s28="",s29="",s30="",s31="";

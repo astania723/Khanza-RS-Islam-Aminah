@@ -17,13 +17,13 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 
 public class KeuanganSaldoAkunPerBulan extends javax.swing.JDialog {
-    private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
-    private Jurnal jur=new Jurnal();
-    private Connection koneksi=koneksiDB.condb();
+    private final sekuel Sequel=new sekuel();
+    private final validasi Valid=new validasi();
+    private final Jurnal jur=new Jurnal();
+    private final Connection koneksi=koneksiDB.condb();
     private PreparedStatement ps,ps2,ps3,ps4,ps5,ps6,ps7,ps8,ps9,ps10,ps11,ps12,ps13;
     private ResultSet rs,rs2,rs3,rs4,rs5,rs6,rs7,rs8,rs9,rs10,rs11,rs12,rs13;
-    private int i=0;
+    private final int i=0;
     private StringBuilder htmlContent;
     private double saldoawaljanuari=0,debetjanuari=0,kreditjanuari=0,saldoakhirjanuari=0,
             debetfebruari=0,kreditfebruari=0,saldoakhirfebruari=0,debetmaret=0,kreditmaret=0,

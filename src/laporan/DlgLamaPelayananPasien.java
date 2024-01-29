@@ -18,7 +18,7 @@ import javax.swing.text.html.StyleSheet;
 
 public class DlgLamaPelayananPasien extends javax.swing.JDialog {
     private final validasi Valid=new validasi();
-    private sekuel Sequel=new sekuel();
+    private final sekuel Sequel=new sekuel();
     private final Connection koneksi=koneksiDB.condb();
     private PreparedStatement ps;
     private ResultSet rs;

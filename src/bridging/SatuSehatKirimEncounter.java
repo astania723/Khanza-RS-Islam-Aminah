@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public class SatuSehatKirimEncounter extends javax.swing.JDialog {
+public final class SatuSehatKirimEncounter extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -477,7 +477,24 @@ public class SatuSehatKirimEncounter extends javax.swing.JDialog {
                 "</tr>"
             );
             for (i = 0; i < tabMode.getRowCount(); i++) {
-                htmlContent.append("<tr class='isi'><td valign='top'>").append(tbObat.getValueAt(i,1).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,2).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,3).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,4).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,5).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,6).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,7).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,8).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,9).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,10).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,11).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,12).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,13).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,14).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,15).toString()).append("</td></tr>");
+                htmlContent.append(
+                    "<tr class='isi'>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,1).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,2).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,3).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,4).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,5).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,6).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,7).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,8).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,9).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,10).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,11).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,12).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,13).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,14).toString()+"</td>"+
+                        "<td valign='top'>"+tbObat.getValueAt(i,15).toString()+"</td>"+
+                    "</tr>");
             }
             LoadHTML.setText(
                 "<html>"+
@@ -488,19 +505,19 @@ public class SatuSehatKirimEncounter extends javax.swing.JDialog {
             );
 
             File g = new File("file2.css");            
-            try (BufferedWriter bg = new BufferedWriter(new FileWriter(g))) {
-                bg.write(
-                        ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                ".isi2 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#323232;}"+
-                                ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                ".isi5 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#AA0000;}"+
-                                ".isi6 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#FF0000;}"+
-                                ".isi7 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#C8C800;}"+
-                                ".isi8 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#00AA00;}"+
-                                ".isi9 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#969696;}"
-                );
-            }
+            BufferedWriter bg = new BufferedWriter(new FileWriter(g));
+            bg.write(
+                ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                ".isi2 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#323232;}"+
+                ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                ".isi5 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#AA0000;}"+
+                ".isi6 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#FF0000;}"+
+                ".isi7 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#C8C800;}"+
+                ".isi8 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#00AA00;}"+
+                ".isi9 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#969696;}"
+            );
+            bg.close();
 
             File f = new File("DataSatuSehatEncounter.html");            
             BufferedWriter bw = new BufferedWriter(new FileWriter(f));            

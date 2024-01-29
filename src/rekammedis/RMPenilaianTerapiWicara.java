@@ -6,11 +6,11 @@
 package rekammedis;
 
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -41,7 +41,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMPenilaianTerapiWicara extends javax.swing.JDialog {
+public class RMPenilaianTerapiWicara extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -2102,15 +2102,15 @@ public final class RMPenilaianTerapiWicara extends javax.swing.JDialog {
 }//GEN-LAST:event_TNoRwKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(TNoRM.getText().trim().equals("")){
+        if(TNoRM.getText().trim().isEmpty()){
             Valid.textKosong(TNoRw,"Nama Pasien");
-        }else if(DiagnosaTerapiWicara.getText().trim().equals("")){
+        }else if(DiagnosaTerapiWicara.getText().trim().isEmpty()){
             Valid.textKosong(DiagnosaTerapiWicara,"Diagnosa Terapi Wicara");
-        }else if(DiagnosaMedis.getText().trim().equals("")){
+        }else if(DiagnosaMedis.getText().trim().isEmpty()){
             Valid.textKosong(DiagnosaMedis,"Diagnosa Medis");
-        }else if(Anamnesa.getText().trim().equals("")){
+        }else if(Anamnesa.getText().trim().isEmpty()){
             Valid.textKosong(Anamnesa,"Anamnesa");
-        }else if(NmPetugas.getText().trim().equals("")){
+        }else if(NmPetugas.getText().trim().isEmpty()){
             Valid.textKosong(BtnDokter,"Petugas");
         }else{
            if(Sequel.menyimpantf("penilaian_terapi_wicara","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",62,new String[]{
@@ -2184,15 +2184,15 @@ public final class RMPenilaianTerapiWicara extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(TNoRM.getText().trim().equals("")){
+        if(TNoRM.getText().trim().isEmpty()){
             Valid.textKosong(TNoRw,"Nama Pasien");
-        }else if(DiagnosaTerapiWicara.getText().trim().equals("")){
+        }else if(DiagnosaTerapiWicara.getText().trim().isEmpty()){
             Valid.textKosong(DiagnosaTerapiWicara,"Diagnosa Terapi Wicara");
-        }else if(DiagnosaMedis.getText().trim().equals("")){
+        }else if(DiagnosaMedis.getText().trim().isEmpty()){
             Valid.textKosong(DiagnosaMedis,"Diagnosa Medis");
-        }else if(Anamnesa.getText().trim().equals("")){
+        }else if(Anamnesa.getText().trim().isEmpty()){
             Valid.textKosong(Anamnesa,"Anamnesa");
-        }else if(NmPetugas.getText().trim().equals("")){
+        }else if(NmPetugas.getText().trim().isEmpty()){
             Valid.textKosong(BtnDokter,"Petugas");
         }else{
             if(tbObat.getSelectedRow()>-1){
@@ -2544,7 +2544,7 @@ public final class RMPenilaianTerapiWicara extends javax.swing.JDialog {
             param.put("emailrs",akses.getemailrs());
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
-            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),47).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),46).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()));
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),47).toString()+"\nID "+(finger.isEmpty()?tbObat.getValueAt(tbObat.getSelectedRow(),46).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()));
 
             Valid.MyReportqry("rptCetakPenilaianTerapiWicara.jasper","report","::[ Laporan Penilaian Terapi Wicara ]::",
                 "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_terapi_wicara.tanggal,penilaian_terapi_wicara.diagnosa_terapi_wicara,penilaian_terapi_wicara.diagnosa_medis,"+
@@ -3009,7 +3009,7 @@ public final class RMPenilaianTerapiWicara extends javax.swing.JDialog {
     private void tampil() {
         Valid.tabelKosong(tabMode);
         try{
-            if(TCari.getText().equals("")){
+            if(TCari.getText().isEmpty()){
                 ps=koneksi.prepareStatement(
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_terapi_wicara.tanggal,penilaian_terapi_wicara.diagnosa_terapi_wicara,penilaian_terapi_wicara.diagnosa_medis,"+
                         "penilaian_terapi_wicara.anamnesa,penilaian_terapi_wicara.suhu,penilaian_terapi_wicara.rr,penilaian_terapi_wicara.nadi,penilaian_terapi_wicara.td,penilaian_terapi_wicara.perilaku_adaptif_kontak_mata,penilaian_terapi_wicara.perilaku_adaptif_atensi,"+
@@ -3049,7 +3049,7 @@ public final class RMPenilaianTerapiWicara extends javax.swing.JDialog {
             }
                 
             try {
-                if(TCari.getText().equals("")){
+                if(TCari.getText().isEmpty()){
                     ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00");
                     ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59");
                 }else{
@@ -3283,7 +3283,7 @@ public final class RMPenilaianTerapiWicara extends javax.swing.JDialog {
             BtnDokter.setEnabled(false);
             KdPetugas.setText(akses.getkode());
             NmPetugas.setText(petugas.tampil3(KdPetugas.getText()));
-            if(NmPetugas.getText().equals("")){
+            if(NmPetugas.getText().isEmpty()){
                 KdPetugas.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }

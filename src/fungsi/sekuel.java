@@ -48,7 +48,7 @@ import uz.ncipro.calendar.JDateTimePicker;
  *
  * @author Owner
  */
-public class sekuel {
+public final class sekuel {
     private javax.swing.ImageIcon icon = null;
     private String folder,AKTIFKANTRACKSQL = koneksiDB.AKTIFKANTRACKSQL();
     private final Connection connect=koneksiDB.condb();
@@ -71,6 +71,7 @@ public class sekuel {
             try{                  
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);            
                 JOptionPane.showMessageDialog(null,"Maaf, gagal menyimpan data. Kemungkinan ada "+sama+" yang sama dimasukkan sebelumnya...!");
             }finally{
                 if(ps != null){
@@ -79,6 +80,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+value+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e); 
         }            
     }
     
@@ -88,6 +90,7 @@ public class sekuel {
             try{                  
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);    
             }finally{
                 if(ps != null){
                     ps.close();
@@ -96,6 +99,7 @@ public class sekuel {
             
             SimpanTrack("insert into "+table+" values("+value+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e); 
         }            
     }
     
@@ -110,6 +114,7 @@ public class sekuel {
             SimpanTrack("insert into "+table+" values("+value+")");
             return true;           
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e); 
             JOptionPane.showMessageDialog(null,"Maaf, gagal menyimpan data. Kemungkinan ada "+sama+" yang sama dimasukkan sebelumnya...!");
             return false;
         }            
@@ -126,6 +131,7 @@ public class sekuel {
             SimpanTrack("insert into "+table+" values("+value+")");
             return true;           
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e); 
             return false;
         }            
     }
@@ -173,6 +179,7 @@ public class sekuel {
                 bool=true;
             } catch (Exception e2) {
                 bool=false;
+                System.out.println("Notifikasi : "+e2);
             }                         
         }
         return bool;
@@ -188,6 +195,7 @@ public class sekuel {
                 ps.executeUpdate();
                 
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);            
                 JOptionPane.showMessageDialog(null,"Maaf, gagal menyimpan data. Kemungkinan ada "+sama+" yang sama dimasukkan sebelumnya...!");
             }finally{
                 if(ps != null){
@@ -203,6 +211,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+dicari+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+table+" "+e); 
         }            
     }
     
@@ -215,6 +224,7 @@ public class sekuel {
                 }            
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);            
             }finally{
                 if(ps != null){
                     ps.close();
@@ -229,6 +239,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+dicari+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);            
         }    
     }
     
@@ -241,6 +252,7 @@ public class sekuel {
                 }            
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);            
             }finally{
                 if(ps != null){
                     ps.close();
@@ -255,6 +267,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+dicari+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);            
         }    
     }
     
@@ -279,6 +292,7 @@ public class sekuel {
             SimpanTrack("insert into "+table+" values("+dicari+")");
             return true;
         }catch(Exception e){
+            System.out.println("Notifikasi : "+e);  
             if(e.toString().contains("Duplicate")){
                 JOptionPane.showMessageDialog(null,"Maaf, gagal menyimpan data. Kemungkinan ada "+sama+" yang sama dimasukkan sebelumnya...!");
             }else{
@@ -300,6 +314,7 @@ public class sekuel {
                 bool=true;
             } catch (Exception e) {
                 bool=false;
+                System.out.println("Notifikasi : "+e);  
             } finally{
                 if(ps != null){
                     ps.close();
@@ -314,6 +329,7 @@ public class sekuel {
             SimpanTrack("insert into "+table+" values("+dicari+")");
         }catch(Exception e){
             bool=false;
+            System.out.println("Notifikasi : "+e);  
         }
         return bool;
     }
@@ -330,6 +346,7 @@ public class sekuel {
                 bool=true;
             } catch (Exception e) {
                 bool=false;
+                System.out.println("Notifikasi : "+e);  
             } finally{
                 if(ps != null){
                     ps.close();
@@ -344,6 +361,7 @@ public class sekuel {
             SimpanTrack("insert into "+table+" values("+dicari+")");
         }catch(Exception e){
             bool=false;
+            System.out.println("Notifikasi : "+e);  
         }
         return bool;
     }
@@ -357,6 +375,7 @@ public class sekuel {
                 }            
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);            
             }finally{
                 if(ps != null){
                     ps.close();
@@ -370,6 +389,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+dicari+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);   
         }            
     }
     
@@ -382,7 +402,7 @@ public class sekuel {
                 }            
                 ps.executeUpdate();
             }catch(Exception e){
-;            
+                System.out.println("Notifikasi : "+e); ;            
             }finally{
                 if(ps != null){
                     ps.close();
@@ -396,6 +416,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+dicari+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);   
         }            
     }
     
@@ -408,6 +429,7 @@ public class sekuel {
                 }            
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi "+table+" : "+e);            
             }finally{
                 if(ps != null){
                     ps.close();
@@ -463,6 +485,7 @@ public class sekuel {
                 }
                 SimpanTrack("update "+table+" set "+update+" "+dicari+" where "+acuan_field);
             } catch (Exception e2) {
+                System.out.println("Notifikasi : "+e2);
             }                         
         }
     }
@@ -508,6 +531,7 @@ public class sekuel {
                 }
                 SimpanTrack("update "+table+" set "+update+" "+dicari+" where "+acuan_field);
             } catch (Exception e2) {                
+                System.out.println("Notifikasi : "+e2);
             }            
         }
     }
@@ -552,6 +576,7 @@ public class sekuel {
                 }
                 SimpanTrack("update "+table+" set "+update+" "+dicari+" where "+acuan_field);
             } catch (Exception e2) {
+                System.out.println("Notifikasi : "+e2);
             }                         
         }
     }
@@ -562,6 +587,7 @@ public class sekuel {
             try{
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);         
             }finally{
                 if(ps != null){
                     ps.close();
@@ -569,6 +595,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+value+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);  
         }
     }
     
@@ -578,6 +605,7 @@ public class sekuel {
             try{
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);         
             }finally{
                 if(ps != null){
                     ps.close();
@@ -585,6 +613,7 @@ public class sekuel {
             }
             SimpanTrack("insert into "+table+" values("+value+")");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);  
         }
     }
     
@@ -605,6 +634,7 @@ public class sekuel {
                 }  
                 SimpanTrack("update "+table+" set "+isiedit+" where "+acuan_field);
             } catch (Exception ex) {
+                System.out.println("Notifikasi Edit : "+ex);
             }
         }
     }
@@ -616,6 +646,7 @@ public class sekuel {
                 ps.setBinaryStream(1, new FileInputStream(AlmGb.getText()), new File(AlmGb.getText()).length());
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, gagal menyimpan data. Kemungkinan ada "+sama+" yang sama dimasukkan sebelumnya...!");
             }finally{
                 if(ps != null){
@@ -623,6 +654,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
     }
@@ -635,6 +667,7 @@ public class sekuel {
                 ps.setBinaryStream(2, new FileInputStream(AlmPhoto.getText()), new File(AlmPhoto.getText()).length());
                 ps.executeUpdate();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, gagal menyimpan data. Kemungkinan ada "+sama+" yang sama dimasukkan sebelumnya...!");
             }finally{
                 if(ps != null){
@@ -642,6 +675,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -653,6 +687,7 @@ public class sekuel {
                 ps.setString(1,nilai_field);
                 ps.executeUpdate(); 
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, data gagal dihapus. Kemungkinan data tersebut masih dipakai di table lain...!!!!");
              }finally{
                 if(ps != null){
@@ -661,6 +696,7 @@ public class sekuel {
             }
             SimpanTrack("delete from "+table+" where "+field+"='"+nilai_field+"'");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -674,6 +710,7 @@ public class sekuel {
                 bool=true;
              }catch(Exception e){
                 bool=false;
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, data gagal dihapus. Kemungkinan data tersebut masih dipakai di table lain...!!!!");
              }finally{
                 if(ps != null){
@@ -683,6 +720,7 @@ public class sekuel {
             SimpanTrack("delete from "+table+" where "+field+"='"+nilai_field+"'");
         } catch (Exception e) {
             bool=false;
+            System.out.println("Notifikasi : "+e);
         }
         return bool;
     }
@@ -695,6 +733,7 @@ public class sekuel {
                 ps.setString(2,nilai_field2);
                 ps.executeUpdate(); 
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, data gagal dihapus. Kemungkinan data tersebut masih dipakai di table lain...!!!!");
              }finally{
                 if(ps != null){
@@ -703,6 +742,7 @@ public class sekuel {
             }
             SimpanTrack("delete from "+table+" where "+field+"='"+nilai_field+"' and "+field2+"='"+nilai_field2+"'");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -714,6 +754,7 @@ public class sekuel {
                 ps.executeUpdate(); 
                 JOptionPane.showMessageDialog(null,"Proses hapus berhasil...!!!!");
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, data gagal dihapus. Kemungkinan data tersebut masih dipakai di table lain...!!!!");
              }finally{
                 if(ps != null){
@@ -722,6 +763,7 @@ public class sekuel {
             }
             SimpanTrack("delete from "+table+" where "+field+"='"+nilai_field+"'");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -732,6 +774,7 @@ public class sekuel {
                 ps.setString(1,nilai_field);
                 ps.executeUpdate(); 
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
              }finally{
                 if(ps != null){
                     ps.close();
@@ -739,6 +782,7 @@ public class sekuel {
             }
             SimpanTrack("delete from "+table+" where "+field+"='"+nilai_field+"'");
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -748,6 +792,7 @@ public class sekuel {
             try{                        
                 ps.executeUpdate();       
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Gagal Mengedit. Mungkin kode sudah digunakan sebelumnya...!!!!");
              }finally{
                 if(ps != null){
@@ -756,6 +801,7 @@ public class sekuel {
             }
             SimpanTrack("update "+table+" set "+update+" where "+acuan_field);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -768,6 +814,7 @@ public class sekuel {
                 bool=true;
              }catch(Exception e){
                 bool=false;
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Gagal Mengedit. Mungkin kode sudah digunakan sebelumnya...!!!!");
              }finally{
                 if(ps != null){
@@ -777,6 +824,7 @@ public class sekuel {
             SimpanTrack("update "+table+" set "+update+" where "+acuan_field);
         } catch (Exception e) {
             bool=false;
+            System.out.println("Notifikasi : "+e);
         }
         return bool;
     }
@@ -790,6 +838,7 @@ public class sekuel {
                 } 
                 ps.executeUpdate();       
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Gagal Mengedit. Periksa kembali data...!!!!");
              }finally{
                 if(ps != null){
@@ -805,6 +854,7 @@ public class sekuel {
             }
             SimpanTrack("update "+table+" set "+update+" "+dicari+" where "+acuan_field);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }    
     }
     
@@ -818,6 +868,7 @@ public class sekuel {
                 ps.executeUpdate();   
                 JOptionPane.showMessageDialog(null,"Proses edit berhasil...!!!!");
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Gagal mengedit. Periksa kembali data...!!!!");
              }finally{
                 if(ps != null){
@@ -833,6 +884,7 @@ public class sekuel {
             }
             SimpanTrack("update "+table+" set "+update+" "+dicari+" where "+acuan_field);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }    
     }
     
@@ -845,6 +897,7 @@ public class sekuel {
                 } 
                 ps.executeUpdate();       
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
              }finally{
                 if(ps != null){
                     ps.close();
@@ -858,6 +911,7 @@ public class sekuel {
             }
             SimpanTrack("update "+table+" set "+update+" "+dicari+" where "+acuan_field);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }    
     }
     
@@ -873,6 +927,7 @@ public class sekuel {
                 bool=true;
              }catch(Exception e){
                 bool=false;
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Gagal Mengedit. Periksa kembali data...!!!!");
              }finally{
                 if(ps != null){
@@ -888,6 +943,7 @@ public class sekuel {
             SimpanTrack("update "+table+" set "+update+" "+dicari+" where "+acuan_field);
         } catch (Exception e) {
             bool=false;
+            System.out.println("Notifikasi : "+e);
         }   
         return bool;
     }
@@ -899,6 +955,7 @@ public class sekuel {
                 ps.setBinaryStream(1, new FileInputStream(AlmGb.getText()), new File(AlmGb.getText()).length());
                 ps.executeUpdate();
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Pilih dulu data yang mau anda edit...\n Klik data pada table untuk memilih...!!!!");
              }finally{
                 if(ps != null){
@@ -906,6 +963,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
 
@@ -915,6 +973,7 @@ public class sekuel {
             try{
                 ps.executeQuery();
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(ps != null){
@@ -923,6 +982,7 @@ public class sekuel {
             }
             SimpanTrack(qry);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }            
     }
 
@@ -932,6 +992,7 @@ public class sekuel {
             try{                            
                 ps.executeUpdate(); 
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(ps != null){
@@ -941,6 +1002,7 @@ public class sekuel {
             
             SimpanTrack(qry);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -953,6 +1015,7 @@ public class sekuel {
                 bool=true;
              }catch(Exception e){
                 bool=false;
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");                
              }finally{
                 if(ps != null){
@@ -962,6 +1025,7 @@ public class sekuel {
             SimpanTrack(qry);
         } catch (Exception e) {
             bool=false;
+            System.out.println("Notifikasi : "+e);
         }
         return bool;
     }
@@ -975,6 +1039,7 @@ public class sekuel {
                 bool=true;
              }catch(Exception e){
                 bool=false;
+                System.out.println("Notifikasi : "+e);           
              }finally{
                 if(ps != null){
                     ps.close();
@@ -983,6 +1048,7 @@ public class sekuel {
             SimpanTrack(qry);
         } catch (Exception e) {
             bool=false;
+            System.out.println("Notifikasi : "+e);
         }
         return bool;
     }
@@ -994,6 +1060,7 @@ public class sekuel {
                 ps.setString(1,parameter);
                 ps.executeUpdate();
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
                 JOptionPane.showMessageDialog(null,"Maaf, Query tidak bisa dijalankan...!!!!");
              }finally{
                 if(ps != null){
@@ -1002,6 +1069,7 @@ public class sekuel {
             }
             SimpanTrack(qry);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }    
     }
     
@@ -1012,6 +1080,7 @@ public class sekuel {
             try{                            
                 ps.executeUpdate(); 
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
              }finally{
                 if(ps != null){
                     ps.close();
@@ -1019,6 +1088,7 @@ public class sekuel {
             }
             SimpanTrack(qry);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -1031,6 +1101,7 @@ public class sekuel {
                 } 
                 ps.executeUpdate(); 
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
              }finally{
                 if(ps != null){
                     ps.close();
@@ -1044,6 +1115,7 @@ public class sekuel {
             }
             SimpanTrack(qry+" "+dicari);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -1059,6 +1131,7 @@ public class sekuel {
                 bool=true;
              }catch(Exception e){
                 bool=false;
+                System.out.println("Notifikasi : "+e);
              }finally{
                 if(ps != null){
                     ps.close();
@@ -1072,6 +1145,7 @@ public class sekuel {
             }
             SimpanTrack(qry+" "+dicari);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
         return bool;
     }
@@ -1085,6 +1159,7 @@ public class sekuel {
                 } 
                 ps.executeUpdate(); 
              }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
              }finally{
                 if(ps != null){
                     ps.close();
@@ -1098,6 +1173,7 @@ public class sekuel {
             }
             SimpanTrack(qry+" "+dicari);
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -1151,6 +1227,7 @@ public class sekuel {
         try {
             connect.rollback();
         } catch (Exception e) {
+            System.out.println("Notif : "+e);
             JOptionPane.showMessageDialog(null,"Gagal melakukan rollback..!");
         }
     }
@@ -1167,6 +1244,7 @@ public class sekuel {
                     cmb.setSelectedItem("");
                 }    
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1177,6 +1255,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }   
     }
 
@@ -1191,9 +1270,11 @@ public class sekuel {
                         dtp.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString(1)));
                         dtp.setDisplayFormat("dd-MM-yyyy");
                     } catch (Exception ex) {
+                        System.out.println(ex);
                     }
                 }       
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1204,6 +1285,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
 
@@ -1218,6 +1300,7 @@ public class sekuel {
                     txt.setText("");
                 }  
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1228,6 +1311,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -1250,6 +1334,7 @@ public class sekuel {
                     txt.setText("");
                 }   
             }catch(SQLException e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1260,6 +1345,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     } 
     
@@ -1275,6 +1361,7 @@ public class sekuel {
                     txt.setText("");
                 }   
             }catch(SQLException e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1285,6 +1372,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -1300,6 +1388,7 @@ public class sekuel {
                     txt.setText("");
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1310,6 +1399,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
     
@@ -1326,6 +1416,7 @@ public class sekuel {
                 }   
             }catch(Exception e){
                 dicari="";
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1336,6 +1427,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
         
         return dicari;
@@ -1351,6 +1443,7 @@ public class sekuel {
                     inputStream = new ByteArrayInputStream(rs.getBytes(1));
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1361,6 +1454,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return inputStream;
@@ -1380,6 +1474,7 @@ public class sekuel {
                 }   
             }catch(Exception e){
                 dicari="";
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null ){
                     rs.close();
@@ -1390,6 +1485,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return dicari;
@@ -1406,6 +1502,7 @@ public class sekuel {
                     tanggal=new Date();
                 }   
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1416,6 +1513,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
         return tanggal;
     }
@@ -1432,6 +1530,7 @@ public class sekuel {
                     angka=0;
                 } 
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1442,6 +1541,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka;
@@ -1457,6 +1557,7 @@ public class sekuel {
                     angka += rs.getInt(1);
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1467,6 +1568,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka;
@@ -1486,6 +1588,7 @@ public class sekuel {
                 }  
             }catch(Exception e){
                 angka=0;
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1496,6 +1599,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka;
@@ -1516,6 +1620,7 @@ public class sekuel {
                 }  
             }catch(Exception e){
                 angka=0;
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1526,6 +1631,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka;
@@ -1547,6 +1653,7 @@ public class sekuel {
                 }  
             }catch(Exception e){
                 angka=0;
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1557,6 +1664,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka;
@@ -1574,6 +1682,7 @@ public class sekuel {
                     angka=0;
                 }   
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1584,6 +1693,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka;
@@ -1600,6 +1710,7 @@ public class sekuel {
                     txt.setText("0");
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1610,6 +1721,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
 
@@ -1624,6 +1736,7 @@ public class sekuel {
                     txt.setText("0");
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1634,6 +1747,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }            
     }
     
@@ -1649,6 +1763,7 @@ public class sekuel {
                     angka2=0;
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1659,6 +1774,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka2;
@@ -1678,6 +1794,7 @@ public class sekuel {
                 }
                 //rs.close();
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1688,6 +1805,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka2;
@@ -1707,6 +1825,7 @@ public class sekuel {
                     angka2=0;
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1716,6 +1835,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return angka2;
@@ -1734,6 +1854,7 @@ public class sekuel {
                     txt.setText(null);
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1744,6 +1865,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
     }
 
@@ -1770,6 +1892,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
     }
@@ -1783,12 +1906,14 @@ public class sekuel {
                     ps.setString(2,akses.getkode());
                     ps.executeUpdate(); 
                  }catch(Exception e){
+                    System.out.println("Notifikasi : "+e);
                  }finally{
                     if(ps != null){
                         ps.close();
                     }
                 }
             } catch (Exception e) {
+                System.out.println("Notifikasi : "+e);
             }
         }
     }
@@ -1805,6 +1930,7 @@ public class sekuel {
                     dicari="";
                 }
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -1815,6 +1941,7 @@ public class sekuel {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         }
             
         return dicari;
@@ -1839,9 +1966,9 @@ public class sekuel {
         try {
             Image inImage = icon.getImage();
 
-            double scale = maxDim / (double) inImage.getHeight(null);
+            double scale = (double) maxDim / (double) inImage.getHeight(null);
             if (inImage.getWidth(null) > inImage.getHeight(null)) {
-                scale = maxDim / (double) inImage.getWidth(null);
+                scale = (double) maxDim / (double) inImage.getWidth(null);
             }
 
             int scaledW = (int) (scale * inImage.getWidth(null));
@@ -1866,6 +1993,7 @@ public class sekuel {
     }
 
     private void cetak(String str) {
+        System.out.println(str);
     }
 
     public class Painter extends Canvas {
@@ -1896,6 +2024,7 @@ public class sekuel {
         }
 
         private void cetak(String str) {
+            System.out.println(str);
         }
     }
 

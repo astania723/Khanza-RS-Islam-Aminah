@@ -15,21 +15,21 @@ package bridging;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
-import java.awt.Dimension;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -467,7 +467,7 @@ public final class ApotekBPJSMonitoringKlaim extends javax.swing.JDialog {
                 LCountDisetujui.setText(Valid.SetAngka(response.path("rekap").path("totalbiayasetuju").asDouble()));
                 LCount.setText(response.path("rekap").path("jumlahdata").asText());
                 if(response.path("rekap").path("listsep").isArray()){
-                    if(TCari.getText().trim().equals("")){
+                    if(TCari.getText().trim().isEmpty()){
                         for(JsonNode list:response.path("rekap").path("listsep")){
                             tabMode.addRow(new Object[]{
                                 list.path("nosepapotek").asText(),list.path("nosepaasal").asText(),list.path("nokartu").asText(),

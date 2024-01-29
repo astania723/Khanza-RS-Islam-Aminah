@@ -11,6 +11,11 @@ package smsobj;
  */
 public class Status {
     private String manufacture;
+    private String model;
+    private String serialNo;
+    private String simImsi;
+    private int signal;
+    private int baterai;
 
     public int getBaterai() {
         return baterai;
@@ -59,10 +64,5 @@ public class Status {
     public void setSimImsi(String simImsi) {
         this.simImsi = simImsi;
     }
-    private String model;
-    private String serialNo;
-    private String simImsi;
-    private int signal;
-    private int baterai;
 
 }

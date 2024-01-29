@@ -26,8 +26,8 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen3
  */
-public final class DlgLihatPesan extends javax.swing.JDialog {
-    private DefaultTableModel tabMode;
+public class DlgLihatPesan extends javax.swing.JDialog {
+    private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

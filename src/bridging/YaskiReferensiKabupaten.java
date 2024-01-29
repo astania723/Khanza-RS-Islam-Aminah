@@ -34,7 +34,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class YaskiReferensiKabupaten extends javax.swing.JDialog {
+public final class YaskiReferensiKabupaten extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private YaskiReferensiPropinsi propinsi=new YaskiReferensiPropinsi(null,false);

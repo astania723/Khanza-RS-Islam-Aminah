@@ -25,9 +25,9 @@ import java.sql.ResultSet;
  * @author perpustakaan
  */
 public class DlgCatatan extends javax.swing.JDialog {
-    private Connection koneksi=koneksiDB.condb();
-    private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
+    private final Connection koneksi=koneksiDB.condb();
+    private final sekuel Sequel=new sekuel();
+    private final validasi Valid=new validasi();
     private PreparedStatement ps;
     private ResultSet rs;
 

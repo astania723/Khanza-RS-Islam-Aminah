@@ -33,10 +33,11 @@ import simrskhanza.DlgCariPoli;
  *
  * @author perpustakaan
  */
-public class KeuanganRingkasanTindakan extends javax.swing.JDialog {
+public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
     private final Connection koneksi=koneksiDB.condb();
     private final sekuel Sequel=new sekuel();
-    private DefaultTableModel tabModeRalanDokter,tabModeRalanParamedis,
+  private final DefaultTableModel tabModeRalanDokter;
+    private DefaultTableModel tabModeRalanParamedis,
             tabModeRalanDokterParamedis,tabModeRanapDokter,tabModeRanapParamedis,
             tabModeRanapDokterParamedis,tabModeRadiologi,tabModeLaborat,
             tabModeDetailLaborat,tabModeOperasi;

@@ -261,7 +261,7 @@ public class DlgSOAPRalanAggotaPolri extends javax.swing.JDialog {
         ChkInput.setSelected(false);
         isForm();
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
 
     /** This method is called from within the constructor to
      * initialize the form.

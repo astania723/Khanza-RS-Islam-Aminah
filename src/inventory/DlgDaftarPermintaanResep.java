@@ -1,5 +1,4 @@
 package inventory;
-import bridging.BPJSDataAntreanPerTanggal;
 import bridging.BPJSDataPRB;
 import bridging.BPJSDataSEP;
 import fungsi.BackgroundMusic;
@@ -395,7 +394,7 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
         
         dokter.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {;}
+            public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override
@@ -2738,7 +2737,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         if(tabMode.getRowCount()==0){
           JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
           TCari.requestFocus();
-        }else if(NoRawat.equals("")){
+        }else if(NoRawat.isEmpty()){
           JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data pasien terlebih dahulu..!!");
         }else{
           this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));

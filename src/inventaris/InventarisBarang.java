@@ -38,7 +38,7 @@ import javax.swing.table.TableColumn;
  * @author dosen
  */
 public class InventarisBarang extends javax.swing.JDialog {
-    private DefaultTableModel tabMode;
+    private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
 

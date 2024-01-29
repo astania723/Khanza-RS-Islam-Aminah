@@ -1168,7 +1168,7 @@ public class DlgAuditPenempatanPasien extends javax.swing.JDialog {
                     ttlaudit7=ttlaudit7+audit7;
                     audit8=Double.parseDouble(rs.getString("audit8").replaceAll("Ya","1").replaceAll("Tidak","0"));;
                     ttlaudit8=ttlaudit8+audit8;
-                    audit9=Double.parseDouble(rs.getString("audit9").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    audit9=Double.parseDouble(rs.getString("audit9").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit9=ttlaudit9+audit9;
                     ttlpenilaian=ttlpenilaian+(((audit1+audit2+audit3+
                             audit4+audit5+audit6+audit7+audit8+audit9)/9)*100);

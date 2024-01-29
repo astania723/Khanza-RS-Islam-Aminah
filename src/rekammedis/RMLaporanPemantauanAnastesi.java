@@ -1,11 +1,11 @@
 package rekammedis;
 
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -34,7 +34,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
+public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeRiwayatKehamilan,tabModeRiwayatKehamilan2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -4665,25 +4665,25 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(TNoRM.getText().trim().equals("")){
+        if(TNoRM.getText().trim().isEmpty()){
             Valid.textKosong(TNoRw,"Nama Pasien");
-        }else if(KdPetugas.getText().trim().equals("")||NmPetugas.getText().trim().equals("")){
+        }else if(KdPetugas.getText().trim().isEmpty()||NmPetugas.getText().trim().isEmpty()){
             Valid.textKosong(BtnPetugas,"Pengkaji 1");
-        }else if(KdPetugas2.getText().trim().equals("")||NmPetugas2.getText().trim().equals("")){
+        }else if(KdPetugas2.getText().trim().isEmpty()||NmPetugas2.getText().trim().isEmpty()){
             Valid.textKosong(BtnPetugas2,"Pegkaji 2");
-        }else if(KdDPJP.getText().trim().equals("")||NmDPJP.getText().trim().equals("")){
+        }else if(KdDPJP.getText().trim().isEmpty()||NmDPJP.getText().trim().isEmpty()){
             Valid.textKosong(BtnDPJP,"DPJP");
-        }else if(KeluhanUtama.getText().trim().equals("")){
+        }else if(KeluhanUtama.getText().trim().isEmpty()){
             Valid.textKosong(KeluhanUtama,"Keluhan Utama");
-        }else if(RPK.getText().trim().equals("")){
+        }else if(RPK.getText().trim().isEmpty()){
             Valid.textKosong(RPK,"Riwayat Penyakit Keluarga");
-        }else if(PSK.getText().trim().equals("")){
+        }else if(PSK.getText().trim().isEmpty()){
             Valid.textKosong(PSK,"Penyakit Selama Kehamilan");
-        }else if(RBedah.getText().trim().equals("")){
+        }else if(RBedah.getText().trim().isEmpty()){
             Valid.textKosong(RBedah,"Riwayat Pembedahan");
-        }else if(Masalah.getText().trim().equals("")){
+        }else if(Masalah.getText().trim().isEmpty()){
             Valid.textKosong(Masalah,"Masalah Kebidanan");
-        }else if(Tindakan.getText().trim().equals("")){
+        }else if(Tindakan.getText().trim().isEmpty()){
             Valid.textKosong(Tindakan,"Tindakan");
         }else{
             if(Sequel.menyimpantf("penilaian_awal_keperawatan_kebidanan_ranap","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",162,new String[]{
@@ -4747,25 +4747,25 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(TNoRM.getText().trim().equals("")){
+        if(TNoRM.getText().trim().isEmpty()){
             Valid.textKosong(TNoRw,"Nama Pasien");
-        }else if(KdPetugas.getText().trim().equals("")||NmPetugas.getText().trim().equals("")){
+        }else if(KdPetugas.getText().trim().isEmpty()||NmPetugas.getText().trim().isEmpty()){
             Valid.textKosong(BtnPetugas,"Pengkaji 1");
-        }else if(KdPetugas2.getText().trim().equals("")||NmPetugas2.getText().trim().equals("")){
+        }else if(KdPetugas2.getText().trim().isEmpty()||NmPetugas2.getText().trim().isEmpty()){
             Valid.textKosong(BtnPetugas2,"Pegkaji 2");
-        }else if(KdDPJP.getText().trim().equals("")||NmDPJP.getText().trim().equals("")){
+        }else if(KdDPJP.getText().trim().isEmpty()||NmDPJP.getText().trim().isEmpty()){
             Valid.textKosong(BtnDPJP,"DPJP");
-        }else if(KeluhanUtama.getText().trim().equals("")){
+        }else if(KeluhanUtama.getText().trim().isEmpty()){
             Valid.textKosong(KeluhanUtama,"Keluhan Utama");
-        }else if(RPK.getText().trim().equals("")){
+        }else if(RPK.getText().trim().isEmpty()){
             Valid.textKosong(RPK,"Riwayat Penyakit Keluarga");
-        }else if(PSK.getText().trim().equals("")){
+        }else if(PSK.getText().trim().isEmpty()){
             Valid.textKosong(PSK,"Penyakit Selama Kehamilan");
-        }else if(RBedah.getText().trim().equals("")){
+        }else if(RBedah.getText().trim().isEmpty()){
             Valid.textKosong(RBedah,"Riwayat Pembedahan");
-        }else if(Masalah.getText().trim().equals("")){
+        }else if(Masalah.getText().trim().isEmpty()){
             Valid.textKosong(Masalah,"Masalah Kebidanan");
-        }else if(Tindakan.getText().trim().equals("")){
+        }else if(Tindakan.getText().trim().isEmpty()){
             Valid.textKosong(Tindakan,"Tindakan");
         }else{
             if(tbObat.getSelectedRow()>-1){
@@ -4886,12 +4886,12 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
                     "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien "+
                     "inner join penjab on penjab.kd_pj=reg_periksa.kd_pj where "+
                     "penilaian_awal_keperawatan_kebidanan_ranap.tanggal between ? and ? "+
-                     (TCari.getText().trim().equals("")?"":"and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_awal_keperawatan_kebidanan_ranap.nip1 like ? or pengkaji1.nama like ? or penilaian_awal_keperawatan_kebidanan_ranap.kd_dokter like ? or dokter.nm_dokter like ?)")+
+                     (TCari.getText().trim().isEmpty()?"":"and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_awal_keperawatan_kebidanan_ranap.nip1 like ? or pengkaji1.nama like ? or penilaian_awal_keperawatan_kebidanan_ranap.kd_dokter like ? or dokter.nm_dokter like ?)")+
                      " order by penilaian_awal_keperawatan_kebidanan_ranap.tanggal");
                 try {
                     ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00");
                     ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59");
-                    if(!TCari.getText().equals("")){
+                    if(!TCari.getText().isEmpty()){
                         ps.setString(3,"%"+TCari.getText()+"%");
                         ps.setString(4,"%"+TCari.getText()+"%");
                         ps.setString(5,"%"+TCari.getText()+"%");
@@ -5800,7 +5800,7 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
             param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             param.put("nyeri",Sequel.cariGambar("select gambar.nyeri from gambar")); 
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
-            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString())); 
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.isEmpty()?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString())); 
             try {
                 ps=koneksi.prepareStatement("select * from riwayat_persalinan_pasien where no_rkm_medis=? order by tgl_thn");
                 try {
@@ -5942,19 +5942,19 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnKeluarKehamilanActionPerformed
 
     private void BtnSimpanRiwayatKehamilanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanRiwayatKehamilanActionPerformed
-        if(TempatPersalinan.getText().trim().equals("")){
+        if(TempatPersalinan.getText().trim().isEmpty()){
             Valid.textKosong(TempatPersalinan,"Tempat Persalinan");
-        }else if(JenisPersalinan.getText().trim().equals("")){
+        }else if(JenisPersalinan.getText().trim().isEmpty()){
             Valid.textKosong(JenisPersalinan,"Jenis Persalinan");
-        }else if(Penolong.getText().trim().equals("")){
+        }else if(Penolong.getText().trim().isEmpty()){
             Valid.textKosong(Penolong,"Penolong Persalinan");
-        }else if(Penyulit.getText().trim().equals("")){
+        }else if(Penyulit.getText().trim().isEmpty()){
             Valid.textKosong(Penyulit,"Penyulit Persalinan");
-        }else if(Keadaan.getText().trim().equals("")){
+        }else if(Keadaan.getText().trim().isEmpty()){
             Valid.textKosong(Keadaan,"Keadaan Persalinan");
-        }else if(UsiaHamil.getText().trim().equals("")){
+        }else if(UsiaHamil.getText().trim().isEmpty()){
             Valid.textKosong(UsiaHamil,"Usia Hamil");
-        }else if(BBPB.getText().trim().equals("")){
+        }else if(BBPB.getText().trim().isEmpty()){
             Valid.textKosong(BBPB,"BB/PB");
         }else{
             if(Sequel.menyimpantf("riwayat_persalinan_pasien","?,?,?,?,?,?,?,?,?,?","Riwayat Persalinan",10,new String[]{
@@ -6136,7 +6136,7 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
     }//GEN-LAST:event_HidupKeyPressed
 
     private void BtnTambahMasalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahMasalahActionPerformed
-        if(TNoRM.getText().equals("")){
+        if(TNoRM.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Pilih terlebih dahulu pasien yang mau dimasukkan data kelarihannya...");
             Anamnesis.requestFocus();
         }else{
@@ -7267,13 +7267,13 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
                 "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien "+
                 "inner join penjab on penjab.kd_pj=reg_periksa.kd_pj where "+
                 "penilaian_awal_keperawatan_kebidanan_ranap.tanggal between ? and ? "+
-                 (TCari.getText().trim().equals("")?"":"and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_awal_keperawatan_kebidanan_ranap.nip1 like ? or pengkaji1.nama like ? or penilaian_awal_keperawatan_kebidanan_ranap.kd_dokter like ? or dokter.nm_dokter like ?)")+
+                 (TCari.getText().trim().isEmpty()?"":"and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_awal_keperawatan_kebidanan_ranap.nip1 like ? or pengkaji1.nama like ? or penilaian_awal_keperawatan_kebidanan_ranap.kd_dokter like ? or dokter.nm_dokter like ?)")+
                  " order by penilaian_awal_keperawatan_kebidanan_ranap.tanggal");
             
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00");
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59");
-                if(!TCari.getText().equals("")){
+                if(!TCari.getText().isEmpty()){
                     ps.setString(3,"%"+TCari.getText()+"%");
                     ps.setString(4,"%"+TCari.getText()+"%");
                     ps.setString(5,"%"+TCari.getText()+"%");
@@ -7738,7 +7738,7 @@ public final class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
             BtnPetugas.setEnabled(false);
             KdPetugas.setText(akses.getkode());
             NmPetugas.setText(petugas.tampil3(KdPetugas.getText()));
-            if(NmPetugas.getText().equals("")){
+            if(NmPetugas.getText().isEmpty()){
                 KdPetugas.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }

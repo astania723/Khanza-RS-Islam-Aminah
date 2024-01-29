@@ -11,11 +11,11 @@
 
 package bridging;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import inventory.DlgBarang;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -38,7 +38,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class ApotekBPJSMapingObat extends javax.swing.JDialog {
+public class ApotekBPJSMapingObat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -526,9 +526,9 @@ public final class ApotekBPJSMapingObat extends javax.swing.JDialog {
 }//GEN-LAST:event_btnPoliRSKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(kdobat.getText().trim().equals("")||TObat.getText().trim().equals("")){
+        if(kdobat.getText().trim().isEmpty()||TObat.getText().trim().isEmpty()){
             Valid.textKosong(kdobat,"Obat RS");
-        }else if(KdObatBPJS.getText().trim().equals("")||NmObatBPJS.getText().trim().equals("")){
+        }else if(KdObatBPJS.getText().trim().isEmpty()||NmObatBPJS.getText().trim().isEmpty()){
             Valid.textKosong(KdObatBPJS,"Obat Apotek BPJS");
         }else{
             if(Sequel.menyimpantf("maping_obat_apotek_bpjs","?,?,?","Mapping Obat",3,new String[]{
@@ -571,9 +571,9 @@ public final class ApotekBPJSMapingObat extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(kdobat.getText().trim().equals("")||TObat.getText().trim().equals("")){
+        if(kdobat.getText().trim().isEmpty()||TObat.getText().trim().isEmpty()){
             Valid.textKosong(kdobat,"Obat RS");
-        }else if(KdObatBPJS.getText().trim().equals("")||NmObatBPJS.getText().trim().equals("")){
+        }else if(KdObatBPJS.getText().trim().isEmpty()||NmObatBPJS.getText().trim().isEmpty()){
             Valid.textKosong(KdObatBPJS,"Obat Apotek BPJS");
         }else{
             if(tbJnsPerawatan.getSelectedRow()>-1){

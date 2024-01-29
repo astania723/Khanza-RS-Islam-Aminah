@@ -41,7 +41,8 @@ public class DlgPembayaranPerAKunBayar5 extends javax.swing.JDialog {
     private ResultSet rs,rsakunbayar;
     private double all=0,bayar=0;
     private int i,kolom=0,no=0,kolom2=0;
-    private String shift="",tanggal2="",petugas="";
+  private final String shift = "";
+    private String tanggal2="",petugas="";
     private StringBuilder htmlContent;
     private String[] namabayar,akunrekening,namarekening;
     private double[] totalbayar,totalbayar2;

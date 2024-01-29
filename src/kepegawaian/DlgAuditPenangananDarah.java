@@ -1057,7 +1057,7 @@ public class DlgAuditPenangananDarah extends javax.swing.JDialog {
                     ttlpembersihan_areal_tumbahan_darah=ttlpembersihan_areal_tumbahan_darah+pembersihan_areal_tumbahan_darah;
                     apd_dibuang_di_limbah_infeksius=Double.parseDouble(rs.getString("apd_dibuang_di_limbah_infeksius").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlapd_dibuang_di_limbah_infeksius=ttlapd_dibuang_di_limbah_infeksius+apd_dibuang_di_limbah_infeksius;
-                    melakukan_kebersihan_tangan_setelah_prosedur=Double.parseDouble(rs.getString("melakukan_kebersihan_tangan_setelah_prosedur").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    melakukan_kebersihan_tangan_setelah_prosedur=Double.parseDouble(rs.getString("melakukan_kebersihan_tangan_setelah_prosedur").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlmelakukan_kebersihan_tangan_setelah_prosedur=ttlmelakukan_kebersihan_tangan_setelah_prosedur+melakukan_kebersihan_tangan_setelah_prosedur;
                     ttlpenilaian=ttlpenilaian+(((menggunakan_apd_waktu_membuang_darah+komponen_darah_tidak_ada_dilantai+membuang_darah_pada_tempat_ditentukan+
                             pembersihan_areal_tumbahan_darah+apd_dibuang_di_limbah_infeksius+melakukan_kebersihan_tangan_setelah_prosedur)/6)*100);

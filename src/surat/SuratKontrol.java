@@ -119,7 +119,7 @@ public class SuratKontrol extends javax.swing.JDialog {
         TNoRM.setDocument(new batasInput((byte)15).getKata(TNoRM));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         Diagnosa.setDocument(new batasInput((int)50).getKata(Diagnosa));
-        Terapi.setDocument(new batasInput((int)50).getKata(Terapi));
+        Terapi.setDocument(new batasInput((int)200).getKata(Terapi));
         Alasan1.setDocument(new batasInput((int)50).getKata(Alasan1));
         Alasan2.setDocument(new batasInput((int)50).getKata(Alasan2));
         Rtl1.setDocument(new batasInput((int)50).getKata(Rtl1));
@@ -180,7 +180,7 @@ public class SuratKontrol extends javax.swing.JDialog {
         
         dokter.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {;}
+            public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override
@@ -203,7 +203,7 @@ public class SuratKontrol extends javax.swing.JDialog {
         
         dokter2.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {;}
+            public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override

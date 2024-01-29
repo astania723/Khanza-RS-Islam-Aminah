@@ -50,7 +50,7 @@ public class DlgRL4A extends javax.swing.JDialog {
         LoadHTML.setDocument(doc);
         LoadHTML1.setDocument(doc);
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private int i=0;
 
     /** This method is called from within the constructor to

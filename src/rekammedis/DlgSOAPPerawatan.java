@@ -19,12 +19,12 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 
 public class DlgSOAPPerawatan extends javax.swing.JDialog {
-    private sekuel Sequel=new sekuel();
-    private validasi Valid=new validasi();
-    private Connection koneksi=koneksiDB.condb();
+    private final sekuel Sequel=new sekuel();
+    private final validasi Valid=new validasi();
+    private final Connection koneksi=koneksiDB.condb();
     private PreparedStatement ps,ps2;
     private ResultSet rs,rs2;
-    private int i=0;
+    private final int i=0;
     
     /** Creates new form DlgProgramStudi
      * @param parent
@@ -50,7 +50,7 @@ public class DlgSOAPPerawatan extends javax.swing.JDialog {
         LoadHTML.setDocument(doc);
         LoadHTML.setDocument(doc);
     }
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
 
     /** This method is called from within the constructor to
      * initialize the form.
