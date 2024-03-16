@@ -80,13 +80,13 @@ public class KeuanganBayarPemesananFarmasi extends javax.swing.JDialog {
 
         Object[] row={"Tgl.Bayar","Tgl.Faktur","Tgl.Datang","Tgl.Tempo","No.Faktur","Supplier","Akun Bayar","No.Bukti","Pembayaran","Keterangan","Petugas","Nip","Nama"};
         tabMode=new DefaultTableModel(null,row){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             Class[] types = new Class[]{
                 java.lang.Object.class, java.lang.Object.class,java.lang.Object.class,java.lang.Object.class, 
                 java.lang.Object.class,java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class
             };
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1254,7 +1254,7 @@ private void BtnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble("besar_bayar");
+                    total += rs.getDouble("besar_bayar");
                     tabMode.addRow(new Object[]{
                         rs.getString("tgl_bayar"),rs.getString("tgl_faktur"),rs.getString("tgl_pesan"),
                         rs.getString("tgl_tempo"),rs.getString("no_faktur"),rs.getString("nama_suplier"),rs.getString("nama_bayar"),

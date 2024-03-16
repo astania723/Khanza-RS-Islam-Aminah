@@ -156,8 +156,8 @@ public class RMSkriningNutrisiLansia extends javax.swing.JDialog {
         RR.setDocument(new batasInput((byte)5).getKata(RR));
         Suhu.setDocument(new batasInput((byte)5).getKata(Suhu));
         SpO2.setDocument(new batasInput((byte)5).getKata(SpO2));
-        Alergi.setDocument(new batasInput((int)100).getKata(Alergi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Alergi.setDocument(new batasInput(100).getKata(Alergi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

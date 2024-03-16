@@ -441,7 +441,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 total=0;
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    total=total+rs.getDouble("total");
+                    total += rs.getDouble("total");
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("kd_obat"),rs.getString("nm_obat"),
                         rs.getString("satuan"),Valid.SetAngka(rs.getDouble("hargasatuan")),rs.getString("jumlah"),Valid.SetAngka(rs.getDouble("total"))

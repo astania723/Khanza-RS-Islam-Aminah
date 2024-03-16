@@ -1110,11 +1110,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         hewani=0;nabati=0;karbo=0;sayur=0;buah=0;x=0;
         for(i=0;i<tabMode.getRowCount();i++){
             if(!tbDataDiet.getValueAt(i,0).toString().isEmpty()){
-                karbo=karbo+Valid.SetInteger(tbDataDiet.getValueAt(i,6).toString());
-                hewani=hewani+Valid.SetInteger(tbDataDiet.getValueAt(i,7).toString());
-                nabati=nabati+Valid.SetInteger(tbDataDiet.getValueAt(i,8).toString());
-                sayur=sayur+Valid.SetInteger(tbDataDiet.getValueAt(i,9).toString());
-                buah=buah+Valid.SetInteger(tbDataDiet.getValueAt(i,10).toString());
+                karbo += Valid.SetInteger(tbDataDiet.getValueAt(i,6).toString());
+                hewani += Valid.SetInteger(tbDataDiet.getValueAt(i,7).toString());
+                nabati += Valid.SetInteger(tbDataDiet.getValueAt(i,8).toString());
+                sayur += Valid.SetInteger(tbDataDiet.getValueAt(i,9).toString());
+                buah += Valid.SetInteger(tbDataDiet.getValueAt(i,10).toString());
                 x++;
             }else{
                 tabMode.removeRow(i);

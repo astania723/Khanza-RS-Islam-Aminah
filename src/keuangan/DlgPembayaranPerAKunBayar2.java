@@ -708,7 +708,7 @@ public class DlgPembayaranPerAKunBayar2 extends javax.swing.JDialog {
                         }
                     }
                     if((petugas.toLowerCase().trim().contains(User.getText().toLowerCase().trim()))&&(rs.getString("nama_pasien").toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())||nonota.toLowerCase().trim().contains(TCari.getText().toLowerCase().trim()))){
-                        all=all+rs.getDouble("jumlah_bayar");
+                        all += rs.getDouble("jumlah_bayar");
                         htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(no).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_bayar")).append("</td><td valign='middle' align='center'>").append(nonota).append("</td><td valign='middle' align='left'>").append(rs.getString("nama_pasien")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("jumlah_bayar"))).append("</td><td valign='middle' align='left'>").append(petugas).append("</td>");
                         for(i=0;i<kolom;i++){
                             bayar=0;
@@ -731,7 +731,7 @@ public class DlgPembayaranPerAKunBayar2 extends javax.swing.JDialog {
                                 bayar=0;
                                 htmlContent.append("<td valign='middle' align='right'>Pemasukan Lain</td>");
                             }  
-                            totalbayar[i]=totalbayar[i]+bayar;
+                            totalbayar[i] += bayar;
                         }
                         htmlContent.append( 
                             "</tr>"
@@ -860,7 +860,7 @@ public class DlgPembayaranPerAKunBayar2 extends javax.swing.JDialog {
                         }
                     }
                     if((petugas.toLowerCase().trim().contains(User.getText().toLowerCase().trim()))&&(rs.getString("nama_pasien").toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())||nonota.toLowerCase().trim().contains(TCari.getText().toLowerCase().trim()))){
-                        all=all+rs.getDouble("jumlah_bayar");
+                        all += rs.getDouble("jumlah_bayar");
                         htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(no).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_bayar")).append("</td><td valign='middle' align='center'>").append(nonota).append("</td><td valign='middle' align='left'>").append(rs.getString("nama_pasien")).append("</td><td valign='middle' align='right'>").append(Math.round(rs.getDouble("jumlah_bayar"))).append("</td><td valign='middle' align='left'>").append(petugas).append("</td>");
                         for(i=0;i<kolom;i++){
                             bayar=0;
@@ -883,7 +883,7 @@ public class DlgPembayaranPerAKunBayar2 extends javax.swing.JDialog {
                                 bayar=0;
                                 htmlContent.append("<td valign='middle' align='right'>Pemasukan Lain</td>");
                             }  
-                            totalbayar[i]=totalbayar[i]+bayar;
+                            totalbayar[i] += bayar;
                         }
                         htmlContent.append( 
                             "</tr>"

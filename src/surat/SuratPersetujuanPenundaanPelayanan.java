@@ -135,15 +135,15 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));    
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));  
         NoSurat.setDocument(new batasInput((byte)20).getKata(NoSurat));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         NamaPJ.setDocument(new batasInput((byte)50).getKata(NamaPJ));
         UmurPJ.setDocument(new batasInput((byte)3).getKata(UmurPJ));
-        NoKTP.setDocument(new batasInput((int)20).getKata(NoKTP));  
-        AlamatPj.setDocument(new batasInput((int)100).getKata(AlamatPj));  
+        NoKTP.setDocument(new batasInput(20).getKata(NoKTP));  
+        AlamatPj.setDocument(new batasInput(100).getKata(AlamatPj));  
         NoTelpPJ.setDocument(new batasInput((byte)30).getKata(NoTelpPJ));   
         PoliRuangan.setDocument(new batasInput((byte)40).getKata(PoliRuangan));   
         DokterPengirim.setDocument(new batasInput((byte)40).getKata(DokterPengirim));   
-        PelayananDilakukan.setDocument(new batasInput((int)120).getKata(PelayananDilakukan));   
+        PelayananDilakukan.setDocument(new batasInput(120).getKata(PelayananDilakukan));   
         KeteranganAlternatifDiberikan.setDocument(new batasInput((byte)50).getKata(KeteranganAlternatifDiberikan));   
         KeteranganPenundaanPelayananKarena.setDocument(new batasInput((byte)50).getKata(KeteranganPenundaanPelayananKarena));   
         

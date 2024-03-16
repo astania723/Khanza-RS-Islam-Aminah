@@ -616,12 +616,12 @@ public class DlgBarcodeRanap extends javax.swing.JDialog {
                         tbTindakan.getValueAt(i,10).toString(),tbTindakan.getValueAt(i,4).toString()
                     })==true){
                         //"P"0,"Kode"1,"Nama Perawatan"2,"Kategori Perawatan"3,"Tarif/Biaya"4,"Bagian RS"5,"BHP"6,"JM Dokter"7,"JM Perawat"8,"KSO"9,"Menejemen"10
-                        ttljmdokter=ttljmdokter+Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
-                        ttlkso=ttlkso+Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
-                        ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
-                        ttljasasarana=ttljasasarana+Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
-                        ttlbhp=ttlbhp+Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
-                        ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
+                        ttljmdokter += Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
+                        ttlkso += Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
+                        ttlpendapatan += Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
+                        ttljasasarana += Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
+                        ttlbhp += Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
+                        ttlmenejemen += Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
                     }else{
                         sukses=false;
                     }
@@ -691,7 +691,7 @@ public class DlgBarcodeRanap extends javax.swing.JDialog {
                                             }
                                             ttljual=ttljual+Double.parseDouble(tbObat.getValueAt(i,9).toString())+Double.parseDouble(tbObat.getValueAt(i,10).toString())+
                                                     (Double.parseDouble(tbObat.getValueAt(i,6).toString())*(Double.parseDouble(tbObat.getValueAt(i,1).toString())/carikapasitas.getDouble(1)));
-                                            ttlhpp=ttlhpp+(Double.parseDouble(tbObat.getValueAt(i,11).toString())*(Double.parseDouble(tbObat.getValueAt(i,1).toString())/carikapasitas.getDouble(1)));
+                                            ttlhpp += (Double.parseDouble(tbObat.getValueAt(i,11).toString())*(Double.parseDouble(tbObat.getValueAt(i,1).toString())/carikapasitas.getDouble(1)));
                                         }else{
                                             sukses=false;
                                         }  
@@ -716,7 +716,7 @@ public class DlgBarcodeRanap extends javax.swing.JDialog {
                                             }
                                             ttljual=ttljual+Double.parseDouble(tbObat.getValueAt(i,9).toString())+Double.parseDouble(tbObat.getValueAt(i,10).toString())+
                                                     (Double.parseDouble(tbObat.getValueAt(i,6).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
-                                            ttlhpp=ttlhpp+(Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
+                                            ttlhpp += (Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
                                         }else{
                                             sukses=false;
                                         }                                   
@@ -753,7 +753,7 @@ public class DlgBarcodeRanap extends javax.swing.JDialog {
                                     }
                                     ttljual=ttljual+Double.parseDouble(tbObat.getValueAt(i,9).toString())+Double.parseDouble(tbObat.getValueAt(i,10).toString())+
                                             (Double.parseDouble(tbObat.getValueAt(i,6).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
-                                    ttlhpp=ttlhpp+(Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
+                                    ttlhpp += (Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
                                 }else{
                                     sukses=false;
                                 }                                  

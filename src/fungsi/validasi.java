@@ -57,6 +57,12 @@ import widget.TextBox;
  * @author Owner
  */
 public final class validasi {
+  /**
+   * Converts milliseconds to days
+   */
+  public static int milliToDay(long milli) {
+    return (int) ((double) milli / (1000 * 24 * 60 * 60));
+  }
     private int a,j,i,result=0;
     private String s,s1,auto,PEMBULATANHARGAOBAT=koneksiDB.PEMBULATANHARGAOBAT();
     private final Connection connect=koneksiDB.condb();
@@ -86,7 +92,7 @@ public final class validasi {
         j=s.length();
         s1="";
         for(i = 1;i<=pnj-j;i++){
-            s1=s1+"0";
+          s1 += "0";
         }
         teks.setText(strAwal+s1+s);
     }
@@ -101,7 +107,7 @@ public final class validasi {
                j=s.length();
                s1="";
                for(i = 1;i<=pnj-j;i++){
-                   s1=s1+"0";
+                 s1 += "0";
                }
                teks.setText(strAwal+s1+s);      
             }catch(Exception e){
@@ -130,7 +136,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText(strAwal+s1+s);
              }catch(Exception e){
@@ -162,7 +168,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText(strAwal+s1+s);
              }catch(Exception e){
@@ -195,7 +201,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText((strAwal+s1+s).substring(4,6)+(strAwal+s1+s).substring(2,4)+(strAwal+s1+s).substring(0,2));
              }catch(Exception e){
@@ -228,7 +234,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText((strAwal+s1+s).substring(2,4)+(strAwal+s1+s).substring(0,2)+(strAwal+s1+s).substring(4,6));
              }catch(Exception e){
@@ -261,7 +267,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText(s1+s+strAwal);
              }catch(Exception e){
@@ -292,7 +298,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 auto=strAwal+s1+s;             
              }catch(Exception e){
@@ -328,7 +334,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 auto=strAwal+s1+s;
              }catch(Exception e){
@@ -541,8 +547,7 @@ public final class validasi {
     public int jumlahHari(int month,int year){ 
         Calendar calendar=Calendar.getInstance(); 
         calendar.set(year, month-1,1); 
-        int days = calendar.getActualMaximum(Calendar.DAY_OF_MONTH); 
-        return days; 
+        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH); 
     } 
     
     public void loadCombo(JComboBox cmb,String query){
@@ -1163,7 +1168,9 @@ public final class validasi {
                 String[] browsers = {"x-www-browser","epiphany", "firefox", "mozilla", "konqueror","chrome","chromium","netscape","opera","links","lynx","midori"};
                 // Build a command string which looks like "browser1 "url" || browser2 "url" ||..."
                 StringBuilder cmd = new StringBuilder();
-                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/").append(url).append( "\" ");
+                for(i=0; i<browsers.length; i++) {
+                    cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/").append(url).append( "\" ");
+                }
                 rt.exec(new String[] { "sh", "-c", cmd.toString() });
             } 
         }catch (Exception e){
@@ -1183,7 +1190,9 @@ public final class validasi {
                 String[] browsers = {"x-www-browser","epiphany", "firefox", "mozilla", "konqueror","chrome","chromium","netscape","opera","links","lynx","midori"};
                 // Build a command string which looks like "browser1 "url" || browser2 "url" ||..."
                 StringBuilder cmd = new StringBuilder();
-                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append(url).append( "\" ");
+                for(i=0; i<browsers.length; i++) {
+                    cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append(url).append( "\" ");
+                }
                 rt.exec(new String[] { "sh", "-c", cmd.toString() });
             } 
         }catch (Exception e){
@@ -1268,8 +1277,7 @@ public final class validasi {
     
     public Date SetTgl2(String tgl){
         try {
-           Date dtpa = new SimpleDateFormat("yyyy-MM-dd").parse(tgl.replaceAll("'",""));
-           return dtpa;
+           return new SimpleDateFormat("yyyy-MM-dd").parse(tgl.replaceAll("'",""));
         } catch (ParseException ex) {
            return new Date();
         }
@@ -1437,14 +1445,10 @@ public final class validasi {
     
     public int daysOld(String path) {
         file=new File(path);
-        if (file.lastModified() < 1) return 0;
+        if (file.lastModified() < 1) {
+            return 0;
+        }
         return milliToDay(Calendar.getInstance().getTimeInMillis() - file.lastModified());
     }
 
-    /**
-     * Converts milliseconds to days
-     */
-    public static int milliToDay(long milli) {
-        return (int) ((double) milli / (1000 * 24 * 60 * 60));
-    }
 }

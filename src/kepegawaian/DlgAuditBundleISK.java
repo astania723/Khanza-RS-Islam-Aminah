@@ -102,7 +102,7 @@ public class DlgAuditBundleISK extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         KdRuang.setDocument(new batasInput((byte)20).getKata(KdRuang));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1097,22 +1097,22 @@ public class DlgAuditBundleISK extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     pemasangan_sesuai_indikasi=Double.parseDouble(rs.getString("pemasangan_sesuai_indikasi").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlpemasangan_sesuai_indikasi=ttlpemasangan_sesuai_indikasi+pemasangan_sesuai_indikasi;
+                    ttlpemasangan_sesuai_indikasi += pemasangan_sesuai_indikasi;
                     hand_hygiene=Double.parseDouble(rs.getString("hand_hygiene").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlhand_hygiene=ttlhand_hygiene+hand_hygiene;
+                    ttlhand_hygiene += hand_hygiene;
                     menggunakan_apd_yang_tepat=Double.parseDouble(rs.getString("menggunakan_apd_yang_tepat").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlmenggunakan_apd_yang_tepat=ttlmenggunakan_apd_yang_tepat+menggunakan_apd_yang_tepat;
+                    ttlmenggunakan_apd_yang_tepat += menggunakan_apd_yang_tepat;
                     pemasangan_menggunakan_alat_steril=Double.parseDouble(rs.getString("pemasangan_menggunakan_alat_steril").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlpemasangan_menggunakan_alat_steril=ttlpemasangan_menggunakan_alat_steril+pemasangan_menggunakan_alat_steril;
+                    ttlpemasangan_menggunakan_alat_steril += pemasangan_menggunakan_alat_steril;
                     segera_dilepas_setelah_tidak_diperlukan=Double.parseDouble(rs.getString("segera_dilepas_setelah_tidak_diperlukan").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsegera_dilepas_setelah_tidak_diperlukan=ttlsegera_dilepas_setelah_tidak_diperlukan+segera_dilepas_setelah_tidak_diperlukan;
+                    ttlsegera_dilepas_setelah_tidak_diperlukan += segera_dilepas_setelah_tidak_diperlukan;
                     pengisian_balon_sesuai_petunjuk=Double.parseDouble(rs.getString("pengisian_balon_sesuai_petunjuk").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlpengisian_balon_sesuai_petunjuk=ttlpengisian_balon_sesuai_petunjuk+pengisian_balon_sesuai_petunjuk;
+                    ttlpengisian_balon_sesuai_petunjuk += pengisian_balon_sesuai_petunjuk;
                     fiksasi_kateter_dengan_plester=Double.parseDouble(rs.getString("fiksasi_kateter_dengan_plester").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlfiksasi_kateter_dengan_plester=ttlfiksasi_kateter_dengan_plester+fiksasi_kateter_dengan_plester;
+                    ttlfiksasi_kateter_dengan_plester += fiksasi_kateter_dengan_plester;
                     urinebag_menggantung_tidak_menyentuh_lantai=Double.parseDouble(rs.getString("urinebag_menggantung_tidak_menyentuh_lantai").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlurinebag_menggantung_tidak_menyentuh_lantai=ttlurinebag_menggantung_tidak_menyentuh_lantai+urinebag_menggantung_tidak_menyentuh_lantai;
-                    ttlpenilaian=ttlpenilaian+(((pemasangan_sesuai_indikasi+hand_hygiene+menggunakan_apd_yang_tepat+pemasangan_menggunakan_alat_steril+segera_dilepas_setelah_tidak_diperlukan+pengisian_balon_sesuai_petunjuk+fiksasi_kateter_dengan_plester+urinebag_menggantung_tidak_menyentuh_lantai)/8)*100);
+                    ttlurinebag_menggantung_tidak_menyentuh_lantai += urinebag_menggantung_tidak_menyentuh_lantai;
+                    ttlpenilaian += (((pemasangan_sesuai_indikasi+hand_hygiene+menggunakan_apd_yang_tepat+pemasangan_menggunakan_alat_steril+segera_dilepas_setelah_tidak_diperlukan+pengisian_balon_sesuai_petunjuk+fiksasi_kateter_dengan_plester+urinebag_menggantung_tidak_menyentuh_lantai)/8)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("id_ruang"),rs.getString("nama_ruang"),rs.getString("pemasangan_sesuai_indikasi"),rs.getString("hand_hygiene"),
                         rs.getString("menggunakan_apd_yang_tepat"),rs.getString("pemasangan_menggunakan_alat_steril"),rs.getString("segera_dilepas_setelah_tidak_diperlukan"),rs.getString("pengisian_balon_sesuai_petunjuk"),rs.getString("fiksasi_kateter_dengan_plester"),rs.getString("urinebag_menggantung_tidak_menyentuh_lantai"),
@@ -1120,7 +1120,7 @@ public class DlgAuditBundleISK extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlpemasangan_sesuai_indikasi,""+ttlhand_hygiene,""+ttlmenggunakan_apd_yang_tepat,""+ttlpemasangan_menggunakan_alat_steril,""+ttlsegera_dilepas_setelah_tidak_diperlukan,""+ttlpengisian_balon_sesuai_petunjuk,""+ttlfiksasi_kateter_dengan_plester,""+ttlurinebag_menggantung_tidak_menyentuh_lantai,""+(pemasangan_sesuai_indikasi+hand_hygiene+menggunakan_apd_yang_tepat+pemasangan_menggunakan_alat_steril+segera_dilepas_setelah_tidak_diperlukan+pengisian_balon_sesuai_petunjuk+fiksasi_kateter_dengan_plester+urinebag_menggantung_tidak_menyentuh_lantai)

@@ -479,7 +479,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("tanggal"),rs.getString("selesaioperasi"),rs.getString("durasi")
                     });
                     i++;
-                    totaljam=totaljam+rs.getDouble("durasi");
+                    totaljam += rs.getDouble("durasi");
                     if(rs.getDouble("durasi")<=15){
                         limabelas++;
                     }else if((rs.getDouble("durasi")>15)&&(rs.getDouble("durasi")<=30)){

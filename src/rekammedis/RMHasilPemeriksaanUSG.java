@@ -45,7 +45,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
+public final class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -154,22 +154,22 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        HTA.setDocument(new batasInput((int)40).getKata(HTA));
-        JenisPrestasi.setDocument(new batasInput((int)30).getKata(JenisPrestasi));
-        UkuranKantong.setDocument(new batasInput((int)6).getKata(UkuranKantong));
-        UkuranBokong.setDocument(new batasInput((int)6).getKata(UkuranBokong));
-        DiameterBiparietal.setDocument(new batasInput((int)6).getKata(DiameterBiparietal));
-        PanjangFemur.setDocument(new batasInput((int)6).getKata(PanjangFemur));
-        LingkarAbdomen.setDocument(new batasInput((int)6).getKata(LingkarAbdomen));
-        TafsiranBerat.setDocument(new batasInput((int)6).getKata(TafsiranBerat));
-        UsiaKehamilan.setDocument(new batasInput((int)15).getKata(UsiaKehamilan));
-        Plasenta.setDocument(new batasInput((int)50).getKata(Plasenta));
-        IndexCairan.setDocument(new batasInput((int)40).getKata(IndexCairan));
-        Kelainan.setDocument(new batasInput((int)60).getKata(Kelainan));
-        Kesimpulan.setDocument(new batasInput((int)200).getKata(Kesimpulan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        HTA.setDocument(new batasInput(40).getKata(HTA));
+        JenisPrestasi.setDocument(new batasInput(30).getKata(JenisPrestasi));
+        UkuranKantong.setDocument(new batasInput(6).getKata(UkuranKantong));
+        UkuranBokong.setDocument(new batasInput(6).getKata(UkuranBokong));
+        DiameterBiparietal.setDocument(new batasInput(6).getKata(DiameterBiparietal));
+        PanjangFemur.setDocument(new batasInput(6).getKata(PanjangFemur));
+        LingkarAbdomen.setDocument(new batasInput(6).getKata(LingkarAbdomen));
+        TafsiranBerat.setDocument(new batasInput(6).getKata(TafsiranBerat));
+        UsiaKehamilan.setDocument(new batasInput(15).getKata(UsiaKehamilan));
+        Plasenta.setDocument(new batasInput(50).getKata(Plasenta));
+        IndexCairan.setDocument(new batasInput(40).getKata(IndexCairan));
+        Kelainan.setDocument(new batasInput(60).getKata(Kelainan));
+        Kesimpulan.setDocument(new batasInput(200).getKata(Kesimpulan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -534,7 +534,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         FormInput.setBackground(new java.awt.Color(255, 255, 255));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(750, 363));
+        FormInput.setPreferredSize(new java.awt.Dimension(750, 373));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -625,7 +625,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         label11.setBounds(538, 40, 52, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-11-2022 13:03:35" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-01-2024 08:15:26" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -882,7 +882,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         FormInput.add(jLabel127);
         jLabel127.setBounds(535, 230, 80, 23);
 
-        PeluangSex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki-laki", "Perempuan" }));
+        PeluangSex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki-laki", "Perempuan", "-" }));
         PeluangSex.setName("PeluangSex"); // NOI18N
         PeluangSex.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -955,7 +955,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-11-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-01-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -969,7 +969,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-11-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-01-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1025,7 +1025,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         PanelAccor.setPreferredSize(new java.awt.Dimension(430, 43));
         PanelAccor.setLayout(new java.awt.BorderLayout(1, 1));
 
-        ChkAccor.setBackground(new java.awt.Color(255,250,250));
+        ChkAccor.setBackground(new java.awt.Color(255, 250, 250));
         ChkAccor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kiri.png"))); // NOI18N
         ChkAccor.setSelected(true);
         ChkAccor.setFocusable(false);
@@ -1595,7 +1595,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
             panggilPhoto();
         }else{
             ChkAccor.setSelected(false);
-            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Pernyataan..!!!");
+            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Rawat..!!!");
         }
     }//GEN-LAST:event_ChkAccorActionPerformed
 
@@ -1609,7 +1609,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
                 Valid.panggilUrl("hasilpemeriksaanusg/login.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&no_rawat="+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 this.setCursor(Cursor.getDefaultCursor()); 
             }else{
-                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
             }
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
@@ -1618,7 +1618,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         if(tbObat.getSelectedRow()>-1){
             panggilPhoto();
         }else{
-            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
         }
     }//GEN-LAST:event_BtnRefreshPhoto1ActionPerformed
 

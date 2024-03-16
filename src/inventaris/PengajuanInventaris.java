@@ -106,10 +106,10 @@ public class PengajuanInventaris extends javax.swing.JDialog {
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
-        NamaBarang.setDocument(new batasInput((int)70).getKata(NamaBarang));
-        LatarBelakang.setDocument(new batasInput((int)200).getKata(LatarBelakang));
-        Spesifikasi.setDocument(new batasInput((int)200).getKata(Spesifikasi));
-        Keterangan.setDocument(new batasInput((int)70).getKata(Keterangan));
+        NamaBarang.setDocument(new batasInput(70).getKata(NamaBarang));
+        LatarBelakang.setDocument(new batasInput(200).getKata(LatarBelakang));
+        Spesifikasi.setDocument(new batasInput(200).getKata(Spesifikasi));
+        Keterangan.setDocument(new batasInput(70).getKata(Keterangan));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         Jumlah.setDocument(new batasInput((byte)4).getOnlyAngka(Jumlah));
         Harga.setDocument(new batasInput((byte)20).getOnlyAngka(Harga));
@@ -1446,7 +1446,7 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         rs.getString("jumlah"),Valid.SetAngka(rs.getDouble("harga")),Valid.SetAngka(rs.getDouble("total")),rs.getString("keterangan"),
                         rs.getString("nik_pj"),rs.getString("namapj"),rs.getString("status")
                     });
-                    total=total+rs.getDouble("total");
+                    total += rs.getDouble("total");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);

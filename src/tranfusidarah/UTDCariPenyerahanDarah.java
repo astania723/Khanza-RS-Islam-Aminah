@@ -1428,8 +1428,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                 rs2.getString("asal_darah"),rs2.getString("tanggal_aftap")+" | "+rs2.getString("tanggal_kadaluarsa"),
                                 Valid.SetAngka(rs2.getDouble("total"))
                             });
-                            subtotalpendapatan=subtotalpendapatan+rs2.getDouble("total");
-                            pendapatan=pendapatan+rs2.getDouble("total");
+                            subtotalpendapatan += rs2.getDouble("total");
+                            pendapatan += rs2.getDouble("total");
                             no++;
                         }
                         if(subtotalpendapatan>0){
@@ -1467,7 +1467,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                     rs2.getString("jml"),rs2.getString("kode_sat"),Valid.SetAngka(rs2.getDouble("harga")),
                                     Valid.SetAngka(rs2.getDouble("total"))
                                 });
-                                subtotalmedis=subtotalmedis+rs2.getDouble("total");
+                                subtotalmedis += rs2.getDouble("total");
                                 no++;
                             }
                             if(subtotalmedis>0){
@@ -1504,7 +1504,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                     rs2.getString("jml"),rs2.getString("kode_sat"),Valid.SetAngka(rs2.getDouble("harga")),
                                     Valid.SetAngka(rs2.getDouble("total"))
                                 });
-                                subtotalnonmedis=subtotalnonmedis+rs2.getDouble("total");
+                                subtotalnonmedis += rs2.getDouble("total");
                                 no++;
                             }
                             if(subtotalnonmedis>0){
@@ -1541,7 +1541,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                     rs2.getString("jml"),rs2.getString("kode_sat"),Valid.SetAngka(rs2.getDouble("harga")),
                                     Valid.SetAngka(rs2.getDouble("total"))
                                 });
-                                subtotalmedis=subtotalmedis+rs2.getDouble("total");
+                                subtotalmedis += rs2.getDouble("total");
                                 no++;
                             }
                             if(subtotalmedis>0){
@@ -1578,7 +1578,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                     rs2.getString("jml"),rs2.getString("kode_sat"),Valid.SetAngka(rs2.getDouble("harga")),
                                     Valid.SetAngka(rs2.getDouble("total"))
                                 });
-                                subtotalnonmedis=subtotalnonmedis+rs2.getDouble("total");
+                                subtotalnonmedis += rs2.getDouble("total");
                                 no++;
                             }
                             if(subtotalnonmedis>0){

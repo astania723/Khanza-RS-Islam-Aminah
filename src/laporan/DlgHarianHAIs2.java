@@ -607,33 +607,33 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 rs=ps.executeQuery();
                 while(rs.next()){
                     if(rs.getString("DEKU").equals("IYA")){
-                        jmldeku=jmldeku+1;
+                        jmldeku += 1;
                     }
                     if(!rs.getString("URINE").isEmpty()){
-                        jmlurine=jmlurine+1;
+                        jmlurine += 1;
                     }
                     if(!rs.getString("SPUTUM").isEmpty()){
-                        jmlsputum=jmlsputum+1;
+                        jmlsputum += 1;
                     }
                     if(!rs.getString("DARAH").isEmpty()){
-                        jmldarah=jmldarah+1;
+                        jmldarah += 1;
                     }
                     if(!rs.getString("ANTIBIOTIK").isEmpty()){
-                        jmlANTIBIOTIK=jmlANTIBIOTIK+1;
+                        jmlANTIBIOTIK += 1;
                     }
                     
-                    jmlETT=jmlETT+rs.getInt("ETT");
-                    jmlCVL=jmlCVL+rs.getInt("CVL");
-                    jmlIVL=jmlIVL+rs.getInt("IVL");
-                    jmlUC=jmlUC+rs.getInt("UC");
-                    jmlVAP=jmlVAP+rs.getInt("VAP");
-                    jmlIAD=jmlIAD+rs.getInt("IAD");
-                    jmlPLEB=jmlPLEB+rs.getInt("PLEB");
-                    jmlISK=jmlISK+rs.getInt("ISK");
-                    jmlILO=jmlILO+rs.getInt("ILO");
-                    jmlHAP=jmlHAP+rs.getInt("HAP");
-                    jmlTinea=jmlTinea+rs.getInt("Tinea");
-                    jmlScabies=jmlScabies+rs.getInt("Scabies");
+                    jmlETT += rs.getInt("ETT");
+                    jmlCVL += rs.getInt("CVL");
+                    jmlIVL += rs.getInt("IVL");
+                    jmlUC += rs.getInt("UC");
+                    jmlVAP += rs.getInt("VAP");
+                    jmlIAD += rs.getInt("IAD");
+                    jmlPLEB += rs.getInt("PLEB");
+                    jmlISK += rs.getInt("ISK");
+                    jmlILO += rs.getInt("ILO");
+                    jmlHAP += rs.getInt("HAP");
+                    jmlTinea += rs.getInt("Tinea");
+                    jmlScabies += rs.getInt("Scabies");
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tanggal")).append("</td><td valign='middle' align='center'>").append(rs.getString("ETT")).append("</td><td valign='middle' align='center'>").append(rs.getString("CVL")).append("</td><td valign='middle' align='center'>").append(rs.getString("IVL")).append("</td><td valign='middle' align='center'>").append(rs.getString("UC")).append("</td><td valign='middle' align='center'>").append(rs.getString("VAP")).append("</td><td valign='middle' align='center'>").append(rs.getString("IAD")).append("</td><td valign='middle' align='center'>").append(rs.getString("PLEB")).append("</td><td valign='middle' align='center'>").append(rs.getString("ISK")).append("</td><td valign='middle' align='center'>").append(rs.getString("ILO")).append("</td><td valign='middle' align='center'>").append(rs.getString("HAP")).append("</td><td valign='middle' align='center'>").append(rs.getString("Tinea")).append("</td><td valign='middle' align='center'>").append(rs.getString("Scabies")).append("</td><td valign='middle' align='center'>").append(rs.getString("DEKU")).append("</td><td valign='middle' align='left'>").append(rs.getString("SPUTUM")).append("</td><td valign='middle' align='left'>").append(rs.getString("DARAH")).append("</td><td valign='middle' align='left'>").append(rs.getString("URINE")).append("</td><td valign='middle' align='left'>").append(rs.getString("ANTIBIOTIK")).append("</td><td valign='middle' align='left'>").append(rs.getString("ruang")).append("</td></tr>");
                     i++;
                 }

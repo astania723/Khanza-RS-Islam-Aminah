@@ -128,7 +128,7 @@ public class RMDataCatatanObservasiRanapPostPartum extends javax.swing.JDialog {
         Kontraksi.setDocument(new batasInput((byte)15).getKata(Kontraksi));
         Perdarahan.setDocument(new batasInput((byte)15).getKata(Perdarahan));
         Keterangan.setDocument(new batasInput((byte)30).getKata(Keterangan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

@@ -788,30 +788,30 @@ public class DlgUbahPeriksaLab extends javax.swing.JDialog {
                               "' and tgl_periksa='"+Tanggal.getText() +
                               "' and jam='"+Jam.getText() +"'");
                     
-                    ttljmdokter=ttljmdokter+Sequel.cariIsiAngka("select sum(bagian_dokter) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
-                    ttljmpetugas=ttljmpetugas+Sequel.cariIsiAngka("select sum(bagian_laborat) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
-                    ttlkso=ttlkso+Sequel.cariIsiAngka("select sum(kso) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
-                    ttlbhp=ttlbhp+Sequel.cariIsiAngka("select sum(bhp) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
-                    ttlpendapatan=ttlpendapatan+Sequel.cariIsiAngka("select sum(biaya_item) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
-                    ttljasasarana=ttljasasarana+Sequel.cariIsiAngka("select sum(bagian_rs) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
-                    ttljmperujuk=ttljmperujuk+Sequel.cariIsiAngka("select sum(bagian_perujuk) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
-                    ttlmenejemen=ttlmenejemen+Sequel.cariIsiAngka("select sum(menejemen) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
-                              "' and tgl_periksa='"+Tanggal.getText() +
-                              "' and jam='"+Jam.getText() +"'");
+                    ttljmdokter += Sequel.cariIsiAngka("select sum(bagian_dokter) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
+                    ttljmpetugas += Sequel.cariIsiAngka("select sum(bagian_laborat) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
+                    ttlkso += Sequel.cariIsiAngka("select sum(kso) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
+                    ttlbhp += Sequel.cariIsiAngka("select sum(bhp) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
+                    ttlpendapatan += Sequel.cariIsiAngka("select sum(biaya_item) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
+                    ttljasasarana += Sequel.cariIsiAngka("select sum(bagian_rs) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
+                    ttljmperujuk += Sequel.cariIsiAngka("select sum(bagian_perujuk) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
+                    ttlmenejemen += Sequel.cariIsiAngka("select sum(menejemen) from detail_periksa_lab where no_rawat='"+TNoRw.getText() +
+                            "' and tgl_periksa='"+Tanggal.getText() +
+                            "' and jam='"+Jam.getText() +"'");
                     
                     status=Sequel.cariIsi("select status from periksa_lab where periksa_lab.kategori='PK' and no_rawat='"+TNoRw.getText() +
                                   "' and tgl_periksa='"+Tanggal.getText() +
@@ -912,14 +912,14 @@ public class DlgUbahPeriksaLab extends javax.swing.JDialog {
                                         tbTarif.getValueAt(i,7).toString(),tbTarif.getValueAt(i,8).toString(),tbTarif.getValueAt(i,9).toString(),
                                         tbTarif.getValueAt(i,10).toString(),tbTarif.getValueAt(i,3).toString(),KodePj.getText(),status  
                                     })==true){
-                                        ttlbhp=ttlbhp+Double.parseDouble(tbTarif.getValueAt(i,5).toString());
-                                        ttljmdokter=ttljmdokter+Double.parseDouble(tbTarif.getValueAt(i,7).toString());
-                                        ttljmpetugas=ttljmpetugas+Double.parseDouble(tbTarif.getValueAt(i,8).toString());
-                                        ttlkso=ttlkso+Double.parseDouble(tbTarif.getValueAt(i,9).toString()); 
-                                        ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTarif.getValueAt(i,3).toString());      
-                                        ttljasasarana=ttljasasarana+Double.parseDouble(tbTarif.getValueAt(i,4).toString());
-                                        ttljmperujuk=ttljmperujuk+Double.parseDouble(tbTarif.getValueAt(i,6).toString());
-                                        ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTarif.getValueAt(i,10).toString());
+                                        ttlbhp += Double.parseDouble(tbTarif.getValueAt(i,5).toString());
+                                        ttljmdokter += Double.parseDouble(tbTarif.getValueAt(i,7).toString());
+                                        ttljmpetugas += Double.parseDouble(tbTarif.getValueAt(i,8).toString());
+                                        ttlkso += Double.parseDouble(tbTarif.getValueAt(i,9).toString()); 
+                                        ttlpendapatan += Double.parseDouble(tbTarif.getValueAt(i,3).toString());      
+                                        ttljasasarana += Double.parseDouble(tbTarif.getValueAt(i,4).toString());
+                                        ttljmperujuk += Double.parseDouble(tbTarif.getValueAt(i,6).toString());
+                                        ttlmenejemen += Double.parseDouble(tbTarif.getValueAt(i,10).toString());
                                 }else{
                                     sukses=false;
                                 }   
@@ -940,14 +940,14 @@ public class DlgUbahPeriksaLab extends javax.swing.JDialog {
                                                     tbPemeriksaan.getValueAt(i,8).toString(),tbPemeriksaan.getValueAt(i,9).toString(),tbPemeriksaan.getValueAt(i,10).toString(),tbPemeriksaan.getValueAt(i,11).toString(),
                                                     tbPemeriksaan.getValueAt(i,12).toString(),tbPemeriksaan.getValueAt(i,13).toString(),tbPemeriksaan.getValueAt(i,14).toString(),tbPemeriksaan.getValueAt(i,7).toString()
                                                 })==true){
-                                                    ttlbhp=ttlbhp+Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString());
-                                                    ttljmdokter=ttljmdokter+Double.parseDouble(tbPemeriksaan.getValueAt(i,11).toString());
-                                                    ttljmpetugas=ttljmpetugas+Double.parseDouble(tbPemeriksaan.getValueAt(i,12).toString());
-                                                    ttlkso=ttlkso+Double.parseDouble(tbPemeriksaan.getValueAt(i,13).toString()); 
-                                                    ttlpendapatan=ttlpendapatan+Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());     
-                                                    ttljasasarana=ttljasasarana+Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
-                                                    ttljmperujuk=ttljmperujuk+Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
-                                                    ttlmenejemen=ttlmenejemen+Double.parseDouble(tbPemeriksaan.getValueAt(i,14).toString()); 
+                                                    ttlbhp += Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString());
+                                                    ttljmdokter += Double.parseDouble(tbPemeriksaan.getValueAt(i,11).toString());
+                                                    ttljmpetugas += Double.parseDouble(tbPemeriksaan.getValueAt(i,12).toString());
+                                                    ttlkso += Double.parseDouble(tbPemeriksaan.getValueAt(i,13).toString()); 
+                                                    ttlpendapatan += Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());     
+                                                    ttljasasarana += Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
+                                                    ttljmperujuk += Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
+                                                    ttlmenejemen += Double.parseDouble(tbPemeriksaan.getValueAt(i,14).toString()); 
                                             }else{
                                                 sukses=false;
                                             }

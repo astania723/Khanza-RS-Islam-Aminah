@@ -373,7 +373,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         }else{
                             tabMode.addRow(new Object[]{"","","",rstambahan.getString("nama_pengurangan"),rstambahan.getDouble("besar_pengurangan")});
                         }
-                        jumlah=jumlah+rstambahan.getDouble("besar_pengurangan");
+                        jumlah += rstambahan.getDouble("besar_pengurangan");
                         a++;
                     }                    
                 }

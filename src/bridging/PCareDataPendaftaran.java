@@ -70,7 +70,7 @@ import rekammedis.RMRiwayatPerawatan;
  *
  * @author perpustakaan
  */
-public class PCareDataPendaftaran extends javax.swing.JDialog {
+public final class PCareDataPendaftaran extends javax.swing.JDialog {
     private DefaultTableModel tabMode,tabMode2,tabMode3;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -364,7 +364,7 @@ public class PCareDataPendaftaran extends javax.swing.JDialog {
         TCari1.setDocument(new batasInput((byte)100).getKata(TCari1));
         TCari2.setDocument(new batasInput((byte)100).getKata(TCari2));
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Keluhan.setDocument(new batasInput((int)400).getKata(Keluhan));
+        Keluhan.setDocument(new batasInput(400).getKata(Keluhan));
         Sistole.setDocument(new batasInput((byte)3).getOnlyAngka(Sistole));
         Diastole.setDocument(new batasInput((byte)3).getOnlyAngka(Diastole));
         TinggiBadan.setDocument(new batasInput((byte)5).getOnlyAngka(TinggiBadan));
@@ -4924,7 +4924,7 @@ public class PCareDataPendaftaran extends javax.swing.JDialog {
                                         "\"signa1\": "+signa1+"," +
                                         "\"signa2\": "+signa2+"," +
                                         "\"jmlObat\": "+rscari.getString("jml")+"," +
-                                        "\"jmlPermintaan\": 0," +
+                                        "\"jmlPermintaan\": "+rscari.getString("jml")+"," +
                                         "\"nmObatNonDPHO\": \"-\"" +
                                      "}";
                                     System.out.println(requestJson);
@@ -5980,6 +5980,9 @@ public class PCareDataPendaftaran extends javax.swing.JDialog {
         NmDiagnosa1.setText("");
         NmDiagnosa2.setText("");
         NmDiagnosa3.setText("");
+        StatusDiagnosa1.setText("");
+        StatusDiagnosa2.setText("");
+        StatusDiagnosa3.setText("");
         KdPPKRujukan.setText("");
         NmPPKRujukan.setText("");
         KdSubSpesialis.setText("");
@@ -7278,6 +7281,11 @@ public class PCareDataPendaftaran extends javax.swing.JDialog {
         public String getMethod() {
             return "DELETE";
         }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     }
 
     @Test
@@ -7850,7 +7858,7 @@ public class PCareDataPendaftaran extends javax.swing.JDialog {
                                                             "\"signa1\": "+signa1+"," +
                                                             "\"signa2\": "+signa2+"," +
                                                             "\"jmlObat\": "+rscari.getString("jml")+"," +
-                                                            "\"jmlPermintaan\": 0," +
+                                                            "\"jmlPermintaan\": "+rscari.getString("jml")+"," +
                                                             "\"nmObatNonDPHO\": \"-\"" +
                                                          "}";
                                                         PesanKirim.append(requestJson+"\n");

@@ -93,7 +93,7 @@ public class DlgAuditBundleIDO extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         KdRuang.setDocument(new batasInput((byte)20).getKata(KdRuang));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -985,21 +985,21 @@ public class DlgAuditBundleIDO extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     pencukuran_rambut=Double.parseDouble(rs.getString("pencukuran_rambut").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlpencukuran_rambut=ttlpencukuran_rambut+pencukuran_rambut;
+                    ttlpencukuran_rambut += pencukuran_rambut;
                     antibiotik=Double.parseDouble(rs.getString("antibiotik").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlantibiotik=ttlantibiotik+antibiotik;
+                    ttlantibiotik += antibiotik;
                     temperature=Double.parseDouble(rs.getString("temperature").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttltemperature=ttltemperature+temperature;
+                    ttltemperature += temperature;
                     sugar=Double.parseDouble(rs.getString("sugar").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsugar=ttlsugar+sugar;
-                    ttlpenilaian=ttlpenilaian+(((pencukuran_rambut+antibiotik+temperature+sugar)/4)*100);
+                    ttlsugar += sugar;
+                    ttlpenilaian += (((pencukuran_rambut+antibiotik+temperature+sugar)/4)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("id_ruang"),rs.getString("nama_ruang"),rs.getString("pencukuran_rambut"),rs.getString("antibiotik"),
                         rs.getString("temperature"),rs.getString("sugar"),Math.round(((pencukuran_rambut+antibiotik+temperature+sugar)/4)*100)+" %"
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlpencukuran_rambut,""+ttlantibiotik,""+ttltemperature,""+ttlsugar,""+(ttlpencukuran_rambut+ttlantibiotik+ttltemperature+ttlsugar)

@@ -456,9 +456,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     batal=Sequel.cariInteger("select count(kd_dokter) from reg_periksa where tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' and kd_dokter='"+rs.getString("kd_dokter")+"' and stts='Batal'");
                     total=Sequel.cariInteger("select count(kd_dokter) from reg_periksa where tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' and kd_dokter='"+rs.getString("kd_dokter")+"'");
                     periksa=total-batal;
-                    ttlbatal=ttlbatal+batal;
-                    ttlperiksa=ttlperiksa+periksa;
-                    ttltotal=ttltotal+total;
+                    ttlbatal += batal;
+                    ttlperiksa += periksa;
+                    ttltotal += total;
                     tabMode.addRow(new Object[]{
                         i+".",rs.getString("kd_dokter"),rs.getString("nm_dokter"),total,batal,periksa
                     });                 

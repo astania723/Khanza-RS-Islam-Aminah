@@ -70,14 +70,6 @@ public class DlgBarang extends javax.swing.JDialog {
             "Stok Min", "Kode Jenis", "Nama Jenis","Kadaluwarsa","Kode I.F.","Industri Farmasi","Kode Kategori","Kategori",
             "Kode Golongan","Golongan"
         }) {
-            @Override
-            public boolean isCellEditable(int rowIndex, int colIndex) {
-                boolean a = false;
-                if (colIndex == 0) {
-                    a = true;
-                }
-                return a;
-            }
             Class[] types = new Class[]{
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Double.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
@@ -87,6 +79,14 @@ public class DlgBarang extends javax.swing.JDialog {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class
             };
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+              boolean a = false;
+              if (colIndex == 0) {
+                a = true;
+              }
+              return a;
+            }
 
             @Override
             public Class getColumnClass(int columnIndex) {
@@ -2835,7 +2835,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 rs3 = ps3.executeQuery();
                                 if (rs3.next()) {
                                     stokgudang = rs3.getDouble(1);
-                                    totalstok = totalstok + rs3.getDouble(1);
+                                    totalstok += rs3.getDouble(1);
                                 }
                                 tabMode.addRow(new Object[]{false, "","    "+rs2.getString(2),": " + stokgudang, "", null,null,null,null,null, null, null, null, null, null, null, null, null, null, null, null,null,null, null,null,null,null,null,null,null});
                             } catch (Exception e) {
@@ -3409,14 +3409,6 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 "Stok Min", "Kode Jenis", "Nama Jenis","Kadaluwarsa","Kode I.F.","Industri Farmasi","Kode Kategori","Kategori",
                 "Kode Golongan","Golongan","No.Batch","No.Faktur"
             }) {
-                @Override
-                public boolean isCellEditable(int rowIndex, int colIndex) {
-                    boolean a = false;
-                    if (colIndex == 0) {
-                        a = true;
-                    }
-                    return a;
-                }
                 Class[] types = new Class[]{
                     java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                     java.lang.Double.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
@@ -3426,6 +3418,14 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                     java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
                 };
+                @Override
+                public boolean isCellEditable(int rowIndex, int colIndex) {
+                  boolean a = false;
+                  if (colIndex == 0) {
+                    a = true;
+                  }
+                  return a;
+                }
 
                 @Override
                 public Class getColumnClass(int columnIndex) {

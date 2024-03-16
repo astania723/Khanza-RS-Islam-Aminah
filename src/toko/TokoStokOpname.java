@@ -775,8 +775,8 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
                 rstampil=pstampil.executeQuery();
                 total=0;
                 while(rstampil.next()){                
-                    totalreal=totalreal+rstampil.getDouble(9); 
-                    total=total+rstampil.getDouble(10);
+                    totalreal += rstampil.getDouble(9); 
+                    total += rstampil.getDouble(10);
                     tabMode.addRow(new Object[]{rstampil.getString(1),
                        rstampil.getString(2),df2.format(rstampil.getDouble(3)),
                        rstampil.getString(4),rstampil.getString(5),rstampil.getString(6),

@@ -99,11 +99,11 @@ public class KeslingMutuAirLimbah extends javax.swing.JDialog {
 
         Meteran.setDocument(new batasInput((byte)10).getKata(Meteran));
         JmlHarian.setDocument(new batasInput((byte)10).getKata(JmlHarian));
-        PH.setDocument(new batasInput((int)10).getKata(PH));
-        Suhu.setDocument(new batasInput((int)10).getKata(Suhu));
-        Salt.setDocument(new batasInput((int)10).getKata(Salt));
-        TDS.setDocument(new batasInput((int)10).getKata(TDS));
-        EC.setDocument(new batasInput((int)10).getKata(EC));
+        PH.setDocument(new batasInput(10).getKata(PH));
+        Suhu.setDocument(new batasInput(10).getKata(Suhu));
+        Salt.setDocument(new batasInput(10).getKata(Salt));
+        TDS.setDocument(new batasInput(10).getKata(TDS));
+        EC.setDocument(new batasInput(10).getKata(EC));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1013,12 +1013,12 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     tabMode.addRow(new String[]{
                         i+"",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)
                     });
-                    total=total+rs.getDouble(5);
-                    ph=ph+rs.getDouble(6);
-                    suhu=suhu+rs.getDouble(7);
-                    tds=tds+rs.getDouble(8);
-                    ec=ec+rs.getDouble(9);
-                    salt=salt+rs.getDouble(10);
+                    total += rs.getDouble(5);
+                    ph += rs.getDouble(6);
+                    suhu += rs.getDouble(7);
+                    tds += rs.getDouble(8);
+                    ec += rs.getDouble(9);
+                    salt += rs.getDouble(10);
                     i++;
                 }
             } catch (Exception e) {

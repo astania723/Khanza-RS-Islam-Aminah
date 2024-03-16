@@ -1559,12 +1559,12 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                     try {
                         rs2=ps2.executeQuery();
                         while(rs2.next()){
-                            ttlall=ttlall+rs2.getDouble(7);
-                            subttlall=subttlall+rs2.getDouble(7);
-                            ttldisc=ttldisc+rs2.getDouble(9);
-                            subttldisc=subttldisc+rs2.getDouble(9);
-                            ttljual=ttljual+rs2.getDouble(10);
-                            subttljual=subttljual+rs2.getDouble(10);
+                            ttlall += rs2.getDouble(7);
+                            subttlall += rs2.getDouble(7);
+                            ttldisc += rs2.getDouble(9);
+                            subttldisc += rs2.getDouble(9);
+                            ttljual += rs2.getDouble(10);
+                            subttljual += rs2.getDouble(10);
                             tabMode.addRow(new String[]{
                                 "",no+". "+rs2.getString("no_batch"),rs2.getString("no_faktur"),rs2.getString("kode_brng")+" "+rs2.getString("nama_brng")+" "+rs2.getString("aturan_pakai"),
                                 rs2.getString("satuan"),df2.format(rs2.getDouble("h_jual")),rs2.getString("jumlah"),df2.format(rs2.getDouble("subtotal")),

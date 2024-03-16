@@ -44,7 +44,7 @@ import simrskhanza.DlgKelurahan;
  *
  * @author perpustakaan
  */
-public class DlgKunjunganRanap extends javax.swing.JDialog {
+public final class DlgKunjunganRanap extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -167,7 +167,7 @@ public class DlgKunjunganRanap extends javax.swing.JDialog {
         }
         tbBangsal2.setDefaultRenderer(Object.class, new WarnaTable());
 
-        TCari.setDocument(new batasInput((int)90).getKata(TCari));
+        TCari.setDocument(new batasInput(90).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -1368,7 +1368,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             ps2.setString(1,rs.getString("no_rawat"));
                             rs2=ps2.executeQuery();                    
                             while(rs2.next()){
-                                dokterdpjp=rs2.getString("nm_dokter");
+                                dokterdpjp=rs2.getString("nm_dokter")+", "+dokterdpjp;
                             }
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -1528,7 +1528,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             ps2.setString(1,rs.getString("no_rawat"));
                             rs2=ps2.executeQuery();                    
                             while(rs2.next()){
-                                dokterdpjp=rs2.getString("nm_dokter");
+                                dokterdpjp=rs2.getString("nm_dokter")+", "+dokterdpjp;
                             }
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);

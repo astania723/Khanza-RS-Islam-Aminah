@@ -1182,7 +1182,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 } catch (Exception e) {
                     y=0;           
                 }
-                ttl=ttl+y;
+                ttl += y;
             }
             
             ttl2=0;
@@ -1193,7 +1193,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 } catch (Exception e) {
                     y=0;           
                 }
-                ttl2=ttl2+y;
+                ttl2 += y;
             }
             LTotal.setText(Valid.SetAngka(ttl));
             LTotal1.setText(Valid.SetAngka(ttl2));

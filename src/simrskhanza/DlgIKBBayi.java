@@ -244,7 +244,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 
         NoRm.setDocument(new batasInput((byte)15).getKata(NoRm));
         NmBayi.setDocument(new batasInput((byte)40).getKata(NmBayi));
-        AlamatIbu.setDocument(new batasInput((int)200).getKata(AlamatIbu));
+        AlamatIbu.setDocument(new batasInput(200).getKata(AlamatIbu));
         Nmibu.setDocument(new batasInput((byte)50).getKata(Nmibu));
         UmurIbu.setDocument(new batasInput((byte)8).getKata(UmurIbu));
         NmAyah.setDocument(new batasInput((byte)50).getKata(NmAyah));
@@ -270,10 +270,10 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         G.setDocument(new batasInput((byte)10).getKata(G));
         P.setDocument(new batasInput((byte)10).getKata(P));
         A.setDocument(new batasInput((byte)10).getKata(A));
-        Resusitas.setDocument(new batasInput((int)100).getKata(Resusitas));
-        ObatDiberikan.setDocument(new batasInput((int)300).getKata(ObatDiberikan));
-        Mikasi.setDocument(new batasInput((int)100).getKata(Mikasi));
-        Mikonium.setDocument(new batasInput((int)100).getKata(Mikonium));
+        Resusitas.setDocument(new batasInput(100).getKata(Resusitas));
+        ObatDiberikan.setDocument(new batasInput(300).getKata(ObatDiberikan));
+        Mikasi.setDocument(new batasInput(100).getKata(Mikasi));
+        Mikonium.setDocument(new batasInput(100).getKata(Mikonium));
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){

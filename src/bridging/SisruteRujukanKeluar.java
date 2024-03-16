@@ -212,16 +212,16 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         AlasanLainnya.setDocument(new batasInput((byte)50).getKata(AlasanLainnya));
-        Anamnesis.setDocument(new batasInput((int)700).getKata(Anamnesis));
+        Anamnesis.setDocument(new batasInput(700).getKata(Anamnesis));
         TekananDarah.setDocument(new batasInput((byte)7).getKata(TekananDarah));
         FrekuensiNadi.setDocument(new batasInput((byte)3).getKata(FrekuensiNadi));
         SuhuBadan.setDocument(new batasInput((byte)5).getKata(SuhuBadan));
         Respirasi.setDocument(new batasInput((byte)3).getKata(Respirasi));
-        KeadaanUmum.setDocument(new batasInput((int)300).getKata(KeadaanUmum));
+        KeadaanUmum.setDocument(new batasInput(300).getKata(KeadaanUmum));
         Alergi.setDocument(new batasInput((byte)50).getKata(Alergi));
-        Laborat.setDocument(new batasInput((int)1000).getKata(Laborat));
-        Radiologi.setDocument(new batasInput((int)1000).getKata(Radiologi));
-        TerapiTindakan.setDocument(new batasInput((int)1000).getKata(TerapiTindakan));
+        Laborat.setDocument(new batasInput(1000).getKata(Laborat));
+        Radiologi.setDocument(new batasInput(1000).getKata(Radiologi));
+        TerapiTindakan.setDocument(new batasInput(1000).getKata(TerapiTindakan));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -2849,7 +2849,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="rawat inap";
                 }else {
-                    penyakit2=penyakit2+", rawat inap";
+                    penyakit2 += ", rawat inap";
                 }
             }
 
@@ -2858,7 +2858,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="pemeriksaan laboratorium";
                 }else {
-                    penyakit2=penyakit2+", pemeriksaan laboratorium";
+                    penyakit2 += ", pemeriksaan laboratorium";
                 }
             }
 
@@ -2867,7 +2867,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="pemeriksaan radiologi";
                 }else {
-                    penyakit2=penyakit2+", pemeriksaan radiologi";
+                    penyakit2 += ", pemeriksaan radiologi";
                 }
             }
 
@@ -2876,7 +2876,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="operasi";
                 }else {
-                    penyakit2=penyakit2+", operasi";
+                    penyakit2 += ", operasi";
                 }
             }
 

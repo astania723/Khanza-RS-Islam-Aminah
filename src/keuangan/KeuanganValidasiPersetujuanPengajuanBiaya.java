@@ -664,7 +664,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private void hitung(){
         belumdivalidasi=0;
         for(i=0;i<tabMode.getRowCount();i++){
-            belumdivalidasi=belumdivalidasi+Valid.SetAngka(tbBangsal.getValueAt(i,13).toString());
+            belumdivalidasi += Valid.SetAngka(tbBangsal.getValueAt(i,13).toString());
         }
         LCount.setText(""+Valid.SetAngka(belumdivalidasi));
     }

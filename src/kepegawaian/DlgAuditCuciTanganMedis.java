@@ -98,7 +98,7 @@ public class DlgAuditCuciTanganMedis extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         Nip.setDocument(new batasInput((byte)20).getKata(Nip));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1019,16 +1019,16 @@ public class DlgAuditCuciTanganMedis extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     sebelum_menyentuh_pasien=Double.parseDouble(rs.getString("sebelum_menyentuh_pasien").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsebelum_menyentuh_pasien=ttlsebelum_menyentuh_pasien+sebelum_menyentuh_pasien;
+                    ttlsebelum_menyentuh_pasien += sebelum_menyentuh_pasien;
                     sebelum_tehnik_aseptik=Double.parseDouble(rs.getString("sebelum_tehnik_aseptik").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsebelum_tehnik_aseptik=ttlsebelum_tehnik_aseptik+sebelum_tehnik_aseptik;
+                    ttlsebelum_tehnik_aseptik += sebelum_tehnik_aseptik;
                     setelah_terpapar_cairan_tubuh_pasien=Double.parseDouble(rs.getString("setelah_terpapar_cairan_tubuh_pasien").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsetelah_terpapar_cairan_tubuh_pasien=ttlsetelah_terpapar_cairan_tubuh_pasien+setelah_terpapar_cairan_tubuh_pasien;
+                    ttlsetelah_terpapar_cairan_tubuh_pasien += setelah_terpapar_cairan_tubuh_pasien;
                     setelah_kontak_dengan_pasien=Double.parseDouble(rs.getString("setelah_kontak_dengan_pasien").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsetelah_kontak_dengan_pasien=ttlsetelah_kontak_dengan_pasien+setelah_kontak_dengan_pasien;
+                    ttlsetelah_kontak_dengan_pasien += setelah_kontak_dengan_pasien;
                     setelah_kontak_dengan_lingkungan_pasien=Double.parseDouble(rs.getString("setelah_kontak_dengan_lingkungan_pasien").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsetelah_kontak_dengan_lingkungan_pasien=ttlsetelah_kontak_dengan_lingkungan_pasien+setelah_kontak_dengan_lingkungan_pasien;
-                    ttlpenilaian=ttlpenilaian+(((sebelum_menyentuh_pasien+sebelum_tehnik_aseptik+setelah_terpapar_cairan_tubuh_pasien+setelah_kontak_dengan_pasien+setelah_kontak_dengan_lingkungan_pasien)/5)*100);
+                    ttlsetelah_kontak_dengan_lingkungan_pasien += setelah_kontak_dengan_lingkungan_pasien;
+                    ttlpenilaian += (((sebelum_menyentuh_pasien+sebelum_tehnik_aseptik+setelah_terpapar_cairan_tubuh_pasien+setelah_kontak_dengan_pasien+setelah_kontak_dengan_lingkungan_pasien)/5)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("nik"),rs.getString("nama"),rs.getString("sebelum_menyentuh_pasien"),rs.getString("sebelum_tehnik_aseptik"),
                         rs.getString("setelah_terpapar_cairan_tubuh_pasien"),rs.getString("setelah_kontak_dengan_pasien"),rs.getString("setelah_kontak_dengan_lingkungan_pasien"),
@@ -1036,7 +1036,7 @@ public class DlgAuditCuciTanganMedis extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlsebelum_menyentuh_pasien,""+ttlsebelum_tehnik_aseptik,""+ttlsetelah_terpapar_cairan_tubuh_pasien,

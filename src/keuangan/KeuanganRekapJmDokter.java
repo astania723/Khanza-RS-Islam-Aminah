@@ -54,10 +54,10 @@ public class KeuanganRekapJmDokter extends javax.swing.JDialog {
 
         Object[] row={"No.","Kode Dokter","Nama Dokter","Pendapatan Jasa"};
         tabMode=new DefaultTableModel(null,row){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -846,11 +846,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsralandokterdrpr=psralandokterdrpr.executeQuery();
                              
                              while(rsralandokter.next()){
-                                 jm=jm+rsralandokter.getDouble("total");
+                                 jm += rsralandokter.getDouble("total");
                              }
 
                              while(rsralandokterdrpr.next()){
-                                 jm=jm+rsralandokterdrpr.getDouble("total");
+                                 jm += rsralandokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ralan : "+e);
@@ -894,11 +894,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsranapdokterdrpr=psranapdokterdrpr.executeQuery();
                              
                              while(rsranapdokter.next()){
-                                 jm=jm+rsranapdokter.getDouble("total");
+                                 jm += rsranapdokter.getDouble("total");
                              }
                              
                              while(rsranapdokterdrpr.next()){
-                                 jm=jm+rsranapdokterdrpr.getDouble("total");
+                                 jm += rsranapdokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -991,31 +991,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsbiayadokter_anestesi=psbiayadokter_anestesi.executeQuery();
                              
                              while(rsbiayaoperator1.next()){
-                                 jm=jm+rsbiayaoperator1.getDouble("total");
+                                 jm += rsbiayaoperator1.getDouble("total");
                              }
 
                              while(rsbiayaoperator2.next()){
-                                 jm=jm+rsbiayaoperator2.getDouble("total");
+                                 jm += rsbiayaoperator2.getDouble("total");
                              }
                              
                              while(rsbiayaoperator3.next()){
-                                 jm=jm+rsbiayaoperator3.getDouble("total");
+                                 jm += rsbiayaoperator3.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anak.next()){
-                                 jm=jm+rsbiayadokter_anak.getDouble("total");
+                                 jm += rsbiayadokter_anak.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anestesi.next()){
-                                 jm=jm+rsbiayadokter_anestesi.getDouble("total");
+                                 jm += rsbiayadokter_anestesi.getDouble("total");
                              }
 
                              while(rsbiaya_dokter_pjanak.next()){
-                                 jm=jm+rsbiaya_dokter_pjanak.getDouble("total");
+                                 jm += rsbiaya_dokter_pjanak.getDouble("total");
                              }
                              
                              while(rsbiaya_dokter_umum.next()){
-                                 jm=jm+rsbiaya_dokter_umum.getDouble("total");
+                                 jm += rsbiaya_dokter_umum.getDouble("total");
                              }
                              //rsbiaya_dokter_umum.close();
                          } catch (Exception e) {
@@ -1078,7 +1078,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){    
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Periksa Lab : "+e);
@@ -1105,7 +1105,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -1130,7 +1130,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -1157,7 +1157,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -1184,7 +1184,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -1209,7 +1209,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi Perujuk : "+e);
@@ -1223,7 +1223,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                          }
                     }    
 
-                    totaljm=totaljm+jm;
+                    totaljm += jm;
                     if(jm>0){
                         tabMode.addRow(new Object[]{""+i,rs.getString("kd_dokter"),rs.getString("nm_dokter"),Math.round(jm)});  
                         i++;
@@ -1303,11 +1303,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsralandokterdrpr=psralandokterdrpr.executeQuery();
                              
                              while(rsralandokter.next()){
-                                 jm=jm+rsralandokter.getDouble("total");
+                                 jm += rsralandokter.getDouble("total");
                              }
 
                              while(rsralandokterdrpr.next()){
-                                 jm=jm+rsralandokterdrpr.getDouble("total");
+                                 jm += rsralandokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ralan : "+e);
@@ -1353,11 +1353,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsranapdokterdrpr=psranapdokterdrpr.executeQuery();
                              
                              while(rsranapdokter.next()){
-                                 jm=jm+rsranapdokter.getDouble("total");
+                                 jm += rsranapdokter.getDouble("total");
                              }
                              
                              while(rsranapdokterdrpr.next()){
-                                 jm=jm+rsranapdokterdrpr.getDouble("total");
+                                 jm += rsranapdokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -1457,31 +1457,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsbiayadokter_anestesi=psbiayadokter_anestesi.executeQuery();
                              
                              while(rsbiayaoperator1.next()){
-                                 jm=jm+rsbiayaoperator1.getDouble("total");
+                                 jm += rsbiayaoperator1.getDouble("total");
                              }
 
                              while(rsbiayaoperator2.next()){
-                                 jm=jm+rsbiayaoperator2.getDouble("total");
+                                 jm += rsbiayaoperator2.getDouble("total");
                              }
                              
                              while(rsbiayaoperator3.next()){
-                                 jm=jm+rsbiayaoperator3.getDouble("total");
+                                 jm += rsbiayaoperator3.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anak.next()){
-                                 jm=jm+rsbiayadokter_anak.getDouble("total");
+                                 jm += rsbiayadokter_anak.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anestesi.next()){
-                                 jm=jm+rsbiayadokter_anestesi.getDouble("total");
+                                 jm += rsbiayadokter_anestesi.getDouble("total");
                              }
 
                              while(rsbiaya_dokter_pjanak.next()){
-                                 jm=jm+rsbiaya_dokter_pjanak.getDouble("total");
+                                 jm += rsbiaya_dokter_pjanak.getDouble("total");
                              }
                              
                              while(rsbiaya_dokter_umum.next()){
-                                 jm=jm+rsbiaya_dokter_umum.getDouble("total");
+                                 jm += rsbiaya_dokter_umum.getDouble("total");
                              }
                              //rsbiaya_dokter_umum.close();
                          } catch (Exception e) {
@@ -1545,7 +1545,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){    
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Periksa Lab : "+e);
@@ -1574,7 +1574,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -1600,7 +1600,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -1629,7 +1629,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -1657,7 +1657,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -1683,7 +1683,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi Perujuk : "+e);
@@ -1697,7 +1697,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                          }
                     }    
 
-                    totaljm=totaljm+jm;
+                    totaljm += jm;
                     if(jm>0){
                         tabMode.addRow(new Object[]{""+i,rs.getString("kd_dokter"),rs.getString("nm_dokter"),Math.round(jm)});  
                         i++;
@@ -1759,11 +1759,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsralandokterdrpr=psralandokterdrpr.executeQuery();
                              
                              while(rsralandokter.next()){
-                                 jm=jm+rsralandokter.getDouble("total");
+                                 jm += rsralandokter.getDouble("total");
                              }
 
                              while(rsralandokterdrpr.next()){
-                                 jm=jm+rsralandokterdrpr.getDouble("total");
+                                 jm += rsralandokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ralan : "+e);
@@ -1809,11 +1809,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsranapdokterdrpr=psranapdokterdrpr.executeQuery();
                              
                              while(rsranapdokter.next()){
-                                 jm=jm+rsranapdokter.getDouble("total");
+                                 jm += rsranapdokter.getDouble("total");
                              }
                              
                              while(rsranapdokterdrpr.next()){
-                                 jm=jm+rsranapdokterdrpr.getDouble("total");
+                                 jm += rsranapdokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -1913,31 +1913,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsbiayadokter_anestesi=psbiayadokter_anestesi.executeQuery();
                              
                              while(rsbiayaoperator1.next()){
-                                 jm=jm+rsbiayaoperator1.getDouble("total");
+                                 jm += rsbiayaoperator1.getDouble("total");
                              }
 
                              while(rsbiayaoperator2.next()){
-                                 jm=jm+rsbiayaoperator2.getDouble("total");
+                                 jm += rsbiayaoperator2.getDouble("total");
                              }
                              
                              while(rsbiayaoperator3.next()){
-                                 jm=jm+rsbiayaoperator3.getDouble("total");
+                                 jm += rsbiayaoperator3.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anak.next()){
-                                 jm=jm+rsbiayadokter_anak.getDouble("total");
+                                 jm += rsbiayadokter_anak.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anestesi.next()){
-                                 jm=jm+rsbiayadokter_anestesi.getDouble("total");
+                                 jm += rsbiayadokter_anestesi.getDouble("total");
                              }
 
                              while(rsbiaya_dokter_pjanak.next()){
-                                 jm=jm+rsbiaya_dokter_pjanak.getDouble("total");
+                                 jm += rsbiaya_dokter_pjanak.getDouble("total");
                              }
                              
                              while(rsbiaya_dokter_umum.next()){
-                                 jm=jm+rsbiaya_dokter_umum.getDouble("total");
+                                 jm += rsbiaya_dokter_umum.getDouble("total");
                              }
                              //rsbiaya_dokter_umum.close();
                          } catch (Exception e) {
@@ -2001,7 +2001,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){    
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Periksa Lab : "+e);
@@ -2030,7 +2030,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -2056,7 +2056,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -2085,7 +2085,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -2113,7 +2113,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -2139,7 +2139,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi Perujuk : "+e);
@@ -2153,7 +2153,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                          }
                     }    
 
-                    totaljm=totaljm+jm;
+                    totaljm += jm;
                     if(jm>0){
                         tabMode.addRow(new Object[]{""+i,rs.getString("kd_dokter"),rs.getString("nm_dokter"),Math.round(jm)});  
                         i++;
@@ -2213,11 +2213,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsralandokterdrpr=psralandokterdrpr.executeQuery();
                              
                              while(rsralandokter.next()){
-                                 jm=jm+rsralandokter.getDouble("total");
+                                 jm += rsralandokter.getDouble("total");
                              }
 
                              while(rsralandokterdrpr.next()){
-                                 jm=jm+rsralandokterdrpr.getDouble("total");
+                                 jm += rsralandokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ralan : "+e);
@@ -2261,11 +2261,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsranapdokterdrpr=psranapdokterdrpr.executeQuery();
                              
                              while(rsranapdokter.next()){
-                                 jm=jm+rsranapdokter.getDouble("total");
+                                 jm += rsranapdokter.getDouble("total");
                              }
                              
                              while(rsranapdokterdrpr.next()){
-                                 jm=jm+rsranapdokterdrpr.getDouble("total");
+                                 jm += rsranapdokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -2358,31 +2358,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsbiayadokter_anestesi=psbiayadokter_anestesi.executeQuery();
                              
                              while(rsbiayaoperator1.next()){
-                                 jm=jm+rsbiayaoperator1.getDouble("total");
+                                 jm += rsbiayaoperator1.getDouble("total");
                              }
 
                              while(rsbiayaoperator2.next()){
-                                 jm=jm+rsbiayaoperator2.getDouble("total");
+                                 jm += rsbiayaoperator2.getDouble("total");
                              }
                              
                              while(rsbiayaoperator3.next()){
-                                 jm=jm+rsbiayaoperator3.getDouble("total");
+                                 jm += rsbiayaoperator3.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anak.next()){
-                                 jm=jm+rsbiayadokter_anak.getDouble("total");
+                                 jm += rsbiayadokter_anak.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anestesi.next()){
-                                 jm=jm+rsbiayadokter_anestesi.getDouble("total");
+                                 jm += rsbiayadokter_anestesi.getDouble("total");
                              }
 
                              while(rsbiaya_dokter_pjanak.next()){
-                                 jm=jm+rsbiaya_dokter_pjanak.getDouble("total");
+                                 jm += rsbiaya_dokter_pjanak.getDouble("total");
                              }
                              
                              while(rsbiaya_dokter_umum.next()){
-                                 jm=jm+rsbiaya_dokter_umum.getDouble("total");
+                                 jm += rsbiaya_dokter_umum.getDouble("total");
                              }
                              //rsbiaya_dokter_umum.close();
                          } catch (Exception e) {
@@ -2445,7 +2445,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){    
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Periksa Lab : "+e);
@@ -2472,7 +2472,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -2497,7 +2497,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -2524,7 +2524,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -2551,7 +2551,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -2576,7 +2576,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi Perujuk : "+e);
@@ -2590,7 +2590,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                          }
                     }    
 
-                    totaljm=totaljm+jm;
+                    totaljm += jm;
                     if(jm>0){
                         tabMode.addRow(new Object[]{""+i,rs.getString("kd_dokter"),rs.getString("nm_dokter"),Math.round(jm)});  
                         i++;
@@ -2650,11 +2650,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsralandokterdrpr=psralandokterdrpr.executeQuery();
                              
                              while(rsralandokter.next()){
-                                 jm=jm+rsralandokter.getDouble("total");
+                                 jm += rsralandokter.getDouble("total");
                              }
 
                              while(rsralandokterdrpr.next()){
-                                 jm=jm+rsralandokterdrpr.getDouble("total");
+                                 jm += rsralandokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ralan : "+e);
@@ -2698,11 +2698,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsranapdokterdrpr=psranapdokterdrpr.executeQuery();
                              
                              while(rsranapdokter.next()){
-                                 jm=jm+rsranapdokter.getDouble("total");
+                                 jm += rsranapdokter.getDouble("total");
                              }
                              
                              while(rsranapdokterdrpr.next()){
-                                 jm=jm+rsranapdokterdrpr.getDouble("total");
+                                 jm += rsranapdokterdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -2795,31 +2795,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsbiayadokter_anestesi=psbiayadokter_anestesi.executeQuery();
                              
                              while(rsbiayaoperator1.next()){
-                                 jm=jm+rsbiayaoperator1.getDouble("total");
+                                 jm += rsbiayaoperator1.getDouble("total");
                              }
 
                              while(rsbiayaoperator2.next()){
-                                 jm=jm+rsbiayaoperator2.getDouble("total");
+                                 jm += rsbiayaoperator2.getDouble("total");
                              }
                              
                              while(rsbiayaoperator3.next()){
-                                 jm=jm+rsbiayaoperator3.getDouble("total");
+                                 jm += rsbiayaoperator3.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anak.next()){
-                                 jm=jm+rsbiayadokter_anak.getDouble("total");
+                                 jm += rsbiayadokter_anak.getDouble("total");
                              }
                              
                              while(rsbiayadokter_anestesi.next()){
-                                 jm=jm+rsbiayadokter_anestesi.getDouble("total");
+                                 jm += rsbiayadokter_anestesi.getDouble("total");
                              }
 
                              while(rsbiaya_dokter_pjanak.next()){
-                                 jm=jm+rsbiaya_dokter_pjanak.getDouble("total");
+                                 jm += rsbiaya_dokter_pjanak.getDouble("total");
                              }
                              
                              while(rsbiaya_dokter_umum.next()){
-                                 jm=jm+rsbiaya_dokter_umum.getDouble("total");
+                                 jm += rsbiaya_dokter_umum.getDouble("total");
                              }
                              //rsbiaya_dokter_umum.close();
                          } catch (Exception e) {
@@ -2882,7 +2882,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){    
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Periksa Lab : "+e);
@@ -2909,7 +2909,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -2934,7 +2934,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_lab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
-                                 jm=jm+rsperiksa_lab.getDouble("total");
+                                 jm += rsperiksa_lab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -2961,7 +2961,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psdetaillab2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
-                                 jm=jm+rsdetaillab.getDouble("total");
+                                 jm += rsdetaillab.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -2988,7 +2988,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -3013,7 +3013,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              psperiksa_radiologi2.setString(4,"%"+KdCaraBayar.getText()+NmCaraBayar.getText()+"%");
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
-                                 jm=jm+rsperiksa_radiologi.getDouble("total");
+                                 jm += rsperiksa_radiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi Perujuk : "+e);
@@ -3027,7 +3027,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                          }
                     }    
 
-                    totaljm=totaljm+jm;
+                    totaljm += jm;
                     if(jm>0){
                         tabMode.addRow(new Object[]{""+i,rs.getString("kd_dokter"),rs.getString("nm_dokter"),Math.round(jm)});  
                         i++;

@@ -80,12 +80,12 @@ public class DlgBayarPiutang extends javax.swing.JDialog {
                 "Tgl.Bayar","No.RM","Pasien","Cicilan(Rp)","Keterangan","No.Tagihan","Kode Akun","Kontra AKun",
                 "Diskon(Rp)","Kode Akun Diskon","Tidak Terbayar(Rp)","Kode Akun Tidak Terbayar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class,
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Object.class, java.lang.Double.class, java.lang.Object.class,
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1493,9 +1493,9 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         LCount.setText(""+tabMode.getRowCount());
         cicilan=0;diskon=0;tidakterbayar=0;
         for(i=0;i<tabMode.getRowCount();i++){
-            cicilan=cicilan+Valid.SetAngka(tbKamar.getValueAt(i,3).toString());
-            diskon=diskon+Valid.SetAngka(tbKamar.getValueAt(i,8).toString());
-            tidakterbayar=tidakterbayar+Valid.SetAngka(tbKamar.getValueAt(i,10).toString());
+            cicilan += Valid.SetAngka(tbKamar.getValueAt(i,3).toString());
+            diskon += Valid.SetAngka(tbKamar.getValueAt(i,8).toString());
+            tidakterbayar += Valid.SetAngka(tbKamar.getValueAt(i,10).toString());
         }
         LTotal.setText(Valid.SetAngka(cicilan));
         LDiskon.setText(Valid.SetAngka(diskon));

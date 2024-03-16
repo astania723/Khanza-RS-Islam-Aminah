@@ -69,11 +69,11 @@ public class DapurPembelian extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class 
              };
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                 boolean a = false;
-                 if ((colIndex==0)||(colIndex==4)||(colIndex==5)||(colIndex==7)||(colIndex==8)) {
-                     a=true;
-                 }
-                 return a;
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==4)||(colIndex==5)||(colIndex==7)||(colIndex==8)) {
+                 a=true;
+               }
+               return a;
              }
              @Override
              public Class getColumnClass(int columnIndex) {
@@ -626,13 +626,9 @@ public class DapurPembelian extends javax.swing.JDialog {
         panelisi3.add(label13);
         label13.setBounds(335, 40, 70, 23);
 
+        kdsup.setEditable(false);
         kdsup.setName("kdsup"); // NOI18N
         kdsup.setPreferredSize(new java.awt.Dimension(80, 23));
-        kdsup.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                kdsupKeyPressed(evt);
-            }
-        });
         panelisi3.add(kdsup);
         kdsup.setBounds(409, 10, 80, 23);
 
@@ -947,20 +943,6 @@ private void TglBeliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         Valid.pindah(evt,NoFaktur,kdsup);
 }//GEN-LAST:event_TglBeliKeyPressed
 
-private void kdsupKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdsupKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
-            Sequel.cariIsi("select nama_suplier from dapursuplier where kode_suplier=?", nmsup,kdsup.getText());           
-        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
-            Sequel.cariIsi("select nama_suplier from dapursuplier where kode_suplier=?", nmsup,kdsup.getText());
-            NoFaktur.requestFocus();
-        }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            Sequel.cariIsi("select nama_suplier from dapursuplier where kode_suplier=?", nmsup,kdsup.getText());
-            kdptg.requestFocus(); 
-        }else if(evt.getKeyCode()==KeyEvent.VK_UP){
-            btnSuplierActionPerformed(null);
-        }
-}//GEN-LAST:event_kdsupKeyPressed
-
 private void kdptgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdptgKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             nmptg.setText(form.petugas.tampil3(kdptg.getText()));        
@@ -1163,7 +1145,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 } 
             }
 
@@ -1257,13 +1239,13 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch (Exception e) {
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,8).toString());                
             }catch (Exception e) {
                 y=0;                
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));

@@ -1,10 +1,10 @@
 package rekammedis;
 import fungsi.WarnaTable;
-import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
+import fungsi.akses;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -567,7 +567,7 @@ public class MasterTemplateLaporanOperasi extends javax.swing.JDialog {
 }//GEN-LAST:event_tbDokterKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(DiagnosisPreOp.getText().trim().isEmpty()){
+        if(DiagnosisPreOp.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Pilih dulu data yang akan Anda hapus dengan menklik data pada tabel...!!!");
             tbDokter.requestFocus();
         }else{
@@ -590,17 +590,17 @@ public class MasterTemplateLaporanOperasi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(Kd.getText().trim().isEmpty()){
+        if(Kd.getText().trim().equals("")){
             Valid.textKosong(Kd,"No.Template");
-        }else if(NamaOperasi.getText().trim().isEmpty()){
+        }else if(NamaOperasi.getText().trim().equals("")){
             Valid.textKosong(NamaOperasi,"Nama Operasi");
-        }else if(DiagnosisPreOp.getText().trim().isEmpty()){
+        }else if(DiagnosisPreOp.getText().trim().equals("")){
             Valid.textKosong(DiagnosisPreOp,"Diagnosis Pre-operatif");
-        }else if(DiagnosisPostOp.getText().trim().isEmpty()){
+        }else if(DiagnosisPostOp.getText().trim().equals("")){
             Valid.textKosong(DiagnosisPostOp,"Diagnosis Post-operatif");
-        }else if(JaringanDieksisi.getText().trim().isEmpty()){
+        }else if(JaringanDieksisi.getText().trim().equals("")){
             Valid.textKosong(JaringanDieksisi,"Jaringan di-Eksisi / -Insisi");
-        }else if(Template.getText().trim().isEmpty()){
+        }else if(Template.getText().trim().equals("")){
             Valid.textKosong(Template,"Template Laporan Operasi");
         }else{
             if(Valid.editTabletf(tabMode,"template_laporan_operasi","no_template","?","no_template=?,nama_operasi=?,diagnosa_preop=?,diagnosa_postop=?,jaringan_dieksisi=?,permintaan_pa=?,laporan_operasi=?",8,new String[]{
@@ -651,17 +651,17 @@ public class MasterTemplateLaporanOperasi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(Kd.getText().trim().isEmpty()){
+        if(Kd.getText().trim().equals("")){
             Valid.textKosong(Kd,"No.Template");
-        }else if(NamaOperasi.getText().trim().isEmpty()){
+        }else if(NamaOperasi.getText().trim().equals("")){
             Valid.textKosong(NamaOperasi,"Nama Operasi");
-        }else if(DiagnosisPreOp.getText().trim().isEmpty()){
+        }else if(DiagnosisPreOp.getText().trim().equals("")){
             Valid.textKosong(DiagnosisPreOp,"Diagnosis Pre-operatif");
-        }else if(DiagnosisPostOp.getText().trim().isEmpty()){
+        }else if(DiagnosisPostOp.getText().trim().equals("")){
             Valid.textKosong(DiagnosisPostOp,"Diagnosis Post-operatif");
-        }else if(JaringanDieksisi.getText().trim().isEmpty()){
+        }else if(JaringanDieksisi.getText().trim().equals("")){
             Valid.textKosong(JaringanDieksisi,"Jaringan di-Eksisi / -Insisi");
-        }else if(Template.getText().trim().isEmpty()){
+        }else if(Template.getText().trim().equals("")){
             Valid.textKosong(Template,"Template Laporan Operasi");
         }else{
             if(Sequel.menyimpantf("template_laporan_operasi","?,?,?,?,?,?,?","No.Template",7,new String[]{
@@ -793,11 +793,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     "select template_laporan_operasi.no_template,template_laporan_operasi.nama_operasi,"+
                     "template_laporan_operasi.diagnosa_preop,template_laporan_operasi.diagnosa_postop,template_laporan_operasi.jaringan_dieksisi,"+
                     "template_laporan_operasi.permintaan_pa,template_laporan_operasi.laporan_operasi from template_laporan_operasi "+
-                    (TCari.getText().isEmpty()?"":"where template_laporan_operasi.no_template like ? or template_laporan_operasi.nama_operasi like ? or "+
+                    (TCari.getText().equals("")?"":"where template_laporan_operasi.no_template like ? or template_laporan_operasi.nama_operasi like ? or "+
                     "template_laporan_operasi.laporan_operasi like ? ")+
                     "order by template_laporan_operasi.no_template");
             try {
-                if(!TCari.getText().trim().isEmpty()){
+                if(!TCari.getText().trim().equals("")){
                     ps.setString(1,"%"+TCari.getText().trim()+"%");
                     ps.setString(2,"%"+TCari.getText().trim()+"%");
                     ps.setString(3,"%"+TCari.getText().trim()+"%");

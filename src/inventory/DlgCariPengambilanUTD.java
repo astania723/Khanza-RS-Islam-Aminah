@@ -613,7 +613,7 @@ private void BtnCetakKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         rs.getString("kd_bangsal_dr"),rs.getString("tanggal"),rs.getString("keterangan"),
                         rs.getString("no_batch"),rs.getString("no_faktur")
                     });
-                    total=total+rs.getDouble("total");
+                    total += rs.getDouble("total");
                 }
                 LCount.setText(""+tabMode.getRowCount());
                 LTotal.setText(Valid.SetAngka(total));

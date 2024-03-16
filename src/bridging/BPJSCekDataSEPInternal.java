@@ -473,6 +473,11 @@ public class BPJSCekDataSEPInternal extends javax.swing.JDialog {
         public String getMethod() {
             return "DELETE";
         }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     }
     
     @Test

@@ -484,7 +484,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString(5)+" "+rs.getString(6),rs.getString(7)+" "+rs.getString(8),rs.getString(9)
                     });
                     i++;
-                    totaljam=totaljam+rs.getDouble(9);
+                    totaljam += rs.getDouble(9);
                     if(rs.getDouble(9)<=15){
                         limabelas++;
                     }else if((rs.getDouble(9)>15)&&(rs.getDouble(9)<=30)){

@@ -55,16 +55,16 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());
 
         Kd.setDocument(new batasInput((byte)3).getKata(Kd));
-        Diagnosa.setDocument(new batasInput((int)200).getKata(Diagnosa));
-        TindakanKedokteran.setDocument(new batasInput((int)200).getKata(TindakanKedokteran));
-        IndikasiTindakan.setDocument(new batasInput((int)200).getKata(IndikasiTindakan));
-        TataCara.setDocument(new batasInput((int)400).getKata(TataCara));
-        Tujuan.setDocument(new batasInput((int)200).getKata(Tujuan));
-        Risiko.setDocument(new batasInput((int)200).getKata(Risiko));
-        Komplikasi.setDocument(new batasInput((int)200).getKata(Komplikasi));
-        Prognosis.setDocument(new batasInput((int)200).getKata(Prognosis));
-        AlternatifResiko.setDocument(new batasInput((int)200).getKata(AlternatifResiko));
-        LainLain.setDocument(new batasInput((int)200).getKata(LainLain));
+        Diagnosa.setDocument(new batasInput(200).getKata(Diagnosa));
+        TindakanKedokteran.setDocument(new batasInput(200).getKata(TindakanKedokteran));
+        IndikasiTindakan.setDocument(new batasInput(200).getKata(IndikasiTindakan));
+        TataCara.setDocument(new batasInput(400).getKata(TataCara));
+        Tujuan.setDocument(new batasInput(200).getKata(Tujuan));
+        Risiko.setDocument(new batasInput(200).getKata(Risiko));
+        Komplikasi.setDocument(new batasInput(200).getKata(Komplikasi));
+        Prognosis.setDocument(new batasInput(200).getKata(Prognosis));
+        AlternatifResiko.setDocument(new batasInput(200).getKata(AlternatifResiko));
+        LainLain.setDocument(new batasInput(200).getKata(LainLain));
         Biaya.setDocument(new batasInput((byte)12).getOnlyAngka(Biaya));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));    
         if(koneksiDB.CARICEPAT().equals("aktif")){

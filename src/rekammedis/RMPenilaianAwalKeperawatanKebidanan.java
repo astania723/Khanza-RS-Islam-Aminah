@@ -571,7 +571,7 @@ public class RMPenilaianAwalKeperawatanKebidanan extends javax.swing.JDialog {
         KeteranganUSG.setDocument(new batasInput((byte)50).getKata(KeteranganUSG));
         KeteranganLaboratorium.setDocument(new batasInput((byte)50).getKata(KeteranganLaboratorium));
         KeteranganLakmus.setDocument(new batasInput((byte)50).getKata(KeteranganLakmus));
-        KeluhanUtama.setDocument(new batasInput((int)1000).getKata(KeluhanUtama));
+        KeluhanUtama.setDocument(new batasInput(1000).getKata(KeluhanUtama));
         Umur.setDocument(new batasInput((byte)10).getKata(Umur));
         Lama.setDocument(new batasInput((byte)10).getKata(Lama));
         Banyaknya.setDocument(new batasInput((byte)10).getKata(Banyaknya));
@@ -605,8 +605,8 @@ public class RMPenilaianAwalKeperawatanKebidanan extends javax.swing.JDialog {
         Durasi.setDocument(new batasInput((byte)5).getKata(Durasi));
         KetNyeri.setDocument(new batasInput((byte)40).getKata(KetNyeri));
         KetDokter.setDocument(new batasInput((byte)10).getKata(KetDokter));
-        Masalah.setDocument(new batasInput((int)1000).getKata(Masalah));
-        Rencana.setDocument(new batasInput((int)1000).getKata(Rencana));
+        Masalah.setDocument(new batasInput(1000).getKata(Masalah));
+        Rencana.setDocument(new batasInput(1000).getKata(Rencana));
         TempatPersalinan.setDocument(new batasInput((byte)30).getKata(TempatPersalinan));
         UsiaHamil.setDocument(new batasInput((byte)20).getKata(UsiaHamil));
         JenisPersalinan.setDocument(new batasInput((byte)20).getKata(JenisPersalinan));
@@ -614,7 +614,7 @@ public class RMPenilaianAwalKeperawatanKebidanan extends javax.swing.JDialog {
         Penyulit.setDocument(new batasInput((byte)40).getKata(Penyulit));
         BBPB.setDocument(new batasInput((byte)10).getKata(BBPB));
         Keadaan.setDocument(new batasInput((byte)40).getKata(Keadaan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

@@ -114,8 +114,8 @@ public class DlgRujuk extends javax.swing.JDialog {
         TNoRj.setDocument(new batasInput((byte)10).getKata(TNoRj));
         TTmpRujuk.setDocument(new batasInput((byte)45).getKata(TTmpRujuk));
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        TDiagnosa.setDocument(new batasInput((int)5000).getKata(TDiagnosa));
-        ket.setDocument(new batasInput((int)5000).getKata(ket));
+        TDiagnosa.setDocument(new batasInput(5000).getKata(TDiagnosa));
+        ket.setDocument(new batasInput(5000).getKata(ket));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         KdDok.setDocument(new batasInput((byte)20).getKata(KdDok));
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -1101,7 +1101,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }
             }
 
@@ -1110,7 +1110,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }
             }
 
@@ -1119,7 +1119,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }
             }
 
@@ -1128,7 +1128,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }
             }
 

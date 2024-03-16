@@ -910,7 +910,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch (Exception e) {
                 keluar=0;                 
             }
-            ttl=ttl+keluar;
+            ttl += keluar;
         }
         LTotal.setText(Valid.SetAngka(ttl));ttl=0;
         jml=tbDokter.getRowCount();
@@ -921,7 +921,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch (Exception e) {
                 keluar=0;                 
             }
-            ttl=ttl+keluar;
+            ttl += keluar;
         }
         LTotal.setText(Valid.SetAngka(ttl));
     }

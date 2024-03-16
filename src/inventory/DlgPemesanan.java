@@ -82,13 +82,6 @@ public class DlgPemesanan extends javax.swing.JDialog {
             "Harga(Rp)","Subtotal(Rp)","Disk(%)","Diskon(Rp)","Total","Stok","No.Batch",
             "Ralan", "Kelas 1", "Kelas 2", "Kelas 3", "Utama", "VIP", "VVIP", "Beli Luar", 
             "Jual Bebas", "Karyawan","HPP","Isi","Isibesar","Dasar"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-               boolean a = false;
-               if ((colIndex==0)||(colIndex==5)||(colIndex==6)||(colIndex==7)||(colIndex==9)||(colIndex==10)||(colIndex==13)) {
-                   a=true;
-               }
-               return a;
-             }
               
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
@@ -98,6 +91,13 @@ public class DlgPemesanan extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==5)||(colIndex==6)||(colIndex==7)||(colIndex==9)||(colIndex==10)||(colIndex==13)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1568,7 +1568,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 }            
             }
 
@@ -1756,7 +1756,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),8);
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
 
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,10).toString()); 
@@ -1764,7 +1764,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),10);
                 y=0;
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));

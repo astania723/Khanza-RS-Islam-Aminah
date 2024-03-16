@@ -75,13 +75,6 @@ public class DlgInputStokPasien extends javax.swing.JDialog {
                 "Jml","Kode Barang","Nama Barang","Kategori","Satuan","Kps","Stok","Harga","HargaBeli","Subtotal","No.Batch","No.Faktur","Aturan Pakai",
                 "00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"
             }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = true;
-                if ((colIndex==1)||(colIndex==2)||(colIndex==3)||(colIndex==4)||(colIndex==5)||(colIndex==6)||(colIndex==7)||(colIndex==8)||(colIndex==9)) {
-                    a=false;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Double.class,
@@ -97,6 +90,13 @@ public class DlgInputStokPasien extends javax.swing.JDialog {
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, 
                 java.lang.Boolean.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = true;
+               if ((colIndex==1)||(colIndex==2)||(colIndex==3)||(colIndex==4)||(colIndex==5)||(colIndex==6)||(colIndex==7)||(colIndex==8)||(colIndex==9)) {
+                 a=false;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -799,8 +799,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                     tabMode.getValueAt(i,28).toString(),tabMode.getValueAt(i,29).toString(),tabMode.getValueAt(i,30).toString(),tabMode.getValueAt(i,31).toString(),tabMode.getValueAt(i,32).toString(),
                                     tabMode.getValueAt(i,33).toString(),tabMode.getValueAt(i,34).toString(),tabMode.getValueAt(i,35).toString(),tabMode.getValueAt(i,36).toString()
                                 })==true){
-                                    ttlhpp=ttlhpp+(Valid.SetAngka(tabMode.getValueAt(i,0).toString())*Valid.SetAngka(tabMode.getValueAt(i,8).toString()));
-                                    ttljual=ttljual+(Valid.SetAngka(tabMode.getValueAt(i,0).toString())*Valid.SetAngka(tabMode.getValueAt(i,7).toString()));
+                                    ttlhpp += (Valid.SetAngka(tabMode.getValueAt(i,0).toString())*Valid.SetAngka(tabMode.getValueAt(i,8).toString()));
+                                    ttljual += (Valid.SetAngka(tabMode.getValueAt(i,0).toString())*Valid.SetAngka(tabMode.getValueAt(i,7).toString()));
 
                                     if(aktifkanbatch.equals("yes")){
                                         Sequel.mengedit3("data_batch","no_batch=? and kode_brng=? and no_faktur=?","sisa=sisa-?",4,new String[]{
@@ -2099,13 +2099,13 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                      y=0;
                  }
                  tbDokter.setValueAt(y,r,9);
-                 ttl=ttl+y;
+                 ttl += y;
             }
             LTotal.setText(Valid.SetAngka(ttl));
             ppnobat=0;
             if(tampilkan_ppnobat_ranap.equals("Yes")){
                  ppnobat=ttl*0.11;
-                 ttl=ttl+ppnobat;
+                 ttl += ppnobat;
                  LPpn.setText(Valid.SetAngka(ppnobat));
             }
             LTotalTagihan.setText(Valid.SetAngka(ttl));
@@ -2233,13 +2233,13 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                  } catch (Exception e) {
                      y=0;
                  }
-                 ttl=ttl+y;
+                 ttl += y;
              }
              LTotal.setText(Valid.SetAngka(ttl));
              ppnobat=0;
              if(tampilkan_ppnobat_ranap.equals("Yes")){
                  ppnobat=ttl*0.11;
-                 ttl=ttl+ppnobat;
+                 ttl += ppnobat;
                  LPpn.setText(Valid.SetAngka(ppnobat));
              }
              LTotalTagihan.setText(Valid.SetAngka(ttl));

@@ -667,9 +667,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     for(i=0;i<kolom;i++){
                         stok=Sequel.cariIsiAngka2(qrystok,rs.getString("kode_brng"),posisigudang[i]);
                         htmlContent.append("<td valign='middle' align='right'>"+Valid.SetAngka(stok)+"</td>");
-                        total=total+stok;
+                        total += stok;
                     }
-                    totalaset=totalaset+(rs.getDouble("dasar")*total);
+                    totalaset += (rs.getDouble("dasar")*total);
                     htmlContent.append( 
                             "<td valign='middle' align='right'>"+Valid.SetAngka(total)+"</td>"+
                             "<td valign='middle' align='right'>"+Valid.SetAngka(rs.getDouble("dasar")*total)+"</td>"+

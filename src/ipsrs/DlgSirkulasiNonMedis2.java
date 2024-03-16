@@ -750,13 +750,13 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                            Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah),
                            Valid.SetAngka(stokakhir),Valid.SetAngka(totalstokakhir)
                         }); 
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttltotalkeluar=ttltotalkeluar+totalkeluar;
-                        ttltotalstokawal=ttltotalstokawal+totalstokawal;
-                        ttltotalstokakhir=ttltotalstokakhir+totalstokakhir;
-                        ttltotalutd=ttltotalutd+totalutd;
-                        ttltotalhibah=ttltotalhibah+totalhibah;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttltotalkeluar += totalkeluar;
+                        ttltotalstokawal += totalstokawal;
+                        ttltotalstokakhir += totalstokakhir;
+                        ttltotalutd += totalutd;
+                        ttltotalhibah += totalhibah;
                     }
                 }   
                 tabMode.addRow(new Object[]{"","","","","","","","","","","","","","","","","",""}); 

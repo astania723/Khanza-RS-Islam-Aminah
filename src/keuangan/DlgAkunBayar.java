@@ -37,7 +37,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgAkunBayar extends javax.swing.JDialog {
+public final class DlgAkunBayar extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -58,16 +58,16 @@ public class DlgAkunBayar extends javax.swing.JDialog {
 
         Object[] row={"P","Nama Akun","Kode Rekening","Nama Rekening","PPN(%)"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                  java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class                 
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];

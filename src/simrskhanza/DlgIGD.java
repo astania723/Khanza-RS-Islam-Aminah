@@ -9133,7 +9133,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }else{
             if(tbPetugas.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMPenilaianAwalMedisIGD form=new RMPenilaianAwalMedisIGD(null,true);
+                RMPenilaianAwalMedisIGD form=new RMPenilaianAwalMedisIGD(null,false);
                 form.isCek();
                 form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
 //                form.emptTeks();
@@ -10976,6 +10976,11 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     }
     
+    private void MnSudahTerbitSEPActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat in (select bridging_sep.no_rawat from bridging_sep)";
+        tampil();
+    } 
+    
     private void MnPenilaianAwalKeperawatanKebidananIGDActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data registrasi sudah habis...!!!!");
@@ -11349,7 +11354,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
   private javax.swing.JMenuItem ppSuratPRI;
   private widget.Table tbPetugas;
   // End of variables declaration//GEN-END:variables
-    private javax.swing.JMenuItem MnPenilaianPreInduksi,MnHasilPemeriksaanEKG,MnPenilaianAwalKeperawatanKebidananIGD,MnPemantauanPEWSMaternal;
+    private javax.swing.JMenuItem MnPenilaianPreInduksi,MnHasilPemeriksaanEKG,MnSudahTerbitSEP,MnPenilaianAwalKeperawatanKebidananIGD,MnPemantauanPEWSMaternal;
     private widget.TextBox TPoli,TBiaya;
     
     private void tampil() {
@@ -11968,6 +11973,18 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnHasilPemeriksaanEKG.setPreferredSize(new java.awt.Dimension(200, 26));
         MnHasilPemeriksaanEKG.addActionListener(this::MnHasilPemeriksaanEKGActionPerformed);
         
+        MnSudahTerbitSEP = new javax.swing.JMenuItem();
+        MnSudahTerbitSEP.setBackground(new java.awt.Color(255, 255, 254));
+        MnSudahTerbitSEP.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        MnSudahTerbitSEP.setForeground(new java.awt.Color(50, 50, 50));
+        MnSudahTerbitSEP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
+        MnSudahTerbitSEP.setText("Sudah Terbit SEP BPJS");
+        MnSudahTerbitSEP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnSudahTerbitSEP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnSudahTerbitSEP.setName("MnSudahTerbitSEP"); 
+        MnSudahTerbitSEP.setPreferredSize(new java.awt.Dimension(320, 26));
+        MnSudahTerbitSEP.addActionListener(this::MnSudahTerbitSEPActionPerformed);
+        
         MnPenilaianAwalKeperawatanKebidananIGD = new javax.swing.JMenuItem();
         MnPenilaianAwalKeperawatanKebidananIGD.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalKeperawatanKebidananIGD.setFont(new java.awt.Font("Tahoma", 0, 11)); 
@@ -12004,10 +12021,41 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnRMOperasi.add(MnSkorStewardPascaAnestesi);
         MnRMOperasi.add(MnSkorBromagePascaAnestesi);
         
-        MnRMIGD.add(MnHasilPemeriksaanEKG);
+        MnRMIGD.add(MnDataTriaseIGD);
+        MnRMIGD.add(MnPenilaianAwalKeperawatanIGD);
         MnRMIGD.add(MnPenilaianAwalKeperawatanKebidananIGD);
+        MnRMIGD.add(MnPeniliaianAwalMedisIGD);
+        MnRMIGD.add(MnPeniliaianAwalMedisIGDPsikiatri);
+        MnRMIGD.add(MnPenilaianPasienKeracunan);
+        MnRMIGD.add(MnCatatanObservasiIGD);
+        MnRMIGD.add(MnPengkajianRestrain);
+        MnRMIGD.add(MnPemantauanPEWSAnak);
+        MnRMIGD.add(MnPemantauanPEWSDewasa);
+        MnRMIGD.add(MnPemantauanEWSNeonatus);
+        MnRMIGD.add(MnPemantauanMEOWS);
         MnRMIGD.add(MnPemantauanPEWSMaternal);
+        MnRMIGD.add(MnPeniliaianAwalMedisHemodialisa);
+        MnRMIGD.add(MnHasilPemeriksaanEKG);
         
+        MnBridging.add(MnSEP);
+        MnBridging.add(ppSuratKontrol);
+        MnBridging.add(ppSuratPRI);
+        MnBridging.add(ppProgramPRB);
+        MnBridging.add(ppSuplesiJasaRaharja);
+        MnBridging.add(ppDataIndukKecelakaan);
+        MnBridging.add(MnBelumTerbitSEP);
+        MnBridging.add(MnSudahTerbitSEP);
+        MnBridging.add(MnSJP);
+        MnBridging.add(MnPCare);
+        MnBridging.add(MnRujukSisrute);
+        MnBridging.add(ppPerawatanCorona);
+        MnBridging.add(ppPasienCorona);
+        MnBridging.add(MnTeridentifikasiTB);
+        MnBridging.add(MnRiwayatPerawatanICareNIK);
+        MnBridging.add(MnRiwayatPerawatanICareNoKartu);
+        MnBridging.add(MnRiwayatPerawatanICareNIK1);
+        MnBridging.add(MnRiwayatPerawatanICareNoKartu1);
+                
         
         TPoli = new widget.TextBox();
         TBiaya = new widget.TextBox();

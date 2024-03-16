@@ -439,7 +439,7 @@ public class GrafikHemodialisaPerBulan extends javax.swing.JDialog {
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){
-                    total=total+rs.getDouble(2);
+                    total += rs.getDouble(2);
                     tabMode.addRow(new String[]{rs.getString(1),rs.getString(2)});
                 }
                 if(tabMode.getRowCount()>0){

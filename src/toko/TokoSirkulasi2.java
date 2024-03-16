@@ -813,15 +813,15 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                            Valid.SetAngka(jumlahreturpiutang),Valid.SetAngka(totalreturpiutang),
                            Valid.SetAngka(stokakhir),Valid.SetAngka(totalstokakhir)
                         }); 
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttltotalpenjualan=ttltotalpenjualan+totalpenjualan;
-                        ttltotalpiutang=ttltotalpiutang+totalpiutang;
-                        ttltotalretursup=ttltotalretursup+totalretursup;
-                        ttltotalreturjual=ttltotalreturjual+totalreturjual;
-                        ttltotalreturpiutang=ttltotalreturpiutang+totalreturpiutang;
-                        ttltotalstokawal=ttltotalstokawal+totalstokawal;
-                        ttltotalstokakhir=ttltotalstokakhir+totalstokakhir;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttltotalpenjualan += totalpenjualan;
+                        ttltotalpiutang += totalpiutang;
+                        ttltotalretursup += totalretursup;
+                        ttltotalreturjual += totalreturjual;
+                        ttltotalreturpiutang += totalreturpiutang;
+                        ttltotalstokawal += totalstokawal;
+                        ttltotalstokakhir += totalstokakhir;
                     }
                 }   
                 tabMode.addRow(new Object[]{"","","","","","","","","","","","","","","","","","","","","",""}); 

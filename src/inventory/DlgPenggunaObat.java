@@ -992,7 +992,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 rspasien.getString("no_rawat")+"  "+rspasien.getString("no_rkm_medis")+"  "+rspasien.getString("nm_pasien"),
                                 rspasien.getDouble("jml"),rspasien.getString("nm_bangsal"),rspasien.getString("status"),rspasien.getString("alamat"),noresep,dokter
                             });
-                            jmlobat=jmlobat+rspasien.getDouble("jml");
+                            jmlobat += rspasien.getDouble("jml");
                             i++;
                         }
                         if(jmlobat>0){

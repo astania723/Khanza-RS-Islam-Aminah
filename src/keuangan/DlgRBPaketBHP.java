@@ -628,7 +628,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsralanpr.getString("nm_perawatan"),
                                     rsralanpr.getString("jml"),Valid.SetAngka(rsralanpr.getDouble("total"))
                                 });        
-                                jm=jm+rsralanpr.getDouble("total");
+                                jm += rsralanpr.getDouble("total");
                             }
 
                             rsralandr.beforeFirst();
@@ -637,7 +637,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsralandr.getString("nm_perawatan"),
                                     rsralandr.getString("jml"),Valid.SetAngka(rsralandr.getDouble("total"))
                                 });        
-                                jm=jm+rsralandr.getDouble("total");
+                                jm += rsralandr.getDouble("total");
                             }
                             
                             rsralandrpr.beforeFirst();
@@ -646,7 +646,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsralandrpr.getString("nm_perawatan"),
                                     rsralandrpr.getString("jml"),Valid.SetAngka(rsralandrpr.getDouble("total"))
                                 });        
-                                jm=jm+rsralandrpr.getDouble("total");
+                                jm += rsralandrpr.getDouble("total");
                             }
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -727,7 +727,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsranappr.getString("nm_perawatan"),
                                     rsranappr.getString("jml"),Valid.SetAngka(rsranappr.getDouble("total"))
                                 });  
-                                jm=jm+rsranappr.getDouble("total");
+                                jm += rsranappr.getDouble("total");
                             }
 
                             rsranapdr.beforeFirst();
@@ -736,7 +736,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsranapdr.getString("nm_perawatan"),
                                     rsranapdr.getString("jml"),Valid.SetAngka(rsranapdr.getDouble("total"))
                                 });  
-                                jm=jm+rsranapdr.getDouble("total");
+                                jm += rsranapdr.getDouble("total");
                             }
                             
                             rsranapdrpr.beforeFirst();
@@ -745,7 +745,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsranapdrpr.getString("nm_perawatan"),
                                     rsranapdrpr.getString("jml"),Valid.SetAngka(rsranapdrpr.getDouble("total"))
                                 });  
-                                jm=jm+rsranapdrpr.getDouble("total");
+                                jm += rsranapdrpr.getDouble("total");
                             }
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -863,7 +863,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsperiksaradiologi.getString("nm_perawatan"),
                                     rsperiksaradiologi.getString("jml"),Valid.SetAngka(rsperiksaradiologi.getDouble("total"))
                                 });             
-                                jm=jm+rsperiksaradiologi.getDouble("total");
+                                jm += rsperiksaradiologi.getDouble("total");
                             }
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -881,7 +881,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         tabMode.addRow(new Object[]{"","","Total : ","",Valid.SetAngka(jm)});
                    }
 
-                   totaljm=totaljm+jm;   
+                   totaljm += jm;   
                    i++;
                 } 
            } catch (Exception e) {

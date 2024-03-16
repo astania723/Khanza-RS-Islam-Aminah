@@ -52,17 +52,17 @@ public class DlgCekStok extends javax.swing.JDialog {
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "Kode Barang","Nama Barang","Kategori","Satuan","Harga","Stok"}){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
             Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.Double.class,java.lang.Double.class
              };
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){
+              boolean a = false;
+              if (colIndex==0) {
+                a=true;
+              }
+              return a;
+            }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];

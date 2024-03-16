@@ -647,15 +647,15 @@ public class DlgPaymentPoint extends javax.swing.JDialog {
                                 }
                                 if(petugas.toLowerCase().trim().contains(User.getText().toLowerCase().trim())){
                                     if(rsjamshift.getString("shift").equals("Pagi")){
-                                        pagi=pagi+Math.round(rs.getDouble("jumlah_bayar"));
+                                        pagi += Math.round(rs.getDouble("jumlah_bayar"));
                                     }else if(rsjamshift.getString("shift").equals("Siang")){
-                                        siang=siang+Math.round(rs.getDouble("jumlah_bayar"));
+                                        siang += Math.round(rs.getDouble("jumlah_bayar"));
                                     }else if(rsjamshift.getString("shift").equals("Sore")){
-                                        sore=sore+Math.round(rs.getDouble("jumlah_bayar"));
+                                        sore += Math.round(rs.getDouble("jumlah_bayar"));
                                     }else if(rsjamshift.getString("shift").equals("Malam")){
-                                        malam=malam+Math.round(rs.getDouble("jumlah_bayar"));
+                                        malam += Math.round(rs.getDouble("jumlah_bayar"));
                                     }
-                                    all=all+Math.round(rs.getDouble("jumlah_bayar"));
+                                    all += Math.round(rs.getDouble("jumlah_bayar"));
                                     tabMode.addRow(new Object[]{
                                         i,rs.getString("tgl_bayar"),rsjamshift.getString("shift"),nonota,rs.getString("nama_pasien"),Math.round(rs.getDouble("jumlah_bayar")),petugas
                                     });
@@ -670,15 +670,15 @@ public class DlgPaymentPoint extends javax.swing.JDialog {
                                 }
                                 if(petugas.toLowerCase().trim().contains(User.getText().toLowerCase().trim())){
                                     if(rsjamshift.getString("shift").equals("Pagi")){
-                                        pagi=pagi+Math.round(rs.getDouble("jumlah_bayar"));
+                                        pagi += Math.round(rs.getDouble("jumlah_bayar"));
                                     }else if(rsjamshift.getString("shift").equals("Siang")){
-                                        siang=siang+Math.round(rs.getDouble("jumlah_bayar"));
+                                        siang += Math.round(rs.getDouble("jumlah_bayar"));
                                     }else if(rsjamshift.getString("shift").equals("Sore")){
-                                        sore=sore+Math.round(rs.getDouble("jumlah_bayar"));
+                                        sore += Math.round(rs.getDouble("jumlah_bayar"));
                                     }else if(rsjamshift.getString("shift").equals("Malam")){
-                                        malam=malam+Math.round(rs.getDouble("jumlah_bayar"));
+                                        malam += Math.round(rs.getDouble("jumlah_bayar"));
                                     }
-                                    all=all+Math.round(rs.getDouble("jumlah_bayar"));
+                                    all += Math.round(rs.getDouble("jumlah_bayar"));
                                     tabMode.addRow(new Object[]{
                                         i,rs.getString("tgl_bayar"),rsjamshift.getString("shift"),nonota,rs.getString("nama_pasien"),Math.round(rs.getDouble("jumlah_bayar")),petugas
                                     });

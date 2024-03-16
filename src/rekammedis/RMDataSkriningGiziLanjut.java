@@ -127,7 +127,7 @@ public class RMDataSkriningGiziLanjut extends javax.swing.JDialog {
         TB.setDocument(new batasInput((byte)5).getKata(TB));
         BB.setDocument(new batasInput((byte)5).getKata(BB));
         Alergi.setDocument(new batasInput((byte)25).getKata(Alergi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

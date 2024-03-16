@@ -57,13 +57,13 @@ public class DlgPiutang extends javax.swing.JDialog {
         Object[] row={"Kode Barang","Nama Barang","Satuan","Harga(Rp)","Jml",
                     "Subtotal(Rp)","Diskon(%)","Diskon(Rp)","Total(Rp)","No.Batch","No.Faktur","Aturan Pakai"};
         tabMode=new DefaultTableModel(null,row){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                  java.lang.String.class,java.lang.String.class,java.lang.String.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.String.class,java.lang.String.class,java.lang.String.class
              };  
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -118,7 +118,7 @@ public class DlgPiutang extends javax.swing.JDialog {
         Jmljual.setDocument(new batasInput((byte)13).getKata(Jmljual));  
         NoBatch.setDocument(new batasInput((byte)20).getKata(NoBatch));     
         NoFaktur.setDocument(new batasInput((byte)20).getKata(NoFaktur));   
-        Aturan.setDocument(new batasInput((int)150).getKata(Aturan));     
+        Aturan.setDocument(new batasInput(150).getKata(Aturan));     
         
         Jmljual.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
             @Override
@@ -1767,7 +1767,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 rs=ps.executeQuery();
                 ttljual=0;
                 while(rs.next()){
-                    ttljual=ttljual+rs.getDouble(9);
+                    ttljual += rs.getDouble(9);
                     tabMode.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),
                         rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),

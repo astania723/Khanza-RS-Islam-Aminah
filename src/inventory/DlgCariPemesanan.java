@@ -1719,7 +1719,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                     tabMode.addRow(new Object[]{"","Jth.Tempo",": "+rs.getString("tgl_tempo"),"","","","","","PPN",":",Valid.SetAngka(rs.getDouble("ppn"))});
                     tabMode.addRow(new Object[]{"","Status Bayar",": "+rs.getString("status"),"","","","","","Tagihan",":",Valid.SetAngka(rs.getDouble("tagihan"))});
                     tabMode.addRow(new Object[]{"","","","","","","","","","",""});
-                    tagihan=tagihan+rs.getDouble("tagihan");
+                    tagihan += rs.getDouble("tagihan");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
@@ -1871,7 +1871,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                             ps2.close();
                         }
                     }
-                    tagihan=tagihan+rs.getDouble("tagihan");
+                    tagihan += rs.getDouble("tagihan");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

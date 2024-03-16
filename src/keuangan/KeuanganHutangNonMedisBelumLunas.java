@@ -1331,8 +1331,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         0,(rs.getDouble("tagihan")-rs.getDouble("bayar")),rs.getString("nama_bank"),
                         rs.getString("rekening")
                     });
-                    sisahutang=sisahutang+rs.getDouble("tagihan");
-                    cicilan=cicilan+rs.getDouble("bayar");
+                    sisahutang += rs.getDouble("tagihan");
+                    cicilan += rs.getDouble("bayar");
                 }
                 LCount.setText(Valid.SetAngka(sisahutang-cicilan));
             } catch (Exception e) {
@@ -1355,7 +1355,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         bayar=0;
         for(i=0;i<row;i++){  
             if(tbBangsal.getValueAt(i,0).toString().equals("true")){
-                 bayar=bayar+Double.parseDouble(tbBangsal.getValueAt(i,10).toString());     
+                 bayar += Double.parseDouble(tbBangsal.getValueAt(i,10).toString());     
             }
         }
         LCount1.setText(Valid.SetAngka(bayar));
@@ -1493,8 +1493,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getDouble("tagihan"),(rs.getDouble("tagihan")-rs.getDouble("bayar")),
                         0,(rs.getDouble("tagihan")-rs.getDouble("bayar")),rs.getString("nama_bank"),rs.getString("rekening")
                     });
-                    sisahutang=sisahutang+rs.getDouble("tagihan");
-                    cicilan=cicilan+rs.getDouble("bayar");
+                    sisahutang += rs.getDouble("tagihan");
+                    cicilan += rs.getDouble("bayar");
                     kdsup.setText(rs.getString("kode_suplier"));
                     nmsup.setText(rs.getString("nama_suplier"));
                 }

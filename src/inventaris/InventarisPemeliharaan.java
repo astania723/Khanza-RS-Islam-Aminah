@@ -101,8 +101,8 @@ public class InventarisPemeliharaan extends javax.swing.JDialog {
         }
         tbJnsPerawatan.setDefaultRenderer(Object.class, new WarnaTable());
 
-        UraianKegiatan.setDocument(new batasInput((int)255).getKata(UraianKegiatan));
-        Biaya.setDocument(new batasInput((int)15).getOnlyAngka(Biaya));
+        UraianKegiatan.setDocument(new batasInput(255).getKata(UraianKegiatan));
+        Biaya.setDocument(new batasInput(15).getOnlyAngka(Biaya));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         TCari.requestFocus();
         
@@ -1136,7 +1136,7 @@ private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){
-                    total=total+rs.getDouble("biaya");
+                    total += rs.getDouble("biaya");
                     tabMode.addRow(new String[]{
                         rs.getString("no_inventaris"),rs.getString("kode_barang"),rs.getString("nama_barang"),
                         rs.getString("nama_ruang"),rs.getString("nip"),rs.getString("nama"),rs.getString("uraian_kegiatan"),rs.getString("tanggal"),

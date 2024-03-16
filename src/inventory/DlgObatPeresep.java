@@ -47,12 +47,12 @@ public class DlgObatPeresep extends javax.swing.JDialog {
         tabMode=new DefaultTableModel(null,new Object[]{
                 "No.","Kode","Nama","Jml","Satuan","Harga","Subtotal"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, 
                 java.lang.Double.class, java.lang.String.class,java.lang.Double.class, 
                 java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -692,7 +692,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 null,rs2.getString("kode_brng"),rs2.getString("nama_brng"),rs2.getDouble("jml"),
                                 rs2.getString("kode_sat"),rs2.getDouble("biaya_obat"),rs2.getDouble("total")
                             });
-                            total=total+rs2.getDouble("total");
+                            total += rs2.getDouble("total");
                         }
                     } catch (Exception e) {
                         System.out.println("Notifikasi : "+e);

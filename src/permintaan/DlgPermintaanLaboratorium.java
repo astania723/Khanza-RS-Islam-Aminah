@@ -183,16 +183,16 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         tbTarifPA.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModeDetailMB=new DefaultTableModel(null,new Object[]{"P","Pemeriksaan","Satuan","Nilai Rujukan","id_template","Kode Jenis"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                    boolean a = false;
-                    if (colIndex==0) {
-                        a=true;
-                    }
-                    return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -261,22 +261,22 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KodePerujuk.setDocument(new batasInput((byte)20).getKata(KodePerujuk));
-        Pemeriksaan.setDocument(new batasInput((int)100).getKata(Pemeriksaan));    
-        PemeriksaanPA.setDocument(new batasInput((int)100).getKata(PemeriksaanPA));  
-        PemeriksaanMB.setDocument(new batasInput((int)100).getKata(PemeriksaanMB));    
+        Pemeriksaan.setDocument(new batasInput(100).getKata(Pemeriksaan));    
+        PemeriksaanPA.setDocument(new batasInput(100).getKata(PemeriksaanPA));  
+        PemeriksaanMB.setDocument(new batasInput(100).getKata(PemeriksaanMB));    
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));          
         TCariMB.setDocument(new batasInput((byte)100).getKata(TCariMB));        
         TNoPermintaanPK.setDocument(new batasInput((byte)15).getKata(TNoPermintaanPK));
-        TNoPermintaanPA.setDocument(new batasInput((int)15).getKata(TNoPermintaanPA));
-        TNoPermintaanMB.setDocument(new batasInput((int)15).getKata(TNoPermintaanPA));  
-        InformasiTambahan.setDocument(new batasInput((int)60).getKata(InformasiTambahan));
-        DiagnosisKlinis.setDocument(new batasInput((int)80).getKata(DiagnosisKlinis));
-        DiperolehDengan.setDocument(new batasInput((int)40).getKata(DiperolehDengan));
-        LokasiPengambilan.setDocument(new batasInput((int)40).getKata(LokasiPengambilan));
-        Diawetkan.setDocument(new batasInput((int)40).getKata(Diawetkan));
-        DilakukanPA.setDocument(new batasInput((int)100).getKata(DilakukanPA));
-        NomorPA.setDocument(new batasInput((int)20).getKata(NomorPA));
-        DiagnosaPA.setDocument(new batasInput((int)100).getKata(DiagnosaPA));
+        TNoPermintaanPA.setDocument(new batasInput(15).getKata(TNoPermintaanPA));
+        TNoPermintaanMB.setDocument(new batasInput(15).getKata(TNoPermintaanPA));  
+        InformasiTambahan.setDocument(new batasInput(60).getKata(InformasiTambahan));
+        DiagnosisKlinis.setDocument(new batasInput(80).getKata(DiagnosisKlinis));
+        DiperolehDengan.setDocument(new batasInput(40).getKata(DiperolehDengan));
+        LokasiPengambilan.setDocument(new batasInput(40).getKata(LokasiPengambilan));
+        Diawetkan.setDocument(new batasInput(40).getKata(Diawetkan));
+        DilakukanPA.setDocument(new batasInput(100).getKata(DilakukanPA));
+        NomorPA.setDocument(new batasInput(20).getKata(NomorPA));
+        DiagnosaPA.setDocument(new batasInput(100).getKata(DiagnosaPA));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             Pemeriksaan.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

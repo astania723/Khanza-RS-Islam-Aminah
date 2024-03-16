@@ -161,10 +161,10 @@ public class InhealthTagihan extends javax.swing.JDialog {
         tabModeTagihanKamar=new DefaultTableModel(null,new Object[]{
                 "P","Kode Jenis","Jenis Pelayanan Ruang Rawat","Tarif","Hari","Total"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -184,10 +184,10 @@ public class InhealthTagihan extends javax.swing.JDialog {
         tabModeTagihanRalan=new DefaultTableModel(null,new Object[]{
                 "P","Kode Jenis","Jenis Pelayanan Ruang Rawat","Tarif","Hari","Total"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -915,7 +915,7 @@ public class InhealthTagihan extends javax.swing.JDialog {
                 ps.setString(1,norawat);
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    totaltagihan=totaltagihan+rs.getDouble("total");
+                    totaltagihan += rs.getDouble("total");
                     tabModeTagihanKamar.addRow(new Object[]{
                         true,rs.getString("kode_jenpel_ruang_rawat"),rs.getString("nama_jenpel_ruang_rawat"),rs.getDouble("tarif"),rs.getDouble("lama"),rs.getDouble("total")
                     });
@@ -950,7 +950,7 @@ public class InhealthTagihan extends javax.swing.JDialog {
                 ps.setString(1,norawat);
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    totaltagihan=totaltagihan+rs.getDouble("total");
+                    totaltagihan += rs.getDouble("total");
                     tabModeTagihanKamar.addRow(new Object[]{
                         true,rs.getString("kode_jenpel_ruang_rawat"),rs.getString("nama_jenpel_ruang_rawat"),rs.getDouble("tarif"),rs.getDouble("lama"),rs.getDouble("total")
                     });

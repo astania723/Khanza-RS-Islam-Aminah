@@ -78,18 +78,18 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "K","Jumlah","Aturan Pakai","Kode Barang","Nama Barang","Satuan",
                 "Komposisi","Harga(Rp)","Jenis Obat","I.F.","H.Beli","Stok"
             }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==0)||(colIndex==1)||(colIndex==2)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class,java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class,java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
                 java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==1)||(colIndex==2)) {
+                 a=true;
+               }
+               return a;
+             }
              /*Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };*/
@@ -139,17 +139,17 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "No","Nama Racikan","Kode Racik","Metode Racik","Jml.Racik",
                 "Aturan Pakai","Keterangan"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = true;
-                if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
-                    a=false;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = true;
+               if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
+                 a=false;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -188,13 +188,6 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "Jenis Obat","Stok","Kps","P1","/","P2","Kandungan","Jml","I.F.",
                 "Komposisi"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==9)||(colIndex==11)||(colIndex==12)||(colIndex==13)) {
-                    a=true;
-                }
-                return a;
-             }             
              Class[] types = new Class[] {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,
@@ -203,6 +196,13 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
                 java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==9)||(colIndex==11)||(colIndex==12)||(colIndex==13)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -2431,10 +2431,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 persenracik=Double.parseDouble(tbDetailResepObatRacikan.getValueAt(r,12).toString().replaceAll("%",""));
                 kapasitasracik=Double.parseDouble(tbDetailResepObatRacikan.getValueAt(r,8).toString());
                 for(i=0;i<tbDetailResepObatRacikan.getRowCount();i++){ 
-                    if(noracik==tbDetailResepObatRacikan.getValueAt(i,0).toString()){
+                    if(noracik == null ? tbDetailResepObatRacikan.getValueAt(i,0).toString() == null : noracik.equals(tbDetailResepObatRacikan.getValueAt(i,0).toString())){
                         if(!tbDetailResepObatRacikan.getValueAt(i,12).toString().contains("%")){
-                            jumlahracik=jumlahracik+(Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,8).toString())*
-                                    Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,13).toString()));
+                            jumlahracik += (Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,8).toString())*
+                                  Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,13).toString()));
                         }
                     }
                 }
@@ -4085,7 +4085,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     } catch (Exception e) {
                         y=0;
                     }
-                    ttl=ttl+y;
+                    ttl += y;
                 }  
             } catch (Exception e) {
             }                           
@@ -4099,14 +4099,14 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 } catch (Exception e) {
                     y=0;
                 }
-                ttl=ttl+y;
+                ttl += y;
             }
         }
         LTotal.setText(Valid.SetAngka(ttl));
         ppnobat=0;
         if(tampilkan_ppnobat_ralan.equals("Yes")){
             ppnobat=Math.round(ttl*0.11);
-            ttl=ttl+ppnobat;
+            ttl += ppnobat;
             LPpn.setText(Valid.SetAngka(ppnobat));
             LTotalTagihan.setText(Valid.SetAngka(ttl));
         }

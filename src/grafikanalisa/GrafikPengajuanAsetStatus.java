@@ -506,8 +506,8 @@ public class GrafikPengajuanAsetStatus extends javax.swing.JDialog {
                 total=0;
                 jumlah=0;
                 while(rs.next()){
-                    total=total+rs.getDouble("total");
-                    jumlah=jumlah+rs.getDouble("jumlah");
+                    total += rs.getDouble("total");
+                    jumlah += rs.getDouble("jumlah");
                     tabMode.addRow(new Object[]{rs.getString("status"),rs.getString("jumlah"),"0",rs.getDouble("total"),"0"});
                 }
                 if(tabMode.getRowCount()>0){

@@ -73,12 +73,12 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeRalanDokter=new DefaultTableModel(null,new Object[]{
             "No.","Kode Tindakan","Perawatan/Tindakan","Jasa Sarana","Paket BHP","JM Dokter","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -116,12 +116,12 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeRalanParamedis=new DefaultTableModel(null,new Object[]{
             "No.","Kode Tindakan","Perawatan/Tindakan","Jasa Sarana","Paket BHP","JM Paramedis","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -159,12 +159,12 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeRalanDokterParamedis=new DefaultTableModel(null,new Object[]{
             "No.","Kode Tindakan","Perawatan/Tindakan","Jasa Sarana","Paket BHP","JM Dokter","JM Paramedis","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -204,13 +204,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeRanapDokter=new DefaultTableModel(null,new Object[]{
             "No.","Kode Tindakan","Perawatan/Tindakan","Jasa Sarana","Paket BHP","JM Dokter","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -248,13 +248,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeRanapParamedis=new DefaultTableModel(null,new Object[]{
             "No.","Kode Tindakan","Perawatan/Tindakan","Jasa Sarana","Paket BHP","JM Paramedis","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -292,12 +292,12 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeRanapDokterParamedis=new DefaultTableModel(null,new Object[]{
             "No.","Kode Tindakan","Perawatan/Tindakan","Jasa Sarana","Paket BHP","JM Dokter","JM Paramedis","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -337,13 +337,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeRadiologi=new DefaultTableModel(null,new Object[]{
             "No.","Kode","Pemeriksaan","Jasa Sarana","Paket BHP","JM P.J.Rad","JM Petugas","JM Perujuk","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -385,13 +385,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeLaborat=new DefaultTableModel(null,new Object[]{
             "No.","Kode","Pemeriksaan","Jasa Sarana","Paket BHP","JM P.J.Lab","JM Petugas","JM Perujuk","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -433,13 +433,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         
         tabModeDetailLaborat=new DefaultTableModel(null,new Object[]{
             "No.","Id","Pemeriksaan","Jasa Sarana","Paket BHP","JM P.J.Lab","JM Petugas","JM Perujuk","KSO","Menejemen","Total","Jumlah"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -485,7 +485,6 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
             "JM Bidan 1","JM Bidan 2","JM Bidan 3","JM P.L.","JM Onloop 1","JM Onloop 2","JM Onloop 3","JM Onloop 4", 
             "JM Onloop 5","JM dr P.J. Anak","JM dr Umum","Sewa Alat","Sewa OK/VK","Akomodasi","N.M.S.","Sarpras","Total","Jumlah" 
         }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
@@ -499,6 +498,7 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Integer.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -3274,13 +3274,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 item=0;
                 material=0;bhp=0;jmdokter=0;kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble(3);
-                    bhp=bhp+rs.getDouble(4);
-                    jmdokter=jmdokter+rs.getDouble(5);
-                    kso=kso+rs.getDouble(6);
-                    menejemen=menejemen+rs.getDouble(7);
-                    total=total+rs.getDouble(8);
-                    item=item+rs.getInt(9);
+                    material += rs.getDouble(3);
+                    bhp += rs.getDouble(4);
+                    jmdokter += rs.getDouble(5);
+                    kso += rs.getDouble(6);
+                    menejemen += rs.getDouble(7);
+                    total += rs.getDouble(8);
+                    item += rs.getInt(9);
                     tabModeRalanDokter.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getInt(9)
                     });
@@ -3410,13 +3410,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmpetugas=0;kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble(3);
-                    bhp=bhp+rs.getDouble(4);
-                    jmpetugas=jmpetugas+rs.getDouble(5);
-                    kso=kso+rs.getDouble(6);
-                    menejemen=menejemen+rs.getDouble(7);
-                    total=total+rs.getDouble(8);
-                    item=item+rs.getInt(9);
+                    material += rs.getDouble(3);
+                    bhp += rs.getDouble(4);
+                    jmpetugas += rs.getDouble(5);
+                    kso += rs.getDouble(6);
+                    menejemen += rs.getDouble(7);
+                    total += rs.getDouble(8);
+                    item += rs.getInt(9);
                     tabModeRalanParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getInt(9)
                     });
@@ -3553,14 +3553,14 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble(3);
-                    bhp=bhp+rs.getDouble(4);
-                    jmdokter=jmdokter+rs.getDouble(5);
-                    jmpetugas=jmpetugas+rs.getDouble(6);
-                    kso=kso+rs.getDouble(7);
-                    menejemen=menejemen+rs.getDouble(8);
-                    total=total+rs.getDouble(9);
-                    item=item+rs.getInt(10);
+                    material += rs.getDouble(3);
+                    bhp += rs.getDouble(4);
+                    jmdokter += rs.getDouble(5);
+                    jmpetugas += rs.getDouble(6);
+                    kso += rs.getDouble(7);
+                    menejemen += rs.getDouble(8);
+                    total += rs.getDouble(9);
+                    item += rs.getInt(10);
                     tabModeRalanDokterParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getDouble(9),rs.getInt(10)
                     });
@@ -3770,35 +3770,35 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 biaya_omloop4=0;biaya_omloop5=0;biayasarpras=0;biaya_dokter_pjanak=0;
                 biaya_dokter_umum=0;item=0;
                 while(rs.next()){  
-                    biayaoperator1=biayaoperator1+rs.getDouble("biayaoperator1");
-                    biayaoperator2=biayaoperator2+rs.getDouble("biayaoperator2");
-                    biayaoperator3=biayaoperator3+rs.getDouble("biayaoperator3");
-                    biayaasisten_operator1=biayaasisten_operator1+rs.getDouble("biayaasisten_operator1");
-                    biayaasisten_operator2=biayaasisten_operator2+rs.getDouble("biayaasisten_operator2");
-                    biayaasisten_operator3=biayaasisten_operator3+rs.getDouble("biayaasisten_operator3");
-                    biayainstrumen=biayainstrumen+rs.getDouble("biayainstrumen");
-                    biayadokter_anak=biayadokter_anak+rs.getDouble("biayadokter_anak");
-                    biayaperawaat_resusitas=biayaperawaat_resusitas+rs.getDouble("biayaperawaat_resusitas");
-                    biayadokter_anestesi=biayadokter_anestesi+rs.getDouble("biayadokter_anestesi");
-                    biayaasisten_anestesi=biayaasisten_anestesi+rs.getDouble("biayaasisten_anestesi");
-                    biayaasisten_anestesi2=biayaasisten_anestesi2+rs.getDouble("biayaasisten_anestesi2");
-                    biayabidan=biayabidan+rs.getDouble("biayabidan");
-                    biayabidan2=biayabidan2+rs.getDouble("biayabidan2");
-                    biayabidan3=biayabidan3+rs.getDouble("biayabidan3");
-                    biayaperawat_luar=biayaperawat_luar+rs.getDouble("biayaperawat_luar");
-                    biaya_omloop=biaya_omloop+rs.getDouble("biaya_omloop");
-                    biaya_omloop2=biaya_omloop2+rs.getDouble("biaya_omloop2");
-                    biaya_omloop3=biaya_omloop3+rs.getDouble("biaya_omloop3");
-                    biaya_omloop4=biaya_omloop4+rs.getDouble("biaya_omloop4");
-                    biaya_omloop5=biaya_omloop5+rs.getDouble("biaya_omloop5");
-                    biaya_dokter_pjanak=biaya_dokter_pjanak+rs.getDouble("biaya_dokter_pjanak");
-                    biaya_dokter_umum=biaya_dokter_umum+rs.getDouble("biaya_dokter_umum");
-                    biayaalat=biayaalat+rs.getDouble("biayaalat");
-                    biayasewaok=biayasewaok+rs.getDouble("biayasewaok");
-                    akomodasi=akomodasi+rs.getDouble("akomodasi");
-                    bagian_rs=bagian_rs+rs.getDouble("bagian_rs");
-                    biayasarpras=biayasarpras+rs.getDouble("biayasarpras");
-                    item=item+rs.getInt("jumlah");
+                    biayaoperator1 += rs.getDouble("biayaoperator1");
+                    biayaoperator2 += rs.getDouble("biayaoperator2");
+                    biayaoperator3 += rs.getDouble("biayaoperator3");
+                    biayaasisten_operator1 += rs.getDouble("biayaasisten_operator1");
+                    biayaasisten_operator2 += rs.getDouble("biayaasisten_operator2");
+                    biayaasisten_operator3 += rs.getDouble("biayaasisten_operator3");
+                    biayainstrumen += rs.getDouble("biayainstrumen");
+                    biayadokter_anak += rs.getDouble("biayadokter_anak");
+                    biayaperawaat_resusitas += rs.getDouble("biayaperawaat_resusitas");
+                    biayadokter_anestesi += rs.getDouble("biayadokter_anestesi");
+                    biayaasisten_anestesi += rs.getDouble("biayaasisten_anestesi");
+                    biayaasisten_anestesi2 += rs.getDouble("biayaasisten_anestesi2");
+                    biayabidan += rs.getDouble("biayabidan");
+                    biayabidan2 += rs.getDouble("biayabidan2");
+                    biayabidan3 += rs.getDouble("biayabidan3");
+                    biayaperawat_luar += rs.getDouble("biayaperawat_luar");
+                    biaya_omloop += rs.getDouble("biaya_omloop");
+                    biaya_omloop2 += rs.getDouble("biaya_omloop2");
+                    biaya_omloop3 += rs.getDouble("biaya_omloop3");
+                    biaya_omloop4 += rs.getDouble("biaya_omloop4");
+                    biaya_omloop5 += rs.getDouble("biaya_omloop5");
+                    biaya_dokter_pjanak += rs.getDouble("biaya_dokter_pjanak");
+                    biaya_dokter_umum += rs.getDouble("biaya_dokter_umum");
+                    biayaalat += rs.getDouble("biayaalat");
+                    biayasewaok += rs.getDouble("biayasewaok");
+                    akomodasi += rs.getDouble("akomodasi");
+                    bagian_rs += rs.getDouble("bagian_rs");
+                    biayasarpras += rs.getDouble("biayasarpras");
+                    item += rs.getInt("jumlah");
                     total=total+rs.getDouble("biayaoperator1")+rs.getDouble("biayaoperator2")+rs.getDouble("biayaoperator3")+
                           rs.getDouble("biayaasisten_operator1")+rs.getDouble("biayaasisten_operator2")+rs.getDouble("biayaasisten_operator3")+
                           rs.getDouble("biayainstrumen")+rs.getDouble("biayadokter_anak")+rs.getDouble("biayaperawaat_resusitas")+
@@ -3945,13 +3945,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmdokter=0;kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble(3);
-                    bhp=bhp+rs.getDouble(4);
-                    jmdokter=jmdokter+rs.getDouble(5);
-                    kso=kso+rs.getDouble(6);
-                    menejemen=menejemen+rs.getDouble(7);
-                    total=total+rs.getDouble(8);
-                    item=item+rs.getInt(9);
+                    material += rs.getDouble(3);
+                    bhp += rs.getDouble(4);
+                    jmdokter += rs.getDouble(5);
+                    kso += rs.getDouble(6);
+                    menejemen += rs.getDouble(7);
+                    total += rs.getDouble(8);
+                    item += rs.getInt(9);
                     tabModeRanapDokter.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getInt(9)
                     });
@@ -4074,13 +4074,13 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmpetugas=0;kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble(3);
-                    bhp=bhp+rs.getDouble(4);
-                    jmpetugas=jmpetugas+rs.getDouble(5);
-                    kso=kso+rs.getDouble(6);
-                    menejemen=menejemen+rs.getDouble(7);
-                    total=total+rs.getDouble(8);
-                    item=item+rs.getInt(9);
+                    material += rs.getDouble(3);
+                    bhp += rs.getDouble(4);
+                    jmpetugas += rs.getDouble(5);
+                    kso += rs.getDouble(6);
+                    menejemen += rs.getDouble(7);
+                    total += rs.getDouble(8);
+                    item += rs.getInt(9);
                     tabModeRanapParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getInt(9)
                     });
@@ -4216,14 +4216,14 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble(3);
-                    bhp=bhp+rs.getDouble(4);
-                    jmdokter=jmdokter+rs.getDouble(5);
-                    jmpetugas=jmpetugas+rs.getDouble(6);
-                    kso=kso+rs.getDouble(7);
-                    menejemen=menejemen+rs.getDouble(8);
-                    total=total+rs.getDouble(9);
-                    item=item+rs.getInt(10);
+                    material += rs.getDouble(3);
+                    bhp += rs.getDouble(4);
+                    jmdokter += rs.getDouble(5);
+                    jmpetugas += rs.getDouble(6);
+                    kso += rs.getDouble(7);
+                    menejemen += rs.getDouble(8);
+                    total += rs.getDouble(9);
+                    item += rs.getInt(10);
                     tabModeRanapDokterParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getDouble(9),rs.getInt(10)
                     });
@@ -4368,15 +4368,15 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;jmperujuk=0;
                 kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("bagian_rs");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakan_dokter");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakan_petugas");
-                    jmperujuk=jmperujuk+rs.getDouble("tarif_perujuk");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya");
-                    item=item+rs.getInt("jumlah");
+                    material += rs.getDouble("bagian_rs");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakan_dokter");
+                    jmpetugas += rs.getDouble("tarif_tindakan_petugas");
+                    jmperujuk += rs.getDouble("tarif_perujuk");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya");
+                    item += rs.getInt("jumlah");
                     tabModeRadiologi.addRow(new Object[]{
                         i,rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan"),rs.getDouble("bagian_rs"),
                         rs.getDouble("bhp"),rs.getDouble("tarif_tindakan_dokter"),
@@ -4522,15 +4522,15 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;jmperujuk=0;
                 kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("bagian_rs");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakan_dokter");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakan_petugas");
-                    jmperujuk=jmperujuk+rs.getDouble("tarif_perujuk");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya");
-                    item=item+rs.getInt("jumlah");
+                    material += rs.getDouble("bagian_rs");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakan_dokter");
+                    jmpetugas += rs.getDouble("tarif_tindakan_petugas");
+                    jmperujuk += rs.getDouble("tarif_perujuk");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya");
+                    item += rs.getInt("jumlah");
                     tabModeLaborat.addRow(new Object[]{
                         i,rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan"),rs.getDouble("bagian_rs"),
                         rs.getDouble("bhp"),rs.getDouble("tarif_tindakan_dokter"),rs.getDouble("tarif_tindakan_petugas"),
@@ -4698,15 +4698,15 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;jmperujuk=0;
                 kso=0;menejemen=0;total=0;item=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("bagian_rs");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("bagian_dokter");
-                    jmpetugas=jmpetugas+rs.getDouble("bagian_laborat");
-                    jmperujuk=jmperujuk+rs.getDouble("bagian_perujuk");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_item");
-                    item=item+rs.getInt("jumlah");
+                    material += rs.getDouble("bagian_rs");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("bagian_dokter");
+                    jmpetugas += rs.getDouble("bagian_laborat");
+                    jmperujuk += rs.getDouble("bagian_perujuk");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_item");
+                    item += rs.getInt("jumlah");
                     tabModeDetailLaborat.addRow(new Object[]{
                         i,rs.getString("id_template"),rs.getString("Pemeriksaan"),rs.getDouble("bagian_rs"),
                         rs.getDouble("bhp"),rs.getDouble("bagian_dokter"),rs.getDouble("bagian_laborat"),

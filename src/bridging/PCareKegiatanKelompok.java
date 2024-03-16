@@ -1563,7 +1563,7 @@ public class PCareKegiatanKelompok extends javax.swing.JDialog {
                         rs.getString("materi"),rs.getString("pembicara"),rs.getString("lokasi"),
                         rs.getString("keterangan"),rs.getDouble("biaya")
                     });
-                    total=total+rs.getDouble("biaya");
+                    total += rs.getDouble("biaya");
                 }
                 tabMode.addRow(new Object[]{
                     "","","Total",":","","","","","","",total
@@ -1647,6 +1647,11 @@ public class PCareKegiatanKelompok extends javax.swing.JDialog {
         public String getMethod() {
             return "DELETE";
         }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     }
 
     @Test

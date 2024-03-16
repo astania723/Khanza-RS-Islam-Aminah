@@ -164,7 +164,7 @@ public class RMChecklistPreOperasi extends javax.swing.JDialog {
         KeteranganUSG.setDocument(new batasInput((byte)20).getKata(KeteranganUSG));
         KeteranganCTScan.setDocument(new batasInput((byte)20).getKata(KeteranganCTScan));
         KeteranganMRI.setDocument(new batasInput((byte)20).getKata(KeteranganMRI));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

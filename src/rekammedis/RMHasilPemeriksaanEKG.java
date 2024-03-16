@@ -139,16 +139,16 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        Irama.setDocument(new batasInput((int)40).getKata(Irama));
-        LajuJantung.setDocument(new batasInput((int)30).getKata(LajuJantung));
-        GelombangP.setDocument(new batasInput((int)15).getKata(GelombangP));
-        IntervalPR.setDocument(new batasInput((int)50).getKata(IntervalPR));
-        Axis.setDocument(new batasInput((int)60).getKata(Axis));
-        KompleksQRS.setDocument(new batasInput((int)60).getKata(KompleksQRS));
-        Kesimpulan.setDocument(new batasInput((int)200).getKata(Kesimpulan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        Irama.setDocument(new batasInput(40).getKata(Irama));
+        LajuJantung.setDocument(new batasInput(30).getKata(LajuJantung));
+        GelombangP.setDocument(new batasInput(15).getKata(GelombangP));
+        IntervalPR.setDocument(new batasInput(50).getKata(IntervalPR));
+        Axis.setDocument(new batasInput(60).getKata(Axis));
+        KompleksQRS.setDocument(new batasInput(60).getKata(KompleksQRS));
+        Kesimpulan.setDocument(new batasInput(200).getKata(Kesimpulan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1412,7 +1412,7 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
             panggilPhoto();
         }else{
             ChkAccor.setSelected(false);
-            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Pernyataan..!!!");
+            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Rawat..!!!");
         }
     }//GEN-LAST:event_ChkAccorActionPerformed
 
@@ -1426,7 +1426,7 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
                 Valid.panggilUrl("hasilpemeriksaanekg/login.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&no_rawat="+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 this.setCursor(Cursor.getDefaultCursor());
             }else{
-                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
             }
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
@@ -1435,7 +1435,7 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
         if(tbObat.getSelectedRow()>-1){
             panggilPhoto();
         }else{
-            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
         }
     }//GEN-LAST:event_BtnRefreshPhoto1ActionPerformed
 

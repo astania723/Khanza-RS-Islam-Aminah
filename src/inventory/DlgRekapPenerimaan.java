@@ -55,7 +55,6 @@ public class DlgRekapPenerimaan extends javax.swing.JDialog {
                 "Harga Beli(Rp)","SubTotal(Rp)","Disk(%)","Bsr.Disk(Rp)","Total(Rp)",
                 "Status Bayar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,
@@ -64,6 +63,7 @@ public class DlgRekapPenerimaan extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.String.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1344,9 +1344,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         rs.getString("satuan"),rs.getDouble("jumlah"),rs.getDouble("h_pesan"),rs.getDouble("subtotal"),rs.getDouble("dis"),
                         rs.getDouble("besardis"),rs.getDouble("total"),rs.getString("status")
                     });  
-                    tagihan=tagihan+rs.getDouble("total");
-                    subtotal=subtotal+rs.getDouble("subtotal");
-                    diskon=diskon+rs.getDouble("besardis");
+                    tagihan += rs.getDouble("total");
+                    subtotal += rs.getDouble("subtotal");
+                    diskon += rs.getDouble("besardis");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

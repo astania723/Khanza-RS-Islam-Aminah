@@ -79,13 +79,13 @@ public class KeuanganPiutangLainLain extends javax.swing.JDialog {
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Nota","Tgl.Piutang","NIP","Nama Petugas","Kode","Nama Peminjam/Perusahaan","Kode Rek","Akun","Keterangan","Tgl.Tempo","Pinjam","Sisa Piutang","Status"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                  java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                  java.lang.String.class,java.lang.String.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.String.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1178,8 +1178,8 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 total=0;
                 sisapiutang=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble("nominal");
-                    sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                    total += rs.getDouble("nominal");
+                    sisapiutang += rs.getDouble("sisapiutang");
                     tabMode.addRow(new Object[]{
                         rs.getString("nota_piutang"),rs.getString("tgl_piutang"),rs.getString("nip"),rs.getString("nama"),rs.getString("kode_peminjam"),
                         rs.getString("nama_peminjam"),rs.getString("kd_rek"),rs.getString("nama_bayar"),rs.getString("keterangan"),rs.getString("tgltempo"),

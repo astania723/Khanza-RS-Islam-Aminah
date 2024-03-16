@@ -739,54 +739,54 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                 while(rs2.next()){
                                     switch (rs2.getString("status")) {
                                         case "Laborat":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlLaborat=ttlLaborat+rs2.getDouble(1);
-                                            Laborat=Laborat+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlLaborat += rs2.getDouble(1);
+                                            Laborat += rs2.getDouble(1);
                                             break;
                                         case "Radiologi":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlRadiologi=ttlRadiologi+rs2.getDouble(1);
-                                            Radiologi=Radiologi+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlRadiologi += rs2.getDouble(1);
+                                            Radiologi += rs2.getDouble(1);
                                             break;
                                         case "Obat":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlObat=ttlObat+rs2.getDouble(1);
-                                            Obat=Obat+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlObat += rs2.getDouble(1);
+                                            Obat += rs2.getDouble(1);
                                             break;
                                         case "Ralan Dokter":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble(1);
-                                            Ralan_Dokter=Ralan_Dokter+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlRalan_Dokter += rs2.getDouble(1);
+                                            Ralan_Dokter += rs2.getDouble(1);
                                             break;     
                                         case "Ralan Dokter Paramedis":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble(1);
-                                            Ralan_Dokter_Paramedis=Ralan_Dokter_Paramedis+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlRalan_Dokter += rs2.getDouble(1);
+                                            Ralan_Dokter_Paramedis += rs2.getDouble(1);
                                             break;    
                                         case "Ralan Paramedis":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlRalan_Paramedis=ttlRalan_Paramedis+rs2.getDouble(1);
-                                            Ralan_Paramedis=Ralan_Paramedis+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlRalan_Paramedis += rs2.getDouble(1);
+                                            Ralan_Paramedis += rs2.getDouble(1);
                                             break;
                                         case "Tambahan":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlTambahan=ttlTambahan+rs2.getDouble(1);
-                                            Tambahan=Tambahan+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlTambahan += rs2.getDouble(1);
+                                            Tambahan += rs2.getDouble(1);
                                             break;
                                         case "Potongan":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlPotongan=ttlPotongan+rs2.getDouble(1);
-                                            Potongan=Potongan+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlPotongan += rs2.getDouble(1);
+                                            Potongan += rs2.getDouble(1);
                                             break;
                                         case "Registrasi":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlRegistrasi=ttlRegistrasi+rs2.getDouble(1);
-                                            Registrasi=Registrasi+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlRegistrasi += rs2.getDouble(1);
+                                            Registrasi += rs2.getDouble(1);
                                             break;
                                         case "Operasi":
-                                            Total=Total+rs2.getDouble(1);
-                                            ttlOperasi=ttlOperasi+rs2.getDouble(1);
-                                            Operasi=Operasi+rs2.getDouble(1);
+                                            Total += rs2.getDouble(1);
+                                            ttlOperasi += rs2.getDouble(1);
+                                            Operasi += rs2.getDouble(1);
                                             break;
                                     }
                                 }

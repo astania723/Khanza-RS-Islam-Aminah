@@ -128,7 +128,7 @@ public class RMDataCatatanObservasiRanapKebidanan extends javax.swing.JDialog {
         BJJ.setDocument(new batasInput((byte)5).getKata(BJJ));
         PPV.setDocument(new batasInput((byte)15).getKata(PPV));
         VT.setDocument(new batasInput((byte)30).getKata(VT));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

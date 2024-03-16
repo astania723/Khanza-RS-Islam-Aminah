@@ -101,11 +101,11 @@ public class DlgPenanggungJawab extends javax.swing.JDialog {
         
         KdAsuransi.setDocument(new batasInput((byte)3).getKata(KdAsuransi));
         NmAsuransi.setDocument(new batasInput((byte)30).getKata(NmAsuransi));
-        Perusahaan.setDocument(new batasInput((int)60).getKata(Perusahaan));
-        Attn.setDocument(new batasInput((int)60).getKata(Attn));
-        AlamatAsuransi.setDocument(new batasInput((int)130).getKata(AlamatAsuransi));
+        Perusahaan.setDocument(new batasInput(60).getKata(Perusahaan));
+        Attn.setDocument(new batasInput(60).getKata(Attn));
+        AlamatAsuransi.setDocument(new batasInput(130).getKata(AlamatAsuransi));
         NoTelp.setDocument(new batasInput((byte)40).getKata(NoTelp));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override

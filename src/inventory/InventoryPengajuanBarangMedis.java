@@ -60,19 +60,19 @@ public class InventoryPengajuanBarangMedis extends javax.swing.JDialog {
 
         Object[] judul={"Jml","Sat.Pengajuan","Kode Barang","Nama Barang","Satuan","Jenis Obat","Kategori","Golongan","H.Pengajuan","Sub Total","Jml2","Isi","Isi Besar"};
         tabMode=new DefaultTableModel(null,judul){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-               boolean a = false;
-               if ((colIndex==0)||(colIndex==8)) {
-                   a=true;
-               }
-               return a;
-             }
               
              Class[] types = new Class[] {
                  java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                  java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==8)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -116,7 +116,7 @@ public class InventoryPengajuanBarangMedis extends javax.swing.JDialog {
         NoPengajuan.setDocument(new batasInput((byte)15).getKata(NoPengajuan));
         kdptg.setDocument(new batasInput((byte)25).getKata(kdptg));        
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        Keterangan.setDocument(new batasInput((int)150).getKata(Keterangan));
+        Keterangan.setDocument(new batasInput(150).getKata(Keterangan));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1091,7 +1091,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),9);
                 y=0;                
             }
-            total=total+y;   
+            total += y;   
         }
 
         LTotal.setText(Valid.SetAngka(total));

@@ -116,7 +116,7 @@ public class SuratPenolakanAnjuranMedis extends javax.swing.JDialog {
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));  
         NoPernyataan.setDocument(new batasInput((byte)20).getKata(NoPernyataan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         NamaPJ.setDocument(new batasInput((byte)50).getKata(NamaPJ));
         NoKTP.setDocument(new batasInput((byte)20).getKata(NoKTP)); 
         UmurPJ.setDocument(new batasInput((byte)3).getKata(UmurPJ));  

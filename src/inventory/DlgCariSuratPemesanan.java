@@ -1520,7 +1520,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                     tabMode.addRow(new Object[]{"Status Pemesanan",": "+rs.getString("status"),"","","","","Meterai",":",Valid.SetAngka(rs.getDouble("meterai"))});
                     tabMode.addRow(new Object[]{"Supplier",": "+rs.getString("kode_suplier")+", "+rs.getString("nama_suplier"),"","","","","PPN",":",Valid.SetAngka(rs.getDouble("ppn"))});
                     tabMode.addRow(new Object[]{"Petugas",": "+rs.getString("nip")+", "+rs.getString("nama"),"","","","","Tagihan",":",Valid.SetAngka(rs.getDouble("tagihan"))});
-                    tagihan=tagihan+rs.getDouble("tagihan");
+                    tagihan += rs.getDouble("tagihan");
                     tabMode.addRow(new Object[]{
                         "","","","","","","","",""
                     });

@@ -893,7 +893,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                Sequel.mengedit("ipsrsbarang","kode_brng=?","stok=stok+?",2,new String[]{
                    rs2.getString("jumlah"),rs2.getString("kode_brng")
                });
-               total=total+rs2.getDouble("total");
+               total += rs2.getDouble("total");
             }         
             Sequel.queryu("delete from tampjurnal");
             Sequel.menyimpan("tampjurnal","?,?,?,?",4,new String[]{Sequel.cariIsi("select Stok_Keluar_Ipsrs from set_akun"),"PERSEDIAAN BARANG","0",""+total});
@@ -1064,8 +1064,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         int no=1;
                         tagihan=0;
                         while(rs2.next()){
-                            tagihan=tagihan+rs2.getDouble(7);
-                            ttltagihan=ttltagihan+rs2.getDouble(7);
+                            tagihan += rs2.getDouble(7);
+                            ttltagihan += rs2.getDouble(7);
                             tabMode.addRow(new Object[]{"","","","",no+". "+rs2.getString(1)+", "+rs2.getString(2),
                                             rs2.getString(3)+", "+rs2.getString(4),rs2.getString(5),Valid.SetAngka(rs2.getDouble(6)),Valid.SetAngka(rs2.getDouble(7))});
                             no++;
@@ -1143,7 +1143,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 rs=ps.executeQuery();
                 ttltagihan=0;
                 while(rs.next()){
-                    ttltagihan=ttltagihan+rs.getDouble("total");
+                    ttltagihan += rs.getDouble("total");
                     tabMode2.addRow(new Object[]{
                         rs.getString("no_keluar"),rs.getString("tanggal"),rs.getString("nip"),
                         rs.getString("nama"),rs.getString("keterangan"),rs.getString("kode_brng"),

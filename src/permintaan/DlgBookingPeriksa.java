@@ -123,14 +123,14 @@ public class DlgBookingPeriksa extends javax.swing.JFrame {
         
         TNo.setDocument(new batasInput((byte)15).getKata(TNo));
         NoReg.setDocument(new batasInput((byte)8).getOnlyAngka(NoReg));
-        Alamat.setDocument(new batasInput((int)200).getKata(Alamat));
+        Alamat.setDocument(new batasInput(200).getKata(Alamat));
         Kelurahan.setDocument(new batasInput((byte)60).getKata(Kelurahan));
         Kecamatan.setDocument(new batasInput((byte)60).getKata(Kecamatan));
         Kabupaten.setDocument(new batasInput((byte)60).getKata(Kabupaten));
         Propinsi.setDocument(new batasInput((byte)60).getKata(Propinsi));
-        BalasanPesan.setDocument(new batasInput((int)200).getKata(BalasanPesan));
-        DataBalasan.setDocument(new batasInput((int)200).getKata(DataBalasan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        BalasanPesan.setDocument(new batasInput(200).getKata(BalasanPesan));
+        DataBalasan.setDocument(new batasInput(200).getKata(DataBalasan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override

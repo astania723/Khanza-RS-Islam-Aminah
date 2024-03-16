@@ -1197,7 +1197,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                 item=0;
                 if(tbPemeriksaan.getValueAt(i,0).toString().equals("true")){
                     item=Double.parseDouble(tbPemeriksaan.getValueAt(i,3).toString());
-                    ttl=ttl+item;                    
+                    ttl += item;                    
                     Sequel.menyimpan("temporary_radiologi","'0','"+tbPemeriksaan.getValueAt(i,2).toString()+"','"+item+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Biaya Radiologi");
                 }                
             }
@@ -2284,24 +2284,24 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                     })==true){
                         if(!noorder.isEmpty()){
                             if(Sequel.cariIsi("select stts_bayar from permintaan_pemeriksaan_radiologi where noorder='"+noorder+"' and kd_jenis_prw='"+tbPemeriksaan.getValueAt(i,1).toString()+"'").equals("Belum")){
-                                ttlbhp=ttlbhp+Double.parseDouble(tbPemeriksaan.getValueAt(i,5).toString());
-                                ttljmdokter=ttljmdokter+Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());
-                                ttljmpetugas=ttljmpetugas+Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
-                                ttlkso=ttlkso+Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString()); 
-                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbPemeriksaan.getValueAt(i,3).toString());      
-                                ttljasasarana=ttljasasarana+Double.parseDouble(tbPemeriksaan.getValueAt(i,4).toString());
-                                ttljmperujuk=ttljmperujuk+Double.parseDouble(tbPemeriksaan.getValueAt(i,6).toString());
-                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
+                                ttlbhp += Double.parseDouble(tbPemeriksaan.getValueAt(i,5).toString());
+                                ttljmdokter += Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());
+                                ttljmpetugas += Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
+                                ttlkso += Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString()); 
+                                ttlpendapatan += Double.parseDouble(tbPemeriksaan.getValueAt(i,3).toString());      
+                                ttljasasarana += Double.parseDouble(tbPemeriksaan.getValueAt(i,4).toString());
+                                ttljmperujuk += Double.parseDouble(tbPemeriksaan.getValueAt(i,6).toString());
+                                ttlmenejemen += Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
                             }
                         }else{
-                            ttlbhp=ttlbhp+Double.parseDouble(tbPemeriksaan.getValueAt(i,5).toString());
-                            ttljmdokter=ttljmdokter+Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());
-                            ttljmpetugas=ttljmpetugas+Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
-                            ttlkso=ttlkso+Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString()); 
-                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbPemeriksaan.getValueAt(i,3).toString());      
-                            ttljasasarana=ttljasasarana+Double.parseDouble(tbPemeriksaan.getValueAt(i,4).toString());
-                            ttljmperujuk=ttljmperujuk+Double.parseDouble(tbPemeriksaan.getValueAt(i,6).toString());
-                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
+                            ttlbhp += Double.parseDouble(tbPemeriksaan.getValueAt(i,5).toString());
+                            ttljmdokter += Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());
+                            ttljmpetugas += Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
+                            ttlkso += Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString()); 
+                            ttlpendapatan += Double.parseDouble(tbPemeriksaan.getValueAt(i,3).toString());      
+                            ttljasasarana += Double.parseDouble(tbPemeriksaan.getValueAt(i,4).toString());
+                            ttljmperujuk += Double.parseDouble(tbPemeriksaan.getValueAt(i,6).toString());
+                            ttlmenejemen += Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
                         }
                     }else{
                         sukses=false;
@@ -2317,7 +2317,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                             tbObat.getValueAt(i,1).toString(),tbObat.getValueAt(i,3).toString(),tbObat.getValueAt(i,0).toString(),
                             tbObat.getValueAt(i,4).toString(),Double.toString(Double.parseDouble(tbObat.getValueAt(i,4).toString())*Double.parseDouble(tbObat.getValueAt(i,0).toString()))
                         })==true){
-                            ttlbhp=ttlbhp+(Double.parseDouble(tbObat.getValueAt(i,4).toString())*Double.parseDouble(tbObat.getValueAt(i,0).toString()));
+                            ttlbhp += (Double.parseDouble(tbObat.getValueAt(i,4).toString())*Double.parseDouble(tbObat.getValueAt(i,0).toString()));
                         }else{
                             sukses=false;
                         }                                

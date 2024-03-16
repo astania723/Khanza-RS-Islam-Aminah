@@ -108,7 +108,7 @@ public class UTDPendonor extends javax.swing.JDialog {
         Nama.setDocument(new batasInput((byte)40).getKata(Nama));
         KTP.setDocument(new batasInput((byte)20).getKata(KTP));
         Lahir.setDocument(new batasInput((byte)15).getKata(Lahir));
-        Alamat.setDocument(new batasInput((int)100).getKata(Alamat));
+        Alamat.setDocument(new batasInput(100).getKata(Alamat));
         Telp.setDocument(new batasInput((byte)40).getKata(Telp));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));  
         if(koneksiDB.CARICEPAT().equals("aktif")){

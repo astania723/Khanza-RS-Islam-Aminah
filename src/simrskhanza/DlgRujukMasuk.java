@@ -1306,7 +1306,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }                 
             }
             
@@ -1315,7 +1315,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }                 
             }
             
@@ -1324,7 +1324,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }                 
             }
             
@@ -1333,7 +1333,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }                 
             }
             
@@ -1431,7 +1431,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }                 
             }
             
@@ -1440,7 +1440,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }                 
             }
             
@@ -1449,7 +1449,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }                 
             }
             
@@ -1458,7 +1458,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }                 
             }
             
@@ -1598,7 +1598,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }                 
             }
             
@@ -1607,7 +1607,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }                 
             }
             
@@ -1616,7 +1616,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }                 
             }
             
@@ -1625,7 +1625,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }                 
             }
             

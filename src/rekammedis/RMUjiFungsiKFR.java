@@ -111,12 +111,12 @@ public class RMUjiFungsiKFR extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
-        DiagnosisFungsional.setDocument(new batasInput((int)50).getKata(DiagnosisFungsional));
-        DiagnosisMedis.setDocument(new batasInput((int)50).getKata(DiagnosisMedis));
-        HasilYangDidapat.setDocument(new batasInput((int)100).getKata(HasilYangDidapat));
-        Kesimpulan.setDocument(new batasInput((int)100).getKata(Kesimpulan));
-        HasilYangDidapat.setDocument(new batasInput((int)100).getKata(HasilYangDidapat));
-        Rekomendasi.setDocument(new batasInput((int)100).getKata(Rekomendasi));
+        DiagnosisFungsional.setDocument(new batasInput(50).getKata(DiagnosisFungsional));
+        DiagnosisMedis.setDocument(new batasInput(50).getKata(DiagnosisMedis));
+        HasilYangDidapat.setDocument(new batasInput(100).getKata(HasilYangDidapat));
+        Kesimpulan.setDocument(new batasInput(100).getKata(Kesimpulan));
+        HasilYangDidapat.setDocument(new batasInput(100).getKata(HasilYangDidapat));
+        Rekomendasi.setDocument(new batasInput(100).getKata(Rekomendasi));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

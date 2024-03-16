@@ -908,7 +908,7 @@ public class PCareCekKartu extends javax.swing.JDialog {
         
         ChkCari.setSelected(false);
         isForm();
-        NoKartu.setDocument(new batasInput((int)80).getKata(NoKartu));
+        NoKartu.setDocument(new batasInput(80).getKata(NoKartu));
         TNo.setDocument(new batasInput((byte)15).getKata(TNo));
         TNm.setDocument(new batasInput((byte)40).getKata(TNm));
         NmIbu.setDocument(new batasInput((byte)40).getKata(NmIbu));
@@ -916,8 +916,8 @@ public class PCareCekKartu extends javax.swing.JDialog {
         Kdpnj.setDocument(new batasInput((byte)3).getKata(Kdpnj));
         TTlp.setDocument(new batasInput((byte)13).getOnlyAngka(TTlp));
         TTmp.setDocument(new batasInput((byte)15).getKata(TTmp));
-        Alamat.setDocument(new batasInput((int)200).getFilter(Alamat));
-        AlamatPj.setDocument(new batasInput((int)100).getFilter(AlamatPj));
+        Alamat.setDocument(new batasInput(200).getFilter(Alamat));
+        AlamatPj.setDocument(new batasInput(100).getFilter(AlamatPj));
         Pekerjaan.setDocument(new batasInput((byte)15).getKata(Pekerjaan));
         PekerjaanPj.setDocument(new batasInput((byte)15).getKata(PekerjaanPj));
         TUmur.setDocument(new batasInput((byte)10).getKata(TUmur));
@@ -936,7 +936,7 @@ public class PCareCekKartu extends javax.swing.JDialog {
         EMail.setDocument(new batasInput((byte)50).getFilter(EMail));
         NIP.setDocument(new batasInput((byte)30).getFilter(NIP));
         TSuhu.setDocument(new batasInput((byte)5).getFilter(TSuhu));
-        Keluhan.setDocument(new batasInput((int)400).getFilter(Keluhan));
+        Keluhan.setDocument(new batasInput(400).getFilter(Keluhan));
         Respiratory.setDocument(new batasInput((byte)3).getFilter(Respiratory));
         Heartrate.setDocument(new batasInput((byte)3).getFilter(Heartrate));
         TinggiBadan.setDocument(new batasInput((byte)3).getFilter(TinggiBadan));

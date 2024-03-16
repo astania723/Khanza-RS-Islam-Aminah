@@ -3723,12 +3723,12 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmdokter=0;kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("material");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakandr");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_rawat");
+                    material += rs.getDouble("material");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakandr");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_rawat");
                     tabModeRalanDokter.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
                         rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),
@@ -3957,12 +3957,12 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmpetugas=0;kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("material");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakanpr");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_rawat");
+                    material += rs.getDouble("material");
+                    bhp += rs.getDouble("bhp");
+                    jmpetugas += rs.getDouble("tarif_tindakanpr");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_rawat");
                     tabModeRalanParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
                         rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),
@@ -4230,13 +4230,13 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("material");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakandr");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakanpr");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_rawat");
+                    material += rs.getDouble("material");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakandr");
+                    jmpetugas += rs.getDouble("tarif_tindakanpr");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_rawat");
                     tabModeRalanDokterParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
                         rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),
@@ -4781,34 +4781,34 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 biaya_omloop4=0;biaya_omloop5=0;biayasarpras=0;biaya_dokter_pjanak=0;
                 biaya_dokter_umum=0;
                 while(rs.next()){  
-                    biayaoperator1=biayaoperator1+rs.getDouble("biayaoperator1");
-                    biayaoperator2=biayaoperator2+rs.getDouble("biayaoperator2");
-                    biayaoperator3=biayaoperator3+rs.getDouble("biayaoperator3");
-                    biayaasisten_operator1=biayaasisten_operator1+rs.getDouble("biayaasisten_operator1");
-                    biayaasisten_operator2=biayaasisten_operator2+rs.getDouble("biayaasisten_operator2");
-                    biayaasisten_operator3=biayaasisten_operator3+rs.getDouble("biayaasisten_operator3");
-                    biayainstrumen=biayainstrumen+rs.getDouble("biayainstrumen");
-                    biayadokter_anak=biayadokter_anak+rs.getDouble("biayadokter_anak");
-                    biayaperawaat_resusitas=biayaperawaat_resusitas+rs.getDouble("biayaperawaat_resusitas");
-                    biayadokter_anestesi=biayadokter_anestesi+rs.getDouble("biayadokter_anestesi");
-                    biayaasisten_anestesi=biayaasisten_anestesi+rs.getDouble("biayaasisten_anestesi");
-                    biayaasisten_anestesi2=biayaasisten_anestesi2+rs.getDouble("biayaasisten_anestesi2");
-                    biayabidan=biayabidan+rs.getDouble("biayabidan");
-                    biayabidan2=biayabidan2+rs.getDouble("biayabidan2");
-                    biayabidan3=biayabidan3+rs.getDouble("biayabidan3");
-                    biayaperawat_luar=biayaperawat_luar+rs.getDouble("biayaperawat_luar");
-                    biaya_omloop=biaya_omloop+rs.getDouble("biaya_omloop");
-                    biaya_omloop2=biaya_omloop2+rs.getDouble("biaya_omloop2");
-                    biaya_omloop3=biaya_omloop3+rs.getDouble("biaya_omloop3");
-                    biaya_omloop4=biaya_omloop4+rs.getDouble("biaya_omloop4");
-                    biaya_omloop5=biaya_omloop5+rs.getDouble("biaya_omloop5");
-                    biaya_dokter_pjanak=biaya_dokter_pjanak+rs.getDouble("biaya_dokter_pjanak");
-                    biaya_dokter_umum=biaya_dokter_umum+rs.getDouble("biaya_dokter_umum");
-                    biayaalat=biayaalat+rs.getDouble("biayaalat");
-                    biayasewaok=biayasewaok+rs.getDouble("biayasewaok");
-                    akomodasi=akomodasi+rs.getDouble("akomodasi");
-                    bagian_rs=bagian_rs+rs.getDouble("bagian_rs");
-                    biayasarpras=biayasarpras+rs.getDouble("biayasarpras");
+                    biayaoperator1 += rs.getDouble("biayaoperator1");
+                    biayaoperator2 += rs.getDouble("biayaoperator2");
+                    biayaoperator3 += rs.getDouble("biayaoperator3");
+                    biayaasisten_operator1 += rs.getDouble("biayaasisten_operator1");
+                    biayaasisten_operator2 += rs.getDouble("biayaasisten_operator2");
+                    biayaasisten_operator3 += rs.getDouble("biayaasisten_operator3");
+                    biayainstrumen += rs.getDouble("biayainstrumen");
+                    biayadokter_anak += rs.getDouble("biayadokter_anak");
+                    biayaperawaat_resusitas += rs.getDouble("biayaperawaat_resusitas");
+                    biayadokter_anestesi += rs.getDouble("biayadokter_anestesi");
+                    biayaasisten_anestesi += rs.getDouble("biayaasisten_anestesi");
+                    biayaasisten_anestesi2 += rs.getDouble("biayaasisten_anestesi2");
+                    biayabidan += rs.getDouble("biayabidan");
+                    biayabidan2 += rs.getDouble("biayabidan2");
+                    biayabidan3 += rs.getDouble("biayabidan3");
+                    biayaperawat_luar += rs.getDouble("biayaperawat_luar");
+                    biaya_omloop += rs.getDouble("biaya_omloop");
+                    biaya_omloop2 += rs.getDouble("biaya_omloop2");
+                    biaya_omloop3 += rs.getDouble("biaya_omloop3");
+                    biaya_omloop4 += rs.getDouble("biaya_omloop4");
+                    biaya_omloop5 += rs.getDouble("biaya_omloop5");
+                    biaya_dokter_pjanak += rs.getDouble("biaya_dokter_pjanak");
+                    biaya_dokter_umum += rs.getDouble("biaya_dokter_umum");
+                    biayaalat += rs.getDouble("biayaalat");
+                    biayasewaok += rs.getDouble("biayasewaok");
+                    akomodasi += rs.getDouble("akomodasi");
+                    bagian_rs += rs.getDouble("bagian_rs");
+                    biayasarpras += rs.getDouble("biayasarpras");
                     total=total+rs.getDouble("biayaoperator1")+rs.getDouble("biayaoperator2")+rs.getDouble("biayaoperator3")+
                           rs.getDouble("biayaasisten_operator1")+rs.getDouble("biayaasisten_operator2")+rs.getDouble("biayaasisten_operator3")+
                           rs.getDouble("biayainstrumen")+rs.getDouble("biayadokter_anak")+rs.getDouble("biayaperawaat_resusitas")+
@@ -5087,12 +5087,12 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmdokter=0;kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("material");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakandr");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_rawat");
+                    material += rs.getDouble("material");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakandr");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_rawat");
                     tabModeRanapDokter.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
                         rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),
@@ -5321,12 +5321,12 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmpetugas=0;kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("material");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakanpr");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_rawat");
+                    material += rs.getDouble("material");
+                    bhp += rs.getDouble("bhp");
+                    jmpetugas += rs.getDouble("tarif_tindakanpr");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_rawat");
                     tabModeRanapParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
                         rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),
@@ -5584,13 +5584,13 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 i=1;
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("material");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakandr");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakanpr");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_rawat");
+                    material += rs.getDouble("material");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakandr");
+                    jmpetugas += rs.getDouble("tarif_tindakanpr");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_rawat");
                     tabModeRanapDokterParamedis.addRow(new Object[]{
                         i,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
                         rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),
@@ -5902,14 +5902,14 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;jmperujuk=0;
                 kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("bagian_rs");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakan_dokter");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakan_petugas");
-                    jmperujuk=jmperujuk+rs.getDouble("tarif_perujuk");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya");
+                    material += rs.getDouble("bagian_rs");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakan_dokter");
+                    jmpetugas += rs.getDouble("tarif_tindakan_petugas");
+                    jmperujuk += rs.getDouble("tarif_perujuk");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya");
                     tabModeRadiologi.addRow(new Object[]{
                         i,rs.getString("no_rawat"),rs.getString("no_rkm_medis"),
                         rs.getString("nm_pasien"),rs.getString("kd_jenis_prw"),
@@ -6224,14 +6224,14 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;jmperujuk=0;
                 kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("bagian_rs");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("tarif_tindakan_dokter");
-                    jmpetugas=jmpetugas+rs.getDouble("tarif_tindakan_petugas");
-                    jmperujuk=jmperujuk+rs.getDouble("tarif_perujuk");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya");
+                    material += rs.getDouble("bagian_rs");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("tarif_tindakan_dokter");
+                    jmpetugas += rs.getDouble("tarif_tindakan_petugas");
+                    jmperujuk += rs.getDouble("tarif_perujuk");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya");
                     tabModeLaborat.addRow(new Object[]{
                         i,rs.getString("no_rawat"),rs.getString("no_rkm_medis"),
                         rs.getString("nm_pasien"),rs.getString("kd_jenis_prw"),
@@ -6568,14 +6568,14 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
                 material=0;bhp=0;jmdokter=0;jmpetugas=0;jmperujuk=0;
                 kso=0;menejemen=0;total=0;
                 while(rs.next()){
-                    material=material+rs.getDouble("bagian_rs");
-                    bhp=bhp+rs.getDouble("bhp");
-                    jmdokter=jmdokter+rs.getDouble("bagian_dokter");
-                    jmpetugas=jmpetugas+rs.getDouble("bagian_laborat");
-                    jmperujuk=jmperujuk+rs.getDouble("bagian_perujuk");
-                    kso=kso+rs.getDouble("kso");
-                    menejemen=menejemen+rs.getDouble("menejemen");
-                    total=total+rs.getDouble("biaya_item");
+                    material += rs.getDouble("bagian_rs");
+                    bhp += rs.getDouble("bhp");
+                    jmdokter += rs.getDouble("bagian_dokter");
+                    jmpetugas += rs.getDouble("bagian_laborat");
+                    jmperujuk += rs.getDouble("bagian_perujuk");
+                    kso += rs.getDouble("kso");
+                    menejemen += rs.getDouble("menejemen");
+                    total += rs.getDouble("biaya_item");
                     tabModeDetailLaborat.addRow(new Object[]{
                         i,rs.getString("no_rawat"),rs.getString("no_rkm_medis"),
                         rs.getString("nm_pasien"),rs.getString("id_template"),

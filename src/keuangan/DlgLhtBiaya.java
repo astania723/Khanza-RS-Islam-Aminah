@@ -55,12 +55,12 @@ public class DlgLhtBiaya extends javax.swing.JDialog {
                 "Keterangan","Tagihan/Tindakan/Terapi","",
                 "Biaya","Jumlah","Tambahan","Total Biaya"
             }){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
                 java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -412,7 +412,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                      } catch (Exception e) {
                          y=0; 
                      }
-                     all=all+y;  
+                     all += y;  
                 }
                 LCount.setText(Valid.SetAngka(all));
             } catch (Exception e) {

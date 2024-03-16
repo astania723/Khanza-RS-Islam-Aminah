@@ -332,7 +332,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             jumlah=0;
             while(rs.next()){
                 tabMode.addRow(new Object[]{rs.getString(1),Valid.SetAngka(rs.getDouble(2))});
-                jumlah=jumlah+rs.getDouble(2);
+                jumlah += rs.getDouble(2);
             }
             if(jumlah>0){
                 tabMode.addRow(new Object[]{"Total :",Valid.SetAngka(jumlah)});

@@ -57,14 +57,6 @@ public class DlgDataBatch extends javax.swing.JDialog {
             "Kelas Utama/BPJS(Rp)", "Ranap VIP(Rp)", "Ranap VVIP(Rp)", "Beli Luar(Rp)","Jual Bebas(Rp)", 
             "Karyawan(Rp)","Asal Barang","Jml.Beli","Sisa"
         }) {
-            @Override
-            public boolean isCellEditable(int rowIndex, int colIndex) {
-                boolean a = false;
-                if (colIndex == 0) {
-                    a = true;
-                }
-                return a;
-            }
             Class[] types = new Class[]{
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
@@ -75,6 +67,14 @@ public class DlgDataBatch extends javax.swing.JDialog {
                 java.lang.Double.class, java.lang.Object.class, java.lang.Double.class, 
                 java.lang.Double.class
             };
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+              boolean a = false;
+              if (colIndex == 0) {
+                a = true;
+              }
+              return a;
+            }
 
             @Override
             public Class getColumnClass(int columnIndex) {

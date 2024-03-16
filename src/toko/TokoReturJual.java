@@ -103,8 +103,8 @@ public class TokoReturJual extends javax.swing.JDialog {
         NoRetur.setDocument(new batasInput((byte)20).getKata(NoRetur));
         kdsup.setDocument(new batasInput((byte)5).getKata(kdsup));
         kdptg.setDocument(new batasInput((byte)25).getKata(kdptg)); 
-        Catatan.setDocument(new batasInput((int)40).getKata(Catatan));         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Catatan.setDocument(new batasInput(40).getKata(Catatan));         
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -891,7 +891,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -993,7 +993,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch (Exception e) {
                 y=0;                
             }
-            ttl=ttl+y;
+            ttl += y;
         }
         LTotal.setText(Valid.SetAngka(ttl));
     }

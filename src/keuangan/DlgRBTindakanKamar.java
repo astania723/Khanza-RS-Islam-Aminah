@@ -600,7 +600,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psobat.executeQuery();
                                 if(rs.next()){
                                    obat=rs.getDouble(1);
-                                   ttlobat=ttlobat+rs.getDouble(1);
+                                   ttlobat += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Obat : "+e);
@@ -620,7 +620,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psobatlangsung.executeQuery();
                                 if(rs.next()){
                                    obatlangsung=rs.getDouble(1);
-                                   ttlobatlangsung=ttlobatlangsung+rs.getDouble(1);
+                                   ttlobatlangsung += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Obat : "+e);
@@ -640,7 +640,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psperiksalab.executeQuery();
                                 if(rs.next()){
                                    laborat=rs.getDouble(1);
-                                   ttllaborat=ttllaborat+rs.getDouble(1);
+                                   ttllaborat += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Obat : "+e);
@@ -660,7 +660,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psdetailperiksalab.executeQuery();
                                 if(rs.next()){
                                    detaillaborat=rs.getDouble(1);
-                                   ttldetaillaborat=ttldetaillaborat+rs.getDouble(1);
+                                   ttldetaillaborat += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Obat : "+e);
@@ -680,7 +680,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psranapdr.executeQuery();
                                 if(rs.next()){
                                    jm=rs.getDouble(1);
-                                   ttljm=ttljm+rs.getDouble(1);
+                                   ttljm += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -700,7 +700,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psranapdrpr.executeQuery();
                                 if(rs.next()){
                                    jm2=rs.getDouble(1);
-                                   ttljm=ttljm+rs.getDouble(1);
+                                   ttljm += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -720,7 +720,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psranappr.executeQuery();
                                 if(rs.next()){
                                    jm3=rs.getDouble(1);
-                                   ttljm=ttljm+rs.getDouble(1);
+                                   ttljm += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -745,7 +745,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psoperasi.executeQuery();
                                 if(rs.next()){
                                    operasi=rs.getDouble(1);
-                                   ttljm=ttljm+rs.getDouble(1);
+                                   ttljm += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -765,7 +765,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=pstambahan.executeQuery();
                                 if(rs.next()){
                                    tambahan=rs.getDouble(1);
-                                   ttltambahan=ttltambahan+rs.getDouble(1);
+                                   ttltambahan += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -785,7 +785,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=pspotongan.executeQuery();
                                 if(rs.next()){
                                    potongan=rs.getDouble(1);
-                                   ttlpotongan=ttlpotongan+rs.getDouble(1);
+                                   ttlpotongan += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -805,7 +805,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psregistrasi.executeQuery();
                                 if(rs.next()){
                                    registrasi=rs.getDouble(1);
-                                   ttlregistrasi=ttlregistrasi+rs.getDouble(1);
+                                   ttlregistrasi += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -825,7 +825,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=psradiologi.executeQuery();
                                 if(rs.next()){
                                    radiologi=rs.getDouble(1);
-                                   ttlradiologi=ttlradiologi+rs.getDouble(1);
+                                   ttlradiologi += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);
@@ -845,7 +845,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 rs=pskamar.executeQuery();
                                 if(rs.next()){
                                    kamar=rs.getDouble(1);
-                                   ttlkamar=ttlkamar+rs.getDouble(1);
+                                   ttlkamar += rs.getDouble(1);
                                 }
                             } catch (Exception e) {
                                 System.out.println("Notif Jm : "+e);

@@ -535,13 +535,13 @@ public class GrafikPegawaiPerJenjangJabatan extends javax.swing.JDialog {
                 totall=0;
                 totalp=0;
                 while(rs.next()){
-                    total=total+rs.getDouble(2);
+                    total += rs.getDouble(2);
                     jmll=Sequel.cariInteger("select count(jnj_jabatan.kode) from pegawai inner join jnj_jabatan "+
                         "on jnj_jabatan.kode=pegawai.jnj_jabatan where pegawai.jk='Pria' and (pegawai.stts_aktif='AKTIF' or pegawai.stts_aktif='CUTI') and jnj_jabatan.kode=?",rs.getString(1));
                     jmlp=Sequel.cariInteger("select count(jnj_jabatan.kode) from pegawai inner join jnj_jabatan "+
                         "on jnj_jabatan.kode=pegawai.jnj_jabatan where pegawai.jk='Wanita' and (pegawai.stts_aktif='AKTIF' or pegawai.stts_aktif='CUTI') and jnj_jabatan.kode=?",rs.getString(1));
-                    totall=totall+jmll;
-                    totalp=totalp+jmlp;
+                    totall += jmll;
+                    totalp += jmlp;
                     tabMode.addRow(new String[]{
                         rs.getString(1),rs.getString(2),"",jmll+"","",jmlp+"",""
                     });

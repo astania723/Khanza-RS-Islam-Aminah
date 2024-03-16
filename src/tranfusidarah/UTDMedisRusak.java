@@ -1070,7 +1070,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -1149,7 +1149,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             } catch (Exception e) {
                 y=0;
             }
-            subtotal=subtotal+y;
+            subtotal += y;
         }
         LTotal.setText(Valid.SetAngka(subtotal));
     }
@@ -1203,7 +1203,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                         rs2.getString("nip"),rs2.getString("tanggal"),
                         rs2.getString("keterangan")
                     });
-                    subtotal=subtotal+rs2.getDouble("total");
+                    subtotal += rs2.getDouble("total");
                 }
                 LCount.setText(""+tabMode2.getRowCount());
                 LTotal2.setText(Valid.SetAngka(subtotal));

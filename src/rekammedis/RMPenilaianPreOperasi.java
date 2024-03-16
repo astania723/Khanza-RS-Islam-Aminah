@@ -97,14 +97,14 @@ public class RMPenilaianPreOperasi extends javax.swing.JDialog {
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         
-        RingkasanKlinik.setDocument(new batasInput((int)500).getKata(RingkasanKlinik));
-        PemeriksaanFisik.setDocument(new batasInput((int)500).getKata(PemeriksaanFisik));
-        PemeriksaanDiagnostik.setDocument(new batasInput((int)500).getKata(PemeriksaanDiagnostik));
-        DiagnosaPreOperasi.setDocument(new batasInput((int)500).getKata(DiagnosaPreOperasi));
-        RencanaTindakanBedah.setDocument(new batasInput((int)500).getKata(RencanaTindakanBedah));
-        HalYangDipersiapkan.setDocument(new batasInput((int)500).getKata(HalYangDipersiapkan));
-        TerapiPreOp.setDocument(new batasInput((int)500).getKata(TerapiPreOp));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        RingkasanKlinik.setDocument(new batasInput(500).getKata(RingkasanKlinik));
+        PemeriksaanFisik.setDocument(new batasInput(500).getKata(PemeriksaanFisik));
+        PemeriksaanDiagnostik.setDocument(new batasInput(500).getKata(PemeriksaanDiagnostik));
+        DiagnosaPreOperasi.setDocument(new batasInput(500).getKata(DiagnosaPreOperasi));
+        RencanaTindakanBedah.setDocument(new batasInput(500).getKata(RencanaTindakanBedah));
+        HalYangDipersiapkan.setDocument(new batasInput(500).getKata(HalYangDipersiapkan));
+        TerapiPreOp.setDocument(new batasInput(500).getKata(TerapiPreOp));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

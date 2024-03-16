@@ -512,7 +512,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 while(rs2.next()){
                     jumlah=rs2.getDouble("jumlah");
                     total=rs2.getDouble("total");
-                    totalkeluar=totalkeluar+total;
+                    totalkeluar += total;
                 }
                 if((jumlah+jumlah2)>0){
                     tabMode.addRow(new Object[]{

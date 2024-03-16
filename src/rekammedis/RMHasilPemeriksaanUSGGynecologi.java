@@ -130,14 +130,14 @@ public final class RMHasilPemeriksaanUSGGynecologi extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        Uterus.setDocument(new batasInput((int)200).getKata(Uterus));
-        Parametrium.setDocument(new batasInput((int)200).getKata(Parametrium));
-        Ovarium.setDocument(new batasInput((int)200).getKata(Ovarium));
-        Doppler.setDocument(new batasInput((int)200).getKata(Doppler));
-        Kesimpulan.setDocument(new batasInput((int)300).getKata(Kesimpulan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        Uterus.setDocument(new batasInput(200).getKata(Uterus));
+        Parametrium.setDocument(new batasInput(200).getKata(Parametrium));
+        Ovarium.setDocument(new batasInput(200).getKata(Ovarium));
+        Doppler.setDocument(new batasInput(200).getKata(Doppler));
+        Kesimpulan.setDocument(new batasInput(300).getKata(Kesimpulan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1313,7 +1313,7 @@ public final class RMHasilPemeriksaanUSGGynecologi extends javax.swing.JDialog {
             panggilPhoto();
         }else{
             ChkAccor.setSelected(false);
-            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Pernyataan..!!!");
+            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Rawat..!!!");
         }
     }//GEN-LAST:event_ChkAccorActionPerformed
 
@@ -1327,7 +1327,7 @@ public final class RMHasilPemeriksaanUSGGynecologi extends javax.swing.JDialog {
                 Valid.panggilUrl("hasilpemeriksaanusggynecologi/login.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&no_rawat="+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 this.setCursor(Cursor.getDefaultCursor()); 
             }else{
-                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
             }
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
@@ -1336,7 +1336,7 @@ public final class RMHasilPemeriksaanUSGGynecologi extends javax.swing.JDialog {
         if(tbObat.getSelectedRow()>-1){
             panggilPhoto();
         }else{
-            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
         }
     }//GEN-LAST:event_BtnRefreshPhoto1ActionPerformed
 

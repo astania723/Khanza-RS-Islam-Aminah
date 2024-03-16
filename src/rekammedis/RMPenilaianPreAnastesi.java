@@ -203,7 +203,7 @@ public class RMPenilaianPreAnastesi extends javax.swing.JDialog {
         MedisLainnya.setDocument(new batasInput((byte)100).getKata(MedisLainnya));
         RencanaPerawatan.setDocument(new batasInput((byte)40).getKata(RencanaPerawatan));
         CatatanKhusus.setDocument(new batasInput((byte)100).getKata(CatatanKhusus));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

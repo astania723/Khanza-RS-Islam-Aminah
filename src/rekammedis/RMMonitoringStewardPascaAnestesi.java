@@ -117,9 +117,9 @@ public final class RMMonitoringStewardPascaAnestesi extends javax.swing.JDialog 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        Keluar.setDocument(new batasInput((int)200).getKata(Keluar));
-        Instruksi.setDocument(new batasInput((int)200).getKata(Instruksi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Keluar.setDocument(new batasInput(200).getKata(Keluar));
+        Instruksi.setDocument(new batasInput(200).getKata(Instruksi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

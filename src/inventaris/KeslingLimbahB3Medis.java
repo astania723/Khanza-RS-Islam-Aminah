@@ -946,7 +946,7 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     tabMode.addRow(new String[]{
                         i+"",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)
                     });
-                    total=total+rs.getDouble(4);
+                    total += rs.getDouble(4);
                     i++;
                 }
             } catch (Exception e) {

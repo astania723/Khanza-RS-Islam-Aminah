@@ -66,18 +66,18 @@ public class KeuanganPiutangObatBelumLunas extends javax.swing.JDialog {
                 "P","No.Nota","Tgl.Piutang","Pasien","Catatan","Total Piutang","Uang Muka","Ogkos Kirim","Cicilan+Disk+T.Terbayar",
                 "Sisa Piutang","Jatuh Tempo","Bayar","Diskon Bayar","Tidak Terbayar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==0)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
                 java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==0)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -921,7 +921,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                         (rs.getDouble("uangmuka")+rs.getDouble("sisapiutang")-rs.getDouble("ongkir")),rs.getDouble("uangmuka"),rs.getDouble("ongkir"),rs.getDouble("cicilan"),
                         (rs.getDouble("sisapiutang")-rs.getDouble("cicilan")),rs.getString("tgltempo"),(rs.getDouble("sisapiutang")-rs.getDouble("cicilan")),0,0
                     });
-                    sisapiutang=sisapiutang+(rs.getDouble("sisapiutang")-rs.getDouble("cicilan"));
+                    sisapiutang += (rs.getDouble("sisapiutang")-rs.getDouble("cicilan"));
                 }
             } catch (Exception e) {
                 System.out.println(e);

@@ -91,15 +91,15 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
         tbPemeriksaan.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        NamaObat.setDocument(new batasInput((int)100).getKata(NamaObat));
+        NamaObat.setDocument(new batasInput(100).getKata(NamaObat));
         DosisObat.setDocument(new batasInput((byte)20).getKata(DosisObat));
         Frekuensi.setDocument(new batasInput((byte)10).getKata(Frekuensi));
-        AturanPakai.setDocument(new batasInput((int)150).getKata(AturanPakai));
+        AturanPakai.setDocument(new batasInput(150).getKata(AturanPakai));
         PemberianTerakhir.setDocument(new batasInput((byte)20).getKata(PemberianTerakhir));
-        PerubahanAturanPakai.setDocument(new batasInput((int)150).getKata(PerubahanAturanPakai));
+        PerubahanAturanPakai.setDocument(new batasInput(150).getKata(PerubahanAturanPakai));
         TNoRekonsialiasi.setDocument(new batasInput((byte)20).getKata(TNoRekonsialiasi));
-        AlergiObat.setDocument(new batasInput((int)70).getKata(AlergiObat));
-        ManifestasiAlergi.setDocument(new batasInput((int)70).getKata(ManifestasiAlergi));
+        AlergiObat.setDocument(new batasInput(70).getKata(AlergiObat));
+        ManifestasiAlergi.setDocument(new batasInput(70).getKata(ManifestasiAlergi));
         
         
         petugas.addWindowListener(new WindowListener() {

@@ -44,6 +44,7 @@ import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 import kepegawaian.DlgCariPegawai;
+import widget.InternalFrame;
 
 
 /**
@@ -348,12 +349,12 @@ public class RMTriaseIGD extends javax.swing.JDialog {
         tbSkala5.getTableHeader().setForeground(new Color(150,150,150));
         tbSkala5.setDefaultRenderer(Object.class, new WarnaTable());
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
-        TCariPemeriksaan.setDocument(new batasInput((int)100).getKata(TCariPemeriksaan));
-        TCariPemeriksaan2.setDocument(new batasInput((int)100).getKata(TCariPemeriksaan2));
-        TCariSkala1.setDocument(new batasInput((int)100).getKata(TCariSkala1));
-        TCariSkala3.setDocument(new batasInput((int)100).getKata(TCariSkala3));
-        KeteranganKedatangan.setDocument(new batasInput((int)100).getKata(KeteranganKedatangan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
+        TCariPemeriksaan.setDocument(new batasInput(100).getKata(TCariPemeriksaan));
+        TCariPemeriksaan2.setDocument(new batasInput(100).getKata(TCariPemeriksaan2));
+        TCariSkala1.setDocument(new batasInput(100).getKata(TCariSkala1));
+        TCariSkala3.setDocument(new batasInput(100).getKata(TCariSkala3));
+        KeteranganKedatangan.setDocument(new batasInput(100).getKata(KeteranganKedatangan));
         PrimerSuhu.setDocument(new batasInput((byte)5).getKata(PrimerSuhu));
         SekunderSuhu.setDocument(new batasInput((byte)5).getKata(SekunderSuhu));
         PrimerNyeri.setDocument(new batasInput((byte)5).getKata(PrimerNyeri));
@@ -366,10 +367,10 @@ public class RMTriaseIGD extends javax.swing.JDialog {
         SekunderSaturasi.setDocument(new batasInput((byte)3).getKata(SekunderSaturasi));
         PrimerRespirasi.setDocument(new batasInput((byte)3).getKata(PrimerRespirasi));
         SekunderRespirasi.setDocument(new batasInput((byte)3).getKata(SekunderRespirasi));
-        PrimerCatatan.setDocument(new batasInput((int)100).getKata(PrimerCatatan));
-        SekunderCatatan.setDocument(new batasInput((int)100).getKata(SekunderCatatan));
-        PrimerKeluhanUtama.setDocument(new batasInput((int)400).getKata(PrimerKeluhanUtama));
-        SekunderAnamnesa.setDocument(new batasInput((int)400).getKata(SekunderAnamnesa));
+        PrimerCatatan.setDocument(new batasInput(100).getKata(PrimerCatatan));
+        SekunderCatatan.setDocument(new batasInput(100).getKata(SekunderCatatan));
+        PrimerKeluhanUtama.setDocument(new batasInput(400).getKata(PrimerKeluhanUtama));
+        SekunderAnamnesa.setDocument(new batasInput(400).getKata(SekunderAnamnesa));
        
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -3287,7 +3288,7 @@ public class RMTriaseIGD extends javax.swing.JDialog {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(this.getHeight()<620){   
             ScrollTriase.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            FormTriase.setPreferredSize(new Dimension(FormTriase.WIDTH,500));
+            FormTriase.setPreferredSize(new Dimension(InternalFrame.WIDTH,500));
             if(this.getWidth()<780){
                 ScrollTriase.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
                 FormTriase.setPreferredSize(new Dimension(770,500));
@@ -3298,7 +3299,7 @@ public class RMTriaseIGD extends javax.swing.JDialog {
             ScrollTriase.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);            
             if(this.getWidth()<780){
                 ScrollTriase.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
-                FormTriase.setPreferredSize(new Dimension(770,FormTriase.HEIGHT));
+                FormTriase.setPreferredSize(new Dimension(770,InternalFrame.HEIGHT));
             }else{
                 ScrollTriase.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);                
             }

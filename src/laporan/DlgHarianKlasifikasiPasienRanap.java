@@ -588,15 +588,15 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     minimal=0;partial=0;total=0;
                     if(rs.getString("Minimal").equals("IYA")){
                         minimal=1;
-                        jmlminimal=jmlminimal+1;
+                        jmlminimal += 1;
                     }
                     if(rs.getString("Partial").equals("IYA")){
                         partial=1;
-                        jmlpartial=jmlpartial+1;
+                        jmlpartial += 1;
                     }
                     if(rs.getString("Total").equals("IYA")){
                         total=1;
-                        jmltotal=jmltotal+1;
+                        jmltotal += 1;
                     }
                     
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tanggal")).append("</td><td valign='middle' align='center'>").append(minimal).append("</td><td valign='middle' align='center'>").append(partial).append("</td><td valign='middle' align='center'>").append(total).append("</td><td valign='middle' align='left'>").append(rs.getString("ruang")).append("</td></tr>");

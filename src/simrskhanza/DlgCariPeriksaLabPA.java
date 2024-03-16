@@ -120,11 +120,11 @@ public class DlgCariPeriksaLabPA extends javax.swing.JDialog {
         kdmem.setDocument(new batasInput((byte)8).getKata(kdmem));
         kdptg.setDocument(new batasInput((byte)25).getKata(kdptg));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        Makroskopis.setDocument(new batasInput((int)1024).getKata(Makroskopis));
-        Mikroskopis.setDocument(new batasInput((int)1024).getKata(Mikroskopis));
-        Kesimpulan.setDocument(new batasInput((int)300).getKata(Kesimpulan));
-        Kesan.setDocument(new batasInput((int)300).getKata(Kesan));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        Makroskopis.setDocument(new batasInput(1024).getKata(Makroskopis));
+        Mikroskopis.setDocument(new batasInput(1024).getKata(Mikroskopis));
+        Kesimpulan.setDocument(new batasInput(300).getKata(Kesimpulan));
+        Kesan.setDocument(new batasInput(300).getKata(Kesan));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -1456,7 +1456,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             ttl=0;
                             while(rs2.next()){
                                 item=rs2.getDouble("biaya");//Sequel.cariIsiAngka("select sum(biaya_item) from template_laboratorium where kd_jenis_prw=?",rs2.getString("kd_jenis_prw"));
-                                ttl=ttl+item;                    
+                                ttl += item;                    
                                 Sequel.menyimpan("temporary_lab","'0','"+rs2.getString("kd_jenis_prw")+"','"+rs2.getString("nm_perawatan")+"','"+item+"','Pemeriksaan','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Biaya Lab");                        
                             }   
                         } catch (Exception e) {
@@ -2303,7 +2303,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         rs.getString("nm_dokter"),rs.getString("nm_perawatan"),rs.getString("biaya"),diagnosa_klinik,makroskopik,mikroskopik,kesimpulan,kesan,
                         rs.getString("kd_jenis_prw"),rs.getString("png_jawab")
                     });
-                    ttl=ttl+rs.getDouble("biaya");
+                    ttl += rs.getDouble("biaya");
                 }
             } catch (Exception e) {
                 System.out.println("Notif ps : "+e);

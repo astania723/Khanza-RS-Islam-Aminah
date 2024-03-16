@@ -969,7 +969,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                             no++;
                         }
                         tabMode.addRow(new Object[]{"","Akun Aset :",rs.getString("akun_aset"),"Total :","","",Valid.SetAngka(rs.getDouble("totalhibah"))});
-                        totalhibah=totalhibah+rs.getDouble("totalhibah");
+                        totalhibah += rs.getDouble("totalhibah");
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
                     } finally{

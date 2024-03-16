@@ -52,18 +52,18 @@ public class DlgJnsPerawatanUTD extends javax.swing.JDialog {
 
         Object[] row={"P","Kode Periksa","Nama Pelayanan","J.S.Rumah Sakit","Paket BHP","J.M.Perujuk","J.M. Dokter","J.M. Petugas","K.S.O.","Manajemen","Total Tarif","Jenis Bayar"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -93,15 +93,15 @@ public class DlgJnsPerawatanUTD extends javax.swing.JDialog {
 
         TKd.setDocument(new batasInput((byte)15).getKata(TKd));
         TNm.setDocument(new batasInput((byte)80).getKata(TNm));
-        BagianRs.setDocument(new batasInput((int)15).getOnlyAngka(BagianRs));
-        JMPerujuk.setDocument(new batasInput((int)15).getOnlyAngka(JMPerujuk));
-        Bhp.setDocument(new batasInput((int)15).getOnlyAngka(Bhp));
-        JMDokter.setDocument(new batasInput((int)15).getOnlyAngka(JMDokter));
-        JMLaborat.setDocument(new batasInput((int)15).getOnlyAngka(JMLaborat));
-        KSO.setDocument(new batasInput((int)15).getOnlyAngka(KSO));
-        Manajemen.setDocument(new batasInput((int)15).getOnlyAngka(Manajemen));
-        TotalBiaya.setDocument(new batasInput((int)20).getOnlyAngka(TotalBiaya));
-        kdpnj.setDocument(new batasInput((int)3).getKata(kdpnj));
+        BagianRs.setDocument(new batasInput(15).getOnlyAngka(BagianRs));
+        JMPerujuk.setDocument(new batasInput(15).getOnlyAngka(JMPerujuk));
+        Bhp.setDocument(new batasInput(15).getOnlyAngka(Bhp));
+        JMDokter.setDocument(new batasInput(15).getOnlyAngka(JMDokter));
+        JMLaborat.setDocument(new batasInput(15).getOnlyAngka(JMLaborat));
+        KSO.setDocument(new batasInput(15).getOnlyAngka(KSO));
+        Manajemen.setDocument(new batasInput(15).getOnlyAngka(Manajemen));
+        TotalBiaya.setDocument(new batasInput(20).getOnlyAngka(TotalBiaya));
+        kdpnj.setDocument(new batasInput(3).getKata(kdpnj));
 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));          
         if(koneksiDB.CARICEPAT().equals("aktif")){

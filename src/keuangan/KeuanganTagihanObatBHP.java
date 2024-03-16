@@ -63,19 +63,19 @@ public class KeuanganTagihanObatBHP extends javax.swing.JDialog {
             "Sisa Hutang"
         };
         tabMode=new DefaultTableModel(null,rowRwJlDr){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -115,7 +115,7 @@ public class KeuanganTagihanObatBHP extends javax.swing.JDialog {
 
         NoTagihan.setDocument(new batasInput((byte)20).getKata(NoTagihan));
         nip.setDocument(new batasInput((byte)20).getKata(nip));
-        Keterangan.setDocument(new batasInput((int)150).getKata(Keterangan));        
+        Keterangan.setDocument(new batasInput(150).getKata(Keterangan));        
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1116,8 +1116,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("tgl_pesan"),rs.getString("tgl_tempo"),rs.getString("nm_bangsal"),
                         rs.getDouble("tagihan"),(rs.getDouble("tagihan")-rs.getDouble("bayar"))
                     });
-                    sisahutang=sisahutang+rs.getDouble("tagihan");
-                    cicilan=cicilan+rs.getDouble("bayar");
+                    sisahutang += rs.getDouble("tagihan");
+                    cicilan += rs.getDouble("bayar");
                 }
                 LCount.setText(Valid.SetAngka(sisahutang-cicilan));
             } catch (Exception e) {
@@ -1140,7 +1140,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         bayar=0;
         for(i=0;i<row;i++){  
             if(tbBangsal.getValueAt(i,0).toString().equals("true")){
-                 bayar=bayar+Double.parseDouble(tbBangsal.getValueAt(i,10).toString());     
+                 bayar += Double.parseDouble(tbBangsal.getValueAt(i,10).toString());     
             }
         }
         LCount1.setText(Valid.SetAngka(bayar));

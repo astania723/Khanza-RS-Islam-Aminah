@@ -98,7 +98,7 @@ public class DlgAuditBundleIADP extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         Nip.setDocument(new batasInput((byte)20).getKata(Nip));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1016,16 +1016,16 @@ public class DlgAuditBundleIADP extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     handhygiene=Double.parseDouble(rs.getString("handhygiene").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlhandhygiene=ttlhandhygiene+handhygiene;
+                    ttlhandhygiene += handhygiene;
                     apd=Double.parseDouble(rs.getString("apd").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlapd=ttlapd+apd;
+                    ttlapd += apd;
                     skin_antiseptik=Double.parseDouble(rs.getString("skin_antiseptik").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlskin_antiseptik=ttlskin_antiseptik+skin_antiseptik;
+                    ttlskin_antiseptik += skin_antiseptik;
                     lokasi_iv=Double.parseDouble(rs.getString("lokasi_iv").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttllokasi_iv=ttllokasi_iv+lokasi_iv;
+                    ttllokasi_iv += lokasi_iv;
                     perawatan_rutin=Double.parseDouble(rs.getString("perawatan_rutin").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlperawatan_rutin=ttlperawatan_rutin+perawatan_rutin;
-                    ttlpenilaian=ttlpenilaian+(((handhygiene+apd+skin_antiseptik+lokasi_iv+perawatan_rutin)/5)*100);
+                    ttlperawatan_rutin += perawatan_rutin;
+                    ttlpenilaian += (((handhygiene+apd+skin_antiseptik+lokasi_iv+perawatan_rutin)/5)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("nik"),rs.getString("nama"),rs.getString("handhygiene"),rs.getString("apd"),
                         rs.getString("skin_antiseptik"),rs.getString("lokasi_iv"),rs.getString("perawatan_rutin"),
@@ -1033,7 +1033,7 @@ public class DlgAuditBundleIADP extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlhandhygiene,""+ttlapd,""+ttlskin_antiseptik,

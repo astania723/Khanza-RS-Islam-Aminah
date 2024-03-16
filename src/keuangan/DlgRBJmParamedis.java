@@ -870,7 +870,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralanpr.getString("nm_perawatan"),
                                      rsralanpr.getString("jml"),Valid.SetAngka(rsralanpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralanpr.getDouble("total");
+                                 jm += rsralanpr.getDouble("total");
                              }
 
                              rsralandrpr.beforeFirst();
@@ -879,7 +879,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralandrpr.getString("nm_perawatan"),
                                      rsralandrpr.getString("jml"),Valid.SetAngka(rsralandrpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralandrpr.getDouble("total");
+                                 jm += rsralandrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -940,7 +940,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranappr.getString("nm_perawatan"),
                                      rsranappr.getString("jml"),Valid.SetAngka(rsranappr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranappr.getDouble("total");
+                                 jm += rsranappr.getDouble("total");
                              }
 
                              rsranapdrpr.beforeFirst();
@@ -949,7 +949,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranapdrpr.getString("nm_perawatan"),
                                      rsranapdrpr.getString("jml"),Valid.SetAngka(rsranapdrpr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranapdrpr.getDouble("total");
+                                 jm += rsranapdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -1209,7 +1209,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator1.getString("nm_perawatan")+" (Asisten Operator 1)",
                                      rsbiayaasisten_operator1.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator1.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_operator1.getDouble("total");
+                                 jm += rsbiayaasisten_operator1.getDouble("total");
                              }
 
                              //asisten anasthesi              
@@ -1219,7 +1219,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator2.getString("nm_perawatan")+" (Asisten Operator 2)",
                                      rsbiayaasisten_operator2.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator2.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator2.getDouble("total");
+                                 jm += rsbiayaasisten_operator2.getDouble("total");
                              }
 
                              rsbiayaasisten_operator3.beforeFirst();
@@ -1228,7 +1228,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator3.getString("nm_perawatan")+" (Asisten Operator 3)",
                                      rsbiayaasisten_operator3.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator3.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator3.getDouble("total");
+                                 jm += rsbiayaasisten_operator3.getDouble("total");
                              }
 
                              //perawat luar              
@@ -1238,7 +1238,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayainstrumen.getString("nm_perawatan")+" (Instrumen)",
                                      rsbiayainstrumen.getString("jml"),Valid.SetAngka(rsbiayainstrumen.getDouble("total"))
                                  });             
-                                 jm=jm+rsbiayainstrumen.getDouble("total");
+                                 jm += rsbiayainstrumen.getDouble("total");
                              }
 
                               //perawat luar              
@@ -1248,7 +1248,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaperawaat_resusitas.getString("nm_perawatan")+" (Perawat Resusitas)",
                                      rsbiayaperawaat_resusitas.getString("jml"),Valid.SetAngka(rsbiayaperawaat_resusitas.getDouble("total"))
                                  });        
-                                 jm=jm+rsbiayaperawaat_resusitas.getDouble("total");
+                                 jm += rsbiayaperawaat_resusitas.getDouble("total");
                              }
 
                              //perawat luar              
@@ -1258,7 +1258,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi.getString("nm_perawatan")+" (Asisten Anestesi 1)",
                                      rsbiayaasisten_anestesi.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi.getDouble("total");
                              }
 
                              rsbiayaasisten_anestesi2.beforeFirst();
@@ -1267,7 +1267,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi2.getString("nm_perawatan")+" (Asisten Anestesi 2)",
                                      rsbiayaasisten_anestesi2.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi2.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi2.getDouble("total");
                              }
 
                              //bidan              
@@ -1277,7 +1277,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan.getString("nm_perawatan")+" (Bidan 1)",
                                      rsbiayabidan.getString("jml"),Valid.SetAngka(rsbiayabidan.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan.getDouble("total");
+                                 jm += rsbiayabidan.getDouble("total");
                              }
 
                              rsbiayabidan2.beforeFirst();
@@ -1286,7 +1286,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan2.getString("nm_perawatan")+" (Bidan 2)",
                                      rsbiayabidan2.getString("jml"),Valid.SetAngka(rsbiayabidan2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan2.getDouble("total");
+                                 jm += rsbiayabidan2.getDouble("total");
                              }
 
                              rsbiayabidan3.beforeFirst();
@@ -1295,7 +1295,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan3.getString("nm_perawatan")+" (Bidan 3)",
                                      rsbiayabidan3.getString("jml"),Valid.SetAngka(rsbiayabidan3.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan3.getDouble("total");
+                                 jm += rsbiayabidan3.getDouble("total");
                              }
 
                              rsomloop.beforeFirst();
@@ -1304,7 +1304,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop.getString("nm_perawatan")+" (Onloop 1)",
                                      rsomloop.getString("jml"),Valid.SetAngka(rsomloop.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop.getDouble("total");
+                                 jm += rsomloop.getDouble("total");
                              }
 
                              rsomloop2.beforeFirst();
@@ -1313,7 +1313,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop2.getString("nm_perawatan")+" (Onloop 2)",
                                      rsomloop2.getString("jml"),Valid.SetAngka(rsomloop2.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop2.getDouble("total");
+                                 jm += rsomloop2.getDouble("total");
                              }
 
                              rsomloop3.beforeFirst();
@@ -1322,7 +1322,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop3.getString("nm_perawatan")+" (Onloop 3)",
                                      rsomloop3.getString("jml"),Valid.SetAngka(rsomloop3.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop3.getDouble("total");
+                                 jm += rsomloop3.getDouble("total");
                              }
 
                              rsomloop4.beforeFirst();
@@ -1331,7 +1331,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop4.getString("nm_perawatan")+" (Onloop 4)",
                                      rsomloop4.getString("jml"),Valid.SetAngka(rsomloop4.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop4.getDouble("total");
+                                 jm += rsomloop4.getDouble("total");
                              }
 
                              rsomloop5.beforeFirst();
@@ -1340,7 +1340,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop5.getString("nm_perawatan")+" (Onloop 5)",
                                      rsomloop5.getString("jml"),Valid.SetAngka(rsomloop5.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop5.getDouble("total");
+                                 jm += rsomloop5.getDouble("total");
                              }
 
                              //perawat luar              
@@ -1350,7 +1350,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","",a+". "+rsbiayaperawat_luar.getString("nm_perawatan")+" (Perawat Luar)",
                                      rsbiayaperawat_luar.getString("jml"),Valid.SetAngka(rsbiayaperawat_luar.getDouble("total"))
                                  });    
-                                 jm=jm+rsbiayaperawat_luar.getDouble("total");
+                                 jm += rsbiayaperawat_luar.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -1480,7 +1480,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsperiksalab.getString("nm_perawatan")+" ("+rsperiksalab.getString("kd_jenis_prw")+")",
                                       rsperiksalab.getString("jml"),Valid.SetAngka(rsperiksalab.getDouble("total"))
                                   });      
-                                  jm=jm+rsperiksalab.getDouble("total");
+                                  jm += rsperiksalab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Periksa Lab : "+e);
@@ -1526,7 +1526,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",
                                       rsdetaillab.getString("jml"),Valid.SetAngka(rsdetaillab.getDouble("total"))
                                   });    
-                                  jm=jm+rsdetaillab.getDouble("total");
+                                  jm += rsdetaillab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Detail Lab : "+e);
@@ -1565,7 +1565,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsperiksaradiologi.getString("nm_perawatan"),
                                      rsperiksaradiologi.getString("jml"),Valid.SetAngka(rsperiksaradiologi.getDouble("total"))
                                  });             
-                                 jm=jm+rsperiksaradiologi.getDouble("total");
+                                 jm += rsperiksaradiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -1583,7 +1583,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                          tabMode.addRow(new Object[]{"","","Total : ","",Valid.SetAngka(jm)});
                     }
 
-                    totaljm=totaljm+jm;   
+                    totaljm += jm;   
                     i++;
                  } 
             } catch (Exception e) {
@@ -1693,7 +1693,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralanpr.getString("nm_perawatan"),
                                      rsralanpr.getString("jml"),Valid.SetAngka(rsralanpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralanpr.getDouble("total");
+                                 jm += rsralanpr.getDouble("total");
                              }
 
                              rsralandrpr.beforeFirst();
@@ -1702,7 +1702,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralandrpr.getString("nm_perawatan"),
                                      rsralandrpr.getString("jml"),Valid.SetAngka(rsralandrpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralandrpr.getDouble("total");
+                                 jm += rsralandrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -1763,7 +1763,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranappr.getString("nm_perawatan"),
                                      rsranappr.getString("jml"),Valid.SetAngka(rsranappr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranappr.getDouble("total");
+                                 jm += rsranappr.getDouble("total");
                              }
 
                              rsranapdrpr.beforeFirst();
@@ -1772,7 +1772,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranapdrpr.getString("nm_perawatan"),
                                      rsranapdrpr.getString("jml"),Valid.SetAngka(rsranapdrpr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranapdrpr.getDouble("total");
+                                 jm += rsranapdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -2032,7 +2032,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator1.getString("nm_perawatan")+" (Asisten Operator 1)",
                                      rsbiayaasisten_operator1.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator1.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_operator1.getDouble("total");
+                                 jm += rsbiayaasisten_operator1.getDouble("total");
                              }
 
                              //asisten anasthesi              
@@ -2042,7 +2042,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator2.getString("nm_perawatan")+" (Asisten Operator 2)",
                                      rsbiayaasisten_operator2.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator2.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator2.getDouble("total");
+                                 jm += rsbiayaasisten_operator2.getDouble("total");
                              }
 
                              rsbiayaasisten_operator3.beforeFirst();
@@ -2051,7 +2051,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator3.getString("nm_perawatan")+" (Asisten Operator 3)",
                                      rsbiayaasisten_operator3.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator3.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator3.getDouble("total");
+                                 jm += rsbiayaasisten_operator3.getDouble("total");
                              }
 
                              //perawat luar              
@@ -2061,7 +2061,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayainstrumen.getString("nm_perawatan")+" (Instrumen)",
                                      rsbiayainstrumen.getString("jml"),Valid.SetAngka(rsbiayainstrumen.getDouble("total"))
                                  });             
-                                 jm=jm+rsbiayainstrumen.getDouble("total");
+                                 jm += rsbiayainstrumen.getDouble("total");
                              }
 
                               //perawat luar              
@@ -2071,7 +2071,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaperawaat_resusitas.getString("nm_perawatan")+" (Perawat Resusitas)",
                                      rsbiayaperawaat_resusitas.getString("jml"),Valid.SetAngka(rsbiayaperawaat_resusitas.getDouble("total"))
                                  });        
-                                 jm=jm+rsbiayaperawaat_resusitas.getDouble("total");
+                                 jm += rsbiayaperawaat_resusitas.getDouble("total");
                              }
 
                              //perawat luar              
@@ -2081,7 +2081,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi.getString("nm_perawatan")+" (Asisten Anestesi 1)",
                                      rsbiayaasisten_anestesi.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi.getDouble("total");
                              }
 
                              rsbiayaasisten_anestesi2.beforeFirst();
@@ -2090,7 +2090,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi2.getString("nm_perawatan")+" (Asisten Anestesi 2)",
                                      rsbiayaasisten_anestesi2.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi2.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi2.getDouble("total");
                              }
 
                              //bidan              
@@ -2100,7 +2100,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan.getString("nm_perawatan")+" (Bidan 1)",
                                      rsbiayabidan.getString("jml"),Valid.SetAngka(rsbiayabidan.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan.getDouble("total");
+                                 jm += rsbiayabidan.getDouble("total");
                              }
 
                              rsbiayabidan2.beforeFirst();
@@ -2109,7 +2109,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan2.getString("nm_perawatan")+" (Bidan 2)",
                                      rsbiayabidan2.getString("jml"),Valid.SetAngka(rsbiayabidan2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan2.getDouble("total");
+                                 jm += rsbiayabidan2.getDouble("total");
                              }
 
                              rsbiayabidan3.beforeFirst();
@@ -2118,7 +2118,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan3.getString("nm_perawatan")+" (Bidan 3)",
                                      rsbiayabidan3.getString("jml"),Valid.SetAngka(rsbiayabidan3.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan3.getDouble("total");
+                                 jm += rsbiayabidan3.getDouble("total");
                              }
 
                              rsomloop.beforeFirst();
@@ -2127,7 +2127,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop.getString("nm_perawatan")+" (Onloop 1)",
                                      rsomloop.getString("jml"),Valid.SetAngka(rsomloop.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop.getDouble("total");
+                                 jm += rsomloop.getDouble("total");
                              }
 
                              rsomloop2.beforeFirst();
@@ -2136,7 +2136,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop2.getString("nm_perawatan")+" (Onloop 2)",
                                      rsomloop2.getString("jml"),Valid.SetAngka(rsomloop2.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop2.getDouble("total");
+                                 jm += rsomloop2.getDouble("total");
                              }
 
                              rsomloop3.beforeFirst();
@@ -2145,7 +2145,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop3.getString("nm_perawatan")+" (Onloop 3)",
                                      rsomloop3.getString("jml"),Valid.SetAngka(rsomloop3.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop3.getDouble("total");
+                                 jm += rsomloop3.getDouble("total");
                              }
 
                              rsomloop4.beforeFirst();
@@ -2154,7 +2154,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop4.getString("nm_perawatan")+" (Onloop 4)",
                                      rsomloop4.getString("jml"),Valid.SetAngka(rsomloop4.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop4.getDouble("total");
+                                 jm += rsomloop4.getDouble("total");
                              }
 
                              rsomloop5.beforeFirst();
@@ -2163,7 +2163,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop5.getString("nm_perawatan")+" (Onloop 5)",
                                      rsomloop5.getString("jml"),Valid.SetAngka(rsomloop5.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop5.getDouble("total");
+                                 jm += rsomloop5.getDouble("total");
                              }
 
                              //perawat luar              
@@ -2173,7 +2173,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","",a+". "+rsbiayaperawat_luar.getString("nm_perawatan")+" (Perawat Luar)",
                                      rsbiayaperawat_luar.getString("jml"),Valid.SetAngka(rsbiayaperawat_luar.getDouble("total"))
                                  });    
-                                 jm=jm+rsbiayaperawat_luar.getDouble("total");
+                                 jm += rsbiayaperawat_luar.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -2303,7 +2303,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsperiksalab.getString("nm_perawatan")+" ("+rsperiksalab.getString("kd_jenis_prw")+")",
                                       rsperiksalab.getString("jml"),Valid.SetAngka(rsperiksalab.getDouble("total"))
                                   });      
-                                  jm=jm+rsperiksalab.getDouble("total");
+                                  jm += rsperiksalab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Periksa Lab : "+e);
@@ -2349,7 +2349,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",
                                       rsdetaillab.getString("jml"),Valid.SetAngka(rsdetaillab.getDouble("total"))
                                   });    
-                                  jm=jm+rsdetaillab.getDouble("total");
+                                  jm += rsdetaillab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Detail Lab : "+e);
@@ -2388,7 +2388,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsperiksaradiologi.getString("nm_perawatan"),
                                      rsperiksaradiologi.getString("jml"),Valid.SetAngka(rsperiksaradiologi.getDouble("total"))
                                  });             
-                                 jm=jm+rsperiksaradiologi.getDouble("total");
+                                 jm += rsperiksaradiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -2406,7 +2406,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                          tabMode.addRow(new Object[]{"","","Total : ","",Valid.SetAngka(jm)});
                     }
 
-                    totaljm=totaljm+jm;   
+                    totaljm += jm;   
                     i++;
                  } 
             } catch (Exception e) {
@@ -2498,7 +2498,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralanpr.getString("nm_perawatan"),
                                      rsralanpr.getString("jml"),Valid.SetAngka(rsralanpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralanpr.getDouble("total");
+                                 jm += rsralanpr.getDouble("total");
                              }
 
                              rsralandrpr.beforeFirst();
@@ -2507,7 +2507,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralandrpr.getString("nm_perawatan"),
                                      rsralandrpr.getString("jml"),Valid.SetAngka(rsralandrpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralandrpr.getDouble("total");
+                                 jm += rsralandrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -2568,7 +2568,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranappr.getString("nm_perawatan"),
                                      rsranappr.getString("jml"),Valid.SetAngka(rsranappr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranappr.getDouble("total");
+                                 jm += rsranappr.getDouble("total");
                              }
 
                              rsranapdrpr.beforeFirst();
@@ -2577,7 +2577,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranapdrpr.getString("nm_perawatan"),
                                      rsranapdrpr.getString("jml"),Valid.SetAngka(rsranapdrpr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranapdrpr.getDouble("total");
+                                 jm += rsranapdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -2837,7 +2837,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator1.getString("nm_perawatan")+" (Asisten Operator 1)",
                                      rsbiayaasisten_operator1.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator1.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_operator1.getDouble("total");
+                                 jm += rsbiayaasisten_operator1.getDouble("total");
                              }
 
                              //asisten anasthesi              
@@ -2847,7 +2847,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator2.getString("nm_perawatan")+" (Asisten Operator 2)",
                                      rsbiayaasisten_operator2.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator2.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator2.getDouble("total");
+                                 jm += rsbiayaasisten_operator2.getDouble("total");
                              }
 
                              rsbiayaasisten_operator3.beforeFirst();
@@ -2856,7 +2856,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator3.getString("nm_perawatan")+" (Asisten Operator 3)",
                                      rsbiayaasisten_operator3.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator3.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator3.getDouble("total");
+                                 jm += rsbiayaasisten_operator3.getDouble("total");
                              }
 
                              //perawat luar              
@@ -2866,7 +2866,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayainstrumen.getString("nm_perawatan")+" (Instrumen)",
                                      rsbiayainstrumen.getString("jml"),Valid.SetAngka(rsbiayainstrumen.getDouble("total"))
                                  });             
-                                 jm=jm+rsbiayainstrumen.getDouble("total");
+                                 jm += rsbiayainstrumen.getDouble("total");
                              }
 
                               //perawat luar              
@@ -2876,7 +2876,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaperawaat_resusitas.getString("nm_perawatan")+" (Perawat Resusitas)",
                                      rsbiayaperawaat_resusitas.getString("jml"),Valid.SetAngka(rsbiayaperawaat_resusitas.getDouble("total"))
                                  });        
-                                 jm=jm+rsbiayaperawaat_resusitas.getDouble("total");
+                                 jm += rsbiayaperawaat_resusitas.getDouble("total");
                              }
 
                              //perawat luar              
@@ -2886,7 +2886,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi.getString("nm_perawatan")+" (Asisten Anestesi 1)",
                                      rsbiayaasisten_anestesi.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi.getDouble("total");
                              }
 
                              rsbiayaasisten_anestesi2.beforeFirst();
@@ -2895,7 +2895,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi2.getString("nm_perawatan")+" (Asisten Anestesi 2)",
                                      rsbiayaasisten_anestesi2.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi2.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi2.getDouble("total");
                              }
 
                              //bidan              
@@ -2905,7 +2905,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan.getString("nm_perawatan")+" (Bidan 1)",
                                      rsbiayabidan.getString("jml"),Valid.SetAngka(rsbiayabidan.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan.getDouble("total");
+                                 jm += rsbiayabidan.getDouble("total");
                              }
 
                              rsbiayabidan2.beforeFirst();
@@ -2914,7 +2914,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan2.getString("nm_perawatan")+" (Bidan 2)",
                                      rsbiayabidan2.getString("jml"),Valid.SetAngka(rsbiayabidan2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan2.getDouble("total");
+                                 jm += rsbiayabidan2.getDouble("total");
                              }
 
                              rsbiayabidan3.beforeFirst();
@@ -2923,7 +2923,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan3.getString("nm_perawatan")+" (Bidan 3)",
                                      rsbiayabidan3.getString("jml"),Valid.SetAngka(rsbiayabidan3.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan3.getDouble("total");
+                                 jm += rsbiayabidan3.getDouble("total");
                              }
 
                              rsomloop.beforeFirst();
@@ -2932,7 +2932,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop.getString("nm_perawatan")+" (Onloop 1)",
                                      rsomloop.getString("jml"),Valid.SetAngka(rsomloop.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop.getDouble("total");
+                                 jm += rsomloop.getDouble("total");
                              }
 
                              rsomloop2.beforeFirst();
@@ -2941,7 +2941,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop2.getString("nm_perawatan")+" (Onloop 2)",
                                      rsomloop2.getString("jml"),Valid.SetAngka(rsomloop2.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop2.getDouble("total");
+                                 jm += rsomloop2.getDouble("total");
                              }
 
                              rsomloop3.beforeFirst();
@@ -2950,7 +2950,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop3.getString("nm_perawatan")+" (Onloop 3)",
                                      rsomloop3.getString("jml"),Valid.SetAngka(rsomloop3.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop3.getDouble("total");
+                                 jm += rsomloop3.getDouble("total");
                              }
 
                              rsomloop4.beforeFirst();
@@ -2959,7 +2959,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop4.getString("nm_perawatan")+" (Onloop 4)",
                                      rsomloop4.getString("jml"),Valid.SetAngka(rsomloop4.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop4.getDouble("total");
+                                 jm += rsomloop4.getDouble("total");
                              }
 
                              rsomloop5.beforeFirst();
@@ -2968,7 +2968,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop5.getString("nm_perawatan")+" (Onloop 5)",
                                      rsomloop5.getString("jml"),Valid.SetAngka(rsomloop5.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop5.getDouble("total");
+                                 jm += rsomloop5.getDouble("total");
                              }
 
                              //perawat luar              
@@ -2978,7 +2978,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","",a+". "+rsbiayaperawat_luar.getString("nm_perawatan")+" (Perawat Luar)",
                                      rsbiayaperawat_luar.getString("jml"),Valid.SetAngka(rsbiayaperawat_luar.getDouble("total"))
                                  });    
-                                 jm=jm+rsbiayaperawat_luar.getDouble("total");
+                                 jm += rsbiayaperawat_luar.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -3108,7 +3108,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsperiksalab.getString("nm_perawatan")+" ("+rsperiksalab.getString("kd_jenis_prw")+")",
                                       rsperiksalab.getString("jml"),Valid.SetAngka(rsperiksalab.getDouble("total"))
                                   });      
-                                  jm=jm+rsperiksalab.getDouble("total");
+                                  jm += rsperiksalab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Periksa Lab : "+e);
@@ -3154,7 +3154,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",
                                       rsdetaillab.getString("jml"),Valid.SetAngka(rsdetaillab.getDouble("total"))
                                   });    
-                                  jm=jm+rsdetaillab.getDouble("total");
+                                  jm += rsdetaillab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Detail Lab : "+e);
@@ -3193,7 +3193,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsperiksaradiologi.getString("nm_perawatan"),
                                      rsperiksaradiologi.getString("jml"),Valid.SetAngka(rsperiksaradiologi.getDouble("total"))
                                  });             
-                                 jm=jm+rsperiksaradiologi.getDouble("total");
+                                 jm += rsperiksaradiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -3211,7 +3211,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                          tabMode.addRow(new Object[]{"","","Total : ","",Valid.SetAngka(jm)});
                     }
 
-                    totaljm=totaljm+jm;   
+                    totaljm += jm;   
                     i++;
                  } 
             } catch (Exception e) {
@@ -3303,7 +3303,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralanpr.getString("nm_perawatan"),
                                      rsralanpr.getString("jml"),Valid.SetAngka(rsralanpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralanpr.getDouble("total");
+                                 jm += rsralanpr.getDouble("total");
                              }
 
                              rsralandrpr.beforeFirst();
@@ -3312,7 +3312,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralandrpr.getString("nm_perawatan"),
                                      rsralandrpr.getString("jml"),Valid.SetAngka(rsralandrpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralandrpr.getDouble("total");
+                                 jm += rsralandrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -3373,7 +3373,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranappr.getString("nm_perawatan"),
                                      rsranappr.getString("jml"),Valid.SetAngka(rsranappr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranappr.getDouble("total");
+                                 jm += rsranappr.getDouble("total");
                              }
 
                              rsranapdrpr.beforeFirst();
@@ -3382,7 +3382,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranapdrpr.getString("nm_perawatan"),
                                      rsranapdrpr.getString("jml"),Valid.SetAngka(rsranapdrpr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranapdrpr.getDouble("total");
+                                 jm += rsranapdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -3642,7 +3642,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator1.getString("nm_perawatan")+" (Asisten Operator 1)",
                                      rsbiayaasisten_operator1.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator1.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_operator1.getDouble("total");
+                                 jm += rsbiayaasisten_operator1.getDouble("total");
                              }
 
                              //asisten anasthesi              
@@ -3652,7 +3652,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator2.getString("nm_perawatan")+" (Asisten Operator 2)",
                                      rsbiayaasisten_operator2.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator2.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator2.getDouble("total");
+                                 jm += rsbiayaasisten_operator2.getDouble("total");
                              }
 
                              rsbiayaasisten_operator3.beforeFirst();
@@ -3661,7 +3661,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator3.getString("nm_perawatan")+" (Asisten Operator 3)",
                                      rsbiayaasisten_operator3.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator3.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator3.getDouble("total");
+                                 jm += rsbiayaasisten_operator3.getDouble("total");
                              }
 
                              //perawat luar              
@@ -3671,7 +3671,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayainstrumen.getString("nm_perawatan")+" (Instrumen)",
                                      rsbiayainstrumen.getString("jml"),Valid.SetAngka(rsbiayainstrumen.getDouble("total"))
                                  });             
-                                 jm=jm+rsbiayainstrumen.getDouble("total");
+                                 jm += rsbiayainstrumen.getDouble("total");
                              }
 
                               //perawat luar              
@@ -3681,7 +3681,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaperawaat_resusitas.getString("nm_perawatan")+" (Perawat Resusitas)",
                                      rsbiayaperawaat_resusitas.getString("jml"),Valid.SetAngka(rsbiayaperawaat_resusitas.getDouble("total"))
                                  });        
-                                 jm=jm+rsbiayaperawaat_resusitas.getDouble("total");
+                                 jm += rsbiayaperawaat_resusitas.getDouble("total");
                              }
 
                              //perawat luar              
@@ -3691,7 +3691,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi.getString("nm_perawatan")+" (Asisten Anestesi 1)",
                                      rsbiayaasisten_anestesi.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi.getDouble("total");
                              }
 
                              rsbiayaasisten_anestesi2.beforeFirst();
@@ -3700,7 +3700,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi2.getString("nm_perawatan")+" (Asisten Anestesi 2)",
                                      rsbiayaasisten_anestesi2.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi2.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi2.getDouble("total");
                              }
 
                              //bidan              
@@ -3710,7 +3710,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan.getString("nm_perawatan")+" (Bidan 1)",
                                      rsbiayabidan.getString("jml"),Valid.SetAngka(rsbiayabidan.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan.getDouble("total");
+                                 jm += rsbiayabidan.getDouble("total");
                              }
 
                              rsbiayabidan2.beforeFirst();
@@ -3719,7 +3719,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan2.getString("nm_perawatan")+" (Bidan 2)",
                                      rsbiayabidan2.getString("jml"),Valid.SetAngka(rsbiayabidan2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan2.getDouble("total");
+                                 jm += rsbiayabidan2.getDouble("total");
                              }
 
                              rsbiayabidan3.beforeFirst();
@@ -3728,7 +3728,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan3.getString("nm_perawatan")+" (Bidan 3)",
                                      rsbiayabidan3.getString("jml"),Valid.SetAngka(rsbiayabidan3.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan3.getDouble("total");
+                                 jm += rsbiayabidan3.getDouble("total");
                              }
 
                              rsomloop.beforeFirst();
@@ -3737,7 +3737,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop.getString("nm_perawatan")+" (Onloop 1)",
                                      rsomloop.getString("jml"),Valid.SetAngka(rsomloop.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop.getDouble("total");
+                                 jm += rsomloop.getDouble("total");
                              }
 
                              rsomloop2.beforeFirst();
@@ -3746,7 +3746,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop2.getString("nm_perawatan")+" (Onloop 2)",
                                      rsomloop2.getString("jml"),Valid.SetAngka(rsomloop2.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop2.getDouble("total");
+                                 jm += rsomloop2.getDouble("total");
                              }
 
                              rsomloop3.beforeFirst();
@@ -3755,7 +3755,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop3.getString("nm_perawatan")+" (Onloop 3)",
                                      rsomloop3.getString("jml"),Valid.SetAngka(rsomloop3.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop3.getDouble("total");
+                                 jm += rsomloop3.getDouble("total");
                              }
 
                              rsomloop4.beforeFirst();
@@ -3764,7 +3764,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop4.getString("nm_perawatan")+" (Onloop 4)",
                                      rsomloop4.getString("jml"),Valid.SetAngka(rsomloop4.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop4.getDouble("total");
+                                 jm += rsomloop4.getDouble("total");
                              }
 
                              rsomloop5.beforeFirst();
@@ -3773,7 +3773,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop5.getString("nm_perawatan")+" (Onloop 5)",
                                      rsomloop5.getString("jml"),Valid.SetAngka(rsomloop5.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop5.getDouble("total");
+                                 jm += rsomloop5.getDouble("total");
                              }
 
                              //perawat luar              
@@ -3783,7 +3783,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","",a+". "+rsbiayaperawat_luar.getString("nm_perawatan")+" (Perawat Luar)",
                                      rsbiayaperawat_luar.getString("jml"),Valid.SetAngka(rsbiayaperawat_luar.getDouble("total"))
                                  });    
-                                 jm=jm+rsbiayaperawat_luar.getDouble("total");
+                                 jm += rsbiayaperawat_luar.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -3913,7 +3913,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsperiksalab.getString("nm_perawatan")+" ("+rsperiksalab.getString("kd_jenis_prw")+")",
                                       rsperiksalab.getString("jml"),Valid.SetAngka(rsperiksalab.getDouble("total"))
                                   });      
-                                  jm=jm+rsperiksalab.getDouble("total");
+                                  jm += rsperiksalab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Periksa Lab : "+e);
@@ -3959,7 +3959,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",
                                       rsdetaillab.getString("jml"),Valid.SetAngka(rsdetaillab.getDouble("total"))
                                   });    
-                                  jm=jm+rsdetaillab.getDouble("total");
+                                  jm += rsdetaillab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Detail Lab : "+e);
@@ -3998,7 +3998,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsperiksaradiologi.getString("nm_perawatan"),
                                      rsperiksaradiologi.getString("jml"),Valid.SetAngka(rsperiksaradiologi.getDouble("total"))
                                  });             
-                                 jm=jm+rsperiksaradiologi.getDouble("total");
+                                 jm += rsperiksaradiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -4016,7 +4016,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                          tabMode.addRow(new Object[]{"","","Total : ","",Valid.SetAngka(jm)});
                     }
 
-                    totaljm=totaljm+jm;   
+                    totaljm += jm;   
                     i++;
                  } 
             } catch (Exception e) {
@@ -4108,7 +4108,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralanpr.getString("nm_perawatan"),
                                      rsralanpr.getString("jml"),Valid.SetAngka(rsralanpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralanpr.getDouble("total");
+                                 jm += rsralanpr.getDouble("total");
                              }
 
                              rsralandrpr.beforeFirst();
@@ -4117,7 +4117,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsralandrpr.getString("nm_perawatan"),
                                      rsralandrpr.getString("jml"),Valid.SetAngka(rsralandrpr.getDouble("total"))
                                  });        
-                                 jm=jm+rsralandrpr.getDouble("total");
+                                 jm += rsralandrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -4178,7 +4178,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranappr.getString("nm_perawatan"),
                                      rsranappr.getString("jml"),Valid.SetAngka(rsranappr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranappr.getDouble("total");
+                                 jm += rsranappr.getDouble("total");
                              }
 
                              rsranapdrpr.beforeFirst();
@@ -4187,7 +4187,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsranapdrpr.getString("nm_perawatan"),
                                      rsranapdrpr.getString("jml"),Valid.SetAngka(rsranapdrpr.getDouble("total"))
                                  });  
-                                 jm=jm+rsranapdrpr.getDouble("total");
+                                 jm += rsranapdrpr.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -4447,7 +4447,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator1.getString("nm_perawatan")+" (Asisten Operator 1)",
                                      rsbiayaasisten_operator1.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator1.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_operator1.getDouble("total");
+                                 jm += rsbiayaasisten_operator1.getDouble("total");
                              }
 
                              //asisten anasthesi              
@@ -4457,7 +4457,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator2.getString("nm_perawatan")+" (Asisten Operator 2)",
                                      rsbiayaasisten_operator2.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator2.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator2.getDouble("total");
+                                 jm += rsbiayaasisten_operator2.getDouble("total");
                              }
 
                              rsbiayaasisten_operator3.beforeFirst();
@@ -4466,7 +4466,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_operator3.getString("nm_perawatan")+" (Asisten Operator 3)",
                                      rsbiayaasisten_operator3.getString("jml"),Valid.SetAngka(rsbiayaasisten_operator3.getDouble("total"))
                                  });   
-                                 jm=jm+rsbiayaasisten_operator3.getDouble("total");
+                                 jm += rsbiayaasisten_operator3.getDouble("total");
                              }
 
                              //perawat luar              
@@ -4476,7 +4476,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayainstrumen.getString("nm_perawatan")+" (Instrumen)",
                                      rsbiayainstrumen.getString("jml"),Valid.SetAngka(rsbiayainstrumen.getDouble("total"))
                                  });             
-                                 jm=jm+rsbiayainstrumen.getDouble("total");
+                                 jm += rsbiayainstrumen.getDouble("total");
                              }
 
                               //perawat luar              
@@ -4486,7 +4486,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaperawaat_resusitas.getString("nm_perawatan")+" (Perawat Resusitas)",
                                      rsbiayaperawaat_resusitas.getString("jml"),Valid.SetAngka(rsbiayaperawaat_resusitas.getDouble("total"))
                                  });        
-                                 jm=jm+rsbiayaperawaat_resusitas.getDouble("total");
+                                 jm += rsbiayaperawaat_resusitas.getDouble("total");
                              }
 
                              //perawat luar              
@@ -4496,7 +4496,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi.getString("nm_perawatan")+" (Asisten Anestesi 1)",
                                      rsbiayaasisten_anestesi.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi.getDouble("total");
                              }
 
                              rsbiayaasisten_anestesi2.beforeFirst();
@@ -4505,7 +4505,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayaasisten_anestesi2.getString("nm_perawatan")+" (Asisten Anestesi 2)",
                                      rsbiayaasisten_anestesi2.getString("jml"),Valid.SetAngka(rsbiayaasisten_anestesi2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayaasisten_anestesi2.getDouble("total");
+                                 jm += rsbiayaasisten_anestesi2.getDouble("total");
                              }
 
                              //bidan              
@@ -4515,7 +4515,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan.getString("nm_perawatan")+" (Bidan 1)",
                                      rsbiayabidan.getString("jml"),Valid.SetAngka(rsbiayabidan.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan.getDouble("total");
+                                 jm += rsbiayabidan.getDouble("total");
                              }
 
                              rsbiayabidan2.beforeFirst();
@@ -4524,7 +4524,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan2.getString("nm_perawatan")+" (Bidan 2)",
                                      rsbiayabidan2.getString("jml"),Valid.SetAngka(rsbiayabidan2.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan2.getDouble("total");
+                                 jm += rsbiayabidan2.getDouble("total");
                              }
 
                              rsbiayabidan3.beforeFirst();
@@ -4533,7 +4533,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsbiayabidan3.getString("nm_perawatan")+" (Bidan 3)",
                                      rsbiayabidan3.getString("jml"),Valid.SetAngka(rsbiayabidan3.getDouble("total"))
                                  });       
-                                 jm=jm+rsbiayabidan3.getDouble("total");
+                                 jm += rsbiayabidan3.getDouble("total");
                              }
 
                              rsomloop.beforeFirst();
@@ -4542,7 +4542,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop.getString("nm_perawatan")+" (Onloop 1)",
                                      rsomloop.getString("jml"),Valid.SetAngka(rsomloop.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop.getDouble("total");
+                                 jm += rsomloop.getDouble("total");
                              }
 
                              rsomloop2.beforeFirst();
@@ -4551,7 +4551,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop2.getString("nm_perawatan")+" (Onloop 2)",
                                      rsomloop2.getString("jml"),Valid.SetAngka(rsomloop2.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop2.getDouble("total");
+                                 jm += rsomloop2.getDouble("total");
                              }
 
                              rsomloop3.beforeFirst();
@@ -4560,7 +4560,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop3.getString("nm_perawatan")+" (Onloop 3)",
                                      rsomloop3.getString("jml"),Valid.SetAngka(rsomloop3.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop3.getDouble("total");
+                                 jm += rsomloop3.getDouble("total");
                              }
 
                              rsomloop4.beforeFirst();
@@ -4569,7 +4569,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop4.getString("nm_perawatan")+" (Onloop 4)",
                                      rsomloop4.getString("jml"),Valid.SetAngka(rsomloop4.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop4.getDouble("total");
+                                 jm += rsomloop4.getDouble("total");
                              }
 
                              rsomloop5.beforeFirst();
@@ -4578,7 +4578,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsomloop5.getString("nm_perawatan")+" (Onloop 5)",
                                      rsomloop5.getString("jml"),Valid.SetAngka(rsomloop5.getDouble("total"))
                                  });       
-                                 jm=jm+rsomloop5.getDouble("total");
+                                 jm += rsomloop5.getDouble("total");
                              }
 
                              //perawat luar              
@@ -4588,7 +4588,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","",a+". "+rsbiayaperawat_luar.getString("nm_perawatan")+" (Perawat Luar)",
                                      rsbiayaperawat_luar.getString("jml"),Valid.SetAngka(rsbiayaperawat_luar.getDouble("total"))
                                  });    
-                                 jm=jm+rsbiayaperawat_luar.getDouble("total");
+                                 jm += rsbiayaperawat_luar.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -4718,7 +4718,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsperiksalab.getString("nm_perawatan")+" ("+rsperiksalab.getString("kd_jenis_prw")+")",
                                       rsperiksalab.getString("jml"),Valid.SetAngka(rsperiksalab.getDouble("total"))
                                   });      
-                                  jm=jm+rsperiksalab.getDouble("total");
+                                  jm += rsperiksalab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Periksa Lab : "+e);
@@ -4764,7 +4764,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                       "","","     "+rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",
                                       rsdetaillab.getString("jml"),Valid.SetAngka(rsdetaillab.getDouble("total"))
                                   });    
-                                  jm=jm+rsdetaillab.getDouble("total");
+                                  jm += rsdetaillab.getDouble("total");
                               }
                           } catch (Exception e) {
                               System.out.println("Notifikasi Detail Lab : "+e);
@@ -4803,7 +4803,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                      "","","     "+rsperiksaradiologi.getString("nm_perawatan"),
                                      rsperiksaradiologi.getString("jml"),Valid.SetAngka(rsperiksaradiologi.getDouble("total"))
                                  });             
-                                 jm=jm+rsperiksaradiologi.getDouble("total");
+                                 jm += rsperiksaradiologi.getDouble("total");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi : "+e);
@@ -4821,7 +4821,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                          tabMode.addRow(new Object[]{"","","Total : ","",Valid.SetAngka(jm)});
                     }
 
-                    totaljm=totaljm+jm;   
+                    totaljm += jm;   
                     i++;
                  } 
             } catch (Exception e) {

@@ -91,7 +91,7 @@ public class KeslingPemakaiaanAirTanah extends javax.swing.JDialog {
 
         Meteran.setDocument(new batasInput((byte)10).getKata(Meteran));
         JmlHarian.setDocument(new batasInput((byte)10).getKata(JmlHarian));
-        Keterangan.setDocument(new batasInput((int)50).getKata(Keterangan));
+        Keterangan.setDocument(new batasInput(50).getKata(Keterangan));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -898,7 +898,7 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     tabMode.addRow(new String[]{
                         i+"",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)
                     });
-                    total=total+rs.getDouble(5);
+                    total += rs.getDouble(5);
                     i++;
                 }
             } catch (Exception e) {

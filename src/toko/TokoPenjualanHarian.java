@@ -450,9 +450,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 rs=ps.executeQuery();
                 ttlppn=0;ttlbayar=0;ttlongkir=0;
                 while(rs.next()){
-                    ttlppn=ttlppn+rs.getDouble("ppn");
-                    ttlbayar=ttlbayar+rs.getDouble("total");
-                    ttlongkir=ttlongkir+rs.getDouble("ongkir");
+                    ttlppn += rs.getDouble("ppn");
+                    ttlbayar += rs.getDouble("total");
+                    ttlongkir += rs.getDouble("ongkir");
                     tabMode.addRow(new Object[]{
                         rs.getString("nota_jual"),rs.getString("tgl_jual"),rs.getString("nip"),rs.getString("nama"),rs.getString("no_member"),rs.getString("nm_member"),
                         rs.getDouble("ongkir"),rs.getDouble("ppn"),rs.getDouble("total"),rs.getString("jns_jual"),rs.getString("nama_bayar"),rs.getString("keterangan")

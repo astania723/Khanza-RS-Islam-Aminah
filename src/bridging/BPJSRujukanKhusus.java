@@ -177,7 +177,7 @@ public class BPJSRujukanKhusus extends javax.swing.JDialog {
         tbProsedur.setDefaultRenderer(Object.class,warna);
 
         NoPeserta.setDocument(new batasInput((byte)17).getKata(NoPeserta));
-        NoRujukan.setDocument(new batasInput((int)200).getKata(NoRujukan));
+        NoRujukan.setDocument(new batasInput(200).getKata(NoRujukan));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
 
         
@@ -1310,6 +1310,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         public String getMethod() {
             return "DELETE";
         }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     }
        
     

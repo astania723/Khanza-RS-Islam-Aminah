@@ -68,8 +68,7 @@ public class IPSRSBarang extends javax.swing.JDialog {
             };
             @Override
             public boolean isCellEditable(int rowIndex, int colIndex) {
-                boolean a = false;
-                return a;
+                return false;
             }
 
             @Override

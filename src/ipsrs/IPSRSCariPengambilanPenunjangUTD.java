@@ -558,7 +558,7 @@ private void BtnCetakKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         rs.getString("nip"),rs.getString("tanggal"),
                         rs.getString("keterangan")
                     });
-                    total=total+rs.getDouble("total");
+                    total += rs.getDouble("total");
                 }
                 LCount.setText(""+tabMode.getRowCount());
                 LTotal.setText(Valid.SetAngka(total));

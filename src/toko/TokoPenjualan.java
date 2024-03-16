@@ -1305,7 +1305,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -1467,14 +1467,14 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             } catch (Exception e) {
                 y=0;
             }
-            ttl=ttl+y;
+            ttl += y;
 
             try {
                 z=Double.parseDouble(tabMode.getValueAt(r,12).toString())*Double.parseDouble(tabMode.getValueAt(r,0).toString()); 
             } catch (Exception e) {
                 z=0;
             }
-            ttlhpp=ttlhpp+z;
+            ttlhpp += z;
         }
         
         LTotal.setText(Valid.SetAngka(ttl));

@@ -1363,7 +1363,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                             no++;
                         }
                         tabMode.addRow(new Object[]{"","Total",":","","","","","",Valid.SetAngka(rs.getDouble("totalhibah")),"",Valid.SetAngka(rs.getDouble("totalnilai"))});
-                        tagihan=tagihan+rs.getDouble("totalnilai");
+                        tagihan += rs.getDouble("totalnilai");
                     } catch (Exception e) {
                         System.out.println("Notifikasi : "+e);
                     } finally{

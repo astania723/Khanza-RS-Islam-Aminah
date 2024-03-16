@@ -158,26 +158,26 @@ public class RMPenilaianPasienKeracunan extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KeluhanSaatIni.setDocument(new batasInput((int)2000).getKata(KeluhanSaatIni));
-        RiwayatPenyakitSatIni.setDocument(new batasInput((int)2000).getKata(RiwayatPenyakitSatIni));
-        KeteranganTempatKejadian.setDocument(new batasInput((int)50).getKata(KeteranganTempatKejadian));
-        NamaBahan.setDocument(new batasInput((int)100).getKata(NamaBahan));
-        JumlahBahan.setDocument(new batasInput((int)15).getKata(JumlahBahan));
-        KeteranganTipePemaparan.setDocument(new batasInput((int)50).getKata(KeteranganTipePemaparan));
-        KeteranganBauBahan.setDocument(new batasInput((int)30).getKata(KeteranganBauBahan));
-        KeteranganPupil.setDocument(new batasInput((int)30).getKata(KeteranganPupil));
-        TD.setDocument(new batasInput((int)8).getKata(TD));
-        Nadi.setDocument(new batasInput((int)5).getKata(Nadi));
-        Suhu.setDocument(new batasInput((int)5).getKata(Suhu));
-        RR.setDocument(new batasInput((int)5).getKata(RR));
-        SPO.setDocument(new batasInput((int)5).getKata(SPO));
-        Urine.setDocument(new batasInput((int)5).getKata(Urine));
-        PengobatanSebelumIGD.setDocument(new batasInput((int)500).getKata(PengobatanSebelumIGD));
-        Diagnosa.setDocument(new batasInput((int)500).getKata(Diagnosa));
-        Penunjang.setDocument(new batasInput((int)500).getKata(Penunjang));
-        Penatalaksanaan.setDocument(new batasInput((int)500).getKata(Penatalaksanaan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KeluhanSaatIni.setDocument(new batasInput(2000).getKata(KeluhanSaatIni));
+        RiwayatPenyakitSatIni.setDocument(new batasInput(2000).getKata(RiwayatPenyakitSatIni));
+        KeteranganTempatKejadian.setDocument(new batasInput(50).getKata(KeteranganTempatKejadian));
+        NamaBahan.setDocument(new batasInput(100).getKata(NamaBahan));
+        JumlahBahan.setDocument(new batasInput(15).getKata(JumlahBahan));
+        KeteranganTipePemaparan.setDocument(new batasInput(50).getKata(KeteranganTipePemaparan));
+        KeteranganBauBahan.setDocument(new batasInput(30).getKata(KeteranganBauBahan));
+        KeteranganPupil.setDocument(new batasInput(30).getKata(KeteranganPupil));
+        TD.setDocument(new batasInput(8).getKata(TD));
+        Nadi.setDocument(new batasInput(5).getKata(Nadi));
+        Suhu.setDocument(new batasInput(5).getKata(Suhu));
+        RR.setDocument(new batasInput(5).getKata(RR));
+        SPO.setDocument(new batasInput(5).getKata(SPO));
+        Urine.setDocument(new batasInput(5).getKata(Urine));
+        PengobatanSebelumIGD.setDocument(new batasInput(500).getKata(PengobatanSebelumIGD));
+        Diagnosa.setDocument(new batasInput(500).getKata(Diagnosa));
+        Penunjang.setDocument(new batasInput(500).getKata(Penunjang));
+        Penatalaksanaan.setDocument(new batasInput(500).getKata(Penatalaksanaan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

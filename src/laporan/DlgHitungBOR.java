@@ -632,7 +632,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("kamar"),rs.getString("tgl_masuk"),rs.getString("tgl_keluar"),
                         rs.getString("lama"),rs.getString("stts_pulang")
                     });
-                    hari=hari+rs.getDouble("lama");
+                    hari += rs.getDouble("lama");
                     i++;
                 }
                 if(hari>0){
@@ -687,7 +687,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("kamar"),rs.getString("tgl_masuk"),rs.getString("tgl_keluar"),
                         rs.getString("lama"),rs.getString("stts_pulang")
                     });
-                    hari=hari+rs.getDouble("lama");
+                    hari += rs.getDouble("lama");
                     i++;
                 }
                 if(hari>0){

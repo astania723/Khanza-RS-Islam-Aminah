@@ -1058,14 +1058,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                              "","",rsobat.getString(3),rsobat.getString(1)+" "+rsobat.getString(2),Valid.SetAngka(rsobat.getDouble(4)),
                                              Valid.SetAngka(rsobat.getDouble(5)),Valid.SetAngka(rsobat.getDouble(6)),Valid.SetAngka(rsobat.getDouble(7))
                                          });
-                                         jmlbiaya=jmlbiaya+rsobat.getDouble(4);
-                                         ttlbiaya=ttlbiaya+rsobat.getDouble(4);
-                                         jmlembalase=jmlembalase+rsobat.getDouble(5);
-                                         ttlembalase=ttlembalase+rsobat.getDouble(5);
-                                         jmltuslah=jmltuslah+rsobat.getDouble(6);
-                                         ttltuslah=ttltuslah+rsobat.getDouble(6);
-                                         jmltotal=jmltotal+rsobat.getDouble(7);
-                                         ttltotal=ttltotal+rsobat.getDouble(7);
+                                         jmlbiaya += rsobat.getDouble(4);
+                                         ttlbiaya += rsobat.getDouble(4);
+                                         jmlembalase += rsobat.getDouble(5);
+                                         ttlembalase += rsobat.getDouble(5);
+                                         jmltuslah += rsobat.getDouble(6);
+                                         ttltuslah += rsobat.getDouble(6);
+                                         jmltotal += rsobat.getDouble(7);
+                                         ttltotal += rsobat.getDouble(7);
                                      }
                                 }
 

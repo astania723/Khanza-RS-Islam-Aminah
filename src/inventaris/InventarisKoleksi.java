@@ -1473,7 +1473,7 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
                                     rs.getString("nama_ruang"),
                                     rs.getString("no_rak"),
                                     rs.getString("no_box")});
-                     nilai_inven=nilai_inven+rs.getDouble("harga");
+                     nilai_inven += rs.getDouble("harga");
                 }
             }catch(Exception e){
                 System.out.println("Notifikasi : "+e);

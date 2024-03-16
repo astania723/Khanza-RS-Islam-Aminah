@@ -53,10 +53,10 @@ public class AkunRekeningBankJabar extends javax.swing.JDialog {
 
         Object[] row={"Kode Akun","Akun Rekening","Kode Instansi"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];

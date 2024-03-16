@@ -1093,44 +1093,44 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         while(rs2.next()){
                             switch (rs2.getString("status")) {
                                 case "Laborat":
-                                    ttlLaborat=ttlLaborat+rs2.getDouble("totalbiaya");
-                                    Laborat=Laborat+rs2.getDouble("totalbiaya");
+                                    ttlLaborat += rs2.getDouble("totalbiaya");
+                                    Laborat += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Radiologi":
-                                    ttlRadiologi=ttlRadiologi+rs2.getDouble("totalbiaya");
-                                    Radiologi=Radiologi+rs2.getDouble("totalbiaya");
+                                    ttlRadiologi += rs2.getDouble("totalbiaya");
+                                    Radiologi += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Obat":
-                                    ttlObat=ttlObat+rs2.getDouble("totalbiaya");
-                                    Obat=Obat+rs2.getDouble("totalbiaya");
+                                    ttlObat += rs2.getDouble("totalbiaya");
+                                    Obat += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Ralan Dokter":
-                                    ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble("totalbiaya");
-                                    Ralan_Dokter=Ralan_Dokter+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Dokter += rs2.getDouble("totalbiaya");
+                                    Ralan_Dokter += rs2.getDouble("totalbiaya");
                                     break;     
                                 case "Ralan Dokter Paramedis":
-                                    ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble("totalbiaya");
-                                    Ralan_Dokter_paramedis=Ralan_Dokter_paramedis+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Dokter += rs2.getDouble("totalbiaya");
+                                    Ralan_Dokter_paramedis += rs2.getDouble("totalbiaya");
                                     break;    
                                 case "Ralan Paramedis":
-                                    ttlRalan_Paramedis=ttlRalan_Paramedis+rs2.getDouble("totalbiaya");
-                                    Ralan_Paramedis=Ralan_Paramedis+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Paramedis += rs2.getDouble("totalbiaya");
+                                    Ralan_Paramedis += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Tambahan":
-                                    ttlTambahan=ttlTambahan+rs2.getDouble("totalbiaya");
-                                    Tambahan=Tambahan+rs2.getDouble("totalbiaya");
+                                    ttlTambahan += rs2.getDouble("totalbiaya");
+                                    Tambahan += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Potongan":
-                                    ttlPotongan=ttlPotongan+rs2.getDouble("totalbiaya");
-                                    Potongan=Potongan+rs2.getDouble("totalbiaya");
+                                    ttlPotongan += rs2.getDouble("totalbiaya");
+                                    Potongan += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Registrasi":
-                                    ttlRegistrasi=ttlRegistrasi+rs2.getDouble("totalbiaya");
-                                    Registrasi=Registrasi+rs2.getDouble("totalbiaya");
+                                    ttlRegistrasi += rs2.getDouble("totalbiaya");
+                                    Registrasi += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Operasi":
-                                    ttlOperasi=ttlOperasi+rs2.getDouble("totalbiaya");
-                                    Operasi=Operasi+rs2.getDouble("totalbiaya");
+                                    ttlOperasi += rs2.getDouble("totalbiaya");
+                                    Operasi += rs2.getDouble("totalbiaya");
                                     break;
                             }                                
                         }

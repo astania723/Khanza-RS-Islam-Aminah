@@ -1055,7 +1055,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                 "",no+". "+rs2.getString("kode_brng")+" "+rs2.getString("nama_brng")+" "+rs2.getString("satuan"),
                                 rs2.getString("jumlah"),Valid.SetAngka(rs2.getDouble("h_pengajuan")),Valid.SetAngka(rs2.getDouble("total"))
                             });
-                            subtotal=subtotal+rs2.getDouble("total");
+                            subtotal += rs2.getDouble("total");
                             no++;
                         } 
                         tabMode.addRow(new Object[]{"","Subtotal :","","",Valid.SetAngka(subtotal)});
@@ -1069,7 +1069,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                             ps2.close();
                         }
                     } 
-                    total=total+subtotal;
+                    total += subtotal;
                 }         
                 LTotal.setText(Valid.SetAngka(total));
             } catch (Exception e) {

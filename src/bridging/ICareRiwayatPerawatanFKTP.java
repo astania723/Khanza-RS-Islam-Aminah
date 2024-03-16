@@ -81,8 +81,8 @@ public class ICareRiwayatPerawatanFKTP extends javax.swing.JDialog {
         setSize(628,674);
 
         
-        NoKartu.setDocument(new batasInput((int)100).getKata(NoKartu));
-        KdDPJPLayanan.setDocument(new batasInput((int)100).getKata(KdDPJPLayanan));
+        NoKartu.setDocument(new batasInput(100).getKata(NoKartu));
+        KdDPJPLayanan.setDocument(new batasInput(100).getKata(KdDPJPLayanan));
         
         try {
             otorisasi=koneksiDB.USERPCARE()+":"+koneksiDB.PASSPCARE()+":095";

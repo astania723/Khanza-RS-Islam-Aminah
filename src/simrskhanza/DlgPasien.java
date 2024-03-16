@@ -1394,6 +1394,7 @@ public class DlgPasien extends javax.swing.JDialog {
                     PropinsiPj.setEditable(rs.getBoolean("propinsi"));
                 }
             } catch (Exception e) {
+                System.out.println("Notifikasi : "+e);
             } finally{
                 if(rs!=null){
                     rs.close();
@@ -1447,6 +1448,7 @@ public class DlgPasien extends javax.swing.JDialog {
                     p_propinsipj=rs.getInt("p_propinsipj");
                 }
             } catch (Exception e) {
+                System.out.println("Notifikasi : "+e);
             } finally{
                 if(rs!=null){
                     rs.close();
@@ -1456,6 +1458,7 @@ public class DlgPasien extends javax.swing.JDialog {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         } 
         
         if(tampilkantni.equals("Yes")){
@@ -6988,8 +6991,8 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
             CmbJk.setSelectedItem(cekViaBPJS.sex);
             TNoPeserta.setText(cekViaBPJS.noKartu);
             Pekerjaan.setText(cekViaBPJS.jenisPesertaketerangan);
-            TUmurTh.setText(cekViaBPJS.umurumurSekarang);
             Valid.SetTgl(DTPLahir,cekViaBPJS.tglLahir);
+            DTPLahirItemStateChanged(null);
             this.setCursor(Cursor.getDefaultCursor());
         }   
     }//GEN-LAST:event_MnViaBPJSNikActionPerformed
@@ -7006,8 +7009,8 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
             CmbJk.setSelectedItem(cekViaBPJSKartu.sex);
             TKtp.setText(cekViaBPJSKartu.nik);
             Pekerjaan.setText(cekViaBPJSKartu.jenisPesertaketerangan);
-            TUmurTh.setText(cekViaBPJSKartu.umurumurSekarang);
             Valid.SetTgl(DTPLahir,cekViaBPJSKartu.tglLahir);
+            DTPLahirItemStateChanged(null);
             this.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_MnViaBPJSNoKartuActionPerformed
@@ -8381,6 +8384,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -8391,6 +8395,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode.getRowCount());
@@ -8428,6 +8433,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -8438,6 +8444,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode.getRowCount());
@@ -8470,6 +8477,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
             TNm.setText(cekViaSatuSehat.name);
             CmbJk.setSelectedItem(cekViaSatuSehat.gender.toUpperCase());
             Valid.SetTgl(DTPLahir,cekViaSatuSehat.birthDate);
+            DTPLahirItemStateChanged(null);
             Propinsi.setText(cekViaSatuSehat.provincename);
             PropinsiPj.setText(cekViaSatuSehat.provincename);
             Kabupaten.setText(cekViaSatuSehat.cityname);
@@ -9205,6 +9213,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -9215,6 +9224,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode.getRowCount());
@@ -9478,6 +9488,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -9488,6 +9499,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode2.getRowCount());
@@ -9751,6 +9763,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -9761,6 +9774,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode3.getRowCount());
@@ -9981,6 +9995,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                         PropinsiPj.setText(rs.getString("propinsipj"));
                     }
                 } catch (Exception e) {
+                    System.out.println("Notofikasi : "+e);
                 } finally{
                     if(rs != null){
                         rs.close();
@@ -10077,6 +10092,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                         PropinsiPj.setText(rs.getString("propinsipj"));
                     }
                 } catch (Exception e) {
+                    System.out.println("Notofikasi : "+e);
                 } finally{
                     if(rs != null){
                         rs.close();
@@ -10296,6 +10312,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                         PasswordPasien.setText("");
                     }
                 } catch (Exception e) {
+                    System.out.println("Notif : "+e);
                 } finally{
                     if(rs!=null){
                         rs.close();
@@ -10305,6 +10322,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     }
                 }
             } catch (Exception e) {
+                System.out.println("Notif : "+e);
             } 
         }
     }

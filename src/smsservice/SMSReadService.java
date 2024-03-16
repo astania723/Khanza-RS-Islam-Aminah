@@ -87,7 +87,9 @@ public class SMSReadService {
 
     class PesanMasukHandler implements IInboundMessageNotification{
         public void process(AGateway ag, MessageTypes tipePesan, InboundMessage pesanMasuk) {
-            if(tipePesan==MessageTypes.STATUSREPORT) return;
+            if(tipePesan==MessageTypes.STATUSREPORT) {
+                return;
+            }
             try {
                 String sql = "INSERT INTO sms VALUES(0,?,?,?,?,?,?)";
                 PreparedStatement prepare =koneksi.prepareStatement(sql);

@@ -47,12 +47,12 @@ public class InventoryNilaiPenerimaanVendorFarmasiPerBulan extends javax.swing.J
         
         Object[] row={"Kode Suplier","Nama Suplier","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember","Total"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -874,7 +874,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-01' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totaljanuari=totaljanuari+januari;
+                    totaljanuari += januari;
                     
                     februari=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -882,7 +882,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-02' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totalfebruari=totalfebruari+februari;
+                    totalfebruari += februari;
                     
                     maret=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -890,7 +890,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-03' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totalmaret=totalmaret+maret;
+                    totalmaret += maret;
                     
                     april=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -898,7 +898,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-04' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totalapril=totalapril+april;
+                    totalapril += april;
                     
                     mei=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -906,7 +906,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-05' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totalmei=totalmei+mei;
+                    totalmei += mei;
                     
                     juni=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -914,7 +914,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-06' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totaljuni=totaljuni+juni;
+                    totaljuni += juni;
                     
                     juli=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -922,7 +922,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-07' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totaljuli=totaljuli+juli;
+                    totaljuli += juli;
                     
                     agustus=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -930,7 +930,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-08' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totalagustus=totalagustus+agustus;
+                    totalagustus += agustus;
                     
                     september=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -938,7 +938,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-09' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totalseptember=totalseptember+september;
+                    totalseptember += september;
                     
                     oktober=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -946,7 +946,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-10' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totaloktober=totaloktober+oktober;
+                    totaloktober += oktober;
                     
                     november=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -954,7 +954,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-11' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totalnovember=totalnovember+november;
+                    totalnovember += november;
                     
                     desember=Sequel.cariIsiAngka("select sum(detailpesan.total) as total from pemesanan "+
                             "inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
@@ -962,10 +962,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where pemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(pemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-12' "+
                             nip+kodeindustri+kodejenis+kodebarang);
-                    totaldesember=totaldesember+desember;
+                    totaldesember += desember;
                     
                     tagihan=januari+februari+maret+april+mei+juni+juli+agustus+september+oktober+november+desember;
-                    totaltagihan=totaltagihan+tagihan;
+                    totaltagihan += tagihan;
                     
                     tabMode.addRow(new Object[]{
                         rs.getString("kode_suplier"),rs.getString("nama_suplier"),januari,februari,maret,april,mei,juni,juli,agustus,september,oktober,november,desember,tagihan

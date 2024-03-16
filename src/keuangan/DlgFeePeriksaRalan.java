@@ -46,11 +46,11 @@ public class DlgFeePeriksaRalan extends javax.swing.JDialog {
         Object[] row={"No.","Tgl.Periksa","Nama Pasien","Jenis Bayar","Biaya","Jasa Dokter","Uang RS"};
         
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -489,9 +489,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             i=1;
             ttlbiaya=0;ttljm=0;ttlrs=0;
             while(rspasien.next()){
-                ttlbiaya=ttlbiaya+rspasien.getDouble("biaya_rawat");
-                ttljm=ttljm+rspasien.getDouble("tarif_tindakandr");
-                ttlrs=ttlrs+(rspasien.getDouble("bhp")+rspasien.getDouble("material"));
+                ttlbiaya += rspasien.getDouble("biaya_rawat");
+                ttljm += rspasien.getDouble("tarif_tindakandr");
+                ttlrs += (rspasien.getDouble("bhp")+rspasien.getDouble("material"));
                 tabMode.addRow(new Object[]{
                     i,rspasien.getString("tgl_registrasi"),
                     rspasien.getString("nm_pasien"),

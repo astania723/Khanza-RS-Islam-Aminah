@@ -472,11 +472,11 @@ public class RMPenilaianAwalKeperawatanBayiAnak extends javax.swing.JDialog {
         LP.setDocument(new batasInput((byte)5).getKata(LP));
         LK.setDocument(new batasInput((byte)5).getKata(LK));
         LD.setDocument(new batasInput((byte)5).getKata(LD));
-        KeluhanUtama.setDocument(new batasInput((int)150).getKata(KeluhanUtama));
-        RPD.setDocument(new batasInput((int)100).getKata(RPD));
-        RPK.setDocument(new batasInput((int)100).getKata(RPK));
-        RPO.setDocument(new batasInput((int)100).getKata(RPO));
-        Alergi.setDocument(new batasInput((int)25).getKata(Alergi));
+        KeluhanUtama.setDocument(new batasInput(150).getKata(KeluhanUtama));
+        RPD.setDocument(new batasInput(100).getKata(RPD));
+        RPK.setDocument(new batasInput(100).getKata(RPK));
+        RPO.setDocument(new batasInput(100).getKata(RPO));
+        Alergi.setDocument(new batasInput(25).getKata(Alergi));
         Anakke.setDocument(new batasInput((byte)2).getKata(Anakke));
         DariSaudara.setDocument(new batasInput((byte)2).getKata(DariSaudara));
         KetCaraKelahiran.setDocument(new batasInput((byte)30).getKata(KetCaraKelahiran));
@@ -489,22 +489,22 @@ public class RMPenilaianAwalKeperawatanBayiAnak extends javax.swing.JDialog {
         UsiaBicara.setDocument(new batasInput((byte)15).getKata(UsiaBicara));
         UsiaMembaca.setDocument(new batasInput((byte)15).getKata(UsiaMembaca));
         UsiaMenulis.setDocument(new batasInput((byte)15).getKata(UsiaMenulis));
-        GangguanEmosi.setDocument(new batasInput((int)50).getKata(GangguanEmosi));
-        KetBantu.setDocument(new batasInput((int)50).getKata(KetBantu));
-        KetProthesa.setDocument(new batasInput((int)50).getKata(KetProthesa));
-        KetBudaya.setDocument(new batasInput((int)50).getKata(KetBudaya));
-        KetPsiko.setDocument(new batasInput((int)70).getKata(KetPsiko));
-        KetPengasuh.setDocument(new batasInput((int)40).getKata(KetPengasuh));
-        KetEdukasi.setDocument(new batasInput((int)50).getKata(KetEdukasi));
-        KetLapor.setDocument(new batasInput((int)15).getKata(KetLapor));
-        Lokasi.setDocument(new batasInput((int)50).getKata(Lokasi));
-        Durasi.setDocument(new batasInput((int)25).getKata(Durasi));
-        Frekuensi.setDocument(new batasInput((int)25).getKata(Frekuensi));
-        KetNyeri.setDocument(new batasInput((int)40).getKata(KetNyeri));
-        KetDokter.setDocument(new batasInput((int)15).getKata(KetDokter));
-        Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
+        GangguanEmosi.setDocument(new batasInput(50).getKata(GangguanEmosi));
+        KetBantu.setDocument(new batasInput(50).getKata(KetBantu));
+        KetProthesa.setDocument(new batasInput(50).getKata(KetProthesa));
+        KetBudaya.setDocument(new batasInput(50).getKata(KetBudaya));
+        KetPsiko.setDocument(new batasInput(70).getKata(KetPsiko));
+        KetPengasuh.setDocument(new batasInput(40).getKata(KetPengasuh));
+        KetEdukasi.setDocument(new batasInput(50).getKata(KetEdukasi));
+        KetLapor.setDocument(new batasInput(15).getKata(KetLapor));
+        Lokasi.setDocument(new batasInput(50).getKata(Lokasi));
+        Durasi.setDocument(new batasInput(25).getKata(Durasi));
+        Frekuensi.setDocument(new batasInput(25).getKata(Frekuensi));
+        KetNyeri.setDocument(new batasInput(40).getKata(KetNyeri));
+        KetDokter.setDocument(new batasInput(15).getKata(KetDokter));
+        Rencana.setDocument(new batasInput(200).getKata(Rencana));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

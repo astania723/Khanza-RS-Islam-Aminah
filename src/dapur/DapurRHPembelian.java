@@ -889,9 +889,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         rs.getString("nama_brng"),rs.getString("satuan"),rs.getDouble("jumlah"),rs.getDouble("harga"),
                         rs.getDouble("subtotal"),rs.getDouble("dis"),rs.getDouble("besardis"),rs.getDouble("total")
                     });  
-                    tagihan=tagihan+rs.getDouble("total");
-                    subtotal=subtotal+rs.getDouble("subtotal");
-                    diskon=diskon+rs.getDouble("besardis");
+                    tagihan += rs.getDouble("total");
+                    subtotal += rs.getDouble("subtotal");
+                    diskon += rs.getDouble("besardis");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

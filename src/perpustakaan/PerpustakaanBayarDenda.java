@@ -1438,7 +1438,7 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
                         rs.getString("tgl_denda"),rs.getString("no_anggota"),rs.getString("nama_anggota"),rs.getString("no_inventaris"),
                         rs.getString("kode_buku")+" "+rs.getString("judul_buku"),rs.getInt("keterlambatan"),rs.getDouble("besar_denda")
                     });
-                    besardenda=besardenda+rs.getDouble("besar_denda");
+                    besardenda += rs.getDouble("besar_denda");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1503,7 +1503,7 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
                         rs.getString("kode_buku")+" "+rs.getString("judul_buku"),rs.getString("kode_denda"),rs.getString("jenis_denda"),
                         rs.getDouble("denda"),rs.getDouble("besar_denda"),rs.getString("keterangan_denda")
                     });
-                    besardenda=besardenda+rs.getDouble("besar_denda");
+                    besardenda += rs.getDouble("besar_denda");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);

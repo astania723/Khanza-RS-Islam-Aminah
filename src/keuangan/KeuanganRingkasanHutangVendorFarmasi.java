@@ -49,12 +49,12 @@ public class KeuanganRingkasanHutangVendorFarmasi extends javax.swing.JDialog {
             "Kode Suplier","Nama Supplier","Sisa Hutang"
         };
         tabMode=new DefaultTableModel(null,rowRwJlDr){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                return false;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               return false;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -508,7 +508,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     tabMode.addRow(new Object[]{
                         rs.getString("kode_suplier"),rs.getString("nama_suplier"),rs.getDouble("sisahutang")
                     });
-                    sisahutang=sisahutang+rs.getDouble("sisahutang");
+                    sisahutang += rs.getDouble("sisahutang");
                 }
                 LCount.setText(Valid.SetAngka(sisahutang));
             } catch (Exception e) {

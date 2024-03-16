@@ -2544,7 +2544,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -2713,7 +2713,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -2901,7 +2901,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 } 
             }
 
@@ -3141,7 +3141,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 } 
             }
 
@@ -3669,14 +3669,14 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             } catch (Exception e) {
                 y=0;
             }
-            ttl=ttl+y;
+            ttl += y;
             
             try {
                 z=Double.parseDouble(tabMode.getValueAt(r,15).toString())*Double.parseDouble(tabMode.getValueAt(r,0).toString()); 
             } catch (Exception e) {
                 z=0;
             }
-            ttlhpp=ttlhpp+z;
+            ttlhpp += z;
         }
         
         for(int r=0;r<tbDetailObatRacikan.getRowCount();r++){ 
@@ -3685,14 +3685,14 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             } catch (Exception e) {
                 y=0;
             }
-            ttl=ttl+y;
+            ttl += y;
             
             try {
                 z=Double.parseDouble(tbDetailObatRacikan.getValueAt(r,17).toString())*Double.parseDouble(tbDetailObatRacikan.getValueAt(r,8).toString()); 
             } catch (Exception e) {
                 z=0;
             }
-            ttlhpp=ttlhpp+z;
+            ttlhpp += z;
         }
         
         LTotal.setText(Valid.SetAngka(ttl));
@@ -3779,14 +3779,14 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             } catch (Exception e) {
                 y=0;
             }
-            ttl=ttl+y;
+            ttl += y;
             
             try {
                 z=Double.parseDouble(tabMode.getValueAt(r,15).toString())*Double.parseDouble(tabMode.getValueAt(r,0).toString()); 
             } catch (Exception e) {
                 z=0;
             }
-            ttlhpp=ttlhpp+z;
+            ttlhpp += z;
         }
         
         for(int r=0;r<tbDetailObatRacikan.getRowCount();r++){ 
@@ -3795,14 +3795,14 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             } catch (Exception e) {
                 y=0;
             }
-            ttl=ttl+y;
+            ttl += y;
             
             try {
                 z=Double.parseDouble(tbDetailObatRacikan.getValueAt(r,17).toString())*Double.parseDouble(tbDetailObatRacikan.getValueAt(r,8).toString()); 
             } catch (Exception e) {
                 z=0;
             }
-            ttlhpp=ttlhpp+z;
+            ttlhpp += z;
         }
         LTotal.setText(Valid.SetAngka(ttl));
         isKembali();

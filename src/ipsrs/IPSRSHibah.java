@@ -930,7 +930,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 } 
             }
 
@@ -1013,7 +1013,7 @@ sbttl=0;
             }catch (Exception e) {
                 w=0;                
             }
-            sbttl=sbttl+w;       
+            sbttl += w;       
         }
         LTotal.setText(Valid.SetAngka(sbttl));
     }

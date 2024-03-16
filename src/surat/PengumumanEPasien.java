@@ -84,7 +84,7 @@ public class PengumumanEPasien extends javax.swing.JDialog {
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
-        Pengumuman.setDocument(new batasInput((int)150).getKata(Pengumuman));
+        Pengumuman.setDocument(new batasInput(150).getKata(Pengumuman));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

@@ -756,8 +756,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 rs=ps.executeQuery();
                 ttldebet=0;ttlkredit=0;
                 while(rs.next()){
-                    ttldebet=ttldebet+rs.getDouble("debet");
-                    ttlkredit=ttlkredit+rs.getDouble("kredit");
+                    ttldebet += rs.getDouble("debet");
+                    ttlkredit += rs.getDouble("kredit");
                     if(rs.getDouble("kredit")>0){
                         tabMode.addRow(new Object[]{
                             rs.getString("tgl_jurnal")+" "+rs.getString("jam_jurnal"),rs.getString("kd_rek"),"     "+rs.getString("nm_rek"),

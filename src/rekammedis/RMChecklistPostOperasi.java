@@ -174,9 +174,9 @@ public class RMChecklistPostOperasi extends javax.swing.JDialog {
         JumlahDrain.setDocument(new batasInput((byte)2).getKata(JumlahDrain));
         LetakDrain.setDocument(new batasInput((byte)40).getKata(LetakDrain));
         WarnaDrain.setDocument(new batasInput((byte)30).getKata(WarnaDrain));
-        AreaLukaOperasi.setDocument(new batasInput((int)120).getKata(AreaLukaOperasi));
+        AreaLukaOperasi.setDocument(new batasInput(120).getKata(AreaLukaOperasi));
         JumlahUrine.setDocument(new batasInput((byte)4).getKata(JumlahUrine));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

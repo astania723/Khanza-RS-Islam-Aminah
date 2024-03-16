@@ -1413,21 +1413,21 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                            Valid.SetAngka(jumlahmutasikeluar),Valid.SetAngka(totalmutasikeluar),
                            Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah)
                         }); 
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttltotaljual=ttltotaljual+totaljual;
-                        ttlaset=ttlaset+aset;
-                        ttltotalpasien=ttltotalpasien+totalpasien;
-                        ttltotalpiutang=ttltotalpiutang+totalpiutang;
-                        ttltotalretbeli=ttltotalretbeli+totalretbeli;
-                        ttltotalretjual=ttltotalretjual+totalretjual;
-                        ttltotalretpiut=ttltotalretpiut+totalretpiut;
-                        ttltotalutd=ttltotalutd+totalutd;
-                        ttltotalkeluar=ttltotalkeluar+totalkeluar;
-                        ttltotalrespulang=ttltotalrespulang+totalrespulang;
-                        ttltotalmutasimasuk=ttltotalmutasimasuk+totalmutasimasuk;
-                        ttltotalmutasikeluar=ttltotalmutasikeluar+totalmutasikeluar;
-                        ttltotalhibah=ttltotalhibah+totalhibah;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttltotaljual += totaljual;
+                        ttlaset += aset;
+                        ttltotalpasien += totalpasien;
+                        ttltotalpiutang += totalpiutang;
+                        ttltotalretbeli += totalretbeli;
+                        ttltotalretjual += totalretjual;
+                        ttltotalretpiut += totalretpiut;
+                        ttltotalutd += totalutd;
+                        ttltotalkeluar += totalkeluar;
+                        ttltotalrespulang += totalrespulang;
+                        ttltotalmutasimasuk += totalmutasimasuk;
+                        ttltotalmutasikeluar += totalmutasikeluar;
+                        ttltotalhibah += totalhibah;
                     }
                 }   
                 tabMode.addRow(new Object[]{"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""}); 
@@ -1903,21 +1903,21 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                            Valid.SetAngka(jumlahmutasikeluar),Valid.SetAngka(totalmutasikeluar),
                            Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah)
                         }); 
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttltotaljual=ttltotaljual+totaljual;
-                        ttlaset=ttlaset+aset;
-                        ttltotalpasien=ttltotalpasien+totalpasien;
-                        ttltotalpiutang=ttltotalpiutang+totalpiutang;
-                        ttltotalretbeli=ttltotalretbeli+totalretbeli;
-                        ttltotalretjual=ttltotalretjual+totalretjual;
-                        ttltotalretpiut=ttltotalretpiut+totalretpiut;
-                        ttltotalutd=ttltotalutd+totalutd;
-                        ttltotalkeluar=ttltotalkeluar+totalkeluar;
-                        ttltotalrespulang=ttltotalrespulang+totalrespulang;
-                        ttltotalmutasimasuk=ttltotalmutasimasuk+totalmutasimasuk;
-                        ttltotalmutasikeluar=ttltotalmutasikeluar+totalmutasikeluar;
-                        ttltotalhibah=ttltotalhibah+totalhibah;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttltotaljual += totaljual;
+                        ttlaset += aset;
+                        ttltotalpasien += totalpasien;
+                        ttltotalpiutang += totalpiutang;
+                        ttltotalretbeli += totalretbeli;
+                        ttltotalretjual += totalretjual;
+                        ttltotalretpiut += totalretpiut;
+                        ttltotalutd += totalutd;
+                        ttltotalkeluar += totalkeluar;
+                        ttltotalrespulang += totalrespulang;
+                        ttltotalmutasimasuk += totalmutasimasuk;
+                        ttltotalmutasikeluar += totalmutasikeluar;
+                        ttltotalhibah += totalhibah;
                     }
                 }   
                 tabMode.addRow(new Object[]{"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""}); 

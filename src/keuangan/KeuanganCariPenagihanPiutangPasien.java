@@ -1199,8 +1199,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                 "","",rs2.getString("tgl_piutang"),rs2.getString("nip"),rs2.getString("nama_perusahaan"),rs2.getString("no_rawat"),
                                 rs2.getString("no_peserta"),Valid.SetAngka(rs2.getDouble("sisapiutang")),rs2.getString("no_rkm_medis")+" "+rs2.getString("nm_pasien"),rs2.getString("status_lanjut")
                             }); 
-                            nilaitagihan=nilaitagihan+rs2.getDouble("sisapiutang");
-                            totaltagihan=totaltagihan+rs2.getDouble("sisapiutang");
+                            nilaitagihan += rs2.getDouble("sisapiutang");
+                            totaltagihan += rs2.getDouble("sisapiutang");
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);

@@ -186,10 +186,10 @@ public class DlgTagihanOperasi extends javax.swing.JDialog {
         kdonloop5.setDocument(new batasInput((byte)20).getKata(kdonloop5));
         kdpjanak.setDocument(new batasInput((byte)20).getKata(kdpjanak));        
         kddrumum.setDocument(new batasInput((byte)20).getKata(kddrumum));      
-        PreOp.setDocument(new batasInput((int)100).getKata(PreOp));      
-        PostOp.setDocument(new batasInput((int)100).getKata(PostOp));      
-        Jaringan.setDocument(new batasInput((int)100).getKata(Jaringan));
-        Laporan.setDocument(new batasInput((int)8000).getKata(Laporan));
+        PreOp.setDocument(new batasInput(100).getKata(PreOp));      
+        PostOp.setDocument(new batasInput(100).getKata(PostOp));      
+        Jaringan.setDocument(new batasInput(100).getKata(Jaringan));
+        Laporan.setDocument(new batasInput(8000).getKata(Laporan));
         
         TCariPaket.setDocument(new batasInput((byte)100).getKata(TCari)); 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari)); 
@@ -2811,7 +2811,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                     Double.parseDouble(tbtindakan.getValueAt(i,26).toString())+
                                     Double.parseDouble(tbtindakan.getValueAt(i,27).toString())+
                                     Double.parseDouble(tbtindakan.getValueAt(i,28).toString());
-                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbtindakan.getValueAt(i,32).toString()); 
+                            ttlpendapatan += Double.parseDouble(tbtindakan.getValueAt(i,32).toString()); 
                         }else{
                             sukses=false;
                         }
@@ -2824,13 +2824,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                             if(Sequel.menyimpantf2("beri_obat_operasi","'"+TNoRw.getText()+"','"+Valid.SetTgl(tgl.getSelectedItem()+"")+" "+tgl.getSelectedItem().toString().substring(11,19)+
                                 "','"+tbObat.getValueAt(r,1).toString()+"','"+tbObat.getValueAt(r,4).toString()+
                                 "','"+tbObat.getValueAt(r,0).toString()+"'","data")==true){
-                                ttlbhp=ttlbhp+Double.parseDouble(tbObat.getValueAt(r,5).toString());
+                                ttlbhp += Double.parseDouble(tbObat.getValueAt(r,5).toString());
                             }else{
                                 sukses=false;
                             }
                         }
                     }
-                    ttlpendapatan=ttlpendapatan+ttlbhp;
+                    ttlpendapatan += ttlbhp;
                 }
                     
                 if(sukses==true){
@@ -3526,7 +3526,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 }else if(tbObat.getValueAt(r,5).toString().isEmpty()){
                     y=0;                
                 }
-                biayaobat=biayaobat+y;
+                biayaobat += y;
             }
         }
     }
@@ -3585,7 +3585,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         y=0;
                         break;
                 }
-                biayatindakan=biayatindakan+y;
+                biayatindakan += y;
             }            
         }
     }

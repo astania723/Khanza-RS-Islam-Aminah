@@ -529,13 +529,13 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 rs=ps.executeQuery();
                 while(rs.next()){
                     pasien=Sequel.cariInteger("select count(data_klasifikasi_pasien_ranap.no_rawat) from data_klasifikasi_pasien_ranap inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_klasifikasi_pasien_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_klasifikasi_pasien_ranap.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlpasien=jmlpasien+pasien;
+                    jmlpasien += pasien;
                     minimal=Sequel.cariInteger("select count(data_klasifikasi_pasien_ranap.no_rawat) from data_klasifikasi_pasien_ranap inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_klasifikasi_pasien_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_klasifikasi_pasien_ranap.minimal='IYA' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlminimal=jmlminimal+minimal;
+                    jmlminimal += minimal;
                     partial=Sequel.cariInteger("select count(data_klasifikasi_pasien_ranap.no_rawat) from data_klasifikasi_pasien_ranap inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_klasifikasi_pasien_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_klasifikasi_pasien_ranap.partial='IYA' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlpartial=jmlpartial+partial;
+                    jmlpartial += partial;
                     total=Sequel.cariInteger("select count(data_klasifikasi_pasien_ranap.no_rawat) from data_klasifikasi_pasien_ranap inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_klasifikasi_pasien_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_klasifikasi_pasien_ranap.total='IYA' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmltotal=jmltotal+total;
+                    jmltotal += total;
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='center'>").append(rs.getString("tanggal")).append("</td><td valign='middle' align='center'>").append(pasien).append("</td><td valign='middle' align='center'>").append(minimal).append("</td><td valign='middle' align='center'>").append(partial).append("</td><td valign='middle' align='center'>").append(total).append("</td></tr>"); 
                     i++;
                 }

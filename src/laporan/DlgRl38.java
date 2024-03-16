@@ -411,10 +411,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     tabMode.addRow(new Object[]{
                         i+"."+a,rstindakan2.getString(1),rstindakan2.getInt(2)
                     });
-                    ttl=ttl+rstindakan2.getInt(2);
+                    ttl += rstindakan2.getInt(2);
                     a++;                    
                 }
-                ttl=ttl+rstindakan.getInt(2);
+                ttl += rstindakan.getInt(2);
                 i++;                    
             }
             

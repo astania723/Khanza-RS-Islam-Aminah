@@ -123,12 +123,12 @@ public final class SuratPersetujuanRawatInap extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));    
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));  
         NoSurat.setDocument(new batasInput((byte)20).getKata(NoSurat));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         NamaPJ.setDocument(new batasInput((byte)50).getKata(NamaPJ));
         NoKTP.setDocument(new batasInput((byte)20).getKata(NoKTP));
         RuangDipilih.setDocument(new batasInput((byte)40).getKata(RuangDipilih));
-        NamaKeluarga.setDocument(new batasInput((int)130).getKata(NamaKeluarga));
-        AlamatPj.setDocument(new batasInput((int)100).getKata(AlamatPj));  
+        NamaKeluarga.setDocument(new batasInput(130).getKata(NamaKeluarga));
+        AlamatPj.setDocument(new batasInput(100).getKata(AlamatPj));  
         NoTelp.setDocument(new batasInput((byte)30).getKata(NoTelp));     
         Pembiayaan.setDocument(new batasInput((byte)30).getKata(Pembiayaan));    
         

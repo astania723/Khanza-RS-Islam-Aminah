@@ -788,10 +788,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 subttldebet=0;subttlkredit=0;
                 int no=1;
                 while(rs2.next()){
-                    ttldebet=ttldebet+rs2.getDouble(3);
-                    subttldebet=subttldebet+rs2.getDouble(3);
-                    ttlkredit=ttlkredit+rs2.getDouble(4);
-                    subttlkredit=subttlkredit+rs2.getDouble(4);                    
+                    ttldebet += rs2.getDouble(3);
+                    subttldebet += rs2.getDouble(3);
+                    ttlkredit += rs2.getDouble(4);
+                    subttlkredit += rs2.getDouble(4);                    
                     tabMode.addRow(new Object[]{"","","","",no+". "+rs2.getString(1)+", "+rs2.getString(2),Valid.SetAngka(rs2.getDouble(3)),Valid.SetAngka(rs2.getDouble(4))});
                     no++;
                 }

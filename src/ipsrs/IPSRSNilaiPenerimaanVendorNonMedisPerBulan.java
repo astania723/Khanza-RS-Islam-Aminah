@@ -651,7 +651,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-01' "+
                             kodejenis+kodebarang);
-                    totaljanuari=totaljanuari+januari;
+                    totaljanuari += januari;
                     
                     februari=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -659,7 +659,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-02' "+
                             kodejenis+kodebarang);
-                    totalfebruari=totalfebruari+februari;
+                    totalfebruari += februari;
                     
                     maret=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -667,7 +667,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-03' "+
                             kodejenis+kodebarang);
-                    totalmaret=totalmaret+maret;
+                    totalmaret += maret;
                     
                     april=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -675,7 +675,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-04' "+
                             kodejenis+kodebarang);
-                    totalapril=totalapril+april;
+                    totalapril += april;
                     
                     mei=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -683,7 +683,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-05' "+
                             kodejenis+kodebarang);
-                    totalmei=totalmei+mei;
+                    totalmei += mei;
                     
                     juni=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -691,7 +691,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-06' "+
                             kodejenis+kodebarang);
-                    totaljuni=totaljuni+juni;
+                    totaljuni += juni;
                     
                     juli=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -699,7 +699,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-07' "+
                             kodejenis+kodebarang);
-                    totaljuli=totaljuli+juli;
+                    totaljuli += juli;
                     
                     agustus=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -707,7 +707,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-08' "+
                             kodejenis+kodebarang);
-                    totalagustus=totalagustus+agustus;
+                    totalagustus += agustus;
                     
                     september=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -715,7 +715,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-09' "+
                             kodejenis+kodebarang);
-                    totalseptember=totalseptember+september;
+                    totalseptember += september;
                     
                     oktober=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -723,7 +723,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-10' "+
                             kodejenis+kodebarang);
-                    totaloktober=totaloktober+oktober;
+                    totaloktober += oktober;
                     
                     november=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -731,7 +731,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-11' "+
                             kodejenis+kodebarang);
-                    totalnovember=totalnovember+november;
+                    totalnovember += november;
                     
                     desember=Sequel.cariIsiAngka("select sum(ipsrsdetailpesan.total) as total from ipsrspemesanan "+
                             "inner join ipsrsdetailpesan on ipsrspemesanan.no_faktur=ipsrsdetailpesan.no_faktur "+
@@ -739,10 +739,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             "where ipsrspemesanan.kode_suplier='"+rs.getString("kode_suplier")+"' and "+
                             "left(ipsrspemesanan.tgl_pesan,7)='"+ThnCari.getSelectedItem().toString()+"-12' "+
                             kodejenis+kodebarang);
-                    totaldesember=totaldesember+desember;
+                    totaldesember += desember;
                     
                     tagihan=januari+februari+maret+april+mei+juni+juli+agustus+september+oktober+november+desember;
-                    totaltagihan=totaltagihan+tagihan;
+                    totaltagihan += tagihan;
                     
                     tabMode.addRow(new Object[]{
                         rs.getString("kode_suplier"),rs.getString("nama_suplier"),januari,februari,maret,april,mei,juni,juli,agustus,september,oktober,november,desember,tagihan

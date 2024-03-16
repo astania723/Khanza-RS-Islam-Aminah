@@ -1453,11 +1453,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         tabMode.addRow(new Object[]{
                             rs.getString("no_bayar"),rs.getString("tanggal"),rs.getString("nama_bayar"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("keterangan"),Valid.SetAngka(rs.getDouble("besar_bayar"))
                         });
-                        totaltagihan=totaltagihan+rs.getDouble("besar_bayar");
+                        totaltagihan += rs.getDouble("besar_bayar");
                     }
                 }else{
                     while(rs.next()){
-                        totaltagihan=totaltagihan+rs.getDouble("besar_bayar");
+                        totaltagihan += rs.getDouble("besar_bayar");
                         tabMode.addRow(new Object[]{
                             rs.getString("no_bayar"),rs.getString("tanggal"),rs.getString("nama_bayar"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("keterangan"),Valid.SetAngka(rs.getDouble("besar_bayar"))
                         });

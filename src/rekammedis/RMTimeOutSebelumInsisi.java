@@ -157,7 +157,7 @@ public class RMTimeOutSebelumInsisi extends javax.swing.JDialog {
         AntisipisasiKehialnganDarah.setDocument(new batasInput((byte)50).getKata(AntisipisasiKehialnganDarah));
         HalKhususDiperhatikan.setDocument(new batasInput((byte)100).getKata(HalKhususDiperhatikan));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

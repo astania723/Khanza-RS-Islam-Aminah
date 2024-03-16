@@ -45,12 +45,12 @@ public class DlgRBObatDokterPeresep extends javax.swing.JDialog {
 
         Object[] row={"No.","Dokter","Tanggal","Nama Obat","Jml","Biaya Obat","Embalase","Tuslah"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, 
                 java.lang.String.class, java.lang.Double.class, java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -678,12 +678,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                tuslah=0;
                //Object[] row={"No.","Dokter","Tanggal","Nama Obat","Jml","Biaya Obat","Embalase","Tuslah"};
                while(rsresep.next()){
-                   subtotal=subtotal+rsresep.getDouble("total");
-                   ttlbiaya=ttlbiaya+rsresep.getDouble("total");
-                   embalase=embalase+rsresep.getDouble("embalase");
-                   ttlembalase=ttlembalase+rsresep.getDouble("embalase");
-                   tuslah=tuslah+rsresep.getDouble("tuslah");
-                   ttltuslah=ttltuslah+rsresep.getDouble("tuslah");
+                   subtotal += rsresep.getDouble("total");
+                   ttlbiaya += rsresep.getDouble("total");
+                   embalase += rsresep.getDouble("embalase");
+                   ttlembalase += rsresep.getDouble("embalase");
+                   tuslah += rsresep.getDouble("tuslah");
+                   ttltuslah += rsresep.getDouble("tuslah");
                    tabMode.addRow(new Object[]{
                        "","   "+a+". ("+rsresep.getString("no_resep")+") "+rsresep.getString("nm_pasien"),
                        rsresep.getString("tgl_perawatan")+" "+rsresep.getString("jam"),rsresep.getString("kode_brng")+" "+rsresep.getString("nama_brng"),
@@ -726,12 +726,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                tuslah=0;
                //Object[] row={"No.","Dokter","Tanggal","Nama Obat","Jml","Biaya Obat","Embalase","Tuslah"};
                while(rsresep.next()){
-                   subtotal=subtotal+rsresep.getDouble("total");
-                   ttlbiaya=ttlbiaya+rsresep.getDouble("total");
-                   embalase=embalase+rsresep.getDouble("embalase");
-                   ttlembalase=ttlembalase+rsresep.getDouble("embalase");
-                   tuslah=tuslah+rsresep.getDouble("tuslah");
-                   ttltuslah=ttltuslah+rsresep.getDouble("tuslah");
+                   subtotal += rsresep.getDouble("total");
+                   ttlbiaya += rsresep.getDouble("total");
+                   embalase += rsresep.getDouble("embalase");
+                   ttlembalase += rsresep.getDouble("embalase");
+                   tuslah += rsresep.getDouble("tuslah");
+                   ttltuslah += rsresep.getDouble("tuslah");
                    tabMode.addRow(new Object[]{
                        "","   "+a+". ("+rsresep.getString("no_resep")+") "+rsresep.getString("nm_pasien"),
                        rsresep.getString("tgl_perawatan")+" "+rsresep.getString("jam"),rsresep.getString("kode_brng")+" "+rsresep.getString("nama_brng"),

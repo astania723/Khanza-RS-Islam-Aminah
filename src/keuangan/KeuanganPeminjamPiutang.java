@@ -87,9 +87,9 @@ public class KeuanganPeminjamPiutang extends javax.swing.JDialog {
         
         KdPeminjam.setDocument(new batasInput((byte)5).getKata(KdPeminjam));
         NmPeminjam.setDocument(new batasInput((byte)50).getKata(NmPeminjam));
-        AlamatPeminjam.setDocument(new batasInput((int)150).getKata(AlamatPeminjam));
+        AlamatPeminjam.setDocument(new batasInput(150).getKata(AlamatPeminjam));
         NoTelp.setDocument(new batasInput((byte)13).getKata(NoTelp));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override

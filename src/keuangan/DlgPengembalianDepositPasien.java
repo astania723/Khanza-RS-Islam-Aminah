@@ -56,11 +56,11 @@ public class DlgPengembalianDepositPasien extends javax.swing.JDialog {
 
         Object[] rowRwJlDr={"No.","Tanggal","No.Rawat","No.RM","Nama Pasien","Pengembalian","Petugas"};
         tabMode=new DefaultTableModel(null,rowRwJlDr){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.Double.class,java.lang.String.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -593,7 +593,7 @@ public class DlgPengembalianDepositPasien extends javax.swing.JDialog {
                 while(rs.next()){
                     petugas=rs.getString("petugas")+" "+Sequel.cariIsi("select pegawai.nama from pegawai where pegawai.nik=?",rs.getString("petugas"));
                     if(petugas.toLowerCase().trim().contains(User.getText().toLowerCase().trim())){
-                        all=all+rs.getDouble("besar_pengembalian");
+                        all += rs.getDouble("besar_pengembalian");
                         tabMode.addRow(new Object[]{
                             i,rs.getString("tanggal"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getDouble("besar_pengembalian"),petugas
                         });

@@ -690,7 +690,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("no_tagihan"),rs.getString("tanggal"),rs.getString("nama"),rs.getString("tanggaltempo"),
                         rs.getString("nama_perusahaan"),rs.getString("nama_bank"),Valid.SetAngka(rs.getDouble("total"))
                     });
-                    sisapiutang=sisapiutang+rs.getDouble("total");
+                    sisapiutang += rs.getDouble("total");
                 }
             } catch (Exception e) {
                 System.out.println(e);

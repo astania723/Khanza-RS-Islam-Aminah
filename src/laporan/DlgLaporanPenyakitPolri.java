@@ -478,7 +478,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "inner join pasien_polri on reg_periksa.no_rkm_medis=pasien_polri.no_rkm_medis where diagnosa_pasien.kd_penyakit=? and pasien_polri.golongan_polri=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodecari[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     for(i=0;i<jumlahcarabayar;i++){
@@ -486,7 +486,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "where reg_periksa.no_rkm_medis not in (select pasien_polri.no_rkm_medis from pasien_polri) and diagnosa_pasien.kd_penyakit=? and reg_periksa.kd_pj=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodebayar[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -585,7 +585,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "inner join pasien_polri on reg_periksa.no_rkm_medis=pasien_polri.no_rkm_medis where diagnosa_pasien.kd_penyakit=? and pasien_polri.satuan_polri=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodecari[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     for(i=0;i<jumlahcarabayar;i++){
@@ -593,7 +593,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "where reg_periksa.no_rkm_medis not in (select pasien_polri.no_rkm_medis from pasien_polri) and diagnosa_pasien.kd_penyakit=? and reg_periksa.kd_pj=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodebayar[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -691,7 +691,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "inner join pasien_polri on reg_periksa.no_rkm_medis=pasien_polri.no_rkm_medis where diagnosa_pasien.kd_penyakit=? and pasien_polri.pangkat_polri=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodecari[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     for(i=0;i<jumlahcarabayar;i++){
@@ -699,7 +699,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "where reg_periksa.no_rkm_medis not in (select pasien_polri.no_rkm_medis from pasien_polri) and diagnosa_pasien.kd_penyakit=? and reg_periksa.kd_pj=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodebayar[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -797,7 +797,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "inner join pasien_polri on reg_periksa.no_rkm_medis=pasien_polri.no_rkm_medis where diagnosa_pasien.kd_penyakit=? and pasien_polri.jabatan_polri=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodecari[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     for(i=0;i<jumlahcarabayar;i++){
@@ -805,7 +805,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                "select count(diagnosa_pasien.kd_penyakit) from diagnosa_pasien inner join reg_periksa on diagnosa_pasien.no_rawat=reg_periksa.no_rawat "+
                                "where reg_periksa.no_rkm_medis not in (select pasien_polri.no_rkm_medis from pasien_polri) and diagnosa_pasien.kd_penyakit=? and reg_periksa.kd_pj=? "+
                                "and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'",rs.getString("kd_penyakit"),kodebayar[i]);
-                        total=total+kolom;
+                        total += kolom;
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
                     }
                     htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");

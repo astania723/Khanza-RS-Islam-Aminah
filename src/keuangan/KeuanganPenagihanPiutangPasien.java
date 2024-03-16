@@ -31,7 +31,7 @@ import simrskhanza.DlgCariCaraBayar;
  *
  * @author perpustakaan
  */
-public class KeuanganPenagihanPiutangPasien extends javax.swing.JDialog {
+public final class KeuanganPenagihanPiutangPasien extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -61,18 +61,18 @@ public class KeuanganPenagihanPiutangPasien extends javax.swing.JDialog {
         tabMode=new DefaultTableModel(null,new Object[]{
                 "P","No.Rawat/No.Tagihan","Tgl.Piutang","No.RM","Nama Pasien","Status","Piutang","Penjamin","No.Peserta","Asal Perusahaan","NIP/NRP","No.Nota"
              }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -116,18 +116,18 @@ public class KeuanganPenagihanPiutangPasien extends javax.swing.JDialog {
         tabMode2=new DefaultTableModel(null,new Object[]{
                 "P","No.Rawat/No.Tagihan","Tgl.Piutang","No.RM","Nama Pasien","Status","Piutang","Penjamin","No.Peserta","Asal Perusahaan","NIP/NRP","No.Nota"
              }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -169,9 +169,9 @@ public class KeuanganPenagihanPiutangPasien extends javax.swing.JDialog {
         tbBelumDitagihkan.setDefaultRenderer(Object.class, new WarnaTable());
 
         NoPenagihan.setDocument(new batasInput((byte)17).getKata(NoPenagihan));
-        Catatan.setDocument(new batasInput((int)100).getKata(Catatan));
-        Ditujukan.setDocument(new batasInput((int)150).getKata(Ditujukan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Catatan.setDocument(new batasInput(100).getKata(Catatan));
+        Ditujukan.setDocument(new batasInput(150).getKata(Ditujukan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1476,19 +1476,35 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
             }
             JOptionPane.showMessageDialog(null,"Silahkan pilih cara bayar/penjamin terlebih dahulu");
         }else{
-            total=0;
-            jml=0;
-            for(i=0;i<tbBelumLunas.getRowCount();i++){
-                tbBelumLunas.setValueAt(true,i,0);
-            }
-            for(i=0;i<tbBelumLunas.getRowCount();i++){  
-                if(tbBelumLunas.getValueAt(i,0).toString().equals("true")){
-                     total=total+(Double.parseDouble(tbBelumLunas.getValueAt(i,6).toString()));   
-                     jml++;
+            if(TabRawat.getSelectedIndex()==0){
+                total=0;
+                jml=0;
+                for(i=0;i<tbBelumLunas.getRowCount();i++){
+                    tbBelumLunas.setValueAt(true,i,0);
                 }
+                for(i=0;i<tbBelumLunas.getRowCount();i++){  
+                    if(tbBelumLunas.getValueAt(i,0).toString().equals("true")){
+                         total += (Double.parseDouble(tbBelumLunas.getValueAt(i,6).toString()));   
+                         jml++;
+                    }
+                }
+                LCountDipilih1.setText(jml+"");
+                LCountDipilih2.setText(Valid.SetAngka(total));
+            }else if(TabRawat.getSelectedIndex()==1){
+                total=0;
+                jml=0;
+                for(i=0;i<tbBelumDitagihkan.getRowCount();i++){
+                    tbBelumDitagihkan.setValueAt(true,i,0);
+                }
+                for(i=0;i<tbBelumDitagihkan.getRowCount();i++){  
+                    if(tbBelumDitagihkan.getValueAt(i,0).toString().equals("true")){
+                         total += (Double.parseDouble(tbBelumDitagihkan.getValueAt(i,6).toString()));   
+                         jml++;
+                    }
+                }
+                LCountDipilih1.setText(jml+"");
+                LCountDipilih2.setText(Valid.SetAngka(total));
             }
-            LCountDipilih1.setText(jml+"");
-            LCountDipilih2.setText(Valid.SetAngka(total));
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_ppPilihSemuaActionPerformed
@@ -1501,19 +1517,35 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
             }
             JOptionPane.showMessageDialog(null,"Silahkan pilih cara bayar/penjamin terlebih dahulu");
         }else{
-            total=0;
-            jml=0;
-            for(i=0;i<tbBelumLunas.getRowCount();i++){
-                tbBelumLunas.setValueAt(false,i,0);
-            }
-            for(i=0;i<tbBelumLunas.getRowCount();i++){  
-                if(tbBelumLunas.getValueAt(i,0).toString().equals("true")){
-                     total=total+(Double.parseDouble(tbBelumLunas.getValueAt(i,6).toString()));   
-                     jml++;
+            if(TabRawat.getSelectedIndex()==0){
+                total=0;
+                jml=0;
+                for(i=0;i<tbBelumLunas.getRowCount();i++){
+                    tbBelumLunas.setValueAt(false,i,0);
                 }
+                for(i=0;i<tbBelumLunas.getRowCount();i++){  
+                    if(tbBelumLunas.getValueAt(i,0).toString().equals("true")){
+                         total += (Double.parseDouble(tbBelumLunas.getValueAt(i,6).toString()));   
+                         jml++;
+                    }
+                }
+                LCountDipilih1.setText(jml+"");
+                LCountDipilih2.setText(Valid.SetAngka(total));
+            }else if(TabRawat.getSelectedIndex()==1){
+                total=0;
+                jml=0;
+                for(i=0;i<tbBelumDitagihkan.getRowCount();i++){
+                    tbBelumDitagihkan.setValueAt(false,i,0);
+                }
+                for(i=0;i<tbBelumDitagihkan.getRowCount();i++){  
+                    if(tbBelumDitagihkan.getValueAt(i,0).toString().equals("true")){
+                         total += (Double.parseDouble(tbBelumDitagihkan.getValueAt(i,6).toString()));   
+                         jml++;
+                    }
+                }
+                LCountDipilih1.setText(jml+"");
+                LCountDipilih2.setText(Valid.SetAngka(total));
             }
-            LCountDipilih1.setText(jml+"");
-            LCountDipilih2.setText(Valid.SetAngka(total));
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_ppBersihkanActionPerformed
@@ -1688,7 +1720,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ralan",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -1726,7 +1758,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ranap",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -1764,7 +1796,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ralan",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -1802,7 +1834,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ranap",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -1910,7 +1942,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ralan",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -1947,7 +1979,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ranap",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -1984,7 +2016,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ralan",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -2021,7 +2053,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                             "Ranap",rs.getDouble("sisapiutang"),rs.getString("png_jawab"),rs.getString("no_peserta"),rs.getString("nama_perusahaan"),
                             rs.getString("nip"),rs.getString("no_nota")
                         });
-                        sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                        sisapiutang += rs.getDouble("sisapiutang");
                     }
                 } catch (Exception e) {
                     System.out.println(e);
@@ -2051,7 +2083,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
             jml=0;
             for(i=0;i<tbBelumLunas.getRowCount();i++){  
                 if(tbBelumLunas.getValueAt(i,0).toString().equals("true")){
-                     total=total+(Double.parseDouble(tbBelumLunas.getValueAt(i,6).toString()));   
+                     total += (Double.parseDouble(tbBelumLunas.getValueAt(i,6).toString()));   
                      jml++;
                 }
             }
@@ -2069,7 +2101,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
             jml=0;
             for(i=0;i<tbBelumDitagihkan.getRowCount();i++){  
                 if(tbBelumDitagihkan.getValueAt(i,0).toString().equals("true")){
-                     total=total+(Double.parseDouble(tbBelumDitagihkan.getValueAt(i,6).toString()));   
+                     total += (Double.parseDouble(tbBelumDitagihkan.getValueAt(i,6).toString()));   
                      jml++;
                 }
             }

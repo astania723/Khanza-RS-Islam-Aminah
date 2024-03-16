@@ -241,10 +241,10 @@ public class RMMCU extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        RiwayatPenyakitSekarang.setDocument(new batasInput((int)2000).getKata(RiwayatPenyakitSekarang));
-        RiwayatPenyakitKeluarga.setDocument(new batasInput((int)1000).getKata(RiwayatPenyakitKeluarga));
-        RiwayatPenyakitDahulu.setDocument(new batasInput((int)1000).getKata(RiwayatPenyakitDahulu));
-        RiwayatAlergiMakanan.setDocument(new batasInput((int)150).getKata(RiwayatAlergiMakanan));
+        RiwayatPenyakitSekarang.setDocument(new batasInput(2000).getKata(RiwayatPenyakitSekarang));
+        RiwayatPenyakitKeluarga.setDocument(new batasInput(1000).getKata(RiwayatPenyakitKeluarga));
+        RiwayatPenyakitDahulu.setDocument(new batasInput(1000).getKata(RiwayatPenyakitDahulu));
+        RiwayatAlergiMakanan.setDocument(new batasInput(150).getKata(RiwayatAlergiMakanan));
         TD.setDocument(new batasInput((byte)8).getKata(TD));
         Nadi.setDocument(new batasInput((byte)5).getKata(Nadi));
         RR.setDocument(new batasInput((byte)5).getKata(RR));
@@ -253,18 +253,18 @@ public class RMMCU extends javax.swing.JDialog {
         Suhu.setDocument(new batasInput((byte)5).getKata(Suhu));
         KetExtremitasAtas.setDocument(new batasInput((byte)50).getKata(KetExtremitasAtas));
         KetExtremitasBawah.setDocument(new batasInput((byte)50).getKata(KetExtremitasBawah));
-        PemeriksaanLaboratorium.setDocument(new batasInput((int)1000).getKata(PemeriksaanLaboratorium));
-        RongsenThorax.setDocument(new batasInput((int)1000).getKata(RongsenThorax));
-        EKG.setDocument(new batasInput((int)1000).getKata(EKG));
-        Spirometri.setDocument(new batasInput((int)1000).getKata(Spirometri));
-        Audiometri.setDocument(new batasInput((int)1000).getKata(Audiometri));
-        Treadmill.setDocument(new batasInput((int)1000).getKata(Treadmill));
-        Lainlain.setDocument(new batasInput((int)1000).getKata(Lainlain));
-        Merokok.setDocument(new batasInput((int)100).getKata(Merokok));
-        Alkohol.setDocument(new batasInput((int)100).getKata(Alkohol));
-        Kesimpulan.setDocument(new batasInput((int)1000).getKata(Kesimpulan));
-        Anjuran.setDocument(new batasInput((int)1000).getKata(Anjuran));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        PemeriksaanLaboratorium.setDocument(new batasInput(1000).getKata(PemeriksaanLaboratorium));
+        RongsenThorax.setDocument(new batasInput(1000).getKata(RongsenThorax));
+        EKG.setDocument(new batasInput(1000).getKata(EKG));
+        Spirometri.setDocument(new batasInput(1000).getKata(Spirometri));
+        Audiometri.setDocument(new batasInput(1000).getKata(Audiometri));
+        Treadmill.setDocument(new batasInput(1000).getKata(Treadmill));
+        Lainlain.setDocument(new batasInput(1000).getKata(Lainlain));
+        Merokok.setDocument(new batasInput(100).getKata(Merokok));
+        Alkohol.setDocument(new batasInput(100).getKata(Alkohol));
+        Kesimpulan.setDocument(new batasInput(1000).getKata(Kesimpulan));
+        Anjuran.setDocument(new batasInput(1000).getKata(Anjuran));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

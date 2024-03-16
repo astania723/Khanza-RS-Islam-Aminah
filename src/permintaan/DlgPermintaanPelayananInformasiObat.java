@@ -131,10 +131,10 @@ public class DlgPermintaanPelayananInformasiObat extends javax.swing.JDialog {
 
         NoRw.setDocument(new batasInput((byte)17).getKata(NoRw));
         NoPermintaan.setDocument(new batasInput((byte)20).getKata(NoPermintaan));
-        Penanya.setDocument(new batasInput((int)70).getKata(Penanya));
-        NoTelp.setDocument(new batasInput((int)30).getKata(NoTelp));
-        KeteranganJenisPertanyaan.setDocument(new batasInput((int)30).getKata(KeteranganJenisPertanyaan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Penanya.setDocument(new batasInput(70).getKata(Penanya));
+        NoTelp.setDocument(new batasInput(30).getKata(NoTelp));
+        KeteranganJenisPertanyaan.setDocument(new batasInput(30).getKata(KeteranganJenisPertanyaan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override

@@ -41,10 +41,10 @@ public class DlgPembayaranPerPoli extends javax.swing.JDialog {
 
         Object[] row={"Bagian/Unit","Jumlah Pasien","Pemasukan"};
         tabMode=new DefaultTableModel(null,row){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Integer.class, java.lang.Double.class
             };
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -67,7 +67,7 @@ public class DlgPembayaranPerPoli extends javax.swing.JDialog {
         }
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());   
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
     }
     
 
@@ -439,8 +439,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         while(rsmasuk.next()){
                                             jmlpas=rsmasuk.getInt(2);
                                             total=rsmasuk.getDouble(1);
-                                            ttljmlpas=ttljmlpas+rsmasuk.getInt(2);
-                                            ttltotal=ttltotal+rsmasuk.getDouble(1);
+                                            ttljmlpas += rsmasuk.getInt(2);
+                                            ttltotal += rsmasuk.getDouble(1);
                                             if(total>0){
                                                 tabMode.addRow(new Object[]{"  "+i+". "+rsdokter.getString("nm_dokter")+" ( "+rsjamshift.getString("shift")+" ) ( "+rsmasuk.getString(3)+" )",jmlpas,total});
                                                 i++;

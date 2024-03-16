@@ -1158,7 +1158,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -1271,13 +1271,13 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch (Exception e) {
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,8).toString());                
             }catch (Exception e) {
                 y=0;                
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));

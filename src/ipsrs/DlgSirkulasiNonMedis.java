@@ -704,12 +704,12 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                            Valid.SetAngka(jumlahutd),Valid.SetAngka(totalutd),
                            Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah)
                         }); 
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttlaset=ttlaset+aset;
-                        ttltotalkeluar=ttltotalkeluar+totalkeluar;
-                        ttltotalutd=ttltotalutd+totalutd;
-                        ttltotalhibah=ttltotalhibah+totalhibah;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttlaset += aset;
+                        ttltotalkeluar += totalkeluar;
+                        ttltotalutd += totalutd;
+                        ttltotalhibah += totalhibah;
                     }
                 }   
                 tabMode.addRow(new Object[]{"","","","","","","","","","","","","","",""}); 

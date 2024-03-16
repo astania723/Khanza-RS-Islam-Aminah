@@ -544,8 +544,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     });
                 }
                 i++;
-                ttljmlbacaan=ttljmlbacaan+jmlbacaan;
-                ttljasa=ttljasa+jasa;
+                ttljmlbacaan += jmlbacaan;
+                ttljasa += jasa;
             }
             
             psbacaanralan.setString(1,kddokter.getText());
@@ -556,8 +556,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 jmlbacaan=rsbacaanralan.getInt("jml");
                 feebacaan=rsbacaanralan.getDouble("tarif");
                 jasa=rsbacaanralan.getDouble("bayardokter");
-                ttljmlbacaan=ttljmlbacaan+jmlbacaan;
-                ttljasa=ttljasa+jasa;
+                ttljmlbacaan += jmlbacaan;
+                ttljasa += jasa;
                 
                 tabMode.addRow(new Object[]{
                     i,rsbacaanralan.getString("tgl_registrasi"),"",

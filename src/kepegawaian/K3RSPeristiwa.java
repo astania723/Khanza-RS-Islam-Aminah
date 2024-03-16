@@ -43,6 +43,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import widget.PanelBiasa;
 
 /**
  *
@@ -184,14 +185,14 @@ public class K3RSPeristiwa extends javax.swing.JDialog {
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         NoLaporan.setDocument(new batasInput((byte)20).getKata(NoLaporan));
-        Kronologi.setDocument(new batasInput((int)300).getKata(Kronologi));
-        KondisiTidakAman.setDocument(new batasInput((int)100).getKata(KondisiTidakAman));
-        TindakanTidakAman.setDocument(new batasInput((int)100).getKata(TindakanTidakAman));
-        Pribadi.setDocument(new batasInput((int)100).getKata(Pribadi));
-        Pekerjaan.setDocument(new batasInput((int)100).getKata(Pekerjaan));
-        Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
-        Catatan.setDocument(new batasInput((int)200).getKata(Catatan));
-        Wewenang.setDocument(new batasInput((int)100).getKata(Wewenang));
+        Kronologi.setDocument(new batasInput(300).getKata(Kronologi));
+        KondisiTidakAman.setDocument(new batasInput(100).getKata(KondisiTidakAman));
+        TindakanTidakAman.setDocument(new batasInput(100).getKata(TindakanTidakAman));
+        Pribadi.setDocument(new batasInput(100).getKata(Pribadi));
+        Pekerjaan.setDocument(new batasInput(100).getKata(Pekerjaan));
+        Rencana.setDocument(new batasInput(200).getKata(Rencana));
+        Catatan.setDocument(new batasInput(200).getKata(Catatan));
+        Wewenang.setDocument(new batasInput(100).getKata(Wewenang));
         LT.setDocument(new batasInput((byte)10).getOnlyAngka(LT));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -2359,7 +2360,7 @@ public class K3RSPeristiwa extends javax.swing.JDialog {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(this.getHeight()<700){   
             Scroll1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            FormInput.setPreferredSize(new Dimension(FormInput.WIDTH,540));
+            FormInput.setPreferredSize(new Dimension(PanelBiasa.WIDTH,540));
             if(this.getWidth()<835){
                 Scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
                 FormInput.setPreferredSize(new Dimension(810,540));
@@ -2370,7 +2371,7 @@ public class K3RSPeristiwa extends javax.swing.JDialog {
             Scroll1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);            
             if(this.getWidth()<835){
                 Scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
-                FormInput.setPreferredSize(new Dimension(810,FormInput.HEIGHT));
+                FormInput.setPreferredSize(new Dimension(810,PanelBiasa.HEIGHT));
             }else{
                 Scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);                
             }

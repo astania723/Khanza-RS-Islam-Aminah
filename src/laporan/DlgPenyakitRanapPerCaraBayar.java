@@ -691,7 +691,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 i=1;
                 ttljmlpasien=0;
                 while(rs.next()){
-                    ttljmlpasien=ttljmlpasien+rs.getInt("jumlah");
+                    ttljmlpasien += rs.getInt("jumlah");
                     tabMode.addRow(new Object[]{
                         i,rs.getString("kd_penyakit"),rs.getString("nm_penyakit"),rs.getString("jumlah")
                     });
@@ -735,7 +735,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 i=1;
                 ttljmlpasien=0;
                 while(rs.next()){
-                    ttljmlpasien=ttljmlpasien+rs.getInt("jumlah");
+                    ttljmlpasien += rs.getInt("jumlah");
                     tabMode2.addRow(new Object[]{
                         i,rs.getString("kd_penyakit"),rs.getString("nm_penyakit"),rs.getString("jumlah")
                     });

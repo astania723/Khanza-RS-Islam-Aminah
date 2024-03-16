@@ -65,13 +65,6 @@ public class InventoryHibahObatBHP extends javax.swing.JDialog {
             "Subttl Hibah(Rp)","Nilai Diakui(Rp)","Subttl Diakui(Rp)","Jml2","No.Batch",
             "Ralan", "Kelas 1", "Kelas 2", "Kelas 3", "Utama", "VIP", "VVIP", "Beli Luar", 
             "Jual Bebas", "Karyawan","Isi","Isibesar","Dasar"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-               boolean a = false;
-               if ((colIndex==0)||(colIndex==5)||(colIndex==6)||(colIndex==8)||(colIndex==11)) {
-                   a=true;
-               }
-               return a;
-             }
               
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
@@ -82,6 +75,13 @@ public class InventoryHibahObatBHP extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==5)||(colIndex==6)||(colIndex==8)||(colIndex==11)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1212,7 +1212,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             }            
         }
         
@@ -1349,7 +1349,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),7);
                 w=0;                
             }
-            ttl=ttl+w;                
+            ttl += w;                
 
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,9).toString()); 
@@ -1357,7 +1357,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),9);
                 y=0;
             }
-            ttl2=ttl2+y;
+            ttl2 += y;
         }
         LTotal1.setText(Valid.SetAngka(ttl));
         LTotal2.setText(Valid.SetAngka(ttl2));

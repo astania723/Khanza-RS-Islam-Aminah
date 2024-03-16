@@ -110,8 +110,8 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
         Hema.setDocument(new batasInput((byte)3).getKata(Hema));
         Leo.setDocument(new batasInput((byte)7).getKata(Leo));
         Trombo.setDocument(new batasInput((byte)10).getKata(Trombo));
-        TerapiCairan.setDocument(new batasInput((int)100).getKata(TerapiCairan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TerapiCairan.setDocument(new batasInput(100).getKata(TerapiCairan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

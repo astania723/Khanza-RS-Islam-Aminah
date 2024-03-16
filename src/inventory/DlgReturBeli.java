@@ -55,12 +55,12 @@ public class DlgReturBeli extends javax.swing.JDialog {
         
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Faktur","Kode Barang","Nama Barang","Satuan","Hrg.Retur(Rp)","Jml.Retur","SubtotalRetur(Rp)","No.Batch","Kadaluarsa"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.String.class,
                 java.lang.String.class
             };  
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             @Override
             public Class getColumnClass(int columnIndex) {
                return types [columnIndex];
@@ -1320,7 +1320,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 ps.setString(1,akses.getkode());
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    ttlretur=ttlretur+rs.getDouble(9);
+                    ttlretur += rs.getDouble(9);
                     tabMode.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),
                         rs.getString(4),rs.getDouble(7),

@@ -833,12 +833,12 @@ private void BtnSimpanTindakanActionPerformed(java.awt.event.ActionEvent evt) {/
                                         }
 
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
+                                            ttljmdokter += Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
+                                            ttlkso += Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
+                                            ttlpendapatan += Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
+                                            ttljasasarana += Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
+                                            ttlbhp += Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
+                                            ttlmenejemen += Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
 
                                             if(aktifpcare.equals("yes")){
                                                 simpanTindakanPCare(
@@ -875,12 +875,12 @@ private void BtnSimpanTindakanActionPerformed(java.awt.event.ActionEvent evt) {/
                                         }
 
                                         if(sukses==true){
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
+                                            ttljmperawat += Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
+                                            ttlkso += Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
+                                            ttlpendapatan += Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
+                                            ttljasasarana += Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
+                                            ttlbhp += Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
+                                            ttlmenejemen += Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
 
                                             if(aktifpcare.equals("yes")){
                                                 simpanTindakanPCare(
@@ -922,13 +922,13 @@ private void BtnSimpanTindakanActionPerformed(java.awt.event.ActionEvent evt) {/
                                             }
 
                                             if(sukses==true){
-                                                ttljmdokter=ttljmdokter+Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
-                                                ttljmperawat=ttljmperawat+Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
-                                                ttlkso=ttlkso+Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
-                                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
-                                                ttljasasarana=ttljasasarana+Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
-                                                ttlbhp=ttlbhp+Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
-                                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
+                                                ttljmdokter += Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
+                                                ttljmperawat += Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
+                                                ttlkso += Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
+                                                ttlpendapatan += Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
+                                                ttljasasarana += Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
+                                                ttlbhp += Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
+                                                ttlmenejemen += Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
 
                                                 if(aktifpcare.equals("yes")){
                                                     simpanTindakanPCare(

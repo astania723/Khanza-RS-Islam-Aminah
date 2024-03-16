@@ -174,7 +174,7 @@ public class BPJSProgramPRB extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class,warna);
 
         NoRawat.setDocument(new batasInput((byte)17).getKata(NoRawat));
-        Alamat.setDocument(new batasInput((int)200).getKata(Alamat));
+        Alamat.setDocument(new batasInput(200).getKata(Alamat));
         Email.setDocument(new batasInput((byte)40).getKata(Email));
         Saran.setDocument(new batasInput((byte)100).getKata(Saran));
         Keterangan.setDocument(new batasInput((byte)100).getKata(Keterangan));

@@ -773,14 +773,14 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                            Valid.SetAngka(jumlahreturjual),Valid.SetAngka(totalreturjual),
                            Valid.SetAngka(jumlahreturpiutang),Valid.SetAngka(totalreturpiutang)
                         }); 
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttlaset=ttlaset+aset;
-                        ttltotalpenjualan=ttltotalpenjualan+totalpenjualan;
-                        ttltotalpiutang=ttltotalpiutang+totalpiutang;
-                        ttltotalretursup=ttltotalretursup+totalretursup;
-                        ttltotalreturjual=ttltotalreturjual+totalreturjual;
-                        ttltotalreturpiutang=ttltotalreturpiutang+totalreturpiutang;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttlaset += aset;
+                        ttltotalpenjualan += totalpenjualan;
+                        ttltotalpiutang += totalpiutang;
+                        ttltotalretursup += totalretursup;
+                        ttltotalreturjual += totalreturjual;
+                        ttltotalreturpiutang += totalreturpiutang;
                     }
                 }   
                 tabMode.addRow(new Object[]{"","","","","","","","","","","","","","","","","","",""}); 

@@ -137,7 +137,7 @@ public class RMSignOutSebelumMenutupLuka extends javax.swing.JDialog {
         Tindakan.setDocument(new batasInput((byte)50).getKata(Tindakan));
         PerhatianUtamaFasePemulihan.setDocument(new batasInput((byte)100).getKata(PerhatianUtamaFasePemulihan));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

@@ -53,11 +53,11 @@ public class BRIApiIntegrasi extends javax.swing.JDialog {
 
         Object[] row={"Kode Akun","Akun Rekening","Consumer Key","Consumer Secret","Institution Code","BRIVA No","URL API"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -96,7 +96,7 @@ public class BRIApiIntegrasi extends javax.swing.JDialog {
         ConsumerSecret.setDocument(new batasInput((byte)35).getKata(ConsumerSecret));
         InstitutionCode.setDocument(new batasInput((byte)15).getKata(InstitutionCode));
         BrivaNo.setDocument(new batasInput((byte)15).getKata(BrivaNo));
-        UrlApi.setDocument(new batasInput((int)100).getKata(UrlApi));
+        UrlApi.setDocument(new batasInput(100).getKata(UrlApi));
         
         rekening.addWindowListener(new WindowListener() {
             @Override

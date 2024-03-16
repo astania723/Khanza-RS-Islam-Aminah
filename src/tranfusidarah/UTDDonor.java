@@ -38,6 +38,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
+import widget.panelisi;
 
 /**
  *
@@ -2359,7 +2360,7 @@ public class UTDDonor extends javax.swing.JDialog {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(panelisi4.getHeight()<400){   
             scrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            panelisi4.setPreferredSize(new Dimension(panelisi4.WIDTH,400));
+            panelisi4.setPreferredSize(new Dimension(panelisi.WIDTH,400));
             if(panelisi4.getWidth()<530){
                 scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
                 panelisi4.setPreferredSize(new Dimension(530,400));
@@ -2370,7 +2371,7 @@ public class UTDDonor extends javax.swing.JDialog {
             scrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);            
             if(panelisi4.getWidth()<530){
                 scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
-                panelisi4.setPreferredSize(new Dimension(530,panelisi4.WIDTH));
+                panelisi4.setPreferredSize(new Dimension(530,panelisi.WIDTH));
             }else{
                 scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);                
             }
@@ -2769,7 +2770,7 @@ public class UTDDonor extends javax.swing.JDialog {
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -2845,7 +2846,7 @@ public class UTDDonor extends javax.swing.JDialog {
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         

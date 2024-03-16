@@ -402,7 +402,7 @@ public final class sekuel {
                 }            
                 ps.executeUpdate();
             }catch(Exception e){
-                System.out.println("Notifikasi : "+e); ;            
+                System.out.println("Notifikasi : "+e);            
             }finally{
                 if(ps != null){
                     ps.close();
@@ -1966,9 +1966,9 @@ public final class sekuel {
         try {
             Image inImage = icon.getImage();
 
-            double scale = (double) maxDim / (double) inImage.getHeight(null);
+            double scale = maxDim / (double) inImage.getHeight(null);
             if (inImage.getWidth(null) > inImage.getHeight(null)) {
-                scale = (double) maxDim / (double) inImage.getWidth(null);
+                scale = maxDim / (double) inImage.getWidth(null);
             }
 
             int scaledW = (int) (scale * inImage.getWidth(null));

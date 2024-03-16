@@ -1612,12 +1612,12 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
                                     tbTindakan.getValueAt(i,5).toString(),tbTindakan.getValueAt(i,6).toString(),tbTindakan.getValueAt(i,7).toString(), 
                                     tbTindakan.getValueAt(i,8).toString(),tbTindakan.getValueAt(i,3).toString(),"Belum"
                                 })==true){
-                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTindakan.getValueAt(i,3).toString());
-                                ttljasasarana=ttljasasarana+Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
-                                ttlbhp=ttlbhp+Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
-                                ttljmdokter=ttljmdokter+Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
-                                ttlkso=ttlkso+Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
-                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
+                                ttlpendapatan += Double.parseDouble(tbTindakan.getValueAt(i,3).toString());
+                                ttljasasarana += Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
+                                ttlbhp += Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
+                                ttljmdokter += Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
+                                ttlkso += Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
+                                ttlmenejemen += Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
                             }else{
                                 sukses=false;
                             } 

@@ -1510,23 +1510,23 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             Valid.SetAngka(jumlahmutasikeluar),Valid.SetAngka(totalmutasikeluar),Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah),
                             Valid.SetAngka(stokakhir),Valid.SetAngka(totalstokakhir)
                         }); 
-                        ttltotaljual=ttltotaljual+totaljual;
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttltotalpiutang=ttltotalpiutang+totalpiutang;
-                        ttltotalutd=ttltotalutd+totalutd;
-                        ttltotalkeluar=ttltotalkeluar+totalkeluar;
-                        ttltotalmutasikeluar=ttltotalmutasikeluar+totalmutasikeluar;
-                        ttltotalmutasimasuk=ttltotalmutasimasuk+totalmutasimasuk;
-                        ttltotalretbeli=ttltotalretbeli+totalretbeli;
-                        ttltotalretjual=ttltotalretjual+totalretjual;
-                        ttltotalretpiut=ttltotalretpiut+totalretpiut;
-                        ttltotalpasin=ttltotalpasin+totalpasin;
-                        ttltotalrespulang=ttltotalrespulang+totalrespulang;
-                        ttltotalhibah=ttltotalhibah+totalhibah;
-                        ttltotalstok=ttltotalstok+totalstok;
-                        ttltotalstokawal=ttltotalstokawal+totalstokawal;
-                        ttltotalstokakhir=ttltotalstokakhir+totalstokakhir;
+                        ttltotaljual += totaljual;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttltotalpiutang += totalpiutang;
+                        ttltotalutd += totalutd;
+                        ttltotalkeluar += totalkeluar;
+                        ttltotalmutasikeluar += totalmutasikeluar;
+                        ttltotalmutasimasuk += totalmutasimasuk;
+                        ttltotalretbeli += totalretbeli;
+                        ttltotalretjual += totalretjual;
+                        ttltotalretpiut += totalretpiut;
+                        ttltotalpasin += totalpasin;
+                        ttltotalrespulang += totalrespulang;
+                        ttltotalhibah += totalhibah;
+                        ttltotalstok += totalstok;
+                        ttltotalstokawal += totalstokawal;
+                        ttltotalstokakhir += totalstokakhir;
                     }
                 }   
             } catch (Exception e) {
@@ -2044,23 +2044,23 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             Valid.SetAngka(jumlahmutasikeluar),Valid.SetAngka(totalmutasikeluar),Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah),
                             Valid.SetAngka(stokakhir),Valid.SetAngka(totalstokakhir)
                         }); 
-                        ttltotaljual=ttltotaljual+totaljual;
-                        ttltotalbeli=ttltotalbeli+totalbeli;
-                        ttltotalpesan=ttltotalpesan+totalpesan;
-                        ttltotalpiutang=ttltotalpiutang+totalpiutang;
-                        ttltotalutd=ttltotalutd+totalutd;
-                        ttltotalkeluar=ttltotalkeluar+totalkeluar;
-                        ttltotalmutasikeluar=ttltotalmutasikeluar+totalmutasikeluar;
-                        ttltotalmutasimasuk=ttltotalmutasimasuk+totalmutasimasuk;
-                        ttltotalretbeli=ttltotalretbeli+totalretbeli;
-                        ttltotalretjual=ttltotalretjual+totalretjual;
-                        ttltotalretpiut=ttltotalretpiut+totalretpiut;
-                        ttltotalpasin=ttltotalpasin+totalpasin;
-                        ttltotalrespulang=ttltotalrespulang+totalrespulang;
-                        ttltotalhibah=ttltotalhibah+totalhibah;
-                        ttltotalstok=ttltotalstok+totalstok;
-                        ttltotalstokawal=ttltotalstokawal+totalstokawal;
-                        ttltotalstokakhir=ttltotalstokakhir+totalstokakhir;
+                        ttltotaljual += totaljual;
+                        ttltotalbeli += totalbeli;
+                        ttltotalpesan += totalpesan;
+                        ttltotalpiutang += totalpiutang;
+                        ttltotalutd += totalutd;
+                        ttltotalkeluar += totalkeluar;
+                        ttltotalmutasikeluar += totalmutasikeluar;
+                        ttltotalmutasimasuk += totalmutasimasuk;
+                        ttltotalretbeli += totalretbeli;
+                        ttltotalretjual += totalretjual;
+                        ttltotalretpiut += totalretpiut;
+                        ttltotalpasin += totalpasin;
+                        ttltotalrespulang += totalrespulang;
+                        ttltotalhibah += totalhibah;
+                        ttltotalstok += totalstok;
+                        ttltotalstokawal += totalstokawal;
+                        ttltotalstokakhir += totalstokakhir;
                     }
                 }   
             } catch (Exception e) {

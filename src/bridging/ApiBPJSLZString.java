@@ -24,7 +24,9 @@ public class ApiBPJSLZString {
     }
 
     public static String compressToBase64(String input) {
-        if (input == null) return "";
+        if (input == null) {
+            return "";
+        }
         String res = ApiBPJSLZString._compress(input, 6, new CompressFunctionWrapper() {
             @Override
             public char doFunc(int a) {
@@ -45,8 +47,12 @@ public class ApiBPJSLZString {
     }
 
     public static String decompressFromBase64(final String inputStr) {
-        if (inputStr == null) return "";
-        if (inputStr.isEmpty()) return null;
+        if (inputStr == null) {
+            return "";
+        }
+        if (inputStr.isEmpty()) {
+            return null;
+        }
         return ApiBPJSLZString._decompress(inputStr.length(), 32, new DecompressFunctionWrapper() {
             @Override
             public char doFunc(int index) {
@@ -56,7 +62,9 @@ public class ApiBPJSLZString {
     }	
 
     public static String compressToUTF16(String input) {
-        if (input == null) return "";
+        if (input == null) {
+            return "";
+        }
         return ApiBPJSLZString._compress(input, 15, new CompressFunctionWrapper() {
             @Override
             public char doFunc(int a) {
@@ -66,8 +74,12 @@ public class ApiBPJSLZString {
     }
 
     public static String decompressFromUTF16(final String compressedStr) {
-        if (compressedStr == null) return "";
-        if (compressedStr.isEmpty()) return null;
+        if (compressedStr == null) {
+            return "";
+        }
+        if (compressedStr.isEmpty()) {
+            return null;
+        }
         return ApiBPJSLZString._decompress(compressedStr.length(), 16384, new DecompressFunctionWrapper() {
             @Override
             public char doFunc(int index) {
@@ -77,7 +89,9 @@ public class ApiBPJSLZString {
     }
 
     public static String compressToEncodedURIComponent(String input) {
-        if (input == null) return "";
+        if (input == null) {
+            return "";
+        }
         return ApiBPJSLZString._compress(input, 6, new CompressFunctionWrapper() {
             @Override
             public char doFunc(int a) {
@@ -87,8 +101,12 @@ public class ApiBPJSLZString {
     }
 
     public static String decompressFromEncodedURIComponent(String inputStr) {
-        if (inputStr == null) return "";
-        if (inputStr.isEmpty()) return null;
+        if (inputStr == null) {
+            return "";
+        }
+        if (inputStr.isEmpty()) {
+            return null;
+        }
         final String urlEncodedInputStr = inputStr.replace(' ', '+');
         return ApiBPJSLZString._decompress(urlEncodedInputStr.length(), 32, new DecompressFunctionWrapper() {
             @Override
@@ -109,7 +127,9 @@ public class ApiBPJSLZString {
     }
 
     private static String _compress(String uncompressedStr, int bitsPerChar, CompressFunctionWrapper getCharFromInt) {
-        if (uncompressedStr == null) return "";
+        if (uncompressedStr == null) {
+            return "";
+        }
         int i, value;
         Map<String, Integer> context_dictionary = new HashMap<String, Integer>();
         Set<String> context_dictionaryToCreate = new HashSet<String>();
@@ -157,7 +177,7 @@ public class ApiBPJSLZString {
                             } else {
                                 context_data_position++;
                             }
-                            value = value >> 1;
+                            value >>= 1;
                         }
                     } else {
                         value = 1;
@@ -182,7 +202,7 @@ public class ApiBPJSLZString {
                             } else {
                                 context_data_position++;
                             }
-                            value = value >> 1;
+                            value >>= 1;
                         }
                     }
                     context_enlargeIn--;
@@ -202,7 +222,7 @@ public class ApiBPJSLZString {
                         } else {
                             context_data_position++;
                         }
-                        value = value >> 1;
+                        value >>= 1;
                     }
                 }
                 context_enlargeIn--;
@@ -240,7 +260,7 @@ public class ApiBPJSLZString {
                         } else {
                             context_data_position++;
                         }
-                        value = value >> 1;
+                        value >>= 1;
                     }
                 } else {
                     value = 1;
@@ -265,7 +285,7 @@ public class ApiBPJSLZString {
                         } else {
                             context_data_position++;
                         }
-                        value = value >> 1;
+                        value >>= 1;
                     }
                 }
                 context_enlargeIn--;
@@ -285,7 +305,7 @@ public class ApiBPJSLZString {
                     } else {
                         context_data_position++;
                     }
-                    value = value >> 1;
+                    value >>= 1;
                 }
             }
             context_enlargeIn--;
@@ -306,7 +326,7 @@ public class ApiBPJSLZString {
             } else {
                 context_data_position++;
             }
-            value = value >> 1;
+            value >>= 1;
         }
 
         // Flush the last char
@@ -316,8 +336,9 @@ public class ApiBPJSLZString {
                 context_data.append(getCharFromInt.doFunc(context_data_val));
                 break;
             }
-            else
+            else {
                 context_data_position++;
+            }
         }
         return context_data.toString();
     }
@@ -331,10 +352,12 @@ public class ApiBPJSLZString {
     }
 
     public static String decompress(final String compressed) {
-        if (compressed == null)
+        if (compressed == null) {
             return "";
-        if (compressed.isEmpty())
+        }
+        if (compressed.isEmpty()) {
             return null;
+        }
         return ApiBPJSLZString._decompress(compressed.length(), 32768, new DecompressFunctionWrapper() {
             @Override
             public char doFunc(int i) {
@@ -366,7 +389,7 @@ public class ApiBPJSLZString {
         }
 
         bits = 0;
-        maxpower = (int) powerOf2(2);
+        maxpower = powerOf2(2);
         power = 1;
         while (power != maxpower) {
             resb = data.val & data.position;
@@ -382,7 +405,7 @@ public class ApiBPJSLZString {
         switch (next = bits) {
           case 0:
               bits = 0;
-              maxpower = (int) powerOf2(8);
+              maxpower = powerOf2(8);
               power=1;
               while (power != maxpower) {
                 resb = data.val & data.position;

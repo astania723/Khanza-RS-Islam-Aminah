@@ -151,13 +151,13 @@ public class RMPenilaianTambahanGeriatri extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KeteranganKondisiMasuk.setDocument(new batasInput((int)50).getKata(KeteranganKondisiMasuk));
-        DiagnosaMedis.setDocument(new batasInput((int)100).getKata(DiagnosaMedis));
-        KeteranganIstirahat.setDocument(new batasInput((int)50).getKata(KeteranganIstirahat));
-        KeteranganPenggunaanObatTidur.setDocument(new batasInput((int)50).getKata(KeteranganPenggunaanObatTidur));
-        KeteranganOlahraga.setDocument(new batasInput((int)50).getKata(KeteranganOlahraga));
+        KeteranganKondisiMasuk.setDocument(new batasInput(50).getKata(KeteranganKondisiMasuk));
+        DiagnosaMedis.setDocument(new batasInput(100).getKata(DiagnosaMedis));
+        KeteranganIstirahat.setDocument(new batasInput(50).getKata(KeteranganIstirahat));
+        KeteranganPenggunaanObatTidur.setDocument(new batasInput(50).getKata(KeteranganPenggunaanObatTidur));
+        KeteranganOlahraga.setDocument(new batasInput(50).getKata(KeteranganOlahraga));
         DiagnosaMedis.setDocument(new batasInput((byte)100).getKata(DiagnosaMedis));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

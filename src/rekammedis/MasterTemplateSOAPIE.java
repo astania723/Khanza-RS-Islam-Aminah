@@ -72,7 +72,7 @@ public class MasterTemplateSOAPIE extends javax.swing.JDialog {
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());
 
         Kd.setDocument(new batasInput((byte)5).getKata(Kd));
-        Keluhan.setDocument(new batasInput((int)5000).getKata(Keluhan));  
+        Keluhan.setDocument(new batasInput(5000).getKata(Keluhan));  
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));    
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

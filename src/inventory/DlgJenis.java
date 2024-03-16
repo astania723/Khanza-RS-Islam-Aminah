@@ -58,17 +58,17 @@ public class DlgJenis extends javax.swing.JDialog {
 
         Object[] row={"P","Kode Jenis","Nama Jenis","Keterangan"};
         tabMode=new DefaultTableModel(null,row){
-             @Override 
-             public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override
+             public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];

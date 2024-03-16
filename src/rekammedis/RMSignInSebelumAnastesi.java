@@ -141,7 +141,7 @@ public class RMSignInSebelumAnastesi extends javax.swing.JDialog {
         RencanaAntisipasiKehilanganDarah.setDocument(new batasInput((byte)50).getKata(RencanaAntisipasiKehilanganDarah));
         RencanaAntisipasiKesiapanAlat.setDocument(new batasInput((byte)50).getKata(RencanaAntisipasiKesiapanAlat));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

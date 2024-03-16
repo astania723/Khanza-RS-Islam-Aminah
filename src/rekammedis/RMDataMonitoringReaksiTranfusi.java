@@ -130,7 +130,7 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
         LokasiInsersi.setDocument(new batasInput((byte)40).getKata(LokasiInsersi));
         Alergi.setDocument(new batasInput((byte)70).getKata(Alergi));
         Keterangan.setDocument(new batasInput((byte)70).getKata(Keterangan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

@@ -559,7 +559,7 @@
                             </Property>
                             <Property name="name" type="java.lang.String" value="FormMenu" noResource="true"/>
                             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                              <Dimension value="[255, 3145]"/>
+                              <Dimension value="[255, 3187]"/>
                             </Property>
                           </Properties>
 
@@ -733,6 +733,18 @@
                                 <Property name="text" type="java.lang.String" value="Penilaian Terapi Wicara"/>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
                                 <Property name="name" type="java.lang.String" value="chkAsuhanTerapiWicara" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkPenatalaksanaanTerapiOkupasi">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Tatalaksana Terapi Okupasi"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkPenatalaksanaanTerapiOkupasi" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>
                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                   <Dimension value="[245, 22]"/>
@@ -1444,7 +1456,7 @@
                             <Component class="widget.CekBox" name="chkAsuhanPreAnestesi">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
-                                <Property name="text" type="java.lang.String" value="Penilaian Pre Operasi"/>
+                                <Property name="text" type="java.lang.String" value="Penilaian Pre Anestesi"/>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
                                 <Property name="name" type="java.lang.String" value="chkAsuhanPreAnestesi" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>
@@ -1669,6 +1681,18 @@
                                 </Property>
                               </Properties>
                             </Component>
+                            <Component class="widget.CekBox" name="chkHasilPemeriksaanUSGNeonatus">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Hasil USG Neonatus"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkHasilPemeriksaanUSGNeonatus" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
                             <Component class="widget.CekBox" name="chkHasilPemeriksaanUSGGynecologi">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
@@ -1687,6 +1711,18 @@
                                 <Property name="horizontalAlignment" type="int" value="2"/>
                                 <Property name="label" type="java.lang.String" value="Hasil Pemeriksaan EKG"/>
                                 <Property name="name" type="java.lang.String" value="chkHasilPemeriksaanEKG" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkHasilPemeriksaanEndoskopiFaringLaring">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Hasil Pemeriksaan Endoskopi Faring/Laring"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkHasilPemeriksaanEndoskopiFaringLaring" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>
                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                   <Dimension value="[245, 22]"/>
@@ -1816,7 +1852,7 @@
                             <Component class="widget.CekBox" name="chkCatatanADIMEGizi">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
-                                <Property name="text" type="java.lang.String" value="Monitoring Gizi"/>
+                                <Property name="text" type="java.lang.String" value="Catatan Adime Gizi"/>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
                                 <Property name="name" type="java.lang.String" value="chkCatatanADIMEGizi" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>

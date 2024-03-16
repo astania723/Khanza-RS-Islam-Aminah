@@ -276,8 +276,8 @@ public class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         Hubungan.setDocument(new batasInput((byte)30).getKata(Hubungan));
         AsalRuangan.setDocument(new batasInput((byte)50).getKata(AsalRuangan));
-        Alergi.setDocument(new batasInput((int)100).getKata(Alergi));
-        StatusNutrisi.setDocument(new batasInput((int)100).getKata(StatusNutrisi));
+        Alergi.setDocument(new batasInput(100).getKata(Alergi));
+        StatusNutrisi.setDocument(new batasInput(100).getKata(StatusNutrisi));
         KeteranganHipertensi.setDocument(new batasInput((byte)30).getKata(KeteranganHipertensi));
         KeteranganDiabetesMelitus.setDocument(new batasInput((byte)30).getKata(KeteranganDiabetesMelitus));
         KeteranganBatuSaluranKemih.setDocument(new batasInput((byte)30).getKata(KeteranganBatuSaluranKemih));
@@ -307,7 +307,7 @@ public class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         SGPT.setDocument(new batasInput((byte)30).getKata(SGPT));
         CT.setDocument(new batasInput((byte)30).getKata(CT));
         AsamUrat.setDocument(new batasInput((byte)30).getKata(AsamUrat));
-        Edukasi.setDocument(new batasInput((int)1000).getKata(Edukasi));
+        Edukasi.setDocument(new batasInput(1000).getKata(Edukasi));
         
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -3832,43 +3832,43 @@ public class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
             Konjungtiva.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString());
             Kardiomegali.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),56).toString());
             Bising.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString());
-            ChkThorax.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),58).toString().equals("Ya")?true:false));
+            ChkThorax.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),58).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString().equals("Ya")){
                 Valid.SetTgl(TglThorax,tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
             }  
-            ChkEKG.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),60).toString().equals("Ya")?true:false));
+            ChkEKG.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),60).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString().equals("Ya")){
                 Valid.SetTgl(TglEKG,tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
             }  
-            ChkBNO.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),62).toString().equals("Ya")?true:false));
+            ChkBNO.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),62).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString().equals("Ya")){
                 Valid.SetTgl(TglBNO,tbObat.getValueAt(tbObat.getSelectedRow(),63).toString());
             } 
-            ChkUSG.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),64).toString().equals("Ya")?true:false));
+            ChkUSG.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),64).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),64).toString().equals("Ya")){
                 Valid.SetTgl(TglUSG,tbObat.getValueAt(tbObat.getSelectedRow(),65).toString());
             }   
-            ChkRenogram.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),66).toString().equals("Ya")?true:false));
+            ChkRenogram.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),66).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString().equals("Ya")){
                 Valid.SetTgl(TglRenogram,tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());
             }
-            ChkBiopsiGinjal.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),68).toString().equals("Ya")?true:false));
+            ChkBiopsiGinjal.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),68).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString().equals("Ya")){
                 Valid.SetTgl(TglBiopsi,tbObat.getValueAt(tbObat.getSelectedRow(),69).toString());
             }
-            ChkCTScan.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),70).toString().equals("Ya")?true:false));
+            ChkCTScan.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),70).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString().equals("Ya")){
                 Valid.SetTgl(TglCTscan,tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
             }
-            ChkArteriografi.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),72).toString().equals("Ya")?true:false));
+            ChkArteriografi.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),72).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString().equals("Ya")){
                 Valid.SetTgl(TglArteriografi,tbObat.getValueAt(tbObat.getSelectedRow(),73).toString());
             }  
-            ChkKulturUrin.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),74).toString().equals("Ya")?true:false));
+            ChkKulturUrin.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),74).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),74).toString().equals("Ya")){
                 Valid.SetTgl(TglKultururin,tbObat.getValueAt(tbObat.getSelectedRow(),75).toString());
             }
-            ChkLaborat.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),76).toString().equals("Ya")?true:false));
+            ChkLaborat.setSelected((tbObat.getValueAt(tbObat.getSelectedRow(),76).toString().equals("Ya")));
             if(tbObat.getValueAt(tbObat.getSelectedRow(),76).toString().equals("Ya")){
                 Valid.SetTgl(TglLaboratorium,tbObat.getValueAt(tbObat.getSelectedRow(),77).toString());
             }

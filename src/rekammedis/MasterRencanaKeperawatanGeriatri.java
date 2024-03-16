@@ -12,11 +12,11 @@
 package rekammedis;
 
 import fungsi.WarnaTable;
-import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
+import fungsi.akses;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -79,7 +79,7 @@ public class MasterRencanaKeperawatanGeriatri extends javax.swing.JDialog {
         tbSpesialis.setDefaultRenderer(Object.class, new WarnaTable());
 
         kdrencana.setDocument(new batasInput((byte)3).getKata(kdrencana));
-        namarencana.setDocument(new batasInput((int)150).getKata(namarencana));
+        namarencana.setDocument(new batasInput(1000).getKata(namarencana));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -481,9 +481,9 @@ public class MasterRencanaKeperawatanGeriatri extends javax.swing.JDialog {
 }//GEN-LAST:event_namarencanaKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(kdrencana.getText().trim().isEmpty()){
+        if(kdrencana.getText().trim().equals("")){
             Valid.textKosong(kdrencana,"Kode");
-        }else if(namarencana.getText().trim().isEmpty()){
+        }else if(namarencana.getText().trim().equals("")){
             Valid.textKosong(namarencana,"Pengkajian");
         }else{
             Sequel.menyimpan("master_rencana_keperawatan_geriatri","'"+kdmasalah.getText()+"','"+kdrencana.getText()+"','"+namarencana.getText()+"'","Kode");
@@ -529,9 +529,9 @@ public class MasterRencanaKeperawatanGeriatri extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(kdrencana.getText().trim().isEmpty()){
+        if(kdrencana.getText().trim().equals("")){
             Valid.textKosong(kdrencana,"Kode");
-        }else if(namarencana.getText().trim().isEmpty()){
+        }else if(namarencana.getText().trim().equals("")){
             Valid.textKosong(namarencana,"Pengkajian");
         }else{
             if(tbSpesialis.getSelectedRow()> -1){

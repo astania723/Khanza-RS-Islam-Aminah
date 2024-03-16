@@ -1252,7 +1252,7 @@ public class KeuanganBayarPesanToko extends javax.swing.JDialog {
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble("besar_bayar");
+                    total += rs.getDouble("besar_bayar");
                     tabMode.addRow(new Object[]{
                         rs.getString("tgl_bayar"),rs.getString("tgl_faktur"),rs.getString("tgl_pesan"),
                         rs.getString("tgl_tempo"),rs.getString("no_faktur"),rs.getString("nama_suplier"),rs.getString("nama_bayar"),

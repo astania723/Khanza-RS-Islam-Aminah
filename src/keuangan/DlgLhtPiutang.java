@@ -56,18 +56,18 @@ public class DlgLhtPiutang extends javax.swing.JDialog {
                 "No.Rawat/No.tagihan","Tgl.Piutang","Pasien","Status","Total Piutang","Uang Muka",
                 "Cicilan","Diskon Bayar","Tidak Terbayar","Sisa Piutang","Jatuh Tempo","Cara Bayar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -765,11 +765,11 @@ private void MnDetailCicilanActionPerformed(java.awt.event.ActionEvent evt) {//G
                         cicilan,diskon,tidakterbayar,(rs.getDouble(7)-cicilan-diskon-tidakterbayar),rs.getString(8),rs.getString(9)
                     });
                     sisapiutang=sisapiutang+rs.getDouble(7)-cicilan-diskon-tidakterbayar;
-                    totalpiutang=totalpiutang+rs.getDouble("totalpiutang");
-                    totalcicilan=totalcicilan+cicilan;
-                    totaluangmuka=totaluangmuka+rs.getDouble("uangmuka");
-                    totaldiskon=totaldiskon+diskon;
-                    totaltidakterbayar=totaltidakterbayar+tidakterbayar;
+                    totalpiutang += rs.getDouble("totalpiutang");
+                    totalcicilan += cicilan;
+                    totaluangmuka += rs.getDouble("uangmuka");
+                    totaldiskon += diskon;
+                    totaltidakterbayar += tidakterbayar;
                 }
             } catch (Exception e) {
                 System.out.println(e);

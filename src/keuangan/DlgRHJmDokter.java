@@ -965,14 +965,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              while(rsrawatjalandr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandr.getString("tgl_perawatan")+" "+rsrawatjalandr.getString("jam_rawat"),rsrawatjalandr.getString("no_rawat"),rsrawatjalandr.getString("no_rkm_medis"),rsrawatjalandr.getString("nm_pasien")+" ("+rsrawatjalandr.getString("kd_pj")+")",
                                      rsrawatjalandr.getString("nm_perawatan")+" ("+rsrawatjalandr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              rsrawatjalandrpr.beforeFirst();
                              while(rsrawatjalandrpr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandrpr.getString("tgl_perawatan")+" "+rsrawatjalandrpr.getString("jam_rawat"),rsrawatjalandrpr.getString("no_rawat"),rsrawatjalandrpr.getString("no_rkm_medis"),rsrawatjalandrpr.getString("nm_pasien")+" ("+rsrawatjalandrpr.getString("kd_pj")+")",
                                      rsrawatjalandrpr.getString("nm_perawatan")+" ("+rsrawatjalandrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -1038,7 +1038,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdr.getString("tgl_perawatan")+" "+rsrawatinapdr.getString("jam_rawat"),rsrawatinapdr.getString("no_rawat"),rsrawatinapdr.getString("no_rkm_medis"),rsrawatinapdr.getString("nm_pasien")+" ("+rsrawatinapdr.getString("kd_pj")+")",
                                      rsrawatinapdr.getString("nm_perawatan")+" ("+rsrawatinapdr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              rsrawatinapdrpr.beforeFirst();
@@ -1047,7 +1047,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdrpr.getString("tgl_perawatan")+" "+rsrawatinapdrpr.getString("jam_rawat"),rsrawatinapdrpr.getString("no_rawat"),rsrawatinapdrpr.getString("no_rkm_medis"),rsrawatinapdrpr.getString("nm_pasien")+" ("+rsrawatinapdrpr.getString("kd_pj")+")",
                                      rsrawatinapdrpr.getString("nm_perawatan")+" ("+rsrawatinapdrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -1193,7 +1193,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator1.getString("tgl_operasi"),rsbiayaoperator1.getString("no_rawat"),rsbiayaoperator1.getString("no_rkm_medis"),rsbiayaoperator1.getString("nm_pasien")+" ("+rsbiayaoperator1.getString("kd_pj")+")",
                                      rsbiayaoperator1.getString("nm_perawatan")+" ("+rsbiayaoperator1.getString("kode_paket")+")(Operator 1)",Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))
                                  });      
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2               
@@ -1203,7 +1203,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator2.getString("tgl_operasi"),rsbiayaoperator2.getString("no_rawat"),rsbiayaoperator2.getString("no_rkm_medis"),rsbiayaoperator2.getString("nm_pasien")+" ("+rsbiayaoperator2.getString("kd_pj")+")",
                                      rsbiayaoperator2.getString("nm_perawatan")+" ("+rsbiayaoperator2.getString("kode_paket")+")(Operator 2)",Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))
                                  });  
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3               
@@ -1213,7 +1213,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator3.getString("tgl_operasi"),rsbiayaoperator3.getString("no_rawat"),rsbiayaoperator3.getString("no_rkm_medis"),rsbiayaoperator3.getString("nm_pasien")+" ("+rsbiayaoperator3.getString("kd_pj")+")",
                                      rsbiayaoperator3.getString("nm_perawatan")+"  ("+rsbiayaoperator3.getString("kode_paket")+")(Operator 3)",Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))
                                  });       
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
@@ -1223,7 +1223,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anak.getString("tgl_operasi"),rsbiayadokter_anak.getString("no_rawat"),rsbiayadokter_anak.getString("no_rkm_medis"),rsbiayadokter_anak.getString("nm_pasien")+" ("+rsbiayadokter_anak.getString("kd_pj")+")",
                                      rsbiayadokter_anak.getString("nm_perawatan")+" ("+rsbiayadokter_anak.getString("kode_paket")+")(dr Anak)",Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))
                                  });    
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
@@ -1233,7 +1233,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anestesi.getString("tgl_operasi"),rsbiayadokter_anestesi.getString("no_rawat"),rsbiayadokter_anestesi.getString("no_rkm_medis"),rsbiayadokter_anestesi.getString("nm_pasien")+" ("+rsbiayadokter_anestesi.getString("kd_pj")+")",
                                      rsbiayadokter_anestesi.getString("nm_perawatan")+" ("+rsbiayadokter_anestesi.getString("kode_paket")+")(dr Anestesi)",Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))
                                  });      
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
@@ -1243,7 +1243,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_pjanak.getString("tgl_operasi"),rsbiaya_dokter_pjanak.getString("no_rawat"),rsbiaya_dokter_pjanak.getString("no_rkm_medis"),rsbiaya_dokter_pjanak.getString("nm_pasien")+" ("+rsbiaya_dokter_pjanak.getString("kd_pj")+")",
                                      rsbiaya_dokter_pjanak.getString("nm_perawatan")+" ("+rsbiaya_dokter_pjanak.getString("kode_paket")+")(dr Pj Anak)",Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))
                                  });    
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
@@ -1253,7 +1253,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_umum.getString("tgl_operasi"),rsbiaya_dokter_umum.getString("no_rawat"),rsbiaya_dokter_umum.getString("no_rkm_medis"),rsbiaya_dokter_umum.getString("nm_pasien")+" ("+rsbiaya_dokter_umum.getString("kd_pj")+")",
                                      rsbiaya_dokter_umum.getString("nm_perawatan")+" ("+rsbiaya_dokter_umum.getString("kode_paket")+")(dr Umum)",Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))
                                  });    
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -1332,7 +1332,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))
                                  });    
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -1380,7 +1380,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -1421,7 +1421,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))
                                  });        
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -1468,7 +1468,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -1510,7 +1510,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))
                                  });      
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -1549,7 +1549,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))
                                  });     
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -1567,7 +1567,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                        tabMode.addRow(new Object[]{"","","Total :","","","","",Valid.SetAngka(total)});                    
                     }              
                     i++;
-                    totaljm=totaljm+total;
+                    totaljm += total;
                  } 
             } catch (Exception e) {
                 System.out.println("Notifikasi Pasien : "+e);
@@ -1634,12 +1634,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              
                              while(rsrawatjalandr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_pasien")).append(" (").append(rsrawatjalandr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_perawatan")).append(" (").append(rsrawatjalandr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))).append("</td></tr>");               
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              while(rsrawatjalandrpr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_pasien")).append(" (").append(rsrawatjalandrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_perawatan")).append(" (").append(rsrawatjalandrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -1693,12 +1693,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsrawatinapdrpr=psrawatinapdrpr.executeQuery();
                              while(rsrawatinapdr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_pasien")).append(" (").append(rsrawatinapdr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_perawatan")).append(" (").append(rsrawatinapdr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))).append("</td></tr>");        
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              while(rsrawatinapdrpr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_pasien")).append(" (").append(rsrawatinapdrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_perawatan")).append(" (").append(rsrawatinapdrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -1828,43 +1828,43 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              //operator operasi1  
                              while(rsbiayaoperator1.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_pasien")).append(" (").append(rsbiayaoperator1.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_perawatan")).append(" (").append(rsbiayaoperator1.getString("kode_paket")).append(")(Operator 1)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2            
                              while(rsbiayaoperator2.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_pasien")).append(" (").append(rsbiayaoperator2.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_perawatan")).append(" (").append(rsbiayaoperator2.getString("kode_paket")).append(")(Operator 2)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3            
                              while(rsbiayaoperator3.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_pasien")).append(" (").append(rsbiayaoperator3.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_perawatan")).append(" (").append(rsbiayaoperator3.getString("kode_paket")).append(")(Operator 3)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))).append("</td></tr>");        
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
                              while(rsbiayadokter_anak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_pasien")).append(" (").append(rsbiayadokter_anak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anak.getString("kode_paket")).append(")(dr Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))).append("</td></tr>");
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
                              while(rsbiayadokter_anestesi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_pasien")).append(" (").append(rsbiayadokter_anestesi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anestesi.getString("kode_paket")).append(")(dr Anestesi)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))).append("</td></tr>");    
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
                              while(rsbiaya_dokter_pjanak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_pjanak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_pjanak.getString("kode_paket")).append(")(dr Pj Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
                              while(rsbiaya_dokter_umum.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_umum.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_umum.getString("kode_paket")).append(")(dr Umum)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -1934,7 +1934,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){       
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -1972,7 +1972,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))).append("</td></tr>");  
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -2004,7 +2004,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -2041,7 +2041,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))).append("</td></tr>");    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -2074,7 +2074,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -2104,7 +2104,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -2119,7 +2119,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     }           
                     
                     htmlContent.append("<tr class='isi'><td valign='middle' align='left' colspan='6'>&nbsp;Total :</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");  
-                    totaljm=totaljm+total;
+                    totaljm += total;
                     
                     htmlContent.append(
                                 "</table><br>"+
@@ -2226,14 +2226,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              while(rsrawatjalandr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandr.getString("tgl_perawatan")+" "+rsrawatjalandr.getString("jam_rawat"),rsrawatjalandr.getString("no_rawat"),rsrawatjalandr.getString("no_rkm_medis"),rsrawatjalandr.getString("nm_pasien")+" ("+rsrawatjalandr.getString("kd_pj")+")",
                                      rsrawatjalandr.getString("nm_perawatan")+" ("+rsrawatjalandr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              rsrawatjalandrpr.beforeFirst();
                              while(rsrawatjalandrpr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandrpr.getString("tgl_perawatan")+" "+rsrawatjalandrpr.getString("jam_rawat"),rsrawatjalandrpr.getString("no_rawat"),rsrawatjalandrpr.getString("no_rkm_medis"),rsrawatjalandrpr.getString("nm_pasien")+" ("+rsrawatjalandrpr.getString("kd_pj")+")",
                                      rsrawatjalandrpr.getString("nm_perawatan")+" ("+rsrawatjalandrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -2301,7 +2301,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdr.getString("tgl_perawatan")+" "+rsrawatinapdr.getString("jam_rawat"),rsrawatinapdr.getString("no_rawat"),rsrawatinapdr.getString("no_rkm_medis"),rsrawatinapdr.getString("nm_pasien")+" ("+rsrawatinapdr.getString("kd_pj")+")",
                                      rsrawatinapdr.getString("nm_perawatan")+" ("+rsrawatinapdr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              rsrawatinapdrpr.beforeFirst();
@@ -2310,7 +2310,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdrpr.getString("tgl_perawatan")+" "+rsrawatinapdrpr.getString("jam_rawat"),rsrawatinapdrpr.getString("no_rawat"),rsrawatinapdrpr.getString("no_rkm_medis"),rsrawatinapdrpr.getString("nm_pasien")+" ("+rsrawatinapdrpr.getString("kd_pj")+")",
                                      rsrawatinapdrpr.getString("nm_perawatan")+" ("+rsrawatinapdrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -2463,7 +2463,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator1.getString("tgl_operasi"),rsbiayaoperator1.getString("no_rawat"),rsbiayaoperator1.getString("no_rkm_medis"),rsbiayaoperator1.getString("nm_pasien")+" ("+rsbiayaoperator1.getString("kd_pj")+")",
                                      rsbiayaoperator1.getString("nm_perawatan")+" ("+rsbiayaoperator1.getString("kode_paket")+")(Operator 1)",Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))
                                  });      
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2               
@@ -2473,7 +2473,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator2.getString("tgl_operasi"),rsbiayaoperator2.getString("no_rawat"),rsbiayaoperator2.getString("no_rkm_medis"),rsbiayaoperator2.getString("nm_pasien")+" ("+rsbiayaoperator2.getString("kd_pj")+")",
                                      rsbiayaoperator2.getString("nm_perawatan")+" ("+rsbiayaoperator2.getString("kode_paket")+")(Operator 2)",Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))
                                  });  
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3               
@@ -2483,7 +2483,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator3.getString("tgl_operasi"),rsbiayaoperator3.getString("no_rawat"),rsbiayaoperator3.getString("no_rkm_medis"),rsbiayaoperator3.getString("nm_pasien")+" ("+rsbiayaoperator3.getString("kd_pj")+")",
                                      rsbiayaoperator3.getString("nm_perawatan")+"  ("+rsbiayaoperator3.getString("kode_paket")+")(Operator 3)",Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))
                                  });       
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
@@ -2493,7 +2493,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anak.getString("tgl_operasi"),rsbiayadokter_anak.getString("no_rawat"),rsbiayadokter_anak.getString("no_rkm_medis"),rsbiayadokter_anak.getString("nm_pasien")+" ("+rsbiayadokter_anak.getString("kd_pj")+")",
                                      rsbiayadokter_anak.getString("nm_perawatan")+" ("+rsbiayadokter_anak.getString("kode_paket")+")(dr Anak)",Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))
                                  });    
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
@@ -2503,7 +2503,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anestesi.getString("tgl_operasi"),rsbiayadokter_anestesi.getString("no_rawat"),rsbiayadokter_anestesi.getString("no_rkm_medis"),rsbiayadokter_anestesi.getString("nm_pasien")+" ("+rsbiayadokter_anestesi.getString("kd_pj")+")",
                                      rsbiayadokter_anestesi.getString("nm_perawatan")+" ("+rsbiayadokter_anestesi.getString("kode_paket")+")(dr Anestesi)",Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))
                                  });      
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
@@ -2513,7 +2513,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_pjanak.getString("tgl_operasi"),rsbiaya_dokter_pjanak.getString("no_rawat"),rsbiaya_dokter_pjanak.getString("no_rkm_medis"),rsbiaya_dokter_pjanak.getString("nm_pasien")+" ("+rsbiaya_dokter_pjanak.getString("kd_pj")+")",
                                      rsbiaya_dokter_pjanak.getString("nm_perawatan")+" ("+rsbiaya_dokter_pjanak.getString("kode_paket")+")(dr Pj Anak)",Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))
                                  });    
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
@@ -2523,7 +2523,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_umum.getString("tgl_operasi"),rsbiaya_dokter_umum.getString("no_rawat"),rsbiaya_dokter_umum.getString("no_rkm_medis"),rsbiaya_dokter_umum.getString("nm_pasien")+" ("+rsbiaya_dokter_umum.getString("kd_pj")+")",
                                      rsbiaya_dokter_umum.getString("nm_perawatan")+" ("+rsbiaya_dokter_umum.getString("kode_paket")+")(dr Umum)",Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))
                                  });    
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -2603,7 +2603,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))
                                  });    
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -2652,7 +2652,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -2694,7 +2694,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))
                                  });        
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -2742,7 +2742,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -2785,7 +2785,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))
                                  });      
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -2825,7 +2825,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))
                                  });     
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -2843,7 +2843,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                        tabMode.addRow(new Object[]{"","","Total :","","","","",Valid.SetAngka(total)});                    
                     }              
                     i++;
-                    totaljm=totaljm+total;
+                    totaljm += total;
                  } 
             } catch (Exception e) {
                 System.out.println("Notifikasi Pasien : "+e);
@@ -2911,12 +2911,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsrawatjalandrpr=psrawatjalandrpr.executeQuery();
                              while(rsrawatjalandr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_pasien")).append(" (").append(rsrawatjalandr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_perawatan")).append(" (").append(rsrawatjalandr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))).append("</td></tr>");               
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              while(rsrawatjalandrpr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_pasien")).append(" (").append(rsrawatjalandrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_perawatan")).append(" (").append(rsrawatjalandrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -2973,12 +2973,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              
                              while(rsrawatinapdr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_pasien")).append(" (").append(rsrawatinapdr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_perawatan")).append(" (").append(rsrawatinapdr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))).append("</td></tr>");        
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              while(rsrawatinapdrpr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_pasien")).append(" (").append(rsrawatinapdrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_perawatan")).append(" (").append(rsrawatinapdrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -3115,43 +3115,43 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              //operator operasi1  
                              while(rsbiayaoperator1.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_pasien")).append(" (").append(rsbiayaoperator1.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_perawatan")).append(" (").append(rsbiayaoperator1.getString("kode_paket")).append(")(Operator 1)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2            
                              while(rsbiayaoperator2.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_pasien")).append(" (").append(rsbiayaoperator2.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_perawatan")).append(" (").append(rsbiayaoperator2.getString("kode_paket")).append(")(Operator 2)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3            
                              while(rsbiayaoperator3.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_pasien")).append(" (").append(rsbiayaoperator3.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_perawatan")).append(" (").append(rsbiayaoperator3.getString("kode_paket")).append(")(Operator 3)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))).append("</td></tr>");        
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
                              while(rsbiayadokter_anak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_pasien")).append(" (").append(rsbiayadokter_anak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anak.getString("kode_paket")).append(")(dr Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))).append("</td></tr>");
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
                              while(rsbiayadokter_anestesi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_pasien")).append(" (").append(rsbiayadokter_anestesi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anestesi.getString("kode_paket")).append(")(dr Anestesi)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))).append("</td></tr>");    
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
                              while(rsbiaya_dokter_pjanak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_pjanak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_pjanak.getString("kode_paket")).append(")(dr Pj Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
                              while(rsbiaya_dokter_umum.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_umum.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_umum.getString("kode_paket")).append(")(dr Umum)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -3222,7 +3222,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){       
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -3261,7 +3261,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))).append("</td></tr>");  
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -3294,7 +3294,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -3332,7 +3332,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))).append("</td></tr>");    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -3366,7 +3366,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -3397,7 +3397,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -3412,7 +3412,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     }               
 
                     htmlContent.append("<tr class='isi'><td valign='middle' align='left' colspan='6'>&nbsp;Total :</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");  
-                    totaljm=totaljm+total;
+                    totaljm += total;
                     
                     htmlContent.append(
                                 "</table><br>"+
@@ -3501,14 +3501,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              while(rsrawatjalandr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandr.getString("tgl_perawatan")+" "+rsrawatjalandr.getString("jam_rawat"),rsrawatjalandr.getString("no_rawat"),rsrawatjalandr.getString("no_rkm_medis"),rsrawatjalandr.getString("nm_pasien")+" ("+rsrawatjalandr.getString("kd_pj")+")",
                                      rsrawatjalandr.getString("nm_perawatan")+" ("+rsrawatjalandr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              rsrawatjalandrpr.beforeFirst();
                              while(rsrawatjalandrpr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandrpr.getString("tgl_perawatan")+" "+rsrawatjalandrpr.getString("jam_rawat"),rsrawatjalandrpr.getString("no_rawat"),rsrawatjalandrpr.getString("no_rkm_medis"),rsrawatjalandrpr.getString("nm_pasien")+" ("+rsrawatjalandrpr.getString("kd_pj")+")",
                                      rsrawatjalandrpr.getString("nm_perawatan")+" ("+rsrawatjalandrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -3576,7 +3576,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdr.getString("tgl_perawatan")+" "+rsrawatinapdr.getString("jam_rawat"),rsrawatinapdr.getString("no_rawat"),rsrawatinapdr.getString("no_rkm_medis"),rsrawatinapdr.getString("nm_pasien")+" ("+rsrawatinapdr.getString("kd_pj")+")",
                                      rsrawatinapdr.getString("nm_perawatan")+" ("+rsrawatinapdr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              rsrawatinapdrpr.beforeFirst();
@@ -3585,7 +3585,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdrpr.getString("tgl_perawatan")+" "+rsrawatinapdrpr.getString("jam_rawat"),rsrawatinapdrpr.getString("no_rawat"),rsrawatinapdrpr.getString("no_rkm_medis"),rsrawatinapdrpr.getString("nm_pasien")+" ("+rsrawatinapdrpr.getString("kd_pj")+")",
                                      rsrawatinapdrpr.getString("nm_perawatan")+" ("+rsrawatinapdrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -3738,7 +3738,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator1.getString("tgl_operasi"),rsbiayaoperator1.getString("no_rawat"),rsbiayaoperator1.getString("no_rkm_medis"),rsbiayaoperator1.getString("nm_pasien")+" ("+rsbiayaoperator1.getString("kd_pj")+")",
                                      rsbiayaoperator1.getString("nm_perawatan")+" ("+rsbiayaoperator1.getString("kode_paket")+")(Operator 1)",Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))
                                  });      
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2               
@@ -3748,7 +3748,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator2.getString("tgl_operasi"),rsbiayaoperator2.getString("no_rawat"),rsbiayaoperator2.getString("no_rkm_medis"),rsbiayaoperator2.getString("nm_pasien")+" ("+rsbiayaoperator2.getString("kd_pj")+")",
                                      rsbiayaoperator2.getString("nm_perawatan")+" ("+rsbiayaoperator2.getString("kode_paket")+")(Operator 2)",Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))
                                  });  
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3               
@@ -3758,7 +3758,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator3.getString("tgl_operasi"),rsbiayaoperator3.getString("no_rawat"),rsbiayaoperator3.getString("no_rkm_medis"),rsbiayaoperator3.getString("nm_pasien")+" ("+rsbiayaoperator3.getString("kd_pj")+")",
                                      rsbiayaoperator3.getString("nm_perawatan")+"  ("+rsbiayaoperator3.getString("kode_paket")+")(Operator 3)",Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))
                                  });       
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
@@ -3768,7 +3768,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anak.getString("tgl_operasi"),rsbiayadokter_anak.getString("no_rawat"),rsbiayadokter_anak.getString("no_rkm_medis"),rsbiayadokter_anak.getString("nm_pasien")+" ("+rsbiayadokter_anak.getString("kd_pj")+")",
                                      rsbiayadokter_anak.getString("nm_perawatan")+" ("+rsbiayadokter_anak.getString("kode_paket")+")(dr Anak)",Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))
                                  });    
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
@@ -3778,7 +3778,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anestesi.getString("tgl_operasi"),rsbiayadokter_anestesi.getString("no_rawat"),rsbiayadokter_anestesi.getString("no_rkm_medis"),rsbiayadokter_anestesi.getString("nm_pasien")+" ("+rsbiayadokter_anestesi.getString("kd_pj")+")",
                                      rsbiayadokter_anestesi.getString("nm_perawatan")+" ("+rsbiayadokter_anestesi.getString("kode_paket")+")(dr Anestesi)",Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))
                                  });      
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
@@ -3788,7 +3788,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_pjanak.getString("tgl_operasi"),rsbiaya_dokter_pjanak.getString("no_rawat"),rsbiaya_dokter_pjanak.getString("no_rkm_medis"),rsbiaya_dokter_pjanak.getString("nm_pasien")+" ("+rsbiaya_dokter_pjanak.getString("kd_pj")+")",
                                      rsbiaya_dokter_pjanak.getString("nm_perawatan")+" ("+rsbiaya_dokter_pjanak.getString("kode_paket")+")(dr Pj Anak)",Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))
                                  });    
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
@@ -3798,7 +3798,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_umum.getString("tgl_operasi"),rsbiaya_dokter_umum.getString("no_rawat"),rsbiaya_dokter_umum.getString("no_rkm_medis"),rsbiaya_dokter_umum.getString("nm_pasien")+" ("+rsbiaya_dokter_umum.getString("kd_pj")+")",
                                      rsbiaya_dokter_umum.getString("nm_perawatan")+" ("+rsbiaya_dokter_umum.getString("kode_paket")+")(dr Umum)",Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))
                                  });    
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -3878,7 +3878,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))
                                  });    
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -3927,7 +3927,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -3969,7 +3969,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))
                                  });        
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -4017,7 +4017,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -4060,7 +4060,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))
                                  });      
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -4100,7 +4100,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))
                                  });     
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -4118,7 +4118,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                        tabMode.addRow(new Object[]{"","","Total :","","","","",Valid.SetAngka(total)});                    
                     }              
                     i++;
-                    totaljm=totaljm+total;
+                    totaljm += total;
                  } 
             } catch (Exception e) {
                 System.out.println("Notifikasi Pasien : "+e);
@@ -4187,12 +4187,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              
                              while(rsrawatjalandr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_pasien")).append(" (").append(rsrawatjalandr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_perawatan")).append(" (").append(rsrawatjalandr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))).append("</td></tr>");               
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              while(rsrawatjalandrpr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_pasien")).append(" (").append(rsrawatjalandrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_perawatan")).append(" (").append(rsrawatjalandrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -4248,12 +4248,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsrawatinapdrpr=psrawatinapdrpr.executeQuery();
                              while(rsrawatinapdr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_pasien")).append(" (").append(rsrawatinapdr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_perawatan")).append(" (").append(rsrawatinapdr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))).append("</td></tr>");        
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              while(rsrawatinapdrpr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_pasien")).append(" (").append(rsrawatinapdrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_perawatan")).append(" (").append(rsrawatinapdrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -4390,43 +4390,43 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              //operator operasi1  
                              while(rsbiayaoperator1.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_pasien")).append(" (").append(rsbiayaoperator1.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_perawatan")).append(" (").append(rsbiayaoperator1.getString("kode_paket")).append(")(Operator 1)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2            
                              while(rsbiayaoperator2.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_pasien")).append(" (").append(rsbiayaoperator2.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_perawatan")).append(" (").append(rsbiayaoperator2.getString("kode_paket")).append(")(Operator 2)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3            
                              while(rsbiayaoperator3.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_pasien")).append(" (").append(rsbiayaoperator3.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_perawatan")).append(" (").append(rsbiayaoperator3.getString("kode_paket")).append(")(Operator 3)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))).append("</td></tr>");        
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
                              while(rsbiayadokter_anak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_pasien")).append(" (").append(rsbiayadokter_anak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anak.getString("kode_paket")).append(")(dr Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))).append("</td></tr>");
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
                              while(rsbiayadokter_anestesi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_pasien")).append(" (").append(rsbiayadokter_anestesi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anestesi.getString("kode_paket")).append(")(dr Anestesi)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))).append("</td></tr>");    
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
                              while(rsbiaya_dokter_pjanak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_pjanak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_pjanak.getString("kode_paket")).append(")(dr Pj Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
                              while(rsbiaya_dokter_umum.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_umum.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_umum.getString("kode_paket")).append(")(dr Umum)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -4497,7 +4497,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){       
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -4536,7 +4536,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))).append("</td></tr>");  
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -4569,7 +4569,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -4607,7 +4607,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))).append("</td></tr>");    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -4641,7 +4641,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -4672,7 +4672,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -4687,7 +4687,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     }               
 
                     htmlContent.append("<tr class='isi'><td valign='middle' align='left' colspan='6'>&nbsp;Total :</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");  
-                    totaljm=totaljm+total;
+                    totaljm += total;
                     
                     htmlContent.append(
                                 "</table><br>"+
@@ -4774,14 +4774,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              while(rsrawatjalandr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandr.getString("tgl_perawatan")+" "+rsrawatjalandr.getString("jam_rawat"),rsrawatjalandr.getString("no_rawat"),rsrawatjalandr.getString("no_rkm_medis"),rsrawatjalandr.getString("nm_pasien")+" ("+rsrawatjalandr.getString("kd_pj")+")",
                                      rsrawatjalandr.getString("nm_perawatan")+" ("+rsrawatjalandr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              rsrawatjalandrpr.beforeFirst();
                              while(rsrawatjalandrpr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandrpr.getString("tgl_perawatan")+" "+rsrawatjalandrpr.getString("jam_rawat"),rsrawatjalandrpr.getString("no_rawat"),rsrawatjalandrpr.getString("no_rkm_medis"),rsrawatjalandrpr.getString("nm_pasien")+" ("+rsrawatjalandrpr.getString("kd_pj")+")",
                                      rsrawatjalandrpr.getString("nm_perawatan")+" ("+rsrawatjalandrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -4847,7 +4847,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdr.getString("tgl_perawatan")+" "+rsrawatinapdr.getString("jam_rawat"),rsrawatinapdr.getString("no_rawat"),rsrawatinapdr.getString("no_rkm_medis"),rsrawatinapdr.getString("nm_pasien")+" ("+rsrawatinapdr.getString("kd_pj")+")",
                                      rsrawatinapdr.getString("nm_perawatan")+" ("+rsrawatinapdr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              rsrawatinapdrpr.beforeFirst();
@@ -4856,7 +4856,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdrpr.getString("tgl_perawatan")+" "+rsrawatinapdrpr.getString("jam_rawat"),rsrawatinapdrpr.getString("no_rawat"),rsrawatinapdrpr.getString("no_rkm_medis"),rsrawatinapdrpr.getString("nm_pasien")+" ("+rsrawatinapdrpr.getString("kd_pj")+")",
                                      rsrawatinapdrpr.getString("nm_perawatan")+" ("+rsrawatinapdrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -5002,7 +5002,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator1.getString("tgl_operasi"),rsbiayaoperator1.getString("no_rawat"),rsbiayaoperator1.getString("no_rkm_medis"),rsbiayaoperator1.getString("nm_pasien")+" ("+rsbiayaoperator1.getString("kd_pj")+")",
                                      rsbiayaoperator1.getString("nm_perawatan")+" ("+rsbiayaoperator1.getString("kode_paket")+")(Operator 1)",Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))
                                  });      
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2               
@@ -5012,7 +5012,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator2.getString("tgl_operasi"),rsbiayaoperator2.getString("no_rawat"),rsbiayaoperator2.getString("no_rkm_medis"),rsbiayaoperator2.getString("nm_pasien")+" ("+rsbiayaoperator2.getString("kd_pj")+")",
                                      rsbiayaoperator2.getString("nm_perawatan")+" ("+rsbiayaoperator2.getString("kode_paket")+")(Operator 2)",Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))
                                  });  
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3               
@@ -5022,7 +5022,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator3.getString("tgl_operasi"),rsbiayaoperator3.getString("no_rawat"),rsbiayaoperator3.getString("no_rkm_medis"),rsbiayaoperator3.getString("nm_pasien")+" ("+rsbiayaoperator3.getString("kd_pj")+")",
                                      rsbiayaoperator3.getString("nm_perawatan")+"  ("+rsbiayaoperator3.getString("kode_paket")+")(Operator 3)",Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))
                                  });       
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
@@ -5032,7 +5032,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anak.getString("tgl_operasi"),rsbiayadokter_anak.getString("no_rawat"),rsbiayadokter_anak.getString("no_rkm_medis"),rsbiayadokter_anak.getString("nm_pasien")+" ("+rsbiayadokter_anak.getString("kd_pj")+")",
                                      rsbiayadokter_anak.getString("nm_perawatan")+" ("+rsbiayadokter_anak.getString("kode_paket")+")(dr Anak)",Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))
                                  });    
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
@@ -5042,7 +5042,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anestesi.getString("tgl_operasi"),rsbiayadokter_anestesi.getString("no_rawat"),rsbiayadokter_anestesi.getString("no_rkm_medis"),rsbiayadokter_anestesi.getString("nm_pasien")+" ("+rsbiayadokter_anestesi.getString("kd_pj")+")",
                                      rsbiayadokter_anestesi.getString("nm_perawatan")+" ("+rsbiayadokter_anestesi.getString("kode_paket")+")(dr Anestesi)",Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))
                                  });      
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
@@ -5052,7 +5052,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_pjanak.getString("tgl_operasi"),rsbiaya_dokter_pjanak.getString("no_rawat"),rsbiaya_dokter_pjanak.getString("no_rkm_medis"),rsbiaya_dokter_pjanak.getString("nm_pasien")+" ("+rsbiaya_dokter_pjanak.getString("kd_pj")+")",
                                      rsbiaya_dokter_pjanak.getString("nm_perawatan")+" ("+rsbiaya_dokter_pjanak.getString("kode_paket")+")(dr Pj Anak)",Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))
                                  });    
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
@@ -5062,7 +5062,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_umum.getString("tgl_operasi"),rsbiaya_dokter_umum.getString("no_rawat"),rsbiaya_dokter_umum.getString("no_rkm_medis"),rsbiaya_dokter_umum.getString("nm_pasien")+" ("+rsbiaya_dokter_umum.getString("kd_pj")+")",
                                      rsbiaya_dokter_umum.getString("nm_perawatan")+" ("+rsbiaya_dokter_umum.getString("kode_paket")+")(dr Umum)",Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))
                                  });    
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -5141,7 +5141,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))
                                  });    
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -5189,7 +5189,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -5230,7 +5230,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))
                                  });        
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -5277,7 +5277,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -5319,7 +5319,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))
                                  });      
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -5358,7 +5358,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))
                                  });     
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -5376,7 +5376,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                        tabMode.addRow(new Object[]{"","","Total :","","","","",Valid.SetAngka(total)});                    
                     }              
                     i++;
-                    totaljm=totaljm+total;
+                    totaljm += total;
                  } 
             } catch (Exception e) {
                 System.out.println("Notifikasi Pasien : "+e);
@@ -5443,12 +5443,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              
                              while(rsrawatjalandr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_pasien")).append(" (").append(rsrawatjalandr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_perawatan")).append(" (").append(rsrawatjalandr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))).append("</td></tr>");               
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              while(rsrawatjalandrpr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_pasien")).append(" (").append(rsrawatjalandrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_perawatan")).append(" (").append(rsrawatjalandrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -5502,12 +5502,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsrawatinapdrpr=psrawatinapdrpr.executeQuery();
                              while(rsrawatinapdr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_pasien")).append(" (").append(rsrawatinapdr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_perawatan")).append(" (").append(rsrawatinapdr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))).append("</td></tr>");        
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              while(rsrawatinapdrpr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_pasien")).append(" (").append(rsrawatinapdrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_perawatan")).append(" (").append(rsrawatinapdrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -5637,43 +5637,43 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              //operator operasi1  
                              while(rsbiayaoperator1.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_pasien")).append(" (").append(rsbiayaoperator1.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_perawatan")).append(" (").append(rsbiayaoperator1.getString("kode_paket")).append(")(Operator 1)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2            
                              while(rsbiayaoperator2.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_pasien")).append(" (").append(rsbiayaoperator2.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_perawatan")).append(" (").append(rsbiayaoperator2.getString("kode_paket")).append(")(Operator 2)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3            
                              while(rsbiayaoperator3.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_pasien")).append(" (").append(rsbiayaoperator3.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_perawatan")).append(" (").append(rsbiayaoperator3.getString("kode_paket")).append(")(Operator 3)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))).append("</td></tr>");        
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
                              while(rsbiayadokter_anak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_pasien")).append(" (").append(rsbiayadokter_anak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anak.getString("kode_paket")).append(")(dr Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))).append("</td></tr>");
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
                              while(rsbiayadokter_anestesi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_pasien")).append(" (").append(rsbiayadokter_anestesi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anestesi.getString("kode_paket")).append(")(dr Anestesi)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))).append("</td></tr>");    
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
                              while(rsbiaya_dokter_pjanak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_pjanak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_pjanak.getString("kode_paket")).append(")(dr Pj Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
                              while(rsbiaya_dokter_umum.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_umum.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_umum.getString("kode_paket")).append(")(dr Umum)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -5743,7 +5743,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){       
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -5781,7 +5781,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))).append("</td></tr>");  
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -5813,7 +5813,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -5850,7 +5850,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))).append("</td></tr>");    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -5883,7 +5883,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -5913,7 +5913,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -5928,7 +5928,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     }               
 
                     htmlContent.append("<tr class='isi'><td valign='middle' align='left' colspan='6'>&nbsp;Total :</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");  
-                    totaljm=totaljm+total;
+                    totaljm += total;
                     
                     htmlContent.append(
                                 "</table><br>"+
@@ -6015,14 +6015,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              while(rsrawatjalandr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandr.getString("tgl_perawatan")+" "+rsrawatjalandr.getString("jam_rawat"),rsrawatjalandr.getString("no_rawat"),rsrawatjalandr.getString("no_rkm_medis"),rsrawatjalandr.getString("nm_pasien")+" ("+rsrawatjalandr.getString("kd_pj")+")",
                                      rsrawatjalandr.getString("nm_perawatan")+" ("+rsrawatjalandr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              rsrawatjalandrpr.beforeFirst();
                              while(rsrawatjalandrpr.next()){
                                  tabMode.addRow(new Object[]{"","","     "+rsrawatjalandrpr.getString("tgl_perawatan")+" "+rsrawatjalandrpr.getString("jam_rawat"),rsrawatjalandrpr.getString("no_rawat"),rsrawatjalandrpr.getString("no_rkm_medis"),rsrawatjalandrpr.getString("nm_pasien")+" ("+rsrawatjalandrpr.getString("kd_pj")+")",
                                      rsrawatjalandrpr.getString("nm_perawatan")+" ("+rsrawatjalandrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))});                   
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -6088,7 +6088,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdr.getString("tgl_perawatan")+" "+rsrawatinapdr.getString("jam_rawat"),rsrawatinapdr.getString("no_rawat"),rsrawatinapdr.getString("no_rkm_medis"),rsrawatinapdr.getString("nm_pasien")+" ("+rsrawatinapdr.getString("kd_pj")+")",
                                      rsrawatinapdr.getString("nm_perawatan")+" ("+rsrawatinapdr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              rsrawatinapdrpr.beforeFirst();
@@ -6097,7 +6097,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsrawatinapdrpr.getString("tgl_perawatan")+" "+rsrawatinapdrpr.getString("jam_rawat"),rsrawatinapdrpr.getString("no_rawat"),rsrawatinapdrpr.getString("no_rkm_medis"),rsrawatinapdrpr.getString("nm_pasien")+" ("+rsrawatinapdrpr.getString("kd_pj")+")",
                                      rsrawatinapdrpr.getString("nm_perawatan")+" ("+rsrawatinapdrpr.getString("kd_jenis_prw")+")",Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))
                                  });          
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -6243,7 +6243,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator1.getString("tgl_operasi"),rsbiayaoperator1.getString("no_rawat"),rsbiayaoperator1.getString("no_rkm_medis"),rsbiayaoperator1.getString("nm_pasien")+" ("+rsbiayaoperator1.getString("kd_pj")+")",
                                      rsbiayaoperator1.getString("nm_perawatan")+" ("+rsbiayaoperator1.getString("kode_paket")+")(Operator 1)",Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))
                                  });      
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2               
@@ -6253,7 +6253,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator2.getString("tgl_operasi"),rsbiayaoperator2.getString("no_rawat"),rsbiayaoperator2.getString("no_rkm_medis"),rsbiayaoperator2.getString("nm_pasien")+" ("+rsbiayaoperator2.getString("kd_pj")+")",
                                      rsbiayaoperator2.getString("nm_perawatan")+" ("+rsbiayaoperator2.getString("kode_paket")+")(Operator 2)",Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))
                                  });  
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3               
@@ -6263,7 +6263,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayaoperator3.getString("tgl_operasi"),rsbiayaoperator3.getString("no_rawat"),rsbiayaoperator3.getString("no_rkm_medis"),rsbiayaoperator3.getString("nm_pasien")+" ("+rsbiayaoperator3.getString("kd_pj")+")",
                                      rsbiayaoperator3.getString("nm_perawatan")+"  ("+rsbiayaoperator3.getString("kode_paket")+")(Operator 3)",Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))
                                  });       
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
@@ -6273,7 +6273,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anak.getString("tgl_operasi"),rsbiayadokter_anak.getString("no_rawat"),rsbiayadokter_anak.getString("no_rkm_medis"),rsbiayadokter_anak.getString("nm_pasien")+" ("+rsbiayadokter_anak.getString("kd_pj")+")",
                                      rsbiayadokter_anak.getString("nm_perawatan")+" ("+rsbiayadokter_anak.getString("kode_paket")+")(dr Anak)",Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))
                                  });    
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
@@ -6283,7 +6283,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiayadokter_anestesi.getString("tgl_operasi"),rsbiayadokter_anestesi.getString("no_rawat"),rsbiayadokter_anestesi.getString("no_rkm_medis"),rsbiayadokter_anestesi.getString("nm_pasien")+" ("+rsbiayadokter_anestesi.getString("kd_pj")+")",
                                      rsbiayadokter_anestesi.getString("nm_perawatan")+" ("+rsbiayadokter_anestesi.getString("kode_paket")+")(dr Anestesi)",Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))
                                  });      
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
@@ -6293,7 +6293,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_pjanak.getString("tgl_operasi"),rsbiaya_dokter_pjanak.getString("no_rawat"),rsbiaya_dokter_pjanak.getString("no_rkm_medis"),rsbiaya_dokter_pjanak.getString("nm_pasien")+" ("+rsbiaya_dokter_pjanak.getString("kd_pj")+")",
                                      rsbiaya_dokter_pjanak.getString("nm_perawatan")+" ("+rsbiaya_dokter_pjanak.getString("kode_paket")+")(dr Pj Anak)",Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))
                                  });    
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
@@ -6303,7 +6303,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsbiaya_dokter_umum.getString("tgl_operasi"),rsbiaya_dokter_umum.getString("no_rawat"),rsbiaya_dokter_umum.getString("no_rkm_medis"),rsbiaya_dokter_umum.getString("nm_pasien")+" ("+rsbiaya_dokter_umum.getString("kd_pj")+")",
                                      rsbiaya_dokter_umum.getString("nm_perawatan")+" ("+rsbiaya_dokter_umum.getString("kode_paket")+")(dr Umum)",Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))
                                  });    
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -6382,7 +6382,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))
                                  });    
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -6430,7 +6430,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -6471,7 +6471,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_lab.getString("tgl_periksa")+" "+rsperiksa_lab.getString("jam"),rsperiksa_lab.getString("no_rawat"),rsperiksa_lab.getString("no_rkm_medis"),rsperiksa_lab.getString("nm_pasien")+" ("+rsperiksa_lab.getString("kd_pj")+")",
                                      rsperiksa_lab.getString("nm_perawatan")+" ("+rsperiksa_lab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))
                                  });        
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -6518,7 +6518,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      rsdetaillab.getString("no_rawat"),rsdetaillab.getString("no_rkm_medis"),rsdetaillab.getString("nm_pasien")+" ("+rsdetaillab.getString("kd_pj")+")",
                                      rsdetaillab.getString("Pemeriksaan")+" ("+rsdetaillab.getString("kd_jenis_prw")+")",Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))
                                  });    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -6560,7 +6560,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))
                                  });      
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -6599,7 +6599,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                      "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("no_rawat"),rsperiksa_radiologi.getString("no_rkm_medis"),rsperiksa_radiologi.getString("nm_pasien")+" ("+rsperiksa_radiologi.getString("kd_pj")+")",
                                      rsperiksa_radiologi.getString("nm_perawatan")+" ("+rsperiksa_radiologi.getString("kd_jenis_prw")+")",Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))
                                  });     
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -6617,7 +6617,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                        tabMode.addRow(new Object[]{"","","Total :","","","","",Valid.SetAngka(total)});                    
                     }              
                     i++;
-                    totaljm=totaljm+total;
+                    totaljm += total;
                  } 
             } catch (Exception e) {
                 System.out.println("Notifikasi Pasien : "+e);
@@ -6684,12 +6684,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              
                              while(rsrawatjalandr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_pasien")).append(" (").append(rsrawatjalandr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandr.getString("nm_perawatan")).append(" (").append(rsrawatjalandr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandr.getDouble("tarif_tindakandr"))).append("</td></tr>");               
-                                 total=total+rsrawatjalandr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandr.getDouble("tarif_tindakandr");
                              }  
 
                              while(rsrawatjalandrpr.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("tgl_perawatan")).append(" ").append(rsrawatjalandrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatjalandrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_pasien")).append(" (").append(rsrawatjalandrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatjalandrpr.getString("nm_perawatan")).append(" (").append(rsrawatjalandrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Jalan</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatjalandrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatjalandrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatjalandrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi RJ : "+e);
@@ -6743,12 +6743,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsrawatinapdrpr=psrawatinapdrpr.executeQuery();
                              while(rsrawatinapdr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_pasien")).append(" (").append(rsrawatinapdr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdr.getString("nm_perawatan")).append(" (").append(rsrawatinapdr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdr.getDouble("tarif_tindakandr"))).append("</td></tr>");        
-                                 total=total+rsrawatinapdr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdr.getDouble("tarif_tindakandr");
                              }
 
                              while(rsrawatinapdrpr.next()){ 
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("tgl_perawatan")).append(" ").append(rsrawatinapdrpr.getString("jam_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsrawatinapdrpr.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_pasien")).append(" (").append(rsrawatinapdrpr.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsrawatinapdrpr.getString("nm_perawatan")).append(" (").append(rsrawatinapdrpr.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Rawat Inap</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsrawatinapdrpr.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
-                                 total=total+rsrawatinapdrpr.getDouble("tarif_tindakandr");
+                                 total += rsrawatinapdrpr.getDouble("tarif_tindakandr");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Ranap : "+e);
@@ -6878,43 +6878,43 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              //operator operasi1  
                              while(rsbiayaoperator1.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator1.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_pasien")).append(" (").append(rsbiayaoperator1.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator1.getString("nm_perawatan")).append(" (").append(rsbiayaoperator1.getString("kode_paket")).append(")(Operator 1)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator1.getDouble("biayaoperator1"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator1.getDouble("biayaoperator1");
+                                 total += rsbiayaoperator1.getDouble("biayaoperator1");
                              }
 
                              //operator operasi2            
                              while(rsbiayaoperator2.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_pasien")).append(" (").append(rsbiayaoperator2.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator2.getString("nm_perawatan")).append(" (").append(rsbiayaoperator2.getString("kode_paket")).append(")(Operator 2)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator2.getDouble("biayaoperator2"))).append("</td></tr>"); 
-                                 total=total+rsbiayaoperator2.getDouble("biayaoperator2");
+                                 total += rsbiayaoperator2.getDouble("biayaoperator2");
                              }
 
                              //operator operasi3            
                              while(rsbiayaoperator3.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayaoperator3.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_pasien")).append(" (").append(rsbiayaoperator3.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayaoperator3.getString("nm_perawatan")).append(" (").append(rsbiayaoperator3.getString("kode_paket")).append(")(Operator 3)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayaoperator3.getDouble("biayaoperator3"))).append("</td></tr>");        
-                                 total=total+rsbiayaoperator3.getDouble("biayaoperator3");
+                                 total += rsbiayaoperator3.getDouble("biayaoperator3");
                              }
 
                              //dr anak               
                              while(rsbiayadokter_anak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_pasien")).append(" (").append(rsbiayadokter_anak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anak.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anak.getString("kode_paket")).append(")(dr Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anak.getDouble("biayadokter_anak"))).append("</td></tr>");
-                                 total=total+rsbiayadokter_anak.getDouble("biayadokter_anak");
+                                 total += rsbiayadokter_anak.getDouble("biayadokter_anak");
                              }
 
                              //dr anasthesi              
                              while(rsbiayadokter_anestesi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiayadokter_anestesi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_pasien")).append(" (").append(rsbiayadokter_anestesi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiayadokter_anestesi.getString("nm_perawatan")).append(" (").append(rsbiayadokter_anestesi.getString("kode_paket")).append(")(dr Anestesi)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiayadokter_anestesi.getDouble("biayadokter_anestesi"))).append("</td></tr>");    
-                                 total=total+rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
+                                 total += rsbiayadokter_anestesi.getDouble("biayadokter_anestesi");
                              }
 
                              //dr pj anak               
                              while(rsbiaya_dokter_pjanak.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_pjanak.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_pjanak.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_pjanak.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_pjanak.getString("kode_paket")).append(")(dr Pj Anak)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
+                                 total += rsbiaya_dokter_pjanak.getDouble("biaya_dokter_pjanak");
                              }
 
                              //dr umum
                              while(rsbiaya_dokter_umum.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("tgl_operasi")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsbiaya_dokter_umum.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_pasien")).append(" (").append(rsbiaya_dokter_umum.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsbiaya_dokter_umum.getString("nm_perawatan")).append(" (").append(rsbiaya_dokter_umum.getString("kode_paket")).append(")(dr Umum)</td><td valign='middle' align='center'>Operasi/VK</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsbiaya_dokter_umum.getDouble("biaya_dokter_umum"))).append("</td></tr>");
-                                 total=total+rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
+                                 total += rsbiaya_dokter_umum.getDouble("biaya_dokter_umum");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Operasi : "+e);
@@ -6984,7 +6984,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab.executeQuery();
                              while(rsperiksa_lab.next()){       
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_lab.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Lab : "+e);
@@ -7022,7 +7022,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Pemeriksaan Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_dokter"))).append("</td></tr>");  
-                                 total=total+rsdetaillab.getDouble("bagian_dokter");
+                                 total += rsdetaillab.getDouble("bagian_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Lab : "+e);
@@ -7054,7 +7054,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_lab=psperiksa_lab2.executeQuery();
                              while(rsperiksa_lab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_lab.getString("tgl_periksa")).append(" ").append(rsperiksa_lab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_lab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_pasien")).append(" (").append(rsperiksa_lab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_lab.getString("nm_perawatan")).append(" (").append(rsperiksa_lab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_lab.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_lab.getDouble("tarif_perujuk");
+                                 total += rsperiksa_lab.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Lab : "+e);
@@ -7091,7 +7091,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsdetaillab=psdetaillab2.executeQuery();
                              while(rsdetaillab.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsdetaillab.getString("tgl_periksa")).append(" ").append(rsdetaillab.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsdetaillab.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsdetaillab.getString("nm_pasien")).append(" (").append(rsdetaillab.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsdetaillab.getString("Pemeriksaan")).append(" (").append(rsdetaillab.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Detail Perujuk Lab</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsdetaillab.getDouble("bagian_perujuk"))).append("</td></tr>");    
-                                 total=total+rsdetaillab.getDouble("bagian_perujuk");
+                                 total += rsdetaillab.getDouble("bagian_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Detail Perujuk : "+e);
@@ -7124,7 +7124,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Pemeriksaan Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
+                                 total += rsperiksa_radiologi.getDouble("tarif_tindakan_dokter");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Radiologi : "+e);
@@ -7154,7 +7154,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              rsperiksa_radiologi=psperiksa_radiologi2.executeQuery();
                              while(rsperiksa_radiologi.next()){
                                  htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("tgl_periksa")).append(" ").append(rsperiksa_radiologi.getString("jam")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rsperiksa_radiologi.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_pasien")).append(" (").append(rsperiksa_radiologi.getString("kd_pj")).append(")</td><td valign='middle' align='left'>").append(rsperiksa_radiologi.getString("nm_perawatan")).append(" (").append(rsperiksa_radiologi.getString("kd_jenis_prw")).append(")</td><td valign='middle' align='center'>Perujuk Radiologi</td><td valign='middle' align='right'>").append(Valid.SetAngka(rsperiksa_radiologi.getDouble("tarif_perujuk"))).append("</td></tr>");
-                                 total=total+rsperiksa_radiologi.getDouble("tarif_perujuk");
+                                 total += rsperiksa_radiologi.getDouble("tarif_perujuk");
                              }
                          } catch (Exception e) {
                              System.out.println("Notifikasi Perujuk Radiologi : "+e);
@@ -7169,7 +7169,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     }               
 
                     htmlContent.append("<tr class='isi'><td valign='middle' align='left' colspan='6'>&nbsp;Total :</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");  
-                    totaljm=totaljm+total;
+                    totaljm += total;
                     
                     htmlContent.append(
                                 "</table><br>"+

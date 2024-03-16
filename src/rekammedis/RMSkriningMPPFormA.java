@@ -191,12 +191,12 @@ public class RMSkriningMPPFormA extends javax.swing.JDialog {
         tbMasalahDetailMasalah.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        TDiagnosis.setDocument(new batasInput((int)150).getKata(TDiagnosis));
-        TKelompok.setDocument(new batasInput((int)150).getKata(TKelompok));
-        Assemen.setDocument(new batasInput((int)250).getKata(Assemen));
-        Identifikasi.setDocument(new batasInput((int)250).getKata(Identifikasi));
-        Perencanaan.setDocument(new batasInput((int)2000).getKata(Perencanaan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TDiagnosis.setDocument(new batasInput(150).getKata(TDiagnosis));
+        TKelompok.setDocument(new batasInput(150).getKata(TKelompok));
+        Assemen.setDocument(new batasInput(250).getKata(Assemen));
+        Identifikasi.setDocument(new batasInput(250).getKata(Identifikasi));
+        Perencanaan.setDocument(new batasInput(2000).getKata(Perencanaan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

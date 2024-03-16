@@ -991,7 +991,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         tabMode.addRow(new Object[]{"","Akun Aset",": "+rs.getString("akun_aset"),"PPN",":","","","","",Valid.SetAngka(rs.getDouble("ppn"))});
                         tabMode.addRow(new Object[]{"","","","Biaya Tambahan",":","","","","",Valid.SetAngka(rs.getDouble("meterai"))});
                         tabMode.addRow(new Object[]{"","","","Tagihan",":","","","","",Valid.SetAngka(rs.getDouble("tagihan"))});
-                        tagihan=tagihan+rs.getDouble("tagihan");
+                        tagihan += rs.getDouble("tagihan");
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
                     } finally{

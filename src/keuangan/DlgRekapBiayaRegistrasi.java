@@ -857,14 +857,14 @@ public class DlgRekapBiayaRegistrasi extends javax.swing.JDialog {
                             }
                         } 
                         
-                        totalbiaya=totalbiaya+rs.getDouble("biaya_reg");
+                        totalbiaya += rs.getDouble("biaya_reg");
                         htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(baris).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_ktp")).append("</td><td valign='middle' align='left'>").append(rs.getString("alamat")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(kddiangnosa).append(" ").append(diagnosa).append("</td>");
                         for(x=0;x<y;x++){
                             sesuai=0;
                             if(x==i){
                                 sesuai=1;
                             }
-                            jumlah[i]=jumlah[i]+sesuai;
+                            jumlah[i] += sesuai;
                             htmlContent.append("<td valign='middle' align='center'>").append(Integer.toString(sesuai).replaceAll("0","")).append("</td>");
                         } 
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(rs.getDouble("biaya_reg"))).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut")).append("</td></tr>");

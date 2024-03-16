@@ -236,10 +236,9 @@ public class grafiksqlttv extends JDialog {
              plot.add(subplot3,1 );
              plot.add(subplot4,1 );
              
-             JFreeChart result = new JFreeChart(
+             return new JFreeChart(
                      "",
                      new Font("Tahoma", Font.PLAIN,5 ), plot, true);
-             return result;
 
          }
 

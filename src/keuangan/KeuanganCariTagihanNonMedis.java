@@ -851,8 +851,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         nilaitagihan=0;
                         rs2=ps2.executeQuery();
                         while(rs2.next()){
-                            nilaitagihan=nilaitagihan+(rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
-                            totaltagihan=totaltagihan+(rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
+                            nilaitagihan += (rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
+                            totaltagihan += (rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
                             tabMode.addRow(new Object[]{
                                 "",rs2.getString("tgl_tempo"),rs2.getString("no_faktur"),rs2.getString("kode_suplier")+" "+rs2.getString("nama_suplier"),Valid.SetAngka((rs2.getDouble("tagihan")-rs2.getDouble("bayar")))
                             });

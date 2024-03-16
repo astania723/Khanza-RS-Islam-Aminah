@@ -146,30 +146,30 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
         JumlahSaudara.setDocument(new batasInput((byte)2).getKata(JumlahSaudara));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KekerasanYangDialami.setDocument(new batasInput((int)350).getKata(KekerasanYangDialami));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KekerasanYangDialami.setDocument(new batasInput(350).getKata(KekerasanYangDialami));
         TempatKejadian.setDocument(new batasInput((byte)40).getKata(TempatKejadian));
         LamaKekerasan.setDocument(new batasInput((byte)2).getKata(LamaKekerasan));
         JumlahSaudara.setDocument(new batasInput((byte)2).getKata(JumlahSaudara));
-        SeberapaSeringPenganiayaan.setDocument(new batasInput((int)150).getKata(SeberapaSeringPenganiayaan));
-        PemicuKekerasan.setDocument(new batasInput((int)150).getKata(PemicuKekerasan));
-        SiapaYangMelakukanKekerasan.setDocument(new batasInput((int)50).getKata(SiapaYangMelakukanKekerasan));
-        DampakYangTerjadi.setDocument(new batasInput((int)200).getKata(DampakYangTerjadi));
-        TandaYangDidapatkan.setDocument(new batasInput((int)350).getKata(TandaYangDidapatkan));
-        RiwayatKelainan.setDocument(new batasInput((int)50).getKata(RiwayatKelainan));
-        PemeriksaanKepala.setDocument(new batasInput((int)50).getKata(PemeriksaanKepala));
-        PemeriksaanThoraks.setDocument(new batasInput((int)50).getKata(PemeriksaanThoraks));
-        PemeriksaanLeher.setDocument(new batasInput((int)50).getKata(PemeriksaanLeher));
-        PemeriksaanAbdomen.setDocument(new batasInput((int)50).getKata(PemeriksaanAbdomen));
-        PemeriksaanGenitalia.setDocument(new batasInput((int)50).getKata(PemeriksaanGenitalia));
-        PemeriksaanEkstrimitasAtas.setDocument(new batasInput((int)50).getKata(PemeriksaanEkstrimitasAtas));
-        PemeriksaanEkstrimitasBawah.setDocument(new batasInput((int)50).getKata(PemeriksaanEkstrimitasBawah));
-        PemeriksaanAnus.setDocument(new batasInput((int)50).getKata(PemeriksaanAnus));
+        SeberapaSeringPenganiayaan.setDocument(new batasInput(150).getKata(SeberapaSeringPenganiayaan));
+        PemicuKekerasan.setDocument(new batasInput(150).getKata(PemicuKekerasan));
+        SiapaYangMelakukanKekerasan.setDocument(new batasInput(50).getKata(SiapaYangMelakukanKekerasan));
+        DampakYangTerjadi.setDocument(new batasInput(200).getKata(DampakYangTerjadi));
+        TandaYangDidapatkan.setDocument(new batasInput(350).getKata(TandaYangDidapatkan));
+        RiwayatKelainan.setDocument(new batasInput(50).getKata(RiwayatKelainan));
+        PemeriksaanKepala.setDocument(new batasInput(50).getKata(PemeriksaanKepala));
+        PemeriksaanThoraks.setDocument(new batasInput(50).getKata(PemeriksaanThoraks));
+        PemeriksaanLeher.setDocument(new batasInput(50).getKata(PemeriksaanLeher));
+        PemeriksaanAbdomen.setDocument(new batasInput(50).getKata(PemeriksaanAbdomen));
+        PemeriksaanGenitalia.setDocument(new batasInput(50).getKata(PemeriksaanGenitalia));
+        PemeriksaanEkstrimitasAtas.setDocument(new batasInput(50).getKata(PemeriksaanEkstrimitasAtas));
+        PemeriksaanEkstrimitasBawah.setDocument(new batasInput(50).getKata(PemeriksaanEkstrimitasBawah));
+        PemeriksaanAnus.setDocument(new batasInput(50).getKata(PemeriksaanAnus));
         
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

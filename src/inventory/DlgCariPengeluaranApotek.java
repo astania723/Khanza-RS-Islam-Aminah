@@ -1206,8 +1206,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         no=1;
                         subttl=0;
                         while(rs2.next()){
-                            subttl=subttl+rs2.getDouble("total");
-                            ttl=ttl+rs2.getDouble("total");
+                            subttl += rs2.getDouble("total");
+                            ttl += rs2.getDouble("total");
                             tabMode.addRow(new String[]{
                                 "",no+". B "+rs2.getString("no_batch")+", F "+rs2.getString("no_faktur"),rs2.getString("kode_brng")+", "+rs2.getString("nama_brng"),
                                 rs2.getString("nama"),rs2.getString("kode_sat"),df2.format(rs2.getDouble("harga_beli")),
@@ -1303,7 +1303,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         rs.getString("no_batch"),rs.getString("no_faktur"),df2.format(rs.getDouble("harga_beli")),
                         df2.format(rs.getDouble("jumlah")),df2.format(rs.getDouble("total"))
                     });
-                    ttl=ttl+rs.getDouble("total");
+                    ttl += rs.getDouble("total");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

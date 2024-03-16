@@ -700,44 +700,44 @@ public class DlgRekapPerShift extends javax.swing.JDialog {
                                 while(rsbilling.next()){
                                     switch (rsbilling.getString("status")) {
                                         case "Laborat":
-                                            ttlLaborat=ttlLaborat+rsbilling.getDouble("totalbiaya");
-                                            Laborat=Laborat+rsbilling.getDouble("totalbiaya");
+                                            ttlLaborat += rsbilling.getDouble("totalbiaya");
+                                            Laborat += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Radiologi":
-                                            ttlRadiologi=ttlRadiologi+rsbilling.getDouble("totalbiaya");
-                                            Radiologi=Radiologi+rsbilling.getDouble("totalbiaya");
+                                            ttlRadiologi += rsbilling.getDouble("totalbiaya");
+                                            Radiologi += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Operasi":
-                                            ttlOperasi=ttlOperasi+rsbilling.getDouble("totalbiaya");
-                                            Operasi=Operasi+rsbilling.getDouble("totalbiaya");
+                                            ttlOperasi += rsbilling.getDouble("totalbiaya");
+                                            Operasi += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Obat":
-                                            ttlObat=ttlObat+rsbilling.getDouble("totalbiaya");
-                                            Obat=Obat+rsbilling.getDouble("totalbiaya");
+                                            ttlObat += rsbilling.getDouble("totalbiaya");
+                                            Obat += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Ralan Dokter":
-                                            ttlRalan_Dokter=ttlRalan_Dokter+rsbilling.getDouble("totalbiaya");
-                                            Ralan_Dokter=Ralan_Dokter+rsbilling.getDouble("totalbiaya");
+                                            ttlRalan_Dokter += rsbilling.getDouble("totalbiaya");
+                                            Ralan_Dokter += rsbilling.getDouble("totalbiaya");
                                             break;     
                                         case "Ralan Dokter Paramedis":
-                                            ttlRalan_Dokter=ttlRalan_Dokter+rsbilling.getDouble("totalbiaya");
-                                            Ralan_Dokter_Paramedis=Ralan_Dokter_Paramedis+rsbilling.getDouble("totalbiaya");
+                                            ttlRalan_Dokter += rsbilling.getDouble("totalbiaya");
+                                            Ralan_Dokter_Paramedis += rsbilling.getDouble("totalbiaya");
                                             break;    
                                         case "Ralan Paramedis":
-                                            ttlRalan_Paramedis=ttlRalan_Paramedis+rsbilling.getDouble("totalbiaya");
-                                            Ralan_Paramedis=Ralan_Paramedis+rsbilling.getDouble("totalbiaya");
+                                            ttlRalan_Paramedis += rsbilling.getDouble("totalbiaya");
+                                            Ralan_Paramedis += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Tambahan":
-                                            ttlTambahan=ttlTambahan+rsbilling.getDouble("totalbiaya");
-                                            Tambahan=Tambahan+rsbilling.getDouble("totalbiaya");
+                                            ttlTambahan += rsbilling.getDouble("totalbiaya");
+                                            Tambahan += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Potongan":
-                                            ttlPotongan=ttlPotongan+rsbilling.getDouble("totalbiaya");
-                                            Potongan=Potongan+rsbilling.getDouble("totalbiaya");
+                                            ttlPotongan += rsbilling.getDouble("totalbiaya");
+                                            Potongan += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Registrasi":
-                                            ttlRegistrasi=ttlRegistrasi+rsbilling.getDouble("totalbiaya");
-                                            Registrasi=Registrasi+rsbilling.getDouble("totalbiaya");
+                                            ttlRegistrasi += rsbilling.getDouble("totalbiaya");
+                                            Registrasi += rsbilling.getDouble("totalbiaya");
                                             break;
                                     }                        
                                 }
@@ -842,76 +842,76 @@ public class DlgRekapPerShift extends javax.swing.JDialog {
                                 while(rsbilling.next()){
                                     switch (rsbilling.getString("status")) {
                                         case "Laborat":                    
-                                            ttlLaborat=ttlLaborat+rsbilling.getDouble("totalbiaya");
-                                            Laborat=Laborat+rsbilling.getDouble("totalbiaya");
+                                            ttlLaborat += rsbilling.getDouble("totalbiaya");
+                                            Laborat += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Radiologi":                    
-                                            ttlRadiologi=ttlRadiologi+rsbilling.getDouble("totalbiaya");
-                                            Radiologi=Radiologi+rsbilling.getDouble("totalbiaya");
+                                            ttlRadiologi += rsbilling.getDouble("totalbiaya");
+                                            Radiologi += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Operasi":                    
-                                            ttlOperasi=ttlOperasi+rsbilling.getDouble("totalbiaya");
-                                            Operasi=Operasi+rsbilling.getDouble("totalbiaya");
+                                            ttlOperasi += rsbilling.getDouble("totalbiaya");
+                                            Operasi += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Obat":                    
-                                            ttlObat=ttlObat+rsbilling.getDouble("totalbiaya");
-                                            Obat=Obat+rsbilling.getDouble("totalbiaya");
+                                            ttlObat += rsbilling.getDouble("totalbiaya");
+                                            Obat += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Ranap Dokter":
-                                            ttlRanap_Dokter=ttlRanap_Dokter+rsbilling.getDouble("totalbiaya");
-                                            Ranap_Dokter=Ranap_Dokter+rsbilling.getDouble("totalbiaya");
+                                            ttlRanap_Dokter += rsbilling.getDouble("totalbiaya");
+                                            Ranap_Dokter += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Ranap Dokter Paramedis":                    
-                                            ttlRanap_Dokter=ttlRanap_Dokter+rsbilling.getDouble("totalbiaya");
-                                            Ranap_Dokter_Paramedis=Ranap_Dokter_Paramedis+rsbilling.getDouble("totalbiaya");
+                                            ttlRanap_Dokter += rsbilling.getDouble("totalbiaya");
+                                            Ranap_Dokter_Paramedis += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Ranap Paramedis":                    
-                                            ttlRanap_Paramedis=ttlRanap_Paramedis+rsbilling.getDouble("totalbiaya");
-                                            Ranap_Paramedis=Ranap_Paramedis+rsbilling.getDouble("totalbiaya");
+                                            ttlRanap_Paramedis += rsbilling.getDouble("totalbiaya");
+                                            Ranap_Paramedis += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Ralan Dokter":                    
-                                            ttlRalan_Dokter=ttlRalan_Dokter+rsbilling.getDouble("totalbiaya");
-                                            Ralan_Dokter=Ralan_Dokter+rsbilling.getDouble("totalbiaya");
+                                            ttlRalan_Dokter += rsbilling.getDouble("totalbiaya");
+                                            Ralan_Dokter += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Ralan Dokter Paramedis":                    
-                                            ttlRalan_Dokter=ttlRalan_Dokter+rsbilling.getDouble("totalbiaya");
-                                            Ralan_Dokter_Paramedis=Ralan_Dokter_Paramedis+rsbilling.getDouble("totalbiaya");
+                                            ttlRalan_Dokter += rsbilling.getDouble("totalbiaya");
+                                            Ralan_Dokter_Paramedis += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Ralan Paramedis":
-                                            ttlRalan_Paramedis=ttlRalan_Paramedis+rsbilling.getDouble("totalbiaya");
-                                            Ralan_Paramedis=Ralan_Paramedis+rsbilling.getDouble("totalbiaya");
+                                            ttlRalan_Paramedis += rsbilling.getDouble("totalbiaya");
+                                            Ralan_Paramedis += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Tambahan":                    
-                                            ttlTambahan=ttlTambahan+rsbilling.getDouble("totalbiaya");
-                                            Tambahan=Tambahan+rsbilling.getDouble("totalbiaya");
+                                            ttlTambahan += rsbilling.getDouble("totalbiaya");
+                                            Tambahan += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Potongan":                    
-                                            ttlPotongan=ttlPotongan+rsbilling.getDouble("totalbiaya");
-                                            Potongan=Potongan+rsbilling.getDouble("totalbiaya");
+                                            ttlPotongan += rsbilling.getDouble("totalbiaya");
+                                            Potongan += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Kamar":                    
-                                            ttlKamar=ttlKamar+rsbilling.getDouble("totalbiaya");
-                                            Kamar=Kamar+rsbilling.getDouble("totalbiaya");
+                                            ttlKamar += rsbilling.getDouble("totalbiaya");
+                                            Kamar += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Registrasi":                    
-                                            ttlRegistrasi=ttlRegistrasi+rsbilling.getDouble("totalbiaya");
-                                            Registrasi=Registrasi+rsbilling.getDouble("totalbiaya");
+                                            ttlRegistrasi += rsbilling.getDouble("totalbiaya");
+                                            Registrasi += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Harian":                    
-                                            ttlHarian=ttlHarian+rsbilling.getDouble("totalbiaya");
-                                            Harian=Harian+rsbilling.getDouble("totalbiaya");
+                                            ttlHarian += rsbilling.getDouble("totalbiaya");
+                                            Harian += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Retur Obat":                    
-                                            ttlRetur_Obat=ttlRetur_Obat+rsbilling.getDouble("totalbiaya");
-                                            Retur_Obat=Retur_Obat+rsbilling.getDouble("totalbiaya");
+                                            ttlRetur_Obat += rsbilling.getDouble("totalbiaya");
+                                            Retur_Obat += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Resep Pulang":                    
-                                            ttlResep_Pulang=ttlResep_Pulang+rsbilling.getDouble("totalbiaya");
-                                            Resep_Pulang=Resep_Pulang+rsbilling.getDouble("totalbiaya");
+                                            ttlResep_Pulang += rsbilling.getDouble("totalbiaya");
+                                            Resep_Pulang += rsbilling.getDouble("totalbiaya");
                                             break;
                                         case "Service":                    
-                                            ttlService=ttlService+rsbilling.getDouble("totalbiaya");
-                                            Service=Service+rsbilling.getDouble("totalbiaya");
+                                            ttlService += rsbilling.getDouble("totalbiaya");
+                                            Service += rsbilling.getDouble("totalbiaya");
                                             break;
                                     }                        
                                 }
@@ -995,7 +995,7 @@ public class DlgRekapPerShift extends javax.swing.JDialog {
                         i=1;
                         all=0;
                         while(rsbilling.next()){
-                            all=all+rsbilling.getDouble("besar");
+                            all += rsbilling.getDouble("besar");
                             tabModePemasukan.addRow(new Object[]{
                                 i+". "+rsbilling.getString("tanggal"),rsbilling.getString("nama_kategori"),
                                 Valid.SetAngka(rsbilling.getDouble("besar")),rsbilling.getString("keterangan")
@@ -1058,7 +1058,7 @@ public class DlgRekapPerShift extends javax.swing.JDialog {
                         i=1;
                         all=0;
                         while(rsbilling.next()){
-                            all=all+rsbilling.getDouble("biaya");
+                            all += rsbilling.getDouble("biaya");
                             tabModePengeluaran.addRow(new Object[]{
                                 i+". "+rsbilling.getString("tanggal"),rsbilling.getString("nama_kategori"),
                                 Valid.SetAngka(rsbilling.getDouble("biaya")),rsbilling.getString("keterangan")

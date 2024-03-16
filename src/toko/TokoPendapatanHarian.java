@@ -520,9 +520,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 totalppn=0;
                 totalpenjualan=0;
                 while(rs.next()){
-                    total=total+rs.getDouble("ongkir");
-                    totalppn=totalppn+rs.getDouble("ppn");
-                    totalpenjualan=totalpenjualan+rs.getDouble("total");
+                    total += rs.getDouble("ongkir");
+                    totalppn += rs.getDouble("ppn");
+                    totalpenjualan += rs.getDouble("total");
                     tabMode.addRow(new Object[]{
                         rs.getString("tgl_jual"),rs.getString("nip"),rs.getString("nama"),rs.getDouble("ongkir"),rs.getDouble("ppn"),rs.getDouble("total")
                     });
@@ -572,10 +572,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 totalpiutang=0;
                 totalsisa=0;
                 while(rs.next()){
-                    totalongkir=totalongkir+rs.getDouble("ongkir");
-                    totaluangmuka=totaluangmuka+rs.getDouble("uangmuka");
-                    totalpiutang=totalpiutang+rs.getDouble("total");
-                    totalsisa=totalsisa+rs.getDouble("sisapiutang");
+                    totalongkir += rs.getDouble("ongkir");
+                    totaluangmuka += rs.getDouble("uangmuka");
+                    totalpiutang += rs.getDouble("total");
+                    totalsisa += rs.getDouble("sisapiutang");
                     tabMode2.addRow(new Object[]{
                         rs.getString("tgl_piutang"),rs.getString("nip"),rs.getString("nama"),rs.getDouble("ongkir"),rs.getDouble("uangmuka"),rs.getDouble("total"),rs.getDouble("sisapiutang")
                     });

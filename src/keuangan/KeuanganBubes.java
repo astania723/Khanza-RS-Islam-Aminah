@@ -551,8 +551,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             if(rs.next()){  
                                 switch (rs2.getString("balance")) {
                                     case "K":
-                                        saldoakhir=saldoakhir+(rs.getDouble("kredit")-rs.getDouble("debet"));
-                                        saldoawal=saldoawal+(rs.getDouble("kredit")-rs.getDouble("debet"));
+                                        saldoakhir += (rs.getDouble("kredit")-rs.getDouble("debet"));
+                                        saldoawal += (rs.getDouble("kredit")-rs.getDouble("debet"));
                                         break;
                                     case "D":
                                         saldoakhir=saldoakhir+rs.getDouble("debet")-rs.getDouble("kredit");
@@ -593,7 +593,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         while(rs.next()){  
                             switch (rs2.getString("balance")) {
                                 case "K":
-                                    saldoakhir=saldoakhir+(rs.getDouble("kredit")-rs.getDouble("debet"));
+                                    saldoakhir += (rs.getDouble("kredit")-rs.getDouble("debet"));
                                     break;
                                 case "D":
                                     saldoakhir=saldoakhir+rs.getDouble("debet")-rs.getDouble("kredit");

@@ -91,7 +91,7 @@ public class KeuanganRekapPengajuanBiaya extends javax.swing.JDialog {
         }
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
 
-        TCari.setDocument(new batasInput((int)200).getKata(TCari));
+        TCari.setDocument(new batasInput(200).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -440,31 +440,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     jmlnov=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id  where departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-11%");
                     jmldes=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id  where departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-12%");
                     
-                    ttljan=ttljan+jan;
-                    ttlfeb=ttlfeb+feb;
-                    ttlmar=ttlmar+mar;
-                    ttlapr=ttlapr+apr;
-                    ttlmei=ttlmei+mei;
-                    ttljun=ttljun+jun;
-                    ttljul=ttljul+jul;
-                    ttlagu=ttlagu+agu;
-                    ttlsep=ttlsep+sep;
-                    ttlokt=ttlokt+okt;
-                    ttlnov=ttlnov+nov;
-                    ttldes=ttldes+des;
+                    ttljan += jan;
+                    ttlfeb += feb;
+                    ttlmar += mar;
+                    ttlapr += apr;
+                    ttlmei += mei;
+                    ttljun += jun;
+                    ttljul += jul;
+                    ttlagu += agu;
+                    ttlsep += sep;
+                    ttlokt += okt;
+                    ttlnov += nov;
+                    ttldes += des;
                     
-                    ttljmljan=ttljmljan+jmljan;
-                    ttljmlfeb=ttljmlfeb+jmlfeb;
-                    ttljmlmar=ttljmlmar+jmlmar;
-                    ttljmlapr=ttljmlapr+jmlapr;
-                    ttljmlmei=ttljmlmei+jmlmei;
-                    ttljmljun=ttljmljun+jmljun;
-                    ttljmljul=ttljmljul+jmljul;
-                    ttljmlagu=ttljmlagu+jmlagu;
-                    ttljmlsep=ttljmlsep+jmlsep;
-                    ttljmlokt=ttljmlokt+jmlokt;
-                    ttljmlnov=ttljmlnov+jmlnov;
-                    ttljmldes=ttljmldes+jmldes;
+                    ttljmljan += jmljan;
+                    ttljmlfeb += jmlfeb;
+                    ttljmlmar += jmlmar;
+                    ttljmlapr += jmlapr;
+                    ttljmlmei += jmlmei;
+                    ttljmljun += jmljun;
+                    ttljmljul += jmljul;
+                    ttljmlagu += jmlagu;
+                    ttljmlsep += jmlsep;
+                    ttljmlokt += jmlokt;
+                    ttljmlnov += jmlnov;
+                    ttljmldes += jmldes;
                     
                     tabMode.addRow(new String[]{
                         "","  Pengajuan",jmljan+"("+Valid.SetAngka(jan)+")",jmlfeb+"("+Valid.SetAngka(feb)+")",jmlmar+"("+Valid.SetAngka(mar)+")",jmlapr+"("+Valid.SetAngka(apr)+")",jmlmei+"("+Valid.SetAngka(mei)+")",jmljun+"("+Valid.SetAngka(jun)+")",jmljul+"("+Valid.SetAngka(jul)+")",jmlagu+"("+Valid.SetAngka(agu)+")",jmlsep+"("+Valid.SetAngka(sep)+")",jmlokt+"("+Valid.SetAngka(okt)+")",jmlnov+"("+Valid.SetAngka(nov)+")",jmldes+"("+Valid.SetAngka(des)+")",
@@ -496,31 +496,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     jmlnovproses=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id  where pengajuan_biaya.status='Proses Pengajuan' and departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-11%");
                     jmldesproses=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id  where pengajuan_biaya.status='Proses Pengajuan' and departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-12%");
                     
-                    ttljanproses=ttljanproses+janproses;
-                    ttlfebproses=ttlfebproses+febproses;
-                    ttlmarproses=ttlmarproses+marproses;
-                    ttlaprproses=ttlaprproses+aprproses;
-                    ttlmeiproses=ttlmeiproses+meiproses;
-                    ttljunproses=ttljunproses+junproses;
-                    ttljulproses=ttljulproses+julproses;
-                    ttlaguproses=ttlaguproses+aguproses;
-                    ttlsepproses=ttlsepproses+sepproses;
-                    ttloktproses=ttloktproses+oktproses;
-                    ttlnovproses=ttlnovproses+novproses;
-                    ttldesproses=ttldesproses+desproses;
+                    ttljanproses += janproses;
+                    ttlfebproses += febproses;
+                    ttlmarproses += marproses;
+                    ttlaprproses += aprproses;
+                    ttlmeiproses += meiproses;
+                    ttljunproses += junproses;
+                    ttljulproses += julproses;
+                    ttlaguproses += aguproses;
+                    ttlsepproses += sepproses;
+                    ttloktproses += oktproses;
+                    ttlnovproses += novproses;
+                    ttldesproses += desproses;
                     
-                    ttljmljanproses=ttljmljanproses+jmljanproses;
-                    ttljmlfebproses=ttljmlfebproses+jmlfebproses;
-                    ttljmlmarproses=ttljmlmarproses+jmlmarproses;
-                    ttljmlaprproses=ttljmlaprproses+jmlaprproses;
-                    ttljmlmeiproses=ttljmlmeiproses+jmlmeiproses;
-                    ttljmljunproses=ttljmljunproses+jmljunproses;
-                    ttljmljulproses=ttljmljulproses+jmljulproses;
-                    ttljmlaguproses=ttljmlaguproses+jmlaguproses;
-                    ttljmlsepproses=ttljmlsepproses+jmlsepproses;
-                    ttljmloktproses=ttljmloktproses+jmloktproses;
-                    ttljmlnovproses=ttljmlnovproses+jmlnovproses;
-                    ttljmldesproses=ttljmldesproses+jmldesproses;
+                    ttljmljanproses += jmljanproses;
+                    ttljmlfebproses += jmlfebproses;
+                    ttljmlmarproses += jmlmarproses;
+                    ttljmlaprproses += jmlaprproses;
+                    ttljmlmeiproses += jmlmeiproses;
+                    ttljmljunproses += jmljunproses;
+                    ttljmljulproses += jmljulproses;
+                    ttljmlaguproses += jmlaguproses;
+                    ttljmlsepproses += jmlsepproses;
+                    ttljmloktproses += jmloktproses;
+                    ttljmlnovproses += jmlnovproses;
+                    ttljmldesproses += jmldesproses;
                     
                     tabMode.addRow(new String[]{
                         "","  Proses",jmljanproses+"("+Valid.SetAngka(janproses)+")",jmlfebproses+"("+Valid.SetAngka(febproses)+")",jmlmarproses+"("+Valid.SetAngka(marproses)+")",jmlaprproses+"("+Valid.SetAngka(aprproses)+")",jmlmeiproses+"("+Valid.SetAngka(meiproses)+")",jmljunproses+"("+Valid.SetAngka(junproses)+")",jmljulproses+"("+Valid.SetAngka(julproses)+")",jmlaguproses+"("+Valid.SetAngka(aguproses)+")",jmlsepproses+"("+Valid.SetAngka(sepproses)+")",jmloktproses+"("+Valid.SetAngka(oktproses)+")",jmlnovproses+"("+Valid.SetAngka(novproses)+")",jmldesproses+"("+Valid.SetAngka(desproses)+")",
@@ -552,31 +552,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     jmlnovdisetujui=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pengajuan_biaya_disetujui inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id and pengajuan_biaya_disetujui.no_pengajuan=pengajuan_biaya.no_pengajuan where departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-11%");
                     jmldesdisetujui=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pengajuan_biaya_disetujui inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id and pengajuan_biaya_disetujui.no_pengajuan=pengajuan_biaya.no_pengajuan where departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-12%");
                     
-                    ttljandisetujui=ttljandisetujui+jandisetujui;
-                    ttlfebdisetujui=ttlfebdisetujui+febdisetujui;
-                    ttlmardisetujui=ttlmardisetujui+mardisetujui;
-                    ttlaprdisetujui=ttlaprdisetujui+aprdisetujui;
-                    ttlmeidisetujui=ttlmeidisetujui+meidisetujui;
-                    ttljundisetujui=ttljundisetujui+jundisetujui;
-                    ttljuldisetujui=ttljuldisetujui+juldisetujui;
-                    ttlagudisetujui=ttlagudisetujui+agudisetujui;
-                    ttlsepdisetujui=ttlsepdisetujui+sepdisetujui;
-                    ttloktdisetujui=ttloktdisetujui+oktdisetujui;
-                    ttlnovdisetujui=ttlnovdisetujui+novdisetujui;
-                    ttldesdisetujui=ttldesdisetujui+desdisetujui;
+                    ttljandisetujui += jandisetujui;
+                    ttlfebdisetujui += febdisetujui;
+                    ttlmardisetujui += mardisetujui;
+                    ttlaprdisetujui += aprdisetujui;
+                    ttlmeidisetujui += meidisetujui;
+                    ttljundisetujui += jundisetujui;
+                    ttljuldisetujui += juldisetujui;
+                    ttlagudisetujui += agudisetujui;
+                    ttlsepdisetujui += sepdisetujui;
+                    ttloktdisetujui += oktdisetujui;
+                    ttlnovdisetujui += novdisetujui;
+                    ttldesdisetujui += desdisetujui;
                     
-                    ttljmljandisetujui=ttljmljandisetujui+jmljandisetujui;
-                    ttljmlfebdisetujui=ttljmlfebdisetujui+jmlfebdisetujui;
-                    ttljmlmardisetujui=ttljmlmardisetujui+jmlmardisetujui;
-                    ttljmlaprdisetujui=ttljmlaprdisetujui+jmlaprdisetujui;
-                    ttljmlmeidisetujui=ttljmlmeidisetujui+jmlmeidisetujui;
-                    ttljmljundisetujui=ttljmljundisetujui+jmljundisetujui;
-                    ttljmljuldisetujui=ttljmljuldisetujui+jmljuldisetujui;
-                    ttljmlagudisetujui=ttljmlagudisetujui+jmlagudisetujui;
-                    ttljmlsepdisetujui=ttljmlsepdisetujui+jmlsepdisetujui;
-                    ttljmloktdisetujui=ttljmloktdisetujui+jmloktdisetujui;
-                    ttljmlnovdisetujui=ttljmlnovdisetujui+jmlnovdisetujui;
-                    ttljmldesdisetujui=ttljmldesdisetujui+jmldesdisetujui;
+                    ttljmljandisetujui += jmljandisetujui;
+                    ttljmlfebdisetujui += jmlfebdisetujui;
+                    ttljmlmardisetujui += jmlmardisetujui;
+                    ttljmlaprdisetujui += jmlaprdisetujui;
+                    ttljmlmeidisetujui += jmlmeidisetujui;
+                    ttljmljundisetujui += jmljundisetujui;
+                    ttljmljuldisetujui += jmljuldisetujui;
+                    ttljmlagudisetujui += jmlagudisetujui;
+                    ttljmlsepdisetujui += jmlsepdisetujui;
+                    ttljmloktdisetujui += jmloktdisetujui;
+                    ttljmlnovdisetujui += jmlnovdisetujui;
+                    ttljmldesdisetujui += jmldesdisetujui;
                     
                     tabMode.addRow(new String[]{
                         "","  Disetujui",jmljandisetujui+"("+Valid.SetAngka(jandisetujui)+")",jmlfebdisetujui+"("+Valid.SetAngka(febdisetujui)+")",jmlmardisetujui+"("+Valid.SetAngka(mardisetujui)+")",jmlaprdisetujui+"("+Valid.SetAngka(aprdisetujui)+")",jmlmeidisetujui+"("+Valid.SetAngka(meidisetujui)+")",jmljundisetujui+"("+Valid.SetAngka(jundisetujui)+")",jmljuldisetujui+"("+Valid.SetAngka(juldisetujui)+")",jmlagudisetujui+"("+Valid.SetAngka(agudisetujui)+")",jmlsepdisetujui+"("+Valid.SetAngka(sepdisetujui)+")",jmloktdisetujui+"("+Valid.SetAngka(oktdisetujui)+")",jmlnovdisetujui+"("+Valid.SetAngka(novdisetujui)+")",jmldesdisetujui+"("+Valid.SetAngka(desdisetujui)+")",
@@ -608,31 +608,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     jmlnovdivalidasi=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pengajuan_biaya_disetujui inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id and pengajuan_biaya_disetujui.no_pengajuan=pengajuan_biaya.no_pengajuan where pengajuan_biaya.status='Divalidasi' and departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-11%");
                     jmldesdivalidasi=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pengajuan_biaya_disetujui inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id and pengajuan_biaya_disetujui.no_pengajuan=pengajuan_biaya.no_pengajuan where pengajuan_biaya.status='Divalidasi' and departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-12%");
                     
-                    ttljandivalidasi=ttljandivalidasi+jandivalidasi;
-                    ttlfebdivalidasi=ttlfebdivalidasi+febdivalidasi;
-                    ttlmardivalidasi=ttlmardivalidasi+mardivalidasi;
-                    ttlaprdivalidasi=ttlaprdivalidasi+aprdivalidasi;
-                    ttlmeidivalidasi=ttlmeidivalidasi+meidivalidasi;
-                    ttljundivalidasi=ttljundivalidasi+jundivalidasi;
-                    ttljuldivalidasi=ttljuldivalidasi+juldivalidasi;
-                    ttlagudivalidasi=ttlagudivalidasi+agudivalidasi;
-                    ttlsepdivalidasi=ttlsepdivalidasi+sepdivalidasi;
-                    ttloktdivalidasi=ttloktdivalidasi+oktdivalidasi;
-                    ttlnovdivalidasi=ttlnovdivalidasi+novdivalidasi;
-                    ttldesdivalidasi=ttldesdivalidasi+desdivalidasi;
+                    ttljandivalidasi += jandivalidasi;
+                    ttlfebdivalidasi += febdivalidasi;
+                    ttlmardivalidasi += mardivalidasi;
+                    ttlaprdivalidasi += aprdivalidasi;
+                    ttlmeidivalidasi += meidivalidasi;
+                    ttljundivalidasi += jundivalidasi;
+                    ttljuldivalidasi += juldivalidasi;
+                    ttlagudivalidasi += agudivalidasi;
+                    ttlsepdivalidasi += sepdivalidasi;
+                    ttloktdivalidasi += oktdivalidasi;
+                    ttlnovdivalidasi += novdivalidasi;
+                    ttldesdivalidasi += desdivalidasi;
                     
-                    ttljmljandivalidasi=ttljmljandivalidasi+jmljandivalidasi;
-                    ttljmlfebdivalidasi=ttljmlfebdivalidasi+jmlfebdivalidasi;
-                    ttljmlmardivalidasi=ttljmlmardivalidasi+jmlmardivalidasi;
-                    ttljmlaprdivalidasi=ttljmlaprdivalidasi+jmlaprdivalidasi;
-                    ttljmlmeidivalidasi=ttljmlmeidivalidasi+jmlmeidivalidasi;
-                    ttljmljundivalidasi=ttljmljundivalidasi+jmljundivalidasi;
-                    ttljmljuldivalidasi=ttljmljuldivalidasi+jmljuldivalidasi;
-                    ttljmlagudivalidasi=ttljmlagudivalidasi+jmlagudivalidasi;
-                    ttljmlsepdivalidasi=ttljmlsepdivalidasi+jmlsepdivalidasi;
-                    ttljmloktdivalidasi=ttljmloktdivalidasi+jmloktdivalidasi;
-                    ttljmlnovdivalidasi=ttljmlnovdivalidasi+jmlnovdivalidasi;
-                    ttljmldesdivalidasi=ttljmldesdivalidasi+jmldesdivalidasi;
+                    ttljmljandivalidasi += jmljandivalidasi;
+                    ttljmlfebdivalidasi += jmlfebdivalidasi;
+                    ttljmlmardivalidasi += jmlmardivalidasi;
+                    ttljmlaprdivalidasi += jmlaprdivalidasi;
+                    ttljmlmeidivalidasi += jmlmeidivalidasi;
+                    ttljmljundivalidasi += jmljundivalidasi;
+                    ttljmljuldivalidasi += jmljuldivalidasi;
+                    ttljmlagudivalidasi += jmlagudivalidasi;
+                    ttljmlsepdivalidasi += jmlsepdivalidasi;
+                    ttljmloktdivalidasi += jmloktdivalidasi;
+                    ttljmlnovdivalidasi += jmlnovdivalidasi;
+                    ttljmldesdivalidasi += jmldesdivalidasi;
                     
                     tabMode.addRow(new String[]{
                         "","  Divalidasi",jmljandivalidasi+"("+Valid.SetAngka(jandivalidasi)+")",jmlfebdivalidasi+"("+Valid.SetAngka(febdivalidasi)+")",jmlmardivalidasi+"("+Valid.SetAngka(mardivalidasi)+")",jmlaprdivalidasi+"("+Valid.SetAngka(aprdivalidasi)+")",jmlmeidivalidasi+"("+Valid.SetAngka(meidivalidasi)+")",jmljundivalidasi+"("+Valid.SetAngka(jundivalidasi)+")",jmljuldivalidasi+"("+Valid.SetAngka(juldivalidasi)+")",jmlagudivalidasi+"("+Valid.SetAngka(agudivalidasi)+")",jmlsepdivalidasi+"("+Valid.SetAngka(sepdivalidasi)+")",jmloktdivalidasi+"("+Valid.SetAngka(oktdivalidasi)+")",jmlnovdivalidasi+"("+Valid.SetAngka(novdivalidasi)+")",jmldesdivalidasi+"("+Valid.SetAngka(desdivalidasi)+")",
@@ -664,31 +664,31 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     jmlnovditolak=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id  where pengajuan_biaya.status='Ditolak' and departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-11%");
                     jmldesditolak=Sequel.cariInteger("select count(departemen.dep_id) as jumlah from pengajuan_biaya inner join pegawai inner join departemen on pengajuan_biaya.nik=pegawai.nik and pegawai.departemen=departemen.dep_id  where pengajuan_biaya.status='Ditolak' and departemen.dep_id=? and tanggal like ?",rs.getString("dep_id"),"%"+ThnCari.getSelectedItem()+"-12%");
                     
-                    ttljanditolak=ttljanditolak+janditolak;
-                    ttlfebditolak=ttlfebditolak+febditolak;
-                    ttlmarditolak=ttlmarditolak+marditolak;
-                    ttlaprditolak=ttlaprditolak+aprditolak;
-                    ttlmeiditolak=ttlmeiditolak+meiditolak;
-                    ttljunditolak=ttljunditolak+junditolak;
-                    ttljulditolak=ttljulditolak+julditolak;
-                    ttlaguditolak=ttlaguditolak+aguditolak;
-                    ttlsepditolak=ttlsepditolak+sepditolak;
-                    ttloktditolak=ttloktditolak+oktditolak;
-                    ttlnovditolak=ttlnovditolak+novditolak;
-                    ttldesditolak=ttldesditolak+desditolak;
+                    ttljanditolak += janditolak;
+                    ttlfebditolak += febditolak;
+                    ttlmarditolak += marditolak;
+                    ttlaprditolak += aprditolak;
+                    ttlmeiditolak += meiditolak;
+                    ttljunditolak += junditolak;
+                    ttljulditolak += julditolak;
+                    ttlaguditolak += aguditolak;
+                    ttlsepditolak += sepditolak;
+                    ttloktditolak += oktditolak;
+                    ttlnovditolak += novditolak;
+                    ttldesditolak += desditolak;
                     
-                    ttljmljanditolak=ttljmljanditolak+jmljanditolak;
-                    ttljmlfebditolak=ttljmlfebditolak+jmlfebditolak;
-                    ttljmlmarditolak=ttljmlmarditolak+jmlmarditolak;
-                    ttljmlaprditolak=ttljmlaprditolak+jmlaprditolak;
-                    ttljmlmeiditolak=ttljmlmeiditolak+jmlmeiditolak;
-                    ttljmljunditolak=ttljmljunditolak+jmljunditolak;
-                    ttljmljulditolak=ttljmljulditolak+jmljulditolak;
-                    ttljmlaguditolak=ttljmlaguditolak+jmlaguditolak;
-                    ttljmlsepditolak=ttljmlsepditolak+jmlsepditolak;
-                    ttljmloktditolak=ttljmloktditolak+jmloktditolak;
-                    ttljmlnovditolak=ttljmlnovditolak+jmlnovditolak;
-                    ttljmldesditolak=ttljmldesditolak+jmldesditolak;
+                    ttljmljanditolak += jmljanditolak;
+                    ttljmlfebditolak += jmlfebditolak;
+                    ttljmlmarditolak += jmlmarditolak;
+                    ttljmlaprditolak += jmlaprditolak;
+                    ttljmlmeiditolak += jmlmeiditolak;
+                    ttljmljunditolak += jmljunditolak;
+                    ttljmljulditolak += jmljulditolak;
+                    ttljmlaguditolak += jmlaguditolak;
+                    ttljmlsepditolak += jmlsepditolak;
+                    ttljmloktditolak += jmloktditolak;
+                    ttljmlnovditolak += jmlnovditolak;
+                    ttljmldesditolak += jmldesditolak;
                     
                     tabMode.addRow(new String[]{
                         "","  Ditolak",jmljanditolak+"("+Valid.SetAngka(janditolak)+")",jmlfebditolak+"("+Valid.SetAngka(febditolak)+")",jmlmarditolak+"("+Valid.SetAngka(marditolak)+")",jmlaprditolak+"("+Valid.SetAngka(aprditolak)+")",jmlmeiditolak+"("+Valid.SetAngka(meiditolak)+")",jmljunditolak+"("+Valid.SetAngka(junditolak)+")",jmljulditolak+"("+Valid.SetAngka(julditolak)+")",jmlaguditolak+"("+Valid.SetAngka(aguditolak)+")",jmlsepditolak+"("+Valid.SetAngka(sepditolak)+")",jmloktditolak+"("+Valid.SetAngka(oktditolak)+")",jmlnovditolak+"("+Valid.SetAngka(novditolak)+")",jmldesditolak+"("+Valid.SetAngka(desditolak)+")",

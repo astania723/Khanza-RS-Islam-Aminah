@@ -80,8 +80,8 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
         setSize(628,674);
 
         
-        NoKartu.setDocument(new batasInput((int)100).getKata(NoKartu));
-        KdDPJPLayanan.setDocument(new batasInput((int)100).getKata(KdDPJPLayanan));
+        NoKartu.setDocument(new batasInput(100).getKata(NoKartu));
+        KdDPJPLayanan.setDocument(new batasInput(100).getKata(KdDPJPLayanan));
         
         try {
             link=koneksiDB.URLAPIICARE();

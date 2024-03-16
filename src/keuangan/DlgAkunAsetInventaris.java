@@ -35,7 +35,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public class DlgAkunAsetInventaris extends javax.swing.JDialog {
+public final class DlgAkunAsetInventaris extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -92,7 +92,7 @@ public class DlgAkunAsetInventaris extends javax.swing.JDialog {
         tbJadwal.setDefaultRenderer(Object.class, new WarnaTable());
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         kdrek.setDocument(new batasInput((byte)15).getKata(kdrek));
-        kdjenis.setDocument(new batasInput((int)10).getKata(kdjenis));
+        kdjenis.setDocument(new batasInput(10).getKata(kdjenis));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

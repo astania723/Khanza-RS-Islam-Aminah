@@ -112,10 +112,10 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));    
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));  
         NoSurat.setDocument(new batasInput((byte)20).getKata(NoSurat));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         NamaPJ.setDocument(new batasInput((byte)50).getKata(NamaPJ));
         NoKTP.setDocument(new batasInput((byte)20).getKata(NoKTP));
-        AlamatPj.setDocument(new batasInput((int)100).getKata(AlamatPj));  
+        AlamatPj.setDocument(new batasInput(100).getKata(AlamatPj));  
         TempatLahir.setDocument(new batasInput((byte)20).getKata(TempatLahir));  
         NoTelp.setDocument(new batasInput((byte)30).getKata(NoTelp));    
         

@@ -480,8 +480,8 @@ public class GrafikInventarisPerProdusen extends javax.swing.JDialog {
                 total=0;
                 totalaset=0;
                 while(rs.next()){
-                    total=total+rs.getDouble("jumlah");
-                    totalaset=totalaset+rs.getDouble("harga");
+                    total += rs.getDouble("jumlah");
+                    totalaset += rs.getDouble("harga");
                     tabMode.addRow(new Object[]{rs.getString(3)+" ("+rs.getString(1)+")",rs.getString(2),"",rs.getDouble(4),""});
                 }
                 if(tabMode.getRowCount()>0){

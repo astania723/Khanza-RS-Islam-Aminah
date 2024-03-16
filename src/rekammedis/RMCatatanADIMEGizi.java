@@ -110,13 +110,13 @@ public class RMCatatanADIMEGizi extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdPetugas.setDocument(new batasInput((byte)20).getKata(KdPetugas));
-        Asesmen.setDocument(new batasInput((int)1000).getKata(Asesmen));
-        Diagnosis.setDocument(new batasInput((int)1000).getKata(Diagnosis));
-        Intervensi.setDocument(new batasInput((int)1000).getKata(Intervensi));
-        Monitoring.setDocument(new batasInput((int)1000).getKata(Monitoring));
-        Evaluasi.setDocument(new batasInput((int)1000).getKata(Evaluasi));
-        Instruksi.setDocument(new batasInput((int)1000).getKata(Instruksi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Asesmen.setDocument(new batasInput(1000).getKata(Asesmen));
+        Diagnosis.setDocument(new batasInput(1000).getKata(Diagnosis));
+        Intervensi.setDocument(new batasInput(1000).getKata(Intervensi));
+        Monitoring.setDocument(new batasInput(1000).getKata(Monitoring));
+        Evaluasi.setDocument(new batasInput(1000).getKata(Evaluasi));
+        Instruksi.setDocument(new batasInput(1000).getKata(Instruksi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

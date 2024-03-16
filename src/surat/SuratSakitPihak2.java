@@ -112,7 +112,7 @@ public class SuratSakitPihak2 extends javax.swing.JDialog {
         LamaSakit.setDocument(new batasInput((byte)20).getKata(LamaSakit));         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         NamaPihak2.setDocument(new batasInput((byte)50).getKata(NamaPihak2));
-        AlamatPj.setDocument(new batasInput((int)200).getKata(AlamatPj));  
+        AlamatPj.setDocument(new batasInput(200).getKata(AlamatPj));  
         Instansi.setDocument(new batasInput((byte)50).getKata(Instansi));  
         TUmurTh.setDocument(new batasInput((byte)4).getKata(TUmurTh));    
         TUmurBl.setDocument(new batasInput((byte)4).getKata(TUmurBl));    

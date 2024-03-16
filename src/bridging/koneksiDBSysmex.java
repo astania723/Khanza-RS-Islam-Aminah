@@ -21,7 +21,6 @@ public class koneksiDBSysmex {
     private static final Properties prop = new Properties();  
     private static final MysqlDataSource dataSource=new MysqlDataSource();
     
-    public koneksiDBSysmex(){} 
     public static Connection condb(){ 
         if(connection == null){
             try{
@@ -37,5 +36,6 @@ public class koneksiDBSysmex {
         }
         return connection;        
     }
+    public koneksiDBSysmex(){}
     
 }

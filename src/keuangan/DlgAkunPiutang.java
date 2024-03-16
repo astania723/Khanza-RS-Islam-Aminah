@@ -38,7 +38,7 @@ import simrskhanza.DlgCariCaraBayar;
  *
  * @author dosen
  */
-public class DlgAkunPiutang extends javax.swing.JDialog {
+public final class DlgAkunPiutang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -57,17 +57,17 @@ public class DlgAkunPiutang extends javax.swing.JDialog {
 
         Object[] row={"P","Nama Akun","Kode Rekening","Nama Rekening","Cara Bayar","Kode Bayar"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                  java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                  java.lang.Object.class, java.lang.Object.class                 
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -100,7 +100,7 @@ public class DlgAkunPiutang extends javax.swing.JDialog {
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         nama.setDocument(new batasInput((byte)50).getKata(nama));
         kdrek.setDocument(new batasInput((byte)15).getKata(kdrek));
-        kdpnj.setDocument(new batasInput((int)3).getKata(kdpnj));
+        kdpnj.setDocument(new batasInput(3).getKata(kdpnj));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

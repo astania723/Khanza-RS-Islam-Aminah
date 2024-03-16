@@ -56,8 +56,9 @@ public class CommTest
 						outStream = serialPort.getOutputStream();
 						serialPort.enableReceiveTimeout(1000);
 						c = inStream.read();
-						while (c != -1)
-							c = inStream.read();
+						while (c != -1) {
+                                                    c = inStream.read();
+                                                }
 						outStream.write('A');
 						outStream.write('T');
 						outStream.write('\r');

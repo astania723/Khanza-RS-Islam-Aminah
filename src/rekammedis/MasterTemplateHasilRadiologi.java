@@ -1,10 +1,10 @@
 package rekammedis;
 import fungsi.WarnaTable;
-import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
+import fungsi.akses;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -471,7 +471,7 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 }//GEN-LAST:event_tbDokterKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(Nm.getText().trim().isEmpty()){
+        if(Nm.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Pilih dulu data yang akan Anda hapus dengan menklik data pada tabel...!!!");
             tbDokter.requestFocus();
         }else{
@@ -494,11 +494,11 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(Kd.getText().trim().isEmpty()){
+        if(Kd.getText().trim().equals("")){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Nm.getText().trim().isEmpty()){
+        }else if(Nm.getText().trim().equals("")){
             Valid.textKosong(Nm,"Nama Pemeriksaan");
-        }else if(Template.getText().trim().isEmpty()){
+        }else if(Template.getText().trim().equals("")){
             Valid.textKosong(Template,"Template Hasil Radiologi");
         }else{
             if(Valid.editTabletf(tabMode,"template_hasil_radiologi","no_template","?","no_template=?,nama_pemeriksaan=?,template_hasil_radiologi=?",4,new String[]{
@@ -543,11 +543,11 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(Kd.getText().trim().isEmpty()){
+        if(Kd.getText().trim().equals("")){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Nm.getText().trim().isEmpty()){
+        }else if(Nm.getText().trim().equals("")){
             Valid.textKosong(Nm,"Nama Pemeriksaan");
-        }else if(Template.getText().trim().isEmpty()){
+        }else if(Template.getText().trim().equals("")){
             Valid.textKosong(Template,"Template Hasil Radiologi");
         }else{
             if(Sequel.menyimpantf("template_hasil_radiologi","?,?,?","No.Template",3,new String[]{

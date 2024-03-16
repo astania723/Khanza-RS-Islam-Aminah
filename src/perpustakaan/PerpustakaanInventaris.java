@@ -1360,7 +1360,7 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
                         rs.getString("asal_buku"),rs.getString("tgl_pengadaan"),rs.getString("harga"),
                         rs.getString("status_buku"),rs.getString("nm_ruang"),rs.getString("no_rak"),rs.getString("no_box")
                     });
-                    nilai_inven=nilai_inven+rs.getDouble("harga");
+                    nilai_inven += rs.getDouble("harga");
                 }
             }catch(Exception e){
                 System.out.println("Notifikasi : "+e);

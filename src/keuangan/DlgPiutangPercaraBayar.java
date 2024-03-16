@@ -539,10 +539,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rspiutang=pspiutang.executeQuery();               
                         subttlpiutang=0;subttlsisapiutang=0;
                         while(rspiutang.next()){
-                            subttlpiutang=subttlpiutang+rspiutang.getDouble("totalpiutang");
-                            ttlpiutang=ttlpiutang+rspiutang.getDouble("totalpiutang");
-                            subttlsisapiutang=subttlsisapiutang+rspiutang.getDouble("sisapiutang");
-                            ttlsisapiutang=ttlsisapiutang+rspiutang.getDouble("sisapiutang");
+                            subttlpiutang += rspiutang.getDouble("totalpiutang");
+                            ttlpiutang += rspiutang.getDouble("totalpiutang");
+                            subttlsisapiutang += rspiutang.getDouble("sisapiutang");
+                            ttlsisapiutang += rspiutang.getDouble("sisapiutang");
                             tabMode.addRow(new Object[]{
                                 "",a+". "+rspiutang.getString("no_rawat")+" "+rspiutang.getString("pasien"),rspiutang.getString("tgl_piutang"),rspiutang.getDouble("totalpiutang"),rspiutang.getDouble("sisapiutang"),rspiutang.getString("tgltempo")
                             });

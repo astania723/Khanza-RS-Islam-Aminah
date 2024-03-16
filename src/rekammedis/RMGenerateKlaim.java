@@ -3505,7 +3505,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             "</tr>");
                             total=0;
                             while(rs2.next()){
-                                total=total+rs2.getDouble(8);
+                                total += rs2.getDouble(8);
                                 htmlContent.append(
                                         "<tr class='isi12' padding='0'>"+
                                                 "<td padding='0' width='18%'><font color='111111'  face='Tahoma'>"+rs2.getString(1)+"</td>"+ 
@@ -3809,7 +3809,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya_rawat"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya_rawat");
+                                    biayaperawatan += rs2.getDouble("biaya_rawat");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -3855,7 +3855,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya_rawat"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya_rawat");
+                                    biayaperawatan += rs2.getDouble("biaya_rawat");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -3904,7 +3904,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya_rawat"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya_rawat");
+                                    biayaperawatan += rs2.getDouble("biaya_rawat");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -3952,7 +3952,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya_rawat"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya_rawat");
+                                    biayaperawatan += rs2.getDouble("biaya_rawat");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4000,7 +4000,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya_rawat"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya_rawat");
+                                    biayaperawatan += rs2.getDouble("biaya_rawat");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4050,7 +4050,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya_rawat"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya_rawat");
+                                    biayaperawatan += rs2.getDouble("biaya_rawat");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4100,7 +4100,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("ttl_biaya"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("ttl_biaya");
+                                    biayaperawatan += rs2.getDouble("ttl_biaya");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4232,7 +4232,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+                                    biayaperawatan += rs2.getDouble("total");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4351,7 +4351,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya");
+                                    biayaperawatan += rs2.getDouble("biaya");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4495,7 +4495,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                                 ); 
                                             }
                                                 
-                                            biayaperawatan=biayaperawatan+rs2.getDouble("biaya");
+                                            biayaperawatan += rs2.getDouble("biaya");
                                             
                                             try {
                                                 rs3=koneksi.prepareStatement(
@@ -4530,7 +4530,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                                                "<td valign='top'>"+rs3.getString("nilai_rujukan")+"</td>"+
                                                                "<td valign='top' align='right'>"+Valid.SetAngka(rs3.getDouble("biaya_item"))+"</td>"+
                                                             "</tr>"); 
-                                                        biayaperawatan=biayaperawatan+rs3.getDouble("biaya_item");
+                                                        biayaperawatan += rs3.getDouble("biaya_item");
                                                     }                                               
                                                 }
                                             } catch (Exception e) {
@@ -4619,7 +4619,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("biaya"))+"</td>"+
                                          "</tr>"
                                     ); 
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("biaya");
+                                    biayaperawatan += rs2.getDouble("biaya");
                                     try {
                                         rs3=koneksi.prepareStatement(
                                             "select diagnosa_klinik,makroskopik,mikroskopik,kesimpulan,kesan from detail_periksa_labpa "+
@@ -4727,7 +4727,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+                                    biayaperawatan += rs2.getDouble("total");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4769,7 +4769,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+                                    biayaperawatan += rs2.getDouble("total");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4816,7 +4816,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+                                    biayaperawatan += rs2.getDouble("total");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4863,7 +4863,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+                                    biayaperawatan += rs2.getDouble("total");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4903,7 +4903,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("besar_biaya"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("besar_biaya");
+                                    biayaperawatan += rs2.getDouble("besar_biaya");
                                 }
                                 htmlContent.append(
                                   "</table>");
@@ -4943,7 +4943,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("besar_pengurangan"))+"</td>"+
                                          "</tr>"); 
                                     w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("besar_pengurangan");
+                                    biayaperawatan += rs2.getDouble("besar_pengurangan");
                                 }
                                 htmlContent.append(
                                   "</table>");

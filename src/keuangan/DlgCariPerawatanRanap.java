@@ -929,12 +929,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                             
                                             if(sukses==true){
-                                                ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                                ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
-                                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,4).toString());
-                                                ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,5).toString());
-                                                ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,6).toString());
-                                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                                ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                                ttlkso += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                                ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,4).toString());
+                                                ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,5).toString());
+                                                ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,6).toString());
+                                                ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
                                                 
                                                 if(aktifpcare.equals("yes")){
                                                     simpanTindakanPCare(
@@ -971,12 +971,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                             
                                             if(sukses==true){
-                                                ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                                ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
-                                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,4).toString());
-                                                ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,5).toString());
-                                                ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,6).toString());
-                                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                                ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                                ttlkso += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                                ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,4).toString());
+                                                ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,5).toString());
+                                                ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,6).toString());
+                                                ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
                                                 
                                                 if(aktifpcare.equals("yes")){
                                                     simpanTindakanPCare(
@@ -1015,13 +1015,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                             
                                             if(sukses==true){
-                                                ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                                ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                                ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
-                                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,4).toString());
-                                                ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,5).toString());
-                                                ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,6).toString());
-                                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                                ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                                ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                                ttlkso += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                                ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,4).toString());
+                                                ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,5).toString());
+                                                ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,6).toString());
+                                                ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
                                                 
                                                 if(aktifpcare.equals("yes")){
                                                     simpanTindakanPCare(

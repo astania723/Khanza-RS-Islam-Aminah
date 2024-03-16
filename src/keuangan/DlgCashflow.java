@@ -339,7 +339,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     debkred=debkred*(-1);
                 }*/;
                 
-                kasawal=kasawal+debkred;
+                kasawal += debkred;
                 if(!(debkred==0)){
                     tabMode.addRow(new Object[]{"",i+". "+rs.getString(1)+" "+rs.getString(2),df2.format(debkred)});  
                     i++;
@@ -388,7 +388,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     debkred=debkred*(-1);
                 }*/
                 
-                penerimaan=penerimaan+debkred;
+                penerimaan += debkred;
                 tabMode.addRow(new Object[]{"",i+". "+rs.getString(1)+" "+rs.getString(2),df2.format(debkred)});  
                 i++;
             } 
@@ -442,7 +442,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     debkred=debkred*(-1);
                 }*/
                 
-                pengeluaran=pengeluaran+debkred;                
+                pengeluaran += debkred;                
                 tabMode.addRow(new Object[]{"",i+". "+rs.getString(1)+" "+rs.getString(2),df2.format(debkred)});  
                 i++;
             } 

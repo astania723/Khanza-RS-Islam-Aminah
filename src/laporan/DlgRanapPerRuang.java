@@ -39,7 +39,7 @@ import simrskhanza.DlgCariCaraBayar;
  *
  * @author perpustakaan
  */
-public class DlgRanapPerRuang extends javax.swing.JDialog {
+public final class DlgRanapPerRuang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -678,8 +678,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     public void tampil(){        
         Valid.tabelKosong(tabMode);
         try{
-            ps=koneksi.prepareStatement("select * from bangsal where status='1' and kd_bangsal like ? "+
-                    "or status='1' and nm_bangsal like ? order by kd_bangsal");
+            ps=koneksi.prepareStatement("select * from bangsal where bangsal.status='1' and bangsal.kd_bangsal like ? "+
+                    "or bangsal.status='1' and bangsal.nm_bangsal like ? order by bangsal.kd_bangsal");
             try {
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 ps.setString(2,"%"+TCari.getText().trim()+"%");
@@ -702,7 +702,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlpasien=rs2.getInt(1);
-                            ttljmlpasien=ttljmlpasien+rs2.getInt(1);
+                            ttljmlpasien += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -729,7 +729,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlhari=rs2.getInt(1);
-                            ttljmlhari=ttljmlhari+rs2.getInt(1);
+                            ttljmlhari += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -773,8 +773,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     public void tampil2(){        
         Valid.tabelKosong(tabMode2);
         try{
-            ps=koneksi.prepareStatement("select * from bangsal where status='1' and kd_bangsal like ? "+
-                    "or status='1' and nm_bangsal like ? order by kd_bangsal");
+            ps=koneksi.prepareStatement("select * from bangsal where bangsal.status='1' and bangsal.kd_bangsal like ? "+
+                    "or bangsal.status='1' and bangsal.nm_bangsal like ? order by bangsal.kd_bangsal");
             try {
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 ps.setString(2,"%"+TCari.getText().trim()+"%");
@@ -797,7 +797,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlpasien=rs2.getInt(1);
-                            ttljmlpasien=ttljmlpasien+rs2.getInt(1);
+                            ttljmlpasien += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -824,7 +824,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlhari=rs2.getInt(1);
-                            ttljmlhari=ttljmlhari+rs2.getInt(1);
+                            ttljmlhari += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);

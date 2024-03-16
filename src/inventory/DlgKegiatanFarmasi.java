@@ -591,7 +591,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){    
                             itempengadaan=rs2.getDouble("jumlah");
-                            jmlitempengadaan=jmlitempengadaan+rs2.getDouble("jumlah");
+                            jmlitempengadaan += rs2.getDouble("jumlah");
                         }
                     } catch (Exception e) {
                         System.out.println("Pemesanan : "+e);
@@ -610,7 +610,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             itemtersedia=rs2.getDouble("jumlah");
-                            jmlitemtersedia=jmlitemtersedia+rs2.getDouble("jumlah");
+                            jmlitemtersedia += rs2.getDouble("jumlah");
                         }
                     } catch (Exception e) {
                         System.out.println("Notifikasi Stok : "+e);
@@ -677,7 +677,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){    
                             itempengadaan=rs2.getDouble("jumlah");
-                            jmlitempengadaan=jmlitempengadaan+rs2.getDouble("jumlah");
+                            jmlitempengadaan += rs2.getDouble("jumlah");
                         }
                     } catch (Exception e) {
                         System.out.println("Pemesanan : "+e);
@@ -696,7 +696,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             itemtersedia=rs2.getDouble("jumlah");
-                            jmlitemtersedia=jmlitemtersedia+rs2.getDouble("jumlah");
+                            jmlitemtersedia += rs2.getDouble("jumlah");
                         }
                     } catch (Exception e) {
                         System.out.println("Notifikasi Stok : "+e);
@@ -764,7 +764,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){    
                             itempengadaan=rs2.getDouble("jumlah");
-                            jmlitempengadaan=jmlitempengadaan+rs2.getDouble("jumlah");
+                            jmlitempengadaan += rs2.getDouble("jumlah");
                         }
                     } catch (Exception e) {
                         System.out.println("Pemesanan : "+e);
@@ -783,7 +783,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             itemtersedia=rs2.getDouble("jumlah");
-                            jmlitemtersedia=jmlitemtersedia+rs2.getDouble("jumlah");
+                            jmlitemtersedia += rs2.getDouble("jumlah");
                         }
                     } catch (Exception e) {
                         System.out.println("Notifikasi Stok : "+e);

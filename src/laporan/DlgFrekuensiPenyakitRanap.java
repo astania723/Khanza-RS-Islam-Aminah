@@ -118,7 +118,7 @@ public class DlgFrekuensiPenyakitRanap extends javax.swing.JDialog {
         }
         tbDokter2.setDefaultRenderer(Object.class, new WarnaTable());    
         
-        TCari.setDocument(new batasInput((int)90).getKata(TCari));
+        TCari.setDocument(new batasInput(90).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -2950,7 +2950,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps3.setString(9,rs.getString("kd_penyakit"));
                         rs3=ps3.executeQuery();
                         rs3.last();
-                        if(rs3.getRow()>0) a=rs3.getRow();
+                        if(rs3.getRow()>0) {
+                            a=rs3.getRow();
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{
@@ -2984,7 +2986,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps4.setString(9,rs.getString("kd_penyakit"));
                         rs4=ps4.executeQuery();
                         rs4.last();       
-                        if(rs4.getRow()>0) b=rs4.getRow();
+                        if(rs4.getRow()>0) {
+                            b=rs4.getRow();
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{
@@ -3018,7 +3022,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps5.setString(9,rs.getString("kd_penyakit"));
                         rs5=ps5.executeQuery();
                         rs5.last();
-                        if(rs5.getRow()>0)  c=rs5.getRow()-a;
+                        if(rs5.getRow()>0) {
+                            c=rs5.getRow()-a;
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{
@@ -3052,7 +3058,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps6.setString(9,rs.getString("kd_penyakit"));
                         rs6=ps6.executeQuery();
                         rs6.last();
-                        if(rs6.getRow()>0) d=rs6.getRow()-b;
+                        if(rs6.getRow()>0) {
+                            d=rs6.getRow()-b;
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{
@@ -3212,7 +3220,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps3.setString(9,rs.getString("kd_penyakit"));
                         rs3=ps3.executeQuery();
                         rs3.last();
-                        if(rs3.getRow()>0) a=rs3.getRow();
+                        if(rs3.getRow()>0) {
+                            a=rs3.getRow();
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{
@@ -3245,7 +3255,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps4.setString(9,rs.getString("kd_penyakit"));
                         rs4=ps4.executeQuery();
                         rs4.last();       
-                        if(rs4.getRow()>0) b=rs4.getRow();
+                        if(rs4.getRow()>0) {
+                            b=rs4.getRow();
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{
@@ -3278,7 +3290,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps5.setString(9,rs.getString("kd_penyakit"));
                         rs5=ps5.executeQuery();
                         rs5.last();
-                        if(rs5.getRow()>0)  c=rs5.getRow()-a;
+                        if(rs5.getRow()>0) {
+                            c=rs5.getRow()-a;
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{
@@ -3311,7 +3325,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps6.setString(9,rs.getString("kd_penyakit"));
                         rs6=ps6.executeQuery();
                         rs6.last();
-                        if(rs6.getRow()>0) d=rs6.getRow()-b;
+                        if(rs6.getRow()>0) {
+                            d=rs6.getRow()-b;
+                        }
                    } catch (Exception e) {
                        System.out.println("Notif : "+e);
                    } finally{

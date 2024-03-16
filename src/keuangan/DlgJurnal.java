@@ -42,10 +42,10 @@ public class DlgJurnal extends javax.swing.JDialog {
                     "Debet(Rp)",
                     "Kredit(Rp)"};
         tabMode=new DefaultTableModel(null,row){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class
               };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              
              @Override
              public Class getColumnClass(int columnIndex) {
@@ -897,8 +897,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             row=tabMode.getRowCount();
             
             for(i=0;i<row;i++){ 
-                ttldebet=ttldebet+Valid.SetAngka(tabMode.getValueAt(i,2).toString());
-                ttlkredit=ttlkredit+Valid.SetAngka(tabMode.getValueAt(i,3).toString());                           
+                ttldebet += Valid.SetAngka(tabMode.getValueAt(i,2).toString());
+                ttlkredit += Valid.SetAngka(tabMode.getValueAt(i,3).toString());                           
             }        
             
             if(tabMode.getRowCount()>0){

@@ -125,10 +125,10 @@ public class SuratLepasRawat extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));  
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
-        Tempat.setDocument(new batasInput((int)50).getKata(Tempat)); 
-        KdPoli.setDocument(new batasInput((int)5).getKata(KdPoli));  
-        Diagnosa.setDocument(new batasInput((int)50).getKata(Diagnosa));
-        Terapi.setDocument(new batasInput((int)50).getKata(Terapi));
+        Tempat.setDocument(new batasInput(50).getKata(Tempat)); 
+        KdPoli.setDocument(new batasInput(5).getKata(KdPoli));  
+        Diagnosa.setDocument(new batasInput(50).getKata(Diagnosa));
+        Terapi.setDocument(new batasInput(50).getKata(Terapi));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
       
         

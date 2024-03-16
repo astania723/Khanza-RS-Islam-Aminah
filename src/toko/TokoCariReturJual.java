@@ -1074,8 +1074,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         i=1;
                         subtotal=0;
                         while(rs2.next()){
-                            tagihan=tagihan+rs2.getDouble("total");
-                            subtotal=subtotal+rs2.getDouble("total");
+                            tagihan += rs2.getDouble("total");
+                            subtotal += rs2.getDouble("total");
                             tabMode.addRow(new Object[]{
                                 i+". "+rs2.getString("kode_brng"),rs2.getString("nama_brng"),"No. Nota : "+rs2.getString("nota_jual"),rs2.getString("satuan"),rs2.getString("jml_retur"),Valid.SetAngka(rs2.getDouble("h_retur")),Valid.SetAngka(rs2.getDouble("total"))
                             });

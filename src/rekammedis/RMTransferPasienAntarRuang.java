@@ -157,25 +157,25 @@ public class RMTransferPasienAntarRuang extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         AsalRuang.setDocument(new batasInput((byte)30).getKata(AsalRuang));
         RuangSelanjutnya.setDocument(new batasInput((byte)30).getKata(RuangSelanjutnya));
-        DiagnosaUtama.setDocument(new batasInput((int)50).getKata(DiagnosaUtama));
-        DiagnosaSekunder.setDocument(new batasInput((int)100).getKata(DiagnosaSekunder));
-        KeteranganIndikasiPindahRuang.setDocument(new batasInput((int)50).getKata(KeteranganIndikasiPindahRuang));
-        ProsedurDilakukan.setDocument(new batasInput((int)800).getKata(ProsedurDilakukan));
-        ObatYangDiberikan.setDocument(new batasInput((int)800).getKata(ObatYangDiberikan));
-        KeteranganPeralatan.setDocument(new batasInput((int)50).getKata(KeteranganPeralatan));
-        PemeriksaanPenunjang.setDocument(new batasInput((int)500).getKata(PemeriksaanPenunjang));
-        NamaMenyetujui.setDocument(new batasInput((int)50).getKata(NamaMenyetujui));
-        KeluhanUtamaSebelumTransfer.setDocument(new batasInput((int)200).getKata(KeluhanUtamaSebelumTransfer));
-        TDSebelumTransfer.setDocument(new batasInput((int)7).getKata(TDSebelumTransfer));
-        NadiSebelumTransfer.setDocument(new batasInput((int)5).getKata(NadiSebelumTransfer));
-        RRSebelumTransfer.setDocument(new batasInput((int)5).getKata(RRSebelumTransfer));
-        SuhuSebelumTransfer.setDocument(new batasInput((int)5).getKata(SuhuSebelumTransfer));
-        KeluhanUtamaSetelahTransfer.setDocument(new batasInput((int)200).getKata(KeluhanUtamaSetelahTransfer));
-        TDSetelahTransfer.setDocument(new batasInput((int)7).getKata(TDSetelahTransfer));
-        NadiSetelahTransfer.setDocument(new batasInput((int)5).getKata(NadiSetelahTransfer));
-        RRSetelahTransfer.setDocument(new batasInput((int)5).getKata(RRSetelahTransfer));
-        SuhuSetelahTransfer.setDocument(new batasInput((int)5).getKata(SuhuSetelahTransfer));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        DiagnosaUtama.setDocument(new batasInput(50).getKata(DiagnosaUtama));
+        DiagnosaSekunder.setDocument(new batasInput(100).getKata(DiagnosaSekunder));
+        KeteranganIndikasiPindahRuang.setDocument(new batasInput(50).getKata(KeteranganIndikasiPindahRuang));
+        ProsedurDilakukan.setDocument(new batasInput(800).getKata(ProsedurDilakukan));
+        ObatYangDiberikan.setDocument(new batasInput(800).getKata(ObatYangDiberikan));
+        KeteranganPeralatan.setDocument(new batasInput(50).getKata(KeteranganPeralatan));
+        PemeriksaanPenunjang.setDocument(new batasInput(500).getKata(PemeriksaanPenunjang));
+        NamaMenyetujui.setDocument(new batasInput(50).getKata(NamaMenyetujui));
+        KeluhanUtamaSebelumTransfer.setDocument(new batasInput(200).getKata(KeluhanUtamaSebelumTransfer));
+        TDSebelumTransfer.setDocument(new batasInput(7).getKata(TDSebelumTransfer));
+        NadiSebelumTransfer.setDocument(new batasInput(5).getKata(NadiSebelumTransfer));
+        RRSebelumTransfer.setDocument(new batasInput(5).getKata(RRSebelumTransfer));
+        SuhuSebelumTransfer.setDocument(new batasInput(5).getKata(SuhuSebelumTransfer));
+        KeluhanUtamaSetelahTransfer.setDocument(new batasInput(200).getKata(KeluhanUtamaSetelahTransfer));
+        TDSetelahTransfer.setDocument(new batasInput(7).getKata(TDSetelahTransfer));
+        NadiSetelahTransfer.setDocument(new batasInput(5).getKata(NadiSetelahTransfer));
+        RRSetelahTransfer.setDocument(new batasInput(5).getKata(RRSetelahTransfer));
+        SuhuSetelahTransfer.setDocument(new batasInput(5).getKata(SuhuSetelahTransfer));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){

@@ -112,7 +112,7 @@ public class DlgAuditPenempatanPasien extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         KdRuang.setDocument(new batasInput((byte)20).getKata(KdRuang));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1153,24 +1153,24 @@ public class DlgAuditPenempatanPasien extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     audit1=Double.parseDouble(rs.getString("audit1").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit1=ttlaudit1+audit1;
+                    ttlaudit1 += audit1;
                     audit2=Double.parseDouble(rs.getString("audit2").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit2=ttlaudit2+audit2;
+                    ttlaudit2 += audit2;
                     audit3=Double.parseDouble(rs.getString("audit3").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit3=ttlaudit3+audit3;
+                    ttlaudit3 += audit3;
                     audit4=Double.parseDouble(rs.getString("audit4").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit4=ttlaudit4+audit4;
+                    ttlaudit4 += audit4;
                     audit5=Double.parseDouble(rs.getString("audit5").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit5=ttlaudit5+audit5;
+                    ttlaudit5 += audit5;
                     audit6=Double.parseDouble(rs.getString("audit6").replaceAll("Ya","1").replaceAll("Tidak","0"));;
-                    ttlaudit6=ttlaudit6+audit6;
-                    audit7=Double.parseDouble(rs.getString("audit7").replaceAll("Ya","1").replaceAll("Tidak","0"));;
-                    ttlaudit7=ttlaudit7+audit7;
-                    audit8=Double.parseDouble(rs.getString("audit8").replaceAll("Ya","1").replaceAll("Tidak","0"));;
-                    ttlaudit8=ttlaudit8+audit8;
+                    ttlaudit6 += audit6;
+                    audit7=Double.parseDouble(rs.getString("audit7").replaceAll("Ya","1").replaceAll("Tidak","0"));
+                    ttlaudit7 += audit7;
+                    audit8=Double.parseDouble(rs.getString("audit8").replaceAll("Ya","1").replaceAll("Tidak","0"));
+                    ttlaudit8 += audit8;
                     audit9=Double.parseDouble(rs.getString("audit9").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit9=ttlaudit9+audit9;
-                    ttlpenilaian=ttlpenilaian+(((audit1+audit2+audit3+
+                    ttlaudit9 += audit9;
+                    ttlpenilaian += (((audit1+audit2+audit3+
                             audit4+audit5+audit6+audit7+audit8+audit9)/9)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("id_ruang"),rs.getString("nama_ruang"),rs.getString("audit1"),rs.getString("audit2"),
@@ -1179,7 +1179,7 @@ public class DlgAuditPenempatanPasien extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlaudit1,""+ttlaudit2,""+ttlaudit3,

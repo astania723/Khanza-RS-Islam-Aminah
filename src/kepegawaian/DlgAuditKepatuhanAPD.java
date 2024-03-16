@@ -100,7 +100,7 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
 
         Nip.setDocument(new batasInput((byte)20).getKata(Nip));
         Tindakan.setDocument(new batasInput((byte)50).getKata(Tindakan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1078,18 +1078,18 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     topi=Double.parseDouble(rs.getString("topi").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttltopi=ttltopi+topi;
+                    ttltopi += topi;
                     masker=Double.parseDouble(rs.getString("masker").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlmasker=ttlmasker+masker;
+                    ttlmasker += masker;
                     kacamata=Double.parseDouble(rs.getString("kacamata").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlkacamata=ttlkacamata+kacamata;
+                    ttlkacamata += kacamata;
                     sarungtangan=Double.parseDouble(rs.getString("sarungtangan").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsarungtangan=ttlsarungtangan+sarungtangan;
+                    ttlsarungtangan += sarungtangan;
                     apron=Double.parseDouble(rs.getString("apron").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlapron=ttlapron+apron;
+                    ttlapron += apron;
                     sepatu=Double.parseDouble(rs.getString("sepatu").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsepatu=ttlsepatu+sepatu;
-                    ttlpenilaian=ttlpenilaian+(((topi+masker+kacamata+sarungtangan+apron+sepatu)/6)*100);
+                    ttlsepatu += sepatu;
+                    ttlpenilaian += (((topi+masker+kacamata+sarungtangan+apron+sepatu)/6)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("tindakan"),rs.getString("nik"),rs.getString("nama"),rs.getString("jbtn"),rs.getString("topi"),
                         rs.getString("masker"),rs.getString("kacamata"),rs.getString("sarungtangan"),rs.getString("apron"),rs.getString("sepatu"),
@@ -1097,7 +1097,7 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":","","",""+ttltopi,""+ttlmasker,""+ttlkacamata,""+ttlsarungtangan,""+ttlapron,""+ttlsepatu,

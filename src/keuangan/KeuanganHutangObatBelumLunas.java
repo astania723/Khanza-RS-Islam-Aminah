@@ -77,13 +77,6 @@ public class KeuanganHutangObatBelumLunas extends javax.swing.JDialog {
             "Sisa Hutang","Pembayaran","Sisa","Bank Suplier","No.Rekening"
         };
         tabMode=new DefaultTableModel(null,rowRwJlDr){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==11)||(colIndex==0)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
@@ -91,6 +84,13 @@ public class KeuanganHutangObatBelumLunas extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==11)||(colIndex==0)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1302,8 +1302,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getDouble("tagihan"),(rs.getDouble("tagihan")-rs.getDouble("bayar")),
                         0,(rs.getDouble("tagihan")-rs.getDouble("bayar")),rs.getString("nama_bank"),rs.getString("rekening")
                     });
-                    sisahutang=sisahutang+rs.getDouble("tagihan");
-                    cicilan=cicilan+rs.getDouble("bayar");
+                    sisahutang += rs.getDouble("tagihan");
+                    cicilan += rs.getDouble("bayar");
                 }
                 LCount.setText(Valid.SetAngka(sisahutang-cicilan));
             } catch (Exception e) {
@@ -1326,7 +1326,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         bayar=0;
         for(i=0;i<row;i++){  
             if(tbBangsal.getValueAt(i,0).toString().equals("true")){
-                 bayar=bayar+Double.parseDouble(tbBangsal.getValueAt(i,11).toString());     
+                 bayar += Double.parseDouble(tbBangsal.getValueAt(i,11).toString());     
             }
         }
         LCount1.setText(Valid.SetAngka(bayar));
@@ -1465,8 +1465,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getDouble("tagihan"),(rs.getDouble("tagihan")-rs.getDouble("bayar")),
                         0,(rs.getDouble("tagihan")-rs.getDouble("bayar")),rs.getString("nama_bank"),rs.getString("rekening")
                     });
-                    sisahutang=sisahutang+rs.getDouble("tagihan");
-                    cicilan=cicilan+rs.getDouble("bayar");
+                    sisahutang += rs.getDouble("tagihan");
+                    cicilan += rs.getDouble("bayar");
                     kdsup.setText(rs.getString("kode_suplier"));
                     nmsup.setText(rs.getString("nama_suplier"));
                 }

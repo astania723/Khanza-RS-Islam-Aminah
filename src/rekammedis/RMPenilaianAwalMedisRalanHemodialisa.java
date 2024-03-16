@@ -481,8 +481,8 @@ public class RMPenilaianAwalMedisRalanHemodialisa extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        Alergi.setDocument(new batasInput((int)50).getKata(Alergi));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        Alergi.setDocument(new batasInput(50).getKata(Alergi));
         Status.setDocument(new batasInput((byte)100).getKata(Status));
         TD.setDocument(new batasInput((byte)10).getKata(TD));
         Nadi.setDocument(new batasInput((byte)10).getKata(Nadi));
@@ -504,8 +504,8 @@ public class RMPenilaianAwalMedisRalanHemodialisa extends javax.swing.JDialog {
         //Permasalahan.setDocument(new batasInput((int)500).getKata(Permasalahan));
         //Tindakan.setDocument(new batasInput((byte)500).getKata(Tindakan));
         //Terapi.setDocument(new batasInput((byte)500).getKata(Terapi));
-        Edukasi.setDocument(new batasInput((int)500).getKata(Edukasi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Edukasi.setDocument(new batasInput(500).getKata(Edukasi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -2642,62 +2642,62 @@ public class RMPenilaianAwalMedisRalanHemodialisa extends javax.swing.JDialog {
         }else if(Alergi.getText().trim().isEmpty()){
             Valid.textKosong(Alergi,"Riwayat Penyakit Keluarga");
         }else{
-            if(Hipertensi.getSelectedItem().toString()=="YA"){
+            if("YA".equals(Hipertensi.getSelectedItem().toString())){
                 dbhipertensi=TxtHipertensi.getText();
             }else{
                 dbhipertensi=Hipertensi.getSelectedItem().toString();
             }
-            if(DM.getSelectedItem().toString()=="YA"){
+            if("YA".equals(DM.getSelectedItem().toString())){
                 dbdm=Txtdm.getText();
             }else{
                 dbdm=DM.getSelectedItem().toString();
             }
-            if(BSK.getSelectedItem().toString()=="YA"){
+            if("YA".equals(BSK.getSelectedItem().toString())){
                 dbbsk=Txtbsk.getText();
             }else{
                 dbbsk=BSK.getSelectedItem().toString();
             }
-            if(OSK.getSelectedItem().toString()=="YA"){
+            if("YA".equals(OSK.getSelectedItem().toString())){
                 dbosk=Txtosk.getText();
             }else{
                 dbosk=OSK.getSelectedItem().toString();
             }
-            if(ISK.getSelectedItem().toString()=="YA"){
+            if("YA".equals(ISK.getSelectedItem().toString())){
                 dbisk=Txtisk.getText();
             }else{
                 dbisk=ISK.getSelectedItem().toString();
             }
-            if(BST.getSelectedItem().toString()=="YA"){
+            if("YA".equals(BST.getSelectedItem().toString())){
                 dbbst=Txtbst.getText();
             }else{
                 dbbst=BST.getSelectedItem().toString();
             }
-            if(UB.getSelectedItem().toString()=="YA"){
+            if("YA".equals(UB.getSelectedItem().toString())){
                 dbub=Txtub.getText();
             }else{
                 dbub=UB.getSelectedItem().toString();
             }
-            if(PGL.getSelectedItem().toString()=="YA"){
+            if("YA".equals(PGL.getSelectedItem().toString())){
                 dbpgl=Txtpgl.getText();
             }else{
                 dbpgl=PGL.getSelectedItem().toString();
             }
-            if(PL.getSelectedItem().toString()=="YA"){
+            if("YA".equals(PL.getSelectedItem().toString())){
                 dbpl=Txtpl.getText();
             }else{
                 dbpl=PL.getSelectedItem().toString();
             }
-            if(KON.getSelectedItem().toString()=="YA"){
+            if("YA".equals(KON.getSelectedItem().toString())){
                 dbkon=Txtkon.getText();
             }else{
                 dbkon=KON.getSelectedItem().toString();
             }
-            if(CAPD.getSelectedItem().toString()=="YA"){
+            if("YA".equals(CAPD.getSelectedItem().toString())){
                 dbcapd=Valid.SetTgl(TglCAPD.getSelectedItem()+"");
             }else{
                 dbcapd=CAPD.getSelectedItem().toString();
             }
-            if(Transplantasi.getSelectedItem().toString()=="YA"){
+            if("YA".equals(Transplantasi.getSelectedItem().toString())){
                 dbtransplantasi=Valid.SetTgl(TglTransplantasi.getSelectedItem()+"");
             }else{
                 dbtransplantasi=Transplantasi.getSelectedItem().toString();
@@ -4203,13 +4203,13 @@ public class RMPenilaianAwalMedisRalanHemodialisa extends javax.swing.JDialog {
     }
 
     private void ganti() {
-            if(CAPD.getSelectedItem().toString()=="YA"){
+            if("YA".equals(CAPD.getSelectedItem().toString())){
                 dbcapd=Valid.SetTgl(TglCAPD.getSelectedItem()+"");
                 //dbcapd=TglCAPD.getSelectedItem().toString();
             }else{
                 dbcapd=CAPD.getSelectedItem().toString();
             }
-            if(Transplantasi.getSelectedItem().toString()=="YA"){
+            if("YA".equals(Transplantasi.getSelectedItem().toString())){
                 dbtransplantasi=Valid.SetTgl(TglTransplantasi.getSelectedItem()+"");
                 //dbtransplantasi=TglTransplantasi.getSelectedItem().toString();
             }else{

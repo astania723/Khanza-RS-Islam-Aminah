@@ -398,7 +398,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 tabMode.addRow(new Object[]{
                     i,rstindakan.getString(1),rstindakan.getInt(2)
                 });
-                ttl=ttl+rstindakan.getInt(2);
+                ttl += rstindakan.getInt(2);
                 i++;                    
             }
             

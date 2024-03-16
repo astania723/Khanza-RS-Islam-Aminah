@@ -77,7 +77,7 @@ public class DlgPerujukRadiologiPerTahun extends javax.swing.JDialog {
         }
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
 
-        TCari.setDocument(new batasInput((int)200).getKata(TCari));
+        TCari.setDocument(new batasInput(200).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -404,18 +404,18 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     okt=Sequel.cariInteger("select count(dokter_perujuk) from periksa_radiologi where dokter_perujuk=? and tgl_periksa like ?",rs.getString("kd_dokter"),"%"+ThnCari.getSelectedItem()+"-10%");
                     nov=Sequel.cariInteger("select count(dokter_perujuk) from periksa_radiologi where dokter_perujuk=? and tgl_periksa like ?",rs.getString("kd_dokter"),"%"+ThnCari.getSelectedItem()+"-11%");
                     des=Sequel.cariInteger("select count(dokter_perujuk) from periksa_radiologi where dokter_perujuk=? and tgl_periksa like ?",rs.getString("kd_dokter"),"%"+ThnCari.getSelectedItem()+"-12%");
-                    ttljan=ttljan+jan;
-                    ttlfeb=ttlfeb+feb;
-                    ttlmar=ttlmar+mar;
-                    ttlapr=ttlapr+apr;
-                    ttlmei=ttlmei+mei;
-                    ttljun=ttljun+jun;
-                    ttljul=ttljul+jul;
-                    ttlagu=ttlagu+agu;
-                    ttlsep=ttlsep+sep;
-                    ttlokt=ttlokt+okt;
-                    ttlnov=ttlnov+nov;
-                    ttldes=ttldes+des;
+                    ttljan += jan;
+                    ttlfeb += feb;
+                    ttlmar += mar;
+                    ttlapr += apr;
+                    ttlmei += mei;
+                    ttljun += jun;
+                    ttljul += jul;
+                    ttlagu += agu;
+                    ttlsep += sep;
+                    ttlokt += okt;
+                    ttlnov += nov;
+                    ttldes += des;
                     tabMode.addRow(new String[]{
                         i+"",rs.getString("nm_dokter"),jan+"",feb+"",mar+"",apr+"",mei+"",
                         jun+"",jul+"",agu+"",sep+"",okt+"",nov+"",des+"",(jan+feb+mar+apr+

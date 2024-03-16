@@ -1243,9 +1243,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 rs=ps.executeQuery();
                 totaldeposit=0;tottaldibayar=0;totalppn=0;
                 while(rs.next()){
-                    totaldeposit=totaldeposit+rs.getDouble(7);
-                    totalppn=totalppn+rs.getDouble(9);
-                    tottaldibayar=tottaldibayar+rs.getDouble(10);
+                    totaldeposit += rs.getDouble(7);
+                    totalppn += rs.getDouble(9);
+                    tottaldibayar += rs.getDouble(10);
                     tabMode.addRow(new String[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),Valid.SetAngka(rs.getDouble(7)),
                         rs.getDouble(8)+"",Valid.SetAngka(rs.getDouble(9)),Valid.SetAngka(rs.getDouble(10)),rs.getString(11),rs.getString(12),rs.getString(13),

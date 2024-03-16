@@ -1077,7 +1077,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         rs.getString("nip")+" "+rs.getString("nama"),rs.getDouble("biaya"),rs.getString("keterangan"),
                         rs.getString("kode_kategori"),rs.getString("nip")
                     });
-                    total=total+rs.getDouble("biaya");
+                    total += rs.getDouble("biaya");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);

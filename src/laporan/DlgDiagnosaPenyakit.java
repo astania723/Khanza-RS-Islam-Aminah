@@ -24,6 +24,7 @@ import java.awt.event.MouseListener;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
+import widget.PanelBiasa;
 
 /**
  *
@@ -575,7 +576,7 @@ public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(this.getHeight()<605){   
             panelDiagnosa1.ScrollInput.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            panelDiagnosa1.FormData.setPreferredSize(new Dimension(panelDiagnosa1.FormData.WIDTH,420));
+            panelDiagnosa1.FormData.setPreferredSize(new Dimension(PanelBiasa.WIDTH,420));
             if(this.getWidth()<900){
                 panelDiagnosa1.ScrollInput.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
                 panelDiagnosa1.FormData.setPreferredSize(new Dimension(890,420));
@@ -586,7 +587,7 @@ public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
             panelDiagnosa1.ScrollInput.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);            
             if(this.getWidth()<900){
                 panelDiagnosa1.ScrollInput.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
-                panelDiagnosa1.FormData.setPreferredSize(new Dimension(890,panelDiagnosa1.FormData.HEIGHT));
+                panelDiagnosa1.FormData.setPreferredSize(new Dimension(890,PanelBiasa.HEIGHT));
             }else{
                 panelDiagnosa1.ScrollInput.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);                
             }

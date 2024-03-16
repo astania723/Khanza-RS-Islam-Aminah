@@ -443,7 +443,7 @@ public class GrafikPerbaikanInventarisPerPelaksanaStatus extends javax.swing.JDi
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){
-                    total=total+rs.getDouble(3);
+                    total += rs.getDouble(3);
                     tabMode.addRow(new String[]{rs.getString(1),rs.getString(2),rs.getString(3)});
                 }
                 tabMode.addRow(new String[]{"Jumlah : ","",total+"","100 %"});
