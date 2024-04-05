@@ -1083,6 +1083,16 @@ public class koneksiDB {
         return var;
     }
     
+    public static String RESEPRANAPKEPLAN(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("RESEPRANAPKEPLAN");
+        }catch(Exception e){
+            var=""; 
+        }
+        return var;
+    }
+    
     public static String DIAGNOSARUJUKANMASUKAPIBPJS(){
         try{
             prop.loadFromXML(new FileInputStream("setting/database.xml"));

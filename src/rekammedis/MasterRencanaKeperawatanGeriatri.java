@@ -12,11 +12,11 @@
 package rekammedis;
 
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -481,9 +481,9 @@ public class MasterRencanaKeperawatanGeriatri extends javax.swing.JDialog {
 }//GEN-LAST:event_namarencanaKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(kdrencana.getText().trim().equals("")){
+        if(kdrencana.getText().trim().isEmpty()){
             Valid.textKosong(kdrencana,"Kode");
-        }else if(namarencana.getText().trim().equals("")){
+        }else if(namarencana.getText().trim().isEmpty()){
             Valid.textKosong(namarencana,"Pengkajian");
         }else{
             Sequel.menyimpan("master_rencana_keperawatan_geriatri","'"+kdmasalah.getText()+"','"+kdrencana.getText()+"','"+namarencana.getText()+"'","Kode");
@@ -529,9 +529,9 @@ public class MasterRencanaKeperawatanGeriatri extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(kdrencana.getText().trim().equals("")){
+        if(kdrencana.getText().trim().isEmpty()){
             Valid.textKosong(kdrencana,"Kode");
-        }else if(namarencana.getText().trim().equals("")){
+        }else if(namarencana.getText().trim().isEmpty()){
             Valid.textKosong(namarencana,"Pengkajian");
         }else{
             if(tbSpesialis.getSelectedRow()> -1){

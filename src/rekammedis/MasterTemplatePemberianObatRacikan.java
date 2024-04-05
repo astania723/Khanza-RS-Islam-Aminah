@@ -3,11 +3,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.WarnaTable;
 import fungsi.WarnaTable2;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import inventory.DlgCariAturanPakai;
 import inventory.DlgCariMetodeRacik;
 import java.awt.Dimension;
@@ -962,9 +962,9 @@ public class MasterTemplatePemberianObatRacikan extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+        }else if(KdDokter.getText().trim().isEmpty()||NmDokter.getText().trim().isEmpty()){
             Valid.textKosong(BtnDokter,"Dokter");
         }else{
             if(tbDokter.getSelectedRow()>-1){
@@ -1015,9 +1015,9 @@ public class MasterTemplatePemberianObatRacikan extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+        }else if(KdDokter.getText().trim().isEmpty()||NmDokter.getText().trim().isEmpty()){
             Valid.textKosong(BtnDokter,"Dokter");
         }else{
             if(Sequel.menyimpantf("template_pemeriksaan_dokter","?,?,?","No.Template",3,new String[]{
@@ -1102,13 +1102,13 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void BtnCariObatRacikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariObatRacikanActionPerformed
         if(tbObatRacikan.getRowCount()!=0){
             if(tbObatRacikan.getSelectedRow()!= -1){
-                if(tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),0).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),1).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),2).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),3).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),4).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),5).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),6).toString().equals("")){
+                if(tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),0).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),1).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),2).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),3).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),4).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),5).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),6).toString().isEmpty()){
                     JOptionPane.showMessageDialog(null,"Silahkan lengkapi data racikan..!!");
                 }else{
                     tampilDetailObatRacikan();
@@ -1202,7 +1202,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 for(i=0;i<tbDetailObatRacikan.getRowCount();i++){ 
                                     if(noracik==tbDetailObatRacikan.getValueAt(i,0).toString()){
                                         if(!tbDetailObatRacikan.getValueAt(i,9).toString().contains("%")){
-                                            jumlahracik=jumlahracik+(Double.parseDouble(tbDetailObatRacikan.getValueAt(i,5).toString())*
+                                            jumlahracik += (Double.parseDouble(tbDetailObatRacikan.getValueAt(i,5).toString())*
                                                     Double.parseDouble(tbDetailObatRacikan.getValueAt(i,10).toString()));
                                         }
                                     }
@@ -1326,7 +1326,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "template_pemeriksaan_dokter.keluhan,template_pemeriksaan_dokter.pemeriksaan,template_pemeriksaan_dokter.penilaian,"+
                         "template_pemeriksaan_dokter.rencana,template_pemeriksaan_dokter.instruksi,template_pemeriksaan_dokter.evaluasi "+
                         "from template_pemeriksaan_dokter inner join dokter on dokter.kd_dokter=template_pemeriksaan_dokter.kd_dokter "+
-                        (TCari.getText().equals("")?"":"where template_pemeriksaan_dokter.no_template like ? or template_pemeriksaan_dokter.nm_dokter like ? or "+
+                        (TCari.getText().isEmpty()?"":"where template_pemeriksaan_dokter.no_template like ? or template_pemeriksaan_dokter.nm_dokter like ? or "+
                         "template_pemeriksaan_dokter.keluhan like ? or template_pemeriksaan_dokter.pemeriksaan like ? or "+
                         "template_pemeriksaan_dokter.penilaian like ? or template_pemeriksaan_dokter.rencana like ? or "+
                         "template_pemeriksaan_dokter.instruksi like ? or template_pemeriksaan_dokter.evaluasi like ? ")+
@@ -1337,7 +1337,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "template_pemeriksaan_dokter.keluhan,template_pemeriksaan_dokter.pemeriksaan,template_pemeriksaan_dokter.penilaian,"+
                         "template_pemeriksaan_dokter.rencana,template_pemeriksaan_dokter.instruksi,template_pemeriksaan_dokter.evaluasi "+
                         "from template_pemeriksaan_dokter inner join dokter on dokter.kd_dokter=template_pemeriksaan_dokter.kd_dokter "+
-                        "where template_pemeriksaan_dokter.kd_dokter=? "+(TCari.getText().equals("")?"":"and (template_pemeriksaan_dokter.no_template like ? or "+
+                        "where template_pemeriksaan_dokter.kd_dokter=? "+(TCari.getText().isEmpty()?"":"and (template_pemeriksaan_dokter.no_template like ? or "+
                         "template_pemeriksaan_dokter.keluhan like ? or template_pemeriksaan_dokter.pemeriksaan like ? or "+
                         "template_pemeriksaan_dokter.penilaian like ? or template_pemeriksaan_dokter.rencana like ? or "+
                         "template_pemeriksaan_dokter.instruksi like ? or template_pemeriksaan_dokter.evaluasi like ?) ")+
@@ -1346,7 +1346,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 
             try {
                 if(akses.getkode().equals("Admin Utama")){
-                    if(!TCari.getText().equals("")){
+                    if(!TCari.getText().isEmpty()){
                         ps.setString(1,"%"+TCari.getText().trim()+"%");
                         ps.setString(2,"%"+TCari.getText().trim()+"%");
                         ps.setString(3,"%"+TCari.getText().trim()+"%");
@@ -1358,7 +1358,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }
                 }else{
                     ps.setString(1,akses.getkode());
-                    if(!TCari.getText().equals("")){
+                    if(!TCari.getText().isEmpty()){
                         ps.setString(2,"%"+TCari.getText().trim()+"%");
                         ps.setString(3,"%"+TCari.getText().trim()+"%");
                         ps.setString(4,"%"+TCari.getText().trim()+"%");
@@ -1420,7 +1420,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             BtnDokter.setEnabled(false);
             KdDokter.setText(akses.getkode());
             NmDokter.setText(dokter.tampil3(KdDokter.getText()));
-            if(NmDokter.getText().equals("")){
+            if(NmDokter.getText().isEmpty()){
                 KdDokter.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan Dokter...!!");
             }

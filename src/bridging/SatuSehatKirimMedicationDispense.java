@@ -7,17 +7,14 @@ package bridging;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
-import java.awt.Dimension;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,7 +23,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
@@ -644,14 +644,14 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
 
     private void BtnKirimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKirimActionPerformed
         for(i=0;i<tbObat.getRowCount();i++){
-            if(tbObat.getValueAt(i,0).toString().equals("true")&&(!tbObat.getValueAt(i,5).toString().equals(""))&&(!tbObat.getValueAt(i,7).toString().equals(""))&&tbObat.getValueAt(i,26).toString().equals("")){
+            if(tbObat.getValueAt(i,0).toString().equals("true")&&(!tbObat.getValueAt(i,5).toString().isEmpty())&&(!tbObat.getValueAt(i,7).toString().isEmpty())&&tbObat.getValueAt(i,26).toString().isEmpty()){
                 try {
                     idpasien=cekViaSatuSehat.tampilIDPasien(tbObat.getValueAt(i,5).toString());
                     iddokter=cekViaSatuSehat.tampilIDParktisi(tbObat.getValueAt(i,7).toString());
                     arrSplit = tbObat.getValueAt(i,24).toString().toLowerCase().split("x");
                     signa1="1";
                     try {
-                        if(!arrSplit[0].replaceAll("[^0-9.]+", "").equals("")){
+                        if(!arrSplit[0].replaceAll("[^0-9.]+", "").isEmpty()){
                             signa1=arrSplit[0].replaceAll("[^0-9.]+", "");
                         }
                     } catch (Exception e) {
@@ -659,7 +659,7 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
                     }
                     signa2="1";
                     try {
-                        if(!arrSplit[1].replaceAll("[^0-9.]+", "").equals("")){
+                        if(!arrSplit[1].replaceAll("[^0-9.]+", "").isEmpty()){
                             signa2=arrSplit[1].replaceAll("[^0-9.]+", "");
                         }
                     } catch (Exception e) {
@@ -764,7 +764,7 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
                         System.out.println("Result JSON : "+json);
                         root = mapper.readTree(json);
                         response = root.path("id");
-                        if(!response.asText().equals("")){
+                        if(!response.asText().isEmpty()){
                             if(Sequel.menyimpantf2("satu_sehat_medicationdispense","?,?,?,?,?,?,?","Obat/Alkes",7,new String[]{
                                 tbObat.getValueAt(i,2).toString(),tbObat.getValueAt(i,29).toString().substring(0,10),tbObat.getValueAt(i,29).toString().substring(11,19),
                                 tbObat.getValueAt(i,11).toString(),tbObat.getValueAt(i,27).toString(),tbObat.getValueAt(i,28).toString(),response.asText()
@@ -797,14 +797,14 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
 
     private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
         for(i=0;i<tbObat.getRowCount();i++){
-            if(tbObat.getValueAt(i,0).toString().equals("true")&&(!tbObat.getValueAt(i,5).toString().equals(""))&&(!tbObat.getValueAt(i,7).toString().equals(""))&&(!tbObat.getValueAt(i,26).toString().equals(""))){
+            if(tbObat.getValueAt(i,0).toString().equals("true")&&(!tbObat.getValueAt(i,5).toString().isEmpty())&&(!tbObat.getValueAt(i,7).toString().isEmpty())&&(!tbObat.getValueAt(i,26).toString().isEmpty())){
                 try {
                     idpasien=cekViaSatuSehat.tampilIDPasien(tbObat.getValueAt(i,5).toString());
                     iddokter=cekViaSatuSehat.tampilIDParktisi(tbObat.getValueAt(i,7).toString());
                     arrSplit = tbObat.getValueAt(i,24).toString().toLowerCase().split("x");
                     signa1="1";
                     try {
-                        if(!arrSplit[0].replaceAll("[^0-9.]+", "").equals("")){
+                        if(!arrSplit[0].replaceAll("[^0-9.]+", "").isEmpty()){
                             signa1=arrSplit[0].replaceAll("[^0-9.]+", "");
                         }
                     } catch (Exception e) {
@@ -812,7 +812,7 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
                     }
                     signa2="1";
                     try {
-                        if(!arrSplit[1].replaceAll("[^0-9.]+", "").equals("")){
+                        if(!arrSplit[1].replaceAll("[^0-9.]+", "").isEmpty()){
                             signa2=arrSplit[1].replaceAll("[^0-9.]+", "");
                         }
                     } catch (Exception e) {
@@ -1016,12 +1016,12 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
                    "satu_sehat_medicationdispense.no_batch=detail_pemberian_obat.no_batch and "+
                    "satu_sehat_medicationdispense.no_faktur=detail_pemberian_obat.no_faktur "+
                    "where nota_jalan.tanggal between ? and ? "+
-                   (TCari.getText().equals("")?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
+                   (TCari.getText().isEmpty()?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or satu_sehat_mapping_obat.kode_brng like ? or satu_sehat_mapping_obat.obat_display like ?) "));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                if(!TCari.getText().equals("")){
+                if(!TCari.getText().isEmpty()){
                     ps.setString(3,"%"+TCari.getText()+"%");
                     ps.setString(4,"%"+TCari.getText()+"%");
                     ps.setString(5,"%"+TCari.getText()+"%");
@@ -1080,12 +1080,12 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
                    "satu_sehat_medicationdispense.no_batch=detail_pemberian_obat.no_batch and "+
                    "satu_sehat_medicationdispense.no_faktur=detail_pemberian_obat.no_faktur "+
                    "where nota_inap.tanggal between ? and ? "+
-                   (TCari.getText().equals("")?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
+                   (TCari.getText().isEmpty()?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or satu_sehat_mapping_obat.kode_brng like ? or satu_sehat_mapping_obat.obat_display like ?) "));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                if(!TCari.getText().equals("")){
+                if(!TCari.getText().isEmpty()){
                     ps.setString(3,"%"+TCari.getText()+"%");
                     ps.setString(4,"%"+TCari.getText()+"%");
                     ps.setString(5,"%"+TCari.getText()+"%");

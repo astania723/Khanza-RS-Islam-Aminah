@@ -65,7 +65,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
     private DlgCariMetodeRacik metoderacik=new DlgCariMetodeRacik(null,false);
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     private String noracik="",aktifkanbatch="no",STOKKOSONGRESEP="no",qrystokkosong="",tampilkan_ppnobat_ralan="",status="",bangsal="",resep="",DEPOAKTIFOBAT="",
-            kamar="",norawatibu="",kelas,bangsaldefault=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),RESEPRAJALKEPLAN="no",penjab="";
+            kamar="",norawatibu="",kelas,bangsaldefault=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),RESEPRAJALKEPLAN="no",RESEPRANAPKEPLAN="no",penjab="";
     /** Creates new form DlgPenyakit
      * @param parent
      * @param modal */
@@ -388,6 +388,12 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
             RESEPRAJALKEPLAN=koneksiDB.RESEPRAJALKEPLAN();
         } catch (Exception e) {
             RESEPRAJALKEPLAN="no";
+        }
+        
+        try {
+            RESEPRANAPKEPLAN=koneksiDB.RESEPRANAPKEPLAN();
+        } catch (Exception e) {
+            RESEPRANAPKEPLAN="no";
         }
     }    
     
@@ -1229,7 +1235,7 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                         } catch (Exception e) {
                             System.out.println("Notif : "+e);
                         }
-                    }else if(RESEPRAJALKEPLAN.equals("yes")&&status.equals("ranap")&&(ubah==false)){
+                    }else if(RESEPRANAPKEPLAN.equals("yes")&&status.equals("ranap")&&(ubah==false)){
                         try {
                             ps2=koneksi.prepareStatement(
                                 "select pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat from pemeriksaan_ranap where pemeriksaan_ranap.no_rawat=? and pemeriksaan_ranap.nip=? order by pemeriksaan_ranap.tgl_perawatan desc,pemeriksaan_ranap.jam_rawat desc limit 1");

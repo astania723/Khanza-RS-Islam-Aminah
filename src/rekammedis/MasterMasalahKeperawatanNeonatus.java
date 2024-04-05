@@ -12,11 +12,11 @@
 package rekammedis;
 
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -389,9 +389,9 @@ public class MasterMasalahKeperawatanNeonatus extends javax.swing.JDialog {
 }//GEN-LAST:event_TNmKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(TKd.getText().trim().equals("")){
+        if(TKd.getText().trim().isEmpty()){
             Valid.textKosong(TKd,"Kode");
-        }else if(TNm.getText().trim().equals("")){
+        }else if(TNm.getText().trim().isEmpty()){
             Valid.textKosong(TNm,"Masalah");
         }else{
             if(Sequel.menyimpantf("master_masalah_keperawatan_neonatus","'"+TKd.getText()+"','"+TNm.getText()+"'","Kode")==true){
@@ -439,9 +439,9 @@ public class MasterMasalahKeperawatanNeonatus extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(TKd.getText().trim().equals("")){
+        if(TKd.getText().trim().isEmpty()){
             Valid.textKosong(TKd,"Kode");
-        }else if(TNm.getText().trim().equals("")){
+        }else if(TNm.getText().trim().isEmpty()){
             Valid.textKosong(TNm,"Masalah");
         }else{
             if(tbSpesialis.getSelectedRow()> -1){

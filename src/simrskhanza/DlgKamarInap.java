@@ -96,6 +96,7 @@ import rekammedis.RMDataSkriningGiziLanjut;
 import rekammedis.RMGenerateKlaim;
 import rekammedis.RMHasilEndoskopiFaringLaring;
 import rekammedis.RMHasilEndoskopiHidung;
+import rekammedis.RMHasilEndoskopiTelinga;
 import rekammedis.RMHasilPemeriksaanEKG;
 import rekammedis.RMHasilPemeriksaanUSG;
 import rekammedis.RMHasilPemeriksaanUSGGynecologi;
@@ -187,12 +188,12 @@ public class DlgKamarInap extends javax.swing.JDialog {
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private Date date = new Date();
     private String now=dateFormat.format(date),kmr="",key="",tglmasuk,jammasuk,kd_pj,
-            hariawal="",pilihancetak="",aktifkan_hapus_data_salah="",terbitsep="";
+            hariawal="",pilihancetak="",aktifkan_hapus_data_salah="",terbitsep="",namadokter="";
     private PreparedStatement ps,pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,pstarif,psdpjp,pscariumur;
     private ResultSet rs,rs2,rssetjam;
     private int i,row=0,pilihan=0;
     private double lama=0,persenbayi=0,hargakamar=0;
-    private String gabungkan="",norawatgabung="",kamaryangdigabung="",dokterranap="",bangsal="",diagnosa_akhir="",namakamar="",umur="0",sttsumur="Th",namadokter="",order="order by bangsal.nm_bangsal,kamar_inap.tgl_masuk,kamar_inap.jam_masuk",sep="",validasicatatan=Sequel.cariIsi("select set_validasi_catatan.tampilkan_catatan from set_validasi_catatan");
+    private String gabungkan="",norawatgabung="",kamaryangdigabung="",dokterranap="",bangsal="",diagnosa_akhir="",namakamar="",umur="0",sttsumur="Th",order="order by bangsal.nm_bangsal,kamar_inap.tgl_masuk,kamar_inap.jam_masuk",sep="",finger="",validasicatatan=Sequel.cariIsi("select set_validasi_catatan.tampilkan_catatan from set_validasi_catatan");
 
     /** Creates new form DlgKamarInap
      * @param parent
@@ -1636,7 +1637,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalKeperawatanRanapActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianAwalKeperawatanRanap);
 
     MnPenilaianAwalKeperawatanRanapAnak.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianAwalKeperawatanRanapAnak.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1653,23 +1653,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalKeperawatanRanapAnakActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianAwalKeperawatanRanapAnak);
-
-    MnPenilaianAwalKeperawatanRanapNeonatus.setBackground(new java.awt.Color(255, 255, 254));
-    MnPenilaianAwalKeperawatanRanapNeonatus.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-    MnPenilaianAwalKeperawatanRanapNeonatus.setForeground(new java.awt.Color(50, 50, 50));
-    MnPenilaianAwalKeperawatanRanapNeonatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-    MnPenilaianAwalKeperawatanRanapNeonatus.setText("Keperawatan Neonatus");
-    MnPenilaianAwalKeperawatanRanapNeonatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-    MnPenilaianAwalKeperawatanRanapNeonatus.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-    MnPenilaianAwalKeperawatanRanapNeonatus.setName("MnPenilaianAwalKeperawatanRanapNeonatus"); // NOI18N
-    MnPenilaianAwalKeperawatanRanapNeonatus.setPreferredSize(new java.awt.Dimension(240, 26));
-    MnPenilaianAwalKeperawatanRanapNeonatus.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        MnPenilaianAwalKeperawatanRanapNeonatusActionPerformed(evt);
-      }
-    });
-    MnPenilaianAwal.add(MnPenilaianAwalKeperawatanRanapNeonatus);
 
     MnPenilaianAwalKeperawatanKebidanan.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianAwalKeperawatanKebidanan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1685,7 +1668,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalKeperawatanKebidananActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianAwalKeperawatanKebidanan);
 
     MnPenilaianAwalMedisRanap.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianAwalMedisRanap.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1701,7 +1683,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalMedisRanapActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianAwalMedisRanap);
 
     MnPenilaianAwalMedisKandungan.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianAwalMedisKandungan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1717,7 +1698,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalMedisKandunganActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianAwalMedisKandungan);
 
     MnPenilaianAwalMedisRanapNeonatus.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianAwalMedisRanapNeonatus.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1733,7 +1713,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalMedisRanapNeonatusActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianAwalMedisRanapNeonatus);
 
     MnPenilaianAwalMedisHemodialisa.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianAwalMedisHemodialisa.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1749,7 +1728,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalMedisHemodialisaActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianAwalMedisHemodialisa);
 
     MnPenilaianFisioterapi.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianFisioterapi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1765,7 +1743,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianFisioterapiActionPerformed(evt);
       }
     });
-    MnPenilaianAwal.add(MnPenilaianFisioterapi);
 
     MnDataRM.add(MnPenilaianAwal);
 
@@ -1793,7 +1770,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnChecklistPreOperasiActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnChecklistPreOperasi);
 
     MnSignInSebelumAnestesi.setBackground(new java.awt.Color(255, 255, 254));
     MnSignInSebelumAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1809,7 +1785,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSignInSebelumAnestesiActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnSignInSebelumAnestesi);
 
     MnTimeOutSebelumInsisi.setBackground(new java.awt.Color(255, 255, 254));
     MnTimeOutSebelumInsisi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1825,7 +1800,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnTimeOutSebelumInsisiActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnTimeOutSebelumInsisi);
 
     MnSignOutSebelumMenutupLuka.setBackground(new java.awt.Color(255, 255, 254));
     MnSignOutSebelumMenutupLuka.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1841,7 +1815,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSignOutSebelumMenutupLukaActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnSignOutSebelumMenutupLuka);
 
     MnChecklistPostOperasi.setBackground(new java.awt.Color(255, 255, 254));
     MnChecklistPostOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1857,7 +1830,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnChecklistPostOperasiActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnChecklistPostOperasi);
 
     MnPenilaianPreOp.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianPreOp.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1873,7 +1845,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianPreOpActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnPenilaianPreOp);
 
     MnPenilaianPreAnestesi.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianPreAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1889,7 +1860,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianPreAnestesiActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnPenilaianPreAnestesi);
 
     MnSkorAldrettePascaAnestesi.setBackground(new java.awt.Color(255, 255, 254));
     MnSkorAldrettePascaAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1905,7 +1875,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSkorAldrettePascaAnestesiActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnSkorAldrettePascaAnestesi);
 
     MnSkorStewardPascaAnestesi.setBackground(new java.awt.Color(255, 255, 254));
     MnSkorStewardPascaAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1921,7 +1890,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSkorStewardPascaAnestesiActionPerformed(evt);
       }
     });
-    MnRMOperasi.add(MnSkorStewardPascaAnestesi);
 
     MnDataRM.add(MnRMOperasi);
 
@@ -2506,7 +2474,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanObservasiRanapActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnCatatanObservasiRanap);
 
     MnCatatanObservasiRanapKebidanan.setBackground(new java.awt.Color(255, 255, 254));
     MnCatatanObservasiRanapKebidanan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2522,7 +2489,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanObservasiRanapKebidananActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnCatatanObservasiRanapKebidanan);
 
     MnCatatanObservasiRanapPostPartum.setBackground(new java.awt.Color(255, 255, 254));
     MnCatatanObservasiRanapPostPartum.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2538,7 +2504,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanObservasiRanapPostPartumActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnCatatanObservasiRanapPostPartum);
 
     MnFollowUpDBD.setBackground(new java.awt.Color(255, 255, 254));
     MnFollowUpDBD.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2554,7 +2519,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnFollowUpDBDActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnFollowUpDBD);
 
     MnCatatanKeperawatan.setBackground(new java.awt.Color(255, 255, 254));
     MnCatatanKeperawatan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2570,7 +2534,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanKeperawatanActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnCatatanKeperawatan);
 
     MnCatatanCekGDS.setBackground(new java.awt.Color(255, 255, 254));
     MnCatatanCekGDS.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2586,7 +2549,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanCekGDSActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnCatatanCekGDS);
 
     MnMonitoringReaksiTranfusi.setBackground(new java.awt.Color(255, 255, 254));
     MnMonitoringReaksiTranfusi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2602,7 +2564,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnMonitoringReaksiTranfusiActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnMonitoringReaksiTranfusi);
 
     MnHasilPemeriksaanUSG.setBackground(new java.awt.Color(255, 255, 254));
     MnHasilPemeriksaanUSG.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2618,7 +2579,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnHasilPemeriksaanUSGActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnHasilPemeriksaanUSG);
 
     MnDokumentasiTindakanESWL.setBackground(new java.awt.Color(255, 255, 254));
     MnDokumentasiTindakanESWL.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2634,7 +2594,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDokumentasiTindakanESWLActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnDokumentasiTindakanESWL);
 
     MnPenilaianUlangNyeri.setBackground(new java.awt.Color(255, 255, 254));
     MnPenilaianUlangNyeri.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2650,7 +2609,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianUlangNyeriActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnPenilaianUlangNyeri);
 
     MnCatatanPersalinan.setBackground(new java.awt.Color(255, 255, 254));
     MnCatatanPersalinan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2666,7 +2624,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanPersalinanActionPerformed(evt);
       }
     });
-    MnObservasi.add(MnCatatanPersalinan);
 
     MnDataRM.add(MnObservasi);
 
@@ -4089,7 +4046,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCekKepesertaanActionPerformed(evt);
       }
     });
-    MenuBPJS.add(MnCekKepesertaan);
 
     MnCekNIK.setBackground(new java.awt.Color(255, 255, 254));
     MnCekNIK.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4103,7 +4059,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCekNIKActionPerformed(evt);
       }
     });
-    MenuBPJS.add(MnCekNIK);
 
     MnSEP.setBackground(new java.awt.Color(255, 255, 254));
     MnSEP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4119,7 +4074,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSEPActionPerformed(evt);
       }
     });
-    MenuBPJS.add(MnSEP);
 
     MnDataSEP.setBackground(new java.awt.Color(255, 255, 254));
     MnDataSEP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4135,7 +4089,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDataSEPActionPerformed(evt);
       }
     });
-    MenuBPJS.add(MnDataSEP);
 
     ppSuratKontrol.setBackground(new java.awt.Color(255, 255, 254));
     ppSuratKontrol.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4151,7 +4104,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSuratKontrolBtnPrintActionPerformed(evt);
       }
     });
-    MenuBPJS.add(ppSuratKontrol);
 
     ppSuratPRI.setBackground(new java.awt.Color(255, 255, 254));
     ppSuratPRI.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4167,7 +4119,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSuratPRIBtnPrintActionPerformed(evt);
       }
     });
-    MenuBPJS.add(ppSuratPRI);
 
     ppSuplesiJasaRaharja.setBackground(new java.awt.Color(255, 255, 254));
     ppSuplesiJasaRaharja.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4183,7 +4134,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSuplesiJasaRaharjaBtnPrintActionPerformed(evt);
       }
     });
-    MenuBPJS.add(ppSuplesiJasaRaharja);
 
     ppDataIndukKecelakaan.setBackground(new java.awt.Color(255, 255, 254));
     ppDataIndukKecelakaan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4199,7 +4149,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppDataIndukKecelakaanBtnPrintActionPerformed(evt);
       }
     });
-    MenuBPJS.add(ppDataIndukKecelakaan);
 
     MnRujukSisrute.setBackground(new java.awt.Color(255, 255, 254));
     MnRujukSisrute.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4215,7 +4164,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRujukSisruteActionPerformed(evt);
       }
     });
-    MenuBPJS.add(MnRujukSisrute);
 
     ppPasienCorona.setBackground(new java.awt.Color(255, 255, 254));
     ppPasienCorona.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4231,7 +4179,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppPasienCoronaBtnPrintActionPerformed(evt);
       }
     });
-    MenuBPJS.add(ppPasienCorona);
 
     ppPerawatanCorona.setBackground(new java.awt.Color(255, 255, 254));
     ppPerawatanCorona.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4247,7 +4194,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppPerawatanCoronaBtnPrintActionPerformed(evt);
       }
     });
-    MenuBPJS.add(ppPerawatanCorona);
 
     MnTeridentifikasiTB.setBackground(new java.awt.Color(255, 255, 254));
     MnTeridentifikasiTB.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4263,7 +4209,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnTeridentifikasiTBActionPerformed(evt);
       }
     });
-    MenuBPJS.add(MnTeridentifikasiTB);
 
     MnPCare.setBackground(new java.awt.Color(255, 255, 254));
     MnPCare.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4279,7 +4224,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPCareActionPerformed(evt);
       }
     });
-    MenuBPJS.add(MnPCare);
 
     jPopupMenu1.add(MenuBPJS);
 
@@ -12308,51 +12252,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     if(TNoRMCari.getText().trim().isEmpty()){
                         JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
                     }else{
-                        Map<String, Object> param = new HashMap<>();                
-                        param.put("nama",TPasienCari.getText());             
-                        param.put("jkel",Sequel.cariIsi("select if(pasien.jk='L','Laki-Laki','Perempuan') from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));             
-                        param.put("lahir",Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));             
-                        param.put("norm",TNoRMCari.getText());             
-                        param.put("ruang",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString().replaceAll("  "," "));             
-                        param.put("kelas", Sequel.cariIsi("select kamar.kelas from kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where kamar.kd_kamar=? ",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),19).toString()));             
-                        param.put("tanggaldaftar",Sequel.cariIsi("select DATE_FORMAT(reg_periksa.tgl_registrasi,'%d-%m-%Y') from reg_periksa where reg_periksa.no_rawat=?",TNoRwCari.getText()));             
-                        param.put("jamdaftar",Sequel.cariIsi("select reg_periksa.jam_reg from reg_periksa where reg_periksa.no_rawat=?",TNoRwCari.getText()));             
-                        param.put("noreg",Sequel.cariIsi("select reg_periksa.no_reg from reg_periksa where reg_periksa.no_rawat=?",TNoRwCari.getText()));             
-                        param.put("pendidikan",Sequel.cariIsi("select pasien.pnd from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));             
-                        param.put("agama",Sequel.cariIsi("select pasien.agama from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));             
-                        param.put("bangsa","Jawa/Indonesia");             
-                        param.put("pekerjaan",Sequel.cariIsi("select pasien.agama from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));
-                        param.put("status",Sequel.cariIsi("select pasien.stts_nikah from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));
-                        param.put("alamat",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),3).toString());
-                        param.put("keluarga",Sequel.cariIsi("select pasien.namakeluarga from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));
-                        param.put("telp",Sequel.cariIsi("select pasien.no_tlp from pasien where pasien.no_rkm_medis=?",TNoRMCari.getText()));
-                        param.put("rujukandari",Sequel.cariIsi("select rujuk_masuk.perujuk from rujuk_masuk where rujuk_masuk.no_rawat=?",TNoRwCari.getText()));
-                        param.put("chkri",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,'V','') from reg_periksa inner join pasien inner join kamar_inap "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
-                        param.put("chkrj",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,'V','') from reg_periksa inner join pasien "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
-                        param.put("riterakhir",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,DATE_FORMAT(kamar_inap.tgl_keluar,'%d-%m-%Y'),'') from reg_periksa inner join pasien inner join kamar_inap "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
-                        param.put("rjterakhir",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,DATE_FORMAT(reg_periksa.tgl_registrasi,'%d-%m-%Y'),'') from reg_periksa inner join pasien "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
-                        param.put("rike",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,(count(kamar_inap.no_rawat)-1),'') from reg_periksa inner join pasien inner join kamar_inap "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
-                        param.put("rjke",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,(count(reg_periksa.no_rawat)-1),'') from reg_periksa inner join pasien "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
-                        param.put("riruang",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,kamar_inap.kd_kamar,'') from reg_periksa inner join pasien inner join kamar_inap "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
-                        param.put("rjruang",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,kd_poli,'') from reg_periksa inner join pasien "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
-                        param.put("chkruang",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,'V','') from reg_periksa inner join pasien inner join kamar_inap "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
-                        param.put("chkbangsal",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,'V','') from reg_periksa inner join pasien "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
-                        param.put("chkkelri",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,'V','') from reg_periksa inner join pasien inner join kamar_inap "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
-                        param.put("chkkelrj",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,'V','') from reg_periksa inner join pasien "+
-                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
-                        param.put("petugas",Sequel.cariIsi("select petugas.nama from petugas where petugas.nip=?",akses.getkode()));
-
+                        Map<String, Object> param = new HashMap<>();  
                         param.put("namars",akses.getnamars());
                         param.put("alamatrs",akses.getalamatrs());
                         param.put("kotars",akses.getkabupatenrs());
@@ -12360,7 +12260,73 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-                        Valid.MyReport("rptRM2D_2.jasper","report","::[ Lembar Assasmen ]::",param); 
+                        param.put("no_rkm_medis",TNoRMCari.getText());
+                        param.put("poliklinik",Sequel.cariIsi("select poliklinik.nm_poli from poliklinik inner join reg_periksa on poliklinik.kd_poli=reg_periksa.kd_poli where reg_periksa.no_rawat=?",TNoRwCari.getText()));
+                        param.put("tanggal_masuk",Sequel.cariIsi("select tgl_masuk from kamar_inap where no_rawat=? order by tgl_masuk asc limit 1",TNoRwCari.getText()));
+                        param.put("jam_masuk",Sequel.cariIsi("select jam_masuk from kamar_inap where no_rawat=? order by tgl_masuk asc limit 1",TNoRwCari.getText()));
+                        param.put("tanggal_keluar",Sequel.cariIsi("select tgl_keluar from kamar_inap where no_rawat=? order by tgl_keluar desc limit 1",TNoRwCari.getText()));
+                        param.put("jam_keluar",Sequel.cariIsi("select jam_keluar from kamar_inap where no_rawat=? order by tgl_keluar desc limit 1",TNoRwCari.getText()));
+                        param.put("ruang_keluar",Sequel.cariIsi("select bangsal.nm_bangsal from kamar_inap inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar asc limit 1 ",TNoRwCari.getText()));             
+                        param.put("kelas_keluar", Sequel.cariIsi("select kamar.kelas from kamar inner join kamar_inap on kamar.kd_kamar=kamar_inap.kd_kamar where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar asc limit 1 ",TNoRwCari.getText()));             
+                        param.put("rujukan_masuk",Sequel.cariIsi("select rujuk_masuk.perujuk from rujuk_masuk where rujuk_masuk.no_rawat=?",TNoRwCari.getText()));
+                        param.put("png_jawab",Sequel.cariIsi("select penjab.png_jawab from penjab inner join reg_periksa on penjab.kd_pj=reg_periksa.kd_pj where reg_periksa.no_rawat=?",TNoRwCari.getText()));
+                        param.put("diagnosa_awal_masuk",Sequel.cariIsi("select diagnosa_awal from kamar_inap where no_rawat=?",TNoRwCari.getText()));
+                        param.put("diagnosa_utama",Sequel.cariIsi("select penyakit.nm_penyakit from penyakit inner join diagnosa_pasien on penyakit.kd_penyakit=diagnosa_pasien.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='1'",TNoRwCari.getText()));
+                        param.put("kd_diagnosa_utama",Sequel.cariIsi("select kd_penyakit from diagnosa_pasien where no_rawat=? and diagnosa_pasien.prioritas='1'",TNoRwCari.getText()));
+                        param.put("diagnosa_sekunder2",Sequel.cariIsi("select penyakit.nm_penyakit from penyakit inner join diagnosa_pasien on penyakit.kd_penyakit=diagnosa_pasien.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='2'",TNoRwCari.getText()));
+                        param.put("kd_diagnosa_sekunder",Sequel.cariIsi("select kd_penyakit from diagnosa_pasien where no_rawat=? and diagnosa_pasien.prioritas='2'",TNoRwCari.getText()));
+                        param.put("diagnosa_sekunder3",Sequel.cariIsi("select penyakit.nm_penyakit from penyakit inner join diagnosa_pasien on penyakit.kd_penyakit=diagnosa_pasien.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='3'",TNoRwCari.getText()));
+                        param.put("kd_diagnosa_sekunder3",Sequel.cariIsi("select kd_penyakit from diagnosa_pasien where no_rawat=? and diagnosa_pasien.prioritas='3'",TNoRwCari.getText()));
+                        param.put("diagnosa_sekunder4",Sequel.cariIsi("select penyakit.nm_penyakit from penyakit inner join diagnosa_pasien on penyakit.kd_penyakit=diagnosa_pasien.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='4'",TNoRwCari.getText()));
+                        param.put("kd_diagnosa_sekunder4",Sequel.cariIsi("select kd_penyakit from diagnosa_pasien where no_rawat=? and diagnosa_pasien.prioritas='4'",TNoRwCari.getText()));
+                        param.put("prosedur_utama",Sequel.cariIsi("select icd9.deskripsi_pendek from icd9 inner join prosedur_pasien on icd9.kode=prosedur_pasien.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='1'",TNoRwCari.getText()));
+                        param.put("kd_prosedur_utama",Sequel.cariIsi("select kode from prosedur_pasien where no_rawat=? and prosedur_pasien.prioritas='1'",TNoRwCari.getText()));
+                        param.put("prosedur_sekunder2",Sequel.cariIsi("select icd9.deskripsi_pendek from icd9 inner join prosedur_pasien on icd9.kode=prosedur_pasien.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='2'",TNoRwCari.getText()));
+                        param.put("kd_prosedur_sekunder",Sequel.cariIsi("select kode from prosedur_pasien where no_rawat=? and prosedur_pasien.prioritas='2'",TNoRwCari.getText()));
+                        param.put("prosedur_sekunder3",Sequel.cariIsi("select icd9.deskripsi_pendek from icd9 inner join prosedur_pasien on icd9.kode=prosedur_pasien.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='3'",TNoRwCari.getText()));
+                        param.put("kd_prosedur_sekunder3",Sequel.cariIsi("select kode from prosedur_pasien where no_rawat=? and prosedur_pasien.prioritas='3'",TNoRwCari.getText()));
+                        param.put("prosedur_sekunder4",Sequel.cariIsi("select icd9.deskripsi_pendek from icd9 inner join prosedur_pasien on icd9.kode=prosedur_pasien.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='4'",TNoRwCari.getText()));
+                        param.put("kd_prosedur_sekunder4",Sequel.cariIsi("select kode from prosedur_pasien where no_rawat=? and prosedur_pasien.prioritas='4'",TNoRwCari.getText()));
+                        param.put("tindakan_operasi",Sequel.cariIsi("select paket_operasi.nm_perawatan from paket_operasi inner join operasi on paket_operasi.kode_paket=operasi.kode_paket where operasi.no_rawat=?",TNoRwCari.getText()));
+                        param.put("tanggal_operasi",Sequel.cariIsi("select tgl_operasi from operasi where no_rawat=?",TNoRwCari.getText()));
+                        param.put("jenis_operasi",Sequel.cariIsi("select paket_operasi.kategori from paket_operasi inner join operasi on paket_operasi.kode_paket=operasi.kode_paket where operasi.no_rawat=?",TNoRwCari.getText()));
+                        param.put("golongan_operasi",Sequel.cariIsi("select kategori from operasi where no_rawat=?",TNoRwCari.getText()));
+                        param.put("jenis_anestesi",Sequel.cariIsi("select jenis_anasthesi from operasi where no_rawat=?",TNoRwCari.getText()));
+                        namadokter=Sequel.cariIsi("select kd_dokter from dpjp_ranap where no_rawat=? and dpjp_ranap.pjranap_ke='1'",TNoRwCari.getText());
+                        param.put("keadaan",Sequel.cariIsi("select keadaan from resume_pasien_ranap where no_rawat='"+TNoRwCari.getText()+"' and kd_dokter='"+namadokter+"'"));
+                        param.put("ket_keadaan",Sequel.cariIsi("select ket_keadaan from resume_pasien_ranap where no_rawat='"+TNoRwCari.getText()+"' and kd_dokter='"+namadokter+"'"));
+                        param.put("cara_keluar",Sequel.cariIsi("select cara_keluar from resume_pasien_ranap where no_rawat='"+TNoRwCari.getText()+"' and kd_dokter='"+namadokter+"'"));
+                        param.put("ket_keluar",Sequel.cariIsi("select ket_keluar from resume_pasien_ranap where no_rawat='"+TNoRwCari.getText()+"' and kd_dokter='"+namadokter+"'"));
+                        param.put("nm_dokter",Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",namadokter));
+                        finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",namadokter);
+                        param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",namadokter)+"\nID "+(finger.isEmpty()?namadokter:finger)+"\n"+Sequel.cariIsi("select tgl_keluar from kamar_inap where no_rawat=? order by tgl_keluar desc limit 1",TNoRwCari.getText())); 
+//                        param.put("chkri",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,'V','') from reg_periksa inner join pasien inner join kamar_inap "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
+//                        param.put("chkrj",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,'V','') from reg_periksa inner join pasien "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
+//                        param.put("riterakhir",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,DATE_FORMAT(kamar_inap.tgl_keluar,'%d-%m-%Y'),'') from reg_periksa inner join pasien inner join kamar_inap "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
+//                        param.put("rjterakhir",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,DATE_FORMAT(reg_periksa.tgl_registrasi,'%d-%m-%Y'),'') from reg_periksa inner join pasien "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
+//                        param.put("rike",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,(count(kamar_inap.no_rawat)-1),'') from reg_periksa inner join pasien inner join kamar_inap "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
+//                        param.put("rjke",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,(count(reg_periksa.no_rawat)-1),'') from reg_periksa inner join pasien "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? ",TNoRMCari.getText()));
+//                        param.put("riruang",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,kamar_inap.kd_kamar,'') from reg_periksa inner join pasien inner join kamar_inap "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
+//                        param.put("rjruang",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,kd_poli,'') from reg_periksa inner join pasien "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
+//                        param.put("chkruang",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,'V','') from reg_periksa inner join pasien inner join kamar_inap "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
+//                        param.put("chkbangsal",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,'V','') from reg_periksa inner join pasien "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
+//                        param.put("chkkelri",Sequel.cariIsi("select if(count(kamar_inap.no_rawat)>1,'V','') from reg_periksa inner join pasien inner join kamar_inap "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rkm_medis=? order by kamar_inap.tgl_masuk desc limit 1",TNoRMCari.getText()));
+//                        param.put("chkkelrj",Sequel.cariIsi("select if(count(reg_periksa.no_rawat)>1,'V','') from reg_periksa inner join pasien "+
+//                                "on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc ",TNoRMCari.getText()));
+//                        param.put("petugas",Sequel.cariIsi("select petugas.nama from petugas where petugas.nip=?",akses.getkode()));
+
+                        Valid.MyReport("rptRMRingkasanMasukKeluar.jasper","report","::[ Lembar Assasmen ]::",param); 
                     }
                 }  
             }
@@ -16620,6 +16586,142 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
     }
     
+    private void MnHasilEndoskopiTelingaActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()>-1){
+                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().isEmpty()){
+                    try {
+                        psanak=koneksi.prepareStatement(
+                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");            
+                        try {
+                            psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+                            rs2=psanak.executeQuery();
+                            if(rs2.next()){
+                                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                                RMHasilEndoskopiTelinga form=new RMHasilEndoskopiTelinga(null,false);
+                                form.isCek();
+                                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                form.setLocationRelativeTo(internalFrame1);
+                                form.setVisible(true);
+                                if(R1.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),new Date());
+                                }else if(R2.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari2.getDate());
+                                }else if(R3.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari4.getDate());
+                                }
+                                form.emptTeks();
+                                form.tampil();
+                                this.setCursor(Cursor.getDefaultCursor());
+                            }else{
+                                JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+                                tbKamIn.requestFocus();
+                            }
+                        } catch(Exception ex){
+                            System.out.println("Notifikasi : "+ex);
+                        }finally{
+                              if(rs2 != null){
+                                  rs2.close();
+                              }
+                              if(psanak != null){
+                                  psanak.close();
+                              }
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }else{
+                    this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                    RMHasilEndoskopiTelinga form=new RMHasilEndoskopiTelinga(null,false);
+                    form.isCek();
+                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                    form.setLocationRelativeTo(internalFrame1);
+                    form.setVisible(true);
+                    if(R1.isSelected()==true){
+                        form.setNoRm(norawat.getText(),new Date());
+                    }else if(R2.isSelected()==true){
+                        form.setNoRm(norawat.getText(),DTPCari2.getDate());
+                    }else if(R3.isSelected()==true){
+                        form.setNoRm(norawat.getText(),DTPCari4.getDate());
+                    }  
+                    form.emptTeks();
+                    form.tampil();
+                    this.setCursor(Cursor.getDefaultCursor());
+                }
+            }
+        }
+    }
+    
+    private void MnPenilaianAwalKeperawatanRanapNeonatusActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()>-1){
+                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().isEmpty()){
+                    try {
+                        psanak=koneksi.prepareStatement(
+                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");            
+                        try {
+                            psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+                            rs2=psanak.executeQuery();
+                            if(rs2.next()){
+                                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                                RMPenilaianAwalKeperawatanRanapNeonatus form=new RMPenilaianAwalKeperawatanRanapNeonatus(null,false);
+                                form.isCek();
+                                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                form.setLocationRelativeTo(internalFrame1);
+                                form.setVisible(true);
+                                if(R1.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),new Date(),TNoRMCari.getText());
+                                }else if(R2.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari2.getDate(),TNoRMCari.getText());
+                                }else if(R3.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari4.getDate(),TNoRMCari.getText());
+                                }
+                                form.emptTeks();
+                                this.setCursor(Cursor.getDefaultCursor());
+                            }else{
+                                JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+                                tbKamIn.requestFocus();
+                            }
+                        } catch(Exception ex){
+                            System.out.println("Notifikasi : "+ex);
+                        }finally{
+                              if(rs2 != null){
+                                  rs2.close();
+                              }
+                              if(psanak != null){
+                                  psanak.close();
+                              }
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }else{
+                    this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                    RMPenilaianAwalKeperawatanRanapNeonatus form=new RMPenilaianAwalKeperawatanRanapNeonatus(null,false);
+                    form.isCek();
+                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                    form.setLocationRelativeTo(internalFrame1);
+                    form.setVisible(true);
+                    if(R1.isSelected()==true){
+                        form.setNoRm(norawat.getText(),new Date(),TNoRMCari.getText());
+                    }else if(R2.isSelected()==true){
+                        form.setNoRm(norawat.getText(),DTPCari2.getDate(),TNoRMCari.getText());
+                    }else if(R3.isSelected()==true){
+                        form.setNoRm(norawat.getText(),DTPCari4.getDate(),TNoRMCari.getText());
+                    }  
+                    form.emptTeks();
+                    this.setCursor(Cursor.getDefaultCursor());
+                }
+            }
+        }
+    }
+    
     private void MnFilterDPJPActionPerformed(java.awt.event.ActionEvent evt) {      
         i=2;
         akses.setform("DlgKamarInap");
@@ -16727,31 +16829,6 @@ private void ppGenerateBerkasKlaimBtnPrintActionPerformed(java.awt.event.ActionE
         }
     }//GEN-LAST:event_ppGenerateBerkasKlaimBtnPrintActionPerformed
 
-
-private void MnPenilaianAwalKeperawatanRanapNeonatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenilaianAwalKeperawatanRanapNeonatusActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{
-            if(tbKamIn.getSelectedRow()>-1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMPenilaianAwalKeperawatanRanapNeonatus form=new RMPenilaianAwalKeperawatanRanapNeonatus(null,false);
-                form.isCek();
-                form.emptTeks();
-                if(R1.isSelected()==true){
-                    form.setNoRm(norawat.getText(),new Date(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),6).toString(),TNoRMCari.getText());
-                }else if(R2.isSelected()==true){
-                    form.setNoRm(norawat.getText(),DTPCari2.getDate(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),6).toString(),TNoRMCari.getText());
-                }else if(R3.isSelected()==true){
-                    form.setNoRm(norawat.getText(),DTPCari4.getDate(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),6).toString(),TNoRMCari.getText());
-                }
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }
-        }
-    }//GEN-LAST:event_MnPenilaianAwalKeperawatanRanapNeonatusActionPerformed
 
     private void MnPenilaianAwalKeperawatanRanapAnakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenilaianAwalKeperawatanRanapAnakActionPerformed
         if(tabMode.getRowCount()==0){
@@ -17214,8 +17291,8 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
   private javax.swing.JMenuItem ppGenerateBerkasKlaim;
   // End of variables declaration//GEN-END:variables
     private javax.swing.JMenuItem MnSkorBromagePascaAnestesi,MnPenilaianPreInduksi,MnHasilPemeriksaanUSGUrologi,MnHasilPemeriksaanUSGGynecologi,MnHasilPemeriksaanEKG,MnBelumTerbitSEP,MnSudahTerbitSEP,MnHasilPemeriksaanUSGNeonatus,MnHasilEndoskopiFaringLaring,
-                                  MnHasilEndoskopiHidung;
-    private javax.swing.JMenu MnHasilUSG;
+                                  MnHasilEndoskopiHidung,MnHasilEndoskopiTelinga;
+    private javax.swing.JMenu MnHasilUSG,MnHasilEndoskopi;
     private widget.Label lblSEP,lblKTP;
     private widget.TextBox TSEP,TNoKTP;
     
@@ -17668,6 +17745,7 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
         ppKlasifikasiPasien.setEnabled(akses.getklasifikasi_pasien_ranap());
         MnTeridentifikasiTB.setEnabled(akses.getkemenkes_sitt());
         MnPenilaianAwalKeperawatanRanap.setEnabled(akses.getpenilaian_awal_keperawatan_ranap());
+        MnPenilaianAwalKeperawatanRanapNeonatus.setEnabled(akses.getpenilaian_awal_keperawatan_ranap_neonatus());
         MnPenilaianAwalKeperawatanKebidanan.setEnabled(akses.getpenilaian_awal_keperawatan_ranapkebidanan());
         MnPenilaianAwalMedisRanap.setEnabled(akses.getpenilaian_awal_medis_ranap());
         MnPenilaianAwalMedisKandungan.setEnabled(akses.getpenilaian_awal_medis_ranap_kebidanan());
@@ -17702,6 +17780,7 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
         MnHasilPemeriksaanUSGNeonatus.setEnabled(akses.gethasil_usg_neonatus());
         MnHasilEndoskopiFaringLaring.setEnabled(akses.gethasil_endoskopi_faring_laring());
         MnHasilEndoskopiHidung.setEnabled(akses.gethasil_endoskopi_hidung());
+        MnHasilEndoskopiTelinga.setEnabled(akses.gethasil_endoskopi_telinga());
         MnPernyataanPasienUmum.setEnabled(akses.getsurat_pernyataan_pasien_umum());
         MnKonselingFarmasi.setEnabled(akses.getkonseling_farmasi());
         MnPermintaanInformasiObat.setEnabled(akses.getpelayanan_informasi_obat());
@@ -17909,6 +17988,17 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
         MnHasilUSG.setName("MnHasilUSG"); 
         MnHasilUSG.setPreferredSize(new java.awt.Dimension(230, 26));
         
+        MnHasilEndoskopi = new javax.swing.JMenu();
+        MnHasilEndoskopi.setBackground(new java.awt.Color(255, 255, 254));
+        MnHasilEndoskopi.setForeground(new java.awt.Color(50, 50, 50));
+        MnHasilEndoskopi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); 
+        MnHasilEndoskopi.setText("Hasil Endoskopi");
+        MnHasilEndoskopi.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        MnHasilEndoskopi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnHasilEndoskopi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnHasilEndoskopi.setName("MnHasilEndoskopi"); 
+        MnHasilEndoskopi.setPreferredSize(new java.awt.Dimension(230, 26));
+        
         MnHasilPemeriksaanUSGNeonatus = new javax.swing.JMenuItem();
         MnHasilPemeriksaanUSGNeonatus.setBackground(new java.awt.Color(255, 255, 254));
         MnHasilPemeriksaanUSGNeonatus.setFont(new java.awt.Font("Tahoma", 0, 11)); 
@@ -17945,6 +18035,30 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
         MnHasilEndoskopiHidung.setPreferredSize(new java.awt.Dimension(200, 26));
         MnHasilEndoskopiHidung.addActionListener(this::MnHasilEndoskopiHidungActionPerformed);
         
+        MnHasilEndoskopiTelinga = new javax.swing.JMenuItem();
+        MnHasilEndoskopiTelinga.setBackground(new java.awt.Color(255, 255, 254));
+        MnHasilEndoskopiTelinga.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        MnHasilEndoskopiTelinga.setForeground(new java.awt.Color(50, 50, 50));
+        MnHasilEndoskopiTelinga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); 
+        MnHasilEndoskopiTelinga.setText("Hasil Endoskopi Telinga");
+        MnHasilEndoskopiTelinga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnHasilEndoskopiTelinga.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnHasilEndoskopiTelinga.setName("MnHasilEndoskopiTelinga");
+        MnHasilEndoskopiTelinga.setPreferredSize(new java.awt.Dimension(200, 26));
+        MnHasilEndoskopiTelinga.addActionListener(this::MnHasilEndoskopiTelingaActionPerformed);
+        
+        MnPenilaianAwalKeperawatanRanapNeonatus = new javax.swing.JMenuItem();
+        MnPenilaianAwalKeperawatanRanapNeonatus.setBackground(new java.awt.Color(255, 255, 254));
+        MnPenilaianAwalKeperawatanRanapNeonatus.setFont(new java.awt.Font("Tahoma", 0, 11));
+        MnPenilaianAwalKeperawatanRanapNeonatus.setForeground(new java.awt.Color(50, 50, 50));
+        MnPenilaianAwalKeperawatanRanapNeonatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
+        MnPenilaianAwalKeperawatanRanapNeonatus.setText("Keperawatan Neonatus");
+        MnPenilaianAwalKeperawatanRanapNeonatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnPenilaianAwalKeperawatanRanapNeonatus.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnPenilaianAwalKeperawatanRanapNeonatus.setName("MnPenilaianAwalKeperawatanRanapNeonatus"); 
+        MnPenilaianAwalKeperawatanRanapNeonatus.setPreferredSize(new java.awt.Dimension(240, 26));
+        MnPenilaianAwalKeperawatanRanapNeonatus.addActionListener(this::MnPenilaianAwalKeperawatanRanapNeonatusActionPerformed);
+        
         MnRMOperasi.add(MnPenilaianPreInduksi);
         MnRMOperasi.add(MnChecklistPreOperasi);
         MnRMOperasi.add(MnSignInSebelumAnestesi);
@@ -17970,12 +18084,21 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
         MnHasilUSG.add(MnHasilPemeriksaanUSGNeonatus);
         MnHasilUSG.add(MnHasilPemeriksaanUSGGynecologi);
         MnObservasi.add(MnHasilPemeriksaanEKG);
-        MnObservasi.add(MnHasilEndoskopiFaringLaring);
-        MnObservasi.add(MnHasilEndoskopiHidung);
+        MnObservasi.add(MnHasilEndoskopi);
+        MnHasilEndoskopi.add(MnHasilEndoskopiFaringLaring);
+        MnHasilEndoskopi.add(MnHasilEndoskopiHidung);
+        MnHasilEndoskopi.add(MnHasilEndoskopiTelinga);
         MnObservasi.add(MnDokumentasiTindakanESWL);
         MnObservasi.add(MnPenilaianUlangNyeri);
         MnObservasi.add(MnCatatanPersalinan);
         
+        MnPenilaianAwal.add(MnPenilaianAwalKeperawatanRanap);
+        MnPenilaianAwal.add(MnPenilaianAwalKeperawatanKebidanan);
+        MnPenilaianAwal.add(MnPenilaianAwalKeperawatanRanapNeonatus);
+        MnPenilaianAwal.add(MnPenilaianAwalMedisRanap);
+        MnPenilaianAwal.add(MnPenilaianAwalMedisKandungan);
+        MnPenilaianAwal.add(MnPenilaianAwalMedisHemodialisa);
+        MnPenilaianAwal.add(MnPenilaianFisioterapi);
         
         MenuBPJS.add(MnCekKepesertaan);
         MenuBPJS.add(MnCekNIK);

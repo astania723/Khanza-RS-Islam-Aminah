@@ -2306,6 +2306,34 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
 //                              "<fieldset>"+
                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
                               "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                       "<table width='100%' bgcolor='#ffffff' align='left' border='0' cellspacing='0' cellpadding='0'>"+
+                                            "<tr>"+
+                                                "<td  width='30%'>"+
+                                                    "<img width='50' height='50' src='"+(getClass().getResource("/picture/logorsi.png"))+"'/>"+
+                                                    "<img width='130' height='50' src='"+(getClass().getResource("/picture/logoparipurna.png"))+"'/>"+
+                                                "</td>"+
+                                                "<td width='40%'>"+
+                                                    "<center>"+
+                                                        "<font color='000000'  face='Tahoma'>RS ISLAM AMINAH BLITAR</font><br>"+
+                                                        "<font color='000000'  face='Tahoma'>Jl. Kenari No 54 Plosokerep, Blitar, Jawa Timur<br/>"+
+                                                            "Telp. (0342) 801662, E-mail : rsiaminahblitar@gmail.com"+
+                                                        "</font>"+ 
+                                                    "</center>"+
+                                                "</td>"+
+                                                "<td  width='30%' align='right' >"+
+                                                    "<img width='80' height='50' src='"+(getClass().getResource("/picture/logojaringan.png"))+"'/>"+
+                                                "</td>"+
+                                            "</tr>"+
+                                      "</table>"+
+                                "</td>"+
+                              "</tr>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                    "<hr/>"+
+                                "</td>"+
+                              "</tr>"+
+                              "<tr>"+
                                 "<td valign='top' width='20%'>No.Rekam Medis</td>"+
                                 "<td valign='top' width='1%' align='center'>:</td>"+
                                 "<td valign='top' width='79%'>"+rs.getString("no_rkm_medis")+"</td>"+
@@ -2520,6 +2548,34 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             htmlContent.append(
 //                              "<fieldset>"+
                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                       "<table width='100%' bgcolor='#ffffff' align='left' border='0' cellspacing='0' cellpadding='0'>"+
+                                            "<tr>"+
+                                                "<td  width='30%'>"+
+                                                    "<img width='50' height='50' src='"+(getClass().getResource("/picture/logorsi.png"))+"'/>"+
+                                                    "<img width='130' height='50' src='"+(getClass().getResource("/picture/logoparipurna.png"))+"'/>"+
+                                                "</td>"+
+                                                "<td width='40%'>"+
+                                                    "<center>"+
+                                                        "<font color='000000'  face='Tahoma'>RS ISLAM AMINAH BLITAR</font><br>"+
+                                                        "<font color='000000'  face='Tahoma'>Jl. Kenari No 54 Plosokerep, Blitar, Jawa Timur<br/>"+
+                                                            "Telp. (0342) 801662, E-mail : rsiaminahblitar@gmail.com"+
+                                                        "</font>"+ 
+                                                    "</center>"+
+                                                "</td>"+
+                                                "<td  width='30%' align='right' >"+
+                                                    "<img width='80' height='50' src='"+(getClass().getResource("/picture/logojaringan.png"))+"'/>"+
+                                                "</td>"+
+                                            "</tr>"+
+                                      "</table>"+
+                                "</td>"+
+                              "</tr>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                    "<hr/>"+
+                                "</td>"+
+                              "</tr>"+
                               "<tr>"+
                                 "<td valign='top' width='20%'>No.Rekam Medis</td>"+
                                 "<td valign='top' width='1%' align='center'>:</td>"+
@@ -2802,6 +2858,34 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         "<table width='100%' border='1' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>");
                         htmlContent.append(
                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                       "<table width='100%' bgcolor='#ffffff' align='left' border='0' cellspacing='0' cellpadding='0'>"+
+                                            "<tr>"+
+                                                "<td  width='30%'>"+
+                                                    "<img width='50' height='50' src='"+(getClass().getResource("/picture/logorsi.png"))+"'/>"+
+                                                    "<img width='130' height='50' src='"+(getClass().getResource("/picture/logoparipurna.png"))+"'/>"+
+                                                "</td>"+
+                                                "<td width='40%'>"+
+                                                    "<center>"+
+                                                        "<font color='000000'  face='Tahoma'>RS ISLAM AMINAH BLITAR</font><br>"+
+                                                        "<font color='000000'  face='Tahoma'>Jl. Kenari No 54 Plosokerep, Blitar, Jawa Timur<br/>"+
+                                                            "Telp. (0342) 801662, E-mail : rsiaminahblitar@gmail.com"+
+                                                        "</font>"+ 
+                                                    "</center>"+
+                                                "</td>"+
+                                                "<td  width='30%' align='right' >"+
+                                                    "<img width='80' height='50' src='"+(getClass().getResource("/picture/logojaringan.png"))+"'/>"+
+                                                "</td>"+
+                                            "</tr>"+
+                                      "</table>"+
+                                "</td>"+
+                              "</tr>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                    "<hr/>"+
+                                "</td>"+
+                              "</tr>"+
                               "<tr>"+
                                 "<td valign='top' width='20%'>No.Rekam Medis</td>"+
                                 "<td valign='top' width='1%' align='center'>:</td>"+
@@ -3137,6 +3221,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 rs2.close();
                             }
                         }
+                        try{
                         rs3=koneksi.prepareStatement(
                             "select set_pjlab.kd_dokterlab,dokter.nm_dokter from set_pjlab inner join dokter on set_pjlab.kd_dokterlab=dokter.kd_dokter").executeQuery();
                         if(rs3.next()){
@@ -3155,6 +3240,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                           "<tr></tr>"+
                                           "<tr>"+
                                           "<td border='0' align='center'>Penanngung Jawab Laboratorium <br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs3.getString("kd_dokterlab")+".png'/><br>"+rs3.getString("nm_dokter")+"</td>");
+                                try{
                                 rs4=koneksi.prepareStatement(
                                     "select periksa_lab.nip,petugas.nama from periksa_lab inner join petugas on periksa_lab.nip=petugas.nip where no_rawat='"+rs.getString("no_rawat")+"' limit 1").executeQuery();
                                 if(rs4.next()){
@@ -3168,8 +3254,21 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                           "</table>");
                                 }
                                 }
-
+                                } catch (Exception e){
+                                    System.out.println("Notif Hasil Lab: "+e);
+                                } finally {
+                                    if(rs4!=null){
+                                        rs4.close();
+                                    }
+                                }
                               }  
+                        }
+                        } catch (Exception e){
+                            System.out.println("Notif Hasil Lab : "+e);
+                        } finally {
+                            if(rs3!=null){
+                                rs3.close();
+                            }
                         }
                         htmlContent.append(
                         "</table>"+
@@ -3191,6 +3290,34 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         "<table width='100%' border='1' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>");
                         htmlContent.append(
                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                       "<table width='100%' bgcolor='#ffffff' align='left' border='0' cellspacing='0' cellpadding='0'>"+
+                                            "<tr>"+
+                                                "<td  width='30%'>"+
+                                                    "<img width='50' height='50' src='"+(getClass().getResource("/picture/logorsi.png"))+"'/>"+
+                                                    "<img width='130' height='50' src='"+(getClass().getResource("/picture/logoparipurna.png"))+"'/>"+
+                                                "</td>"+
+                                                "<td width='40%'>"+
+                                                    "<center>"+
+                                                        "<font color='000000'  face='Tahoma'>RS ISLAM AMINAH BLITAR</font><br>"+
+                                                        "<font color='000000'  face='Tahoma'>Jl. Kenari No 54 Plosokerep, Blitar, Jawa Timur<br/>"+
+                                                            "Telp. (0342) 801662, E-mail : rsiaminahblitar@gmail.com"+
+                                                        "</font>"+ 
+                                                    "</center>"+
+                                                "</td>"+
+                                                "<td  width='30%' align='right' >"+
+                                                    "<img width='80' height='50' src='"+(getClass().getResource("/picture/logojaringan.png"))+"'/>"+
+                                                "</td>"+
+                                            "</tr>"+
+                                      "</table>"+
+                                "</td>"+
+                              "</tr>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                    "<hr/>"+
+                                "</td>"+
+                              "</tr>"+
                               "<tr>"+
                                 "<td valign='top' width='20%'>No.Rekam Medis</td>"+
                                 "<td valign='top' width='1%' align='center'>:</td>"+
@@ -3369,6 +3496,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 htmlContent.append(
                                   "</table>");
                             }
+                            try{
                             rs3=koneksi.prepareStatement(
                                 "select set_pjlab.kd_dokterrad,dokter.nm_dokter from set_pjlab inner join dokter on set_pjlab.kd_dokterrad=dokter.kd_dokter").executeQuery();
                             if(rs3.next()){
@@ -3387,6 +3515,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                               "<tr></tr>"+       
                                               "<tr>"+
                                               "<td border='0' align='center'>Penanngung Jawab Radiologi <br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs3.getString("kd_dokterrad")+".png'/><br>"+rs3.getString("nm_dokter")+"</td>");
+                                    try{
                                     rs4=koneksi.prepareStatement(
                                         "select periksa_radiologi.nip,petugas.nama from periksa_radiologi inner join petugas on periksa_radiologi.nip=petugas.nip where no_rawat='"+rs.getString("no_rawat")+"' limit 1").executeQuery();
                                     if(rs4.next()){
@@ -3400,8 +3529,21 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                               "</table>");
                                     }
                                     }
-
+                                    } catch (Exception e){
+                                        System.out.println("Notif Hasil Rad : "+e);
+                                    } finally {
+                                        if(rs4!=null){
+                                            rs4.close();
+                                        }
+                                    }
                                   }  
+                            }
+                            } catch (Exception e){
+                                System.out.println("Notif Hasil Rad : "+e);
+                            } finally {
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
                             }
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -3460,6 +3602,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         rs2=koneksi.prepareStatement(
                                  "select billing.no,billing.nm_perawatan,billing.pemisah,if(billing.biaya=0,'',billing.biaya),if(billing.jumlah=0,'',billing.jumlah),if(billing.tambahan=0,'',billing.tambahan),if(billing.totalbiaya=0,'',billing.totalbiaya),billing.totalbiaya from billing where billing.no_rawat='"+rs.getString("no_rawat")+"'").executeQuery();
                         if(rs2.next()){
+                            try{
                             rs3=koneksi.prepareStatement(
                                     "select setting.nama_instansi,setting.alamat_instansi,setting.kabupaten,setting.propinsi,setting.kontak,setting.email,setting.logo from setting").executeQuery();
                             if(rs3.next()){
@@ -3476,8 +3619,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                    "<table width='100%' bgcolor='#ffffff' align='left' border='0' cellspacing='0' cellpadding='0'>"+
                                         "<tr>"+
                                             "<td  width='30%'>"+
-                                                "<img width='50' height='50' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/images/logorsi.png'/>"+
-                                                "<img width='130' height='50' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/images/logoparipurna.png'/>"+
+//                                                "<img width='50' height='50' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/images/logorsi.png'/>"+
+//                                                "<img width='130' height='50' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/images/logoparipurna.png'/>"+
+                                                  "<img width='50' height='50' src='"+(getClass().getResource("/picture/logorsi.png"))+"'/>"+
+                                                "<img width='130' height='50' src='"+(getClass().getResource("/picture/logoparipurna.png"))+"'/>"+
                                             "</td>"+
                                             "<td width='40%'>"+
                                                 "<center>"+
@@ -3489,12 +3634,20 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                                 "</center>"+
                                             "</td>"+
                                             "<td  width='30%' align='right' >"+
-                                                "<img width='80' height='50' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/images/logojaringan.png'/>"+
+//                                                "<img width='80' height='50' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/images/logojaringan.png'/>"+
+                                                  "<img width='80' height='50' src='"+(getClass().getResource("/picture/logojaringan.png"))+"'/>"+
                                             "</td>"+
                                         "</tr>"+
                                   "</table>"+
                             "</td>"+
                             "</tr>");
+                            }
+                            } catch (Exception e){
+                                System.out.println("Notif Billing : "+e);
+                            } finally {
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
                             }
                             htmlContent.append(
                             "<tr>"+
@@ -5237,6 +5390,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private void menampilkanSEPBPJS(String norawat) {
         try {
             if(chkSepBpjs.isSelected()==true){
+                try{
                 rs2=koneksi.prepareStatement(
                             "SELECT bridging_sep.no_sep,bridging_sep.no_rawat,bridging_sep.nomr,bridging_sep.nama_pasien,date_format(bridging_sep.tglsep,'%d-%m-%Y') as tglsep,date_format(bridging_sep.tglrujukan,'%d-%m-%Y') as tglrujukan," +
                             "bridging_sep.no_rujukan,bridging_sep.kdppkrujukan,bridging_sep.nmppkrujukan,bridging_sep.kdppkpelayanan,bridging_sep.nmppkpelayanan," +
@@ -5248,15 +5402,23 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     if(rs2.next()){
                         if(!rs2.getString("no_rawat").isEmpty()){
                             htmlContent.append("<fieldset><table class='sep' width='1000' style='font-size:11px;padding:0;border:0px solid #fff;page-break-after: always;' border='0' padding='0'><tr><td><table border='0' padding='0'><tr><td width='420'><img alt='Image' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/images/bpjslogo.png' width='400' height='68'></td><td width='580'><div style='font-size:28px;text-align:center;font-weight:bold;'>SURAT ELEGIBILITAS PESERTA</div><div style='font-size:21px;text-align:center;'>RS ISLAM AMINAH BLITAR</div></td></tr></table></td></tr><tr><td><table><tr><td width='420'><b><u>PRB : ").append(rs2.getString("prb")).append("</u></b></td><td width='580'><center>");
-                                            rs3=koneksi.prepareStatement(
-                                                "select no_sep from bridging_sep where no_rawat='"+rs.getString("no_rawat")+"'").executeQuery();
-                                            if(rs3.next()){
-                                                  rs3.beforeFirst();
-                                                  while(rs3.next()){
-                                                      get = new GetMethod("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/berkasrawat/generateqrcodesep.php?sepbpjs="+rs3.getString("no_sep").replace(" ","_"));
-                                                      http.executeMethod(get);
-                                                      htmlContent.append("<img alt='Image' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/temp/").append(rs3.getString("no_sep")).append(".png' width='200px'>");
-                                                  }  
+                                            try{
+                                                rs3=koneksi.prepareStatement(
+                                                    "select no_sep from bridging_sep where no_rawat='"+rs.getString("no_rawat")+"'").executeQuery();
+                                                if(rs3.next()){
+                                                      rs3.beforeFirst();
+                                                      while(rs3.next()){
+                                                          get = new GetMethod("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/berkasrawat/generateqrcodesep.php?sepbpjs="+rs3.getString("no_sep").replace(" ","_"));
+                                                          http.executeMethod(get);
+                                                          htmlContent.append("<img alt='Image' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/temp/").append(rs3.getString("no_sep")).append(".png' width='200px'>");
+                                                      }  
+                                                }
+                                            } catch (Exception e){
+                                                System.out.println("Notif SEP BPJS : "+e);
+                                            } finally {
+                                                if(rs3!=null){
+                                                    rs3.close();
+                                                }
                                             }
                                             htmlContent.append("</center></td></tr></table></td></tr><tr><td><table><tr><td width='170'>No. SEP</td><td>:</td><td>").append(rs2.getString("no_sep")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>Tgl. SEP</td><td>:</td><td>").append(rs2.getString("tglsep")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>No. Kartu</td><td>:</td><td width='450'>").append(rs2.getString("no_kartu")).append(" ( MR: ").append(rs2.getString("nomr")).append(")</td><td width='90'>Peserta</td><td>:</td><td>").append(rs2.getString("peserta")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>Nama Peserta</td><td>:</td><td width='450'>").append(rs2.getString("nama_pasien")).append("</td><td width='90'>COB</td><td>:</td><td>").append(rs2.getString("cob")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>Tgl. Lahir</td><td>:</td><td width='450'>").append(rs2.getString("tanggal_lahir")).append(" Kelamin: ").append(rs2.getString("jkel")).append("</td><td width='90'>Jns. Rawat</td><td>:</td><td>").append(rs2.getString("jnspelayanan")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>No. Telepon</td><td>:</td><td width='450'>").append(rs2.getString("notelep")).append("</td><td width='90'>Jns. Kunjungan</td><td>:</td><td>").append(rs2.getString("tujuankunjungan")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>Spesialis/Sub Spesialis</td><td>:</td><td width='450'>").append(rs2.getString("nmpolitujuan")).append("</td><td width='90'>Poli Perujuk</td><td>:</td><td>-</td></tr></table></td></tr><tr><td><table><tr><td width='170'>Dokter</td><td>:</td><td width='450'>").append(rs2.getString("nmdpdjp")).append("</td><td width='90'>Kelas HAK</td><td>:</td><td>").append(rs2.getString("klsrawat").replaceAll("1","Kelas 1").replaceAll("2","Kelas 2").replaceAll("3","Kelas 3")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>Faskes Perujuk</td><td>:</td><td width='450'>").append(rs2.getString("nmppkrujukan")).append("</td><td width='90'>Kls. Rawat</td><td>:</td><td>").append(rs2.getString("klsnaik").replaceAll("1","Kelas VVIP").replaceAll("2","Kelas VIP").replaceAll("3","Kelas 1").replaceAll("4","Kelas 2").replaceAll("5","Kelas 3").replaceAll("6","ICCU").replaceAll("7","ICU").replaceAll("8","Diatas Kelas 1")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170'>Diagnosa Awal</td><td>:</td><td width='450'>").append(rs2.getString("nmdiagnosaawal")).append("</td><td width='90'>Penjamin</td><td>:</td><td>").append(rs2.getString("lakalantas").replaceAll("0","BPJS Kesehatan").replaceAll("1","Jasa Raharja").replaceAll("2","Jasa Raharja & BPJS Ketenagakerjaan/Taspen").replaceAll("3","BPJS Ketenagakerjaan, Taspen, dll")).append("</td></tr></table></td></tr><tr><td><table><tr><td width='170' valign='top'>Catatan</td><td valign='top'>:</td><td width='550' valign='top'>").append(rs2.getString("catatan")).append("</td><td width='200' halign='center' valign='bottom'>Pasien/Keluarga Pasien</td></tr></table></td></tr><tr><td><table><tr><td width='720' height='0'><br><i>"+
                                             "Saya Menyetujui BPJS Kesehatan menggunakan informasi Medis Pasien jika diperlukan.<br>"+
@@ -5265,17 +5427,25 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "&nbsp;&nbsp;&nbsp;secara elektronik (validasi fingerprint atau biometrik/sistem validasi lain) dan selanjutnya Pasien dapat<br>" +
                                             "&nbsp;&nbsp;&nbsp;mengakses pelayanan kesehatan rujukan sesuai ketentuan berlaku. Kebenaran dan keaslian atas informasi data Pasien<br>" +
                                             "&nbsp;&nbsp;&nbsp;menjadi tanggung jawab penuh FKTRL.<br>Cetakan ke 1 ").append(lokal).append("<br>Masa berlaku ").append(rs2.getString("tglrujukan")).append(" s/d ").append(rs2.getString("berlaku")).append("</i></td><td valign='bottom' halign='center' padding='0' margin='0'>");
-                                            rs3=koneksi.prepareStatement(
-                                                "select no_sep from bridging_sep where no_rawat='"+rs.getString("no_rawat")+"'").executeQuery();
-                                            if(rs3.next()){
-                                                  rs3.beforeFirst();
-                                                  while(rs3.next()){
-                                                      get = new GetMethod("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/berkasrawat/generateqrcodesep.php?sepbpjs="+rs3.getString("no_sep").replace(" ","_"));
-                                                      http.executeMethod(get);
-                                                      htmlContent.append(
-                                                      "<img alt='Image' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/berkasrawat/temp/"+rs3.getString("no_sep")+".png' width='200px'><br>"
-                                                      );
-                                                  }  
+                                            try{
+                                                rs3=koneksi.prepareStatement(
+                                                    "select no_sep from bridging_sep where no_rawat='"+rs.getString("no_rawat")+"'").executeQuery();
+                                                if(rs3.next()){
+                                                      rs3.beforeFirst();
+                                                      while(rs3.next()){
+                                                          get = new GetMethod("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/berkasrawat/generateqrcodesep.php?sepbpjs="+rs3.getString("no_sep").replace(" ","_"));
+                                                          http.executeMethod(get);
+                                                          htmlContent.append(
+                                                          "<img alt='Image' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/berkasrawat/temp/"+rs3.getString("no_sep")+".png' width='200px'><br>"
+                                                          );
+                                                      }  
+                                                }
+                                            } catch (Exception e){
+                                                System.out.println("Notif SEP BPJS : "+e);
+                                            } finally {
+                                                if(rs3!=null){
+                                                    rs3.close();
+                                                }
                                             }
                                             htmlContent.append(
                                             ""+rs2.getString("nama_pasien")+"<br>"+
@@ -5618,6 +5788,13 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 "</fieldset>"    
                         );
                         }
+                    } catch (Exception e){
+                        System.out.println("Notif SEP BPJS : "+e);
+                    } finally {
+                        if(rs2!=null){
+                            rs2.close();
+                        }
+                    }
             }
         } catch (Exception e) {
             System.out.println("Notif SEP BPJS : "+e);
@@ -8371,6 +8548,34 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         htmlContent.append(
 //                              "<fieldset>"+
                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                       "<table width='100%' bgcolor='#ffffff' align='left' border='0' cellspacing='0' cellpadding='0'>"+
+                                            "<tr>"+
+                                                "<td  width='30%'>"+
+                                                    "<img width='50' height='50' src='"+(getClass().getResource("/picture/logorsi.png"))+"'/>"+
+                                                    "<img width='130' height='50' src='"+(getClass().getResource("/picture/logoparipurna.png"))+"'/>"+
+                                                "</td>"+
+                                                "<td width='40%'>"+
+                                                    "<center>"+
+                                                        "<font color='000000'  face='Tahoma'>RS ISLAM AMINAH BLITAR</font><br>"+
+                                                        "<font color='000000'  face='Tahoma'>Jl. Kenari No 54 Plosokerep, Blitar, Jawa Timur<br/>"+
+                                                            "Telp. (0342) 801662, E-mail : rsiaminahblitar@gmail.com"+
+                                                        "</font>"+ 
+                                                    "</center>"+
+                                                "</td>"+
+                                                "<td  width='30%' align='right' >"+
+                                                    "<img width='80' height='50' src='"+(getClass().getResource("/picture/logojaringan.png"))+"'/>"+
+                                                "</td>"+
+                                            "</tr>"+
+                                      "</table>"+
+                                "</td>"+
+                              "</tr>"+
+                              "<tr>"+
+                                "<td colspan='3' padding='0'>"+
+                                    "<hr/>"+
+                                "</td>"+
+                              "</tr>"+
                               "<tr>"+
                                 "<td valign='top' width='20%'>No.Rekam Medis</td>"+
                                 "<td valign='top' width='1%' align='center'>:</td>"+
@@ -16071,6 +16276,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top' align='center' colspan='7'>"+rs2.getString("kd_dokter")+" "+rs2.getString("nm_dokter")+"</td>"+
                                  "</tr>");
                                  if(!rs2.getString("bagian").isEmpty()){
+                                    try{
                                     rs5=koneksi.prepareStatement(
                                     "select pemeriksaan_gigi.no_rawat,pemeriksaan_gigi.kd_dokter,dokter.nm_dokter,pemeriksaan_gigi.bagian,pemeriksaan_gigi.kd_diagnosa,"+
                                     "penyakit.nm_penyakit,pemeriksaan_gigi.hasil,pemeriksaan_gigi.catatan,pemeriksaan_gigi.tanggal,pemeriksaan_gigi.noorder,pemeriksaan_gigi.rahang "+
@@ -16104,6 +16310,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td valign='top' align='center' colspan='2'></td>"+
                                             "<td valign='top' align='center' colspan='7' bgcolor='#FFFAF8'>Tambahan Pemeriksaan Ondontogram</td>"+
                                         "</tr>");
+                                        try{
                                         rs6=koneksi.prepareStatement(
                                         "select occlusi,torus_palatinus,torus_mandibularis,palatum,diastema,tambahan_diastema,gigi_anomali,tambahan_gigi_anomali,lain,d,m,f from tambahan_pemeriksaan_gigi "+
                                         "where no_rawat='"+norawat+"'").executeQuery();
@@ -16169,7 +16376,21 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "</td>"+
                                         "</tr>");
                                         }
-                                    } 
+                                        } catch (Exception e){
+                                            System.out.println("Notif Gigi : "+e);
+                                        } finally {
+                                            if(rs6!=null){
+                                                rs6.close();
+                                            }
+                                        }
+                                    }
+                                    } catch (Exception e){
+                                        System.out.println("Notif Gigi : "+e);
+                                    } finally {
+                                        if(rs5!=null){
+                                            rs5.close();
+                                        }
+                                    }
                                     
                                  }
                             w++;

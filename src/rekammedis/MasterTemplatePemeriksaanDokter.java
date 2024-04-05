@@ -3,11 +3,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.WarnaTable;
 import fungsi.WarnaTable2;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import inventory.DlgCariAturanPakai;
 import inventory.DlgCariMetodeRacik;
 import java.awt.Dimension;
@@ -591,12 +591,12 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbTindakan.setDefaultRenderer(Object.class, new WarnaTable());
 
         Kd.setDocument(new batasInput((byte)20).getKata(Kd));    
-        Subjek.setDocument(new batasInput((int)2000).getKata(Subjek));  
-        Objek.setDocument(new batasInput((int)2000).getKata(Objek));  
-        Asesmen.setDocument(new batasInput((int)2000).getKata(Asesmen));  
-        Plan.setDocument(new batasInput((int)2000).getKata(Plan));  
-        Instruksi.setDocument(new batasInput((int)2000).getKata(Instruksi));  
-        Evaluasi.setDocument(new batasInput((int)2000).getKata(Evaluasi));  
+        Subjek.setDocument(new batasInput(2000).getKata(Subjek));  
+        Objek.setDocument(new batasInput(2000).getKata(Objek));  
+        Asesmen.setDocument(new batasInput(2000).getKata(Asesmen));  
+        Plan.setDocument(new batasInput(2000).getKata(Plan));  
+        Instruksi.setDocument(new batasInput(2000).getKata(Instruksi));  
+        Evaluasi.setDocument(new batasInput(2000).getKata(Evaluasi));  
         Diagnosa.setDocument(new batasInput((byte)100).getKata(Diagnosa));  
         Prosedur.setDocument(new batasInput((byte)100).getKata(Prosedur));  
         CariRadiologi.setDocument(new batasInput((byte)100).getKata(CariRadiologi));  
@@ -2097,11 +2097,11 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+        }else if(KdDokter.getText().trim().isEmpty()||NmDokter.getText().trim().isEmpty()){
             Valid.textKosong(BtnDokter,"Dokter");
-        }else if(Asesmen.getText().trim().equals("")){
+        }else if(Asesmen.getText().trim().isEmpty()){
             Valid.textKosong(Asesmen,"Asesmen");
         }else{
             if(tbDokter.getSelectedRow()>-1){
@@ -2152,11 +2152,11 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+        }else if(KdDokter.getText().trim().isEmpty()||NmDokter.getText().trim().isEmpty()){
             Valid.textKosong(BtnDokter,"Dokter");
-        }else if(Asesmen.getText().trim().equals("")){
+        }else if(Asesmen.getText().trim().isEmpty()){
             Valid.textKosong(Asesmen,"Asesmen");
         }else{
             if(Sequel.menyimpantf("template_pemeriksaan_dokter","?,?,?,?,?,?,?,?","No.Template",8,new String[]{
@@ -2195,7 +2195,7 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                     }
                 }
                 for(i=0;i<tbDetailPK.getRowCount();i++){ 
-                    if((!tbDetailPK.getValueAt(i,4).toString().equals(""))&&tbDetailPK.getValueAt(i,0).toString().equals("true")){  
+                    if((!tbDetailPK.getValueAt(i,4).toString().isEmpty())&&tbDetailPK.getValueAt(i,0).toString().equals("true")){  
                         Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
                             Kd.getText(),tbDetailPK.getValueAt(i,5).toString(),tbDetailPK.getValueAt(i,4).toString()
                         });
@@ -2216,7 +2216,7 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                     }
                 }
                 for(i=0;i<tbDetailMB.getRowCount();i++){ 
-                    if((!tbDetailMB.getValueAt(i,4).toString().equals(""))&&tbDetailMB.getValueAt(i,0).toString().equals("true")){  
+                    if((!tbDetailMB.getValueAt(i,4).toString().isEmpty())&&tbDetailMB.getValueAt(i,0).toString().equals("true")){  
                         Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
                             Kd.getText(),tbDetailMB.getValueAt(i,5).toString(),tbDetailMB.getValueAt(i,4).toString()
                         });
@@ -2231,12 +2231,12 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                                 });
                             }else{
                                 Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
-                                    Kd.getText(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+                                    Kd.getText(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.valueOf(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
                                 });
                             }
                         }else{
                             Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
-                                Kd.getText(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+                                Kd.getText(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.valueOf(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
                             });
                         }
                     }
@@ -2480,13 +2480,13 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void BtnCariObatRacikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariObatRacikanActionPerformed
         if(tbObatRacikan.getRowCount()!=0){
             if(tbObatRacikan.getSelectedRow()!= -1){
-                if(tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),0).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),1).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),2).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),3).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),4).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),5).toString().equals("")||
-                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),6).toString().equals("")){
+                if(tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),0).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),1).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),2).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),3).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),4).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),5).toString().isEmpty()||
+                        tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),6).toString().isEmpty()){
                     JOptionPane.showMessageDialog(null,"Silahkan lengkapi data racikan..!!");
                 }else{
                     tampilDetailObatRacikan();
@@ -2696,7 +2696,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 for(i=0;i<tbDetailObatRacikan.getRowCount();i++){ 
                                     if(noracik==tbDetailObatRacikan.getValueAt(i,0).toString()){
                                         if(!tbDetailObatRacikan.getValueAt(i,9).toString().contains("%")){
-                                            jumlahracik=jumlahracik+(Double.parseDouble(tbDetailObatRacikan.getValueAt(i,5).toString())*
+                                            jumlahracik += (Double.parseDouble(tbDetailObatRacikan.getValueAt(i,5).toString())*
                                                     Double.parseDouble(tbDetailObatRacikan.getValueAt(i,10).toString()));
                                         }
                                     }
@@ -2894,7 +2894,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "template_pemeriksaan_dokter.keluhan,template_pemeriksaan_dokter.pemeriksaan,template_pemeriksaan_dokter.penilaian,"+
                         "template_pemeriksaan_dokter.rencana,template_pemeriksaan_dokter.instruksi,template_pemeriksaan_dokter.evaluasi "+
                         "from template_pemeriksaan_dokter inner join dokter on dokter.kd_dokter=template_pemeriksaan_dokter.kd_dokter "+
-                        (TCari.getText().equals("")?"":"where template_pemeriksaan_dokter.no_template like ? or template_pemeriksaan_dokter.nm_dokter like ? or "+
+                        (TCari.getText().isEmpty()?"":"where template_pemeriksaan_dokter.no_template like ? or template_pemeriksaan_dokter.nm_dokter like ? or "+
                         "template_pemeriksaan_dokter.keluhan like ? or template_pemeriksaan_dokter.pemeriksaan like ? or "+
                         "template_pemeriksaan_dokter.penilaian like ? or template_pemeriksaan_dokter.rencana like ? or "+
                         "template_pemeriksaan_dokter.instruksi like ? or template_pemeriksaan_dokter.evaluasi like ? ")+
@@ -2905,7 +2905,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "template_pemeriksaan_dokter.keluhan,template_pemeriksaan_dokter.pemeriksaan,template_pemeriksaan_dokter.penilaian,"+
                         "template_pemeriksaan_dokter.rencana,template_pemeriksaan_dokter.instruksi,template_pemeriksaan_dokter.evaluasi "+
                         "from template_pemeriksaan_dokter inner join dokter on dokter.kd_dokter=template_pemeriksaan_dokter.kd_dokter "+
-                        "where template_pemeriksaan_dokter.kd_dokter=? "+(TCari.getText().equals("")?"":"and (template_pemeriksaan_dokter.no_template like ? or "+
+                        "where template_pemeriksaan_dokter.kd_dokter=? "+(TCari.getText().isEmpty()?"":"and (template_pemeriksaan_dokter.no_template like ? or "+
                         "template_pemeriksaan_dokter.keluhan like ? or template_pemeriksaan_dokter.pemeriksaan like ? or "+
                         "template_pemeriksaan_dokter.penilaian like ? or template_pemeriksaan_dokter.rencana like ? or "+
                         "template_pemeriksaan_dokter.instruksi like ? or template_pemeriksaan_dokter.evaluasi like ?) ")+
@@ -2914,7 +2914,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 
             try {
                 if(akses.getkode().equals("Admin Utama")){
-                    if(!TCari.getText().equals("")){
+                    if(!TCari.getText().isEmpty()){
                         ps.setString(1,"%"+TCari.getText().trim()+"%");
                         ps.setString(2,"%"+TCari.getText().trim()+"%");
                         ps.setString(3,"%"+TCari.getText().trim()+"%");
@@ -2926,7 +2926,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }
                 }else{
                     ps.setString(1,akses.getkode());
-                    if(!TCari.getText().equals("")){
+                    if(!TCari.getText().isEmpty()){
                         ps.setString(2,"%"+TCari.getText().trim()+"%");
                         ps.setString(3,"%"+TCari.getText().trim()+"%");
                         ps.setString(4,"%"+TCari.getText().trim()+"%");
@@ -3020,7 +3020,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             BtnDokter.setEnabled(false);
             KdDokter.setText(akses.getkode());
             NmDokter.setText(dokter.tampil3(KdDokter.getText()));
-            if(NmDokter.getText().equals("")){
+            if(NmDokter.getText().isEmpty()){
                 KdDokter.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan Dokter...!!");
             }
@@ -3384,16 +3384,16 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         rs=ps.executeQuery();
                         while(rs.next()){
                             la="";ld="";pa="";pd="";
-                            if(!rs.getString("nilai_rujukan_ld").equals("")){
+                            if(!rs.getString("nilai_rujukan_ld").isEmpty()){
                                 ld="LD : "+rs.getString("nilai_rujukan_ld");
                             }
-                            if(!rs.getString("nilai_rujukan_la").equals("")){
+                            if(!rs.getString("nilai_rujukan_la").isEmpty()){
                                 la=", LA : "+rs.getString("nilai_rujukan_la");
                             }
-                            if(!rs.getString("nilai_rujukan_pa").equals("")){
+                            if(!rs.getString("nilai_rujukan_pa").isEmpty()){
                                 pd=", PD : "+rs.getString("nilai_rujukan_pd");
                             }
-                            if(!rs.getString("nilai_rujukan_pd").equals("")){
+                            if(!rs.getString("nilai_rujukan_pd").isEmpty()){
                                 pa=" PA : "+rs.getString("nilai_rujukan_pa");
                             }
                             tabModeDetailPK.addRow(new Object[]{
@@ -3634,16 +3634,16 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         rs=ps.executeQuery();
                         while(rs.next()){
                             la="";ld="";pa="";pd="";
-                            if(!rs.getString("nilai_rujukan_ld").equals("")){
+                            if(!rs.getString("nilai_rujukan_ld").isEmpty()){
                                 ld="LD : "+rs.getString("nilai_rujukan_ld");
                             }
-                            if(!rs.getString("nilai_rujukan_la").equals("")){
+                            if(!rs.getString("nilai_rujukan_la").isEmpty()){
                                 la=", LA : "+rs.getString("nilai_rujukan_la");
                             }
-                            if(!rs.getString("nilai_rujukan_pa").equals("")){
+                            if(!rs.getString("nilai_rujukan_pa").isEmpty()){
                                 pd=", PD : "+rs.getString("nilai_rujukan_pd");
                             }
-                            if(!rs.getString("nilai_rujukan_pd").equals("")){
+                            if(!rs.getString("nilai_rujukan_pd").isEmpty()){
                                 pa=" PA : "+rs.getString("nilai_rujukan_pa");
                             }
                             tabModeDetailMB.addRow(new Object[]{
@@ -4221,16 +4221,16 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         rs2.beforeFirst();
                                         while(rs2.next()){
                                             la="";ld="";pa="";pd="";
-                                            if(!rs2.getString("nilai_rujukan_ld").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_ld").isEmpty()){
                                                 ld="LD : "+rs2.getString("nilai_rujukan_ld");
                                             }
-                                            if(!rs2.getString("nilai_rujukan_la").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_la").isEmpty()){
                                                 la=", LA : "+rs2.getString("nilai_rujukan_la");
                                             }
-                                            if(!rs2.getString("nilai_rujukan_pa").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_pa").isEmpty()){
                                                 pd=", PD : "+rs2.getString("nilai_rujukan_pd");
                                             }
-                                            if(!rs2.getString("nilai_rujukan_pd").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_pd").isEmpty()){
                                                 pa=" PA : "+rs2.getString("nilai_rujukan_pa");
                                             }
                                             htmlContent.append(
@@ -4380,16 +4380,16 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         rs2.beforeFirst();
                                         while(rs2.next()){
                                             la="";ld="";pa="";pd="";
-                                            if(!rs2.getString("nilai_rujukan_ld").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_ld").isEmpty()){
                                                 ld="LD : "+rs2.getString("nilai_rujukan_ld");
                                             }
-                                            if(!rs2.getString("nilai_rujukan_la").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_la").isEmpty()){
                                                 la=", LA : "+rs2.getString("nilai_rujukan_la");
                                             }
-                                            if(!rs2.getString("nilai_rujukan_pa").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_pa").isEmpty()){
                                                 pd=", PD : "+rs2.getString("nilai_rujukan_pd");
                                             }
-                                            if(!rs2.getString("nilai_rujukan_pd").equals("")){
+                                            if(!rs2.getString("nilai_rujukan_pd").isEmpty()){
                                                 pa=" PA : "+rs2.getString("nilai_rujukan_pa");
                                             }
                                             htmlContent.append(
@@ -4708,7 +4708,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }
                 }
                 for(i=0;i<tbDetailPK.getRowCount();i++){ 
-                    if((!tbDetailPK.getValueAt(i,4).toString().equals(""))&&tbDetailPK.getValueAt(i,0).toString().equals("true")){  
+                    if((!tbDetailPK.getValueAt(i,4).toString().isEmpty())&&tbDetailPK.getValueAt(i,0).toString().equals("true")){  
                         Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
                             tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailPK.getValueAt(i,5).toString(),tbDetailPK.getValueAt(i,4).toString()
                         });
@@ -4729,7 +4729,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }
                 }
                 for(i=0;i<tbDetailMB.getRowCount();i++){ 
-                    if((!tbDetailMB.getValueAt(i,4).toString().equals(""))&&tbDetailMB.getValueAt(i,0).toString().equals("true")){  
+                    if((!tbDetailMB.getValueAt(i,4).toString().isEmpty())&&tbDetailMB.getValueAt(i,0).toString().equals("true")){  
                         Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
                             tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailMB.getValueAt(i,5).toString(),tbDetailMB.getValueAt(i,4).toString()
                         });
@@ -4744,12 +4744,12 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 });
                             }else{
                                 Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
-                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.valueOf(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
                                 });
                             }
                         }else{
                             Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
-                                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+                                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.valueOf(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
                             });
                         }
                     }

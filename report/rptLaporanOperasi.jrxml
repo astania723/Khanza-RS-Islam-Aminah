@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="536" leftMargin="39" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7435c0f7-de74-4940-ae33-c2370e46f8e7">
 	<property name="ireport.zoom" value="1.399522140629204"/>
 	<property name="ireport.x" value="0"/>
@@ -576,7 +576,7 @@
 				<textFieldExpression><![CDATA[$P{alergi}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="14" y="240" width="66" height="10" uuid="9b442224-4e9b-46eb-9228-b5d73fcb1f42">
+				<reportElement x="163" y="205" width="66" height="10" uuid="9b442224-4e9b-46eb-9228-b5d73fcb1f42">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -620,7 +620,7 @@
 				<text><![CDATA[Pemeriksaan :]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="14" y="215" width="259" height="23" backcolor="#CCCCCC" uuid="f9719824-2c3d-4f4e-b740-959531a9e1af"/>
+				<reportElement mode="Transparent" x="14" y="215" width="140" height="67" backcolor="#CCCCCC" uuid="f9719824-2c3d-4f4e-b740-959531a9e1af"/>
 				<textElement>
 					<font fontName="Tahoma" size="8" isItalic="true" isUnderline="true"/>
 					<paragraph lineSpacing="Single"/>
@@ -628,7 +628,7 @@
 				<textFieldExpression><![CDATA[$P{pemeriksaan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="81" y="240" width="41" height="10" uuid="8b671679-23b1-4129-9fef-126723c2f347">
+				<reportElement x="230" y="205" width="45" height="10" uuid="8b671679-23b1-4129-9fef-126723c2f347">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -638,7 +638,7 @@
 				<textFieldExpression><![CDATA[$P{suhu_tubuh}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="81" y="252" width="41" height="10" uuid="f30adfba-742d-4f99-8501-6dd1849f472e">
+				<reportElement x="230" y="217" width="45" height="10" uuid="f30adfba-742d-4f99-8501-6dd1849f472e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -648,7 +648,7 @@
 				<textFieldExpression><![CDATA[$P{tensi}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="14" y="252" width="66" height="10" uuid="e5f05d10-287f-4802-9e43-c3bb5dfee510">
+				<reportElement x="163" y="217" width="66" height="10" uuid="e5f05d10-287f-4802-9e43-c3bb5dfee510">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -658,7 +658,7 @@
 				<text><![CDATA[Tensi.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="144" y="252" width="71" height="10" uuid="7fcf4c71-d28f-447a-bbb2-64896685e2af">
+				<reportElement x="163" y="264" width="66" height="10" uuid="7fcf4c71-d28f-447a-bbb2-64896685e2af">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -668,7 +668,7 @@
 				<text><![CDATA[Respirasi (/Mnt).]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="215" y="240" width="41" height="10" uuid="81add23f-f322-4674-b32a-25dcccb80ae9">
+				<reportElement x="230" y="252" width="45" height="10" uuid="81add23f-f322-4674-b32a-25dcccb80ae9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -678,7 +678,7 @@
 				<textFieldExpression><![CDATA[$P{nadi}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="215" y="252" width="41" height="10" uuid="fc6b970b-2ed0-445c-b2ef-6e0ff6566bc0">
+				<reportElement x="230" y="264" width="45" height="10" uuid="fc6b970b-2ed0-445c-b2ef-6e0ff6566bc0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -688,7 +688,7 @@
 				<textFieldExpression><![CDATA[$P{respirasi}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="144" y="240" width="71" height="10" uuid="5de96c30-3d55-47cc-9bde-47e941ef619f">
+				<reportElement x="163" y="252" width="66" height="10" uuid="5de96c30-3d55-47cc-9bde-47e941ef619f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -698,7 +698,7 @@
 				<text><![CDATA[Nadi (/Mnt).]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="14" y="276" width="66" height="10" uuid="b0cc96ee-d9c3-4465-ba0c-9d033414bf06">
+				<reportElement x="163" y="241" width="66" height="10" uuid="b0cc96ee-d9c3-4465-ba0c-9d033414bf06">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -708,7 +708,7 @@
 				<text><![CDATA[Berat (Kg).]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="81" y="264" width="41" height="10" uuid="a47d2fce-1ba9-49a8-97ff-6f5adfbbc0f5">
+				<reportElement x="230" y="229" width="45" height="10" uuid="a47d2fce-1ba9-49a8-97ff-6f5adfbbc0f5">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -718,7 +718,7 @@
 				<textFieldExpression><![CDATA[$P{tinggi}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="81" y="276" width="41" height="10" uuid="5288006d-dfc0-4cdd-b932-bf41e6b3dc9e">
+				<reportElement x="230" y="241" width="45" height="10" uuid="5288006d-dfc0-4cdd-b932-bf41e6b3dc9e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -728,7 +728,7 @@
 				<textFieldExpression><![CDATA[$P{berat}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="14" y="264" width="66" height="10" uuid="2e6b7ee5-4152-43d5-b566-dda2ab849723">
+				<reportElement x="163" y="229" width="66" height="10" uuid="2e6b7ee5-4152-43d5-b566-dda2ab849723">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -738,7 +738,7 @@
 				<text><![CDATA[Tinggi (Cm).]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="144" y="264" width="59" height="10" uuid="3a626f34-890d-40c9-bcba-9bf5a2289830">
+				<reportElement x="163" y="276" width="66" height="10" uuid="3a626f34-890d-40c9-bcba-9bf5a2289830">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -748,7 +748,7 @@
 				<text><![CDATA[GCS (E,V,M).]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="203" y="264" width="53" height="10" uuid="7b530356-4d35-4981-8619-6f85d7f83c7b">
+				<reportElement x="230" y="276" width="45" height="10" uuid="7b530356-4d35-4981-8619-6f85d7f83c7b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">

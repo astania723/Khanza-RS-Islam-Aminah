@@ -7,17 +7,14 @@ package bridging;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
-import java.awt.Dimension;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,7 +23,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
@@ -547,7 +547,7 @@ public final class SatuSehatKirimMedication extends javax.swing.JDialog {
 
     private void BtnKirimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKirimActionPerformed
         for(i=0;i<tbObat.getRowCount();i++){
-            if(tbObat.getValueAt(i,0).toString().equals("true")&&tbObat.getValueAt(i,9).toString().equals("")){
+            if(tbObat.getValueAt(i,0).toString().equals("true")&&tbObat.getValueAt(i,9).toString().isEmpty()){
                 try {
                     try{
                         headers = new HttpHeaders();
@@ -608,7 +608,7 @@ public final class SatuSehatKirimMedication extends javax.swing.JDialog {
                         System.out.println("Result JSON : "+json);
                         root = mapper.readTree(json);
                         response = root.path("id");
-                        if(!response.asText().equals("")){
+                        if(!response.asText().isEmpty()){
                             if(Sequel.menyimpantf2("satu_sehat_medication","?,?","Obat/Alkes",2,new String[]{
                                 tbObat.getValueAt(i,3).toString(),response.asText()
                             })==true){
@@ -640,7 +640,7 @@ public final class SatuSehatKirimMedication extends javax.swing.JDialog {
 
     private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
         for(i=0;i<tbObat.getRowCount();i++){
-            if(tbObat.getValueAt(i,0).toString().equals("true")&&(!tbObat.getValueAt(i,9).toString().equals(""))){
+            if(tbObat.getValueAt(i,0).toString().equals("true")&&(!tbObat.getValueAt(i,9).toString().isEmpty())){
                 try {
                     try{
                         headers = new HttpHeaders();
@@ -777,10 +777,10 @@ public final class SatuSehatKirimMedication extends javax.swing.JDialog {
                    "satu_sehat_mapping_obat.form_system,satu_sehat_mapping_obat.form_display,ifnull(satu_sehat_medication.id_medication,'') as id_medication "+
                    "from satu_sehat_mapping_obat inner join databarang on satu_sehat_mapping_obat.kode_brng=databarang.kode_brng "+
                    "left join satu_sehat_medication on satu_sehat_medication.kode_brng=satu_sehat_mapping_obat.kode_brng "+
-                   (TCari.getText().equals("")?"":"where (satu_sehat_mapping_obat.obat_code like ? or satu_sehat_mapping_obat.kode_brng like ? or "+
+                   (TCari.getText().isEmpty()?"":"where (satu_sehat_mapping_obat.obat_code like ? or satu_sehat_mapping_obat.kode_brng like ? or "+
                    "satu_sehat_mapping_obat.obat_display like ? or satu_sehat_mapping_obat.form_code like ? or satu_sehat_mapping_obat.form_display like ?) "));
             try {
-                if(!TCari.getText().equals("")){
+                if(!TCari.getText().isEmpty()){
                     ps.setString(1,"%"+TCari.getText()+"%");
                     ps.setString(2,"%"+TCari.getText()+"%");
                     ps.setString(3,"%"+TCari.getText()+"%");

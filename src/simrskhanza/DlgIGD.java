@@ -9133,7 +9133,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }else{
             if(tbPetugas.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMPenilaianAwalMedisIGD form=new RMPenilaianAwalMedisIGD(null,false);
+                RMPenilaianAwalMedisIGD form=new RMPenilaianAwalMedisIGD(null,true);
                 form.isCek();
                 form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
 //                form.emptTeks();

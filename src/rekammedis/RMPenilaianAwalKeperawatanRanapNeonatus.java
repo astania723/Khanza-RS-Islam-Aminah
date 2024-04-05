@@ -8348,7 +8348,7 @@ public class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.JDialog
         }
     }
     
-    public void setNoRm(String norwt, Date tgl2,String carabayar,String norm) {
+    public void setNoRm(String norwt, Date tgl2,String norm) {
         TNoRw.setText(norwt);
         TNoRM.setText(norm);
         TCari.setText(norwt);
@@ -8360,10 +8360,10 @@ public class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.JDialog
     
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_ranap());
-        BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_ranap());
-        BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_ranap());
-        BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_ranap());
+        BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_ranap_neonatus());
+        BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_ranap_neonatus());
+        BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_ranap_neonatus());
+        BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_ranap_neonatus());
         BtnTambahMasalah.setEnabled(akses.getmaster_masalah_keperawatan_anak()); 
         BtnTambahRencana.setEnabled(akses.getmaster_rencana_keperawatan_anak()); 
         if(akses.getjml2()>=1){

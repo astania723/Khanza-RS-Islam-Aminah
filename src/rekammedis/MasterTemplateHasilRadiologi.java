@@ -1,10 +1,10 @@
 package rekammedis;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -55,7 +55,7 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 
         Kd.setDocument(new batasInput((byte)5).getKata(Kd));
         Nm.setDocument(new batasInput((byte)50).getKata(Nm));      
-        Template.setDocument(new batasInput((int)5000).getKata(Template));  
+        Template.setDocument(new batasInput(5000).getKata(Template));  
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));    
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -471,7 +471,7 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 }//GEN-LAST:event_tbDokterKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(Nm.getText().trim().equals("")){
+        if(Nm.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"Maaf, Pilih dulu data yang akan Anda hapus dengan menklik data pada tabel...!!!");
             tbDokter.requestFocus();
         }else{
@@ -494,11 +494,11 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Nm.getText().trim().equals("")){
+        }else if(Nm.getText().trim().isEmpty()){
             Valid.textKosong(Nm,"Nama Pemeriksaan");
-        }else if(Template.getText().trim().equals("")){
+        }else if(Template.getText().trim().isEmpty()){
             Valid.textKosong(Template,"Template Hasil Radiologi");
         }else{
             if(Valid.editTabletf(tabMode,"template_hasil_radiologi","no_template","?","no_template=?,nama_pemeriksaan=?,template_hasil_radiologi=?",4,new String[]{
@@ -543,11 +543,11 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().isEmpty()){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Nm.getText().trim().equals("")){
+        }else if(Nm.getText().trim().isEmpty()){
             Valid.textKosong(Nm,"Nama Pemeriksaan");
-        }else if(Template.getText().trim().equals("")){
+        }else if(Template.getText().trim().isEmpty()){
             Valid.textKosong(Template,"Template Hasil Radiologi");
         }else{
             if(Sequel.menyimpantf("template_hasil_radiologi","?,?,?","No.Template",3,new String[]{

@@ -470,9 +470,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 ttlJRsdSB=0;ttlJRsdBP=0;ttlJRsdDP=0;ttlJRsdRDk=0;ttlJRsdRDv=0;ttlJRsdTB=0;ttlSBsdBP=0;ttlSBsdDP=0;ttlSBsdRDk=0;ttlSBsdRDv=0;ttlSBsdTB=0;
                 ttlBPsdDP=0;ttlBPsdRDk=0;ttlBPsdRDv=0;ttlBPsdTB=0;ttlDPsdRDk=0;ttlDPsdRDv=0;ttlDPsdTB=0;ttlRDksdRDv=0;ttlRDksdTB=0;ttlRDvsdTB=0;
                 while(rs.next()){
-                    dilayanipoli=Sequel.cariIsi("select date_format(jam_rawat,'%H:%i:%s') from pemeriksaan_ralan where no_rawat=? order by tgl_perawatan,jam_rawat asc limit 1",rs.getString("no_rawat"));
-                    resepdikirim=Sequel.cariIsi("select date_format(jam_peresepan,'%H:%i:%s') from resep_obat where no_rawat=? order by tgl_peresepan,jam_peresepan asc limit 1",rs.getString("no_rawat"));
-                    resepdivalidasi=Sequel.cariIsi("select date_format(jam,'%H:%i:%s') from resep_obat where no_rawat=? order by tgl_peresepan,jam_peresepan asc limit 1",rs.getString("no_rawat"));
+                    dilayanipoli=Sequel.cariIsi("select date_format(pemeriksaan_ralan.jam_rawat,'%H:%i:%s') from pemeriksaan_ralan where pemeriksaan_ralan.no_rawat=? order by pemeriksaan_ralan.tgl_perawatan,pemeriksaan_ralan.jam_rawat asc limit 1",rs.getString("no_rawat"));
+                    resepdikirim=Sequel.cariIsi("select date_format(resep_obat.jam_peresepan,'%H:%i:%s') from resep_obat where resep_obat.no_rawat=? order by resep_obat.tgl_peresepan,resep_obat.jam_peresepan asc limit 1",rs.getString("no_rawat"));
+                    resepdivalidasi=Sequel.cariIsi("select date_format(resep_obat.jam,'%H:%i:%s') from resep_obat where resep_obat.no_rawat=? order by resep_obat.tgl_peresepan,resep_obat.jam_peresepan asc limit 1",rs.getString("no_rawat"));
                     ttlJRsdSB += rs.getDouble("JRsdSB");
                     ttlJRsdBP += rs.getDouble("JRsdBP");
                     JRsdDP=Sequel.cariIsiAngka("select ifnull(round((TIME_TO_SEC('"+dilayanipoli+"')-TIME_TO_SEC('"+rs.getString("jam_reg")+"'))/60,2),'')");
@@ -510,11 +510,74 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     RDvsdTB=Sequel.cariIsiAngka("select ifnull(round((TIME_TO_SEC('"+rs.getString("jambilling")+"')-TIME_TO_SEC('"+resepdivalidasi+"'))/60,2),'')");
                     ttlRDvsdTB += RDvsdTB;
                     
-                    htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_poli")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_dokter")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("jam_reg")).append("</td><td valign='middle' align='center'>").append(rs.getString("dikirim")).append("</td><td valign='middle' align='center'>").append(rs.getString("diterima")).append("</td><td valign='middle' align='center'>").append(dilayanipoli).append("</td><td valign='middle' align='center'>").append(resepdikirim).append("</td><td valign='middle' align='center'>").append(resepdivalidasi).append("</td><td valign='middle' align='center'>").append(rs.getString("jambilling")).append("</td><td valign='middle' align='center'>").append(rs.getString("JRsdSB")).append("</td><td valign='middle' align='center'>").append(rs.getString("JRsdBP")).append("</td><td valign='middle' align='center'>").append(JRsdDP).append("</td><td valign='middle' align='center'>").append(JRsdRDk).append("</td><td valign='middle' align='center'>").append(JRsdRDv).append("</td><td valign='middle' align='center'>").append(rs.getString("JRsdTB")).append("</td><td valign='middle' align='center'>").append(rs.getString("SBsdBP")).append("</td><td valign='middle' align='center'>").append(SBsdDP).append("</td><td valign='middle' align='center'>").append(SBsdRDk).append("</td><td valign='middle' align='center'>").append(SBsdRDv).append("</td><td valign='middle' align='center'>").append(rs.getString("SBsdTB")).append("</td><td valign='middle' align='center'>").append(BPsdDP).append("</td><td valign='middle' align='center'>").append(BPsdRDk).append("</td><td valign='middle' align='center'>").append(BPsdRDv).append("</td><td valign='middle' align='center'>").append(rs.getString("BPsdTB")).append("</td><td valign='middle' align='center'>").append(DPsdRDk).append("</td><td valign='middle' align='center'>").append(DPsdRDv).append("</td><td valign='middle' align='center'>").append(DPsdTB).append("</td><td valign='middle' align='center'>").append(RDksdRDv).append("</td><td valign='middle' align='center'>").append(RDksdTB).append("</td><td valign='middle' align='center'>").append(RDvsdTB).append("</td></tr>");
+                    htmlContent.append(
+                        "<tr class='isi'>"+
+                            "<td valign='middle' align='center'>"+rs.getString("no_rawat")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("no_rkm_medis")+"</td>"+
+                            "<td valign='middle' align='left'>"+rs.getString("nm_pasien")+"</td>"+
+                            "<td valign='middle' align='left'>"+rs.getString("nm_poli")+"</td>"+
+                            "<td valign='middle' align='left'>"+rs.getString("nm_dokter")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("tgl_registrasi")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("jam_reg")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("dikirim")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("diterima")+"</td>"+
+                            "<td valign='middle' align='center'>"+dilayanipoli+"</td>"+
+                            "<td valign='middle' align='center'>"+resepdikirim+"</td>"+
+                            "<td valign='middle' align='center'>"+resepdivalidasi+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("jambilling")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("JRsdSB")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("JRsdBP")+"</td>"+
+                            "<td valign='middle' align='center'>"+JRsdDP+"</td>"+
+                            "<td valign='middle' align='center'>"+JRsdRDk+"</td>"+
+                            "<td valign='middle' align='center'>"+JRsdRDv+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("JRsdTB")+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("SBsdBP")+"</td>"+
+                            "<td valign='middle' align='center'>"+SBsdDP+"</td>"+
+                            "<td valign='middle' align='center'>"+SBsdRDk+"</td>"+
+                            "<td valign='middle' align='center'>"+SBsdRDv+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("SBsdTB")+"</td>"+
+                            "<td valign='middle' align='center'>"+BPsdDP+"</td>"+
+                            "<td valign='middle' align='center'>"+BPsdRDk+"</td>"+
+                            "<td valign='middle' align='center'>"+BPsdRDv+"</td>"+
+                            "<td valign='middle' align='center'>"+rs.getString("BPsdTB")+"</td>"+     
+                            "<td valign='middle' align='center'>"+DPsdRDk+"</td>"+   
+                            "<td valign='middle' align='center'>"+DPsdRDv+"</td>"+   
+                            "<td valign='middle' align='center'>"+DPsdTB+"</td>"+ 
+                            "<td valign='middle' align='center'>"+RDksdRDv+"</td>"+ 
+                            "<td valign='middle' align='center'>"+RDksdTB+"</td>"+ 
+                            "<td valign='middle' align='center'>"+RDvsdTB+"</td>"+ 
+                        "</tr>"
+                    );
                     i++;
                 }
                 if(i>1){
-                    htmlContent.append("<tr class='isi'><td valign='middle'></td><td valign='middle' align='left' colspan='12'>Rata-rata Pelayanan Pasien : </td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlJRsdSB/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlJRsdBP/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlJRsdDP/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlJRsdRDk/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlJRsdRDv/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlJRsdTB/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlSBsdBP/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlSBsdDP/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlSBsdRDk/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlSBsdRDv/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlSBsdTB/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlBPsdDP/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlBPsdRDk/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlBPsdRDv/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlBPsdTB/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlDPsdRDk/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlDPsdRDv/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlDPsdTB/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlRDksdRDv/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlRDksdTB/(i-1))).append("</td><td valign='middle' align='center'>").append(Valid.SetAngka6(ttlRDvsdTB/(i-1))).append("</td></tr>");
+                    htmlContent.append(
+                        "<tr class='isi'>"+
+                            "<td valign='middle'></td>"+
+                            "<td valign='middle' align='left' colspan='12'>Rata-rata Pelayanan Pasien : </td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlJRsdSB/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlJRsdBP/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlJRsdDP/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlJRsdRDk/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlJRsdRDv/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlJRsdTB/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlSBsdBP/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlSBsdDP/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlSBsdRDk/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlSBsdRDv/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlSBsdTB/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlBPsdDP/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlBPsdRDk/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlBPsdRDv/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlBPsdTB/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlDPsdRDk/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlDPsdRDv/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlDPsdTB/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlRDksdRDv/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlRDksdTB/(i-1))+"</td>"+
+                            "<td valign='middle' align='center'>"+Valid.SetAngka6(ttlRDvsdTB/(i-1))+"</td>"+
+                        "</tr>"
+                    );
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);

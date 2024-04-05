@@ -14191,6 +14191,23 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }
     }      
     
+    private void ppTampilkanSEPBPJSBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {                                                                       
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        Map<String, Object> param = new HashMap<>();
+        param.put("namars",akses.getnamars());
+        param.put("alamatrs",akses.getalamatrs());
+        param.put("kotars",akses.getkabupatenrs());
+        param.put("propinsirs",akses.getpropinsirs());
+        param.put("kontakrs",akses.getkontakrs());
+        param.put("norawat",TNoRwCari.getText());
+        param.put("prb",Sequel.cariIsi("select bpjs_prb.prb from bpjs_prb where bpjs_prb.no_sep=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),20).toString()));
+        param.put("noreg",Sequel.cariIsi("select no_reg from reg_periksa where no_rawat=?",TNoRwCari.getText()));
+        param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar"));
+        param.put("parameter",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),20).toString());
+        Valid.MyReport("rptBridgingSEP5.jasper","report","::[ Cetak SEP ]::",param);
+        this.setCursor(Cursor.getDefaultCursor());
+    } 
+    
     private void ppGenerateBerkasKlaimBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {                                                                       
         if(tabModekasir.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
@@ -14678,7 +14695,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
   private widget.Table tbKasirRalan2;
   // End of variables declaration//GEN-END:variables
     private javax.swing.JMenuItem MnPenilaianPreInduksi,MnHasilPemeriksaanUSG,MnHasilPemeriksaanUSGUrologi,MnHasilPemeriksaanUSGGynecologi,MnHasilPemeriksaanEKG,MnSudahTerbitSEP,MnPenatalaksanaanTerapiOkupasi,MnHasilPemeriksaanUSGNeonatus,
-                                  MnHasilEndoskopiFaringLaring,MnHasilEndoskopiHidung,ppGenerateBerkasKlaim,MnPemantauanPEWSMaternal, MnPenilaianAwalKeperawatanKebidananIGD;
+                                  MnHasilEndoskopiFaringLaring,MnHasilEndoskopiHidung,ppTampilkanSEPBPJS,ppGenerateBerkasKlaim,MnPemantauanPEWSMaternal, MnPenilaianAwalKeperawatanKebidananIGD;
     private javax.swing.JMenu MnHasilUSG;
     private widget.Label lblSEP,lblKTP;
     private widget.TextBox TSEP,TNoKTP;
@@ -15714,6 +15731,18 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         MnHasilUSG.setName("MnHasilUSG"); 
         MnHasilUSG.setPreferredSize(new java.awt.Dimension(200, 26));
         
+        ppTampilkanSEPBPJS = new javax.swing.JMenuItem();
+        ppTampilkanSEPBPJS.setBackground(new java.awt.Color(255, 255, 254));
+        ppTampilkanSEPBPJS.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        ppTampilkanSEPBPJS.setForeground(new java.awt.Color(50, 50, 50));
+        ppTampilkanSEPBPJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); 
+        ppTampilkanSEPBPJS.setText("Tampilkan SEP BPJS");
+        ppTampilkanSEPBPJS.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppTampilkanSEPBPJS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppTampilkanSEPBPJS.setName("ppTampilkanSEPBPJS");
+        ppTampilkanSEPBPJS.setPreferredSize(new java.awt.Dimension(200, 26));
+        ppTampilkanSEPBPJS.addActionListener(this::ppTampilkanSEPBPJSBtnPrintActionPerformed);
+        
         ppGenerateBerkasKlaim = new javax.swing.JMenuItem();
         ppGenerateBerkasKlaim.setBackground(new java.awt.Color(255, 255, 254));
         ppGenerateBerkasKlaim.setFont(new java.awt.Font("Tahoma", 0, 11)); 
@@ -15750,6 +15779,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         MnPenilaianAwalKeperawatanKebidananIGD.setPreferredSize(new java.awt.Dimension(200, 26));
         MnPenilaianAwalKeperawatanKebidananIGD.addActionListener(this::MnPenilaianAwalKeperawatanKebidananIGDActionPerformed);
         
+        jPopupMenu1.add(ppTampilkanSEPBPJS);
         jPopupMenu1.add(ppGenerateBerkasKlaim);
         
         MnRMIGD.add(MnDataTriaseIGD);
