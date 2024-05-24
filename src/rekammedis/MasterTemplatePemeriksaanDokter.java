@@ -92,17 +92,17 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         
         tabModeDiagnosa=new DefaultTableModel(null,new Object[]{
             "P","Kode","Nama Penyakit","Ciri-ciri Penyakit","Keterangan","Ktg.Penyakit","Ciri-ciri Umum"}){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -134,16 +134,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         
         tabModeProsedur=new DefaultTableModel(null,new Object[]{
             "P","Kode","Deskripsi Panjang","Deskripsi Pendek"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -169,16 +169,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbProsedur.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModeRadiologi=new DefaultTableModel(null,new Object[]{"P","Kode Periksa","Nama Pemeriksaan"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -203,16 +203,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbPermintaanRadiologi.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModePK=new DefaultTableModel(null,new Object[]{"P","Kode Periksa","Nama Pemeriksaan"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -236,16 +236,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbPermintaanPK.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModeDetailPK=new DefaultTableModel(null,new Object[]{"P","Pemeriksaan","Satuan","Nilai Rujukan","id_template","Kode Jenis"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                    boolean a = false;
-                    if (colIndex==0) {
-                        a=true;
-                    }
-                    return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -280,16 +280,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbDetailPK.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModePA=new DefaultTableModel(null,new Object[]{"P","Kode Periksa","Nama Pemeriksaan"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -313,16 +313,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbPermintaanPA.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModeMB=new DefaultTableModel(null,new Object[]{"P","Kode Periksa","Nama Pemeriksaan"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -345,16 +345,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbPermintaanMB.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModeDetailMB=new DefaultTableModel(null,new Object[]{"P","Pemeriksaan","Satuan","Nilai Rujukan","id_template","Kode Jenis"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                    boolean a = false;
-                    if (colIndex==0) {
-                        a=true;
-                    }
-                    return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -392,18 +392,18 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                 "K","Jumlah","Kode Barang","Nama Barang","Satuan","Komposisi",
                 "Jenis Obat","Aturan Pakai","I.F.","Kapasitas"
             }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==0)||(colIndex==1)||(colIndex==7)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Object.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if ((colIndex==0)||(colIndex==1)||(colIndex==7)) {
+                     a=true;
+                 }
+                 return a;
+             }
              /*Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };*/
@@ -448,17 +448,17 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                 "No","Nama Racikan","Kode Racik","Metode Racik","Jml.Racik",
                 "Aturan Pakai","Keterangan"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = true;
-                if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
-                    a=false;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = true;
+                 if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
+                     a=false;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -496,13 +496,6 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                 "No","Kode Barang","Nama Barang","Satuan","Jenis Obat",
                 "Kps","P1","/","P2","Kandungan","Jml","I.F.","Komposisi"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==6)||(colIndex==8)||(colIndex==9)||(colIndex==10)) {
-                    a=true;
-                }
-                return a;
-             }             
              Class[] types = new Class[] {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,
@@ -510,6 +503,13 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                 java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
                 java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if ((colIndex==6)||(colIndex==8)||(colIndex==9)||(colIndex==10)) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -558,16 +558,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         TabModeTindakan=new DefaultTableModel(null,new Object[]{
                 "P","Kode","Nama Perawatan/Tindakan","Kategori"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if (colIndex==0) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -2694,7 +2694,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 persenracik=Double.parseDouble(tbDetailObatRacikan.getValueAt(r,9).toString().replaceAll("%",""));
                                 kapasitasracik=Double.parseDouble(tbDetailObatRacikan.getValueAt(r,5).toString());
                                 for(i=0;i<tbDetailObatRacikan.getRowCount();i++){ 
-                                    if(noracik==tbDetailObatRacikan.getValueAt(i,0).toString()){
+                                    if(noracik == null ? tbDetailObatRacikan.getValueAt(i,0).toString() == null : noracik.equals(tbDetailObatRacikan.getValueAt(i,0).toString())){
                                         if(!tbDetailObatRacikan.getValueAt(i,9).toString().contains("%")){
                                             jumlahracik += (Double.parseDouble(tbDetailObatRacikan.getValueAt(i,5).toString())*
                                                     Double.parseDouble(tbDetailObatRacikan.getValueAt(i,10).toString()));

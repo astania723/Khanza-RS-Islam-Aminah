@@ -226,7 +226,10 @@ public final class akses {
             master_masalah_keperawatan_neonatus=false,master_rencana_keperawatan_neonatus=false,penilaian_awal_keperawatan_ranap_neonatus=false,
             satu_sehat_kirim_observation_radiologi=false,satu_sehat_kirim_diagnosticreport_radiologi=false,hasil_endoskopi_telinga=false,satu_sehat_mapping_lab=false,
             satu_sehat_kirim_servicerequest_lab=false,satu_sehat_kirim_servicerequest_labmb=false,satu_sehat_kirim_specimen_lab=false,satu_sehat_kirim_specimen_labmb=false,
-            satu_sehat_kirim_observation_lab=false,satu_sehat_kirim_observation_labmb=false;
+            satu_sehat_kirim_observation_lab=false,satu_sehat_kirim_observation_labmb=false,satu_sehat_kirim_diagnosticreport_lab=false,satu_sehat_kirim_diagnosticreport_labmb=false,
+            kepatuhan_kelengkapan_keselamatan_bedah=false,nilai_piutang_perjenis_bayar_per_bulan=false,ringkasan_piutang_jenis_bayar=false,penilaian_pasien_imunitas_rendah=false,
+            balance_cairan=false,catatan_observasi_chbp=false,catatan_observasi_induksi_persalinan=false,skp_kategori_penilaian=false,skp_kriteria_penilaian=false,
+            skp_penilaian=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -1275,6 +1278,18 @@ public final class akses {
                         akses.satu_sehat_kirim_specimen_labmb=true;
                         akses.satu_sehat_kirim_observation_lab=true;
                         akses.satu_sehat_kirim_observation_labmb=true;
+                        akses.satu_sehat_kirim_diagnosticreport_lab=true;
+                        akses.satu_sehat_kirim_diagnosticreport_labmb=true;
+                        akses.kepatuhan_kelengkapan_keselamatan_bedah=true;
+                        akses.nilai_piutang_perjenis_bayar_per_bulan=true;
+                        akses.ringkasan_piutang_jenis_bayar=true;
+                        akses.penilaian_pasien_imunitas_rendah=true;
+                        akses.balance_cairan=true;
+                        akses.catatan_observasi_chbp=true;
+                        akses.catatan_observasi_induksi_persalinan=true;
+                        akses.skp_kategori_penilaian=true;
+                        akses.skp_kriteria_penilaian=true;
+                        akses.skp_penilaian=true;
                         akses.pemantauan_pews_maternal=true;
                         akses.validasi_sbar=true;
                     }else if(rs2.getRow()>=1){   
@@ -2309,6 +2324,18 @@ public final class akses {
                         akses.satu_sehat_kirim_specimen_labmb=rs2.getBoolean("satu_sehat_kirim_specimen_labmb");
                         akses.satu_sehat_kirim_observation_lab=rs2.getBoolean("satu_sehat_kirim_observation_lab");
                         akses.satu_sehat_kirim_observation_labmb=rs2.getBoolean("satu_sehat_kirim_observation_labmb");
+                        akses.satu_sehat_kirim_diagnosticreport_lab=rs2.getBoolean("satu_sehat_kirim_diagnosticreport_lab");
+                        akses.satu_sehat_kirim_diagnosticreport_labmb=rs2.getBoolean("satu_sehat_kirim_diagnosticreport_labmb");
+                        akses.kepatuhan_kelengkapan_keselamatan_bedah=rs2.getBoolean("kepatuhan_kelengkapan_keselamatan_bedah");
+                        akses.nilai_piutang_perjenis_bayar_per_bulan=rs2.getBoolean("nilai_piutang_perjenis_bayar_per_bulan");
+                        akses.ringkasan_piutang_jenis_bayar=rs2.getBoolean("ringkasan_piutang_jenis_bayar");
+                        akses.penilaian_pasien_imunitas_rendah=rs2.getBoolean("penilaian_pasien_imunitas_rendah");
+                        akses.balance_cairan=rs2.getBoolean("balance_cairan");
+                        akses.catatan_observasi_chbp=rs2.getBoolean("catatan_observasi_chbp");
+                        akses.catatan_observasi_induksi_persalinan=rs2.getBoolean("catatan_observasi_induksi_persalinan");
+                        akses.skp_kategori_penilaian=rs2.getBoolean("skp_kategori_penilaian");
+                        akses.skp_kriteria_penilaian=rs2.getBoolean("skp_kriteria_penilaian");
+                        akses.skp_penilaian=rs2.getBoolean("skp_penilaian");
                         akses.pemantauan_pews_maternal=rs2.getBoolean("pemantauan_pews_maternal");
                         akses.validasi_sbar=rs2.getBoolean("validasi_sbar");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
@@ -3341,6 +3368,18 @@ public final class akses {
                         akses.satu_sehat_kirim_specimen_labmb=false;
                         akses.satu_sehat_kirim_observation_lab=false;
                         akses.satu_sehat_kirim_observation_labmb=false;
+                        akses.satu_sehat_kirim_diagnosticreport_lab=false;
+                        akses.satu_sehat_kirim_diagnosticreport_labmb=false;
+                        akses.kepatuhan_kelengkapan_keselamatan_bedah=false;
+                        akses.nilai_piutang_perjenis_bayar_per_bulan=false;
+                        akses.ringkasan_piutang_jenis_bayar=false;
+                        akses.penilaian_pasien_imunitas_rendah=false;
+                        akses.balance_cairan=false;
+                        akses.catatan_observasi_chbp=false;
+                        akses.catatan_observasi_induksi_persalinan=false;
+                        akses.skp_kategori_penilaian=false;
+                        akses.skp_kriteria_penilaian=false;
+                        akses.skp_penilaian=false;
                         akses.pemantauan_pews_maternal=false;
                         akses.validasi_sbar=false;                    
                      }
@@ -4396,6 +4435,18 @@ public final class akses {
         akses.satu_sehat_kirim_specimen_labmb=false;
         akses.satu_sehat_kirim_observation_lab=false;
         akses.satu_sehat_kirim_observation_labmb=false;
+        akses.satu_sehat_kirim_diagnosticreport_lab=false;
+        akses.satu_sehat_kirim_diagnosticreport_labmb=false;
+        akses.kepatuhan_kelengkapan_keselamatan_bedah=false;
+        akses.nilai_piutang_perjenis_bayar_per_bulan=false;
+        akses.ringkasan_piutang_jenis_bayar=false;
+        akses.penilaian_pasien_imunitas_rendah=false;
+        akses.balance_cairan=false;
+        akses.catatan_observasi_chbp=false;
+        akses.catatan_observasi_induksi_persalinan=false;
+        akses.skp_kategori_penilaian=false;
+        akses.skp_kriteria_penilaian=false;
+        akses.skp_penilaian=false;
         akses.pemantauan_pews_maternal=false;
         akses.validasi_sbar=false;
     }
@@ -5467,6 +5518,18 @@ public final class akses {
     public static boolean getsatu_sehat_kirim_specimen_labmb(){return akses.satu_sehat_kirim_specimen_labmb;}
     public static boolean getsatu_sehat_kirim_observation_lab(){return akses.satu_sehat_kirim_observation_lab;}
     public static boolean getsatu_sehat_kirim_observation_labmb(){return akses.satu_sehat_kirim_observation_labmb;}
+    public static boolean getsatu_sehat_kirim_diagnosticreport_lab(){return akses.satu_sehat_kirim_diagnosticreport_lab;}
+    public static boolean getsatu_sehat_kirim_diagnosticreport_labmb(){return akses.satu_sehat_kirim_diagnosticreport_labmb;}
+    public static boolean getkepatuhan_kelengkapan_keselamatan_bedah(){return akses.kepatuhan_kelengkapan_keselamatan_bedah;}
+    public static boolean getnilai_piutang_perjenis_bayar_per_bulan(){return akses.nilai_piutang_perjenis_bayar_per_bulan;}
+    public static boolean getringkasan_piutang_jenis_bayar(){return akses.ringkasan_piutang_jenis_bayar;}
+    public static boolean getpenilaian_pasien_imunitas_rendah(){return akses.penilaian_pasien_imunitas_rendah;}
+    public static boolean getbalance_cairan(){return akses.balance_cairan;}
+    public static boolean getcatatan_observasi_chbp(){return akses.catatan_observasi_chbp;}
+    public static boolean getcatatan_observasi_induksi_persalinan(){return akses.catatan_observasi_induksi_persalinan;}
+    public static boolean getskp_kategori_penilaian(){return akses.skp_kategori_penilaian;}
+    public static boolean getskp_kriteria_penilaian(){return akses.skp_kriteria_penilaian;}
+    public static boolean getskp_penilaian(){return akses.skp_penilaian;}
     public static boolean getpemantauan_pews_maternal(){return akses.pemantauan_pews_maternal;}
     public static boolean getvalidasi_sbar(){return akses.validasi_sbar;}   
 

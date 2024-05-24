@@ -90,17 +90,17 @@ public class MasterTemplatePemberianObatRacikan extends javax.swing.JDialog {
                 "No","Nama Racikan","Kode Racik","Metode Racik","Jml.Racik",
                 "Aturan Pakai","Keterangan"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = true;
-                if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
-                    a=false;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = true;
+                 if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
+                     a=false;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -138,13 +138,6 @@ public class MasterTemplatePemberianObatRacikan extends javax.swing.JDialog {
                 "No","Kode Barang","Nama Barang","Satuan","Jenis Obat",
                 "Kps","P1","/","P2","Kandungan","Jml","I.F.","Komposisi"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==6)||(colIndex==8)||(colIndex==9)||(colIndex==10)) {
-                    a=true;
-                }
-                return a;
-             }             
              Class[] types = new Class[] {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,
@@ -152,6 +145,13 @@ public class MasterTemplatePemberianObatRacikan extends javax.swing.JDialog {
                 java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
                 java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                 boolean a = false;
+                 if ((colIndex==6)||(colIndex==8)||(colIndex==9)||(colIndex==10)) {
+                     a=true;
+                 }
+                 return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1200,7 +1200,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 persenracik=Double.parseDouble(tbDetailObatRacikan.getValueAt(r,9).toString().replaceAll("%",""));
                                 kapasitasracik=Double.parseDouble(tbDetailObatRacikan.getValueAt(r,5).toString());
                                 for(i=0;i<tbDetailObatRacikan.getRowCount();i++){ 
-                                    if(noracik==tbDetailObatRacikan.getValueAt(i,0).toString()){
+                                    if(noracik == null ? tbDetailObatRacikan.getValueAt(i,0).toString() == null : noracik.equals(tbDetailObatRacikan.getValueAt(i,0).toString())){
                                         if(!tbDetailObatRacikan.getValueAt(i,9).toString().contains("%")){
                                             jumlahracik += (Double.parseDouble(tbDetailObatRacikan.getValueAt(i,5).toString())*
                                                     Double.parseDouble(tbDetailObatRacikan.getValueAt(i,10).toString()));

@@ -18,6 +18,9 @@
 	<parameter name="kotars" class="java.lang.String"/>
 	<parameter name="propinsirs" class="java.lang.String"/>
 	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="tahun" class="java.lang.String"/>
+	<parameter name="hari" class="java.lang.String"/>
+	<parameter name="bulan" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,pasien.no_tlp, reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.umur,poliklinik.nm_poli,
 reg_periksa.p_jawab,reg_periksa.almt_pj,reg_periksa.hubunganpj,reg_periksa.biaya_reg,
@@ -248,7 +251,7 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 					<font fontName="Tahoma" size="11"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[": "+$F{tgl_lahir}+" / "+$F{umur}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[": "+$F{tgl_lahir}+" / "+$P{tahun}+" th "+$P{bulan}+" bl "+$P{hari}+" hr"]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="1" y="248" width="232" height="1" forecolor="#006666" uuid="94a7585e-df03-463d-84a9-95daaa330842"/>

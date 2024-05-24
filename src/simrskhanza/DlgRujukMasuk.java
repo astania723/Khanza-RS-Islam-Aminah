@@ -42,9 +42,8 @@ import laporan.DlgCariPenyakit;
  *
  * @author perpustakaan
  */
-public class DlgRujukMasuk extends javax.swing.JDialog {
-    private final DefaultTableModel tabMode;
-    private DefaultTableModel tabMode2;
+public final class DlgRujukMasuk extends javax.swing.JDialog {
+    private DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -67,11 +66,12 @@ public class DlgRujukMasuk extends javax.swing.JDialog {
                   "Diagnosa Akhir","Status","Dokter Perujuk","Kategori Rujuk","Poli Rujukan","No.Balasan","Keterangan","Kode Penyakit","Nama Penyakit"};
         tabMode=new DefaultTableModel(null,row){
              Class[] types = new Class[] {
-                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                 java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                 java.lang.String.class,java.lang.String.class
              };
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                  boolean a = false;

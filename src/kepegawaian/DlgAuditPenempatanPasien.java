@@ -1162,7 +1162,7 @@ public class DlgAuditPenempatanPasien extends javax.swing.JDialog {
                     ttlaudit4 += audit4;
                     audit5=Double.parseDouble(rs.getString("audit5").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit5 += audit5;
-                    audit6=Double.parseDouble(rs.getString("audit6").replaceAll("Ya","1").replaceAll("Tidak","0"));;
+                    audit6=Double.parseDouble(rs.getString("audit6").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit6 += audit6;
                     audit7=Double.parseDouble(rs.getString("audit7").replaceAll("Ya","1").replaceAll("Tidak","0"));
                     ttlaudit7 += audit7;

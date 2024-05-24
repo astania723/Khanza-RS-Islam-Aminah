@@ -428,6 +428,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         panelisi4.add(label24);
         label24.setBounds(0, 10, 70, 23);
 
+        kdsat.setEditable(false);
         kdsat.setName("kdsat"); // NOI18N
         kdsat.setPreferredSize(new java.awt.Dimension(80, 23));
         kdsat.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -467,6 +468,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         panelisi4.add(label17);
         label17.setBounds(295, 10, 90, 23);
 
+        kdbar.setEditable(false);
         kdbar.setName("kdbar"); // NOI18N
         kdbar.setPreferredSize(new java.awt.Dimension(80, 23));
         kdbar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -542,6 +544,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         panelisijual.add(label13);
         label13.setBounds(320, 10, 55, 23);
 
+        Kdptg.setEditable(false);
         Kdptg.setName("Kdptg"); // NOI18N
         Kdptg.setPreferredSize(new java.awt.Dimension(80, 23));
         Kdptg.addKeyListener(new java.awt.event.KeyAdapter() {

@@ -49,6 +49,7 @@ public class koneksiDB {
                         "  Bagi yang ingin berdonasi untuk pengembangan aplikasi ini bisa ke BSI 1015369872 atas nama Windiarto\n"+
                         "                                                                           ");
             }catch(Exception e){
+                System.out.println("Notif : "+e);
                 try {
                     if(connection.isClosed()){
                         prop.loadFromXML(new FileInputStream("setting/database.xml"));
@@ -1352,5 +1353,16 @@ public class koneksiDB {
         }
         return var;
     }
+    
+    public static String TANGGALMUNDUR(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("TANGGALMUNDUR");
+        }catch(Exception e){
+            var="yes"; 
+        }
+        return var;
+    }
+    
     public koneksiDB(){}
 }
