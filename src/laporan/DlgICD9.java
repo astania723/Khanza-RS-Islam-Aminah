@@ -765,6 +765,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Kode;
     }
@@ -787,6 +791,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.geticd9());
         BtnHapus.setEnabled(akses.geticd9());

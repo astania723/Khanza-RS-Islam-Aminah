@@ -348,6 +348,10 @@ public class PCareCariKegiatanKelompok extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param tanggal
+     */
     public void tampil(String tanggal) {        
         try {
             URL = link+"/kelompok/kegiatan/"+tanggal;
@@ -417,6 +421,10 @@ public class PCareCariKegiatanKelompok extends javax.swing.JDialog {
         }
     } 
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

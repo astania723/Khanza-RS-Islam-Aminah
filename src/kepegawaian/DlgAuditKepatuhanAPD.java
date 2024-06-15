@@ -1128,8 +1128,9 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
-    
-    
+    /**
+     *
+     */
     public void emptTeks() {
         Nip.setText("");
         NamaPetugas.setText("");
@@ -1177,6 +1178,9 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_kepatuhan_apd());
         BtnHapus.setEnabled(akses.getaudit_kepatuhan_apd());

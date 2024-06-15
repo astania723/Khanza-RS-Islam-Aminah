@@ -388,6 +388,10 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         return KdPeriksa;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }

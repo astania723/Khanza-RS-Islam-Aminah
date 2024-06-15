@@ -3137,6 +3137,9 @@ public class DlgDataTB extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRw.setText("");
         TNoRM.setText("");
@@ -3240,6 +3243,10 @@ public class DlgDataTB extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getkemenkes_sitt());
     }
     
+    /**
+     *
+     * @param norawat
+     */
     public void setNoRM(String norawat){
         TabRawat.setSelectedIndex(0);
         TNoRw.setText(norawat);

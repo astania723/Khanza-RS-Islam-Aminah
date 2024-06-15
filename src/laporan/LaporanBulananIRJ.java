@@ -18,6 +18,10 @@ import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class LaporanBulananIRJ extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();

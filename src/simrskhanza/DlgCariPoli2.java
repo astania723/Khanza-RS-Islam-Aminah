@@ -38,7 +38,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariPoli2 extends javax.swing.JDialog {
+public class DlgCariPoli2 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -367,6 +367,9 @@ public final class DlgCariPoli2 extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try {

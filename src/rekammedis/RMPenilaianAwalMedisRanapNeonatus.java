@@ -3019,6 +3019,9 @@ public class RMPenilaianAwalMedisRanapNeonatus extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -3206,6 +3209,11 @@ public class RMPenilaianAwalMedisRanapNeonatus extends javax.swing.JDialog {
         Sequel.cariIsi("select tgl_lahir from pasien where no_rkm_medis=? ",TglLahir,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -3213,7 +3221,9 @@ public class RMPenilaianAwalMedisRanapNeonatus extends javax.swing.JDialog {
         isRawat(); 
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ranap());
         BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ranap());

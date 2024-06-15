@@ -682,6 +682,9 @@ public class SuratStatus extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -705,6 +708,9 @@ public class SuratStatus extends javax.swing.JDialog {
         return tbBangsal;
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_status());
         BtnHapus.setEnabled(akses.getsurat_status());

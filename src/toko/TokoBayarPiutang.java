@@ -1180,6 +1180,9 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         LTotal.setText(Valid.SetAngka(total));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");
         Cicilan.setText("0");
@@ -1192,6 +1195,12 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         NoNota.requestFocus();
     }
     
+    /**
+     *
+     * @param norawat
+     * @param norm
+     * @param nama
+     */
     public void setData(String norawat,String norm,String nama){
         NoNota.setText(norawat);
         Kdmem.setText(norm);
@@ -1216,6 +1225,10 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoNota;
     }
@@ -1224,6 +1237,9 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettoko_bayar_piutang());
         BtnHapus.setEnabled(akses.gettoko_bayar_piutang());

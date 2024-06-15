@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog {
+public class SatuSehatKirimMedicationDispense extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1136,11 +1136,18 @@ public final class SatuSehatKirimMedicationDispense extends javax.swing.JDialog 
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnKirim.setEnabled(akses.getsatu_sehat_kirim_medicationdispense());
         BtnPrint.setEnabled(akses.getsatu_sehat_kirim_medicationdispense());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

@@ -881,6 +881,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{       
@@ -991,6 +994,10 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Kd;
     }
@@ -1003,6 +1010,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         asalform=akses.getform();       
         BtnSimpan.setEnabled(akses.getrekening_tahun());

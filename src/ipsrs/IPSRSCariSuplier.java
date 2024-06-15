@@ -422,6 +422,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         TCari.requestFocus();
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbDokter;
     }

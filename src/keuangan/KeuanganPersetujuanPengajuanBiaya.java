@@ -900,6 +900,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         LCount.setText(""+Valid.SetAngka(belumdisetujui));
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             kdpegawai.setEditable(false);

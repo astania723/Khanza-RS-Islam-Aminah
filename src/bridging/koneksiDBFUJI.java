@@ -36,6 +36,10 @@ public class koneksiDBFUJI {
         }
         return connection;        
     }
+
+    /**
+     *
+     */
     public koneksiDBFUJI(){}
     
 }

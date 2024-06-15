@@ -48,6 +48,8 @@ public class grafiksql3 extends JDialog {
         /**
            * Creates a dataset.
            *
+     * @param query
+     * @param kolom
            * @return A dataset.
            */
 
@@ -77,6 +79,8 @@ public class grafiksql3 extends JDialog {
        /**
           * Creates a dataset.
           *
+     * @param query
+     * @param kolom
           * @return A dataset.
           */
         public static CategoryDataset createDataset2(String query,String kolom) {//grafik volume
@@ -137,6 +141,9 @@ public class grafiksql3 extends JDialog {
          /**
           * Creates a panel for the demo (used by SuperDemo.java).
           *
+     * @param query
+     * @param query2
+     * @param kolom2
           * @return A panel.
           */
 
@@ -147,7 +154,16 @@ public class grafiksql3 extends JDialog {
          sekuel Sequel = new sekuel();
          validasi Valid = new validasi();
          Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
-         public grafiksql3(String title,String query,String query2,String Kolom,String Kolom2) {
+
+    /**
+     *
+     * @param title
+     * @param query
+     * @param query2
+     * @param Kolom
+     * @param Kolom2
+     */
+    public grafiksql3(String title,String query,String query2,String Kolom,String Kolom2) {
            // super(title);
            setTitle(title);
            JPanel chartPanel = createDemoPanel(query,query2,Kolom,Kolom2);

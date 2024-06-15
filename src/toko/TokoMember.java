@@ -917,6 +917,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         NoMember.setText("");
         NamaMember.setText("");
@@ -945,7 +948,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
-
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoMember;
     }

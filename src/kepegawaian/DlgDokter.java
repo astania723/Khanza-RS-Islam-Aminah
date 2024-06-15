@@ -1370,6 +1370,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -1418,7 +1421,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
-    
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
@@ -1441,6 +1447,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getdokter());
         BtnHapus.setEnabled(akses.getdokter());

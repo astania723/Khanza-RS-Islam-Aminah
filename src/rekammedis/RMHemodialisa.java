@@ -46,7 +46,7 @@ import laporan.DlgCariPenyakit;
  *
  * @author perpustakaan
  */
-public final class RMHemodialisa extends javax.swing.JDialog {
+public class RMHemodialisa extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -136,22 +136,22 @@ public final class RMHemodialisa extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         kddok.setDocument(new batasInput((byte)20).getKata(kddok));
-        TLama.setDocument(new batasInput((int)10).getKata(TLama));
-        TAkses.setDocument(new batasInput((int)50).getKata(TAkses));
-        TDialist.setDocument(new batasInput((int)50).getKata(TDialist));
-        TTransfusi.setDocument(new batasInput((int)10).getKata(TTransfusi));
-        TPenarikan.setDocument(new batasInput((int)10).getKata(TPenarikan));
-        TQB.setDocument(new batasInput((int)10).getKata(TQB));
-        TQD.setDocument(new batasInput((int)10).getKata(TQD));
-        TUreum.setDocument(new batasInput((int)20).getKata(TUreum));
-        THb.setDocument(new batasInput((int)20).getKata(THb));
-        THbsag.setDocument(new batasInput((int)20).getKata(THbsag));
-        TCreatinin.setDocument(new batasInput((int)20).getKata(TCreatinin));
-        THIV.setDocument(new batasInput((int)20).getKata(THIV));
-        THCV.setDocument(new batasInput((int)20).getKata(THCV));
-        TLain.setDocument(new batasInput((int)50).getKata(TLain));
-        kdDiagnosa.setDocument(new batasInput((int)10).getKata(kdDiagnosa));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TLama.setDocument(new batasInput(10).getKata(TLama));
+        TAkses.setDocument(new batasInput(50).getKata(TAkses));
+        TDialist.setDocument(new batasInput(50).getKata(TDialist));
+        TTransfusi.setDocument(new batasInput(10).getKata(TTransfusi));
+        TPenarikan.setDocument(new batasInput(10).getKata(TPenarikan));
+        TQB.setDocument(new batasInput(10).getKata(TQB));
+        TQD.setDocument(new batasInput(10).getKata(TQD));
+        TUreum.setDocument(new batasInput(20).getKata(TUreum));
+        THb.setDocument(new batasInput(20).getKata(THb));
+        THbsag.setDocument(new batasInput(20).getKata(THbsag));
+        TCreatinin.setDocument(new batasInput(20).getKata(TCreatinin));
+        THIV.setDocument(new batasInput(20).getKata(THIV));
+        THCV.setDocument(new batasInput(20).getKata(THCV));
+        TLain.setDocument(new batasInput(50).getKata(TLain));
+        kdDiagnosa.setDocument(new batasInput(10).getKata(kdDiagnosa));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1626,6 +1626,9 @@ public final class RMHemodialisa extends javax.swing.JDialog {
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TLama.setText("");
         TAkses.setText("Femoral / Cimino");
@@ -1729,6 +1732,9 @@ public final class RMHemodialisa extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gethemodialisa());
         BtnHapus.setEnabled(akses.gethemodialisa());

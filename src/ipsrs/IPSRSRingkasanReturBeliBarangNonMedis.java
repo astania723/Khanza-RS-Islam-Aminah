@@ -29,6 +29,10 @@ public class IPSRSRingkasanReturBeliBarangNonMedis extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private PreparedStatement ps;

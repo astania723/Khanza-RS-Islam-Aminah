@@ -812,10 +812,18 @@ private void BtnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

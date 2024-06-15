@@ -46,7 +46,7 @@ import simrskhanza.DlgPilihanCetakDokumen;
  *
  * @author dosen
  */
-public final class BPJSCekRujukanKartuPCare extends javax.swing.JDialog {
+public class BPJSCekRujukanKartuPCare extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -6193,6 +6193,10 @@ public final class BPJSCekRujukanKartuPCare extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param nomorrujukan
+     */
     public void tampil(String nomorrujukan) {
         try {
             URL = link+"/Rujukan/Peserta/"+nomorrujukan;
@@ -7404,6 +7408,9 @@ public final class BPJSCekRujukanKartuPCare extends javax.swing.JDialog {
         Sequel.mengedit("pasien","no_rkm_medis=?","umur=CONCAT(CONCAT(CONCAT(TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()), ' Th '),CONCAT(TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12), ' Bl ')),CONCAT(TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()), ' Hr'))",1,new String[]{TNo.getText()});
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbpjs_sep());
         ppPengajuan.setEnabled(akses.getbpjs_sep());

@@ -1240,6 +1240,9 @@ public class RMUjiFungsiKFR extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         DiagnosisFungsional.setText("");
         DiagnosisMedis.setText("");
@@ -1305,6 +1308,9 @@ public class RMUjiFungsiKFR extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getuji_fungsi_kfr());
         BtnHapus.setEnabled(akses.getuji_fungsi_kfr());

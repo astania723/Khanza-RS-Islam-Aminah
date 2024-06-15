@@ -1057,6 +1057,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbDataDiet;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {   
         try{
             Valid.tabelKosong(tabMode);
@@ -1106,6 +1109,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void hitung(){
         hewani=0;nabati=0;karbo=0;sayur=0;buah=0;x=0;
         for(i=0;i<tabMode.getRowCount();i++){
@@ -1175,6 +1181,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
          Sequel.cariIsi("select kamar_inap.kd_kamar from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_masuk desc limit 1",Kamar,TNoRw.getText());
     }
 
+    /**
+     *
+     * @param norwt
+     * @param pasien
+     * @param kamar
+     * @param bangsal
+     * @param tgl1
+     * @param tgl2
+     * @param tanggal
+     * @param waktudiet
+     * @param jamdiet
+     */
     public void setNoRm(String norwt,String pasien,String kamar,String bangsal,Date tgl1,Date tgl2,String tanggal,String waktudiet,String jamdiet) {
         TNoRw.setText(norwt);
         TPasien.setText(pasien);

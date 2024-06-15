@@ -705,6 +705,9 @@ public class InventarisBarangCSSD extends javax.swing.JDialog {
     private widget.Table tbSpesialis;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -755,6 +758,10 @@ public class InventarisBarangCSSD extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

@@ -31,7 +31,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class SatuSehatMapingLaborat extends javax.swing.JDialog {
+public class SatuSehatMapingLaborat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -900,6 +900,9 @@ public final class SatuSehatMapingLaborat extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Code.setText("");
         RadiologiSystem.setText("");
@@ -927,6 +930,9 @@ public final class SatuSehatMapingLaborat extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsatu_sehat_mapping_lab());
         BtnHapus.setEnabled(akses.getsatu_sehat_mapping_lab());
@@ -934,6 +940,10 @@ public final class SatuSehatMapingLaborat extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getsatu_sehat_mapping_lab());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }  

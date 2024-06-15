@@ -27,6 +27,10 @@ public class KeuanganCariTagihanAset extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPetugas pegawai=new DlgCariPetugas(null,false);
     private PreparedStatement ps,ps2;
     private ResultSet rs,rs2;
@@ -890,6 +894,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
               
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.setText("");
         NoTagihan.setText("");

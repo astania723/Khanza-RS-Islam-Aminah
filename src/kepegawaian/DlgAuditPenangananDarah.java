@@ -1145,6 +1145,9 @@ public class DlgAuditPenangananDarah extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_penanganan_darah());
         BtnHapus.setEnabled(akses.getaudit_penanganan_darah());

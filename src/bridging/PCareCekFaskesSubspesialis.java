@@ -581,22 +581,42 @@ public class PCareCekFaskesSubspesialis extends javax.swing.JDialog {
         return tbKamar;
     }   
     
+    /**
+     *
+     * @return
+     */
     public String KodeSpesialis(){
         return KdSpesialis.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public String NamaSpesialis(){
         return NmSpesialis.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public String KodeSarana(){
         return KdSarana.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public String NamaSarana(){
         return NmSarana.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public Date TanggalRujuk(){
         return Tanggal.getDate();
     }

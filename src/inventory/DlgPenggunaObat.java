@@ -24,6 +24,10 @@ import javax.swing.table.TableColumn;
 import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgPenggunaObat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

@@ -410,14 +410,24 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbDokter;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnTambah.setEnabled(akses.getsuplier_inventaris());
     }

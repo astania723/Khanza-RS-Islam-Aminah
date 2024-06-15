@@ -462,6 +462,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         BtnPrint.setEnabled(akses.getriwayat_kamar_pasien());
     }
 
+    /**
+     *
+     */
     public void tampil() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

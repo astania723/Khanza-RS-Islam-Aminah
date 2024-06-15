@@ -39,7 +39,7 @@ import simrskhanza.DlgCariPoli;
  *
  * @author dosen
  */
-public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
+public class SatuSehatMapingLokasi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeKamar,tabModeRuangOK,tabModeRuangLabPK,tabModeRuangLabPA,tabModeRuangLabMB,tabModeRuangRadiologi,tabModeRuangFarmasi;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -5762,6 +5762,9 @@ public final class SatuSehatMapingLokasi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsatu_sehat_mapping_lokasi());
         BtnHapus.setEnabled(akses.getsatu_sehat_mapping_lokasi());

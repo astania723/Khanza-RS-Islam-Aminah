@@ -52,6 +52,11 @@ public class SuratSakitPihak2 extends javax.swing.JDialog {
     private LocalDate birthday;
     private Period p;
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public SuratSakitPihak2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -1237,6 +1242,9 @@ public class SuratSakitPihak2 extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{

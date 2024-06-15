@@ -913,6 +913,9 @@ public class DlgDataKlasifikasiPasienRanap extends javax.swing.JDialog {
         }  
     }
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -959,6 +962,9 @@ public class DlgDataKlasifikasiPasienRanap extends javax.swing.JDialog {
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRM.setText("");
         TPasien.setText("");
@@ -995,6 +1001,12 @@ public class DlgDataKlasifikasiPasienRanap extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1026,6 +1038,9 @@ public class DlgDataKlasifikasiPasienRanap extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getklasifikasi_pasien_ranap());
         BtnHapus.setEnabled(akses.getklasifikasi_pasien_ranap());

@@ -396,6 +396,10 @@ public class BPJSCekDataIndukKecelakaan extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param nomorkartu
+     */
     public void tampil(String nomorkartu) {
         try {
             headers = new HttpHeaders();

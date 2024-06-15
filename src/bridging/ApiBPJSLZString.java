@@ -6,6 +6,10 @@ package bridging;
 
 import java.util.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiBPJSLZString {
     private static final char[] keyStrBase64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".toCharArray();
     private static final char[] keyStrUriSafe = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$".toCharArray();
@@ -23,6 +27,11 @@ public class ApiBPJSLZString {
         return (char) map.get(character).intValue();
     }
 
+    /**
+     *
+     * @param input
+     * @return
+     */
     public static String compressToBase64(String input) {
         if (input == null) {
             return "";
@@ -46,6 +55,11 @@ public class ApiBPJSLZString {
         }
     }
 
+    /**
+     *
+     * @param inputStr
+     * @return
+     */
     public static String decompressFromBase64(final String inputStr) {
         if (inputStr == null) {
             return "";
@@ -61,6 +75,11 @@ public class ApiBPJSLZString {
         });
     }	
 
+    /**
+     *
+     * @param input
+     * @return
+     */
     public static String compressToUTF16(String input) {
         if (input == null) {
             return "";
@@ -88,6 +107,11 @@ public class ApiBPJSLZString {
         });
     }
 
+    /**
+     *
+     * @param input
+     * @return
+     */
     public static String compressToEncodedURIComponent(String input) {
         if (input == null) {
             return "";
@@ -116,7 +140,11 @@ public class ApiBPJSLZString {
         });
     }
 
-
+    /**
+     *
+     * @param uncompressed
+     * @return
+     */
     public static String compress(String uncompressed) {
         return ApiBPJSLZString._compress(uncompressed, 16, new CompressFunctionWrapper() {
             @Override
@@ -351,6 +379,11 @@ public class ApiBPJSLZString {
         return (char) i;
     }
 
+    /**
+     *
+     * @param compressed
+     * @return
+     */
     public static String decompress(final String compressed) {
         if (compressed == null) {
             return "";

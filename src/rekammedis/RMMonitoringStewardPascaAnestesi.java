@@ -38,7 +38,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMMonitoringStewardPascaAnestesi extends javax.swing.JDialog {
+public class RMMonitoringStewardPascaAnestesi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -118,9 +118,9 @@ public final class RMMonitoringStewardPascaAnestesi extends javax.swing.JDialog 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        Keluar.setDocument(new batasInput((int)200).getKata(Keluar));
-        Instruksi.setDocument(new batasInput((int)200).getKata(Instruksi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Keluar.setDocument(new batasInput(200).getKata(Keluar));
+        Instruksi.setDocument(new batasInput(200).getKata(Instruksi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1566,6 +1566,9 @@ public final class RMMonitoringStewardPascaAnestesi extends javax.swing.JDialog 
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         SkalaKriteria1.setSelectedIndex(0);
@@ -1637,6 +1640,11 @@ public final class RMMonitoringStewardPascaAnestesi extends javax.swing.JDialog 
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1667,6 +1675,9 @@ public final class RMMonitoringStewardPascaAnestesi extends javax.swing.JDialog 
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getskor_steward_pasca_anestesi());
         BtnHapus.setEnabled(akses.getskor_steward_pasca_anestesi());

@@ -689,6 +689,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getzis_patologis_penerima_dankes());
         BtnHapus.setEnabled(akses.getzis_patologis_penerima_dankes());

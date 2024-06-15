@@ -812,8 +812,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         this.setCursor(Cursor.getDefaultCursor());        
     }
     
-    
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getrl4asebab());
     }

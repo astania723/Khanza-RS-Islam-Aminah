@@ -21,9 +21,57 @@ import org.springframework.http.MediaType;
  */
 public class SatuSehatCekNIK {
     private String link="",json="";
-    public String birthDate="",province="",provincename="",city="",cityname="",district="",districtname="",village="",
-                  villagename="",rt="",rw="",line="",postalCode="",gender="",noktp="",idpasien="",maritalStatus="",
-                  name="",phone="",email="";
+
+    /**
+     *
+     */
+    public String birthDate="",province="",
+
+    /**
+     *
+     */
+    provincename="",city="",
+
+    /**
+     *
+     */
+    cityname="",
+
+    /**
+     *
+     */
+    district="",districtname="",village="",
+                  villagename="",
+
+    /**
+     *
+     */
+    rt="",
+
+    /**
+     *
+     */
+    rw="",line="",postalCode="",
+
+    /**
+     *
+     */
+    gender="",noktp="",
+
+    /**
+     *
+     */
+    idpasien="",maritalStatus="",
+
+    /**
+     *
+     */
+    name="",
+
+    /**
+     *
+     */
+    phone="",email="";
     private ApiSatuSehat api=new ApiSatuSehat();
     private HttpHeaders headers ;
     private HttpEntity requestEntity;
@@ -32,6 +80,9 @@ public class SatuSehatCekNIK {
     private JsonNode response;
     private FileReader dataPropinsi,dataKabupaten,dataKecamatan,dataKelurahan;
         
+    /**
+     *
+     */
     public SatuSehatCekNIK(){
         super();
         try {
@@ -65,6 +116,10 @@ public class SatuSehatCekNIK {
         } 
     }
     
+    /**
+     *
+     * @param cari
+     */
     public void tampil(String cari) {
         try{
             birthDate="";province="";provincename="";city="";cityname="";district="";districtname="";village="";villagename="";
@@ -245,6 +300,11 @@ public class SatuSehatCekNIK {
         }
     }
     
+    /**
+     *
+     * @param cari
+     * @return
+     */
     public String tampilIDPasien(String cari) {
         idpasien="";
         try{
@@ -266,6 +326,11 @@ public class SatuSehatCekNIK {
         return idpasien;
     }
     
+    /**
+     *
+     * @param cari
+     * @return
+     */
     public String tampilIDParktisi(String cari) {
         idpasien="";
         try{

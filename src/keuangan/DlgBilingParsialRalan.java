@@ -106,6 +106,7 @@ public class DlgBilingParsialRalan extends javax.swing.JDialog {
     
     /**
      * Creates new form DlgBillingParsialRalan
+     * @param modal
      */
     public DlgBilingParsialRalan(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -3462,6 +3463,13 @@ public class DlgBilingParsialRalan extends javax.swing.JDialog {
     private widget.Table tbTindakanPrBayar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param norwt
+     * @param kodedokter
+     * @param namadokter
+     * @param KodePoli
+     */
     public void setNoRm(String norwt,String kodedokter, String namadokter,String KodePoli) {
         TNoRw.setText(norwt);
         this.kd_pj=Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",norwt);
@@ -4337,6 +4345,9 @@ public class DlgBilingParsialRalan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampilRadiologi() {         
         try{    
             if(Sequel.cariInteger("select count(*) from permintaan_pemeriksaan_radiologi inner join permintaan_radiologi "+
@@ -4899,6 +4910,9 @@ public class DlgBilingParsialRalan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampilDetailLaborat() {         
         try{    
             if((Sequel.cariInteger("select count(*) from permintaan_detail_permintaan_lab inner join permintaan_lab "+
@@ -5234,6 +5248,9 @@ public class DlgBilingParsialRalan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbilling_parsial());
         BtnHapus.setEnabled(akses.gethapus_nota_salah());

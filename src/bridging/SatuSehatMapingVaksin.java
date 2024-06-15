@@ -32,7 +32,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class SatuSehatMapingVaksin extends javax.swing.JDialog {
+public class SatuSehatMapingVaksin extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1004,6 +1004,9 @@ public final class SatuSehatMapingVaksin extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         VaksinCode.setText("");
         VaksinSystem.setText("");
@@ -1044,6 +1047,10 @@ public final class SatuSehatMapingVaksin extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getsatu_sehat_mapping_vaksin());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }  

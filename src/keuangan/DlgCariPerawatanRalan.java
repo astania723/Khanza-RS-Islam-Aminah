@@ -54,7 +54,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class DlgCariPerawatanRalan extends javax.swing.JDialog {
+public class DlgCariPerawatanRalan extends javax.swing.JDialog {
     private final DefaultTableModel TabModeTindakan;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -71,6 +71,10 @@ public final class DlgCariPerawatanRalan extends javax.swing.JDialog {
     private String[] kode,nama,kategori;
     private double[] totaltnd,bagianrs,bhp,jmdokter,jmperawat,kso,menejemen;
     private int jml=0,i=0,index=0;
+
+    /**
+     *
+     */
     public  DlgCariDokter dokter=new DlgCariDokter(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private HttpHeaders headers;
@@ -1396,6 +1400,10 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         TCariTindakan.setText("");         
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbTindakan;
     }
@@ -1405,10 +1413,23 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         BtnTambahTindakan.setEnabled(akses.gettarif_ralan());
     }
     
+    /**
+     *
+     * @param KodePoli
+     */
     public void setPoli(String KodePoli){
         this.kd_poli=KodePoli;
     }
     
+    /**
+     *
+     * @param norwt
+     * @param kdpetugas
+     * @param nmpetugas
+     * @param pilihtable
+     * @param kdpetugas2
+     * @param nmpetugas2
+     */
     public void setNoRm(String norwt,String kdpetugas,String nmpetugas, String pilihtable,String kdpetugas2,String nmpetugas2) {
         aktifpcare="no";
         for(i=0;i<tbTindakan.getRowCount();i++){ 

@@ -389,6 +389,10 @@ public class PCareCekReferensiKhusus extends javax.swing.JDialog {
         }
     }   
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

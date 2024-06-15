@@ -64,7 +64,7 @@ import simrskhanza.DlgKamarInap;
  *
  * @author perpustakaan
  */
-public final class BPJSDataSEP extends javax.swing.JDialog {
+public class BPJSDataSEP extends javax.swing.JDialog {
     private DefaultTableModel tabMode,tabModeInternal;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -6207,6 +6207,16 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         NoRujukan.requestFocus();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param status
+     * @param kdpoli
+     * @param namapoli
+     * @param kddokter
+     * @param noreg
+     */
     public void setNoRm2(String norwt, Date tgl1,String status,String kdpoli,String namapoli,String kddokter,String noreg) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -6239,6 +6249,9 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         TabRawat.setSelectedIndex(1);
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbpjs_sep());
         BtnHapus.setEnabled(akses.gethapus_edit_sep_bpjs());
@@ -6290,6 +6303,9 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         MnRujukanKhusus.setEnabled(false);
     }
     
+    /**
+     *
+     */
     public void tutupInput(){
         TabRawat.setSelectedIndex(1);
     }
@@ -6409,6 +6425,11 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     }
     
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
@@ -6425,6 +6446,10 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest() throws Exception {
         RestTemplate restTemplate = new RestTemplate();

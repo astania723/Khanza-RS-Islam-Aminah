@@ -576,6 +576,11 @@ public class DlgKabupaten extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     * @param nama
+     * @return
+     */
     public String tampil3(String nama) {
         try {
             if(Valid.daysOld("./cache/masterkabupaten.iyem")>7){
@@ -621,10 +626,17 @@ public class DlgKabupaten extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbkabupaten;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.setText("");
         TCari.requestFocus();

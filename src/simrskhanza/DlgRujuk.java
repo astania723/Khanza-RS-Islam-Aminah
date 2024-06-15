@@ -1408,6 +1408,9 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getrujukan_keluar());
         BtnHapus.setEnabled(akses.getrujukan_keluar());

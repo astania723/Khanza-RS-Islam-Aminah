@@ -40,7 +40,7 @@ import simrskhanza.DlgKtgPerawatan;
  *
  * @author dosen
  */
-public final class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
+public class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -55,6 +55,10 @@ public final class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
     private String[] kode,nama,kategori,kelastarif;
     private double[] totaltnd,bagianrs,bhp,jmdokter,jmperawat,kso,menejemen;
     private int jml=0,i=0,index=0;
+
+    /**
+     *
+     */
     public  DlgCariDokter dokter=new DlgCariDokter(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttlpendapatan=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,
@@ -64,6 +68,10 @@ public final class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
             Beban_Jasa_Medik_Paramedis_Tindakan_Ranap="",Utang_Jasa_Medik_Paramedis_Tindakan_Ranap="",Beban_KSO_Tindakan_Ranap="",Utang_KSO_Tindakan_Ranap="",
             Beban_Jasa_Sarana_Tindakan_Ranap="",Utang_Jasa_Sarana_Tindakan_Ranap="",Beban_Jasa_Menejemen_Tindakan_Ranap="",Utang_Jasa_Menejemen_Tindakan_Ranap="",
             HPP_BHP_Tindakan_Ranap="",Persediaan_BHP_Tindakan_Ranap="";    
+
+    /**
+     *
+     */
     public DlgKtgPerawatan ktg=new DlgKtgPerawatan(null,false);
     
     /** Creates new form DlgPenyakit
@@ -2524,6 +2532,9 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         LCount.setText(""+tbKamar.getRowCount());
     }
     
+    /**
+     *
+     */
     public void tampil2() { 
         try{ 
             Valid.tabelKosong(tabMode);
@@ -3020,6 +3031,10 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
@@ -3080,6 +3095,23 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     * @param kode
+     * @param nama
+     * @param suhu
+     * @param tensi
+     * @param Hasil
+     * @param perkembangan
+     * @param kode2
+     * @param nama2
+     * @param berat
+     * @param tinggi
+     * @param nadi
+     * @param respirasi
+     * @param gcs
+     * @param alergi
+     */
     public void setPetugas(String kode, String nama,String suhu,String tensi, String Hasil, 
             String perkembangan, String kode2, String nama2,String berat,
             String tinggi,String nadi,String respirasi,String gcs,String alergi){

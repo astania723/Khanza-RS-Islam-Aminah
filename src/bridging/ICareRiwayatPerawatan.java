@@ -50,7 +50,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
+public class ICareRiwayatPerawatan extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private ApiICareBPJS api=new ApiICareBPJS();
     private String link="",utc="",requestJson="";
@@ -283,6 +283,9 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
     private widget.panelisi panelGlass6;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             headers = new HttpHeaders();
@@ -327,6 +330,11 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
         }
     } 
     
+    /**
+     *
+     * @param param
+     * @param kodedokter
+     */
     public void setPasien(String param,String kodedokter){
         NoKartu.setText(param);
         KdDPJPLayanan.setText(kodedokter);
@@ -408,6 +416,10 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         try {
             createScene();
@@ -423,6 +435,9 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScane(){
         Platform.setImplicitExit(false);
     }

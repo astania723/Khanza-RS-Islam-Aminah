@@ -36,7 +36,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class SKPKategoriPenilaian extends javax.swing.JDialog {
+public class SKPKategoriPenilaian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -79,8 +79,8 @@ public final class SKPKategoriPenilaian extends javax.swing.JDialog {
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
 
         Kode.setDocument(new batasInput((byte)5).getKata(Kode));
-        Kategori.setDocument(new batasInput((int)100).getKata(Kategori));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Kategori.setDocument(new batasInput(100).getKata(Kategori));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -729,6 +729,10 @@ public final class SKPKategoriPenilaian extends javax.swing.JDialog {
         return Kode;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbBangsal;
     }

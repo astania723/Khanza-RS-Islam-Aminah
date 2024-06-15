@@ -34,7 +34,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class YaskiReferensiKabupaten extends javax.swing.JDialog {
+public class YaskiReferensiKabupaten extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private YaskiReferensiPropinsi propinsi=new YaskiReferensiPropinsi(null,false);
@@ -352,6 +352,10 @@ public final class YaskiReferensiKabupaten extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param poli
+     */
     public void tampil(String poli) {
         try {
             myObj = new FileReader("./cache/kabupaten.iyem");
@@ -375,6 +379,10 @@ public final class YaskiReferensiKabupaten extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

@@ -48,6 +48,7 @@ public class grafikperiksapertahun extends JDialog {
         /**
            * Creates a dataset.
            *
+     * @param symbol
            * @return A dataset.
            */
 

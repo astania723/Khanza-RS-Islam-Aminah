@@ -15,6 +15,10 @@ import org.springframework.web.client.RestTemplate;
 
 public class ApiKemenkesCorona {        
     private String Key,pass;
+
+    /**
+     *
+     */
     public ApiKemenkesCorona(){
         try {             
             pass = koneksiDB.PASSCORONA();
@@ -27,11 +31,21 @@ public class ApiKemenkesCorona {
 	return Key;
     }
 
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         long millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

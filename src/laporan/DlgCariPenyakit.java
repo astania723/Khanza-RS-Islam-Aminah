@@ -459,6 +459,9 @@ public class DlgCariPenyakit extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {   
         TCari.requestFocus();
     }
@@ -467,6 +470,9 @@ public class DlgCariPenyakit extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnTambah.setEnabled(akses.getpenyakit());
     }

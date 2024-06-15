@@ -2077,6 +2077,12 @@ public class DlgStokPasien extends javax.swing.JDialog {
         return BtnKeluar;
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm2(String norwt, Date tgl1, Date tgl2) {
         TCari.setText(norwt);
         Tgl1.setDate(tgl1);

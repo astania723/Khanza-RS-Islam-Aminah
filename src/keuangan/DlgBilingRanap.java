@@ -63,9 +63,21 @@ import simrskhanza.DlgTagihanOperasi;
  */
 public class DlgBilingRanap extends javax.swing.JDialog {
     private final DefaultTableModel tabModeRwJlDr,tabModeTambahan,tabModePotongan,tabModeKamIn,tabModeAkunBayar,tabModeAkunPiutang,tabModeLab,tabModeRad,tabModeApotek;
+
+    /**
+     *
+     */
     public DlgPemberianObat beriobat=new DlgPemberianObat(null,false);
+
+    /**
+     *
+     */
     public DlgRawatInap rawatinap=new DlgRawatInap(null,false);
     public DlgDeposit deposit=new DlgDeposit(null,false);
+
+    /**
+     *
+     */
     public DlgCariCaraBayar carabayar=new DlgCariCaraBayar(null,false);
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -78,12 +90,12 @@ public class DlgBilingRanap extends javax.swing.JDialog {
             pskamarin,psbiayasekali,psbiayaharian,psreseppulang,pstambahanbiaya,pspotonganbiaya,pstemporary,
             psralandokter,psralandrpr,psranapdrpr,psranapdokter,
             psoperasi,psralanperawat,psranapperawat,
-            psperiksalab,pssudahmasuk,pskategori,psperiksarad,psanak,psnota,psservice;
+            psperiksalab,pssudahmasuk,pskategori,psperiksarad,psanak,psnota,psservice,psperkiraanina;
     private ResultSet rscekbilling,rscarirm,rscaripasien,rsreg,rskamar,rscarialamat,rsdetaillab,
             rsdokterranap,rsranapdrpr,rsdokterralan,rscariobat,rsobatlangsung,rsobatoperasi,rsreturobat,
             rskamarin,rsbiayasekali,rsbiayaharian,rsreseppulang,rstambahanbiaya,rspotonganbiaya,
             rsralandokter,rsralandrpr,rsranapdokter,rsoperasi,rsralanperawat,rsranapperawat,rsperiksalab,rskategori,
-            rsperiksarad,rsanak,rstamkur,rsrekening,rsservice,rsakunbayar,rsakunpiutang;
+            rsperiksarad,rsanak,rstamkur,rsrekening,rsservice,rsakunbayar,rsakunpiutang,rsperkiraanina;
     private String biaya="",tambahan="",totals="",norawatbayi="",centangdokterranap="",kd_pj="",
             rinciandokterranap="",rincianoperasi="",notaranap="",tampilkan_administrasi_di_billingranap="",
             Tindakan_Ranap="",Laborat_Ranap="",Radiologi_Ranap="",Obat_Ranap="",Registrasi_Ranap="",Persediaan_Obat_Rawat_Inap="",
@@ -217,7 +229,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
             laboratserv=0,radiologiserv=0,operasiserv=0,obatserv=0,obatlangsung=0,
             ranap_dokterserv=0,ranap_paramedisserv=0,ralan_dokterserv=0,
             ralan_paramedisserv=0,tambahanserv=0,potonganserv=0,
-            kamarserv=0,registrasiserv=0,harianserv=0,retur_Obatserv=0,resep_Pulangserv=0,ttlService=0,
+            kamarserv=0,registrasiserv=0,harianserv=0,retur_Obatserv=0,resep_Pulangserv=0,ttlService=0,perkiraantarifina=0,
             persenbayi=Sequel.cariInteger("select set_jam_minimal.bayi from set_jam_minimal");
     private int x=0,z=0,i=0,countbayar=0,jml=0,r=0,row2=0;
     private WarnaTable2 warna=new WarnaTable2();
@@ -893,6 +905,8 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         BtnCari = new widget.Button();
         jLabel4 = new widget.Label();
         DTPTgl = new widget.Tanggal();
+        jLabel7 = new widget.Label();
+        PerkiraanBiayaIna = new widget.Label();
         panelGlass2 = new widget.panelisi();
         BtnSimpan = new widget.Button();
         BtnNota = new widget.Button();
@@ -2057,7 +2071,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         jLabel4.setPreferredSize(new java.awt.Dimension(65, 23));
         panelGlass1.add(jLabel4);
 
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-01-2023 07:41:51" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-06-2024 10:06:39" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -2068,6 +2082,17 @@ public class DlgBilingRanap extends javax.swing.JDialog {
             }
         });
         panelGlass1.add(DTPTgl);
+
+        jLabel7.setText("Perkiraan Biaya Inacbg :");
+        jLabel7.setName("jLabel7"); // NOI18N
+        jLabel7.setPreferredSize(new java.awt.Dimension(150, 23));
+        panelGlass1.add(jLabel7);
+
+        PerkiraanBiayaIna.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PerkiraanBiayaIna.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PerkiraanBiayaIna.setName("PerkiraanBiayaIna"); // NOI18N
+        PerkiraanBiayaIna.setPreferredSize(new java.awt.Dimension(80, 23));
+        panelGlass1.add(PerkiraanBiayaIna);
 
         internalFrame1.add(panelGlass1, java.awt.BorderLayout.PAGE_START);
 
@@ -4622,6 +4647,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private javax.swing.JMenuItem MnTambahan;
     private javax.swing.JMenuItem MnTambahan1;
     private javax.swing.JMenuItem MnUbahLamaInap;
+    private widget.Label PerkiraanBiayaIna;
     private javax.swing.JPopupMenu PopupBayar;
     private javax.swing.JPopupMenu PopupPiutang;
     private widget.ScrollPane Scroll;
@@ -4658,6 +4684,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Label jLabel4;
     private widget.Label jLabel5;
     private widget.Label jLabel6;
+    private widget.Label jLabel7;
     private widget.Label jLabel8;
     private javax.swing.JPopupMenu jPopupMenu1;
     private widget.TextBox kdpenjab;
@@ -4699,6 +4726,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbUbahLama;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void isRawat() {
          try {      
             pscekbilling=koneksi.prepareStatement(sqlpscekbilling);
@@ -4756,6 +4786,25 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 }
                 if(pscaripasien!=null){
                     pscaripasien.close();
+                }
+            }
+            
+            psperkiraanina=koneksi.prepareStatement("select perkiraan_biaya_ranap.tarif from perkiraan_biaya_ranap where perkiraan_biaya_ranap.no_rawat=?");
+            try {
+                psperkiraanina.setString(1,TNoRw.getText());
+                rsperkiraanina=psperkiraanina.executeQuery();
+                if(rsperkiraanina.next()){
+                    perkiraantarifina=rsperkiraanina.getDouble(1);
+                    PerkiraanBiayaIna.setText(Valid.SetAngka3(perkiraantarifina));
+                } 
+            } catch (Exception e) {
+                System.out.println("Notifikasi : "+e);
+            } finally{
+                if(rsperkiraanina!=null){
+                    rsperkiraanina.close();
+                }
+                if(psperkiraanina!=null){
+                    psperkiraanina.close();
                 }
             }
             
@@ -6458,6 +6507,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
              } 
     }
     
+    /**
+     *
+     * @param NoRawat
+     */
     public void tampilTambahan(String NoRawat) {
         norawattambahan.setText(NoRawat);
         Valid.tabelKosong(tabModeTambahan);
@@ -6511,6 +6564,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }            
     }
     
+    /**
+     *
+     * @param NoRawat
+     */
     public void tampilUbahLama(String NoRawat) {
         norawatubahlama.setText(NoRawat);
         Valid.tabelKosong(tabModeKamIn);

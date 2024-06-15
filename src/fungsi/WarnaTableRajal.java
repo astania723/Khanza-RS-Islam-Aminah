@@ -16,9 +16,26 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class WarnaTableRajal extends DefaultTableCellRenderer {
     
+    /**
+     *
+     */
     public int kolom = 15;
+
+    /**
+     *
+     */
     public int statusrawat = 10;
     
+    /**
+     *
+     * @param table
+     * @param value
+     * @param isSelected
+     * @param hasFocus
+     * @param row
+     * @param column
+     * @return
+     */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column){
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);

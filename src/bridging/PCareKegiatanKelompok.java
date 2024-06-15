@@ -1638,6 +1638,11 @@ public class PCareKegiatanKelompok extends javax.swing.JDialog {
     }
     
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
@@ -1648,7 +1653,12 @@ public class PCareKegiatanKelompok extends javax.swing.JDialog {
             return "DELETE";
         }
 
-    @Override
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
     public Object clone() throws CloneNotSupportedException {
       return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }

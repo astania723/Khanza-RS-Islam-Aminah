@@ -30,7 +30,15 @@ public class InventoryRingkasanReturSuplierBarangMedis extends javax.swing.JDial
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private double ttlretur=0;
     private String tanggal,noret="",ptg="",sat="",bar="",nofak="";

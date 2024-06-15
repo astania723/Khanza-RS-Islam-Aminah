@@ -1484,7 +1484,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
-
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRM.setText("");
         TPasien.setText("");

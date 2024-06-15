@@ -697,6 +697,10 @@ public class SuratSifat extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
@@ -705,6 +709,9 @@ public class SuratSifat extends javax.swing.JDialog {
         return tbBangsal;
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_sifat());
         BtnHapus.setEnabled(akses.getsurat_sifat());

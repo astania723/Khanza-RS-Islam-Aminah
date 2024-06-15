@@ -33,7 +33,7 @@ import simrskhanza.DlgCariPoli;
  *
  * @author perpustakaan
  */
-public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
+public class KeuanganRingkasanTindakan extends javax.swing.JDialog {
     private final Connection koneksi=koneksiDB.condb();
     private final sekuel Sequel=new sekuel();
   private final DefaultTableModel tabModeRalanDokter;
@@ -3306,6 +3306,9 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void tampil2(){     
         Valid.tabelKosong(tabModeRalanParamedis);
         try{
@@ -3586,6 +3589,9 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil4(){     
         Valid.tabelKosong(tabModeOperasi);
         try{
@@ -3848,6 +3854,9 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil5(){     
         Valid.tabelKosong(tabModeRanapDokter);
         try{
@@ -4249,7 +4258,9 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         }
     }
 
-    
+    /**
+     *
+     */
     public void tampil8(){     
         Valid.tabelKosong(tabModeRadiologi);
         try{
@@ -4405,6 +4416,9 @@ public final class KeuanganRingkasanTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil9(){     
         Valid.tabelKosong(tabModeLaborat);
         try{

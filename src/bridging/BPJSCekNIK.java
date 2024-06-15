@@ -22,13 +22,82 @@ import org.springframework.http.MediaType;
  * @author khanzasoft
  */
 public class BPJSCekNIK {
-    public String cobnmAsuransi="",cobnoAsuransi="",cobtglTAT="",cobtglTMT="",
-            hakKelasketerangan="",hakKelaskode="",informasidinsos="",informasinoSKTM="",
+    public String cobnmAsuransi="",
+
+    /**
+     *
+     */
+    cobnoAsuransi="",
+
+    /**
+     *
+     */
+    cobtglTAT="",cobtglTMT="",
+            hakKelasketerangan="",
+
+    /**
+     *
+     */
+    hakKelaskode="",informasidinsos="",informasinoSKTM="",
             informasiprolanisPRB="",jenisPesertaketerangan="",jenisPesertakode="",
-            mrnoMR="",mrnoTelepon="",nama="",nik="",noKartu="",pisa="",
-            provUmumkdProvider="",provUmumnmProvider="",sex="",statusPesertaketerangan="",
-            statusPesertakode="",tglCetakKartu="",tglLahir="",tglTAT="",
-            tglTMT="",umurumurSaatPelayanan="",umurumurSekarang="",informasi="",URL="",link="",utc="";
+            mrnoMR="",
+
+    /**
+     *
+     */
+    mrnoTelepon="",nama="",
+
+    /**
+     *
+     */
+    nik="",
+
+    /**
+     *
+     */
+    noKartu="",pisa="",
+            provUmumkdProvider="",
+
+    /**
+     *
+     */
+    provUmumnmProvider="",
+
+    /**
+     *
+     */
+    sex="",statusPesertaketerangan="",
+
+    /**
+     *
+     */
+    statusPesertakode="",tglCetakKartu="",
+
+    /**
+     *
+     */
+    tglLahir="",
+
+    /**
+     *
+     */
+    tglTAT="",
+            tglTMT="",
+
+    /**
+     *
+     */
+    umurumurSaatPelayanan="",
+
+    /**
+     *
+     */
+    umurumurSekarang="",informasi="",
+
+    /**
+     *
+     */
+    URL="",link="",utc="";
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date date = new Date();
     private ApiBPJS api=new ApiBPJS();
@@ -48,6 +117,10 @@ public class BPJSCekNIK {
         }
     }
     
+    /**
+     *
+     * @param nik
+     */
     public void tampil(String nik) {
         try {
             headers = new HttpHeaders();

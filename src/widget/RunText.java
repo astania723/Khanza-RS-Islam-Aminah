@@ -58,6 +58,9 @@ public class RunText extends Canvas implements Runnable {
         }
     }
 
+    /**
+     *
+     */
     public void run() {
         isTextMoving = true;
         long time_1 = 0;

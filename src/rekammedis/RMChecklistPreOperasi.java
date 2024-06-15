@@ -1979,6 +1979,9 @@ public class RMChecklistPreOperasi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         SNCN.setText("");
         Tindakan.setText("");
@@ -2080,6 +2083,11 @@ public class RMChecklistPreOperasi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2089,6 +2097,14 @@ public class RMChecklistPreOperasi extends javax.swing.JDialog {
         isForm();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     * @param KodeDokter
+     * @param NamaDokter
+     * @param Operasi
+     */
     public void setNoRm(String norwt, Date tgl2,String KodeDokter,String NamaDokter,String Operasi) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2122,6 +2138,9 @@ public class RMChecklistPreOperasi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getchecklist_pre_operasi());
         BtnHapus.setEnabled(akses.getchecklist_pre_operasi());

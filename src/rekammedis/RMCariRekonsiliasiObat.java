@@ -1106,11 +1106,18 @@ private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         
     }
     
+    /**
+     *
+     * @param norw
+     */
     public void SetNoRw(String norw){
         NoRawat.setText(norw);
         tampil();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getrekonsiliasi_obat());
         BtnPrint.setEnabled(akses.getrekonsiliasi_obat());  

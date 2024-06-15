@@ -1134,6 +1134,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     * @param status
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2,String status) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1160,6 +1167,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getdpjp_ranap());
         BtnHapus.setEnabled(akses.getdpjp_ranap());

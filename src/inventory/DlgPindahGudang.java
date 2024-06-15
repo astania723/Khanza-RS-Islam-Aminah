@@ -39,7 +39,7 @@ import simrskhanza.DlgCariBangsal;
  *
  * @author dosen
  */
-public final class DlgPindahGudang extends javax.swing.JDialog {
+public class DlgPindahGudang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi(); 
@@ -1570,6 +1570,10 @@ private void BtnCetakKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.TextBox total;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param order
+     */
     public void tampil(String order) {
         Valid.tabelKosong(tabMode);
         try{

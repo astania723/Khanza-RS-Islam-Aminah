@@ -9,7 +9,16 @@ import javax.swing.JPanel;
 import javax.swing.JWindow;
 import javax.swing.Timer;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class RunText3 {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         EventQueue.invokeLater(new Runnable() {
             
@@ -23,6 +32,9 @@ public class RunText3 {
     private JLabel label = new JLabel("Slide Text Swing, Slide Text Swing, ..........");
     private JPanel windowContents = new JPanel();
 
+    /**
+     *
+     */
     public RunText3() {
         windowContents.add(label);
         window.add(windowContents);

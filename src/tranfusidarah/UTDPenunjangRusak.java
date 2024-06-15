@@ -1154,6 +1154,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LTotal.setText(Valid.SetAngka(subtotal));
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getutd_penunjang_rusak());
         if(akses.getjml2()>=1){
@@ -1164,6 +1167,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         Valid.tabelKosong(tabMode2);
         try{

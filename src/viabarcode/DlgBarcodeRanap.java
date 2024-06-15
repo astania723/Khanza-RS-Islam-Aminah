@@ -1017,6 +1017,9 @@ public class DlgBarcodeRanap extends javax.swing.JDialog {
     private widget.Table tbTindakan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampiltindakan() {
         try{     
             jml=0;
@@ -1220,7 +1223,9 @@ public class DlgBarcodeRanap extends javax.swing.JDialog {
         }
     }
     
-    
+    /**
+     *
+     */
     public void tampilobat() {        
         z=0;
         for(i=0;i<tbObat.getRowCount();i++){

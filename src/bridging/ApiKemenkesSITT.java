@@ -15,6 +15,10 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiKemenkesSITT {        
     private String Key,pass;
     public ApiKemenkesSITT(){
@@ -41,11 +45,21 @@ public class ApiKemenkesSITT {
 	return Key;
     }
 
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         long millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

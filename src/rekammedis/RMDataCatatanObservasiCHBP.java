@@ -38,7 +38,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMDataCatatanObservasiCHBP extends javax.swing.JDialog {
+public class RMDataCatatanObservasiCHBP extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -118,7 +118,7 @@ public final class RMDataCatatanObservasiCHBP extends javax.swing.JDialog {
         HIS.setDocument(new batasInput((byte)20).getKata(HIS));
         PPV.setDocument(new batasInput((byte)10).getKata(PPV));
         Keterangan.setDocument(new batasInput((byte)50).getKata(Keterangan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1232,6 +1232,9 @@ public final class RMDataCatatanObservasiCHBP extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1294,6 +1297,9 @@ public final class RMDataCatatanObservasiCHBP extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TD.setText("");
         Nadi.setText("");
@@ -1383,6 +1389,9 @@ public final class RMDataCatatanObservasiCHBP extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getcatatan_observasi_chbp());
         BtnHapus.setEnabled(akses.getcatatan_observasi_chbp());

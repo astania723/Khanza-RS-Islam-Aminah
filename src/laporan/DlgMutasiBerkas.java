@@ -74,6 +74,11 @@ public class DlgMutasiBerkas extends javax.swing.JDialog {
     private final Connection koneksi=koneksiDB.condb();
     private final DlgPilihanCetakDokumen pilihan=new DlgPilihanCetakDokumen(null,false);
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DlgMutasiBerkas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -226,6 +231,10 @@ public class DlgMutasiBerkas extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         try {
             createScene();

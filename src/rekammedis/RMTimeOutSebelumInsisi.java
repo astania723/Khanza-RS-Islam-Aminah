@@ -1961,6 +1961,9 @@ public class RMTimeOutSebelumInsisi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         SNCN.setText("");
         Tindakan.setText("");
@@ -2032,6 +2035,11 @@ public class RMTimeOutSebelumInsisi extends javax.swing.JDialog {
         Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=? ",TglLahir,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2043,6 +2051,14 @@ public class RMTimeOutSebelumInsisi extends javax.swing.JDialog {
         isForm();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     * @param KodeDokter
+     * @param NamaDokter
+     * @param Operasi
+     */
     public void setNoRm(String norwt, Date tgl2,String KodeDokter,String NamaDokter,String Operasi) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

@@ -204,7 +204,7 @@ import surat.SuratTidakHamil;
  *
  * @author dosen
  */
-public final class DlgKasirRalan extends javax.swing.JDialog {
+public class DlgKasirRalan extends javax.swing.JDialog {
     private final DefaultTableModel tabModekasir,tabModekasir2;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -240,6 +240,10 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 	    variabel="";
     public DlgBilingRalan billing=new DlgBilingRalan(null,false);
     private int i=0,pilihan=0,sudah=0,jmlparsial=0;
+
+    /**
+     *
+     */
     public DlgKamarInap kamarinap=new DlgKamarInap(null,false);
     private DlgRawatJalan dlgrwjl2=new DlgRawatJalan(null,false);
     private boolean semua;
@@ -14959,10 +14963,18 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TNoRw;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }

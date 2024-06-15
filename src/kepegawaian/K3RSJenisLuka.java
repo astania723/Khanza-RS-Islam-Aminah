@@ -629,6 +629,10 @@ public class K3RSJenisLuka extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

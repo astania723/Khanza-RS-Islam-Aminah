@@ -1834,6 +1834,9 @@ public class RMPenilaianTambahanGeriatri extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1914,6 +1917,9 @@ public class RMPenilaianTambahanGeriatri extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         DiagnosaMedis.setText("");
@@ -2017,6 +2023,11 @@ public class RMPenilaianTambahanGeriatri extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2024,6 +2035,9 @@ public class RMPenilaianTambahanGeriatri extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_tambahan_pasien_geriatri());
         BtnHapus.setEnabled(akses.getpenilaian_tambahan_pasien_geriatri());

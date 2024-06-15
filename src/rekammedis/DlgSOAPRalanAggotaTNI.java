@@ -27,6 +27,10 @@ import simrskhanza.DlgJabatanTNI;
 import simrskhanza.DlgPangkatTNI;
 import simrskhanza.DlgSatuanTNI;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgSOAPRalanAggotaTNI extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -955,6 +959,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getsoap_ralan_tni());
     }

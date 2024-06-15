@@ -2267,6 +2267,9 @@ public class RMTransferPasienAntarRuang extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2476,6 +2479,9 @@ public class RMTransferPasienAntarRuang extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettransfer_pasien_antar_ruang());
         BtnHapus.setEnabled(akses.gettransfer_pasien_antar_ruang());

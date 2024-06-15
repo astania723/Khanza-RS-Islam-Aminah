@@ -633,6 +633,9 @@ public class K3RSLokasiKejadian extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getlokasi_kejadian_k3rs());
        BtnHapus.setEnabled(akses.getlokasi_kejadian_k3rs());

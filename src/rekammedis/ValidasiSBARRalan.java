@@ -1108,6 +1108,9 @@ public class ValidasiSBARRalan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1228,6 +1231,9 @@ public class ValidasiSBARRalan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getvalidasi_sbar());
 //        BtnHapus.setEnabled(akses.getdata_resume_pasien());

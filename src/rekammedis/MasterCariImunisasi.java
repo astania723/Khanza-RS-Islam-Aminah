@@ -420,11 +420,17 @@ public class MasterCariImunisasi extends javax.swing.JDialog {
         TCari.requestFocus();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.getmaster_imunisasi());
     }

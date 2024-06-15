@@ -388,6 +388,9 @@ public class MasterCariTemplatePersetujuanPenolakanTindakan extends javax.swing.
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -396,6 +399,9 @@ public class MasterCariTemplatePersetujuanPenolakanTindakan extends javax.swing.
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.gettemplate_persetujuan_penolakan_tindakan());
     }

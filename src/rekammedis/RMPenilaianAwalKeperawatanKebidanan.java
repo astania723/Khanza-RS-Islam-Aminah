@@ -6611,7 +6611,9 @@ public class RMPenilaianAwalKeperawatanKebidanan extends javax.swing.JDialog {
         tampilPersalinan();
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_kebidanan());
         BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_kebidanan());
@@ -6635,6 +6637,9 @@ public class RMPenilaianAwalKeperawatanKebidanan extends javax.swing.JDialog {
         }            
     }
 
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

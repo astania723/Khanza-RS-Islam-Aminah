@@ -26,7 +26,7 @@ import javax.swing.table.TableColumn;
  *
  * @author perpustakaan
  */
-public final class KeuanganRingkasanPiutangPerJensBayar extends javax.swing.JDialog {
+public class KeuanganRingkasanPiutangPerJensBayar extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -390,7 +390,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     tabMode.addRow(new Object[]{
                         rs.getString("kd_pj"),rs.getString("png_jawab"),rs.getDouble("sisapiutang")
                     });
-                    sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                    sisapiutang += rs.getDouble("sisapiutang");
                 }
                 LCount.setText(Valid.SetAngka(sisapiutang));
             } catch (Exception e) {

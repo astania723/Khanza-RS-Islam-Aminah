@@ -899,6 +899,9 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -947,6 +950,9 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRw.setText("");
         TNoRM.setText("");
@@ -981,6 +987,14 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
     }
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param pasien
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt,String norm,String pasien, Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1006,7 +1020,9 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_kewaspadaan_kesehatan());
         BtnHapus.setEnabled(akses.getsurat_kewaspadaan_kesehatan());

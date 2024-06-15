@@ -1352,6 +1352,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -1371,6 +1374,10 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(ipsrspemesanan.no_faktur,3),signed)),0) from ipsrspemesanan where ipsrspemesanan.tgl_pesan='"+Valid.SetTgl(TglPesan.getSelectedItem()+"")+"'","PNM"+TglPesan.getSelectedItem().toString().substring(6,10)+TglPesan.getSelectedItem().toString().substring(3,5)+TglPesan.getSelectedItem().toString().substring(0,2),3,NoFaktur); 
     }
 
+    /**
+     *
+     * @param noorder
+     */
     public void tampil(String noorder) {
         NoOrder.setText(noorder);
         kdsup.setText(Sequel.cariIsi("select surat_pemesanan_non_medis.kode_suplier from surat_pemesanan_non_medis where surat_pemesanan_non_medis.no_pemesanan=?",noorder));

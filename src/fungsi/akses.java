@@ -14,7 +14,7 @@ import java.sql.ResultSet;
  *
  * @author Owner
  */
-public final class akses {
+public class akses {
     private static final Connection koneksi=koneksiDB.condb();
     private static PreparedStatement ps,ps2;
     private static ResultSet rs,rs2;
@@ -4451,44 +4451,183 @@ public final class akses {
         akses.validasi_sbar=false;
     }
     
+    /**
+     *
+     * @return
+     */
     public static int getjml1() {return akses.jml1;}    
+
+    /**
+     *
+     * @return
+     */
     public static int getjml2() {return akses.jml2;}    
     public static boolean getadmin(){return akses.admin;}        
+
+    /**
+     *
+     * @return
+     */
     public static boolean getuser(){return akses.user;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getvakum(){return akses.vakum;} 
     public static boolean getaplikasi(){return akses.aplikasi;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenyakit(){return akses.penyakit;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getobat_penyakit(){return akses.obat_penyakit;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdokter(){return akses.dokter;} 
     public static boolean getjadwal_praktek(){return akses.jadwal_praktek;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpetugas(){return akses.petugas;} 
     public static boolean getpasien(){return akses.pasien;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getregistrasi(){return akses.registrasi;} 
     public static boolean gettindakan_ralan(){return akses.tindakan_ralan;} 
     public static boolean getkamar_inap(){return akses.kamar_inap;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettindakan_ranap(){return akses.tindakan_ranap;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getoperasi(){return akses.operasi;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrujukan_keluar(){return akses.rujukan_keluar;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrujukan_masuk(){return akses.rujukan_masuk;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getberi_obat(){return akses.beri_obat;} 
     public static boolean getresep_pulang(){return akses.resep_pulang;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpasien_meninggal(){return akses.pasien_meninggal;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdiet_pasien(){return akses.diet_pasien;} 
     public static boolean getkelahiran_bayi(){return akses.kelahiran_bayi;} 
     public static boolean getperiksa_lab(){return akses.periksa_lab;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getperiksa_radiologi(){return akses.periksa_radiologi;} 
     public static boolean getkasir_ralan(){return akses.kasir_ralan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdeposit_pasien(){return akses.deposit_pasien;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpiutang_pasien(){return akses.piutang_pasien;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpeminjaman_berkas(){return akses.peminjaman_berkas;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbarcode(){return akses.barcode;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpresensi_harian(){return akses.presensi_harian;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpresensi_bulanan(){return akses.presensi_bulanan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpegawai_admin(){return akses.pegawai_admin;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpegawai_user(){return akses.pegawai_user;} 
     public static boolean getsuplier(){return akses.suplier;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatuan_barang(){return akses.satuan_barang;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkonversi_satuan(){return akses.konversi_satuan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjenis_barang(){return akses.jenis_barang;} 
     public static boolean getobat(){return akses.obat;} 
     public static boolean getstok_opname_obat(){return akses.stok_opname_obat;} 
@@ -4496,99 +4635,408 @@ public final class akses {
     public static boolean getpengadaan_obat(){return akses.pengadaan_obat;} 
     public static boolean getpemesanan_obat(){return akses.pemesanan_obat;} 
     public static boolean getpenjualan_obat(){return akses.penjualan_obat;} 
+
+    /**
+     *
+     */
     public static void setpenjualan_obatfalse(){akses.penjualan_obat=false;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpiutang_obat(){return akses.piutang_obat;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getretur_ke_suplier(){return akses.retur_ke_suplier;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getretur_dari_pembeli(){return akses.retur_dari_pembeli;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getretur_obat_ranap(){return akses.retur_obat_ranap;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getretur_piutang_pasien(){return akses.retur_piutang_pasien;} 
     public static boolean getkeuntungan_penjualan(){return akses.keuntungan_penjualan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkeuntungan_beri_obat(){return akses.keuntungan_beri_obat;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsirkulasi_obat(){return akses.sirkulasi_obat;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getipsrs_barang(){return akses.ipsrs_barang;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getipsrs_pengadaan_barang(){return akses.ipsrs_pengadaan_barang;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getipsrs_stok_keluar(){return akses.ipsrs_stok_keluar;} 
     public static boolean getipsrs_rekap_pengadaan(){return akses.ipsrs_rekap_pengadaan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getipsrs_rekap_stok_keluar(){return akses.ipsrs_rekap_stok_keluar;} 
     public static boolean getipsrs_pengeluaran_harian(){return akses.ipsrs_pengeluaran_harian;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getipsrs_jenis_barang(){return akses.ipsrs_jenis_barang;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinventaris_jenis(){return akses.inventaris_jenis;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinventaris_kategori(){return akses.inventaris_kategori;} 
     public static boolean getinventaris_merk(){return akses.inventaris_merk;} 
     public static boolean getinventaris_ruang(){return akses.inventaris_ruang;} 
     public static boolean getinventaris_produsen(){return akses.inventaris_produsen;} 
     public static boolean getinventaris_koleksi(){return akses.inventaris_koleksi;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinventaris_inventaris(){return akses.inventaris_inventaris;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinventaris_sirkulasi(){return akses.inventaris_sirkulasi;} 
     public static boolean getparkir_jenis(){return akses.parkir_jenis;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getparkir_in(){return akses.parkir_in;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getparkir_out(){return akses.parkir_out;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getparkir_rekap_harian(){return akses.parkir_rekap_harian;} 
     public static boolean getparkir_rekap_bulanan(){return akses.parkir_rekap_bulanan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinformasi_kamar(){return akses.informasi_kamar;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getharian_tindakan_poli(){return akses.harian_tindakan_poli;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getobat_per_poli(){return akses.obat_per_poli;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getobat_per_kamar(){return akses.obat_per_kamar;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getobat_per_dokter_ralan(){return akses.obat_per_dokter_ralan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getobat_per_dokter_ranap(){return akses.obat_per_dokter_ranap;} 
     public static boolean getharian_dokter(){return akses.harian_dokter;} 
     public static boolean getbulanan_dokter(){return akses.bulanan_dokter;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getharian_paramedis(){return akses.harian_paramedis;} 
     public static boolean getbulanan_paramedis(){return akses.bulanan_paramedis;} 
     public static boolean getpembayaran_ralan(){return akses.pembayaran_ralan;} 
     public static boolean getpembayaran_ranap(){return akses.pembayaran_ranap;} 
     public static boolean getrekap_pembayaran_ralan(){return akses.rekap_pembayaran_ralan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_pembayaran_ranap(){return akses.rekap_pembayaran_ranap;} 
     public static boolean gettagihan_masuk(){return akses.tagihan_masuk;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettambahan_biaya(){return akses.tambahan_biaya;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpotongan_biaya(){return akses.potongan_biaya;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getresep_obat(){return akses.resep_obat;} 
     public static boolean getresume_pasien(){return akses.resume_pasien;} 
     public static boolean getpenyakit_ralan(){return akses.penyakit_ralan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenyakit_ranap(){return akses.penyakit_ranap;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkamar(){return akses.kamar;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettarif_ralan(){return akses.tarif_ralan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettarif_ranap(){return akses.tarif_ranap;} 
     public static boolean gettarif_lab(){return akses.tarif_lab;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettarif_radiologi(){return akses.tarif_radiologi;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettarif_operasi(){return akses.tarif_operasi;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getakun_rekening(){return akses.akun_rekening;} 
     public static boolean getrekening_tahun(){return akses.rekening_tahun;} 
     public static boolean getposting_jurnal(){return akses.posting_jurnal;} 
     public static boolean getbuku_besar(){return akses.buku_besar;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcashflow(){return akses.cashflow;} 
     public static boolean getkeuangan(){return akses.keuangan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengeluaran(){return akses.pengeluaran;} 
     public static boolean getsetup_pjlab(){return akses.setup_pjlab;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsetup_otolokasi(){return akses.setup_otolokasi;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsetup_jam_kamin(){return akses.setup_jam_kamin;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsetup_embalase(){return akses.setup_embalase;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettracer_login(){return akses.tracer_login;} 
     public static boolean getdisplay(){return akses.display;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_harga_obat(){return akses.set_harga_obat;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_penggunaan_tarif(){return akses.set_penggunaan_tarif;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_oto_ralan(){return akses.set_oto_ralan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbiaya_harian(){return akses.biaya_harian;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbiaya_masuk_sekali(){return akses.biaya_masuk_sekali;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_no_rm(){return akses.set_no_rm;} 
     public static boolean getbilling_ralan(){return akses.billing_ralan;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbilling_ranap(){return akses.billing_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static String getkode(){return akses.kode;}
+
+    /**
+     *
+     * @param kdbangsal
+     */
     public static void setkdbangsal(String kdbangsal){akses.kdbangsal=kdbangsal;}
+
+    /**
+     *
+     * @return
+     */
     public static String getkdbangsal(){return akses.kdbangsal;} 
     public static void setalamatip(String alamatip){akses.alamatip=alamatip;}
     public static String getalamatip(){return akses.alamatip;}     
+
+    /**
+     *
+     * @param form
+     */
     public static void setform(String form){akses.form=form;}
     public static String getform(){return akses.form;}   
     public static void setnamauser(String namauser){akses.namauser=namauser;}
     public static String getnamauser(){return akses.namauser;}   
+
+    /**
+     *
+     * @param status
+     */
     public static void setstatus(boolean status){akses.status=status;}
     public static boolean getstatus(){return akses.status;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjm_ranap_dokter(){return akses.jm_ranap_dokter;}     
+
+    /**
+     *
+     * @return
+     */
     public static boolean getigd(){return akses.igd;}     
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbarcoderalan(){return akses.barcoderalan;}     
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbarcoderanap(){return akses.barcoderanap;}    
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_harga_obat_ralan(){return akses.set_harga_obat_ralan;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_harga_obat_ranap(){return akses.set_harga_obat_ranap;}  
     public static boolean getpenyakit_pd3i(){return akses.penyakit_pd3i;}  
     public static boolean getsurveilans_pd3i(){return akses.surveilans_pd3i;}  
@@ -4596,439 +5044,1772 @@ public final class akses {
     public static boolean getdiagnosa_pasien(){return akses.diagnosa_pasien;}  
     public static boolean getsurveilans_ranap(){return akses.surveilans_ranap;}  
     public static boolean getpny_takmenular_ranap(){return akses.pny_takmenular_ranap;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpny_takmenular_ralan(){return akses.pny_takmenular_ralan;}
+
+    /**
+     *
+     * @param namars
+     */
     public static void setnamars(String namars){akses.namars=namars;}
     public static void setalamatrs(String alamatrs){akses.alamatrs=alamatrs;}
     public static void setkabupatenrs(String kabupatenrs){akses.kabupatenrs=kabupatenrs;}
+
+    /**
+     *
+     * @param propinsirs
+     */
     public static void setpropinsirs(String propinsirs){akses.propinsirs=propinsirs;}
+
+    /**
+     *
+     * @param kontakrs
+     */
     public static void setkontakrs(String kontakrs){akses.kontakrs=kontakrs;}
+
+    /**
+     *
+     * @param emailrs
+     */
     public static void setemailrs(String emailrs){akses.emailrs=emailrs;}
+
+    /**
+     *
+     * @param kode_ppk
+     */
     public static void setkodeppkbpjs(String kode_ppk){akses.kode_ppk=kode_ppk;}
+
+    /**
+     *
+     * @return
+     */
     public static String getnamars(){return akses.namars;}
+
+    /**
+     *
+     * @return
+     */
     public static String getalamatrs(){return akses.alamatrs;}
     public static String getkabupatenrs(){return akses.kabupatenrs;}
+
+    /**
+     *
+     * @return
+     */
     public static String getpropinsirs(){return akses.propinsirs;}
     public static String getkontakrs(){return akses.kontakrs;}
+
+    /**
+     *
+     * @return
+     */
     public static String getemailrs(){return akses.emailrs;}
+
+    /**
+     *
+     * @return
+     */
     public static String getkodeppkbpjs(){return akses.kode_ppk;}
     public static boolean getkunjungan_ralan(){return akses.kunjungan_ralan;}
     public static boolean getrl32(){return akses.rl32;}
     public static boolean getrl33(){return akses.rl33;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrl37(){return akses.rl37;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrl38(){return akses.rl38;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getharian_tindakan_dokter(){return akses.harian_tindakan_dokter;}
     public static boolean getsms(){return akses.sms;}
     public static boolean getsidikjari(){return akses.sidikjari;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjam_masuk(){return akses.jam_masuk;}  
     public static boolean getjadwal_pegawai(){return akses.jadwal_pegawai;}
     public static boolean getparkir_barcode(){return akses.parkir_barcode;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_nota(){return akses.set_nota;}
     public static boolean getdpjp_ranap(){return akses.dpjp_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmutasi_barang(){return akses.mutasi_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrl34(){return akses.rl34;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrl36(){return akses.rl36;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getfee_visit_dokter(){return akses.fee_visit_dokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getfee_bacaan_ekg(){return akses.fee_bacaan_ekg;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getfee_rujukan_rontgen(){return akses.fee_rujukan_rontgen;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getfee_rujukan_ranap(){return akses.fee_rujukan_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getfee_ralan(){return akses.fee_ralan;}
     public static boolean getakun_bayar(){return akses.akun_bayar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbayar_pemesanan_obat(){return akses.bayar_pemesanan_obat;}
     public static boolean getobat_per_dokter_peresep(){return akses.obat_per_dokter_peresep;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemasukan_lain(){return akses.pemasukan_lain;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengaturan_rekening(){return akses.pengaturan_rekening;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getclosing_kasir(){return akses.closing_kasir;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getketerlambatan_presensi(){return akses.keterlambatan_presensi;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_harga_kamar(){return akses.set_harga_kamar;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_per_shift(){return akses.rekap_per_shift;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_nik(){return akses.bpjs_cek_nik;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_kartu(){return akses.bpjs_cek_kartu;} 
     public static boolean getbpjs_cek_riwayat(){return akses.bpjs_cek_riwayat;} 
     public static boolean getobat_per_cara_bayar(){return akses.obat_per_cara_bayar;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkunjungan_ranap(){return akses.kunjungan_ranap;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbayar_piutang(){return akses.bayar_piutang;} 
     public static boolean getpayment_point(){return akses.payment_point;} 
     public static boolean getbpjs_cek_nomor_rujukan(){return akses.bpjs_cek_nomor_rujukan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean geticd9(){return akses.icd9;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdarurat_stok(){return akses.darurat_stok;}
     public static boolean getretensi_rm(){return akses.retensi_rm;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettemporary_presensi(){return akses.temporary_presensi;}
     public static boolean getjurnal_harian(){return akses.jurnal_harian;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsirkulasi_obat2(){return akses.sirkulasi_obat2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getedit_registrasi(){return akses.edit_registrasi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_diagnosa(){return akses.bpjs_referensi_diagnosa;}
     public static boolean getbpjs_referensi_poli(){return akses.bpjs_referensi_poli;}
     public static boolean getindustrifarmasi(){return akses.industrifarmasi;}
     public static boolean getharian_js(){return akses.harian_js;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbulanan_js(){return akses.bulanan_js;}
     public static boolean getharian_paket_bhp(){return akses.harian_paket_bhp;}
     public static boolean getbulanan_paket_bhp(){return akses.bulanan_paket_bhp;}
     public static boolean getpiutang_pasien2(){return akses.piutang_pasien2;}
     public static boolean getbpjs_referensi_faskes(){return akses.bpjs_referensi_faskes;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_sep(){return akses.bpjs_sep;} 
     public static boolean getpengambilan_utd(){return akses.pengambilan_utd;} 
     public static boolean gettarif_utd(){return akses.tarif_utd;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengambilan_utd2(){return akses.pengambilan_utd2;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getutd_medis_rusak(){return akses.utd_medis_rusak;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengambilan_penunjang_utd(){return akses.pengambilan_penunjang_utd;}  
     public static boolean getpengambilan_penunjang_utd2(){return akses.pengambilan_penunjang_utd2;}  
     public static boolean getutd_penunjang_rusak(){return akses.utd_penunjang_rusak;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsuplier_penunjang(){return akses.suplier_penunjang;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getutd_donor(){return akses.utd_donor;}  
     public static boolean getbpjs_monitoring_klaim(){return akses.bpjs_monitoring_klaim;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getutd_cekal_darah(){return akses.utd_cekal_darah;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getutd_komponen_darah(){return akses.utd_komponen_darah;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getutd_stok_darah(){return akses.utd_stok_darah;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getutd_pemisahan_darah(){return akses.utd_pemisahan_darah;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getharian_kamar(){return akses.harian_kamar;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrincian_piutang_pasien(){return akses.rincian_piutang_pasien;}  
     public static boolean getkeuntungan_beri_obat_nonpiutang(){return akses.keuntungan_beri_obat_nonpiutang;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getreklasifikasi_ralan(){return akses.reklasifikasi_ralan;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getreklasifikasi_ranap(){return akses.reklasifikasi_ranap;}  
+
+    /**
+     *
+     * @return
+     */
     public static boolean getutd_penyerahan_darah(){return akses.utd_penyerahan_darah;} 
     public static void setutd_penyerahan_darahfalse(){akses.utd_penyerahan_darah=false;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethutang_obat(){return akses.hutang_obat;}  
     public static boolean getriwayat_obat_alkes_bhp(){return akses.riwayat_obat_alkes_bhp;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsensus_harian_poli(){return akses.sensus_harian_poli;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrl4a(){return akses.rl4a;}
     public static boolean getaplicare_referensi_kamar(){return akses.aplicare_referensi_kamar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getaplicare_ketersediaan_kamar(){return akses.aplicare_ketersediaan_kamar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinacbg_klaim_baru_otomatis(){return akses.inacbg_klaim_baru_otomatis;}
     public static boolean getinacbg_klaim_baru_manual(){return akses.inacbg_klaim_baru_manual;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinacbg_coder_nik(){return akses.inacbg_coder_nik;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmutasi_berkas(){return akses.mutasi_berkas;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getakun_piutang(){return akses.akun_piutang;}
     public static boolean getharian_kso(){return akses.harian_kso;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbulanan_kso(){return akses.bulanan_kso;}
     public static boolean getharian_menejemen(){return akses.harian_menejemen;}
     public static boolean getbulanan_menejemen(){return akses.bulanan_menejemen;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_cek_eligibilitas(){return akses.inhealth_cek_eligibilitas;}
     public static boolean getinhealth_referensi_jenpel_ruang_rawat(){return akses.inhealth_referensi_jenpel_ruang_rawat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_referensi_poli(){return akses.inhealth_referensi_poli;}
     public static boolean getinhealth_referensi_faskes(){return akses.inhealth_referensi_faskes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_sjp(){return akses.inhealth_sjp;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpiutang_ralan(){return akses.piutang_ralan;}
     public static boolean getpiutang_ranap(){return akses.piutang_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdetail_piutang_penjab(){return akses.detail_piutang_penjab;}
     public static boolean getlama_pelayanan_ralan(){return akses.lama_pelayanan_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_pasien(){return akses.catatan_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrl4b(){return akses.rl4b;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrl4asebab(){return akses.rl4asebab;}
     public static boolean getrl4bsebab(){return akses.rl4bsebab;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdata_HAIs(){return akses.data_HAIs;}
     public static boolean getharian_HAIs(){return akses.harian_HAIs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbulanan_HAIs(){return akses.bulanan_HAIs;}
     public static boolean gethitung_bor(){return akses.hitung_bor;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getperusahaan_pasien(){return akses.perusahaan_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getresep_dokter(){return akses.resep_dokter;}
+
+    /**
+     *
+     */
     public static void setresep_dokterfalse(){akses.resep_dokter=false;} 
     public static boolean getlama_pelayanan_apotek(){return akses.lama_pelayanan_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethitung_alos(){return akses.hitung_alos;}
     public static boolean getdetail_tindakan(){return akses.detail_tindakan;}
     public static boolean getrujukan_poli_internal(){return akses.rujukan_poli_internal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_poli_anak(){return akses.rekap_poli_anak;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_poli(){return akses.grafik_kunjungan_poli;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_perdokter(){return akses.grafik_kunjungan_perdokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_perpekerjaan(){return akses.grafik_kunjungan_perpekerjaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_perpendidikan(){return akses.grafik_kunjungan_perpendidikan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_pertahun(){return akses.grafik_kunjungan_pertahun;}
     public static boolean getberkas_digital_perawatan(){return akses.berkas_digital_perawatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenyakit_menular_ranap(){return akses.penyakit_menular_ranap;}
     public static boolean getpenyakit_menular_ralan(){return akses.penyakit_menular_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_perbulan(){return akses.grafik_kunjungan_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_pertanggal(){return akses.grafik_kunjungan_pertanggal;}
     public static boolean getgrafik_kunjungan_demografi(){return akses.grafik_kunjungan_demografi;}
     public static boolean getgrafik_kunjungan_statusdaftartahun(){return akses.grafik_kunjungan_statusdaftartahun;}
     public static boolean getgrafik_kunjungan_statusdaftartahun2(){return akses.grafik_kunjungan_statusdaftartahun2;}                        
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_statusdaftarbulan(){return akses.grafik_kunjungan_statusdaftarbulan;}  
     public static boolean getgrafik_kunjungan_statusdaftarbulan2(){return akses.grafik_kunjungan_statusdaftarbulan2;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_statusdaftartanggal(){return akses.grafik_kunjungan_statusdaftartanggal;} 
     public static boolean getgrafik_kunjungan_statusdaftartanggal2(){return akses.grafik_kunjungan_statusdaftartanggal2;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_statusbataltahun(){return akses.grafik_kunjungan_statusbataltahun;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_statusbatalbulan(){return akses.grafik_kunjungan_statusbatalbulan;}
     public static boolean getpcare_cek_penyakit(){return akses.pcare_cek_penyakit;}
     public static boolean getgrafik_kunjungan_statusbataltanggal(){return akses.grafik_kunjungan_statusbataltanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkategori_barang(){return akses.kategori_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgolongan_barang(){return akses.golongan_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemberian_obat_pertanggal(){return akses.pemberian_obat_pertanggal;}
     public static boolean getpenjualan_obat_pertanggal(){return akses.penjualan_obat_pertanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_kesadaran(){return akses.pcare_cek_kesadaran;}
     public static boolean getpembatalan_periksa_dokter(){return akses.pembatalan_periksa_dokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_per_unit(){return akses.pembayaran_per_unit;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_pembayaran_per_unit(){return akses.rekap_pembayaran_per_unit;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_percarabayar(){return akses.grafik_kunjungan_percarabayar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getipsrs_pengadaan_pertanggal(){return akses.ipsrs_pengadaan_pertanggal;}
     public static boolean getipsrs_stokkeluar_pertanggal(){return akses.ipsrs_stokkeluar_pertanggal;}
     public static boolean getgrafik_kunjungan_ranaptahun(){return akses.grafik_kunjungan_ranaptahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_rujukan(){return akses.pcare_cek_rujukan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_lab_ralantahun(){return akses.grafik_lab_ralantahun;}
     public static boolean getgrafik_rad_ralantahun(){return akses.grafik_rad_ralantahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcek_entry_ralan(){return akses.cek_entry_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinacbg_klaim_baru_manual2(){return akses.inacbg_klaim_baru_manual2;}
     public static boolean getpermintaan_medis(){return akses.permintaan_medis;}
     public static boolean getrekap_permintaan_medis(){return akses.rekap_permintaan_medis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_pemesanan_medis(){return akses.surat_pemesanan_medis;}
     public static boolean getpermintaan_non_medis(){return akses.permintaan_non_medis;}
     public static boolean getrekap_permintaan_non_medis(){return akses.rekap_permintaan_non_medis;}
     public static boolean getsurat_pemesanan_non_medis(){return akses.surat_pemesanan_non_medis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_per_perujuk(){return akses.grafik_per_perujuk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_prosedur(){return akses.bpjs_cek_prosedur;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_kelas_rawat(){return akses.bpjs_cek_kelas_rawat;}
     public static boolean getbpjs_cek_dokter(){return akses.bpjs_cek_dokter;}
     public static boolean getbpjs_cek_spesialistik(){return akses.bpjs_cek_spesialistik;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_ruangrawat(){return akses.bpjs_cek_ruangrawat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_carakeluar(){return  akses.bpjs_cek_carakeluar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_pasca_pulang(){return akses.bpjs_cek_pasca_pulang;} 
     public static boolean getdetail_tindakan_okvk(){return akses.detail_tindakan_okvk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbilling_parsial(){return akses.billing_parsial;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_nomor_rujukan_rs(){return akses.bpjs_cek_nomor_rujukan_rs;}
     public static boolean getbpjs_cek_rujukan_kartu_pcare(){return akses.bpjs_cek_rujukan_kartu_pcare;}
     public static boolean getbpjs_cek_rujukan_kartu_rs(){return akses.bpjs_cek_rujukan_kartu_rs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getakses_depo_obat(){return akses.akses_depo_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_rujukan_keluar(){return akses.bpjs_rujukan_keluar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_lab_ralanbulan(){return akses.grafik_lab_ralanbulan;}
     public static boolean getpengeluaran_stok_apotek(){return akses.pengeluaran_stok_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_rad_ralanbulan(){return akses.grafik_rad_ralanbulan;}
     public static boolean getdetailjmdokter2(){return akses.detailjmdokter2;}
     public static boolean getpengaduan_pasien(){return akses.pengaduan_pasien;}
     public static boolean getgrafik_lab_ralanhari(){return akses.grafik_lab_ralanhari;}
     public static boolean getgrafik_rad_ralanhari(){return akses.grafik_rad_ralanhari;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsensus_harian_ralan(){return akses.sensus_harian_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmetode_racik(){return akses.metode_racik;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_akun_bayar(){return akses.pembayaran_akun_bayar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengguna_obat_resep(){return akses.pengguna_obat_resep;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_pemesanan(){return akses.rekap_pemesanan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_berkas_pegawai(){return akses.master_berkas_pegawai;}
     public static boolean getberkas_kepegawaian(){return akses.berkas_kepegawaian;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getriwayat_jabatan(){return akses.riwayat_jabatan;}
     public static boolean getriwayat_pendidikan(){return akses.riwayat_pendidikan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getriwayat_naik_gaji(){return akses.riwayat_naik_gaji;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkegiatan_ilmiah(){return akses.kegiatan_ilmiah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getriwayat_penghargaan(){return akses.riwayat_penghargaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getriwayat_penelitian(){return akses.riwayat_penelitian;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenerimaan_non_medis(){return akses.penerimaan_non_medis;}
     public static boolean getbayar_pesan_non_medis(){return akses.bayar_pesan_non_medis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethutang_barang_non_medis(){return akses.hutang_barang_non_medis;}
     public static boolean getrekap_pemesanan_non_medis(){return akses.rekap_pemesanan_non_medis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinsiden_keselamatan(){return akses.insiden_keselamatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinsiden_keselamatan_pasien(){return akses.insiden_keselamatan_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_ikp_pertahun(){return akses.grafik_ikp_pertahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_ikp_perbulan(){return akses.grafik_ikp_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_ikp_pertanggal(){return akses.grafik_ikp_pertanggal;}
     public static boolean getriwayat_data_batch(){return akses.riwayat_data_batch;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_ikp_jenis(){return akses.grafik_ikp_jenis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_ikp_dampak(){return akses.grafik_ikp_dampak;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpiutang_akun_piutang(){return akses.piutang_akun_piutang;}
+
+    /**
+     *
+     */
     public static void setresep_obatfalse(){akses.resep_obat=false;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_per_agama(){return akses.grafik_kunjungan_per_agama;}
     public static boolean getgrafik_kunjungan_per_umur(){return akses.grafik_kunjungan_per_umur;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsuku_bangsa(){return akses.suku_bangsa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbahasa_pasien(){return akses.bahasa_pasien;}
     public static boolean getgolongan_tni(){return akses.golongan_tni;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatuan_tni(){return akses.satuan_tni;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjabatan_tni(){return akses.jabatan_tni;}
     public static boolean getpangkat_tni(){return akses.pangkat_tni;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgolongan_polri(){return akses.golongan_polri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatuan_polri(){return akses.satuan_polri;}
     public static boolean getjabatan_polri(){return akses.jabatan_polri;}
     public static boolean getpangkat_polri(){return akses.pangkat_polri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcacat_fisik(){return akses.cacat_fisik;}
     public static boolean getgrafik_kunjungan_suku(){return akses.grafik_kunjungan_suku;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_bahasa(){return akses.grafik_kunjungan_bahasa;}
     public static boolean getbooking_operasi(){return akses.booking_operasi;}
     public static boolean getmapping_poli_bpjs(){return akses.mapping_poli_bpjs;}
     public static boolean getgrafik_kunjungan_per_cacat(){return akses.grafik_kunjungan_per_cacat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbarang_cssd(){return akses.barang_cssd;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskdp_bpjs(){return akses.skdp_bpjs;}
     public static boolean getbooking_registrasi(){return akses.booking_registrasi;}
     public static boolean getbpjs_cek_propinsi(){return akses.bpjs_cek_propinsi;}
     public static boolean getbpjs_cek_kabupaten(){return akses.bpjs_cek_kabupaten;}
     public static boolean getbpjs_cek_kecamatan(){return akses.bpjs_cek_kecamatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_dokterdpjp(){return akses.bpjs_cek_dokterdpjp;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_riwayat_rujukanrs(){return akses.bpjs_cek_riwayat_rujukanrs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_tanggal_rujukan(){return akses.bpjs_cek_tanggal_rujukan;}
     public static boolean getpermintaan_lab(){return akses.permintaan_lab;}
+
+    /**
+     *
+     */
     public static void setperiksalabfalse(){akses.periksa_lab=false;} 
+
+    /**
+     *
+     */
     public static void setperiksalabpafalse(){akses.pemeriksaan_lab_pa=false;} 
+
+    /**
+     *
+     */
     public static void setperiksalabmbfalse(){akses.pemeriksaan_lab_mb=false;} 
     public static void setpermintaanlabfalse(){akses.permintaan_lab=false;} 
     public static boolean getpermintaan_radiologi(){return akses.permintaan_radiologi;}
+
+    /**
+     *
+     */
     public static void setperiksaradiologifalse(){akses.periksa_radiologi=false;} 
+
+    /**
+     *
+     */
     public static void setpermintaanradiologifalse(){akses.permintaan_radiologi=false;} 
     public static boolean getsurat_indeks(){return akses.surat_indeks;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_map(){return akses.surat_map;}
     public static boolean getsurat_almari(){return akses.surat_almari;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_rak(){return akses.surat_rak;}
     public static boolean getsurat_ruang(){return akses.surat_ruang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_klasifikasi(){return akses.surat_klasifikasi;}
     public static boolean getsurat_status(){return akses.surat_status;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_sifat(){return akses.surat_sifat;}
     public static boolean getsurat_balas(){return akses.surat_balas;}
     public static boolean getsurat_masuk(){return akses.surat_masuk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_dokter(){return akses.pcare_cek_dokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_poli(){return akses.pcare_cek_poli;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_provider(){return akses.pcare_cek_provider;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_statuspulang(){return akses.pcare_cek_statuspulang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_spesialis(){return akses.pcare_cek_spesialis;}
     public static boolean getpcare_cek_subspesialis(){return akses.pcare_cek_subspesialis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_sarana(){return akses.pcare_cek_sarana;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_khusus(){return akses.pcare_cek_khusus;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_obat(){return akses.pcare_cek_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_tindakan(){return akses.pcare_cek_tindakan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_faskessubspesialis(){return akses.pcare_cek_faskessubspesialis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_cek_faskesalihrawat(){return akses.pcare_cek_faskesalihrawat;}
     public static boolean getpcare_cek_faskesthalasemia(){return akses.pcare_cek_faskesthalasemia;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_mapping_obat(){return akses.pcare_mapping_obat;}
     public static boolean getpcare_mapping_tindakan(){return akses.pcare_mapping_tindakan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_club_prolanis(){return akses.pcare_club_prolanis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_mapping_poli(){return akses.pcare_mapping_poli;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_kegiatan_kelompok(){return akses.pcare_kegiatan_kelompok;}
     public static boolean getpcare_mapping_tindakan_ranap(){return akses.pcare_mapping_tindakan_ranap;}
     public static boolean getpcare_peserta_kegiatan_kelompok(){return akses.pcare_peserta_kegiatan_kelompok;}
     public static boolean getsirkulasi_obat3(){return akses.sirkulasi_obat3;}
     public static boolean getbridging_pcare_daftar(){return akses.bridging_pcare_daftar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_mapping_dokter(){return akses.pcare_mapping_dokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getranap_per_ruang(){return akses.ranap_per_ruang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenyakit_ranap_cara_bayar(){return akses.penyakit_ranap_cara_bayar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getanggota_militer_dirawat(){return akses.anggota_militer_dirawat;}
     public static boolean getset_input_parsial(){return akses.set_input_parsial;}
     public static boolean getlama_pelayanan_radiologi(){return akses.lama_pelayanan_radiologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getlama_pelayanan_lab(){return akses.lama_pelayanan_lab;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_cek_sep(){return akses.bpjs_cek_sep;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_perawatan(){return akses.catatan_perawatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_keluar(){return akses.surat_keluar;}
     public static boolean getkegiatan_farmasi(){return akses.kegiatan_farmasi;}
     public static boolean getstok_opname_logistik(){return akses.stok_opname_logistik;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsirkulasi_non_medis(){return akses.sirkulasi_non_medis;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_lab_pertahun(){return akses.rekap_lab_pertahun;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getperujuk_lab_pertahun(){return akses.perujuk_lab_pertahun;}
     public static boolean getrekap_radiologi_pertahun(){return akses.rekap_radiologi_pertahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getperujuk_radiologi_pertahun(){return akses.perujuk_radiologi_pertahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjumlah_porsi_diet(){return akses.jumlah_porsi_diet;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjumlah_macam_diet(){return akses.jumlah_macam_diet;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpayment_point2(){return akses.payment_point2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_akun_bayar2(){return akses.pembayaran_akun_bayar2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethapus_nota_salah(){return akses.hapus_nota_salah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethais_perbangsal(){return akses.hais_perbangsal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getppn_obat(){return akses.ppn_obat;}
     public static boolean getsaldo_akun_perbulan(){return akses.saldo_akun_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdisplay_apotek(){return akses.display_apotek;}
     public static boolean getsisrute_referensi_faskes(){return akses.sisrute_referensi_faskes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsisrute_referensi_alasanrujuk(){return akses.sisrute_referensi_alasanrujuk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsisrute_referensi_diagnosa(){return akses.sisrute_referensi_diagnosa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsisrute_rujukan_masuk(){return akses.sisrute_rujukan_masuk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getAktif(){return akses.aktif;}
+
+    /**
+     *
+     * @param status
+     */
     public static void setAktif(boolean status){akses.aktif=status;} 
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsisrute_rujukan_keluar(){return akses.sisrute_rujukan_keluar;}
     public static boolean getbpjs_cek_skdp(){return akses.bpjs_cek_skdp;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdata_batch(){return akses.data_batch;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkunjungan_permintaan_lab(){return akses.kunjungan_permintaan_lab;}
     public static boolean getkunjungan_permintaan_lab2(){return akses.kunjungan_permintaan_lab2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkunjungan_permintaan_radiologi(){return akses.kunjungan_permintaan_radiologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkunjungan_permintaan_radiologi2(){return akses.kunjungan_permintaan_radiologi2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpcare_pemberian_obat(){return akses.pcare_pemberian_obat;}
     public static boolean getpcare_pemberian_tindakan(){return akses.pcare_pemberian_tindakan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_akun_bayar3(){return akses.pembayaran_akun_bayar3;}
     public static boolean getpassword_asuransi(){return akses.password_asuransi;}
     public static boolean getkemenkes_sitt(){return akses.kemenkes_sitt;}
     public static boolean getsiranap_ketersediaan_kamar(){return akses.siranap_ketersediaan_kamar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_tb_periodelaporan(){return akses.grafik_tb_periodelaporan;}
     public static boolean getgrafik_tb_rujukan(){return akses.grafik_tb_rujukan;}
     public static boolean getgrafik_tb_riwayat(){return akses.grafik_tb_riwayat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_tb_tipediagnosis(){return akses.grafik_tb_tipediagnosis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_tb_statushiv(){return akses.grafik_tb_statushiv;}
     public static boolean getgrafik_tb_skoringanak(){return akses.grafik_tb_skoringanak;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_tb_konfirmasiskoring5(){return akses.grafik_tb_konfirmasiskoring5;}
     public static boolean getgrafik_tb_konfirmasiskoring6(){return akses.grafik_tb_konfirmasiskoring6;}
     public static boolean getgrafik_tb_sumberobat(){return akses.grafik_tb_sumberobat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_tb_hasilakhirpengobatan(){return akses.grafik_tb_hasilakhirpengobatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_tb_hasilteshiv(){return akses.grafik_tb_hasilteshiv;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkadaluarsa_batch(){return akses.kadaluarsa_batch;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsisa_stok(){return akses.sisa_stok;}
     public static boolean getobat_per_resep(){return akses.obat_per_resep;}
     public static boolean getpemakaian_air_pdam(){return akses.pemakaian_air_pdam;}
     public static boolean getlimbah_b3_medis(){return akses.limbah_b3_medis;}
     public static boolean getgrafik_air_pdam_pertanggal(){return akses.grafik_air_pdam_pertanggal;}
     public static boolean getgrafik_air_pdam_perbulan(){return akses.grafik_air_pdam_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_limbahb3_pertanggal(){return akses.grafik_limbahb3_pertanggal;}
     public static boolean getgrafik_limbahb3_perbulan(){return akses.grafik_limbahb3_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getlimbah_domestik(){return akses.limbah_domestik;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_limbahdomestik_pertanggal(){return akses.grafik_limbahdomestik_pertanggal;}
     public static boolean getgrafik_limbahdomestik_perbulan(){return akses.grafik_limbahdomestik_perbulan;}
     public static boolean getmutu_air_limbah(){return akses.mutu_air_limbah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpest_control(){return akses.pest_control;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getruang_perpustakaan(){return akses.ruang_perpustakaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkategori_perpustakaan(){return akses.kategori_perpustakaan;}
     public static boolean getjenis_perpustakaan(){return akses.jenis_perpustakaan;}
     public static boolean getpengarang_perpustakaan(){return akses.pengarang_perpustakaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenerbit_perpustakaan(){return akses.penerbit_perpustakaan;}
     public static boolean getkoleksi_perpustakaan(){return akses.koleksi_perpustakaan;}
     public static boolean getinventaris_perpustakaan(){return akses.inventaris_perpustakaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_peminjaman_perpustakaan(){return akses.set_peminjaman_perpustakaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdenda_perpustakaan(){return akses.denda_perpustakaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getanggota_perpustakaan(){return akses.anggota_perpustakaan;}
     public static boolean getpeminjaman_perpustakaan(){return akses.peminjaman_perpustakaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbayar_denda_perpustakaan(){return akses.bayar_denda_perpustakaan;}
     public static boolean getebook_perpustakaan(){return akses.ebook_perpustakaan;}
     public static boolean getjenis_cidera_k3rs(){return akses.jenis_cidera_k3rs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenyebab_k3rs(){return akses.penyebab_k3rs;}
     public static boolean getjenis_luka_k3rs(){return akses.jenis_luka_k3rs;}
     public static boolean getlokasi_kejadian_k3rs(){return akses.lokasi_kejadian_k3rs;}
     public static boolean getdampak_cidera_k3rs(){return akses.dampak_cidera_k3rs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjenis_pekerjaan_k3rs(){return akses.jenis_pekerjaan_k3rs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbagian_tubuh_k3rs(){return akses.bagian_tubuh_k3rs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getperistiwa_k3rs(){return akses.peristiwa_k3rs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_k3_pertahun(){return akses.grafik_k3_pertahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_k3_perbulan(){return akses.grafik_k3_perbulan;}
     public static boolean getgrafik_k3_pertanggal(){return akses.grafik_k3_pertanggal;}
     public static boolean getgrafik_k3_perjeniscidera(){return akses.grafik_k3_perjeniscidera;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_k3_perpenyebab(){return akses.grafik_k3_perpenyebab;}
     public static boolean getgrafik_k3_perjenisluka(){return akses.grafik_k3_perjenisluka;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_k3_lokasikejadian(){return akses.grafik_k3_lokasikejadian;}
     public static boolean getgrafik_k3_dampakcidera(){return akses.grafik_k3_dampakcidera;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_k3_perjenispekerjaan(){return akses.grafik_k3_perjenispekerjaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_k3_perbagiantubuh(){return akses.grafik_k3_perbagiantubuh;}
     public static boolean getjenis_cidera_k3rstahun(){return akses.jenis_cidera_k3rstahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenyebab_k3rstahun(){return akses.penyebab_k3rstahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjenis_luka_k3rstahun(){return akses.jenis_luka_k3rstahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getlokasi_kejadian_k3rstahun(){return akses.lokasi_kejadian_k3rstahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdampak_cidera_k3rstahun(){return akses.dampak_cidera_k3rstahun;}
     public static boolean getjenis_pekerjaan_k3rstahun(){return akses.jenis_pekerjaan_k3rstahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbagian_tubuh_k3rstahun(){return akses.bagian_tubuh_k3rstahun;}
     public static boolean getsekrining_rawat_jalan(){return akses.sekrining_rawat_jalan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_histori_pelayanan(){return akses.bpjs_histori_pelayanan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_mutasi_berkas(){return akses.rekap_mutasi_berkas;}
     public static boolean getskrining_ralan_pernapasan_pertahun(){return akses.skrining_ralan_pernapasan_pertahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengajuan_barang_medis(){return akses.pengajuan_barang_medis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengajuan_barang_nonmedis(){return akses.pengajuan_barang_nonmedis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_ranapbulan(){return akses.grafik_kunjungan_ranapbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_ranaptanggal(){return akses.grafik_kunjungan_ranaptanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kunjungan_ranap_peruang(){return akses.grafik_kunjungan_ranap_peruang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkunjungan_bangsal_pertahun(){return akses.kunjungan_bangsal_pertahun;}
     public static boolean getgrafik_jenjang_jabatanpegawai(){return akses.grafik_jenjang_jabatanpegawai;}
     public static boolean getgrafik_bidangpegawai(){return akses.grafik_bidangpegawai;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_departemenpegawai(){return akses.grafik_departemenpegawai;}
     public static boolean getgrafik_pendidikanpegawai(){return akses.grafik_pendidikanpegawai;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_sttswppegawai(){return akses.grafik_sttswppegawai;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_sttskerjapegawai(){return akses.grafik_sttskerjapegawai;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_sttspulangranap(){return akses.grafik_sttspulangranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkip_pasien_ranap(){return akses.kip_pasien_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkip_pasien_ralan(){return akses.kip_pasien_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_mapping_dokterdpjp(){return akses.bpjs_mapping_dokterdpjp;}
     public static boolean getdata_triase_igd(){return akses.data_triase_igd;}
     public static boolean getmaster_triase_skala1(){return akses.master_triase_skala1;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_triase_skala2(){return akses.master_triase_skala2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_triase_skala3(){return akses.master_triase_skala3;}
     public static boolean getmaster_triase_skala4(){return akses.master_triase_skala4;}
     public static boolean getmaster_triase_skala5(){return akses.master_triase_skala5;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_triase_pemeriksaan(){return akses.master_triase_pemeriksaan;}
     public static boolean getmaster_triase_macamkasus(){return akses.master_triase_macamkasus;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_permintaan_diet(){return akses.rekap_permintaan_diet;}
     public static boolean getdaftar_pasien_ranap(){return akses.daftar_pasien_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdaftar_pasien_ranaptni(){return akses.daftar_pasien_ranaptni;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengajuan_asetinventaris(){return akses.pengajuan_asetinventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getitem_apotek_jenis(){return akses.item_apotek_jenis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getitem_apotek_kategori(){return akses.item_apotek_kategori;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getitem_apotek_golongan(){return akses.item_apotek_golongan;}
     public static boolean getitem_apotek_industrifarmasi(){return akses.item_apotek_industrifarmasi;}
     public static boolean getobat10_terbanyak_poli(){return akses.obat10_terbanyak_poli;}
@@ -5036,104 +6817,404 @@ public final class akses {
     public static boolean getgrafik_pengajuan_aset_status(){return akses.grafik_pengajuan_aset_status;}
     public static boolean getgrafik_pengajuan_aset_departemen(){return akses.grafik_pengajuan_aset_departemen;}
     public static boolean getrekap_pengajuan_aset_departemen(){return akses.rekap_pengajuan_aset_departemen;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_kelompok_jabatanpegawai(){return akses.grafik_kelompok_jabatanpegawai;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_resiko_kerjapegawai(){return akses.grafik_resiko_kerjapegawai;}
     public static boolean getgrafik_emergency_indexpegawai(){return akses.grafik_emergency_indexpegawai;}
     public static boolean getgrafik_inventaris_ruang(){return akses.grafik_inventaris_ruang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getharian_HAIs2(){return akses.harian_HAIs2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_inventaris_jenis(){return akses.grafik_inventaris_jenis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdata_resume_pasien(){return akses.data_resume_pasien;}
     public static boolean getperkiraan_biaya_ranap(){return akses.perkiraan_biaya_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_obat_poli(){return akses.rekap_obat_poli;}
     public static boolean getrekap_obat_pasien(){return akses.rekap_obat_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_HAIs_pasienbangsal(){return akses.grafik_HAIs_pasienbangsal;}
     public static boolean getgrafik_HAIs_pasienbulan(){return akses.grafik_HAIs_pasienbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpermintaan_perbaikan_inventaris(){return akses.permintaan_perbaikan_inventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_HAIs_laju_vap(){return akses.grafik_HAIs_laju_vap;} 
     public static boolean getgrafik_HAIs_laju_iad(){return akses.grafik_HAIs_laju_iad;}
     public static boolean getgrafik_HAIs_laju_pleb(){return akses.grafik_HAIs_laju_pleb;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_HAIs_laju_isk(){return akses.grafik_HAIs_laju_isk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_HAIs_laju_ilo(){return akses.grafik_HAIs_laju_ilo;}
     public static boolean getgrafik_HAIs_laju_hap(){return akses.grafik_HAIs_laju_hap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_mapping_poli(){return akses.inhealth_mapping_poli;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_mapping_dokter(){return akses.inhealth_mapping_dokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_mapping_tindakan_ralan(){return akses.inhealth_mapping_tindakan_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_mapping_tindakan_ranap(){return akses.inhealth_mapping_tindakan_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_mapping_tindakan_radiologi(){return akses.inhealth_mapping_tindakan_radiologi;}
     public static boolean getinhealth_mapping_tindakan_laborat(){return akses.inhealth_mapping_tindakan_laborat;}
     public static boolean getinhealth_mapping_tindakan_operasi(){return akses.inhealth_mapping_tindakan_operasi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethibah_obat_bhp(){return akses.hibah_obat_bhp;}
     public static boolean getasal_hibah(){return akses.asal_hibah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getasuhan_gizi(){return akses.asuhan_gizi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getinhealth_kirim_tagihan(){return akses.inhealth_kirim_tagihan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsirkulasi_obat4(){return akses.sirkulasi_obat4;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsirkulasi_obat5(){return akses.sirkulasi_obat5;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsirkulasi_non_medis2(){return akses.sirkulasi_non_medis2;}
     public static boolean getmonitoring_asuhan_gizi(){return akses.monitoring_asuhan_gizi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenerimaan_obat_perbulan(){return akses.penerimaan_obat_perbulan;}
     public static boolean getrekap_kunjungan(){return akses.rekap_kunjungan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_sakit(){return akses.surat_sakit;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_ralan(){return akses.penilaian_awal_keperawatan_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpermintaan_diet(){return akses.permintaan_diet;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_masalah_keperawatan(){return akses.master_masalah_keperawatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengajuan_cuti(){return akses.pengajuan_cuti;}
     public static boolean getkedatangan_pasien(){return akses.kedatangan_pasien;}
     public static boolean getutd_pendonor(){return akses.utd_pendonor;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_suplier(){return akses.toko_suplier;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_jenis(){return akses.toko_jenis;}
     public static boolean gettoko_set_harga(){return akses.toko_set_harga;}
     public static boolean gettoko_barang(){return akses.toko_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenagihan_piutang_pasien(){return akses.penagihan_piutang_pasien;}
     public static boolean getakun_penagihan_piutang(){return akses.akun_penagihan_piutang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getstok_opname_toko(){return akses.stok_opname_toko;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_riwayat_barang(){return akses.toko_riwayat_barang;}
     public static boolean gettoko_surat_pemesanan(){return akses.toko_surat_pemesanan;}
     public static boolean gettoko_pengajuan_barang(){return akses.toko_pengajuan_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_penerimaan_barang(){return akses.toko_penerimaan_barang;}
     public static boolean gettoko_pengadaan_barang(){return akses.toko_pengadaan_barang;}
     public static boolean gettoko_hutang(){return akses.toko_hutang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_bayar_pemesanan(){return akses.toko_bayar_pemesanan;}
     public static boolean gettoko_member(){return akses.toko_member;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_penjualan(){return akses.toko_penjualan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getregistrasi_poli_per_tanggal(){return akses.registrasi_poli_per_tanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_piutang(){return akses.toko_piutang;}
     public static boolean gettoko_retur_beli(){return akses.toko_retur_beli;}
     public static boolean getipsrs_returbeli(){return akses.ipsrs_returbeli;}
     public static boolean getipsrs_riwayat_barang(){return akses.ipsrs_riwayat_barang;}
     public static boolean getpasien_corona(){return akses.pasien_corona;}
     public static boolean gettoko_pendapatan_harian(){return akses.toko_pendapatan_harian;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdiagnosa_pasien_corona(){return akses.diagnosa_pasien_corona;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getperawatan_pasien_corona(){return akses.perawatan_pasien_corona;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_gigi(){return akses.penilaian_awal_keperawatan_gigi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_masalah_keperawatan_gigi(){return akses.master_masalah_keperawatan_gigi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_bayar_piutang(){return akses.toko_bayar_piutang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_piutang_harian(){return akses.toko_piutang_harian;}
     public static boolean gettoko_penjualan_harian(){return akses.toko_penjualan_harian;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdeteksi_corona(){return akses.deteksi_corona;}
     public static boolean getpenilaian_awal_keperawatan_kebidanan(){return akses.penilaian_awal_keperawatan_kebidanan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengumuman_epasien(){return akses.pengumuman_epasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_hamil(){return akses.surat_hamil;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getset_tarif_online(){return akses.set_tarif_online;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbooking_periksa(){return akses.booking_periksa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettoko_sirkulasi(){return akses.toko_sirkulasi;}
     public static boolean gettoko_retur_jual(){return akses.toko_retur_jual;}
     public static boolean gettoko_retur_piutang(){return akses.toko_retur_piutang;}
     public static boolean gettoko_sirkulasi2(){return akses.toko_sirkulasi2;}
     public static boolean gettoko_keuntungan_barang(){return akses.toko_keuntungan_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_pengeluaran_penerima_dankes(){return akses.zis_pengeluaran_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_penghasilan_penerima_dankes(){return akses.zis_penghasilan_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_ukuran_rumah_penerima_dankes(){return akses.zis_ukuran_rumah_penerima_dankes;}
     public static boolean getzis_dinding_rumah_penerima_dankes(){return akses.zis_dinding_rumah_penerima_dankes;}
     public static boolean getzis_lantai_rumah_penerima_dankes(){return akses.zis_lantai_rumah_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_atap_rumah_penerima_dankes(){return akses.zis_atap_rumah_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_kepemilikan_rumah_penerima_dankes(){return akses.zis_kepemilikan_rumah_penerima_dankes;}
     public static boolean getzis_kamar_mandi_penerima_dankes(){return akses.zis_kamar_mandi_penerima_dankes;}
     public static boolean getzis_dapur_rumah_penerima_dankes(){return akses.zis_dapur_rumah_penerima_dankes;}
     public static boolean getzis_kursi_rumah_penerima_dankes(){return akses.zis_kursi_rumah_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_kategori_phbs_penerima_dankes(){return akses.zis_kategori_phbs_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_elektronik_penerima_dankes(){return akses.zis_elektronik_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_ternak_penerima_dankes(){return akses.zis_ternak_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getzis_jenis_simpanan_penerima_dankes(){return akses.zis_jenis_simpanan_penerima_dankes;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_anak(){return akses.penilaian_awal_keperawatan_anak;}
     public static boolean getzis_kategori_asnaf_penerima_dankes(){return akses.zis_kategori_asnaf_penerima_dankes;}
     public static boolean getmaster_masalah_keperawatan_anak(){return akses.master_masalah_keperawatan_anak;}
@@ -5141,198 +7222,748 @@ public final class akses {
     public static boolean getzis_patologis_penerima_dankes(){return akses.zis_patologis_penerima_dankes;}
     public static boolean getpcare_cek_kartu(){return akses.pcare_cek_kartu;}
     public static boolean getsurat_bebas_narkoba(){return akses.surat_bebas_narkoba;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_keterangan_covid(){return akses.surat_keterangan_covid;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemakaian_air_tanah(){return akses.pemakaian_air_tanah;}
     public static boolean getgrafik_air_tanah_pertanggal(){return akses.grafik_air_tanah_pertanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_air_tanah_perbulan(){return akses.grafik_air_tanah_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getlama_pelayanan_poli(){return akses.lama_pelayanan_poli;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethemodialisa(){return akses.hemodialisa;}
     public static boolean getgrafik_harian_hemodialisa(){return akses.grafik_harian_hemodialisa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_bulanan_hemodialisa(){return akses.grafik_bulanan_hemodialisa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_tahunan_hemodialisa(){return akses.grafik_tahunan_hemodialisa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_bulanan_meninggal(){return akses.grafik_bulanan_meninggal;}
     public static boolean getlaporan_tahunan_irj(){return akses.laporan_tahunan_irj;}
     public static boolean getperbaikan_inventaris(){return akses.perbaikan_inventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_cuti_hamil(){return akses.surat_cuti_hamil;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpermintaan_stok_obat_pasien(){return akses.permintaan_stok_obat_pasien;}
     public static boolean getpemeliharaan_inventaris(){return akses.pemeliharaan_inventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getklasifikasi_pasien_ranap(){return akses.klasifikasi_pasien_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbulanan_klasifikasi_pasien_ranap(){return akses.bulanan_klasifikasi_pasien_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getharian_klasifikasi_pasien_ranap(){return akses.harian_klasifikasi_pasien_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getklasifikasi_pasien_perbangsal(){return akses.klasifikasi_pasien_perbangsal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsoap_perawatan(){return akses.soap_perawatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getklaim_rawat_jalan(){return akses.klaim_rawat_jalan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskrining_gizi(){return akses.skrining_gizi;}
     public static boolean getlama_penyiapan_rm(){return akses.lama_penyiapan_rm;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdosis_radiologi(){return akses.dosis_radiologi;}
     public static boolean getdemografi_umur_kunjungan(){return akses.demografi_umur_kunjungan;}
     public static boolean getjam_diet_pasien(){return akses.jam_diet_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrvu_bpjs(){return akses.rvu_bpjs;}
     public static boolean getverifikasi_penerimaan_farmasi(){return akses.verifikasi_penerimaan_farmasi;}
     public static boolean getverifikasi_penerimaan_logistik(){return akses.verifikasi_penerimaan_logistik;}
     public static boolean getpemeriksaan_lab_pa(){return akses.pemeriksaan_lab_pa;}
     public static boolean getringkasan_pengajuan_obat(){return akses.ringkasan_pengajuan_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_pemesanan_obat(){return akses.ringkasan_pemesanan_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_pengadaan_obat(){return akses.ringkasan_pengadaan_obat;}
     public static boolean getringkasan_penerimaan_obat(){return akses.ringkasan_penerimaan_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_hibah_obat(){return akses.ringkasan_hibah_obat;}
     public static boolean getringkasan_penjualan_obat(){return akses.ringkasan_penjualan_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_beri_obat(){return akses.ringkasan_beri_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_piutang_obat(){return akses.ringkasan_piutang_obat;}
     public static boolean getringkasan_stok_keluar_obat(){return akses.ringkasan_stok_keluar_obat;}
     public static boolean getringkasan_retur_suplier_obat(){return akses.ringkasan_retur_suplier_obat;}
     public static boolean getringkasan_retur_pembeli_obat(){return akses.ringkasan_retur_pembeli_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_ranapkebidanan(){return akses.penilaian_awal_keperawatan_ranapkebidanan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_pengajuan_nonmedis(){return akses.ringkasan_pengajuan_nonmedis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_pemesanan_nonmedis(){return akses.ringkasan_pemesanan_nonmedis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_pengadaan_nonmedis(){return akses.ringkasan_pengadaan_nonmedis;}
     public static boolean getringkasan_penerimaan_nonmedis(){return akses.ringkasan_penerimaan_nonmedis;}
     public static boolean getringkasan_stokkeluar_nonmedis(){return akses.ringkasan_stokkeluar_nonmedis;}
     public static boolean getringkasan_returbeli_nonmedis(){return akses.ringkasan_returbeli_nonmedis;}
     public static boolean getomset_penerimaan(){return akses.omset_penerimaan;}
     public static boolean getvalidasi_penagihan_piutang(){return akses.validasi_penagihan_piutang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpermintaan_ranap(){return akses.permintaan_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_diagnosa_prb(){return akses.bpjs_diagnosa_prb;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_obat_prb(){return akses.bpjs_obat_prb;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_surat_kontrol(){return akses.bpjs_surat_kontrol;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenggunaan_bhp_ok(){return akses.penggunaan_bhp_ok;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_keterangan_rawat_inap(){return akses.surat_keterangan_rawat_inap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_keterangan_sehat(){return akses.surat_keterangan_sehat;}
     public static boolean getpendapatan_per_carabayar(){return akses.pendapatan_per_carabayar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getakun_host_to_host_bank_jateng(){return akses.akun_host_to_host_bank_jateng;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_bank_jateng(){return akses.pembayaran_bank_jateng;}
     public static boolean getbpjs_surat_pri(){return akses.bpjs_surat_pri;}
     public static boolean getringkasan_tindakan(){return akses.ringkasan_tindakan;}
     public static boolean getlama_pelayanan_pasien(){return akses.lama_pelayanan_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_sakit_pihak_2(){return akses.surat_sakit_pihak_2;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettagihan_hutang_obat(){return akses.tagihan_hutang_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getreferensi_mobilejkn_bpjs(){return akses.referensi_mobilejkn_bpjs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbatal_pendaftaran_mobilejkn_bpjs(){return akses.batal_pendaftaran_mobilejkn_bpjs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getlama_operasi(){return akses.lama_operasi;}
     public static boolean getgrafik_inventaris_kategori(){return akses.grafik_inventaris_kategori;}
     public static boolean getgrafik_inventaris_merk(){return akses.grafik_inventaris_merk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_inventaris_produsen(){return akses.grafik_inventaris_produsen;}
     public static boolean getpengembalian_deposit_pasien(){return akses.pengembalian_deposit_pasien;}
     public static boolean getvalidasi_tagihan_hutang_obat(){return akses.validasi_tagihan_hutang_obat;}
     public static boolean getpiutang_obat_belum_lunas(){return akses.piutang_obat_belum_lunas;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getintegrasi_briapi(){return akses.integrasi_briapi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengadaan_aset_inventaris(){return akses.pengadaan_aset_inventaris;}
     public static boolean getakun_aset_inventaris(){return akses.akun_aset_inventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsuplier_inventaris(){return akses.suplier_inventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenerimaan_aset_inventaris(){return akses.penerimaan_aset_inventaris;}
     public static boolean getbayar_pemesanan_iventaris(){return akses.bayar_pemesanan_iventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethutang_aset_inventaris(){return akses.hutang_aset_inventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethibah_aset_inventaris(){return akses.hibah_aset_inventaris;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettitip_faktur_non_medis(){return akses.titip_faktur_non_medis;}
     public static boolean getvalidasi_tagihan_non_medis(){return akses.validasi_tagihan_non_medis;}
     public static boolean gettitip_faktur_aset(){return akses.titip_faktur_aset;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getvalidasi_tagihan_aset(){return akses.validasi_tagihan_aset;}
     public static boolean gethibah_non_medis(){return akses.hibah_non_medis;}
     public static boolean getpcare_alasan_tacc(){return akses.pcare_alasan_tacc;}
     public static boolean getresep_luar(){return akses.resep_luar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_bebas_tbc(){return akses.surat_bebas_tbc;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_buta_warna(){return akses.surat_buta_warna;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_bebas_tato(){return akses.surat_bebas_tato;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_kewaspadaan_kesehatan(){return akses.surat_kewaspadaan_kesehatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_porsidiet_pertanggal(){return akses.grafik_porsidiet_pertanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_porsidiet_perbulan(){return akses.grafik_porsidiet_perbulan;}
     public static boolean getgrafik_porsidiet_pertahun(){return akses.grafik_porsidiet_pertahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_porsidiet_perbangsal(){return akses.grafik_porsidiet_perbangsal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan(){return akses.penilaian_awal_medis_ralan;}
     public static boolean getmaster_masalah_keperawatan_mata(){return akses.master_masalah_keperawatan_mata;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_mata(){return akses.penilaian_awal_keperawatan_mata;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ranap(){return akses.penilaian_awal_medis_ranap;}
     public static boolean getpenilaian_awal_medis_ranap_kebidanan(){return akses.penilaian_awal_medis_ranap_kebidanan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_kebidanan(){return akses.penilaian_awal_medis_ralan_kebidanan;}
     public static boolean getpenilaian_awal_medis_igd(){return akses.penilaian_awal_medis_igd;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_anak(){return akses.penilaian_awal_medis_ralan_anak;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_poli_hfis(){return akses.bpjs_referensi_poli_hfis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_dokter_hfis(){return akses.bpjs_referensi_dokter_hfis;}
     public static boolean getbpjs_referensi_jadwal_hfis(){return akses.bpjs_referensi_jadwal_hfis;}
     public static boolean getpenilaian_fisioterapi(){return akses.penilaian_fisioterapi;}
     public static boolean getbpjs_program_prb(){return akses.bpjs_program_prb;}
     public static boolean getbpjs_suplesi_jasaraharja(){return akses.bpjs_suplesi_jasaraharja;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_data_induk_kecelakaan(){return akses.bpjs_data_induk_kecelakaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_sep_internal(){return akses.bpjs_sep_internal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_klaim_jasa_raharja(){return akses.bpjs_klaim_jasa_raharja;}
     public static boolean getbpjs_daftar_finger_print(){return akses.bpjs_daftar_finger_print;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_rujukan_khusus(){return akses.bpjs_rujukan_khusus;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemeliharaan_gedung(){return akses.pemeliharaan_gedung;}
     public static boolean getgrafik_perbaikan_inventaris_pertanggal(){return akses.grafik_perbaikan_inventaris_pertanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_perbaikan_inventaris_perbulan(){return akses.grafik_perbaikan_inventaris_perbulan;}
     public static boolean getgrafik_perbaikan_inventaris_pertahun(){return akses.grafik_perbaikan_inventaris_pertahun;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getgrafik_perbaikan_inventaris_perpelaksana_status(){return akses.grafik_perbaikan_inventaris_perpelaksana_status;}
     public static boolean getpenilaian_mcu(){return akses.penilaian_mcu;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpeminjam_piutang(){return akses.peminjam_piutang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpiutang_lainlain(){return akses.piutang_lainlain;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcara_bayar(){return akses.cara_bayar;}
     public static boolean getaudit_kepatuhan_apd(){return akses.audit_kepatuhan_apd;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_task_id(){return akses.bpjs_task_id;}
     public static boolean getbayar_piutang_lain(){return akses.bayar_piutang_lain;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_akun_bayar4(){return akses.pembayaran_akun_bayar4;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getstok_akhir_farmasi_pertanggal(){return akses.stok_akhir_farmasi_pertanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getriwayat_kamar_pasien(){return akses.riwayat_kamar_pasien;}
     public static boolean getuji_fungsi_kfr(){return akses.uji_fungsi_kfr;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethapus_berkas_digital_perawatan(){return akses.hapus_berkas_digital_perawatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkategori_pengeluaran_harian(){return akses.kategori_pengeluaran_harian;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkategori_pemasukan_lain(){return akses.kategori_pemasukan_lain;}
     public static boolean getpembayaran_akun_bayar5(){return akses.pembayaran_akun_bayar5;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getruang_ok(){return akses.ruang_ok;}
     public static boolean getjasa_tindakan_pasien(){return akses.jasa_tindakan_pasien;}
     public static boolean gettelaah_resep(){return akses.telaah_resep;}
     public static boolean getpermintaan_resep_pulang(){return akses.permintaan_resep_pulang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_jm_dokter(){return akses.rekap_jm_dokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getstatus_data_rm(){return akses.status_data_rm;}
     public static boolean getubah_petugas_lab_pk(){return akses.ubah_petugas_lab_pk;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getubah_petugas_lab_pa(){return akses.ubah_petugas_lab_pa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getubah_petugas_radiologi(){return akses.ubah_petugas_radiologi;}
     public static boolean getgabung_norawat(){return akses.gabung_norawat;}
     public static boolean getgabung_rm(){return akses.gabung_rm;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_biaya_obat_pasien_pertanggal(){return akses.ringkasan_biaya_obat_pasien_pertanggal;}
     public static boolean getmaster_masalah_keperawatan_igd(){return akses.master_masalah_keperawatan_igd;}
     public static boolean getpenilaian_awal_keperawatan_igd(){return akses.penilaian_awal_keperawatan_igd;}
     public static boolean getbpjs_referensi_dpho_apotek(){return akses.bpjs_referensi_dpho_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_poli_apotek(){return akses.bpjs_referensi_poli_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbayar_jm_dokter(){return akses.bayar_jm_dokter;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_faskes_apotek(){return akses.bpjs_referensi_faskes_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_spesialistik_apotek(){return akses.bpjs_referensi_spesialistik_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_briva(){return akses.pembayaran_briva;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_ranap(){return akses.penilaian_awal_keperawatan_ranap;}
     public static boolean getnilai_penerimaan_vendor_farmasi_perbulan(){return akses.nilai_penerimaan_vendor_farmasi_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getakun_bayar_hutang(){return akses.akun_bayar_hutang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_rencana_keperawatan(){return akses.master_rencana_keperawatan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getlaporan_tahunan_igd(){return akses.laporan_tahunan_igd;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getobat_bhp_tidakbergerak(){return akses.obat_bhp_tidakbergerak;}
     public static boolean getringkasan_hutang_vendor_farmasi(){return akses.ringkasan_hutang_vendor_farmasi;}
     public static boolean getnilai_penerimaan_vendor_nonmedis_perbulan(){return akses.nilai_penerimaan_vendor_nonmedis_perbulan;}
     public static boolean getringkasan_hutang_vendor_nonmedis(){return akses.ringkasan_hutang_vendor_nonmedis;}
     public static boolean getanggota_polri_dirawat(){return akses.anggota_polri_dirawat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdaftar_pasien_ranap_polri(){return akses.daftar_pasien_ranap_polri;}
     public static boolean getsoap_ralan_polri(){return akses.soap_ralan_polri;}
     public static boolean getsoap_ranap_polri(){return akses.soap_ranap_polri;}
     public static boolean getlaporan_penyakit_polri(){return akses.laporan_penyakit_polri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_rencana_keperawatan_anak(){return akses.master_rencana_keperawatan_anak;}
     public static boolean getjumlah_pengunjung_ralan_polri(){return akses.jumlah_pengunjung_ralan_polri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_observasi_igd(){return akses.catatan_observasi_igd;}
     public static boolean getcatatan_observasi_ranap(){return akses.catatan_observasi_ranap;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_observasi_ranap_kebidanan(){return akses.catatan_observasi_ranap_kebidanan;}
     public static boolean getcatatan_observasi_ranap_postpartum(){return akses.catatan_observasi_ranap_postpartum;}
     public static boolean getpenilaian_awal_medis_ralan_tht(){return akses.penilaian_awal_medis_ralan_tht;}
     public static boolean getpenilaian_psikologi(){return akses.penilaian_psikologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getaudit_cuci_tangan_medis(){return akses.audit_cuci_tangan_medis;}
     public static boolean getaudit_pembuangan_limbah(){return akses.audit_pembuangan_limbah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getruang_audit_kepatuhan(){return akses.ruang_audit_kepatuhan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getaudit_pembuangan_benda_tajam(){return akses.audit_pembuangan_benda_tajam;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getaudit_penanganan_darah(){return akses.audit_penanganan_darah;}
     public static boolean getaudit_pengelolaan_linen_kotor(){return akses.audit_pengelolaan_linen_kotor;}
     public static boolean getaudit_penempatan_pasien(){return akses.audit_penempatan_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getaudit_kamar_jenazah(){return akses.audit_kamar_jenazah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getaudit_bundle_iadp(){return akses.audit_bundle_iadp;}
     public static boolean getaudit_bundle_ido(){return akses.audit_bundle_ido;}
     public static boolean getaudit_fasilitas_kebersihan_tangan(){return akses.audit_fasilitas_kebersihan_tangan;}
     public static boolean getaudit_fasilitas_apd(){return akses.audit_fasilitas_apd;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getaudit_pembuangan_limbah_cair_infeksius(){return akses.audit_pembuangan_limbah_cair_infeksius;}
     public static boolean getaudit_sterilisasi_alat(){return akses.audit_sterilisasi_alat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_psikiatri(){return akses.penilaian_awal_medis_ralan_psikiatri;}
     public static boolean getpersetujuan_penolakan_tindakan(){return akses.persetujuan_penolakan_tindakan;}
     public static boolean getaudit_bundle_isk(){return akses.audit_bundle_isk;}
@@ -5340,197 +7971,807 @@ public final class akses {
     public static boolean getaudit_bundle_vap(){return akses.audit_bundle_vap;}
     public static boolean getakun_host_to_host_bank_papua(){return akses.akun_host_to_host_bank_papua;}
     public static boolean getpembayaran_bank_papua(){return akses.pembayaran_bank_papua;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_penyakit_dalam(){return akses.penilaian_awal_medis_ralan_penyakit_dalam;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_mata(){return akses.penilaian_awal_medis_ralan_mata;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_neurologi(){return akses.penilaian_awal_medis_ralan_neurologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsirkulasi_obat6(){return akses.sirkulasi_obat6;}
     public static boolean getpenilaian_awal_medis_ralan_orthopedi(){return akses.penilaian_awal_medis_ralan_orthopedi;}
     public static boolean getpenilaian_awal_medis_ralan_bedah(){return akses.penilaian_awal_medis_ralan_bedah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getintegrasi_khanza_health_services(){return akses.integrasi_khanza_health_services;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsoap_ralan_tni(){return akses.soap_ralan_tni;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsoap_ranap_tni(){return akses.soap_ranap_tni;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjumlah_pengunjung_ralan_tni(){return akses.jumlah_pengunjung_ralan_tni;}
     public static boolean getlaporan_penyakit_tni(){return akses.laporan_penyakit_tni;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_keperawatan_ranap(){return akses.catatan_keperawatan_ranap;}
     public static boolean getmaster_rencana_keperawatan_gigi(){return akses.master_rencana_keperawatan_gigi;}
     public static boolean getmaster_rencana_keperawatan_mata(){return akses.master_rencana_keperawatan_mata;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_rencana_keperawatan_igd(){return akses.master_rencana_keperawatan_igd;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_masalah_keperawatan_psikiatri(){return akses.master_masalah_keperawatan_psikiatri;}
     public static boolean getmaster_rencana_keperawatan_psikiatri(){return akses.master_rencana_keperawatan_psikiatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_psikiatri(){return akses.penilaian_awal_keperawatan_psikiatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemantauan_pews_anak(){return akses.pemantauan_pews_anak;}
     public static boolean getsurat_pulang_atas_permintaan_sendiri(){return akses.surat_pulang_atas_permintaan_sendiri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettemplate_hasil_radiologi(){return akses.template_hasil_radiologi;}
     public static boolean getlaporan_bulanan_irj(){return akses.laporan_bulanan_irj;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettemplate_pemeriksaan(){return akses.template_pemeriksaan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemeriksaan_lab_mb(){return akses.pemeriksaan_lab_mb;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getubah_petugas_lab_mb(){return akses.ubah_petugas_lab_mb;}
     public static boolean getpenilaian_pre_operasi(){return akses.penilaian_pre_operasi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_pre_anestesi(){return akses.penilaian_pre_anestesi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getperencanaan_pemulangan(){return akses.perencanaan_pemulangan;}
     public static boolean getpenilaian_lanjutan_resiko_jatuh_dewasa(){return akses.penilaian_lanjutan_resiko_jatuh_dewasa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_lanjutan_resiko_jatuh_anak(){return akses.penilaian_lanjutan_resiko_jatuh_anak;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_geriatri(){return akses.penilaian_awal_medis_ralan_geriatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_tambahan_pasien_geriatri(){return akses.penilaian_tambahan_pasien_geriatri;}
     public static boolean getskrining_nutrisi_dewasa(){return akses.skrining_nutrisi_dewasa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskrining_nutrisi_lansia(){return akses.skrining_nutrisi_lansia;}
     public static boolean gethasil_pemeriksaan_usg(){return akses.hasil_pemeriksaan_usg;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskrining_nutrisi_anak(){return akses.skrining_nutrisi_anak;}
     public static boolean getakun_host_to_host_bank_jabar(){return akses.akun_host_to_host_bank_jabar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpembayaran_bank_jabar(){return akses.pembayaran_bank_jabar;}
     public static boolean getsurat_pernyataan_pasien_umum(){return akses.surat_pernyataan_pasien_umum;}
     public static boolean getkonseling_farmasi(){return akses.konseling_farmasi;}
     public static boolean getpelayanan_informasi_obat(){return akses.pelayanan_informasi_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getjawaban_pio_apoteker(){return akses.jawaban_pio_apoteker;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsurat_persetujuan_umum(){return akses.surat_persetujuan_umum;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettransfer_pasien_antar_ruang(){return akses.transfer_pasien_antar_ruang;}
     public static boolean getsatu_sehat_referensi_dokter(){return akses.satu_sehat_referensi_dokter;}
     public static boolean getsatu_sehat_referensi_pasien(){return akses.satu_sehat_referensi_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_mapping_departemen(){return akses.satu_sehat_mapping_departemen;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_mapping_lokasi(){return akses.satu_sehat_mapping_lokasi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_encounter(){return akses.satu_sehat_kirim_encounter;}
     public static boolean getcatatan_cek_gds(){return akses.catatan_cek_gds;}
     public static boolean getsatu_sehat_kirim_condition(){return akses.satu_sehat_kirim_condition;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getchecklist_pre_operasi(){return akses.checklist_pre_operasi;}
     public static boolean getsatu_sehat_kirim_observationttv(){return akses.satu_sehat_kirim_observationttv;}
     public static boolean getsignin_sebelum_anestesi(){return akses.signin_sebelum_anestesi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_procedure(){return akses.satu_sehat_kirim_procedure;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getoperasi_per_bulan(){return akses.operasi_per_bulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettimeout_sebelum_insisi(){return akses.timeout_sebelum_insisi;}
     public static boolean getsignout_sebelum_menutup_luka(){return akses.signout_sebelum_menutup_luka;}
     public static boolean getdapur_barang(){return akses.dapur_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdapur_opname(){return akses.dapur_opname;}
     public static boolean getsatu_sehat_mapping_vaksin(){return akses.satu_sehat_mapping_vaksin;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getdapur_suplier(){return akses.dapur_suplier;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_Immunization(){return akses.satu_sehat_kirim_Immunization;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getchecklist_post_operasi(){return akses.checklist_post_operasi;}
     public static boolean getdapur_pembelian(){return akses.dapur_pembelian;}
     public static boolean getdapur_stok_keluar(){return akses.dapur_stok_keluar;}
     public static boolean getdapur_riwayat_barang(){return akses.dapur_riwayat_barang;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpermintaan_dapur(){return akses.permintaan_dapur;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekonsiliasi_obat(){return akses.rekonsiliasi_obat;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbiaya_pengadaan_dapur(){return akses.biaya_pengadaan_dapur;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_pengadaan_dapur(){return akses.rekap_pengadaan_dapur;}
     public static boolean getkesling_limbah_b3medis_cair(){return akses.kesling_limbah_b3medis_cair;}
     public static boolean getgrafik_limbahb3cair_pertanggal(){return akses.grafik_limbahb3cair_pertanggal;}
     public static boolean getgrafik_limbahb3cair_perbulan(){return akses.grafik_limbahb3cair_perbulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getrekap_biaya_registrasi(){return akses.rekap_biaya_registrasi;}
     public static boolean getkonfirmasi_rekonsiliasi_obat(){return akses.konfirmasi_rekonsiliasi_obat;}
     public static boolean getsatu_sehat_kirim_clinicalimpression(){return akses.satu_sehat_kirim_clinicalimpression;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_pasien_terminal(){return akses.penilaian_pasien_terminal;}
     public static boolean getsurat_persetujuan_rawat_inap(){return akses.surat_persetujuan_rawat_inap;}
     public static boolean getmonitoring_reaksi_tranfusi(){return akses.monitoring_reaksi_tranfusi;}
     public static boolean getpenilaian_korban_kekerasan(){return akses.penilaian_korban_kekerasan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_lanjutan_resiko_jatuh_lansia(){return akses.penilaian_lanjutan_resiko_jatuh_lansia;}
     public static boolean getmpp_skrining(){return akses.mpp_skrining;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_pasien_penyakit_menular(){return akses.penilaian_pasien_penyakit_menular;}
     public static boolean getedukasi_pasien_keluarga_rj(){return akses.edukasi_pasien_keluarga_rj;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemantauan_pews_dewasa(){return akses.pemantauan_pews_dewasa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_tambahan_bunuh_diri(){return akses.penilaian_tambahan_bunuh_diri;}
     public static boolean getbpjs_antrean_pertanggal(){return akses.bpjs_antrean_pertanggal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_tambahan_perilaku_kekerasan(){return akses.penilaian_tambahan_perilaku_kekerasan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_tambahan_beresiko_melarikan_diri(){return akses.penilaian_tambahan_beresiko_melarikan_diri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpersetujuan_penundaan_pelayanan(){return akses.persetujuan_penundaan_pelayanan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsisa_diet_pasien(){return akses.sisa_diet_pasien;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_bedah_mulut(){return akses.penilaian_awal_medis_ralan_bedah_mulut;}
     public static boolean getpenilaian_pasien_keracunan(){return akses.penilaian_pasien_keracunan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemantauan_meows_obstetri(){return akses.pemantauan_meows_obstetri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_adime_gizi(){return akses.catatan_adime_gizi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengajuan_biaya(){return akses.pengajuan_biaya;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_keperawatan_ralan_geriatri(){return akses.penilaian_awal_keperawatan_ralan_geriatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_masalah_keperawatan_geriatri(){return akses.master_masalah_keperawatan_geriatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_rencana_keperawatan_geriatri(){return akses.master_rencana_keperawatan_geriatri;}
     public static boolean getchecklist_kriteria_masuk_hcu(){return akses.checklist_kriteria_masuk_hcu;}
     public static boolean getchecklist_kriteria_keluar_hcu(){return akses.checklist_kriteria_keluar_hcu;}
     public static boolean getpenilaian_risiko_dekubitus(){return akses.penilaian_risiko_dekubitus;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_menolak_anjuran_medis(){return akses.master_menolak_anjuran_medis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenolakan_anjuran_medis(){return akses.penolakan_anjuran_medis;}
     public static boolean getlaporan_tahunan_penolakan_anjuran_medis(){return akses.laporan_tahunan_penolakan_anjuran_medis;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettemplate_laporan_operasi(){return akses.template_laporan_operasi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethasil_tindakan_eswl(){return akses.hasil_tindakan_eswl;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getchecklist_kriteria_masuk_icu(){return akses.checklist_kriteria_masuk_icu;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getchecklist_kriteria_keluar_icu(){return akses.checklist_kriteria_keluar_icu;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getakses_dokter_lain_rawat_jalan(){return akses.akses_dokter_lain_rawat_jalan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getfollow_up_dbd(){return akses.follow_up_dbd;}
     public static boolean getpenilaian_risiko_jatuh_neonatus(){return akses.penilaian_risiko_jatuh_neonatus;}
     public static boolean getpersetujuan_pengajuan_biaya(){return akses.persetujuan_pengajuan_biaya;}
     public static boolean getpemeriksaan_fisik_ralan_per_penyakit(){return akses.pemeriksaan_fisik_ralan_per_penyakit;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_lanjutan_resiko_jatuh_geriatri(){return akses.penilaian_lanjutan_resiko_jatuh_geriatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpemantauan_ews_neonatus(){return akses.pemantauan_ews_neonatus;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getvalidasi_persetujuan_pengajuan_biaya(){return akses.validasi_persetujuan_pengajuan_biaya;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getriwayat_perawatan_icare_bpjs(){return akses.riwayat_perawatan_icare_bpjs;}
     public static boolean getrekap_pengajuan_biaya(){return akses.rekap_pengajuan_biaya;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_kulit_kelamin(){return akses.penilaian_awal_medis_ralan_kulit_kelamin;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getakun_host_to_host_bank_mandiri(){return akses.akun_host_to_host_bank_mandiri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_medis_ralan_hemodialisa(){return akses.penilaian_medis_hemodialisa;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_level_kecemasan_ranap_anak(){return akses.penilaian_level_kecemasan_ranap_anak;}
     public static boolean getpenilaian_lanjutan_resiko_jatuh_psikiatri(){return akses.penilaian_lanjutan_resiko_jatuh_psikiatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_lanjutan_skrining_fungsional(){return akses.penilaian_lanjutan_skrining_fungsional;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_medis_ralan_rehab_medik(){return akses.penilaian_medis_ralan_rehab_medik;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getlaporan_anastesi(){return akses.laporan_anestesi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gettemplate_persetujuan_penolakan_tindakan(){return akses.template_persetujuan_penolakan_tindakan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_medis_ralan_gawat_darurat_psikiatri(){return akses.penilaian_medis_ralan_gawat_darurat_psikiatri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_setting_apotek(){return akses.bpjs_referensi_setting_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_referensi_obat_apotek(){return akses.bpjs_referensi_obat_apotek;}
     public static boolean getbpjs_mapping_obat_apotek(){return akses.bpjs_mapping_obat_apotek;}
     public static boolean getpembayaran_bank_mandiri(){return akses.pembayaran_bank_mandiri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_ulang_nyeri(){return akses.penilaian_ulang_nyeri;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_terapi_wicara(){return akses.penilaian_terapi_wicara;}
     public static boolean getbpjs_obat_23hari_apotek(){return akses.bpjs_obat_23hari_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpengkajian_restrain(){return akses.pengkajian_restrain;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_kunjungan_sep_apotek(){return akses.bpjs_kunjungan_sep_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_monitoring_klaim_apotek(){return akses.bpjs_monitoring_klaim_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbpjs_daftar_pelayanan_obat_apotek(){return akses.bpjs_daftar_pelayanan_obat_apotek;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_awal_medis_ralan_paru(){return akses.penilaian_awal_medis_ralan_paru;}
     public static boolean getcatatan_keperawatan_ralan(){return akses.catatan_keperawatan_ralan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_persalinan(){return akses.catatan_persalinan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskor_aldrette_pasca_anestesi(){return akses.skor_aldrette_pasca_anestesi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskor_steward_pasca_anestesi(){return akses.skor_steward_pasca_anestesi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskor_bromage_pasca_anestesi(){return akses.skor_bromage_pasca_anestesi;}
     public static boolean getpenilaian_pre_induksi(){return akses.penilaian_pre_induksi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethasil_usg_urologi(){return akses.hasil_usg_urologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethasil_usg_gynecologi(){return akses.hasil_usg_gynecologi;}
     public static boolean gethasil_pemeriksaan_ekg(){return akses.hasil_pemeriksaan_ekg;}
     public static boolean gethapus_edit_sep_bpjs(){return akses.hapus_edit_sep_bpjs;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_diet(){return akses.satu_sehat_kirim_diet;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_mapping_obat(){return akses.satu_sehat_mapping_obat;}
     public static boolean getdapur_ringkasan_pembelian(){return akses.dapur_ringkasan_pembelian;}
     public static boolean getsatu_sehat_kirim_medication(){return akses.satu_sehat_kirim_medication;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_medicationrequest(){return akses.satu_sehat_kirim_medicationrequest;}
     public static boolean getpenatalaksanaan_terapi_okupasi(){return akses.penatalaksanaan_terapi_okupasi;}
     public static boolean getsatu_sehat_kirim_medicationdispense(){return akses.satu_sehat_kirim_medicationdispense;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethasil_usg_neonatus(){return akses.hasil_usg_neonatus;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethasil_endoskopi_faring_laring(){return akses.hasil_endoskopi_faring_laring;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_mapping_radiologi(){return akses.satu_sehat_mapping_radiologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_servicerequest_radiologi(){return akses.satu_sehat_kirim_servicerequest_radiologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethasil_endoskopi_hidung(){return akses.hasil_endoskopi_hidung;}
     public static boolean getsatu_sehat_kirim_specimen_radiologi(){return akses.satu_sehat_kirim_specimen_radiologi;}
     public static boolean getmaster_masalah_keperawatan_neonatus(){return akses.master_masalah_keperawatan_neonatus;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getmaster_rencana_keperawatan_neonatus(){return akses.master_rencana_keperawatan_neonatus;}
     public static boolean getpenilaian_awal_keperawatan_ranap_neonatus(){return akses.penilaian_awal_keperawatan_ranap_neonatus;}
     public static boolean getsatu_sehat_kirim_observation_radiologi(){return akses.satu_sehat_kirim_observation_radiologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_diagnosticreport_radiologi(){return akses.satu_sehat_kirim_diagnosticreport_radiologi;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean gethasil_endoskopi_telinga(){return akses.hasil_endoskopi_telinga;}
     public static boolean getsatu_sehat_mapping_lab(){return akses.satu_sehat_mapping_lab;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_servicerequest_lab(){return akses.satu_sehat_kirim_servicerequest_lab;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_servicerequest_labmb(){return akses.satu_sehat_kirim_servicerequest_labmb;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_specimen_lab(){return akses.satu_sehat_kirim_specimen_lab;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_specimen_labmb(){return akses.satu_sehat_kirim_specimen_labmb;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_observation_lab(){return akses.satu_sehat_kirim_observation_lab;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_observation_labmb(){return akses.satu_sehat_kirim_observation_labmb;}
     public static boolean getsatu_sehat_kirim_diagnosticreport_lab(){return akses.satu_sehat_kirim_diagnosticreport_lab;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getsatu_sehat_kirim_diagnosticreport_labmb(){return akses.satu_sehat_kirim_diagnosticreport_labmb;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getkepatuhan_kelengkapan_keselamatan_bedah(){return akses.kepatuhan_kelengkapan_keselamatan_bedah;}
     public static boolean getnilai_piutang_perjenis_bayar_per_bulan(){return akses.nilai_piutang_perjenis_bayar_per_bulan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getringkasan_piutang_jenis_bayar(){return akses.ringkasan_piutang_jenis_bayar;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getpenilaian_pasien_imunitas_rendah(){return akses.penilaian_pasien_imunitas_rendah;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getbalance_cairan(){return akses.balance_cairan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getcatatan_observasi_chbp(){return akses.catatan_observasi_chbp;}
     public static boolean getcatatan_observasi_induksi_persalinan(){return akses.catatan_observasi_induksi_persalinan;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskp_kategori_penilaian(){return akses.skp_kategori_penilaian;}
     public static boolean getskp_kriteria_penilaian(){return akses.skp_kriteria_penilaian;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getskp_penilaian(){return akses.skp_penilaian;}
     public static boolean getpemantauan_pews_maternal(){return akses.pemantauan_pews_maternal;}
+
+    /**
+     *
+     * @return
+     */
     public static boolean getvalidasi_sbar(){return akses.validasi_sbar;}   
 
     private akses() {

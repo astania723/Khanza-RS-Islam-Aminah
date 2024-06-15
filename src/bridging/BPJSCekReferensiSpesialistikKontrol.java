@@ -346,10 +346,20 @@ public class BPJSCekReferensiSpesialistikKontrol extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     * @param nomor
+     * @param jeniskontrol
+     * @param tanggalkontrol
+     */
     public void SetKontrol(String nomor,String jeniskontrol,String tanggalkontrol){
         TanggalKontrol.setText(tanggalkontrol);
         JenisKontrol.setText(jeniskontrol);

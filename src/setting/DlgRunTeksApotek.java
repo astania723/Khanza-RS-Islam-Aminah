@@ -560,6 +560,9 @@ private void TTeksKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TTe
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TTeks.setText("");
         ((Painter) PhotoGambar).setImage("");
@@ -589,11 +592,20 @@ private void TTeksKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TTe
             image = getToolkit().getImage(url);
             repaint();
         }
+
+        /**
+         *
+         * @param file
+         */
         public void setImageIcon(ImageIcon file) {
             image = file.getImage();
             repaint();
         }
 
+        /**
+         *
+         * @param g
+         */
         @Override
         public void paint(Graphics g) {
             double d = image.getHeight(this) / this.getHeight();

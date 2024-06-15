@@ -46,6 +46,10 @@ public class DapurBarang extends javax.swing.JDialog {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public DlgCariSatuan satuan=new DlgCariSatuan(null,false); 
 
     /** Creates new form DlgJnsPerawatan

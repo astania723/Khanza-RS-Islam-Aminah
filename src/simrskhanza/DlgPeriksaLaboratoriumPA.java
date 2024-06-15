@@ -47,7 +47,7 @@ import keuangan.Jurnal;
  *
  * @author dosen
  */
-public final class DlgPeriksaLaboratoriumPA extends javax.swing.JDialog {
+public class DlgPeriksaLaboratoriumPA extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1469,6 +1469,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         KodePerujuk.setText("");
         NmPerujuk.setText("");
@@ -1615,6 +1618,11 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         new Timer(1000, taskPerformer).start();
     }
 
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     */
     public void setNoRm(String norwt,String posisi) {
         noorder="";
         TNoRw.setText(norwt);
@@ -1859,11 +1867,22 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @param kodeperujuk
+     * @param namaperujuk
+     */
     public void setDokterPerujuk(String kodeperujuk,String namaperujuk){
         KodePerujuk.setText(kodeperujuk);
         NmPerujuk.setText(namaperujuk);
     }
     
+    /**
+     *
+     * @param order
+     * @param norawat
+     * @param posisi
+     */
     public void setOrder(String order,String norawat,String posisi){
         noorder=order;
         TNoRw.setText(norawat);

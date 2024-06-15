@@ -1089,6 +1089,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1157,6 +1160,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Monitoring.setText("");
         Evaluasi.setText("");
@@ -1235,6 +1241,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getmonitoring_asuhan_gizi());
         BtnHapus.setEnabled(akses.getmonitoring_asuhan_gizi());

@@ -1531,6 +1531,9 @@ public class RMSkriningNutrisiDewasa extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         BB.setText("");
         TBPB.setText("");
@@ -1583,6 +1586,11 @@ public class RMSkriningNutrisiDewasa extends javax.swing.JDialog {
         Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=? ",TglLahir,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1608,6 +1616,9 @@ public class RMSkriningNutrisiDewasa extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getskrining_nutrisi_dewasa());
         BtnHapus.setEnabled(akses.getskrining_nutrisi_dewasa());

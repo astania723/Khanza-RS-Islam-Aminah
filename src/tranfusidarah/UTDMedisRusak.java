@@ -24,6 +24,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class UTDMedisRusak extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
@@ -1154,6 +1158,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LTotal.setText(Valid.SetAngka(subtotal));
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getutd_medis_rusak());
         if(akses.getjml2()>=1){
@@ -1164,6 +1171,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         Valid.tabelKosong(tabMode2);
         try{

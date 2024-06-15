@@ -2246,6 +2246,9 @@ public class RMPenilaianAwalMedisRalanPenyakitDalam extends javax.swing.JDialog 
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -2386,6 +2389,11 @@ public class RMPenilaianAwalMedisRalanPenyakitDalam extends javax.swing.JDialog 
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2393,6 +2401,9 @@ public class RMPenilaianAwalMedisRalanPenyakitDalam extends javax.swing.JDialog 
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ralan_penyakit_dalam());
         BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ralan_penyakit_dalam());
@@ -2409,6 +2420,9 @@ public class RMPenilaianAwalMedisRalanPenyakitDalam extends javax.swing.JDialog 
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

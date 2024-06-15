@@ -32,6 +32,10 @@ public class DlgCariReturPiutang extends javax.swing.JDialog {
     private Jurnal jur=new Jurnal();
     private riwayatobat Trackobat=new riwayatobat();
     public DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public DlgBarang barang=new DlgBarang(null,false);
     private double ttlretur=0,subtotal=0;
     private Connection koneksi=koneksiDB.condb();

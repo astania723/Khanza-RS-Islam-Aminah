@@ -24,6 +24,10 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiApotekBPJS {        
     private String Key,Consid;
     private String salt;
@@ -38,6 +42,9 @@ public class ApiApotekBPJS {
     private HttpComponentsClientHttpRequestFactory factory;
     private ApiBPJSAesKeySpec mykey;
     
+    /**
+     *
+     */
     public ApiApotekBPJS(){
         try {
             Key = koneksiDB.SECRETKEYAPIAPOTEKBPJS();
@@ -47,6 +54,11 @@ public class ApiApotekBPJS {
         }
     }
 
+    /**
+     *
+     * @param utc
+     * @return
+     */
     public String getHmac(String utc) {               
         salt = Consid +"&"+utc;
 	generateHmacSHA256Signature = null;
@@ -74,11 +86,27 @@ public class ApiApotekBPJS {
 	}
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @param data
+     * @param utc
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public String Decrypt(String data,String utc)throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         System.out.println(data);
         mykey = ApiBPJSEnc.generateKey(Consid+Key+utc);
@@ -87,6 +115,12 @@ public class ApiApotekBPJS {
         return data;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {

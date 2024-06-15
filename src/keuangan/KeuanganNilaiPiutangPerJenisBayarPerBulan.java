@@ -400,43 +400,43 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 totalagustus=0;totalseptember=0;totaloktober=0;totalnovember=0;totaldesember=0;
                 while(rs.next()){
                     januari=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-01' ");
-                    totaljanuari=totaljanuari+januari;
+                    totaljanuari += januari;
                     
                     februari=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-02' ");
-                    totalfebruari=totalfebruari+februari;
+                    totalfebruari += februari;
                     
                     maret=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-03' ");
-                    totalmaret=totalmaret+maret;
+                    totalmaret += maret;
                     
                     april=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-04' ");
-                    totalapril=totalapril+april;
+                    totalapril += april;
                     
                     mei=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-05' ");
-                    totalmei=totalmei+mei;
+                    totalmei += mei;
                     
                     juni=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-06' ");
-                    totaljuni=totaljuni+juni;
+                    totaljuni += juni;
                     
                     juli=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-07' ");
-                    totaljuli=totaljuli+juli;
+                    totaljuli += juli;
                     
                     agustus=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-08' ");
-                    totalagustus=totalagustus+agustus;
+                    totalagustus += agustus;
                     
                     september=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-09' ");
-                    totalseptember=totalseptember+september;
+                    totalseptember += september;
                     
                     oktober=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-10' ");
-                    totaloktober=totaloktober+oktober;
+                    totaloktober += oktober;
                     
                     november=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-11' ");
-                    totalnovember=totalnovember+november;
+                    totalnovember += november;
                     
                     desember=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) as total from detail_piutang_pasien inner join piutang_pasien on detail_piutang_pasien.no_rawat=piutang_pasien.no_rawat where detail_piutang_pasien.kd_pj='"+rs.getString("kd_pj")+"' and left(piutang_pasien.tgl_piutang,7)='"+ThnCari.getSelectedItem().toString()+"-12' ");
-                    totaldesember=totaldesember+desember;
+                    totaldesember += desember;
                     
                     tagihan=januari+februari+maret+april+mei+juni+juli+agustus+september+oktober+november+desember;
-                    totaltagihan=totaltagihan+tagihan;
+                    totaltagihan += tagihan;
                     
                     tabMode.addRow(new Object[]{
                         rs.getString("kd_pj"),rs.getString("png_jawab"),januari,februari,maret,april,mei,juni,juli,agustus,september,oktober,november,desember,tagihan
@@ -457,6 +457,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getnilai_piutang_perjenis_bayar_per_bulan());
     }

@@ -516,6 +516,9 @@ public class DlgPangkatTNI extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         TCari.setText("");
@@ -532,6 +535,9 @@ public class DlgPangkatTNI extends javax.swing.JDialog {
         return tbkecamatan;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus();
     }

@@ -1755,6 +1755,9 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1826,6 +1829,9 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         Anamnesis.setSelectedIndex(0);
@@ -1942,6 +1948,9 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

@@ -23,6 +23,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPegawai;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventoryRingkasanPengajuanBarangMedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -1172,12 +1176,18 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         BtnPrint.setEnabled(akses.getringkasan_pengajuan_obat());

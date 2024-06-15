@@ -23,6 +23,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgProyeksiBeriObat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

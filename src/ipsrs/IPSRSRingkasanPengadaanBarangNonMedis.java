@@ -29,7 +29,15 @@ public class IPSRSRingkasanPengadaanBarangNonMedis extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private PreparedStatement ps;
     private ResultSet rs;
@@ -1319,12 +1327,18 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getringkasan_pengadaan_nonmedis());
     }

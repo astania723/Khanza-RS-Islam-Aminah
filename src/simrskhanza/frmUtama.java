@@ -1170,6 +1170,10 @@ public class frmUtama extends javax.swing.JFrame {
         } 
     }
     
+    /**
+     *
+     * @return
+     */
     public static frmUtama getInstance() {
         if (myInstance == null) {
             myInstance = new frmUtama();
@@ -22458,6 +22462,9 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnKirimDiagnosticReportLabMBSatuSehat,btnKepatuhanKelengkapanKeselamatanBedah,btnNilaiPiutangPerJenisBayarPerBulan,btnRingkasanPiutangPerJenisBayar,
             btnPenilaianPasienImunitasRendah,btnCatatanKeseimbanganCairan,btnCatatanObservasiCHBP,btnCatatanObservasiInduksiPersalinan,btnSKPKategoriPenilaian,btnSKPKriteriaPenilaian,btnGrafikReportEMRDokter,btnKunjunganMarketing;
     
+    /**
+     *
+     */
     public void isWall(){
         try{            
             ps=koneksi.prepareStatement("select setting.nama_instansi,setting.alamat_instansi,setting.kabupaten,setting.propinsi,setting.aktifkan,setting.wallpaper,setting.kontak,setting.email,setting.logo,setting.kode_ppk from setting");
@@ -22516,6 +22523,9 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         }
     }
     
+    /**
+     *
+     */
     public void isTampil(){        
         Panelmenu.removeAll();
         

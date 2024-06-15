@@ -18,6 +18,10 @@ import javax.swing.ImageIcon;
  * @author perpustakaan
  */
 public class PanelStatus extends javax.swing.JPanel {
+
+    /**
+     *
+     */
     public static final int KONEKSI_Catatan = 0;
     public static final int TERSAMBUNG = 1;
     public static final int TERPUTUS = 3;

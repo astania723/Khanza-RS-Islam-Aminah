@@ -48,6 +48,7 @@ public class grafikperiksaperhari extends JDialog {
         /**
            * Creates a dataset.
            *
+     * @param symbol
            * @return A dataset.
            */
 
@@ -149,6 +150,7 @@ public class grafikperiksaperhari extends JDialog {
          /**
           * Creates a panel for the demo (used by SuperDemo.java).
           *
+     * @param symbol
           * @return A panel.
           */
 
@@ -159,7 +161,13 @@ public class grafikperiksaperhari extends JDialog {
          sekuel Sequel = new sekuel();
          validasi Valid = new validasi();
          Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
-         public grafikperiksaperhari(String title,String symbol) {
+
+    /**
+     *
+     * @param title
+     * @param symbol
+     */
+    public grafikperiksaperhari(String title,String symbol) {
            // super(title);
            setTitle(title);
            JPanel chartPanel = createDemoPanel(symbol);

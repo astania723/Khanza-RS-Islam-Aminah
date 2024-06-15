@@ -23,6 +23,10 @@ import javax.swing.text.html.StyleSheet;
 import kepegawaian.DlgCariPegawai;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class KeuanganJasaTindakan extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();

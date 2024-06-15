@@ -51,7 +51,15 @@ public class DlgAnggotaPolriDirawat extends javax.swing.JDialog {
     private ResultSet rs;
     private int i=0;
     public  DlgGolonganPolri golonganpolri=new DlgGolonganPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanPolri satuanpolri=new DlgSatuanPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgPangkatPolri pangkatpolri=new DlgPangkatPolri(null,false);
     public  DlgJabatanPolri jabatanpolri=new DlgJabatanPolri(null,false);
     /** Creates new form DlgLhtBiaya

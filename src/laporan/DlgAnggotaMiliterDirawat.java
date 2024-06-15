@@ -51,8 +51,16 @@ public class DlgAnggotaMiliterDirawat extends javax.swing.JDialog {
     private ResultSet rs;
     private int i=0;
     public  DlgGolonganTNI golongantni=new DlgGolonganTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanTNI satuantni=new DlgSatuanTNI(null,false);
     public  DlgPangkatTNI pangkattni=new DlgPangkatTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanTNI jabatantni=new DlgJabatanTNI(null,false);
     /** Creates new form DlgLhtBiaya
      * @param parent

@@ -232,10 +232,17 @@ public class DlgBerkasPasien extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScane(){
         Platform.setImplicitExit(false);
     }
     
+    /**
+     *
+     * @param node
+     */
     public void print(final Node node) {
         Printer printer = Printer.getDefaultPrinter();
         PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
@@ -317,6 +324,11 @@ public class DlgBerkasPasien extends javax.swing.JDialog {
     private widget.InternalFrame internalFrame1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param Judul
+     * @param Pages
+     */
     public void setJudul(String Judul,String Pages){
         internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), Judul, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); 
         this.halaman=Pages;

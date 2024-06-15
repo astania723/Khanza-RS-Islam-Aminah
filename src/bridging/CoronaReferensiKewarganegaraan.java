@@ -304,6 +304,9 @@ public class CoronaReferensiKewarganegaraan extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             headers = new HttpHeaders();

@@ -729,7 +729,9 @@ public class InhealthTindakanRadiologi extends javax.swing.JDialog {
         }
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getinhealth_mapping_tindakan_radiologi());
         BtnHapus.setEnabled(akses.getinhealth_mapping_tindakan_radiologi());
@@ -737,6 +739,10 @@ public class InhealthTindakanRadiologi extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getinhealth_mapping_tindakan_radiologi());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }    

@@ -701,12 +701,18 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         return tbDokter;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettemplate_hasil_radiologi());
         BtnHapus.setEnabled(akses.gettemplate_hasil_radiologi());
         BtnEdit.setEnabled(akses.gettemplate_hasil_radiologi());
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

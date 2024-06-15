@@ -1254,6 +1254,9 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRM.setText("");
         TPasien.setText("");
@@ -1288,6 +1291,9 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpasien_meninggal());
         BtnHapus.setEnabled(akses.getpasien_meninggal());

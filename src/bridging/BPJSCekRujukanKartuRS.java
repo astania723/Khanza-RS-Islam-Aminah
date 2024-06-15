@@ -46,7 +46,7 @@ import simrskhanza.DlgPilihanCetakDokumen;
  *
  * @author dosen
  */
-public final class BPJSCekRujukanKartuRS extends javax.swing.JDialog {
+public class BPJSCekRujukanKartuRS extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -6623,6 +6623,9 @@ public final class BPJSCekRujukanKartuRS extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TNo.setText("");
         TNm.setText("");
@@ -7410,6 +7413,10 @@ public final class BPJSCekRujukanKartuRS extends javax.swing.JDialog {
         ppStatusFinger.setEnabled(akses.getbpjs_sep());
     }
     
+    /**
+     *
+     * @param NoPeserta
+     */
     public void SetNoKartu(String NoPeserta){
         emptTeks();
         NoKartu.setText(NoPeserta);
@@ -7421,6 +7428,10 @@ public final class BPJSCekRujukanKartuRS extends javax.swing.JDialog {
         this.nosisrute=norujuk;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean SimpanAntrianOnSite(){
         statusantrean=true;
         if((!NoRujukan.getText().isEmpty())||(!NoSKDP.getText().isEmpty())){

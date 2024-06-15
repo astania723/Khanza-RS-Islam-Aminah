@@ -1164,6 +1164,9 @@ private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         ChkInput.setSelected(true);
         isForm();

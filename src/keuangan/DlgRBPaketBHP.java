@@ -904,6 +904,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
        // BtnPrint.setEnabled(var.getbulanan_paramedis());
     }

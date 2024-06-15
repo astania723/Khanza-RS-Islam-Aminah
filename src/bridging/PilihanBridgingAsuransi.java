@@ -243,14 +243,26 @@ public class PilihanBridgingAsuransi extends javax.swing.JDialog {
     private widget.panelisi panelGlass7;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param tinggi
+     */
     public void setTinggi(int tinggi){
         this.tinggi=tinggi;
     }
     
+    /**
+     *
+     * @param lebar
+     */
     public void setLebar(int lebar){
         this.lebar=lebar;
     }
     
+    /**
+     *
+     * @param noka
+     */
     public void setNoKa(String noka){
         this.noka=noka;
     }

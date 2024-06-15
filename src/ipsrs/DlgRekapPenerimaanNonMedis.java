@@ -25,6 +25,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRekapPenerimaanNonMedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -33,6 +37,10 @@ public class DlgRekapPenerimaanNonMedis extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private PreparedStatement ps;

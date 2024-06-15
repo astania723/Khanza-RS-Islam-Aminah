@@ -637,6 +637,10 @@ public class MasterMasalahKeperawatanIGD extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

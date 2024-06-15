@@ -28,6 +28,10 @@ import simrskhanza.DlgKabupaten;
 import simrskhanza.DlgKecamatan;
 import simrskhanza.DlgKelurahan;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgDemografiUmurKunjungan extends javax.swing.JDialog {
     private final validasi Valid=new validasi();
     private final Connection koneksi=koneksiDB.condb();

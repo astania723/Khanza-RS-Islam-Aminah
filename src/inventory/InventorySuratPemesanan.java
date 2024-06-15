@@ -31,6 +31,10 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPegawai;
 import keuangan.Jurnal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventorySuratPemesanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -1645,6 +1649,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         
     }   
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -1664,6 +1671,10 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 "SPM"+Tanggal.getSelectedItem().toString().substring(8,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,NoPemesanan); 
     }
 
+    /**
+     *
+     * @return
+     */
     public DefaultTableModel tabMode(){
         return tabMode;
     }

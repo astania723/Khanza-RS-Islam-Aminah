@@ -32,6 +32,10 @@ public class PanelGray extends JPanel {
         //setBorder(new LineBorder(Color.darkGray));
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

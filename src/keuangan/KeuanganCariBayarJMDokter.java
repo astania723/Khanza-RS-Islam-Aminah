@@ -31,6 +31,10 @@ public class KeuanganCariBayarJMDokter extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     private PreparedStatement ps,ps2,psrekening;
     private ResultSet rs,rs2,rsrekening;
@@ -38,13 +42,73 @@ public class KeuanganCariBayarJMDokter extends javax.swing.JDialog {
     private double totaltagihan=0;
     private boolean sukses=true,rincian=false;  
     public Jurnal jur=new Jurnal();
+
+    /**
+     *
+     */
     public File file;
+
+    /**
+     *
+     */
     public FileWriter fileWriter;
-    public String iyem,Beban_Jasa_Medik_Dokter_Tindakan_Ralan="",Utang_Jasa_Medik_Dokter_Tindakan_Ralan="",Beban_Jasa_Medik_Dokter_Tindakan_Ranap="",Utang_Jasa_Medik_Dokter_Tindakan_Ranap="",
-            Beban_Jasa_Medik_Dokter_Laborat_Ralan="",Utang_Jasa_Medik_Dokter_Laborat_Ralan="",Beban_Jasa_Medik_Dokter_Laborat_Ranap="",Utang_Jasa_Medik_Dokter_Laborat_Ranap="",
-            Beban_Jasa_Medik_Dokter_Radiologi_Ralan="",Utang_Jasa_Medik_Dokter_Radiologi_Ralan="",Beban_Jasa_Medik_Dokter_Radiologi_Ranap="",Utang_Jasa_Medik_Dokter_Radiologi_Ranap="",
-            Beban_Jasa_Medik_Dokter_Operasi_Ralan="",Utang_Jasa_Medik_Dokter_Operasi_Ralan="",Beban_Jasa_Medik_Dokter_Operasi_Ranap="",Utang_Jasa_Medik_Dokter_Operasi_Ranap="",
-            Bayar_JM_Dokter=Sequel.cariIsi("select set_akun.Bayar_JM_Dokter from set_akun"),koderekening="";
+
+    /**
+     *
+     */
+    public String iyem,
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Tindakan_Ralan="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Tindakan_Ralan="",Beban_Jasa_Medik_Dokter_Tindakan_Ranap="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Tindakan_Ranap="",
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Laborat_Ralan="",Utang_Jasa_Medik_Dokter_Laborat_Ralan="",
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Laborat_Ranap="",Utang_Jasa_Medik_Dokter_Laborat_Ranap="",
+            Beban_Jasa_Medik_Dokter_Radiologi_Ralan="",Utang_Jasa_Medik_Dokter_Radiologi_Ralan="",
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Radiologi_Ranap="",Utang_Jasa_Medik_Dokter_Radiologi_Ranap="",
+            Beban_Jasa_Medik_Dokter_Operasi_Ralan="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Operasi_Ralan="",Beban_Jasa_Medik_Dokter_Operasi_Ranap="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Operasi_Ranap="",
+
+    /**
+     *
+     */
+    Bayar_JM_Dokter=Sequel.cariIsi("select set_akun.Bayar_JM_Dokter from set_akun"),
+
+    /**
+     *
+     */
+    koderekening="";
     public ObjectMapper mapper = new ObjectMapper();
     public JsonNode root;
     public JsonNode response;
@@ -1951,6 +2015,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         BtnAll.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getbayar_jm_dokter());
     }

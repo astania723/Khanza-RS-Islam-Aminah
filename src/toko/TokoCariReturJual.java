@@ -31,7 +31,15 @@ public class TokoCariReturJual extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     public  TokoMember member=new TokoMember(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  TokoBarang barang=new TokoBarang(null,false);
     private riwayattoko Trackbarang=new riwayattoko();
     private PreparedStatement ps,ps2,pscaripesan,pstoko_detail_returjual;

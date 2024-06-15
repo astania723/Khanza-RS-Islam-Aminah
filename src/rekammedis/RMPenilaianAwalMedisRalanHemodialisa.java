@@ -3910,6 +3910,9 @@ public class RMPenilaianAwalMedisRalanHemodialisa extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -4162,6 +4165,11 @@ public class RMPenilaianAwalMedisRalanHemodialisa extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -4169,6 +4177,9 @@ public class RMPenilaianAwalMedisRalanHemodialisa extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ralan());
         BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ralan());

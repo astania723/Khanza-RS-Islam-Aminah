@@ -2912,6 +2912,9 @@ public class UTDDonor extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         NomorDonor.setText("");
         NoPendonor.setText("");
@@ -2936,6 +2939,10 @@ public class UTDDonor extends javax.swing.JDialog {
         
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NomorDonor;
     }
@@ -2944,6 +2951,9 @@ public class UTDDonor extends javax.swing.JDialog {
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){ 
         BtnSimpan.setEnabled(akses.getutd_donor());
         BtnHapus.setEnabled(akses.getutd_donor());

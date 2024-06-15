@@ -1354,6 +1354,9 @@ public class SuratBebasNarkoba extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1411,6 +1414,9 @@ public class SuratBebasNarkoba extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRw.setText("");
         TNoRM.setText("");
@@ -1452,6 +1458,16 @@ public class SuratBebasNarkoba extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param namapasien
+     * @param kodedokter
+     * @param namadokter
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt,String norm,String namapasien,String kodedokter,String namadokter,Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

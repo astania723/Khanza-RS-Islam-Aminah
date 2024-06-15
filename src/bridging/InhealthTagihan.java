@@ -797,6 +797,9 @@ public class InhealthTagihan extends javax.swing.JDialog {
     private widget.Table tbTagihanRawatJalan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         Valid.tabelKosong(tabMode);
         try{
@@ -869,7 +872,9 @@ public class InhealthTagihan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount()); 
     }
 
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getinhealth_kirim_tagihan());       
     }

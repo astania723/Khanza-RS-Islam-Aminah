@@ -46,6 +46,10 @@ public class IPSRSBarang extends javax.swing.JDialog {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public DlgCariSatuan satuan=new DlgCariSatuan(null,false); 
     public IPSRSCariJenis jenis=new IPSRSCariJenis(null,false);
 
@@ -1006,6 +1010,9 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kode_brng.setText("");
         nama_brng.setText("");
@@ -1022,6 +1029,9 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         kode_brng.requestFocus();
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus();
     }
@@ -1039,6 +1049,10 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }
@@ -1057,6 +1071,9 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getipsrs_barang());
         BtnHapus.setEnabled(akses.getipsrs_barang());

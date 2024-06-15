@@ -36,6 +36,10 @@ import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariPoli;
 import simrskhanza.DlgPeriksaRadiologi;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPermintaanRadiologi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2,tabMode3,tabMode4;
     private sekuel Sequel=new sekuel();
@@ -2577,10 +2581,17 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
         BtnKirimDataCareStream.setEnabled(akses.getpermintaan_radiologi());
     }
     
+    /**
+     *
+     * @param pasien
+     */
     public void setPasien(String pasien){
         TCari.setText(pasien);
     }
 
+    /**
+     *
+     */
     public void pilihTab(){
         if(TabPilihRawat.getSelectedIndex()==0){
             pilihRalan();
@@ -2589,6 +2600,9 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void pilihRalan(){
         if(TabRawatJalan.getSelectedIndex()==0){
             tampil();

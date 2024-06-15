@@ -59,6 +59,10 @@ public class RMGenerateKlaim extends javax.swing.JDialog {
     private HttpClient http = new HttpClient();
     private GetMethod get;
     private DlgCariPasien pasien=new DlgCariPasien(null,true);
+
+    /**
+     *
+     */
     public  DlgCariPegawai2 pegawai=new DlgCariPegawai2(null,true);
     
     

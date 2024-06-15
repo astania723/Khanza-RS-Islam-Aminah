@@ -597,6 +597,9 @@ public class InventarisMerk extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -618,6 +621,9 @@ public class InventarisMerk extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getinventaris_merk());
        BtnHapus.setEnabled(akses.getinventaris_merk());

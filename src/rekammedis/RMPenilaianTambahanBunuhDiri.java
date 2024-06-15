@@ -2188,6 +2188,9 @@ public class RMPenilaianTambahanBunuhDiri extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         FaktorStatik1.setSelectedIndex(0);
@@ -2304,6 +2307,11 @@ public class RMPenilaianTambahanBunuhDiri extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

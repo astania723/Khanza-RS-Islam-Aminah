@@ -1901,6 +1901,9 @@ public class RMChecklistKriteriaMasukHCU extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1978,6 +1981,9 @@ public class RMChecklistKriteriaMasukHCU extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Kardiologi1.setSelectedItem("Tidak");
         Kardiologi2.setSelectedItem("Tidak");

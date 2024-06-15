@@ -528,10 +528,17 @@ public class DlgCacatFisik extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbkecamatan;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus();
     }

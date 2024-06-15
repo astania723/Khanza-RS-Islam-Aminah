@@ -49,7 +49,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author dosen
  */
-public final class DlgPermintaanRadiologi extends javax.swing.JDialog {
+public class DlgPermintaanRadiologi extends javax.swing.JDialog {
     private DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1173,6 +1173,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
     
+    /**
+     *
+     */
     public void isReset(){
         jml=tbPemeriksaan.getRowCount();
         for(i=0;i<jml;i++){ 
@@ -1182,6 +1185,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         tampil2();
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TCariPeriksa.setText("");
         TNoPermintaan.requestFocus();
@@ -1319,6 +1325,13 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     * @param kddokter
+     * @param nmdokter
+     */
     public void setNoRm(String norwt,String posisi,String kddokter,String nmdokter) {
         TNoRw.setText(norwt);
         this.status=posisi;
@@ -1334,6 +1347,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         NmPerujuk.setText(nmdokter);
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnSimpan.setEnabled(akses.getpermintaan_radiologi());
         BtnPrint.setEnabled(akses.getpermintaan_radiologi());

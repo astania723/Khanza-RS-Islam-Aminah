@@ -682,6 +682,9 @@ public class SuratMap extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -701,10 +704,17 @@ public class SuratMap extends javax.swing.JDialog {
         return TKd;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbBangsal;
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_map());
         BtnHapus.setEnabled(akses.getsurat_map());

@@ -629,6 +629,10 @@ public class K3RSDampakCidera extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

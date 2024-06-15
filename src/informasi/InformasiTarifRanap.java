@@ -144,7 +144,15 @@ public class InformasiTarifRanap extends javax.swing.JDialog {
     }
     
     public DlgKtgPerawatan ktg=new DlgKtgPerawatan(null,false);
+
+    /**
+     *
+     */
     public DlgCariPoli poli=new DlgCariPoli(null,false);
+
+    /**
+     *
+     */
     public DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
 
     /** This method is called from within the constructor to

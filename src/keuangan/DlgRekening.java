@@ -1556,6 +1556,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd.setText("");
         Kd2.setText("");
@@ -1565,6 +1568,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         Kd.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void emptTeks2() {
         KdSub.setText(Kd.getText());
         NmSub.setText("");
@@ -1611,6 +1617,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getakun_rekening());
         BtnBatal.setEnabled(akses.getakun_rekening());

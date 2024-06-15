@@ -30,6 +30,10 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPegawai;
 import keuangan.Jurnal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DapurPermintaan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

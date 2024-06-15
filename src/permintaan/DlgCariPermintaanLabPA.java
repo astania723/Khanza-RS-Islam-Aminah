@@ -2488,6 +2488,9 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         Ruang="";
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnCetakHasilLab.setEnabled(akses.getpermintaan_lab());
         BtnHasil.setEnabled(akses.getpemeriksaan_lab_pa());
@@ -2508,6 +2511,9 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }
     }
     
+    /**
+     *
+     */
     public void pilihRalan(){
         if(TabRawatJalan.getSelectedIndex()==0){
             tampil();

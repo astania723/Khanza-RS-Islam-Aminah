@@ -1399,6 +1399,9 @@ public class RMDataCatatanObservasiRanapPostPartum extends javax.swing.JDialog {
   private widget.Table tbObat;
   // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1465,6 +1468,9 @@ public class RMDataCatatanObservasiRanapPostPartum extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         GCS.setText("");
         TD.setText("");
@@ -1560,6 +1566,9 @@ public class RMDataCatatanObservasiRanapPostPartum extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getcatatan_observasi_ranap_postpartum());
         BtnHapus.setEnabled(akses.getcatatan_observasi_ranap_postpartum());

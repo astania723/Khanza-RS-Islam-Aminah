@@ -42,7 +42,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMCatatanPersalinan extends javax.swing.JDialog {
+public class RMCatatanPersalinan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -2654,6 +2654,11 @@ public final class RMCatatanPersalinan extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2661,6 +2666,9 @@ public final class RMCatatanPersalinan extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getcatatan_persalinan());
         BtnHapus.setEnabled(akses.getcatatan_persalinan());
@@ -2678,6 +2686,9 @@ public final class RMCatatanPersalinan extends javax.swing.JDialog {
         }           
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

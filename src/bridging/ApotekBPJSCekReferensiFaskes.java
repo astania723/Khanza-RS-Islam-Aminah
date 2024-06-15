@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class ApotekBPJSCekReferensiFaskes extends javax.swing.JDialog {
+public class ApotekBPJSCekReferensiFaskes extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -330,6 +330,10 @@ public final class ApotekBPJSCekReferensiFaskes extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param faskes
+     */
     public void tampil(String faskes) {
         try {
             Valid.tabelKosong(tabMode);
@@ -371,6 +375,10 @@ public final class ApotekBPJSCekReferensiFaskes extends javax.swing.JDialog {
         }
     }    
     
+    /**
+     *
+     * @param faskes
+     */
     public void tampil2(String faskes) {        
         try {
             headers = new HttpHeaders();
@@ -414,6 +422,10 @@ public final class ApotekBPJSCekReferensiFaskes extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

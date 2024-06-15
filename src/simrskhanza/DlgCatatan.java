@@ -308,6 +308,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=? ",TPasien,TNoRM.getText());
     }
 
+    /**
+     *
+     * @param norm
+     */
     public void setNoRm(String norm) {
         TNoRM.setText(norm);  
         isPsien();   

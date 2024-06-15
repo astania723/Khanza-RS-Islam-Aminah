@@ -1333,6 +1333,9 @@ public class RMDataCatatanObservasiRanap extends javax.swing.JDialog {
   private widget.Table tbObat;
   // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1488,6 +1491,9 @@ public class RMDataCatatanObservasiRanap extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getcatatan_observasi_ranap());
         BtnHapus.setEnabled(akses.getcatatan_observasi_ranap());

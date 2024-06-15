@@ -64,6 +64,9 @@ public class ApiBRI {
     private boolean status=true;
     private validasi Valid=new validasi();
     
+    /**
+     *
+     */
     public ApiBRI(){
         try {
             ps=koneksi.prepareStatement(
@@ -97,6 +100,13 @@ public class ApiBRI {
         }
     }
 
+    /**
+     *
+     * @param data
+     * @param key
+     * @return
+     * @throws GeneralSecurityException
+     */
     public String generateHmacSHA256Signature(String data, String key)throws GeneralSecurityException {
         hmacData = null;
 	try {
@@ -111,11 +121,21 @@ public class ApiBRI {
 	}
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {
@@ -133,6 +153,10 @@ public class ApiBRI {
         return new RestTemplate(factory);
     }
     
+    /**
+     *
+     * @return
+     */
     public String Token(){
         token="";
         try{
@@ -152,6 +176,15 @@ public class ApiBRI {
         return token;
     }
     
+    /**
+     *
+     * @param path
+     * @param verb
+     * @param token
+     * @param timestamp
+     * @param body
+     * @return
+     */
     public String Signature(String path,String verb,String token,String timestamp,String body){
         signature="";
         try {
@@ -163,6 +196,14 @@ public class ApiBRI {
         return signature;
     }
     
+    /**
+     *
+     * @param norawat
+     * @param nama
+     * @param bayar
+     * @param keterangan
+     * @return
+     */
     public boolean buatVA(String norawat,String nama,String bayar,String keterangan){
         status=false;
         try {
@@ -222,7 +263,11 @@ public class ApiBRI {
         return status;
     }
     
-
+    /**
+     *
+     * @param norawat
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest(String norawat) throws Exception {
         RestTemplate restTemplate = new RestTemplate();

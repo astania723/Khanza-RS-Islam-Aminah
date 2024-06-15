@@ -26,6 +26,10 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 import keuangan.Jurnal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class UTDCariPenyerahanDarah extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -1614,6 +1618,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdkomponen.setText("");
         nmkomponen.setText("");

@@ -594,6 +594,9 @@ private void JamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JamKe
     private widget.Table tbAdmin;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{   

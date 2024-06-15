@@ -19,6 +19,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class UTDKomponenDarah extends javax.swing.JDialog {
     private final DefaultTableModel tabModeKomponen;
     private sekuel Sequel=new sekuel();
@@ -955,6 +959,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabModeKomponen.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kode.setText("");
         Nama.setText("");
@@ -983,6 +990,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKomponen;
     }

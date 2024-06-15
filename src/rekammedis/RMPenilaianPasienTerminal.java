@@ -1669,6 +1669,9 @@ public class RMPenilaianPasienTerminal extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         RPS.setText("");
@@ -1747,6 +1750,11 @@ public class RMPenilaianPasienTerminal extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1777,6 +1785,9 @@ public class RMPenilaianPasienTerminal extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_pasien_terminal());
         BtnHapus.setEnabled(akses.getpenilaian_pasien_terminal());

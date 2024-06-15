@@ -36,6 +36,10 @@ public class koneksiDBSysmex {
         }
         return connection;        
     }
+
+    /**
+     *
+     */
     public koneksiDBSysmex(){}
     
 }

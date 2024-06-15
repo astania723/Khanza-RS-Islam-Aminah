@@ -24,6 +24,10 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiBPJS {        
     private String Key,Consid;
     private String salt;
@@ -38,6 +42,9 @@ public class ApiBPJS {
     private HttpComponentsClientHttpRequestFactory factory;
     private ApiBPJSAesKeySpec mykey;
     
+    /**
+     *
+     */
     public ApiBPJS(){
         try {
             Key = koneksiDB.SECRETKEYAPIBPJS();
@@ -47,6 +54,11 @@ public class ApiBPJS {
         }
     }
 
+    /**
+     *
+     * @param utc
+     * @return
+     */
     public String getHmac(String utc) {               
         salt = Consid +"&"+utc;
 	generateHmacSHA256Signature = null;
@@ -60,6 +72,13 @@ public class ApiBPJS {
 	return generateHmacSHA256Signature;
     }
     
+    /**
+     *
+     * @param data
+     * @param key
+     * @return
+     * @throws GeneralSecurityException
+     */
     public String generateHmacSHA256Signature(String data, String key)throws GeneralSecurityException {
         hmacData = null;
 	try {
@@ -88,6 +107,12 @@ public class ApiBPJS {
         return data;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {

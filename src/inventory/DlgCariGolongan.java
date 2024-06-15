@@ -36,7 +36,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariGolongan extends javax.swing.JDialog {
+public class DlgCariGolongan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private PreparedStatement ps;
@@ -442,6 +442,9 @@ public final class DlgCariGolongan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -450,6 +453,9 @@ public final class DlgCariGolongan extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.getgolongan_barang());
     }

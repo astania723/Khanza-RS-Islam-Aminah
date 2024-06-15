@@ -1385,16 +1385,27 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     */
     public void load() {
         CmbCrGd.setSelectedItem("");
         CmbCrStts.setSelectedItem("");
         cmbCrJk.setSelectedItem("");
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TNip;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbPetugas;
     }
@@ -1413,6 +1424,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpetugas());
         BtnHapus.setEnabled(akses.getpetugas());

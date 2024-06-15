@@ -34,7 +34,7 @@ import javax.swing.table.TableColumn;
  *
  * @author perpustakaan
  */
-public final class KeuanganPiutangBelumLunas extends javax.swing.JDialog {
+public class KeuanganPiutangBelumLunas extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1567,6 +1567,9 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         BtnBayar.setEnabled(akses.getbayar_piutang());

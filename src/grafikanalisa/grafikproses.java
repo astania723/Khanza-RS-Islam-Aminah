@@ -48,6 +48,7 @@ public class grafikproses extends JDialog {
         /**
            * Creates a dataset.
            *
+     * @param symbol
            * @return A dataset.
            */
 
@@ -159,7 +160,13 @@ public class grafikproses extends JDialog {
          sekuel Sequel = new sekuel();
          validasi Valid = new validasi();
          Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
-         public grafikproses(String title,String symbol) {
+
+    /**
+     *
+     * @param title
+     * @param symbol
+     */
+    public grafikproses(String title,String symbol) {
            // super(title);
            setTitle(title);
            JPanel chartPanel = createDemoPanel(symbol);

@@ -36,7 +36,7 @@ import simrskhanza.DlgCariCaraBayar;
  *
  * @author perpustakaan
  */
-public final class DlgKepatuhanKelengkapanKeselamatanBedah extends javax.swing.JDialog {
+public class DlgKepatuhanKelengkapanKeselamatanBedah extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -104,7 +104,7 @@ public final class DlgKepatuhanKelengkapanKeselamatanBedah extends javax.swing.J
         }
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTableKelengkapanOperasi());
         
-        TCari.setDocument(new batasInput((int)90).getKata(TCari));
+        TCari.setDocument(new batasInput(90).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -849,6 +849,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){        
         try{   
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 

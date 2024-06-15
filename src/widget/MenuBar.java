@@ -32,6 +32,10 @@ public class MenuBar extends JMenuBar {
         setBorder(BorderFactory.createEmptyBorder(5, 6,6, 6));
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

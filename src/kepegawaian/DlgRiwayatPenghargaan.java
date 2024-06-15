@@ -64,6 +64,11 @@ public class DlgRiwayatPenghargaan extends javax.swing.JDialog {
     private final Properties prop = new Properties(); 
     private final validasi Valid=new validasi();
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DlgRiwayatPenghargaan(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -204,10 +209,17 @@ public class DlgRiwayatPenghargaan extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScane(){
         Platform.setImplicitExit(false);
     }
     
+    /**
+     *
+     * @param node
+     */
     public void print(final Node node) {
         Printer printer = Printer.getDefaultPrinter();
         PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);

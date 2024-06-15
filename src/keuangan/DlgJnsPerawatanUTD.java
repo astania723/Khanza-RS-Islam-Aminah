@@ -1192,6 +1192,9 @@ private void btnPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -1236,6 +1239,10 @@ private void btnPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }

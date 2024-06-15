@@ -31,7 +31,7 @@ import simrskhanza.DlgCariCaraBayar;
  *
  * @author perpustakaan
  */
-public final class KeuanganPenagihanPiutangPasien extends javax.swing.JDialog {
+public class KeuanganPenagihanPiutangPasien extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1632,6 +1632,9 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
     private widget.Table tbBelumLunas;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         try{
             jml=0;

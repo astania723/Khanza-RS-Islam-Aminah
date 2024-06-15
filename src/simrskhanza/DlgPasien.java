@@ -73,26 +73,74 @@ public class DlgPasien extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     public  DlgKabupaten kab=new DlgKabupaten(null,false);
     public  DlgPropinsi prop=new DlgPropinsi(null,false);
     public  DlgKecamatan kec=new DlgKecamatan(null,false);
+
+    /**
+     *
+     */
     public  DlgKelurahan kel=new DlgKelurahan(null,false);
     public  DlgCariPerusahaan perusahaan=new DlgCariPerusahaan(null,false);
+
+    /**
+     *
+     */
     public  DlgCariBahasa bahasa=new DlgCariBahasa(null,false);
     public  DlgCariCacatFisik cacat=new DlgCariCacatFisik(null,false);
+
+    /**
+     *
+     */
     public  DlgCariSuku suku=new DlgCariSuku(null,false);
     public  DlgGolonganTNI golongantni=new DlgGolonganTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanTNI satuantni=new DlgSatuanTNI(null,false);
     public  DlgPangkatTNI pangkattni=new DlgPangkatTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanTNI jabatantni=new DlgJabatanTNI(null,false);
     public  DlgGolonganPolri golonganpolri=new DlgGolonganPolri(null,false);
     public  DlgSatuanPolri satuanpolri=new DlgSatuanPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgPangkatPolri pangkatpolri=new DlgPangkatPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanPolri jabatanpolri=new DlgJabatanPolri(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiPropinsi propinsiref=new YaskiReferensiPropinsi(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiKabupaten kabupatenref=new YaskiReferensiKabupaten(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiKecamatan kecamatanref=new YaskiReferensiKecamatan(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiKelurahan kelurahanref=new YaskiReferensiKelurahan(null,false);
     private int pilih=0,z=0,j=0,p_no_ktp=0,p_tmp_lahir=0,p_nm_ibu=0,p_alamat=0,
             p_pekerjaan=0,p_no_tlp=0,p_umur=0,p_namakeluarga=0,p_no_peserta=0,
@@ -9780,6 +9828,9 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
         LCount.setText(""+tabMode3.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNo.setText("");
         Kd2.setText("");
@@ -10145,6 +10196,10 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbPasien;
     }
@@ -10153,6 +10208,10 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
         return tbPasien2;
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable3(){
         return tbPasien3;
     }

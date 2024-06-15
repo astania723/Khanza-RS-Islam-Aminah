@@ -381,6 +381,10 @@ public class DlgCariKategoriPemasukanLain extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     } 
 
+    /**
+     *
+     * @return
+     */
     public JTable getTabel(){
         return tbKamar;
     }

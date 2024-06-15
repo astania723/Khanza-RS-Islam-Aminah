@@ -31,6 +31,10 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 import kepegawaian.DlgCariDokter;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class MasterTemplatePemberianObatRacikan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeObatRacikan,tabModeDetailObatRacikan;
     private sekuel Sequel=new sekuel();
@@ -1391,6 +1395,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd.setText("");
         CariObatRacikan.setText("");
@@ -1407,6 +1414,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbDokter;
     }

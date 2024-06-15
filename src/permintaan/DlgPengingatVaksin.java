@@ -76,6 +76,12 @@ public class DlgPengingatVaksin extends javax.swing.JDialog {
     private Scheme scheme;
     private HttpComponentsClientHttpRequestFactory factory;
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {
@@ -1369,6 +1375,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     */
     public void setNoRm(String norm,String nama) {
         TNoRM.setText(norm);
         TPasien.setText(nama);
@@ -1378,6 +1389,15 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil();
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param kodepoli
+     * @param namapoli
+     * @param kodedokter
+     * @param namadokter
+     */
     public void setNoRm(String norm,String nama,String kodepoli,String namapoli,String kodedokter,String namadokter) {
         TNoRM.setText(norm);
         TPasien.setText(nama);

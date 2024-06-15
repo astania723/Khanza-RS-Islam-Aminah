@@ -40,7 +40,7 @@ import kepegawaian.DlgCariPetugas;
  * 
  * @author windiartohugroho
  */
-public final class RMPengkajianRestrain extends javax.swing.JDialog {
+public class RMPengkajianRestrain extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -53,6 +53,11 @@ public final class RMPengkajianRestrain extends javax.swing.JDialog {
     private String finger="",lokasifile="";
     private String TANGGALMUNDUR="yes";
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public RMPengkajianRestrain(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -130,19 +135,19 @@ public final class RMPengkajianRestrain extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));  
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));  
-        ReflekaCahayaKanan.setDocument(new batasInput((int)3).getKata(ReflekaCahayaKanan));  
-        ReflekaCahayaKiri.setDocument(new batasInput((int)3).getKata(ReflekaCahayaKiri));  
-        UkuranPupilKanan.setDocument(new batasInput((int)3).getKata(UkuranPupilKanan));  
-        UkuranPupilKiri.setDocument(new batasInput((int)3).getKata(UkuranPupilKiri));  
-        GCS.setDocument(new batasInput((int)5).getKata(GCS));  
-        TD.setDocument(new batasInput((int)8).getKata(TD));  
-        Suhu.setDocument(new batasInput((int)5).getKata(Suhu));  
-        Nadi.setDocument(new batasInput((int)5).getKata(Nadi));
-        RR.setDocument(new batasInput((int)5).getKata(RR));
-        KeteranganNonRestrainFarmakologi.setDocument(new batasInput((int)50).getKata(KeteranganNonRestrainFarmakologi));
-        RestrainFarmakologi.setDocument(new batasInput((int)200).getKata(RestrainFarmakologi));
-        Keluarga.setDocument(new batasInput((int)100).getKata(Keluarga));
+        TCari.setDocument(new batasInput(100).getKata(TCari));  
+        ReflekaCahayaKanan.setDocument(new batasInput(3).getKata(ReflekaCahayaKanan));  
+        ReflekaCahayaKiri.setDocument(new batasInput(3).getKata(ReflekaCahayaKiri));  
+        UkuranPupilKanan.setDocument(new batasInput(3).getKata(UkuranPupilKanan));  
+        UkuranPupilKiri.setDocument(new batasInput(3).getKata(UkuranPupilKiri));  
+        GCS.setDocument(new batasInput(5).getKata(GCS));  
+        TD.setDocument(new batasInput(8).getKata(TD));  
+        Suhu.setDocument(new batasInput(5).getKata(Suhu));  
+        Nadi.setDocument(new batasInput(5).getKata(Nadi));
+        RR.setDocument(new batasInput(5).getKata(RR));
+        KeteranganNonRestrainFarmakologi.setDocument(new batasInput(50).getKata(KeteranganNonRestrainFarmakologi));
+        RestrainFarmakologi.setDocument(new batasInput(200).getKata(RestrainFarmakologi));
+        Keluarga.setDocument(new batasInput(100).getKata(Keluarga));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1772,6 +1777,9 @@ public final class RMPengkajianRestrain extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{

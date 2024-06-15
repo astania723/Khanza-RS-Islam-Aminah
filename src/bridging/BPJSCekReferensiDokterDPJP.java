@@ -450,6 +450,10 @@ public class BPJSCekReferensiDokterDPJP extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param poli
+     */
     public void tampil(String poli) {
         try {
             Valid.tabelKosong(tabMode);
@@ -539,11 +543,20 @@ public class BPJSCekReferensiDokterDPJP extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param KodePoli
+     * @param NamaPoli
+     */
     public void setPoli(String KodePoli,String NamaPoli){
         KdSep.setText(KodePoli);
         NmSep.setText(NamaPoli);
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

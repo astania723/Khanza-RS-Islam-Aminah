@@ -30,6 +30,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class BPJSMonitoringKlaim extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -832,6 +836,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         Valid.tabelKosong(tabMode);
         try{
@@ -927,6 +934,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();        
     }

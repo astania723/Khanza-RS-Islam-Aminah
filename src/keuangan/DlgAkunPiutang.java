@@ -38,7 +38,7 @@ import simrskhanza.DlgCariCaraBayar;
  *
  * @author dosen
  */
-public final class DlgAkunPiutang extends javax.swing.JDialog {
+public class DlgAkunPiutang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -899,6 +899,10 @@ private void BtnPoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJadwal;
     }

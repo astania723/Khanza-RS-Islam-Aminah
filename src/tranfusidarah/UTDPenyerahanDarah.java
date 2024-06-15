@@ -28,6 +28,10 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 import keuangan.Jurnal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class UTDPenyerahanDarah extends javax.swing.JDialog {
     private final DefaultTableModel tabModeMedis,tabModeNonMedis,tabMode;
     private sekuel Sequel=new sekuel();

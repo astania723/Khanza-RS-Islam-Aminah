@@ -411,6 +411,12 @@ public class RMCari5SOAPTerakhir extends javax.swing.JDialog {
         TCari.requestFocus();
     }
     
+    /**
+     *
+     * @param norm
+     * @param nip
+     * @param status
+     */
     public void setNoRM(String norm,String nip,String status){
         this.norm=norm;
         this.nip=nip;

@@ -24,6 +24,10 @@ import simrskhanza.DlgJabatanPolri;
 import simrskhanza.DlgPangkatPolri;
 import simrskhanza.DlgSatuanPolri;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgDaftarPasienRanapPolri extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private final validasi Valid=new validasi();
@@ -33,7 +37,15 @@ public class DlgDaftarPasienRanapPolri extends javax.swing.JDialog {
     private ResultSet rs,rs2;
     private int i;
     private String tglkeluar,harirawat,kamar;
+
+    /**
+     *
+     */
     public  DlgGolonganPolri golonganpolri=new DlgGolonganPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanPolri satuanpolri=new DlgSatuanPolri(null,false);
     public  DlgPangkatPolri pangkatpolri=new DlgPangkatPolri(null,false);
     public  DlgJabatanPolri jabatanpolri=new DlgJabatanPolri(null,false);

@@ -51,7 +51,7 @@ import simrskhanza.DlgPilihanCetakDokumen;
  *
  * @author dosen
  */
-public final class BPJSCekNIK2 extends javax.swing.JDialog {
+public class BPJSCekNIK2 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -7347,6 +7347,9 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
         Sequel.mengedit("pasien","no_rkm_medis=?","umur=CONCAT(CONCAT(CONCAT(TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()), ' Th '),CONCAT(TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12), ' Bl ')),CONCAT(TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()), ' Hr'))",1,new String[]{TNo.getText()});
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbpjs_sep());
         ppPengajuan.setEnabled(akses.getbpjs_sep());
@@ -7363,6 +7366,10 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
         empt=true;
     }
     
+    /**
+     *
+     * @param norujuk
+     */
     public void SetNoRujuk(String norujuk){
         this.nosisrute=norujuk;
     }

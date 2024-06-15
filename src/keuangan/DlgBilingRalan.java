@@ -58,8 +58,16 @@ public class DlgBilingRalan extends javax.swing.JDialog {
     private Jurnal jur=new Jurnal();
     private Connection koneksi=koneksiDB.condb(); 
     private ApiBRI apibri=new ApiBRI();
+
+    /**
+     *
+     */
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     public DlgCariPoli poli=new DlgCariPoli(null,false);   
+
+    /**
+     *
+     */
     public DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private double ttl=0,y=0,subttl=0,ralanparamedis=0,piutang=0,itembayar=0,itempiutang=0, 
                    bayar=0,total=0,tamkur=0,detailjs=0,detailbhp=0,besarppn=0,tagihanppn=0,
@@ -4080,6 +4088,9 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private widget.Table tbTambahan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void isRawat() {
         try {    
             pscekbilling=koneksi.prepareStatement(sqlpscekbilling);
@@ -5009,6 +5020,9 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
     } 
     
+    /**
+     *
+     */
     public void isKembali(){
         bayar=0;total=0;besarppn=0;tagihanppn=0;y=0;piutang=0;kekurangan=0;countbayar=0;
         
@@ -5074,7 +5088,10 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }  
     }
     
-    
+    /**
+     *
+     * @param NoRawat
+     */
     public void tampilTambahan(String NoRawat) {
         norawat.setText(NoRawat);
         Valid.tabelKosong(tabModeTambahan);
@@ -5276,6 +5293,9 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
     }
     
+    /**
+     *
+     */
     public void setPiutang(){
         chkRadiologi.setSelected(true);
         chkLaborat.setSelected(true);

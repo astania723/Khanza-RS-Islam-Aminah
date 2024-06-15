@@ -15,6 +15,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPermintaanResepPulang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -377,6 +381,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getpermintaan_resep_pulang());
     }

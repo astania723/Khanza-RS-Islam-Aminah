@@ -254,6 +254,10 @@ public class DlgJnsPerawatanRalan extends javax.swing.JDialog {
     
     public DlgKtgPerawatan ktg=new DlgKtgPerawatan(null,false);
     public DlgCariPoli poli=new DlgCariPoli(null,false);
+
+    /**
+     *
+     */
     public DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
 
     /** This method is called from within the constructor to
@@ -1509,6 +1513,10 @@ private void BtnPenjabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
@@ -1527,6 +1535,9 @@ private void BtnPenjabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettarif_ralan());
         BtnHapus.setEnabled(akses.gettarif_ralan());
@@ -1539,6 +1550,10 @@ private void BtnPenjabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         } 
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }

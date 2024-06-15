@@ -516,6 +516,9 @@ public class MasterCariTemplatePemberianObatNonRacikan extends javax.swing.JDial
     private widget.Table tbObatNonRacikan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -568,6 +571,10 @@ public class MasterCariTemplatePemberianObatNonRacikan extends javax.swing.JDial
         TCari.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbDokter;
     }

@@ -19,6 +19,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class TokoSuplier extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -909,10 +913,17 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbDokter;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettoko_suplier());
         BtnHapus.setEnabled(akses.gettoko_suplier());

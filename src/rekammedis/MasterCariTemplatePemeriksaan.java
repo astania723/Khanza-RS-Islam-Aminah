@@ -1814,6 +1814,9 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -1822,6 +1825,14 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
         return tbDokter;
     }
     
+    /**
+     *
+     * @param kode
+     * @param tanggal
+     * @param jam
+     * @param norawat
+     * @param nomorrm
+     */
     public void setDokter(String kode,String tanggal, String jam,String norawat,String nomorrm){
         this.kodedokter=kode;
         this.tanggaldilakukan=tanggal;
@@ -1830,6 +1841,9 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
         this.norm=nomorrm;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.gettemplate_pemeriksaan());
     }

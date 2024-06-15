@@ -2129,6 +2129,11 @@ public class RMPenilaianAwalMedisRalanKulitDanKelamin extends javax.swing.JDialo
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2152,6 +2157,9 @@ public class RMPenilaianAwalMedisRalanKulitDanKelamin extends javax.swing.JDialo
         }          
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
        tampil();

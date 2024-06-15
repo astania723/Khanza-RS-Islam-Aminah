@@ -633,6 +633,9 @@ public class K3RSJenisPekerjaan extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getjenis_pekerjaan_k3rs());
        BtnHapus.setEnabled(akses.getjenis_pekerjaan_k3rs());

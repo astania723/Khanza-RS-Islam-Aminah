@@ -351,6 +351,10 @@ public class BPJSDataAntreanBelumDilayani extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

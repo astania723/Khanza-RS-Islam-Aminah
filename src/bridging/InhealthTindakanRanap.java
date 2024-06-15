@@ -714,6 +714,9 @@ public class InhealthTindakanRanap extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdtindakan.setText("");
         TTindakan.setText("");
@@ -729,7 +732,9 @@ public class InhealthTindakanRanap extends javax.swing.JDialog {
         }
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getinhealth_mapping_tindakan_ranap());
         BtnHapus.setEnabled(akses.getinhealth_mapping_tindakan_ranap());

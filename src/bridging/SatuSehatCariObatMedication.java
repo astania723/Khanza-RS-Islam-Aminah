@@ -394,7 +394,10 @@ public class SatuSehatCariObatMedication extends javax.swing.JDialog {
         TCari.requestFocus();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

@@ -41,7 +41,12 @@ public class ApiKemenkesSirs {
 	return Key;
     }
 
-    
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {
@@ -59,6 +64,10 @@ public class ApiKemenkesSirs {
         return new RestTemplate(factory);
     }
 
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;

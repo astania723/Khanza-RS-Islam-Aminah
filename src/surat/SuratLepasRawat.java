@@ -1485,6 +1485,9 @@ public class SuratLepasRawat extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1562,6 +1565,9 @@ public class SuratLepasRawat extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TanggalRawat.setDate(new Date());
         TanggalPulang.setDate(new Date());
@@ -1623,7 +1629,9 @@ public class SuratLepasRawat extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_pulang_atas_permintaan_sendiri());
         BtnHapus.setEnabled(akses.getsurat_pulang_atas_permintaan_sendiri());

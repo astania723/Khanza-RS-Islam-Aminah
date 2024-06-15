@@ -1170,6 +1170,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         pemasukan.setText("0");
         Keperluan.setText("");

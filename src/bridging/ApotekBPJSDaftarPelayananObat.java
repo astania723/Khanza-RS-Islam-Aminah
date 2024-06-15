@@ -52,7 +52,7 @@ import org.springframework.web.client.RestTemplate;
  *
  * @author dosen
  */
-public final class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
+public class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -466,11 +466,23 @@ public final class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
@@ -481,7 +493,12 @@ public final class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
             return "DELETE";
         }
 
-    @Override
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
     public Object clone() throws CloneNotSupportedException {
       return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }

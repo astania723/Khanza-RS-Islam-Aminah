@@ -30,6 +30,10 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class CoronaDiagnosa extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
@@ -1022,6 +1026,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         BtnHapus.setEnabled(akses.getdiagnosa_pasien_corona());
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         Valid.tabelKosong(tabMode2);
         try{

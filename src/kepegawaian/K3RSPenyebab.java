@@ -629,10 +629,17 @@ public class K3RSPenyebab extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getpenyebab_k3rs());
        BtnHapus.setEnabled(akses.getpenyebab_k3rs());

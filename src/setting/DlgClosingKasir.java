@@ -736,7 +736,9 @@ public class DlgClosingKasir extends javax.swing.JDialog {
         LCount.setText(""+b);
     }
 
-
+    /**
+     *
+     */
     public void emptTeks() {
         cmbJam1.setSelectedItem("00");
         cmbJam2.setSelectedItem("00");
@@ -761,6 +763,9 @@ public class DlgClosingKasir extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getclosing_kasir());
         BtnHapus.setEnabled(akses.getclosing_kasir());

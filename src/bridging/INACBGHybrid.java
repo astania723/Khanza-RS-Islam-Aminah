@@ -72,7 +72,11 @@ public class INACBGHybrid extends javax.swing.JDialog {
     private ResultSet rs;
     private String URL="";
                                     
-    
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public INACBGHybrid(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -263,6 +267,10 @@ public class INACBGHybrid extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         try {
             createScene();
@@ -278,10 +286,17 @@ public class INACBGHybrid extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScane(){
         Platform.setImplicitExit(false);
     }
     
+    /**
+     *
+     * @param node
+     */
     public void print(final Node node) {
         Printer printer = Printer.getDefaultPrinter();
         PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);

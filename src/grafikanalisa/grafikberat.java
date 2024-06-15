@@ -164,7 +164,13 @@ public class grafikberat extends JDialog {
          sekuel Sequel = new sekuel();
          validasi Valid = new validasi();
          Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
-         public grafikberat(String title,String symbol) {
+
+    /**
+     *
+     * @param title
+     * @param symbol
+     */
+    public grafikberat(String title,String symbol) {
            // super(title);
            setTitle(title);
            JPanel chartPanel = createDemoPanel(symbol);

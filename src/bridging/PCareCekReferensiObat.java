@@ -341,6 +341,10 @@ public class PCareCekReferensiObat extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param diagnosa
+     */
     public void tampil(String diagnosa) {
         try {
             URL = link+"/obat/dpho/"+diagnosa+"/0/10000";	
@@ -395,6 +399,10 @@ public class PCareCekReferensiObat extends javax.swing.JDialog {
         }
     }   
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

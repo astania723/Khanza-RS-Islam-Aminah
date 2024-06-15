@@ -25,6 +25,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiSatuSehat {        
     private String key,clientid,urlauth,token;
     private long millis;
@@ -48,6 +52,10 @@ public class ApiSatuSehat {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String TokenSatuSehat(){
         try {    
             header = new HttpHeaders();
@@ -61,11 +69,27 @@ public class ApiSatuSehat {
         return token;
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @param data
+     * @param utc
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public String Decrypt(String data,String utc)throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         System.out.println(data);
         mykey = ApiBPJSEnc.generateKey(clientid+key+utc);
@@ -75,6 +99,12 @@ public class ApiSatuSehat {
         return data;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {

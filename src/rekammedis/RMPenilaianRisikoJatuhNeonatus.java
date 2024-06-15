@@ -1765,6 +1765,9 @@ public class RMPenilaianRisikoJatuhNeonatus extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1841,6 +1844,9 @@ public class RMPenilaianRisikoJatuhNeonatus extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Intervensi1.setSelectedItem("Ya");
         Intervensi2.setSelectedItem("Ya");

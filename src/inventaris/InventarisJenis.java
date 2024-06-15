@@ -619,6 +619,10 @@ public class InventarisJenis extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

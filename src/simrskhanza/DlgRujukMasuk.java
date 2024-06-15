@@ -42,7 +42,7 @@ import laporan.DlgCariPenyakit;
  *
  * @author perpustakaan
  */
-public final class DlgRujukMasuk extends javax.swing.JDialog {
+public class DlgRujukMasuk extends javax.swing.JDialog {
     private DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1899,6 +1899,12 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1909,7 +1915,9 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         isForm();
     }
       
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getrujukan_masuk());
         BtnHapus.setEnabled(akses.getrujukan_masuk());
@@ -1918,6 +1926,9 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         
     }
     
+    /**
+     *
+     */
     public void tampil2() {        
         Valid.tabelKosong(tabMode2);
         try{

@@ -1317,6 +1317,9 @@ public class RMCatatanADIMEGizi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Asesmen.setText("");
         Diagnosis.setText("");

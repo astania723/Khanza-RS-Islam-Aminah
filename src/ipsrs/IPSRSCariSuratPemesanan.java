@@ -28,7 +28,15 @@ public class IPSRSCariSuratPemesanan extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private PreparedStatement ps,ps2;
@@ -1477,6 +1485,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
@@ -1484,6 +1495,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getsurat_pemesanan_non_medis());
         ppHapus.setEnabled(akses.getsurat_pemesanan_non_medis());

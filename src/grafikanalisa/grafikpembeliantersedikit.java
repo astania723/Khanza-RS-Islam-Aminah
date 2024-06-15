@@ -47,6 +47,7 @@ public class grafikpembeliantersedikit extends JDialog {
         /**
            * Creates a dataset.
            *
+     * @param symbol
            * @return A dataset.
            */
 
@@ -148,6 +149,7 @@ public class grafikpembeliantersedikit extends JDialog {
          /**
           * Creates a panel for the demo (used by SuperDemo.java).
           *
+     * @param symbol
           * @return A panel.
           */
 
@@ -160,6 +162,7 @@ public class grafikpembeliantersedikit extends JDialog {
           * Creates a new demo instance.
           *
           * @param title  the frame title.
+     * @param symbol
           */
          public grafikpembeliantersedikit(String title,String symbol) {
            // super(title);

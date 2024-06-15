@@ -1649,6 +1649,9 @@ private void kdtindakanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         LCount.setText(""+tabMode3.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdtindakan.setText("");
         nmtindakan.setText("");

@@ -621,6 +621,10 @@ public class DlgDiet extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
@@ -629,6 +633,9 @@ public class DlgDiet extends javax.swing.JDialog {
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getdiet_pasien());
         BtnHapus.setEnabled(akses.getdiet_pasien());

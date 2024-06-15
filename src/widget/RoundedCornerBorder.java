@@ -22,6 +22,16 @@ import javax.swing.border.AbstractBorder;
  * @author khanzasoft
  */
 public class RoundedCornerBorder extends AbstractBorder{
+
+    /**
+     *
+     * @param c
+     * @param g
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     */
     @Override public void paintBorder(
       Component c, Graphics g, int x, int y, int width, int height) {
     Graphics2D g2 = (Graphics2D)g.create();
@@ -45,7 +55,14 @@ public class RoundedCornerBorder extends AbstractBorder{
   @Override public Insets getBorderInsets(Component c) {
     return new Insets(4, 8, 4, 8);
   }
-  @Override public Insets getBorderInsets(Component c, Insets insets) {
+
+    /**
+     *
+     * @param c
+     * @param insets
+     * @return
+     */
+    @Override public Insets getBorderInsets(Component c, Insets insets) {
     insets.left = insets.right = 8;
     insets.top = insets.bottom = 4;
     return insets;

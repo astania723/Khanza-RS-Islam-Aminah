@@ -57,6 +57,10 @@ public class BPJSSPRI extends javax.swing.JDialog {
     private int i=0;
     private BPJSCekReferensiDokterKontrol dokter=new BPJSCekReferensiDokterKontrol(null,false);
     private BPJSCekReferensiSpesialistikKontrol poli=new BPJSCekReferensiSpesialistikKontrol(null,false);
+
+    /**
+     *
+     */
     public BPJSCekReferensiPenyakit penyakit=new BPJSCekReferensiPenyakit(null,false);
     private HttpHeaders headers;
     private HttpEntity requestEntity;
@@ -1518,7 +1522,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
-
+    /**
+     *
+     */
     public void emptTeks() {
         NoRawat.setText("");
         NoKartu.setText("");
@@ -1573,6 +1579,17 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil();
     }
     
+    /**
+     *
+     * @param norawat
+     * @param nokartu
+     * @param norm
+     * @param namapasien
+     * @param tanggallahir
+     * @param jk
+     * @param diagnosa
+     * @param nosep
+     */
     public void setNoRm(String norawat,String nokartu,String norm,String namapasien,String tanggallahir,String jk,String diagnosa,String nosep) {
         NoRawat.setText(norawat);
         NoKartu.setText(nokartu);
@@ -1588,6 +1605,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil();
     }
     
+    /**
+     *
+     * @param norm
+     */
     public void setNoRm(String norm) {
         TCari.setText(norm);
         ChkInput.setSelected(false);
@@ -1609,6 +1630,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbpjs_surat_pri());
         BtnHapus.setEnabled(akses.getbpjs_surat_pri());
@@ -1620,23 +1644,39 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         return tbObat;
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
         }
 
+        /**
+         *
+         * @return
+         */
         @Override
         public String getMethod() {
             return "DELETE";
         }
 
-    @Override
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
     public Object clone() throws CloneNotSupportedException {
       return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest() throws Exception {
         RestTemplate restTemplate = new RestTemplate();

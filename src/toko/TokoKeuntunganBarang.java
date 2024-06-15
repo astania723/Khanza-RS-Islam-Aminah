@@ -586,6 +586,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         isHitung();
     }
 
+    /**
+     *
+     */
     public void tampil2(){        
         try {
             Valid.tabelKosong(tabMode2);

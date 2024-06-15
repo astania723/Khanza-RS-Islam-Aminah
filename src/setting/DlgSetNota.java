@@ -2527,6 +2527,9 @@ private void NotaRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         Valid.tabelKosong(tabMode2);
         try{    
@@ -2568,6 +2571,9 @@ private void NotaRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
     
+    /**
+     *
+     */
     public void tampil3() {
         Valid.tabelKosong(tabMode3);
         try{    
@@ -2809,6 +2815,9 @@ private void NotaRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         NotaRalan.setText("");
         KwitansiRalan.setText("");

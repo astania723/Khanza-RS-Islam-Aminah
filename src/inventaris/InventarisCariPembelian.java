@@ -30,6 +30,10 @@ public class InventarisCariPembelian extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     public  InventarisCariSuplier suplier=new InventarisCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  InventarisBarang barang=new InventarisBarang(null,false);
     private PreparedStatement ps,ps2,pscaribeli;

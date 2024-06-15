@@ -543,7 +543,9 @@ public class MasterCariTemplateSOAPIE extends javax.swing.JDialog {
         }
     }    
 
-
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -553,10 +555,18 @@ public class MasterCariTemplateSOAPIE extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.gettemplate_pemeriksaan());
     }
     
+    /**
+     *
+     * @param kodedokter
+     * @param namadokter
+     */
     public void setRM(String kodedokter,String namadokter){
         kddokter.setText(kodedokter);
         nmdokter.setText(namadokter);

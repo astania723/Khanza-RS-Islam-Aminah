@@ -2911,6 +2911,9 @@ public class RMPenilaianAwalMedisRalanPsikiatrik extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ralan_psikiatri());
         BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ralan_psikiatri());

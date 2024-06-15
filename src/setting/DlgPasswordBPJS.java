@@ -582,6 +582,9 @@ public class DlgPasswordBPJS extends javax.swing.JDialog {
         }            
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdpj.setText("");
         nmpj.setText("");

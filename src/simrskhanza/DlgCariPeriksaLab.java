@@ -6612,6 +6612,10 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    /**
+     *
+     * @param norw
+     */
     public void SetNoRw(String norw){
         NoRawat.setText(norw);
         tampil();
@@ -6625,6 +6629,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         MnCetakHasilLab.setEnabled(akses.getperiksa_lab());
         MnCetakNota.setEnabled(akses.getperiksa_lab());

@@ -45,7 +45,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMHasilPemeriksaanUSGUrologi extends javax.swing.JDialog {
+public class RMHasilPemeriksaanUSGUrologi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -129,13 +129,13 @@ public final class RMHasilPemeriksaanUSGUrologi extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        GinjalKanan.setDocument(new batasInput((int)200).getKata(GinjalKanan));
-        GinjalKiri.setDocument(new batasInput((int)200).getKata(GinjalKiri));
-        Vesica.setDocument(new batasInput((int)200).getKata(Vesica));
-        Tambahan.setDocument(new batasInput((int)300).getKata(Tambahan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        GinjalKanan.setDocument(new batasInput(200).getKata(GinjalKanan));
+        GinjalKiri.setDocument(new batasInput(200).getKata(GinjalKiri));
+        Vesica.setDocument(new batasInput(200).getKata(Vesica));
+        Tambahan.setDocument(new batasInput(300).getKata(Tambahan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1464,6 +1464,9 @@ public final class RMHasilPemeriksaanUSGUrologi extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1525,6 +1528,9 @@ public final class RMHasilPemeriksaanUSGUrologi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KirimanDari.setText("");
         DiagnosaKlinis.setText("");
@@ -1584,6 +1590,11 @@ public final class RMHasilPemeriksaanUSGUrologi extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1615,6 +1626,9 @@ public final class RMHasilPemeriksaanUSGUrologi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

@@ -44,7 +44,7 @@ import simrskhanza.DlgKelurahan;
  *
  * @author perpustakaan
  */
-public final class DlgKunjunganRanap extends javax.swing.JDialog {
+public class DlgKunjunganRanap extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1298,6 +1298,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbBangsal2;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){        
         try{   
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
@@ -1458,6 +1461,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
 
+    /**
+     *
+     */
     public void tampil2(){        
         try{   
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 

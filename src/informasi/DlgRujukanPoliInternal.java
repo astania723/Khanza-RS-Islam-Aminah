@@ -670,7 +670,9 @@ public class DlgRujukanPoliInternal extends javax.swing.JDialog {
         this.tinggi=tinggi;
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(true);
     }

@@ -43,7 +43,7 @@ import simrskhanza.DlgCariBangsal;
  *
  * @author dosen
  */
-public final class DlgStokOpname extends javax.swing.JDialog {
+public class DlgStokOpname extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();  
@@ -1642,6 +1642,9 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         LTotal2.setText(df2.format(totallebih));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kdbar.setText("");
         Nmbar.setText("");
@@ -1686,11 +1689,17 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         return Stok;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }
     
-        
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getstok_opname_obat());
         BtnPrint.setEnabled(akses.getstok_opname_obat());    

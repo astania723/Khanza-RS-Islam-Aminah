@@ -35,7 +35,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariAturanPakai extends javax.swing.JDialog {
+public class DlgCariAturanPakai extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private PreparedStatement ps;
@@ -437,14 +437,24 @@ public final class DlgCariAturanPakai extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus();
     }

@@ -1314,14 +1314,25 @@ private void BtnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return no_faktur;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbayar_pesan_non_medis());
         BtnHapus.setEnabled(akses.getbayar_pesan_non_medis());

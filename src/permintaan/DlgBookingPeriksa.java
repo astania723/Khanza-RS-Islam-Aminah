@@ -2267,6 +2267,9 @@ public class DlgBookingPeriksa extends javax.swing.JFrame {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getbooking_periksa());
         BtnPrint.setEnabled(akses.getbooking_periksa());

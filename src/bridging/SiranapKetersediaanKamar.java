@@ -1219,6 +1219,9 @@ private void btnKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KelasSiranap.setSelectedIndex(0);
         KdKamar.setText("");
@@ -1267,6 +1270,9 @@ private void btnKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsiranap_ketersediaan_kamar());
         BtnHapus.setEnabled(akses.getsiranap_ketersediaan_kamar());

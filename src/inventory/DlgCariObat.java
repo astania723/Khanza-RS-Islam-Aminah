@@ -71,6 +71,10 @@ public class DlgCariObat extends javax.swing.JDialog {
     private String signa1="1",signa2="1",nokunjungan="",kdObatSK="",requestJson="",URL="",otorisasi,sql="",aktifpcare="no",no_batchcari="", tgl_kadaluarsacari="", no_fakturcari="", aktifkanbatch="no",kodedokter="",namadokter="",noresep="",bangsal="",bangsaldefault=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),tampilkan_ppnobat_ralan="",
                    Suspen_Piutang_Obat_Ralan="",Obat_Ralan="",HPP_Obat_Rawat_Jalan="",Persediaan_Obat_Rawat_Jalan="",hppfarmasi="",VALIDASIULANGBERIOBAT="",DEPOAKTIFOBAT="",utc="",penjab="";
     private DlgCariBangsal caribangsal=new DlgCariBangsal(null,false);
+
+    /**
+     *
+     */
     public DlgCariAturanPakai aturanpakai=new DlgCariAturanPakai(null,false);
     private DlgCariMetodeRacik metoderacik=new DlgCariMetodeRacik(null,false);
     private WarnaTable2 warna=new WarnaTable2();
@@ -2479,6 +2483,10 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }            
     }
     
+    /**
+     *
+     * @param no_resep
+     */
     public void tampilobat2(String no_resep) {     
         this.noresep=no_resep; 
         try {
@@ -3402,6 +3410,10 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         return tbObat;
     }
     
+    /**
+     *
+     * @return
+     */
     public Button getButton(){
         return BtnSimpan;
     }
@@ -3517,6 +3529,9 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         this.namadokter=namadokter;
     }
     
+    /**
+     *
+     */
     public void tampildetailracikanobat() {        
         z=0;
         for(i=0;i<tbDetailObatRacikan.getRowCount();i++){
@@ -4365,6 +4380,11 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
             }    
     }
     
+    /**
+     *
+     * @param aktif
+     * @param nokunjung
+     */
     public void setPCare(String aktif,String nokunjung){
         aktifpcare=aktif;
         nokunjungan=nokunjung;

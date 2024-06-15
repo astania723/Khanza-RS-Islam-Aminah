@@ -12,6 +12,11 @@ package bridging;
 public class tessaja {
     
     private static final ApiBRI apibri=new ApiBRI();
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
          apibri.statusVA("2204230001");
     }

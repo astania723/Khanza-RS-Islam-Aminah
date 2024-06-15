@@ -28,6 +28,10 @@ import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariCaraBayar;
 import simrskhanza.DlgCariPoli;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRBObatAll extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

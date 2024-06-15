@@ -1113,6 +1113,9 @@ public class BPJSRujukanKeluar extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1174,6 +1177,9 @@ public class BPJSRujukanKeluar extends javax.swing.JDialog {
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KdPpkRujukan1.setText("");
         NmPpkRujukan1.setText("");
@@ -1202,15 +1208,24 @@ public class BPJSRujukanKeluar extends javax.swing.JDialog {
         }
     }
 
-    
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getbpjs_rujukan_keluar());
         BtnEdit.setEnabled(akses.getbpjs_rujukan_keluar());
         BtnPrint.setEnabled(akses.getbpjs_rujukan_keluar());
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
@@ -1221,7 +1236,12 @@ public class BPJSRujukanKeluar extends javax.swing.JDialog {
             return "DELETE";
         }
 
-    @Override
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
     public Object clone() throws CloneNotSupportedException {
       return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }

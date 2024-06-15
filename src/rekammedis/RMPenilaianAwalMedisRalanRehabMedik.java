@@ -2454,6 +2454,9 @@ public class RMPenilaianAwalMedisRalanRehabMedik extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2712,6 +2715,9 @@ public class RMPenilaianAwalMedisRalanRehabMedik extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_medis_ralan_rehab_medik());
         BtnHapus.setEnabled(akses.getpenilaian_medis_ralan_rehab_medik());
@@ -2729,6 +2735,9 @@ public class RMPenilaianAwalMedisRalanRehabMedik extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
        tampil();

@@ -19,7 +19,12 @@ public class RunText4 extends JFrame implements ActionListener{
      javax.swing.Timer timer = new javax.swing.Timer(100, this);
     timer.start();
   }
-   public void actionPerformed(ActionEvent e)  {
+
+    /**
+     *
+     * @param e
+     */
+    public void actionPerformed(ActionEvent e)  {
     String oldText = label.getText();
     String newText = oldText.substring(1) + oldText.substring(0, 1);
      label.setText( newText );

@@ -1267,6 +1267,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbRekapDiet;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {   
         try{
             Valid.tabelKosong(tabMode);
@@ -1316,6 +1319,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void tampil2() {   
         try{
             Valid.tabelKosong(tabMode2);  
@@ -1359,7 +1365,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
-
+    /**
+     *
+     */
     public void emptTeks() {
         KdDiet.setText("");
         NmDiet.setText("");
@@ -1415,6 +1423,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getdiet_pasien());
         BtnHapus.setEnabled(akses.getdiet_pasien());

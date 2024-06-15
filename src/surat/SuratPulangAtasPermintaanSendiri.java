@@ -40,7 +40,7 @@ import kepegawaian.DlgCariPetugas;
  * 
  * @author windiartohugroho
  */
-public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog {
+public class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1416,6 +1416,9 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1489,6 +1492,9 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Pilihan.setText("");
         NamaPihak2.setText("");

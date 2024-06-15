@@ -670,6 +670,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd.setText("");
         Nm.setText("");
@@ -689,6 +692,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getzis_ukuran_rumah_penerima_dankes());
         BtnHapus.setEnabled(akses.getzis_ukuran_rumah_penerima_dankes());

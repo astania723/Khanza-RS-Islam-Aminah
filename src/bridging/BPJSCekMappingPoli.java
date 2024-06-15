@@ -338,10 +338,17 @@ public class BPJSCekMappingPoli extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnTambah.setEnabled(akses.getmapping_poli_bpjs());
     }

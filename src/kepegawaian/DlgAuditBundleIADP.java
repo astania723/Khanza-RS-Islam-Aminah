@@ -1067,6 +1067,9 @@ public class DlgAuditBundleIADP extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Nip.setText("");
         NamaPetugas.setText("");

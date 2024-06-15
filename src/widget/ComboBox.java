@@ -12,8 +12,11 @@ import javax.swing.JComboBox;
  *
  * @author dosen3
  */
-public final class ComboBox extends JComboBox {
+public class ComboBox extends JComboBox {
 
+    /**
+     *
+     */
     public ComboBox(){
         setFont(new java.awt.Font("Tahoma", 0, 11));
         setBackground(new Color(255,255,255));

@@ -874,6 +874,9 @@ public class SuratKeteranganRawatInap extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -925,6 +928,9 @@ public class SuratKeteranganRawatInap extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRw.setText("");
         TNoRM.setText("");
@@ -980,7 +986,9 @@ public class SuratKeteranganRawatInap extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_keterangan_rawat_inap());
         BtnHapus.setEnabled(akses.getsurat_keterangan_rawat_inap());

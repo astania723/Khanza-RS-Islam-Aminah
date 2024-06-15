@@ -57,6 +57,10 @@ public class DlgJnsPerawatanOperasi extends javax.swing.JDialog {
     private PreparedStatement pstampil;
     private ResultSet rs;
     private int i=0;
+
+    /**
+     *
+     */
     public DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
 
     /** Creates new form DlgJnsPerawatan
@@ -2101,6 +2105,9 @@ private void TOmloop1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -2272,6 +2279,10 @@ private void TOmloop1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 omloop3+omloop4+omloop5+sarpras+dokterpjanak+dokterumum));
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
@@ -2280,6 +2291,9 @@ private void TOmloop1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         return BtnKeluar;
     }    
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettarif_operasi());
         BtnHapus.setEnabled(akses.gettarif_operasi());

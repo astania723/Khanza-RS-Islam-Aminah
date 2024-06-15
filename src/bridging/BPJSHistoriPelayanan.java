@@ -532,6 +532,9 @@ public class BPJSHistoriPelayanan extends javax.swing.JDialog {
         }
     }  
     
+    /**
+     *
+     */
     public void isCek(){
         BtnRegist.setEnabled(akses.getbpjs_sep());
     }

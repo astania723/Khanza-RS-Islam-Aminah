@@ -397,6 +397,10 @@ public class ApotekBPJSCekReferensiSettingPPK extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param keyword
+     */
     public void tampil(String keyword) {
         try {
             headers = new HttpHeaders();
@@ -464,6 +468,10 @@ public class ApotekBPJSCekReferensiSettingPPK extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

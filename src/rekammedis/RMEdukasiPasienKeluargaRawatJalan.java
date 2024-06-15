@@ -1988,6 +1988,9 @@ public class RMEdukasiPasienKeluargaRawatJalan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         Bicara.setSelectedIndex(0);
@@ -2125,6 +2128,9 @@ public class RMEdukasiPasienKeluargaRawatJalan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getedukasi_pasien_keluarga_rj());
         BtnHapus.setEnabled(akses.getedukasi_pasien_keluarga_rj());

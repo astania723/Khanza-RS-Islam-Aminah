@@ -36,6 +36,10 @@ public class DlgJnsPerawatanRadiologi extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private PreparedStatement ps;
     private ResultSet rs;    
+
+    /**
+     *
+     */
     public DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private int i=0;
 
@@ -1245,6 +1249,10 @@ public class DlgJnsPerawatanRadiologi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
@@ -1263,6 +1271,9 @@ public class DlgJnsPerawatanRadiologi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettarif_radiologi());
         BtnHapus.setEnabled(akses.gettarif_radiologi());

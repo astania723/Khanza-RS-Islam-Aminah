@@ -21,6 +21,10 @@ public class koneksiDBSMARTLAB {
     private static final Properties prop = new Properties();  
     private static final MysqlDataSource dataSource=new MysqlDataSource();
     
+    /**
+     *
+     * @return
+     */
     public static Connection condb(){ 
         if(connection == null){
             try{
@@ -36,6 +40,10 @@ public class koneksiDBSMARTLAB {
         }
         return connection;        
     }
+
+    /**
+     *
+     */
     public koneksiDBSMARTLAB(){}
     
 }

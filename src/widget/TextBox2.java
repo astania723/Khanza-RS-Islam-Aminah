@@ -9,6 +9,10 @@ import javax.swing.JTextField;
  * @author usu
  */
 public class TextBox2 extends JTextField {
+
+    /**
+     *
+     */
     public TextBox2() {
         super();
         setFont(new java.awt.Font("Tahoma", 0, 11));        

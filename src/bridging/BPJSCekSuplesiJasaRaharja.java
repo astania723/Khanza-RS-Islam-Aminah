@@ -42,7 +42,7 @@ import simrskhanza.DlgCariPasien;
  *
  * @author dosen
  */
-public final class BPJSCekSuplesiJasaRaharja extends javax.swing.JDialog {
+public class BPJSCekSuplesiJasaRaharja extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -445,12 +445,22 @@ public final class BPJSCekSuplesiJasaRaharja extends javax.swing.JDialog {
         }
     }   
     
+    /**
+     *
+     * @param nokartu
+     * @param namapasien
+     * @param tanggal
+     */
     public void setRM(String nokartu, String namapasien, Date tanggal){
         NoKartu.setText(nokartu);
         NamaPasien.setText(namapasien);
         DTPTanggal.setDate(tanggal);
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

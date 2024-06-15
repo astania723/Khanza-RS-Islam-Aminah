@@ -38,6 +38,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariDokter;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgPermintaanStokPasien extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -46,6 +50,10 @@ public class DlgPermintaanStokPasien extends javax.swing.JDialog {
     private PreparedStatement pstampil;
     private ResultSet rstampil;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     public DlgCariAturanPakai aturanpakaiobat=new DlgCariAturanPakai(null,false);
     private double ttl=0,y=0,ppnobat=0,stokobat,kenaikan=0;
@@ -1088,6 +1096,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         jml=0;
         for(i=0;i<tbDokter.getRowCount();i++){
@@ -1499,7 +1510,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
-    
+    /**
+     *
+     */
     public void emptTeksobat() {
         if(ChkRM.isSelected()==true){
             Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(no_permintaan,4),signed)),0) from permintaan_stok_obat_pasien where tgl_permintaan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' ",
@@ -1507,6 +1520,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     * @param no_permintaan
+     */
     public void tampilObat(String no_permintaan) {
         NoResep.setText(no_permintaan);
         ubah=true;

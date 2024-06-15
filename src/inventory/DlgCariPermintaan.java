@@ -24,12 +24,24 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPegawai;
 import simrskhanza.DlgCariBangsal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPermintaan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariBangsal suplier=new DlgCariBangsal(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
     public  DlgBarang barang=new DlgBarang(null,false);
     private PreparedStatement ps,ps2;
@@ -1476,12 +1488,18 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         if(akses.getkode().equals("Admin Utama")){

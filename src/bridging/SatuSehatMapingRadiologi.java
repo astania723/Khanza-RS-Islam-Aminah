@@ -32,7 +32,7 @@ import keuangan.DlgJnsPerawatanRadiologi;
  *
  * @author dosen
  */
-public final class SatuSehatMapingRadiologi extends javax.swing.JDialog {
+public class SatuSehatMapingRadiologi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

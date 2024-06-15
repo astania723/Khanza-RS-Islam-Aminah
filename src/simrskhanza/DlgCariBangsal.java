@@ -37,7 +37,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariBangsal extends javax.swing.JDialog {
+public class DlgCariBangsal extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -413,10 +413,17 @@ public final class DlgCariBangsal extends javax.swing.JDialog {
         TCari.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
        BtnTambah.setEnabled(akses.getkamar());
     }
@@ -451,6 +458,11 @@ public final class DlgCariBangsal extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     * @param kode
+     * @return
+     */
     public String tampil3(String kode) {
         try {
             if(Valid.daysOld("./cache/bangsal.iyem")>7){

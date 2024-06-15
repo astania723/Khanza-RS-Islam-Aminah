@@ -45,7 +45,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMHasilPemeriksaanUSGNeonatus extends javax.swing.JDialog {
+public class RMHasilPemeriksaanUSGNeonatus extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -131,14 +131,14 @@ public final class RMHasilPemeriksaanUSGNeonatus extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        VentrikalSinistra.setDocument(new batasInput((int)200).getKata(VentrikalSinistra));
-        VentrikelDextra.setDocument(new batasInput((int)200).getKata(VentrikelDextra));
-        Kesan.setDocument(new batasInput((int)200).getKata(Kesan));
-        Kesimpulan.setDocument(new batasInput((int)300).getKata(Kesimpulan));
-        Saran.setDocument(new batasInput((int)200).getKata(Saran));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        VentrikalSinistra.setDocument(new batasInput(200).getKata(VentrikalSinistra));
+        VentrikelDextra.setDocument(new batasInput(200).getKata(VentrikelDextra));
+        Kesan.setDocument(new batasInput(200).getKata(Kesan));
+        Kesimpulan.setDocument(new batasInput(300).getKata(Kesimpulan));
+        Saran.setDocument(new batasInput(200).getKata(Saran));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1531,6 +1531,9 @@ public final class RMHasilPemeriksaanUSGNeonatus extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{

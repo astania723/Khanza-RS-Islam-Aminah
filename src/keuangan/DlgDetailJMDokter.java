@@ -30,6 +30,10 @@ import javax.swing.text.html.StyleSheet;
 import kepegawaian.DlgCariDokter;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgDetailJMDokter extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

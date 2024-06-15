@@ -1074,6 +1074,9 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{     
@@ -1131,6 +1134,9 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TTarif.setText("");
@@ -1154,6 +1160,9 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
 
     }
 
+    /**
+     *
+     */
     public void load() {
         kdbangsalcari.setText("");
         BangsalCari.setText("");
@@ -1164,7 +1173,10 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
         return tbKamar;
     }
        
-     public void isCek(){
+    /**
+     *
+     */
+    public void isCek(){
         BtnSimpan.setEnabled(akses.getkamar());
         BtnHapus.setEnabled(akses.getkamar());
         BtnPrint.setEnabled(akses.getkamar());

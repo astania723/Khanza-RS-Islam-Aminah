@@ -340,10 +340,18 @@ public class CoronaReferensiKecamatan extends javax.swing.JDialog {
         }
     }   
     
+    /**
+     *
+     * @param kodekab
+     */
     public void SetKab(String kodekab){
         this.kodekab=kodekab;
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

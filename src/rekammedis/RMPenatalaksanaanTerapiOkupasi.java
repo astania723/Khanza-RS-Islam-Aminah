@@ -41,7 +41,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMPenatalaksanaanTerapiOkupasi extends javax.swing.JDialog {
+public class RMPenatalaksanaanTerapiOkupasi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -122,19 +122,19 @@ public final class RMPenatalaksanaanTerapiOkupasi extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KeluhanUtama.setDocument(new batasInput((int)400).getKata(KeluhanUtama));
-        RPS.setDocument(new batasInput((int)300).getKata(RPS));
-        RPD.setDocument(new batasInput((int)300).getKata(RPD));
-        AnamnesaUmum.setDocument(new batasInput((int)300).getKata(AnamnesaUmum));
-        TandaVital.setDocument(new batasInput((int)150).getKata(TandaVital));
-        PemeriksaanPenunjang.setDocument(new batasInput((int)200).getKata(PemeriksaanPenunjang));
-        KeteranganSpesialisasi.setDocument(new batasInput((int)30).getKata(KeteranganSpesialisasi));
-        PemeriksaanOkupasiTerapi.setDocument(new batasInput((int)200).getKata(PemeriksaanOkupasiTerapi));
-        Aset.setDocument(new batasInput((int)150).getKata(Aset));
-        Limitasi.setDocument(new batasInput((int)150).getKata(Limitasi));
-        DiagnosaOkupasi.setDocument(new batasInput((int)100).getKata(DiagnosaOkupasi));
-        RencanaIntervensi.setDocument(new batasInput((int)400).getKata(RencanaIntervensi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KeluhanUtama.setDocument(new batasInput(400).getKata(KeluhanUtama));
+        RPS.setDocument(new batasInput(300).getKata(RPS));
+        RPD.setDocument(new batasInput(300).getKata(RPD));
+        AnamnesaUmum.setDocument(new batasInput(300).getKata(AnamnesaUmum));
+        TandaVital.setDocument(new batasInput(150).getKata(TandaVital));
+        PemeriksaanPenunjang.setDocument(new batasInput(200).getKata(PemeriksaanPenunjang));
+        KeteranganSpesialisasi.setDocument(new batasInput(30).getKata(KeteranganSpesialisasi));
+        PemeriksaanOkupasiTerapi.setDocument(new batasInput(200).getKata(PemeriksaanOkupasiTerapi));
+        Aset.setDocument(new batasInput(150).getKata(Aset));
+        Limitasi.setDocument(new batasInput(150).getKata(Limitasi));
+        DiagnosaOkupasi.setDocument(new batasInput(100).getKata(DiagnosaOkupasi));
+        RencanaIntervensi.setDocument(new batasInput(400).getKata(RencanaIntervensi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1609,6 +1609,9 @@ public final class RMPenatalaksanaanTerapiOkupasi extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1675,6 +1678,9 @@ public final class RMPenatalaksanaanTerapiOkupasi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KeluhanUtama.setText("");
         RPS.setText("");
@@ -1749,6 +1755,11 @@ public final class RMPenatalaksanaanTerapiOkupasi extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1780,6 +1791,9 @@ public final class RMPenatalaksanaanTerapiOkupasi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

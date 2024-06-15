@@ -1068,6 +1068,9 @@ public class DlgAuditBundleIDO extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_bundle_ido());
         BtnHapus.setEnabled(akses.getaudit_bundle_ido());

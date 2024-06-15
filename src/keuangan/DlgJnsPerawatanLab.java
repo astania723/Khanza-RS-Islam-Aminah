@@ -37,6 +37,10 @@ public class DlgJnsPerawatanLab extends javax.swing.JDialog {
     private PreparedStatement ps;
     private ResultSet rs;    
     public DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
+
+    /**
+     *
+     */
     public DlgTemplateLaboratorium template=new DlgTemplateLaboratorium(null,false);
     private int i=0;
     
@@ -1320,6 +1324,10 @@ private void btnPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
@@ -1338,6 +1346,9 @@ private void btnPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettarif_lab());
         BtnHapus.setEnabled(akses.gettarif_lab());
@@ -1351,6 +1362,10 @@ private void btnPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
         } 
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }

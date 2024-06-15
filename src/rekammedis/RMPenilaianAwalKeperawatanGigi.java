@@ -3995,6 +3995,11 @@ public class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -4002,7 +4007,9 @@ public class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         isRawat(); 
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_gigi());
         BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_gigi());

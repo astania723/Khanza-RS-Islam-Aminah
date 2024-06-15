@@ -3755,6 +3755,11 @@ public class RMPenilaianAwalMedisIGDPsikiatri extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -3779,6 +3784,9 @@ public class RMPenilaianAwalMedisIGDPsikiatri extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

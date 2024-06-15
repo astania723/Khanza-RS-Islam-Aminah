@@ -472,6 +472,9 @@ public class DlgAdmin extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");

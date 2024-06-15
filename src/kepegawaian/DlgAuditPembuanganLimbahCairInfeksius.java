@@ -1166,6 +1166,9 @@ public class DlgAuditPembuanganLimbahCairInfeksius extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_pembuangan_limbah_cair_infeksius());
         BtnHapus.setEnabled(akses.getaudit_pembuangan_limbah_cair_infeksius());

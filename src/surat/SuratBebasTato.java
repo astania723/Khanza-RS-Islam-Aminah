@@ -942,6 +942,9 @@ public class SuratBebasTato extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRw.setText("");
         TNoRM.setText("");
@@ -975,6 +978,14 @@ public class SuratBebasTato extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
     }
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param pasien
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt,String norm,String pasien, Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1000,7 +1011,9 @@ public class SuratBebasTato extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_bebas_tato());
         BtnHapus.setEnabled(akses.getsurat_bebas_tato());

@@ -411,6 +411,10 @@ public class DlgCariRuangOperasi extends javax.swing.JDialog {
         TCari.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

@@ -38,7 +38,15 @@ public class DlgCariPiutang extends javax.swing.JDialog {
     private riwayatobat Trackobat=new riwayatobat();
     private Connection koneksi=koneksiDB.condb();
     public  DlgPasien member=new DlgPasien(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private DecimalFormat df2 = new DecimalFormat("###,###,###,###,###,###,###");   
     private double ttljual=0,subttljual=0,ttldisc=0,subttldisc=0,ttlall=0,

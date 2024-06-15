@@ -24,6 +24,10 @@ import javax.swing.table.TableColumn;
 import keuangan.Jurnal;
 import simrskhanza.DlgCariBangsal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgPengambilanUTD extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

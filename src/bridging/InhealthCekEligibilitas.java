@@ -87,19 +87,58 @@ public class InhealthCekEligibilitas extends javax.swing.JDialog {
     private InhealthCariReferensiJenpelRuang kamar=new InhealthCariReferensiJenpelRuang(null,false);
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     public  DlgPropinsi propin=new DlgPropinsi(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPerusahaan perusahaan=new DlgCariPerusahaan(null,false);
     public  DlgCariBahasa bahasa=new DlgCariBahasa(null,false);
+
+    /**
+     *
+     */
     public  DlgCariCacatFisik cacat=new DlgCariCacatFisik(null,false);
     public  DlgCariSuku suku=new DlgCariSuku(null,false);
+
+    /**
+     *
+     */
     public  DlgGolonganTNI golongantni=new DlgGolonganTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanTNI satuantni=new DlgSatuanTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgPangkatTNI pangkattni=new DlgPangkatTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanTNI jabatantni=new DlgJabatanTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgGolonganPolri golonganpolri=new DlgGolonganPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanPolri satuanpolri=new DlgSatuanPolri(null,false);
     private DlgPilihanCetakDokumen pilihan=new DlgPilihanCetakDokumen(null,false);
             
+    /**
+     *
+     */
     public  DlgPangkatPolri pangkatpolri=new DlgPangkatPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanPolri jabatanpolri=new DlgJabatanPolri(null,false);
     private int pilih=0,p_no_ktp=0,p_tmp_lahir=0,p_nm_ibu=0,p_alamat=0,
             p_pekerjaan=0,p_no_tlp=0,p_umur=0,p_namakeluarga=0,p_no_peserta=0,
@@ -4569,6 +4608,10 @@ public class InhealthCekEligibilitas extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param nomorpeserta
+     */
     public void cekEligibilitas(String nomorpeserta){
         try {
             String URL = koneksiDB.URLAPIINHEALTH()+"/api/EligibilitasPeserta";	

@@ -950,6 +950,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd.setText("");
         Valid.autoNomer("template_pemeriksaan_dokter","S",4,Kd);
@@ -981,6 +984,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         return tbDokter;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettemplate_pemeriksaan());
         BtnHapus.setEnabled(akses.gettemplate_pemeriksaan());

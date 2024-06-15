@@ -36,7 +36,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
+public class DlgCariDaftarOperasi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -561,6 +561,9 @@ public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -569,6 +572,11 @@ public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     * @param penjab
+     * @param kelasoperasi
+     */
     public void setBayar(String penjab,String kelasoperasi){
         this.kd_pj=penjab;
         this.kelas=kelasoperasi;

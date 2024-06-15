@@ -38,7 +38,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMDataCatatanObservasiInduksiPersalinan extends javax.swing.JDialog {
+public class RMDataCatatanObservasiInduksiPersalinan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -115,7 +115,7 @@ public final class RMDataCatatanObservasiInduksiPersalinan extends javax.swing.J
         HIS.setDocument(new batasInput((byte)50).getKata(HIS));
         DJJ.setDocument(new batasInput((byte)5).getKata(DJJ));
         Keterangan.setDocument(new batasInput((byte)50).getKata(Keterangan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1312,6 +1312,11 @@ public final class RMDataCatatanObservasiInduksiPersalinan extends javax.swing.J
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

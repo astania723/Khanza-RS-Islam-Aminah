@@ -4646,6 +4646,9 @@ public class RMPenilaianLevelKecemasanRanapAnak extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -5028,6 +5031,9 @@ public class RMPenilaianLevelKecemasanRanapAnak extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_level_kecemasan_ranap_anak());
         BtnHapus.setEnabled(akses.getpenilaian_level_kecemasan_ranap_anak());

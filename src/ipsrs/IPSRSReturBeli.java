@@ -39,6 +39,10 @@ public class IPSRSReturBeli extends javax.swing.JDialog {
     private String[] kodebarang,namabarang,satuan,nofaktur;
     private double[] h_retur,jumlah,jmltotal,harga,stok;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public boolean tampikan=true;
     private boolean sukses=true;
     private String Retur_Beli_Non_Medis=Sequel.cariIsi("select set_akun.Retur_Beli_Non_Medis from set_akun"),Kontra_Retur_Beli_Non_Medis=Sequel.cariIsi("select set_akun.Kontra_Retur_Beli_Non_Medis from set_akun");
@@ -978,6 +982,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         LTotal.setText(Valid.SetAngka(ttl));
     }
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();

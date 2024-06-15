@@ -795,7 +795,9 @@ private void btnPoliBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpcare_mapping_dokter());
         BtnHapus.setEnabled(akses.getpcare_mapping_dokter());
@@ -803,6 +805,10 @@ private void btnPoliBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         BtnPrint.setEnabled(akses.getpcare_mapping_dokter());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }    

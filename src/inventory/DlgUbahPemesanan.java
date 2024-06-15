@@ -1480,6 +1480,10 @@ private void kdgudangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         
     }
     
+    /**
+     *
+     * @param Faktur
+     */
     public void isCek(String Faktur){
         try {
             try {

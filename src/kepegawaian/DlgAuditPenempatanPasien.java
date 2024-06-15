@@ -1218,6 +1218,9 @@ public class DlgAuditPenempatanPasien extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         KdRuang.setText("");
         NmRuang.setText("");

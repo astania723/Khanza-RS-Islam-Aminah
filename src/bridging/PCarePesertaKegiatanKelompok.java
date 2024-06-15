@@ -49,6 +49,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class PCarePesertaKegiatanKelompok extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -822,24 +826,38 @@ private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         this.setCursor(Cursor.getDefaultCursor());          
     }
 
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getpcare_peserta_kegiatan_kelompok());
         BtnPrint.setEnabled(akses.getpcare_peserta_kegiatan_kelompok());
     }
  
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
         }
 
+        /**
+         *
+         * @return
+         */
         @Override
         public String getMethod() {
             return "DELETE";
         }
 
-    @Override
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
     public Object clone() throws CloneNotSupportedException {
       return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }

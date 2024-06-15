@@ -1357,6 +1357,9 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         try {
             namakamar=koneksiDB.KAMARAKTIFRANAP();
@@ -1440,6 +1443,10 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {
         try {
             createScene();

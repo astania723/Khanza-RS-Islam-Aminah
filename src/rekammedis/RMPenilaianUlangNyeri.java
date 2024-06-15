@@ -1459,6 +1459,11 @@ public class RMPenilaianUlangNyeri extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1484,6 +1489,9 @@ public class RMPenilaianUlangNyeri extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_ulang_nyeri());
         BtnHapus.setEnabled(akses.getpenilaian_ulang_nyeri());

@@ -1213,6 +1213,9 @@ public class DlgAuditFasilitasKebersihanTangan extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         KdRuang.setText("");
         NmRuang.setText("");

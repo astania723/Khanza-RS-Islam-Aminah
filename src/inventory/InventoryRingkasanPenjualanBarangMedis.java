@@ -24,6 +24,10 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 import simrskhanza.DlgCariPasien;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventoryRingkasanPenjualanBarangMedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -34,7 +38,15 @@ public class InventoryRingkasanPenjualanBarangMedis extends javax.swing.JDialog 
     private int i=0;
     private double total=0;
     public  DlgCariPasien pasien=new DlgCariPasien(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private String nofak="",mem="",ptg="",sat="",bar="",tanggal="",order="order by databarang.nama_brng";
     /** Creates new form DlgProgramStudi

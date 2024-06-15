@@ -1428,6 +1428,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     } 
     
+    /**
+     *
+     */
     public void isCek(){
         BtnBayar.setEnabled(akses.getbayar_pemesanan_obat());
         if(akses.getjml2()>=1){

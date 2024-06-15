@@ -1431,6 +1431,9 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
     private widget.Tanggal tgl_pengadaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             ps=koneksi.prepareStatement("select inventaris.no_inventaris,inventaris_barang.kode_barang, inventaris_barang.nama_barang, "+

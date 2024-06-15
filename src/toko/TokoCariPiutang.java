@@ -42,8 +42,16 @@ public class TokoCariPiutang extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private riwayattoko Trackbarang=new riwayattoko();
     private int i=0,no=1;
+
+    /**
+     *
+     */
     public  TokoMember member=new TokoMember(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  TokoBarang barang=new TokoBarang(null,false);
     private DecimalFormat df2 = new DecimalFormat("###,###,###,###,###,###,###");    
     private double ttlpiutang=0,ttluangmuka=0,ttlongkir=0,ttldisc=0,ttlsubttl=0,ttlcicilan=0,

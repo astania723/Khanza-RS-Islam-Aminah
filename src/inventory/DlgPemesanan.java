@@ -50,6 +50,10 @@ public class DlgPemesanan extends javax.swing.JDialog {
     private double[] harga,jumlah,subtotal,diskon,besardiskon,jmltotal,jmlstok,hpp,isi,jmlbesar,
                      ralan,kelas1,kelas2,kelas3,utama,vip,vvip,beliluar,jualbebas,karyawan,dasar;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public boolean tampikan=true;
     private boolean sukses=true;
     private String aktifkanbatch="no",pengaturanharga=Sequel.cariIsi("select set_harga_obat.setharga from set_harga_obat"),
@@ -1779,6 +1783,9 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -1799,6 +1806,10 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(pemesanan.no_faktur,3),signed)),0) from pemesanan where pemesanan.tgl_pesan='"+Valid.SetTgl(TglPesan.getSelectedItem()+"")+"'","PB"+TglPesan.getSelectedItem().toString().substring(6,10)+TglPesan.getSelectedItem().toString().substring(3,5)+TglPesan.getSelectedItem().toString().substring(0,2),3,NoFaktur); 
     }
 
+    /**
+     *
+     * @param noorder
+     */
     public void tampil(String noorder) {
         NoOrder.setText(noorder);
         kdsup.setText(Sequel.cariIsi("select surat_pemesanan_medis.kode_suplier from surat_pemesanan_medis where surat_pemesanan_medis.no_pemesanan=?",noorder));

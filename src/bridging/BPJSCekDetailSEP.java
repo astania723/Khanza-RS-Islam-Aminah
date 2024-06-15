@@ -239,6 +239,10 @@ public class BPJSCekDetailSEP extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param sep
+     */
     public void tampil(String sep) {
         try {
             headers = new HttpHeaders();

@@ -30,8 +30,16 @@ public class IPSRSCariReturBeli extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private riwayatnonmedis Trackbarang=new riwayatnonmedis();
     private PreparedStatement ps,ps2,pscaripesan,psipsrs_detail_returbeli;
@@ -1108,12 +1116,18 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getipsrs_returbeli());
         if(akses.getkode().equals("Admin Utama")){

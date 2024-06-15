@@ -28,6 +28,10 @@ public class DapurCariPermintaan extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
     public  DapurBarang barang=new DapurBarang(null,false);
     private PreparedStatement ps,ps2;
@@ -894,12 +898,18 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         if(akses.getkode().equals("Admin Utama")){

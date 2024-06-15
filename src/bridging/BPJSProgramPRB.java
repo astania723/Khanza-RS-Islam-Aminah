@@ -58,7 +58,7 @@ import org.springframework.web.client.RestTemplate;
  *
  * @author perpustakaan
  */
-public final class BPJSProgramPRB extends javax.swing.JDialog {
+public class BPJSProgramPRB extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1514,6 +1514,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbProgramPRB;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{     
@@ -1610,6 +1613,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
    
+    /**
+     *
+     * @param norawat
+     * @param nosep
+     * @param nokartu
+     * @param norm
+     * @param namapasien
+     * @param alamat
+     * @param email
+     * @param kodedpjp
+     * @param namadpjp
+     */
     public void setNoRm(String norawat,String nosep,String nokartu,String norm,String namapasien,String alamat,String email,String kodedpjp,String namadpjp) {
         NoRawat.setText(norawat);
         NoSEP.setText(nosep);
@@ -1641,6 +1656,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         btnDokterDPJP.setEnabled(akses.getbpjs_program_prb());
         BtnHapus.setEnabled(akses.getbpjs_program_prb());
@@ -1732,6 +1750,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Alamat.requestFocus();
     }
     
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest() throws Exception {
         RestTemplate restTemplate = new RestTemplate();

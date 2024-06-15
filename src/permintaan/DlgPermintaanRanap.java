@@ -1585,6 +1585,16 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param nama
+     * @param namadokter
+     * @param carabayar
+     * @param poli
+     * @param notelp
+     */
     public void setNoRm(String norwt,String norm,String nama,String namadokter,String carabayar,String poli,String notelp) {
         NoRw.setText(norwt);
         NoRM.setText(norm);
@@ -1613,6 +1623,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpermintaan_ranap());
         BtnHapus.setEnabled(akses.getpermintaan_ranap());

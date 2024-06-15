@@ -337,6 +337,9 @@ public class RMCariProsedur2 extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -373,10 +376,17 @@ public class RMCariProsedur2 extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {   
         TCari.requestFocus();
     }
     
+    /**
+     *
+     * @param norawat
+     */
     public void setNoRawat(String norawat){
         this.norawat=norawat;
     }

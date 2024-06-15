@@ -40,7 +40,7 @@ import javax.swing.text.html.StyleSheet;
  *
  * @author dosen
  */
-public final class DlgCariCaraBayar2 extends javax.swing.JDialog {
+public class DlgCariCaraBayar2 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -626,6 +626,9 @@ public final class DlgCariCaraBayar2 extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.getadmin());
     }

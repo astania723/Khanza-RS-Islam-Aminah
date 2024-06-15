@@ -517,6 +517,10 @@ public class PCareCekFaskesAlihRawat extends javax.swing.JDialog {
         }
     } 
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

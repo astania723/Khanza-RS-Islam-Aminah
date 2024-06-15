@@ -32,7 +32,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
+public class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1216,6 +1216,9 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KFACode.setText("");
         KFASystem.setText("http://sys-ids.kemkes.go.id/kfa");
@@ -1257,6 +1260,9 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsatu_sehat_mapping_obat());
         BtnHapus.setEnabled(akses.getsatu_sehat_mapping_obat());
@@ -1264,6 +1270,10 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getsatu_sehat_mapping_obat());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }  

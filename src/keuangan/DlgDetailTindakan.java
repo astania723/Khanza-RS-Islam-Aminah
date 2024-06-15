@@ -3993,6 +3993,9 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil3(){     
         Valid.tabelKosong(tabModeRalanDokterParamedis);
         try{
@@ -4267,6 +4270,9 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil4(){     
         Valid.tabelKosong(tabModeOperasi);
         try{
@@ -5357,6 +5363,9 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil7(){     
         Valid.tabelKosong(tabModeRanapDokterParamedis);
         try{
@@ -5945,6 +5954,9 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil9(){     
         Valid.tabelKosong(tabModeLaborat);
         try{
@@ -6267,6 +6279,9 @@ public class DlgDetailTindakan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil10(){     
         Valid.tabelKosong(tabModeDetailLaborat);
         try {

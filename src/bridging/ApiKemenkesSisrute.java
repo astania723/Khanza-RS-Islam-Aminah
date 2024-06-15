@@ -20,8 +20,16 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiKemenkesSisrute {        
     private String Key,Consid,pass;
+
+    /**
+     *
+     */
     public ApiKemenkesSisrute(){
         try {                    
             pass = koneksiDB.PASSSISRUTE();
@@ -38,6 +46,11 @@ public class ApiKemenkesSisrute {
             System.out.println("Notifikasi : "+ex);
         }
     }
+
+    /**
+     *
+     * @return
+     */
     public String getHmac() {        
         long GetUTCdatetimeAsString = GetUTCdatetimeAsString();        
         String salt = Consid +"&"+String.valueOf(GetUTCdatetimeAsString);
@@ -67,6 +80,10 @@ public class ApiKemenkesSisrute {
 	}
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         long millis = System.currentTimeMillis();   
         return millis/1000;

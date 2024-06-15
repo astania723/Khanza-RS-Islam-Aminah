@@ -53,6 +53,10 @@ public class ApiOrthanc {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public String Auth(){
         return authEncrypt;
     }
@@ -84,6 +88,12 @@ public class ApiOrthanc {
         return root;
     }
     
+    /**
+     *
+     * @param NoRawat
+     * @param Series
+     * @return
+     */
     public JsonNode AmbilPng(String NoRawat,String Series){
         System.out.println("Percobaan Mengambil Gambar PNG : "+NoRawat+", Series : "+Series);
         try{
@@ -116,6 +126,12 @@ public class ApiOrthanc {
         return root;
     }
     
+    /**
+     *
+     * @param NoRawat
+     * @param Series
+     * @return
+     */
     public JsonNode AmbilJpg(String NoRawat,String Series){
         System.out.println("Percobaan Mengambil Gambar JPG : "+NoRawat+", Series : "+Series);
         try{
@@ -148,6 +164,12 @@ public class ApiOrthanc {
         return root;
     }
     
+    /**
+     *
+     * @param NoRawat
+     * @param Series
+     * @return
+     */
     public JsonNode AmbilBmp(String NoRawat,String Series){
         System.out.println("Percobaan Mengambil Gambar BMP : "+NoRawat+", Series : "+Series);
         try{
@@ -180,6 +202,12 @@ public class ApiOrthanc {
         return root;
     }
     
+    /**
+     *
+     * @param NoRawat
+     * @param Series
+     * @return
+     */
     public JsonNode AmbilDcm(String NoRawat,String Series){
         System.out.println("Percobaan Mengambil Gambar DCM : "+NoRawat+", Series : "+Series);
         try{
@@ -211,6 +239,12 @@ public class ApiOrthanc {
         return root;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {

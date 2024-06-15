@@ -42,7 +42,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class IPSRSStokOpname extends javax.swing.JDialog {
+public class IPSRSStokOpname extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();  
@@ -932,6 +932,10 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Stok;
     }

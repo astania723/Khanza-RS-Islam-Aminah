@@ -3645,6 +3645,9 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
         }
     }
     
+    /**
+     *
+     */
     public void totalnilai(){
         row=tbBangsal.getRowCount();
         total=0;
@@ -3673,6 +3676,9 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
         LCount3.setText(Valid.SetAngka(lebih));
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         if(akses.getjml2()>=1){

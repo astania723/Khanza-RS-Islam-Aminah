@@ -1752,6 +1752,15 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil();
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param kodepoli
+     * @param namapoli
+     * @param kodedokter
+     * @param namadokter
+     */
     public void setNoRm(String norm,String nama,String kodepoli,String namapoli,String kodedokter,String namadokter) {
         TNoRM.setText(norm);
         TPasien.setText(nama);
@@ -1786,6 +1795,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         BtnEdit.setEnabled(akses.getskdp_bpjs());
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

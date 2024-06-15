@@ -36,6 +36,10 @@ import kepegawaian.DlgCariPetugas;
 import keuangan.Jurnal;
 import simrskhanza.DlgPasien;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPenjualan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -47,7 +51,15 @@ public class DlgCariPenjualan extends javax.swing.JDialog {
     private riwayatobat Trackobat=new riwayatobat();
     private int i=0,no=1;
     public  DlgPasien pasien=new DlgPasien(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private DecimalFormat df2 = new DecimalFormat("###,###,###,###,###,###,###");    
     private double ttljual=0,ttlppn=0,ttlongkir=0,ttldisc=0,ttltambahan=0,ttlembalase=0,ttltuslah=0,ttlsubttl=0,subttljual=0,subttldisc=0,subttlall=0,subttltambahan=0,subttlembalase=0,subttltuslah=0,ttlhpp=0;
@@ -2122,6 +2134,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         this.setCursor(Cursor.getDefaultCursor());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
@@ -2129,6 +2144,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         kdbar.requestFocus();        
     }   
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getpenjualan_obat());
         ppCetakNota.setEnabled(akses.getpenjualan_obat());

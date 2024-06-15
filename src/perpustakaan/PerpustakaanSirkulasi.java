@@ -1511,6 +1511,9 @@ private void tglKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tglKe
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {       
         TNoI.setText("");
         TJudul.setText("");
@@ -1541,7 +1544,9 @@ private void tglKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tglKe
         }
     }
 
-    
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             TNIP.setEditable(false);

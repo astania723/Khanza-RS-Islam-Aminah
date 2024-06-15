@@ -800,8 +800,9 @@ public class DlgSetOtoLab extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
-    
-
+    /**
+     *
+     */
     public void emptTeks() {
         nmdetailtindakan.setText("");
         kdtindakan.requestFocus();

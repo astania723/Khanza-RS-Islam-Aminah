@@ -578,6 +578,9 @@ public class AkunRekeningBankJateng extends javax.swing.JDialog {
         }            
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdrek.setText("");
         nmrek.setText("");

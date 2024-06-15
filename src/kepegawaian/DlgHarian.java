@@ -1333,6 +1333,9 @@ public class DlgHarian extends javax.swing.JDialog {
         }        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpresensi_harian());
         BtnHapus.setEnabled(akses.getpresensi_harian());

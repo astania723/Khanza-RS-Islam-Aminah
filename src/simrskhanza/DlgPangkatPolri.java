@@ -516,6 +516,9 @@ public class DlgPangkatPolri extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         TCari.setText("");
@@ -528,6 +531,10 @@ public class DlgPangkatPolri extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbkecamatan;
     }
@@ -536,6 +543,9 @@ public class DlgPangkatPolri extends javax.swing.JDialog {
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpangkat_polri());
         BtnHapus.setEnabled(akses.getpangkat_polri());

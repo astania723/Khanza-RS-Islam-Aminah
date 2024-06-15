@@ -3102,6 +3102,9 @@ public class RMPenilaianTerapiWicara extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         DiagnosaTerapiWicara.setText("");
@@ -3273,6 +3276,9 @@ public class RMPenilaianTerapiWicara extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_terapi_wicara());
         BtnHapus.setEnabled(akses.getpenilaian_terapi_wicara());

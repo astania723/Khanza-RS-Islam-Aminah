@@ -683,12 +683,19 @@ public class DlgJamDietPasien extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getjam_diet_pasien());
         BtnHapus.setEnabled(akses.getjam_diet_pasien());
         BtnEdit.setEnabled(akses.getjam_diet_pasien());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJadwal;
     }

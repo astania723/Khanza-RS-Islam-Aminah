@@ -404,6 +404,9 @@ public class RMCariHasilLaborat extends javax.swing.JDialog {
   private widget.Table tbKamar;
   // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         jml=0;
         for(i=0;i<tabMode.getRowCount();i++){
@@ -472,14 +475,25 @@ public class RMCariHasilLaborat extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {   
         TCari.requestFocus();
     }
     
+    /**
+     *
+     * @param norawat
+     */
     public void setNoRawat(String norawat){
         this.norawat=norawat;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

@@ -1149,6 +1149,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{    
@@ -1199,6 +1202,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LTotal.setText(Valid.SetAngka(total));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");
         Cicilan.setText("0");
@@ -1237,6 +1243,10 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoNota;
     }
@@ -1245,6 +1255,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbayar_piutang_lain());
         BtnHapus.setEnabled(akses.getbayar_piutang_lain());

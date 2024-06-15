@@ -377,6 +377,9 @@ public class SatuSehatCariRadiologiLoinc extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }

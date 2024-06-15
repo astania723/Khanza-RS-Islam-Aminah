@@ -37,6 +37,10 @@ import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariPoli;
 import simrskhanza.DlgInputResepPulang;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2,tabMode3,tabMode4,tabMode5,tabMode6,tabMode7,tabMode8;
     private sekuel Sequel=new sekuel();
@@ -3328,6 +3332,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.setText("");
         TCari.requestFocus();
@@ -3401,6 +3408,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         return tbResepRalan;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnEdit.setEnabled(akses.getresep_dokter());
         BtnPrint.setEnabled(akses.getresep_dokter());
@@ -3414,6 +3424,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         BtnObat23HariBPJS.setEnabled(akses.getbpjs_obat_23hari_apotek()); 
     }
     
+    /**
+     *
+     * @param cari
+     */
     public void setCari(String cari){
         TCari.setText(cari);
     }
@@ -3737,6 +3751,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         dlgresepulang.setVisible(true);         
     }
     
+    /**
+     *
+     */
     public void pilihTab(){
         if(TabPilihRawat.getSelectedIndex()==0){
             pilihRalan();
@@ -3745,6 +3762,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }
     }
     
+    /**
+     *
+     */
     public void pilihRalan(){
         if(TabRawatJalan.getSelectedIndex()==0){
             tampil();
@@ -3975,6 +3995,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
     
+    /**
+     *
+     */
     public void tampil4() {
         Valid.tabelKosong(tabMode4);
         try{  
@@ -5014,6 +5037,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }  
     }
     
+    /**
+     *
+     */
     public void tampil7() {
         Valid.tabelKosong(tabMode7);
         try{  
@@ -5192,6 +5218,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
     
+    /**
+     *
+     */
     public void tampil8() {
         Valid.tabelKosong(tabMode8);
         try{  

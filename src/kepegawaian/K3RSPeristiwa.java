@@ -3408,6 +3408,9 @@ public class K3RSPeristiwa extends javax.swing.JDialog {
         NoLaporan.requestFocus();
     }
     
+    /**
+     *
+     */
     public void autoNomor(){
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(no_k3rs,4),signed)),0) from k3rs_peristiwa where tgl_pelaporan='"+Valid.SetTgl(TglPelaporan.getSelectedItem()+"")+"' ",
                 "K3/"+TglPelaporan.getSelectedItem().toString().substring(6,10)+"/"+TglPelaporan.getSelectedItem().toString().substring(3,5)+"/"+TglPelaporan.getSelectedItem().toString().substring(0,2)+"/",4,NoLaporan); 

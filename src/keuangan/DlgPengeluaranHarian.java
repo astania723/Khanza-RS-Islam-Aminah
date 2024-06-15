@@ -1098,6 +1098,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Pengeluaran.setText("0");
         Keterangan.setText("");
@@ -1137,6 +1140,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             KdPtg.setEditable(false);
@@ -1154,6 +1160,12 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 "PH"+Tanggal.getSelectedItem().toString().substring(6,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,Nomor); 
     }
     
+    /**
+     *
+     * @param nopengajuan
+     * @param keterangan
+     * @param pengeluaran
+     */
     public void setPengajuan(String nopengajuan,String keterangan,String pengeluaran){
         nopengajuanbiaya=nopengajuan;
         Nomor.setText(nopengajuan);

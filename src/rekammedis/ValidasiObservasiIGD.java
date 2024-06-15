@@ -978,6 +978,9 @@ public class ValidasiObservasiIGD extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1016,6 +1019,9 @@ public class ValidasiObservasiIGD extends javax.swing.JDialog {
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KodeDokter1.setText("");
         NamaDokter1.setText("");
@@ -1088,6 +1094,9 @@ public class ValidasiObservasiIGD extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getcatatan_observasi_igd());
         if(akses.getjml2()>=1){

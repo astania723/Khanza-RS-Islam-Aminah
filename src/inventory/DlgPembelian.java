@@ -31,6 +31,10 @@ import keuangan.Jurnal;
 import setting.DlgSetHarga;
 import simrskhanza.DlgCariBangsal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgPembelian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

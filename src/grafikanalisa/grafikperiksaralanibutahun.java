@@ -66,7 +66,12 @@ public class grafikperiksaralanibutahun extends JDialog {
             return result;
        }
 
-        public static CategoryDataset createDataset2(String symbol) {//grafik volume
+    /**
+     *
+     * @param symbol
+     * @return
+     */
+    public static CategoryDataset createDataset2(String symbol) {//grafik volume
             DefaultCategoryDataset result = new DefaultCategoryDataset();
             String series1 = "Registrasi Pertahun";
             try {
@@ -117,7 +122,12 @@ public class grafikperiksaralanibutahun extends JDialog {
 
          }
 
-         public static JPanel createDemoPanel(String symbol) {
+    /**
+     *
+     * @param symbol
+     * @return
+     */
+    public static JPanel createDemoPanel(String symbol) {
              JFreeChart chart = createChart(symbol);
              return new ChartPanel(chart);
          }

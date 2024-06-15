@@ -817,6 +817,9 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
     private widget.Table tbRawatJalan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
         try{    

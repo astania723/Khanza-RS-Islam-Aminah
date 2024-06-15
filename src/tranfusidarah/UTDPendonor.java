@@ -26,6 +26,10 @@ import simrskhanza.DlgKecamatan;
 import simrskhanza.DlgKelurahan;
 import simrskhanza.DlgPropinsi;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class UTDPendonor extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class SatuSehatKirimEncounter extends javax.swing.JDialog {
+public class SatuSehatKirimEncounter extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -914,6 +914,9 @@ public final class SatuSehatKirimEncounter extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnKirim.setEnabled(akses.getsatu_sehat_kirim_encounter());
         BtnPrint.setEnabled(akses.getsatu_sehat_kirim_encounter());

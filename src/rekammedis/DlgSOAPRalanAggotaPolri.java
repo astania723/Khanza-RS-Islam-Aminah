@@ -27,6 +27,10 @@ import simrskhanza.DlgJabatanPolri;
 import simrskhanza.DlgPangkatPolri;
 import simrskhanza.DlgSatuanPolri;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgSOAPRalanAggotaPolri extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();

@@ -1378,6 +1378,9 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpengajuan_biaya());
         BtnHapus.setEnabled(akses.getpengajuan_biaya());

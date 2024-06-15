@@ -1197,6 +1197,9 @@ public class DlgAuditBundleISK extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_bundle_isk());
         BtnHapus.setEnabled(akses.getaudit_bundle_isk());

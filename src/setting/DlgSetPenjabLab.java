@@ -874,6 +874,9 @@ public class DlgSetPenjabLab extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kddokter.setText("");
         TDokter.setText("");

@@ -681,6 +681,9 @@ public class DlgParkirJenis extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getparkir_jenis());
        BtnHapus.setEnabled(akses.getparkir_jenis());

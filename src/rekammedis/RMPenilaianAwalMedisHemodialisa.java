@@ -41,7 +41,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
+public class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -277,8 +277,8 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         Hubungan.setDocument(new batasInput((byte)30).getKata(Hubungan));
         AsalRuangan.setDocument(new batasInput((byte)50).getKata(AsalRuangan));
-        Alergi.setDocument(new batasInput((int)100).getKata(Alergi));
-        StatusNutrisi.setDocument(new batasInput((int)100).getKata(StatusNutrisi));
+        Alergi.setDocument(new batasInput(100).getKata(Alergi));
+        StatusNutrisi.setDocument(new batasInput(100).getKata(StatusNutrisi));
         KeteranganHipertensi.setDocument(new batasInput((byte)30).getKata(KeteranganHipertensi));
         KeteranganDiabetesMelitus.setDocument(new batasInput((byte)30).getKata(KeteranganDiabetesMelitus));
         KeteranganBatuSaluranKemih.setDocument(new batasInput((byte)30).getKata(KeteranganBatuSaluranKemih));
@@ -308,7 +308,7 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         SGPT.setDocument(new batasInput((byte)30).getKata(SGPT));
         CT.setDocument(new batasInput((byte)30).getKata(CT));
         AsamUrat.setDocument(new batasInput((byte)30).getKata(AsamUrat));
-        Edukasi.setDocument(new batasInput((int)1000).getKata(Edukasi));
+        Edukasi.setDocument(new batasInput(1000).getKata(Edukasi));
         
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -3659,6 +3659,9 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -3775,6 +3778,9 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         Anamnesis.setSelectedIndex(0);
@@ -4021,6 +4027,12 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     * @param asalruangan
+     */
     public void setNoRm(String norwt,Date tgl2,String asalruangan) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -4053,6 +4065,9 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
        tampil();

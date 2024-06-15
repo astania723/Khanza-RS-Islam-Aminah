@@ -516,6 +516,9 @@ public class DlgSuku extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         TCari.setText("");
@@ -536,6 +539,9 @@ public class DlgSuku extends javax.swing.JDialog {
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsuku_bangsa());
         BtnHapus.setEnabled(akses.getsuku_bangsa());

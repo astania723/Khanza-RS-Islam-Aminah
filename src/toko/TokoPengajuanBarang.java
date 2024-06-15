@@ -831,8 +831,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
     }
 
-    
-    
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();

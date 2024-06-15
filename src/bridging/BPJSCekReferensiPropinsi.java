@@ -318,6 +318,11 @@ public class BPJSCekReferensiPropinsi extends javax.swing.JDialog {
         }
     }    
     
+    /**
+     *
+     * @param poli
+     * @return
+     */
     public String tampilKan(String poli) {
         try {
             headers = new HttpHeaders();
@@ -353,6 +358,10 @@ public class BPJSCekReferensiPropinsi extends javax.swing.JDialog {
         return poli;
     } 
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

@@ -1240,6 +1240,9 @@ public class DlgAuditPengelolaanLinenKotor extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_pengelolaan_linen_kotor());
         BtnHapus.setEnabled(akses.getaudit_pengelolaan_linen_kotor());

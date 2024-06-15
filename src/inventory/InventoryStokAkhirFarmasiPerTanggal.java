@@ -30,6 +30,10 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgKehadiran2;
 import simrskhanza.DlgCariBangsal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventoryStokAkhirFarmasiPerTanggal extends javax.swing.JDialog {
     private DefaultTableModel tabMode;
     private final sekuel Sequel=new sekuel();
@@ -871,6 +875,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             
     }
     
+    /**
+     *
+     */
     public void isCek(){
          BtnPrint.setEnabled(akses.getstok_akhir_farmasi_pertanggal());
     }

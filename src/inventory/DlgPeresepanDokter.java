@@ -45,7 +45,7 @@ import widget.Button;
  *
  * @author dosen
  */
-public final class DlgPeresepanDokter extends javax.swing.JDialog {
+public class DlgPeresepanDokter extends javax.swing.JDialog {
     private final DefaultTableModel tabModeResep,tabModeDetailResepRacikan,tabModeResepRacikan;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1698,6 +1698,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
   private widget.Table tbResep;
   // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampilobat() {        
         z=0;
         for(i=0;i<tbResep.getRowCount();i++){
@@ -1970,14 +1973,25 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbResep;
     }
     
+    /**
+     *
+     * @return
+     */
     public Button getButton(){
         return BtnSimpan;
     }
     
+    /**
+     *
+     */
     public void isCek(){   
         BtnTambah.setEnabled(akses.getresep_dokter());
         TCari.requestFocus();
@@ -2452,6 +2466,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
     
+    /**
+     *
+     * @param no_resep
+     */
     public void tampilobat(String no_resep) {
         NoResep.setText(no_resep);
         ubah=true;
@@ -3254,6 +3272,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     * @param no_resep
+     */
     public void tampilobat2(String no_resep) {
         try {
             Valid.tabelKosong(tabModeResep);

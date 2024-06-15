@@ -633,6 +633,9 @@ public class K3RSBagianTubuh extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getbagian_tubuh_k3rs());
        BtnHapus.setEnabled(akses.getbagian_tubuh_k3rs());

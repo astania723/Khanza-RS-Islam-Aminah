@@ -15,6 +15,17 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author Owner
  */
 public class WarnaTablePEWS extends DefaultTableCellRenderer {
+
+    /**
+     *
+     * @param table
+     * @param value
+     * @param isSelected
+     * @param hasFocus
+     * @param row
+     * @param column
+     * @return
+     */
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column){
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         if (row % 2 == 1){

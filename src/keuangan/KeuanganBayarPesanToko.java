@@ -1288,6 +1288,10 @@ public class KeuanganBayarPesanToko extends javax.swing.JDialog {
         tgl_bayar.requestFocus();
     }
     
+    /**
+     *
+     * @param nofaktur
+     */
     public void setData(String nofaktur){
         no_faktur.setText(nofaktur);
         TCari.setText(nofaktur);
@@ -1310,6 +1314,10 @@ public class KeuanganBayarPesanToko extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return no_faktur;
     }
@@ -1318,6 +1326,9 @@ public class KeuanganBayarPesanToko extends javax.swing.JDialog {
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettoko_bayar_pemesanan());
         BtnHapus.setEnabled(akses.gettoko_bayar_pemesanan());

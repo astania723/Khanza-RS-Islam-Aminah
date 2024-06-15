@@ -70,7 +70,7 @@ import rekammedis.RMRiwayatPerawatan;
  *
  * @author perpustakaan
  */
-public final class PCareDataPendaftaran extends javax.swing.JDialog {
+public class PCareDataPendaftaran extends javax.swing.JDialog {
     private DefaultTableModel tabMode,tabMode2,tabMode3;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -5760,6 +5760,9 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
     private widget.Table tbSpesialis;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         Valid.tabelKosong(tabMode);
         try {
@@ -5876,6 +5879,9 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void tampil3() {        
         Valid.tabelKosong(tabMode3);
         try {
@@ -6003,6 +6009,10 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         TanggalDaftar.requestFocus();
     }
     
+    /**
+     *
+     * @param norwt
+     */
     public void setNoRm(String norwt) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -6589,6 +6599,9 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         }          
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbridging_pcare_daftar());
         BtnEdit.setEnabled(akses.getbridging_pcare_daftar());
@@ -6601,6 +6614,9 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         ppRiwayat.setEnabled(akses.getresume_pasien());            
     }
     
+    /**
+     *
+     */
     public void tutupInput(){
         TabRawat.setSelectedIndex(1);
     }
@@ -7271,7 +7287,15 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
@@ -7282,12 +7306,21 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
             return "DELETE";
         }
 
-    @Override
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
     public Object clone() throws CloneNotSupportedException {
       return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
@@ -7361,6 +7394,10 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest2() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
@@ -7497,6 +7534,10 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest4() throws Exception {
         RestTemplate restTemplate = new RestTemplate();

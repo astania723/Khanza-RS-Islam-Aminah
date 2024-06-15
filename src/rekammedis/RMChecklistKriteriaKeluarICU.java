@@ -1369,6 +1369,9 @@ public class RMChecklistKriteriaKeluarICU extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1529,6 +1532,9 @@ public class RMChecklistKriteriaKeluarICU extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getchecklist_kriteria_keluar_icu());
         BtnHapus.setEnabled(akses.getchecklist_kriteria_keluar_icu());

@@ -47,7 +47,7 @@ import simrskhanza.DlgCariPasien;
  *
  * @author dosen
  */
-public final class DlgBayarPiutang extends javax.swing.JDialog {
+public class DlgBayarPiutang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();    
@@ -1448,6 +1448,9 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{    
@@ -1563,10 +1566,17 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         return NoRawat;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbayar_piutang());
         BtnHapus.setEnabled(akses.getbayar_piutang());

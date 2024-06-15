@@ -45,7 +45,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMHasilEndoskopiTelinga extends javax.swing.JDialog {
+public class RMHasilEndoskopiTelinga extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -177,27 +177,27 @@ public final class RMHasilEndoskopiTelinga extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        KeteranganLiangKanan.setDocument(new batasInput((int)30).getKata(KeteranganLiangKanan));
-        KeteranganLiangKiri.setDocument(new batasInput((int)30).getKata(KeteranganLiangKiri));
-        KeteranganPerforasiKanan.setDocument(new batasInput((int)30).getKata(KeteranganPerforasiKanan));
-        KeteranganPerforasiKiri.setDocument(new batasInput((int)30).getKata(KeteranganPerforasiKiri));
-        MukosaKanan.setDocument(new batasInput((int)40).getKata(MukosaKanan));
-        MukosaKiri.setDocument(new batasInput((int)40).getKata(MukosaKiri));
-        OsikelKanan.setDocument(new batasInput((int)40).getKata(OsikelKanan));
-        OsikelKiri.setDocument(new batasInput((int)40).getKata(OsikelKiri));
-        IsthmusKanan.setDocument(new batasInput((int)40).getKata(IsthmusKanan));
-        IsthmusKiri.setDocument(new batasInput((int)40).getKata(IsthmusKiri));
-        AnteriorKanan.setDocument(new batasInput((int)40).getKata(AnteriorKanan));
-        AnteriorKiri.setDocument(new batasInput((int)40).getKata(AnteriorKiri));
-        PosteriorKanan.setDocument(new batasInput((int)40).getKata(PosteriorKanan));
-        PosteriorKiri.setDocument(new batasInput((int)40).getKata(PosteriorKiri));
-        LainlainKanan.setDocument(new batasInput((int)100).getKata(LainlainKanan));
-        LainlainKiri.setDocument(new batasInput((int)100).getKata(LainlainKiri));
-        Kesimpulan.setDocument(new batasInput((int)300).getKata(Kesimpulan));
-        Anjuran.setDocument(new batasInput((int)300).getKata(Anjuran));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        KeteranganLiangKanan.setDocument(new batasInput(30).getKata(KeteranganLiangKanan));
+        KeteranganLiangKiri.setDocument(new batasInput(30).getKata(KeteranganLiangKiri));
+        KeteranganPerforasiKanan.setDocument(new batasInput(30).getKata(KeteranganPerforasiKanan));
+        KeteranganPerforasiKiri.setDocument(new batasInput(30).getKata(KeteranganPerforasiKiri));
+        MukosaKanan.setDocument(new batasInput(40).getKata(MukosaKanan));
+        MukosaKiri.setDocument(new batasInput(40).getKata(MukosaKiri));
+        OsikelKanan.setDocument(new batasInput(40).getKata(OsikelKanan));
+        OsikelKiri.setDocument(new batasInput(40).getKata(OsikelKiri));
+        IsthmusKanan.setDocument(new batasInput(40).getKata(IsthmusKanan));
+        IsthmusKiri.setDocument(new batasInput(40).getKata(IsthmusKiri));
+        AnteriorKanan.setDocument(new batasInput(40).getKata(AnteriorKanan));
+        AnteriorKiri.setDocument(new batasInput(40).getKata(AnteriorKiri));
+        PosteriorKanan.setDocument(new batasInput(40).getKata(PosteriorKanan));
+        PosteriorKiri.setDocument(new batasInput(40).getKata(PosteriorKiri));
+        LainlainKanan.setDocument(new batasInput(100).getKata(LainlainKanan));
+        LainlainKiri.setDocument(new batasInput(100).getKata(LainlainKiri));
+        Kesimpulan.setDocument(new batasInput(300).getKata(Kesimpulan));
+        Anjuran.setDocument(new batasInput(300).getKata(Anjuran));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -2132,6 +2132,9 @@ public final class RMHasilEndoskopiTelinga extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2221,6 +2224,9 @@ public final class RMHasilEndoskopiTelinga extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KirimanDari.setText("");
         DiagnosaKlinis.setText("");
@@ -2331,6 +2337,9 @@ public final class RMHasilEndoskopiTelinga extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gethasil_endoskopi_telinga());
         BtnHapus.setEnabled(akses.gethasil_endoskopi_telinga());
@@ -2355,6 +2364,9 @@ public final class RMHasilEndoskopiTelinga extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

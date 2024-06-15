@@ -45,7 +45,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMHasilEndoskopiFaringLaring extends javax.swing.JDialog {
+public class RMHasilEndoskopiFaringLaring extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -131,24 +131,24 @@ public final class RMHasilEndoskopiFaringLaring extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        DindingPosterior.setDocument(new batasInput((int)50).getKata(DindingPosterior));
-        Uvula.setDocument(new batasInput((int)50).getKata(Uvula));
-        ArkusFaring.setDocument(new batasInput((int)50).getKata(ArkusFaring));
-        Tonsil.setDocument(new batasInput((int)50).getKata(Tonsil));
-        TonsilLingual.setDocument(new batasInput((int)50).getKata(TonsilLingual));
-        Valekula.setDocument(new batasInput((int)50).getKata(Valekula));
-        SinusPiriformis.setDocument(new batasInput((int)50).getKata(SinusPiriformis));
-        Epiglitos.setDocument(new batasInput((int)50).getKata(Epiglitos));
-        PlikaVentrikulais.setDocument(new batasInput((int)50).getKata(PlikaVentrikulais));
-        Arytenoid.setDocument(new batasInput((int)50).getKata(Arytenoid));
-        RimaVocalis.setDocument(new batasInput((int)50).getKata(RimaVocalis));
-        PitaSuara.setDocument(new batasInput((int)50).getKata(PitaSuara));
-        Lainlain.setDocument(new batasInput((int)50).getKata(Lainlain));
-        Kesan.setDocument(new batasInput((int)300).getKata(Kesan));
-        Saran.setDocument(new batasInput((int)300).getKata(Saran));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        DindingPosterior.setDocument(new batasInput(50).getKata(DindingPosterior));
+        Uvula.setDocument(new batasInput(50).getKata(Uvula));
+        ArkusFaring.setDocument(new batasInput(50).getKata(ArkusFaring));
+        Tonsil.setDocument(new batasInput(50).getKata(Tonsil));
+        TonsilLingual.setDocument(new batasInput(50).getKata(TonsilLingual));
+        Valekula.setDocument(new batasInput(50).getKata(Valekula));
+        SinusPiriformis.setDocument(new batasInput(50).getKata(SinusPiriformis));
+        Epiglitos.setDocument(new batasInput(50).getKata(Epiglitos));
+        PlikaVentrikulais.setDocument(new batasInput(50).getKata(PlikaVentrikulais));
+        Arytenoid.setDocument(new batasInput(50).getKata(Arytenoid));
+        RimaVocalis.setDocument(new batasInput(50).getKata(RimaVocalis));
+        PitaSuara.setDocument(new batasInput(50).getKata(PitaSuara));
+        Lainlain.setDocument(new batasInput(50).getKata(Lainlain));
+        Kesan.setDocument(new batasInput(300).getKata(Kesan));
+        Saran.setDocument(new batasInput(300).getKata(Saran));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1838,6 +1838,9 @@ public final class RMHasilEndoskopiFaringLaring extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KirimanDari.setText("");
         DiagnosaKlinis.setText("");
@@ -1950,6 +1953,9 @@ public final class RMHasilEndoskopiFaringLaring extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

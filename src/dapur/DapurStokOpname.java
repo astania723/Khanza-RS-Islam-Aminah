@@ -872,6 +872,10 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Stok;
     }
@@ -880,7 +884,9 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         return BtnKeluar;
     }
     
-        
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getdapur_opname());
         BtnPrint.setEnabled(akses.getdapur_opname()); 

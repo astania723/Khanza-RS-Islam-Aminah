@@ -859,10 +859,17 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbDokter;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getindustrifarmasi());
         BtnHapus.setEnabled(akses.getindustrifarmasi());

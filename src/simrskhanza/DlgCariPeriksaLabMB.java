@@ -2645,6 +2645,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }        
     }
     
+    /**
+     *
+     */
     public void tampil3(){        
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         try {
@@ -2877,6 +2880,10 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    /**
+     *
+     * @param norw
+     */
     public void SetNoRw(String norw){
         NoRawat.setText(norw);
         tampil();
@@ -2890,6 +2897,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         MnCetakHasilLab.setEnabled(akses.getpemeriksaan_lab_mb());
         MnCetakNota.setEnabled(akses.getpemeriksaan_lab_mb());

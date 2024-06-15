@@ -23,6 +23,10 @@ import kepegawaian.DlgCariDokter;
 import simrskhanza.DlgCariCaraBayar;
 import simrskhanza.DlgCariPoli;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgObatPeresep extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();

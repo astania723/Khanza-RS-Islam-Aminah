@@ -164,7 +164,13 @@ public class grafikagamaibu extends JDialog {
          sekuel Sequel = new sekuel();
          validasi Valid = new validasi();
          Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
-         public grafikagamaibu(String title,String symbol) {
+
+    /**
+     *
+     * @param title
+     * @param symbol
+     */
+    public grafikagamaibu(String title,String symbol) {
            // super(title);
            setTitle(title);
            JPanel chartPanel = createDemoPanel(symbol);

@@ -25,12 +25,20 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 import keuangan.Jurnal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPembelian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     public  InventoryCariSuplier suplier=new InventoryCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  DlgBarang barang=new DlgBarang(null,false);
     private PreparedStatement ps,ps2,pscaribeli,psdetailbeli;

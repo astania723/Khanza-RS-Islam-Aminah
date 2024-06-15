@@ -633,6 +633,9 @@ public class K3RSJenisCidera extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getjenis_cidera_k3rs());
        BtnHapus.setEnabled(akses.getjenis_cidera_k3rs());

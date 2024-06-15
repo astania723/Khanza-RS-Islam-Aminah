@@ -307,6 +307,9 @@ public class SuratMasuk extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScane(){
         Platform.setImplicitExit(false);
     }
@@ -394,6 +397,10 @@ public class SuratMasuk extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURLInput(String url) {  
         try {
             createSceneInput();
@@ -409,6 +416,9 @@ public class SuratMasuk extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScaneInput(){
         Platform.setImplicitExit(false);
     }
@@ -846,6 +856,9 @@ public class SuratMasuk extends javax.swing.JDialog {
     private widget.panelisi panelGlass8;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){        
         
     }

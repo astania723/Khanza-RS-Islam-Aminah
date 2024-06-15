@@ -41,7 +41,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgInputResepPulang extends javax.swing.JDialog {
+public class DlgInputResepPulang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1028,6 +1028,9 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.setText("");
         TCari.requestFocus();
@@ -1037,6 +1040,9 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnSimpan.setEnabled(akses.getresep_pulang());
         if(akses.getakses_depo_obat()==true){

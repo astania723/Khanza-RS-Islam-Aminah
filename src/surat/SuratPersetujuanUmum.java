@@ -37,7 +37,7 @@ import kepegawaian.DlgCariPetugas;
  * 
  * @author windiartohugroho
  */
-public final class SuratPersetujuanUmum extends javax.swing.JDialog {
+public class SuratPersetujuanUmum extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -48,6 +48,11 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private String finger="",lokasifile="";
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public SuratPersetujuanUmum(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -1297,6 +1302,9 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1454,7 +1462,9 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_persetujuan_umum());
         BtnHapus.setEnabled(akses.getsurat_persetujuan_umum());

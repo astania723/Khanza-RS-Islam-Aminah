@@ -2009,6 +2009,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2096,6 +2099,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TinggalSendiri.setSelectedIndex(0);
         RencanaPemulangan.setDate(new Date());
@@ -2222,6 +2228,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getperencanaan_pemulangan());
         BtnHapus.setEnabled(akses.getperencanaan_pemulangan());
@@ -2239,6 +2248,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

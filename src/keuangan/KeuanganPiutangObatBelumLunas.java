@@ -1029,6 +1029,9 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         BtnBayar.setEnabled(akses.getbayar_piutang());

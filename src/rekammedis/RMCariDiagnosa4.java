@@ -377,6 +377,10 @@ public class RMCariDiagnosa4 extends javax.swing.JDialog {
         TCari.requestFocus();
     }
     
+    /**
+     *
+     * @param norawat
+     */
     public void setNoRawat(String norawat){
         this.norawat=norawat;
     }

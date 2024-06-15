@@ -53,6 +53,10 @@ import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariPoli;
 import simrskhanza.DlgPeriksaLaboratorium;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPermintaanLab extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2,tabMode3,tabMode4;
     private sekuel Sequel=new sekuel();
@@ -4145,6 +4149,9 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         Ruang="";
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnCetakHasilLab.setEnabled(akses.getpermintaan_lab());
         BtnHasil.setEnabled(akses.getperiksa_lab());
@@ -4161,10 +4168,17 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         BtnAmbilLISMADQLAB.setEnabled(akses.getperiksa_lab());
     }
     
+    /**
+     *
+     * @param pasien
+     */
     public void setPasien(String pasien){
         TCari.setText(pasien);
     }
 
+    /**
+     *
+     */
     public void pilihTab(){
         if(TabPilihRawat.getSelectedIndex()==0){
             pilihRalan();
@@ -4173,6 +4187,9 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }
     }
     
+    /**
+     *
+     */
     public void pilihRalan(){
         if(TabRawatJalan.getSelectedIndex()==0){
             tampil();

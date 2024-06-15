@@ -40,6 +40,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPegawai;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgIKBBayi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeAPGAR;
     private sekuel Sequel=new sekuel();
@@ -4053,6 +4057,9 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         jkelcari=""; tglcari="";
         if(! cmbCrJk.getSelectedItem().toString().equals("SEMUA")){
@@ -4251,7 +4258,10 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
 
-
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoRm;
     }
@@ -4260,6 +4270,17 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         return BtnKeluar;
     }
 
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param ibubayi
+     * @param alamatibu
+     * @param jkel
+     * @param umur
+     * @param tgllhir
+     * @param daftar
+     */
     public void setNoRM(String norm,String nama,String ibubayi,String alamatibu,
             String jkel,String umur,Date tgllhir,Date daftar){
         NoRm.setText(norm);
@@ -4277,6 +4298,9 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         autoSKL();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getkelahiran_bayi());
         BtnHapus.setEnabled(akses.getkelahiran_bayi());

@@ -1070,6 +1070,9 @@ public class DlgAuditCuciTanganMedis extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Nip.setText("");
         NamaPetugas.setText("");
@@ -1111,6 +1114,9 @@ public class DlgAuditCuciTanganMedis extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_cuci_tangan_medis());
         BtnHapus.setEnabled(akses.getaudit_cuci_tangan_medis());

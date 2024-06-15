@@ -727,6 +727,9 @@ public class DlgBangsal extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -750,6 +753,9 @@ public class DlgBangsal extends javax.swing.JDialog {
         return tbBangsal;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getkode().equals("Admin Utama")){
             MnRestore.setEnabled(true);

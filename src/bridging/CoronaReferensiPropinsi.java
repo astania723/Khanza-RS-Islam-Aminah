@@ -342,6 +342,10 @@ public class CoronaReferensiPropinsi extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     * @param cari
+     */
     public void setCari(String cari){
         TCari.setText(cari);
     }

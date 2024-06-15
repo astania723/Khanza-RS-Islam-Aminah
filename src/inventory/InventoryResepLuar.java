@@ -1296,6 +1296,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbResep;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampilobat() {        
         z=0;
         for(i=0;i<tbResep.getRowCount();i++){
@@ -1381,6 +1384,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }            
     }
 
+    /**
+     *
+     */
     public void emptTeksobat() {
         if(ChkRM.isSelected()==true){
             Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(resep_luar.no_resep,3),signed)),0) from resep_luar where resep_luar.tgl_perawatan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' ",
@@ -1388,6 +1394,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbResep;
     }
@@ -1396,6 +1406,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         return BtnSimpan;
     }
     
+    /**
+     *
+     */
     public void isCek(){   
         BtnTambah.setEnabled(akses.getresep_luar());
         TCari.requestFocus();
@@ -1655,6 +1668,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     */
     public void MatikanJam(){
         ChkJln.setSelected(false);
     }

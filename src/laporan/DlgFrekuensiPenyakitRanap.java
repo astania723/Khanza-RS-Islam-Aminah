@@ -35,6 +35,10 @@ import simrskhanza.DlgKabupaten;
 import simrskhanza.DlgKecamatan;
 import simrskhanza.DlgKelurahan;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgFrekuensiPenyakitRanap extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();

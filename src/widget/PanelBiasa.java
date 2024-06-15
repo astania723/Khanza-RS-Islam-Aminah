@@ -33,6 +33,10 @@ public class PanelBiasa extends JPanel{
     //private Color warnaAtas = new Color(255,194,255);
     //private Color warnaBawah = new Color(255,194,255);
 
+    /**
+     *
+     */
+
     public PanelBiasa(){
         super();
         this.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(239,244,234)));
@@ -47,6 +51,10 @@ public class PanelBiasa extends JPanel{
         return warnaAtas;
     }
 
+    /**
+     *
+     * @param warnaAtas
+     */
     public void setWarnaAtas(Color warnaAtas) {
         this.warnaAtas = warnaAtas;
     }
@@ -55,10 +63,18 @@ public class PanelBiasa extends JPanel{
         return warnaBawah;
     }
 
+    /**
+     *
+     * @param warnaBawah
+     */
     public void setWarnaBawah(Color warnaBawah) {
         this.warnaBawah = warnaBawah;
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
          super.paintComponent(g);
@@ -108,6 +124,9 @@ public class PanelBiasa extends JPanel{
 
     }
 
+    /**
+     *
+     */
     protected void createImageCache() {
         int width = 2;
         int height = getHeight();

@@ -37,7 +37,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgAkunBayar extends javax.swing.JDialog {
+public class DlgAkunBayar extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -799,7 +799,9 @@ private void BtnPoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         LCount.setText(""+tabMode.getRowCount());
     }
 
-
+    /**
+     *
+     */
     public void emptTeks() {
        nmrek.setText("");
        kdrek.setText("");

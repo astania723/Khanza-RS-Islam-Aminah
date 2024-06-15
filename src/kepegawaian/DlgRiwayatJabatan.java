@@ -64,6 +64,11 @@ public class DlgRiwayatJabatan extends javax.swing.JDialog {
     private final Properties prop = new Properties(); 
     private final validasi Valid=new validasi();
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DlgRiwayatJabatan(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -189,6 +194,10 @@ public class DlgRiwayatJabatan extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         try {
             createScene();

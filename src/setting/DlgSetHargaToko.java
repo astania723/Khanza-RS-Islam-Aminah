@@ -497,6 +497,9 @@ public class DlgSetHargaToko extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Distributor.setText("");
         Grosir.setText("");

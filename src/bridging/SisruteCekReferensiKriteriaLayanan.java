@@ -277,6 +277,10 @@ public class SisruteCekReferensiKriteriaLayanan extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param faskes
+     */
     public void tampil(String faskes) {
         try {
             URL = link+"/rsonline/referensi/kategorilayanan";

@@ -49,7 +49,7 @@ import keuangan.Jurnal;
  *
  * @author dosen
  */
-public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
+public class DlgPeriksaLaboratorium extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
     private Connection koneksisysmex;
@@ -2367,6 +2367,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         KodePj.requestFocus();  
     }
     
+    /**
+     *
+     */
     public void onCari(){
         KodePj.requestFocus(); 
     }
@@ -2438,6 +2441,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         TUmur.setText(Umur.getText());
     }
     
+    /**
+     *
+     */
     public void isReset(){
         jml=tbTarif.getRowCount();
         for(i=0;i<jml;i++){ 
@@ -2828,6 +2834,12 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampilELIMS(order);
     }
     
+    /**
+     *
+     * @param order
+     * @param norawat
+     * @param posisi
+     */
     public void setOrderVANSLAB(String order,String norawat,String posisi){
         noorder=order;
         TNoRw.setText(norawat);
@@ -2890,6 +2902,12 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampilLICA(order);
     }
     
+    /**
+     *
+     * @param order
+     * @param norawat
+     * @param posisi
+     */
     public void setOrderSOFTMEDIX(String order,String norawat,String posisi){
         noorder=order;
         TNoRw.setText(norawat);
@@ -2921,6 +2939,12 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampilSOFTMEDIX(order);
     }
     
+    /**
+     *
+     * @param order
+     * @param norawat
+     * @param posisi
+     */
     public void setOrderMEDQLAB(String order,String norawat,String posisi){
         noorder=order;
         TNoRw.setText(norawat);

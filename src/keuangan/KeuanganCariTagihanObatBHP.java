@@ -27,6 +27,10 @@ public class KeuanganCariTagihanObatBHP extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPetugas pegawai=new DlgCariPetugas(null,false);
     private PreparedStatement ps,ps2;
     private ResultSet rs,rs2;
@@ -890,6 +894,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
               
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.setText("");
         NoTagihan.setText("");
@@ -898,6 +905,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         TCari.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         MnHapusTagihan.setEnabled(akses.gettagihan_hutang_obat());

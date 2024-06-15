@@ -24,7 +24,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariPegawai extends javax.swing.JDialog {
+public class DlgCariPegawai extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -429,6 +429,9 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");   
         TCari.requestFocus();
@@ -467,6 +470,11 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         }
     } 
     
+    /**
+     *
+     * @param kode
+     * @return
+     */
     public String tampil3(String kode) {
         try {
             if(Valid.daysOld("./cache/pegawai.iyem")>7){
@@ -501,6 +509,11 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         return iyem;
     }
     
+    /**
+     *
+     * @param kode
+     * @return
+     */
     public String tampilJbatan(String kode) {
         try {
             if(Valid.daysOld("./cache/pegawai.iyem")>7){
@@ -535,6 +548,11 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         return iyem;
     }
     
+    /**
+     *
+     * @param kode
+     * @return
+     */
     public String tampilDepartemen(String kode) {
         try {
             if(Valid.daysOld("./cache/pegawai.iyem")>7){

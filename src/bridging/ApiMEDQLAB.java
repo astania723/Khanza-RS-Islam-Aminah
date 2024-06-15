@@ -30,6 +30,10 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiMEDQLAB {        
     private Connection koneksi=koneksiDB.condb();
     private String Consid,Secretkey;
@@ -44,6 +48,9 @@ public class ApiMEDQLAB {
     private ObjectMapper mapper = new ObjectMapper();
     private int i=0;
     
+    /**
+     *
+     */
     public ApiMEDQLAB(){
         try {                   
             Secretkey = koneksiDB.SECRETKEYAPIMEDQLAB();
@@ -53,6 +60,11 @@ public class ApiMEDQLAB {
             System.out.println("Notifikasi : "+ex);
         }
     }
+
+    /**
+     *
+     * @return
+     */
     public String getSignature() {        
         String generateHmacSHA256Signature = null;
 	try {
@@ -64,6 +76,13 @@ public class ApiMEDQLAB {
 	return generateHmacSHA256Signature;
     }
 
+    /**
+     *
+     * @param data
+     * @param key
+     * @return
+     * @throws GeneralSecurityException
+     */
     public String generateHmacSHA256Signature(String data, String key)throws GeneralSecurityException {
 	byte[] hmacData = null;
 
@@ -79,6 +98,10 @@ public class ApiMEDQLAB {
 	}
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         long millis = System.currentTimeMillis();   
         return millis/1000;
@@ -355,6 +378,10 @@ public class ApiMEDQLAB {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void ambil(String nopermintaan) {
         try {
             headers = new HttpHeaders();
@@ -467,6 +494,12 @@ public class ApiMEDQLAB {
         }
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

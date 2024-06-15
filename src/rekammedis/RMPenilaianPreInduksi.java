@@ -41,7 +41,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
+public class RMPenilaianPreInduksi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -2587,6 +2587,9 @@ public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TD.setText("");
         Nadi.setText("");
@@ -2717,6 +2720,11 @@ public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2724,6 +2732,9 @@ public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_pre_induksi());
         BtnHapus.setEnabled(akses.getpenilaian_pre_induksi());

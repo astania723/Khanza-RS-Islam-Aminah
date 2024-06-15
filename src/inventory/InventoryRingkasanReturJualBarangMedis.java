@@ -23,11 +23,19 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventoryRingkasanReturJualBarangMedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private double ttlretur=0;
     private Connection koneksi=koneksiDB.condb();
@@ -1181,6 +1189,9 @@ public class InventoryRingkasanReturJualBarangMedis extends javax.swing.JDialog 
         
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getringkasan_retur_pembeli_obat());
     }

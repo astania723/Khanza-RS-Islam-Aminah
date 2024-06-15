@@ -1404,6 +1404,9 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }            
     }
     
+    /**
+     *
+     */
     public void isCek(){  
         autonomor();
         Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi",kdgudang);
@@ -1420,6 +1423,11 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }        
     }
     
+    /**
+     *
+     * @param norm
+     * @param norawat
+     */
     public void setPasien(String norm,String norawat){
         kdmem.setText(norm);
         this.norawat=norawat;

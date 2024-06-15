@@ -749,6 +749,9 @@ private void JumlahKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Ju
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         NmBiaya.setText("");
         kdkamar.setText("");
@@ -770,6 +773,10 @@ private void JumlahKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Ju
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NmBiaya;
     }

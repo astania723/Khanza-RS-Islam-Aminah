@@ -407,6 +407,12 @@ public class BPJSCekReferensiKecamatan extends javax.swing.JDialog {
         }
     }    
     
+    /**
+     *
+     * @param poli
+     * @param kabupaten
+     * @return
+     */
     public String tampilKan(String poli,String kabupaten) {
         try {
             headers = new HttpHeaders();
@@ -447,6 +453,11 @@ public class BPJSCekReferensiKecamatan extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     * @param KdKab
+     * @param NmKab
+     */
     public void setPropinsi(String KdKab,String NmKab){
         this.KdKab.setText(KdKab);
         this.NmKab.setText(NmKab);

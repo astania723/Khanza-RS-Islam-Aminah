@@ -85,6 +85,7 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 	<field name="tgl_lahir" class="java.lang.String"/>
 	<field name="no_peserta" class="java.lang.String"/>
 	<field name="no_sep" class="java.lang.String"/>
+	<field name="prb" class="java.lang.String"/>
 	<detail>
 		<band height="416" splitType="Stretch">
 			<textField>
@@ -270,10 +271,10 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 			<textField>
 				<reportElement x="73" y="250" width="160" height="18" uuid="0abca12d-402f-49ff-a591-70767609441b"/>
 				<textElement>
-					<font fontName="Tahoma" size="11"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[": "+$F{no_reg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[": "+$F{no_reg}+" / "+$F{prb}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="73" y="287" width="160" height="18" uuid="e123409b-6d9a-41ce-bb9f-20693742816a"/>
@@ -396,19 +397,6 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 				</textElement>
 				<text><![CDATA[Resep Pulang]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement x="190" y="304" width="15" height="8" uuid="45053bd3-e62b-4437-943d-38c75fd15a42">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-			</rectangle>
-			<staticText>
-				<reportElement x="210" y="304" width="22" height="12" uuid="1180a864-0c6e-4500-a386-871f0bbb882c"/>
-				<textElement>
-					<font fontName="Tahoma" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[PRB]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="0" y="330" width="232" height="80" uuid="e2047213-5c77-4c0c-a2e6-4d2118abfda2"/>
 				<textElement textAlignment="Center">
@@ -424,6 +412,32 @@ Terima Kasih Atas Kepercayaan Anda]]></text>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 			</line>
+			<rectangle>
+				<reportElement x="90" y="317" width="15" height="8" uuid="e9e9cb98-30a1-489e-9557-ac66206c9330">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="110" y="317" width="30" height="12" uuid="a6eca2eb-f6d7-4523-b052-5774be565410"/>
+				<textElement>
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Iter]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="187" y="305" width="15" height="8" uuid="ba6e8360-088e-4613-b692-3089a5a69455">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="207" y="305" width="24" height="12" uuid="30bfcdb6-86f5-4158-9c50-494f47d10746"/>
+				<textElement>
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRB]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<summary>

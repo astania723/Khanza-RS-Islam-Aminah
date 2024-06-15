@@ -2021,6 +2021,9 @@ public class RMSkriningMPPFormA extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglEvaluasi.setDate(new Date());
         KdDok1.setText("");
@@ -2132,6 +2135,11 @@ public class RMSkriningMPPFormA extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2139,7 +2147,9 @@ public class RMSkriningMPPFormA extends javax.swing.JDialog {
         isRawat(); 
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getmpp_skrining());
         BtnHapus.setEnabled(akses.getmpp_skrining());

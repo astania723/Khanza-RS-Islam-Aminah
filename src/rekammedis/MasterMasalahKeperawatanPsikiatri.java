@@ -641,6 +641,9 @@ public class MasterMasalahKeperawatanPsikiatri extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getmaster_masalah_keperawatan_psikiatri());
        BtnHapus.setEnabled(akses.getmaster_masalah_keperawatan_psikiatri());

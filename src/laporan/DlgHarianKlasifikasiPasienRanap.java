@@ -23,6 +23,10 @@ import javax.swing.text.html.StyleSheet;
 import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgHarianKlasifikasiPasienRanap extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -633,6 +637,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         BtnPrint.setEnabled(akses.getharian_klasifikasi_pasien_ranap());
     }
 
+    /**
+     *
+     */
     public void tampil() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

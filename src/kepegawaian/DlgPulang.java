@@ -31,7 +31,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgPulang extends javax.swing.JDialog {
+public class DlgPulang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -582,6 +582,9 @@ public final class DlgPulang extends javax.swing.JDialog {
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         Valid.tabelKosong(tabMode);
         try{            
@@ -628,6 +631,9 @@ public final class DlgPulang extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         catatan.setText("");
         id_pegawai.setText("");

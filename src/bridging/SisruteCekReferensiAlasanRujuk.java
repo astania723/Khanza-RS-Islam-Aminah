@@ -327,6 +327,10 @@ public class SisruteCekReferensiAlasanRujuk extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param faskes
+     */
     public void tampil(String faskes) {
         try {
             URL = link+"/referensi/alasanrujukan";
@@ -370,7 +374,10 @@ public class SisruteCekReferensiAlasanRujuk extends javax.swing.JDialog {
         }
     }    
     
- 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

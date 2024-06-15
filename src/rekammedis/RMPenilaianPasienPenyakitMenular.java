@@ -41,7 +41,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
+public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -128,17 +128,17 @@ public final class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog 
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KeteranganRiwayatKontak.setDocument(new batasInput((int)70).getKata(KeteranganRiwayatKontak));
-        KeteranganTransmisiPenularan.setDocument(new batasInput((int)70).getKata(KeteranganTransmisiPenularan));
-        KeluhanYangDirasakan.setDocument(new batasInput((int)1000).getKata(KeluhanYangDirasakan));
-        RiwayatPenyakitKeluarga.setDocument(new batasInput((int)1000).getKata(RiwayatPenyakitKeluarga));
-        RiwayatAlergi.setDocument(new batasInput((int)100).getKata(RiwayatAlergi));
-        RiwayatVaksin.setDocument(new batasInput((int)100).getKata(RiwayatVaksin));
-        RiwayatPengobatan.setDocument(new batasInput((int)1000).getKata(RiwayatPengobatan));
-        DiagnosaUtama.setDocument(new batasInput((int)500).getKata(DiagnosaUtama));
-        DiagnosaTambahan.setDocument(new batasInput((int)500).getKata(DiagnosaTambahan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KeteranganRiwayatKontak.setDocument(new batasInput(70).getKata(KeteranganRiwayatKontak));
+        KeteranganTransmisiPenularan.setDocument(new batasInput(70).getKata(KeteranganTransmisiPenularan));
+        KeluhanYangDirasakan.setDocument(new batasInput(1000).getKata(KeluhanYangDirasakan));
+        RiwayatPenyakitKeluarga.setDocument(new batasInput(1000).getKata(RiwayatPenyakitKeluarga));
+        RiwayatAlergi.setDocument(new batasInput(100).getKata(RiwayatAlergi));
+        RiwayatVaksin.setDocument(new batasInput(100).getKata(RiwayatVaksin));
+        RiwayatPengobatan.setDocument(new batasInput(1000).getKata(RiwayatPengobatan));
+        DiagnosaUtama.setDocument(new batasInput(500).getKata(DiagnosaUtama));
+        DiagnosaTambahan.setDocument(new batasInput(500).getKata(DiagnosaTambahan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1544,6 +1544,9 @@ public final class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog 
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1613,6 +1616,9 @@ public final class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog 
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -1717,6 +1723,9 @@ public final class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog 
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

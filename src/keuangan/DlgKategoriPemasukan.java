@@ -918,6 +918,9 @@ private void NmAkunKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Nm
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         asalform=akses.getform();       
         BtnSimpan.setEnabled(akses.getkategori_pemasukan_lain());

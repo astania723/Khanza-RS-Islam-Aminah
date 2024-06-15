@@ -43,7 +43,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author dosen
  */
-public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
+public class DlgPermintaanLaboratorium extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2,tabMode3,tabModeMB,tabModeDetailMB;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -2241,6 +2241,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         autoNomor3();
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus(); 
     }
@@ -2378,6 +2381,11 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         new Timer(1000, taskPerformer).start();
     }
 
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     */
     public void setNoRm(String norwt,String posisi) {
         TNoRw.setText(norwt);
         this.status=posisi;
@@ -2386,6 +2394,13 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isReset();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     * @param kddokter
+     * @param nmdokter
+     */
     public void setNoRm(String norwt,String posisi,String kddokter,String nmdokter) {
         TNoRw.setText(norwt);
         this.status=posisi;

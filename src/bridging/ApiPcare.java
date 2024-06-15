@@ -46,6 +46,10 @@ public class ApiPcare {
         }        
     }
     
+    /**
+     *
+     * @return
+     */
     public String getHmac() {        
         long GetUTCdatetimeAsString = GetUTCdatetimeAsString();
         salt = Consid +"&"+String.valueOf(GetUTCdatetimeAsString);
@@ -59,6 +63,13 @@ public class ApiPcare {
 	return generateHmacSHA256Signature;
     }
 
+    /**
+     *
+     * @param data
+     * @param key
+     * @return
+     * @throws GeneralSecurityException
+     */
     public String generateHmacSHA256Signature(String data, String key)throws GeneralSecurityException {
 	hmacData = null;
 
@@ -83,11 +94,21 @@ public class ApiPcare {
         return data;
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

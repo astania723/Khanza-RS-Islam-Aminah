@@ -3620,6 +3620,14 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil2();
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param posisi
+     * @param KodeOperator
+     * @param NamaOperator
+     */
     public void setNoRm(String norm,String nama,String posisi,String KodeOperator,String NamaOperator){
         TNoRw.setText(norm);
         TPasien.setText(nama);

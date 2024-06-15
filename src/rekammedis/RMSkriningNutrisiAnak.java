@@ -1800,6 +1800,9 @@ public class RMSkriningNutrisiAnak extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1937,6 +1940,11 @@ public class RMSkriningNutrisiAnak extends javax.swing.JDialog {
         Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=? ",TglLahir,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1969,6 +1977,9 @@ public class RMSkriningNutrisiAnak extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getskrining_nutrisi_anak());
         BtnHapus.setEnabled(akses.getskrining_nutrisi_anak());

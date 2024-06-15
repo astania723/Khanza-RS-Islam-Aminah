@@ -419,6 +419,9 @@ public class MasterCariTemplateLaporanOperasi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -428,6 +431,9 @@ public class MasterCariTemplateLaporanOperasi extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.gettemplate_laporan_operasi());
     }

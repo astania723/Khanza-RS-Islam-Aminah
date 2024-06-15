@@ -791,6 +791,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
 
+    /**
+     *
+     */
     public void tampil2(){        
         try {
             headers = new HttpHeaders();
@@ -923,6 +926,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnCari1.setEnabled(akses.getbpjs_sep());
     }

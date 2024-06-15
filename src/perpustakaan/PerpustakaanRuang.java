@@ -628,6 +628,10 @@ public class PerpustakaanRuang extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

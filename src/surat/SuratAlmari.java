@@ -697,14 +697,25 @@ public class SuratAlmari extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbBangsal;
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_almari());
         BtnHapus.setEnabled(akses.getsurat_almari());

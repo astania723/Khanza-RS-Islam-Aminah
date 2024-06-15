@@ -686,6 +686,10 @@ public class DlgRuangOperasi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }

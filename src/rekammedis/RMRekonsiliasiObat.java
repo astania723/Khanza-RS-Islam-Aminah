@@ -1011,6 +1011,9 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
     private widget.Table tbPemeriksaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         AlergiObat.setText("");
@@ -1076,6 +1079,10 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
         new Timer(1000, taskPerformer).start();
     } 
     
+    /**
+     *
+     * @param norwt
+     */
     public void setNoRm(String norwt) {
         TNoRw.setText(norwt);   
         try {
@@ -1106,6 +1113,9 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnSimpan.setEnabled(akses.getrekonsiliasi_obat());
         if(akses.getjml2()>=1){

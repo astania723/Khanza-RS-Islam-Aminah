@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class ApotekBPJSKunjunganSEP extends javax.swing.JDialog {
+public class ApotekBPJSKunjunganSEP extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();

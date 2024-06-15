@@ -29,6 +29,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import keuangan.Jurnal;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class TokoPembelian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -45,6 +49,10 @@ public class TokoPembelian extends javax.swing.JDialog {
     private String[] kodebarang,namabarang,satuan;
     private double[] h_beli,jumlah,subtotal,diskon,besardiskon,jmltotal,dasar,distributor,grosir,retail;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public boolean tampikan=true;
     private boolean sukses=true;
     private String akunbayar,akunpembelian=Sequel.cariIsi("select set_akun.Pengadaan_Toko from set_akun"),PPN_Masukan=Sequel.cariIsi("select set_akun.PPN_Masukan from set_akun");

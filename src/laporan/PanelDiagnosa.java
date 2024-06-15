@@ -39,7 +39,22 @@ public class PanelDiagnosa extends widget.panelisi {
     private int jml=0,i=0,index=0;
     private String[] kode,nama,ciripny,keterangan,kategori,cirium,kode2,panjang,pendek;
     private boolean[] pilih;
-    public String norawat="",status="",norm="",tanggal1="",tanggal2="",keyword="";
+    public String norawat="",
+
+    /**
+     *
+     */
+    status="",
+
+    /**
+     *
+     */
+    norm="",tanggal1="",
+
+    /**
+     *
+     */
+    tanggal2="",keyword="";
     /**
      * Creates new form panelDiagnosa
      */
@@ -785,6 +800,9 @@ public class PanelDiagnosa extends widget.panelisi {
         }
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         Valid.tabelKosong(TabModeTindakanPasien);
         try{            
@@ -1016,6 +1034,9 @@ public class PanelDiagnosa extends widget.panelisi {
         Prosedur.setText("");
     }
     
+    /**
+     *
+     */
     public void hapus(){
         if(TabRawat.getSelectedIndex()==1){
             if(TabModeDiagnosaPasien.getRowCount()==0){

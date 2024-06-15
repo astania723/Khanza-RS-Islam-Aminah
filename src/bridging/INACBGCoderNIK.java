@@ -690,6 +690,9 @@ public class INACBGCoderNIK extends javax.swing.JDialog {
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getinacbg_coder_nik());
         BtnHapus.setEnabled(akses.getinacbg_coder_nik());

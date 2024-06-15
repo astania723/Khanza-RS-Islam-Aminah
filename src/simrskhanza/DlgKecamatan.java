@@ -575,6 +575,11 @@ public class DlgKecamatan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     * @param nama
+     * @return
+     */
     public String tampil3(String nama) {
         try {
             if(Valid.daysOld("./cache/masterkecamatan.iyem")>7){
@@ -609,6 +614,9 @@ public class DlgKecamatan extends javax.swing.JDialog {
         return iyem;
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         Nama.requestFocus();
@@ -624,6 +632,9 @@ public class DlgKecamatan extends javax.swing.JDialog {
         return tbkecamatan;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.setText("");
         TCari.requestFocus();

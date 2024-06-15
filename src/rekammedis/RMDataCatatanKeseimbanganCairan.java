@@ -39,7 +39,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMDataCatatanKeseimbanganCairan extends javax.swing.JDialog {
+public class RMDataCatatanKeseimbanganCairan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -125,7 +125,7 @@ public final class RMDataCatatanKeseimbanganCairan extends javax.swing.JDialog {
         NGT.setDocument(new batasInput((byte)4).getOnlyAngka(NGT));
         IWL.setDocument(new batasInput((byte)4).getOnlyAngka(IWL));
         Keseimbangan.setDocument(new batasInput((byte)4).getOnlyAngka(Keseimbangan));
-        Keterangan.setDocument(new batasInput((int)200).getKata(Keterangan));
+        Keterangan.setDocument(new batasInput(200).getKata(Keterangan));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1396,6 +1396,9 @@ public final class RMDataCatatanKeseimbanganCairan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Infus.setText("0");
         Tranfusi.setText("0");

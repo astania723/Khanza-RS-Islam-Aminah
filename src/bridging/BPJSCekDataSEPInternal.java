@@ -421,6 +421,10 @@ public class BPJSCekDataSEPInternal extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param nomorkartu
+     */
     public void tampil(String nomorkartu) {
         try {
             headers = new HttpHeaders();
@@ -463,7 +467,15 @@ public class BPJSCekDataSEPInternal extends javax.swing.JDialog {
         NoSEP.setText(nosep);
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);

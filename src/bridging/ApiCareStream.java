@@ -43,6 +43,9 @@ public class ApiCareStream {
     private JsonNode response;
     private ObjectMapper mapper = new ObjectMapper();
     
+    /**
+     *
+     */
     public ApiCareStream(){
         super();
         try {
@@ -52,6 +55,10 @@ public class ApiCareStream {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void kirimRalan(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -131,6 +138,10 @@ public class ApiCareStream {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void kirimRanap(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -212,6 +223,12 @@ public class ApiCareStream {
         }
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

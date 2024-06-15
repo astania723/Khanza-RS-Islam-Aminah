@@ -1236,6 +1236,9 @@ public class InventoryCariResepLuar extends javax.swing.JDialog {
         Valid.SetTgl2(DTPCari2,format.format(tgl1)+" 23:59:59");
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getresep_luar());
         BtnPrint.setEnabled(akses.getresep_luar());

@@ -44,7 +44,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
+public class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -140,16 +140,16 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        Irama.setDocument(new batasInput((int)40).getKata(Irama));
-        LajuJantung.setDocument(new batasInput((int)30).getKata(LajuJantung));
-        GelombangP.setDocument(new batasInput((int)15).getKata(GelombangP));
-        IntervalPR.setDocument(new batasInput((int)50).getKata(IntervalPR));
-        Axis.setDocument(new batasInput((int)60).getKata(Axis));
-        KompleksQRS.setDocument(new batasInput((int)60).getKata(KompleksQRS));
-        Kesimpulan.setDocument(new batasInput((int)200).getKata(Kesimpulan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        Irama.setDocument(new batasInput(40).getKata(Irama));
+        LajuJantung.setDocument(new batasInput(30).getKata(LajuJantung));
+        GelombangP.setDocument(new batasInput(15).getKata(GelombangP));
+        IntervalPR.setDocument(new batasInput(50).getKata(IntervalPR));
+        Axis.setDocument(new batasInput(60).getKata(Axis));
+        KompleksQRS.setDocument(new batasInput(60).getKata(KompleksQRS));
+        Kesimpulan.setDocument(new batasInput(200).getKata(Kesimpulan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1583,6 +1583,9 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1718,6 +1721,11 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1725,6 +1733,9 @@ public final class RMHasilPemeriksaanEKG extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gethasil_pemeriksaan_ekg());
         BtnHapus.setEnabled(akses.gethasil_pemeriksaan_ekg());

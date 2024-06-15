@@ -1048,10 +1048,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return TKd;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTabel(){
         return tbPenyakit;
     }
@@ -1070,6 +1078,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenyakit());
         BtnHapus.setEnabled(akses.getpenyakit());

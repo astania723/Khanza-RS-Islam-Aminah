@@ -31,6 +31,10 @@ public class DapurCariPengeluaran extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DapurBarang barang=new DapurBarang(null,false);
     private riwayatdapur Trackbarang=new riwayatdapur();
     private PreparedStatement ps,ps2,psdetailpengeluaran;
@@ -1023,12 +1027,18 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getdapur_stok_keluar());
     }

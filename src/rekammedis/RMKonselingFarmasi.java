@@ -39,7 +39,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMKonselingFarmasi extends javax.swing.JDialog {
+public class RMKonselingFarmasi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -107,13 +107,13 @@ public final class RMKonselingFarmasi extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdPetugas.setDocument(new batasInput((byte)20).getKata(KdPetugas));
-        Diagnosa.setDocument(new batasInput((int)40).getKata(Diagnosa));
-        Alergi.setDocument(new batasInput((int)30).getKata(Alergi));
-        ObatPemakaian.setDocument(new batasInput((int)700).getKata(ObatPemakaian));
-        Keluhan.setDocument(new batasInput((int)300).getKata(Keluhan));
-        TindakLanjut.setDocument(new batasInput((int)400).getKata(TindakLanjut));
+        Diagnosa.setDocument(new batasInput(40).getKata(Diagnosa));
+        Alergi.setDocument(new batasInput(30).getKata(Alergi));
+        ObatPemakaian.setDocument(new batasInput(700).getKata(ObatPemakaian));
+        Keluhan.setDocument(new batasInput(300).getKata(Keluhan));
+        TindakLanjut.setDocument(new batasInput(400).getKata(TindakLanjut));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1228,6 +1228,9 @@ public final class RMKonselingFarmasi extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1378,6 +1381,9 @@ public final class RMKonselingFarmasi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getkonseling_farmasi());
         BtnHapus.setEnabled(akses.getkonseling_farmasi());

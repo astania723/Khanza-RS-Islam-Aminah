@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class SatuSehatKirimSpecimenLabMB extends javax.swing.JDialog {
+public class SatuSehatKirimSpecimenLabMB extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();

@@ -611,6 +611,9 @@ public class DlgRuangAuditKepatuhan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -631,6 +634,9 @@ public class DlgRuangAuditKepatuhan extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getruang_audit_kepatuhan());
        BtnHapus.setEnabled(akses.getruang_audit_kepatuhan());

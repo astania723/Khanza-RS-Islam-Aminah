@@ -45,7 +45,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
+public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -155,22 +155,22 @@ public final class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        HTA.setDocument(new batasInput((int)40).getKata(HTA));
-        JenisPrestasi.setDocument(new batasInput((int)30).getKata(JenisPrestasi));
-        UkuranKantong.setDocument(new batasInput((int)6).getKata(UkuranKantong));
-        UkuranBokong.setDocument(new batasInput((int)6).getKata(UkuranBokong));
-        DiameterBiparietal.setDocument(new batasInput((int)6).getKata(DiameterBiparietal));
-        PanjangFemur.setDocument(new batasInput((int)6).getKata(PanjangFemur));
-        LingkarAbdomen.setDocument(new batasInput((int)6).getKata(LingkarAbdomen));
-        TafsiranBerat.setDocument(new batasInput((int)6).getKata(TafsiranBerat));
-        UsiaKehamilan.setDocument(new batasInput((int)15).getKata(UsiaKehamilan));
-        Plasenta.setDocument(new batasInput((int)50).getKata(Plasenta));
-        IndexCairan.setDocument(new batasInput((int)40).getKata(IndexCairan));
-        Kelainan.setDocument(new batasInput((int)60).getKata(Kelainan));
-        Kesimpulan.setDocument(new batasInput((int)200).getKata(Kesimpulan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        HTA.setDocument(new batasInput(40).getKata(HTA));
+        JenisPrestasi.setDocument(new batasInput(30).getKata(JenisPrestasi));
+        UkuranKantong.setDocument(new batasInput(6).getKata(UkuranKantong));
+        UkuranBokong.setDocument(new batasInput(6).getKata(UkuranBokong));
+        DiameterBiparietal.setDocument(new batasInput(6).getKata(DiameterBiparietal));
+        PanjangFemur.setDocument(new batasInput(6).getKata(PanjangFemur));
+        LingkarAbdomen.setDocument(new batasInput(6).getKata(LingkarAbdomen));
+        TafsiranBerat.setDocument(new batasInput(6).getKata(TafsiranBerat));
+        UsiaKehamilan.setDocument(new batasInput(15).getKata(UsiaKehamilan));
+        Plasenta.setDocument(new batasInput(50).getKata(Plasenta));
+        IndexCairan.setDocument(new batasInput(40).getKata(IndexCairan));
+        Kelainan.setDocument(new batasInput(60).getKata(Kelainan));
+        Kesimpulan.setDocument(new batasInput(200).getKata(Kesimpulan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1777,6 +1777,9 @@ public final class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1939,6 +1942,9 @@ public final class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gethasil_pemeriksaan_usg());
         BtnHapus.setEnabled(akses.gethasil_pemeriksaan_usg());

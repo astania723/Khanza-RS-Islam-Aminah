@@ -1695,6 +1695,9 @@ public class RMSkriningMPP extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1770,6 +1773,9 @@ public class RMSkriningMPP extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglSkrining.setDate(new Date());
         Param1Tidak.setSelected(true);
@@ -1921,6 +1927,11 @@ public class RMSkriningMPP extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1946,6 +1957,9 @@ public class RMSkriningMPP extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getmpp_skrining());
         BtnHapus.setEnabled(akses.getmpp_skrining());

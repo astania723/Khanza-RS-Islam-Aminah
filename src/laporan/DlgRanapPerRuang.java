@@ -39,7 +39,7 @@ import simrskhanza.DlgCariCaraBayar;
  *
  * @author perpustakaan
  */
-public final class DlgRanapPerRuang extends javax.swing.JDialog {
+public class DlgRanapPerRuang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();

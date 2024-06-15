@@ -1102,6 +1102,9 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         KdRuang.setText("");
         NmRuang.setText("");
@@ -1145,6 +1148,9 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_pembuangan_benda_tajam());
         BtnHapus.setEnabled(akses.getaudit_pembuangan_benda_tajam());

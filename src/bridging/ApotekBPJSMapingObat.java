@@ -780,6 +780,9 @@ private void btnPoliBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdobat.setText("");
         TObat.setText("");
@@ -797,6 +800,9 @@ private void btnPoliBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbpjs_mapping_obat_apotek());
         BtnHapus.setEnabled(akses.getbpjs_mapping_obat_apotek());
@@ -804,6 +810,10 @@ private void btnPoliBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         BtnPrint.setEnabled(akses.getbpjs_mapping_obat_apotek());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }    

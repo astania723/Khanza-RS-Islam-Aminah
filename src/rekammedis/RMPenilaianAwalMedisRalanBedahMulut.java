@@ -41,7 +41,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
+public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -2637,6 +2637,9 @@ public final class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDial
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2851,6 +2854,11 @@ public final class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDial
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2874,6 +2882,9 @@ public final class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDial
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

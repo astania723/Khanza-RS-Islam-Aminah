@@ -1049,6 +1049,9 @@ public class frmPengaduan_backup extends javax.swing.JFrame {
         new Timer(1000, taskPerformer).start();
     }
 
+    /**
+     *
+     */
     public void isCek() {
         
     }

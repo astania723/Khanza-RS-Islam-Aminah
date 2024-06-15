@@ -50,6 +50,10 @@ public class KeuanganKlaimRalan extends javax.swing.JDialog {
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private DlgCariPoli poli=new DlgCariPoli(null,false);
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPerusahaan perusahaan=new DlgCariPerusahaan(null,false);
     private double totalpiutang=0;
     private boolean semua;

@@ -22,13 +22,92 @@ import org.springframework.http.MediaType;
  * @author khanzasoft
  */
 public class BPJSCekNoKartu {
-    public String cobnmAsuransi="",cobnoAsuransi="",cobtglTAT="",cobtglTMT="",
-            hakKelasketerangan="",hakKelaskode="",informasidinsos="",informasinoSKTM="",
-            informasiprolanisPRB="",jenisPesertaketerangan="",jenisPesertakode="",
-            mrnoMR="",mrnoTelepon="",nama="",nik="",noKartu="",pisa="",
-            provUmumkdProvider="",provUmumnmProvider="",sex="",statusPesertaketerangan="",
-            statusPesertakode="",tglCetakKartu="",tglLahir="",tglTAT="",
-            tglTMT="",umurumurSaatPelayanan="",umurumurSekarang="",informasi="",utc="";
+
+    /**
+     *
+     */
+    public String cobnmAsuransi="",cobnoAsuransi="",cobtglTAT="",
+
+    /**
+     *
+     */
+    cobtglTMT="",
+
+    /**
+     *
+     */
+    hakKelasketerangan="",hakKelaskode="",
+
+    /**
+     *
+     */
+    informasidinsos="",
+
+    /**
+     *
+     */
+    informasinoSKTM="",
+
+    /**
+     *
+     */
+    informasiprolanisPRB="",
+
+    /**
+     *
+     */
+    jenisPesertaketerangan="",
+
+    /**
+     *
+     */
+    jenisPesertakode="",
+
+    /**
+     *
+     */
+    mrnoMR="",mrnoTelepon="",
+
+    /**
+     *
+     */
+    nama="",nik="",noKartu="",
+
+    /**
+     *
+     */
+    pisa="",
+
+    /**
+     *
+     */
+    provUmumkdProvider="",provUmumnmProvider="",sex="",
+
+    /**
+     *
+     */
+    statusPesertaketerangan="",
+            statusPesertakode="",
+
+    /**
+     *
+     */
+    tglCetakKartu="",tglLahir="",
+
+    /**
+     *
+     */
+    tglTAT="",
+
+    /**
+     *
+     */
+    tglTMT="",umurumurSaatPelayanan="",umurumurSekarang="",
+
+    /**
+     *
+     */
+    informasi="",utc="";
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date date = new Date();
     private ApiBPJS api=new ApiBPJS();
@@ -40,6 +119,9 @@ public class BPJSCekNoKartu {
     private JsonNode response;
     private HttpHeaders headers;
         
+    /**
+     *
+     */
     public BPJSCekNoKartu(){
         super();
         try {
@@ -49,6 +131,10 @@ public class BPJSCekNoKartu {
         }
     }
     
+    /**
+     *
+     * @param nokartu
+     */
     public void tampil(String nokartu) {
         try {
             headers = new HttpHeaders();

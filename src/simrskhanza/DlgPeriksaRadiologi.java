@@ -49,7 +49,7 @@ import rekammedis.MasterCariTemplateHasilRadiologi;
  *
  * @author dosen
  */
-public final class DlgPeriksaRadiologi extends javax.swing.JDialog {
+public class DlgPeriksaRadiologi extends javax.swing.JDialog {
     private DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1916,7 +1916,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
 
-   
+    /**
+     *
+     */
     public void emptTeks() {
         KodePerujuk.setText("");
         NmPerujuk.setText("");
@@ -1927,6 +1929,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         isReset();
     }
     
+    /**
+     *
+     */
     public void onCari(){
         KodePj.requestFocus(); 
     }
@@ -2049,6 +2054,11 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         new Timer(1000, taskPerformer).start();
     }
 
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     */
     public void setNoRm(String norwt,String posisi){
         noorder="";
         TNoRw.setText(norwt);
@@ -2090,11 +2100,20 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
     
+    /**
+     *
+     * @param kodeperujuk
+     * @param namaperujuk
+     */
     public void setDokterPerujuk(String kodeperujuk,String namaperujuk){
         KodePerujuk.setText(kodeperujuk);
         NmPerujuk.setText(namaperujuk);
     }
     
+    /**
+     *
+     * @param order
+     */
     public void tampil(String order) {         
         try{
             pspemeriksaan=koneksi.prepareStatement(
@@ -2204,6 +2223,12 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
     
+    /**
+     *
+     * @param order
+     * @param norawat
+     * @param posisi
+     */
     public void setOrder(String order,String norawat,String posisi){
         noorder=order;
         TNoRw.setText(norawat);
@@ -2213,6 +2238,12 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         tampil(order);
     }
     
+    /**
+     *
+     * @param order
+     * @param norawat
+     * @param posisi
+     */
     public void setOrderFuji(String order,String norawat,String posisi){
         noorder=order;
         TNoRw.setText(norawat);
@@ -2297,14 +2328,14 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                     })==true){
                         if(!noorder.isEmpty()){
                             if(Sequel.cariIsi("select permintaan_pemeriksaan_radiologi.stts_bayar from permintaan_pemeriksaan_radiologi where permintaan_pemeriksaan_radiologi.noorder='"+noorder+"' and permintaan_pemeriksaan_radiologi.kd_jenis_prw='"+tbPemeriksaan.getValueAt(i,1).toString()+"'").equals("Belum")){
-                                ttlbhp=ttlbhp+Double.parseDouble(tbPemeriksaan.getValueAt(i,5).toString());
-                                ttljmdokter=ttljmdokter+Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());
-                                ttljmpetugas=ttljmpetugas+Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
-                                ttlkso=ttlkso+Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString()); 
-                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbPemeriksaan.getValueAt(i,3).toString());      
-                                ttljasasarana=ttljasasarana+Double.parseDouble(tbPemeriksaan.getValueAt(i,4).toString());
-                                ttljmperujuk=ttljmperujuk+Double.parseDouble(tbPemeriksaan.getValueAt(i,6).toString());
-                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
+                                ttlbhp += Double.parseDouble(tbPemeriksaan.getValueAt(i,5).toString());
+                                ttljmdokter += Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());
+                                ttljmpetugas += Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
+                                ttlkso += Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString()); 
+                                ttlpendapatan += Double.parseDouble(tbPemeriksaan.getValueAt(i,3).toString());      
+                                ttljasasarana += Double.parseDouble(tbPemeriksaan.getValueAt(i,4).toString());
+                                ttljmperujuk += Double.parseDouble(tbPemeriksaan.getValueAt(i,6).toString());
+                                ttlmenejemen += Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
                             }
                         }else{
                             ttlbhp += Double.parseDouble(tbPemeriksaan.getValueAt(i,5).toString());

@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class ApotekBPJSCekReferensiPoli extends javax.swing.JDialog {
+public class ApotekBPJSCekReferensiPoli extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -330,6 +330,10 @@ public final class ApotekBPJSCekReferensiPoli extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param keyword
+     */
     public void tampil(String keyword) {
         try {
             headers = new HttpHeaders();

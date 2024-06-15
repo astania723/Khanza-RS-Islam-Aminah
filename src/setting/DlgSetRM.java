@@ -2268,6 +2268,9 @@ private void normKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_norm
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         norm.setText("");
         norm.requestFocus();

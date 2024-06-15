@@ -13,6 +13,10 @@ import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgSOAPOld extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -448,6 +452,11 @@ htmlContent.append("<tr class='isi'  ><td align='center' ").append(stylee).appen
         
     }
     
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void setNoRawat(String x,String y)
     {
         this.noRawat=x;
@@ -455,6 +464,9 @@ htmlContent.append("<tr class='isi'  ><td align='center' ").append(stylee).appen
         prosesCari();
     }
 
+    /**
+     *
+     */
     public void tampil() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

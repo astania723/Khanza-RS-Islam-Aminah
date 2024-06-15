@@ -1344,6 +1344,9 @@ public class DlgAuditSterilisasiAlat extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_sterilisasi_alat());
         BtnHapus.setEnabled(akses.getaudit_sterilisasi_alat());

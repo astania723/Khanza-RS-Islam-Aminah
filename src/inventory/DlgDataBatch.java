@@ -46,6 +46,11 @@ public class DlgDataBatch extends javax.swing.JDialog {
     private DlgBarang barang=new DlgBarang(null,false);
     private String pengaturanharga=Sequel.cariIsi("select set_harga_obat.setharga from set_harga_obat"),kodejenis="";
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DlgDataBatch(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -1845,6 +1850,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbDokter;
     }
@@ -1965,6 +1974,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }            
     }
             
+    /**
+     *
+     */
     public void isCek() {
         TCari.requestFocus();
         BtnSimpan.setEnabled(akses.getdata_batch());

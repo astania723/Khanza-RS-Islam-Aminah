@@ -36,6 +36,10 @@ import keuangan.Jurnal;
 import laporan.DlgBerkasRawat;
 import rekammedis.RMRiwayatPerawatan;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPeriksaLabPA extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -2571,6 +2575,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         MnCetakHasilLab.setEnabled(akses.getpemeriksaan_lab_pa());
         MnCetakNota.setEnabled(akses.getpemeriksaan_lab_pa());

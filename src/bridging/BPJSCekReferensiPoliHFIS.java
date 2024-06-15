@@ -336,6 +336,10 @@ public class BPJSCekReferensiPoliHFIS extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param poli
+     */
     public void tampil(String poli) {
         try {
             headers = new HttpHeaders();
@@ -379,6 +383,10 @@ public class BPJSCekReferensiPoliHFIS extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

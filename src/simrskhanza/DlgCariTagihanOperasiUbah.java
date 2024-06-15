@@ -3064,6 +3064,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         
     }
 
+    /**
+     *
+     */
     public void isCek(){
         MnLaporanOperasi.setEnabled(akses.getoperasi());
         ppBerkasDigital.setEnabled(akses.getberkas_digital_perawatan());     
@@ -3081,6 +3084,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         return Kd2;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }

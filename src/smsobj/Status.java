@@ -17,10 +17,18 @@ public class Status {
     private int signal;
     private int baterai;
 
+    /**
+     *
+     * @return
+     */
     public int getBaterai() {
         return baterai;
     }
 
+    /**
+     *
+     * @param baterai
+     */
     public void setBaterai(int baterai) {
         this.baterai = baterai;
     }
@@ -33,30 +41,58 @@ public class Status {
         this.manufacture = manufacture;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getModel() {
         return model;
     }
 
+    /**
+     *
+     * @param model
+     */
     public void setModel(String model) {
         this.model = model;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSerialNo() {
         return serialNo;
     }
 
+    /**
+     *
+     * @param serialNo
+     */
     public void setSerialNo(String serialNo) {
         this.serialNo = serialNo;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSignal() {
         return signal;
     }
 
+    /**
+     *
+     * @param signal
+     */
     public void setSignal(int signal) {
         this.signal = signal;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSimImsi() {
         return simImsi;
     }

@@ -332,6 +332,11 @@ public class ICareRiwayatPerawatanFKTP extends javax.swing.JDialog {
         }
     } 
     
+    /**
+     *
+     * @param param
+     * @param kodedokter
+     */
     public void setPasien(String param,String kodedokter){
         NoKartu.setText(param);
         KdDPJPLayanan.setText(kodedokter);
@@ -413,6 +418,10 @@ public class ICareRiwayatPerawatanFKTP extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         try {
             createScene();

@@ -38,7 +38,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog {
+public class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -107,9 +107,9 @@ public final class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        Keluar.setDocument(new batasInput((int)200).getKata(Keluar));
-        Instruksi.setDocument(new batasInput((int)200).getKata(Instruksi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Keluar.setDocument(new batasInput(200).getKata(Keluar));
+        Instruksi.setDocument(new batasInput(200).getKata(Instruksi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1340,6 +1340,9 @@ public final class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog 
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1497,6 +1500,9 @@ public final class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog 
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getskor_bromage_pasca_anestesi());
         BtnHapus.setEnabled(akses.getskor_bromage_pasca_anestesi());

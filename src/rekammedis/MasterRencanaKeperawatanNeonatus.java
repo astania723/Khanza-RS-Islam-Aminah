@@ -760,6 +760,9 @@ public class MasterRencanaKeperawatanNeonatus extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getmaster_rencana_keperawatan_neonatus());
        BtnHapus.setEnabled(akses.getmaster_rencana_keperawatan_neonatus());

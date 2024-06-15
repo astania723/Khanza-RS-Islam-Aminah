@@ -27,11 +27,19 @@ import javax.swing.text.html.StyleSheet;
 import kepegawaian.DlgCariPegawai;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class KeuanganCariPenagihanPiutangPasien extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private DlgAkunPenagihanPiutang akuntagih=new DlgAkunPenagihanPiutang(null,false);
@@ -1250,6 +1258,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         TCari.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         if(akses.getkode().equals("Admin Utama")){

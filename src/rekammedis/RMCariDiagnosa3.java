@@ -337,6 +337,9 @@ public class RMCariDiagnosa3 extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -381,6 +384,10 @@ public class RMCariDiagnosa3 extends javax.swing.JDialog {
         this.norawat=norawat;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

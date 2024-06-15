@@ -24,6 +24,10 @@ import kepegawaian.DlgCariDepartemen;
 import kepegawaian.DlgCariPetugas;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRBJmParamedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -1605,6 +1609,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
          }
     }
     
+    /**
+     *
+     */
     public void isCek(){
        // BtnPrint.setEnabled(var.getbulanan_paramedis());
     }

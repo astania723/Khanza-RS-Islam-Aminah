@@ -24,6 +24,10 @@ import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 import simrskhanza.DlgCariPasien;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventoryRingkasanPiutangBarangMedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -33,8 +37,16 @@ public class InventoryRingkasanPiutangBarangMedis extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private int i=0;
     private double total=0;
+
+    /**
+     *
+     */
     public  DlgCariPasien pasien=new DlgCariPasien(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private String nofak="",mem="",ptg="",sat="",bar="",tanggal="",order="order by databarang.nama_brng";
     /** Creates new form DlgProgramStudi
@@ -1288,6 +1300,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
@@ -1295,6 +1310,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         kdbar.requestFocus();        
     }   
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getringkasan_piutang_obat());
     }

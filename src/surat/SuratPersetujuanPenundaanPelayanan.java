@@ -43,7 +43,7 @@ import kepegawaian.DlgCariPetugas;
  * 
  * @author windiartohugroho
  */
-public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialog {
+public class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1675,6 +1675,9 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1758,6 +1761,9 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         KodeDokter.setText("");
@@ -1864,7 +1870,9 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpersetujuan_penundaan_pelayanan());
         BtnHapus.setEnabled(akses.getpersetujuan_penundaan_pelayanan());

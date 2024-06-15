@@ -1580,6 +1580,9 @@ public class DlgPilihanCetakDokumen extends javax.swing.JDialog {
         
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         try{         
             Valid.tabelKosong(TabMode);
@@ -1631,6 +1634,9 @@ public class DlgPilihanCetakDokumen extends javax.swing.JDialog {
         
     }
     
+    /**
+     *
+     */
     public void tampil3() {
         try{         
             Valid.tabelKosong(TabMode);
@@ -1707,6 +1713,12 @@ public class DlgPilihanCetakDokumen extends javax.swing.JDialog {
             this.JenisPelayanan=JenisPelayanan;
     }
     
+    /**
+     *
+     * @param NoRujukan
+     * @param TglRujukan
+     * @param KdpoliTujuan
+     */
     public void setRujukan(String NoRujukan,String TglRujukan,String KdpoliTujuan){
         this.NoRujukan=NoRujukan;
         this.TglRujukan=TglRujukan;

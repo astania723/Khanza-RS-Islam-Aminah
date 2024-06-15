@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class SatuSehatKirimObservationTTV extends javax.swing.JDialog {
+public class SatuSehatKirimObservationTTV extends javax.swing.JDialog {
     private final DefaultTableModel tabModeSuhu,tabModeRespirasi,tabModeNadi,tabModeSpO2,tabModeGCS,tabModeKesadaran,
                   tabModeTensi,tabModeTB,tabModeBB,tabModeLP;
     private sekuel Sequel=new sekuel();
@@ -4725,6 +4725,9 @@ public final class SatuSehatKirimObservationTTV extends javax.swing.JDialog {
         LCount.setText(""+tabModeLP.getRowCount());
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnKirim.setEnabled(akses.getsatu_sehat_kirim_observationttv());
         BtnPrint.setEnabled(akses.getsatu_sehat_kirim_observationttv());

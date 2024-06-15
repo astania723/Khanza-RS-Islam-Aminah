@@ -722,6 +722,9 @@ public class DlgBarcode extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Id.setText("");
         Nik.setText("");
@@ -740,6 +743,10 @@ public class DlgBarcode extends javax.swing.JDialog {
         }  
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Id;
     }
@@ -748,7 +755,10 @@ public class DlgBarcode extends javax.swing.JDialog {
         return tbBangsal;
     }
        
-     public void isCek(){
+    /**
+     *
+     */
+    public void isCek(){
         BtnSimpan.setEnabled(akses.getbarcode());
         BtnHapus.setEnabled(akses.getbarcode());
         BtnEdit.setEnabled(akses.getbarcode());

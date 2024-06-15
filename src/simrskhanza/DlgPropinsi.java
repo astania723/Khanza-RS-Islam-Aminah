@@ -571,6 +571,11 @@ public class DlgPropinsi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     * @param nama
+     * @return
+     */
     public String tampil3(String nama) {
         try {
             if(Valid.daysOld("./cache/masterpropinsi.iyem")>7){
@@ -616,6 +621,10 @@ public class DlgPropinsi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbpropinsi;
     }

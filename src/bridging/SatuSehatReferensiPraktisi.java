@@ -370,6 +370,10 @@ public class SatuSehatReferensiPraktisi extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

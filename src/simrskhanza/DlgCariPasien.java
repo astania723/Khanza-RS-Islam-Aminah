@@ -460,6 +460,7 @@ private void CarialamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
     }//GEN-LAST:event_tbPasienKeyReleased
 
     /**
+     * @param args
      * @data args the command line arguments
      */
     public static void main(String args[]) {
@@ -682,6 +683,9 @@ private void CarialamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");
         TCari.requestFocus();
@@ -696,10 +700,17 @@ private void CarialamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbPasien;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         asalform=akses.getform();
     }

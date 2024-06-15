@@ -7335,6 +7335,9 @@ public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         Anamnesis.setSelectedIndex(0);
@@ -7727,7 +7730,9 @@ public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
         tampilPersalinan();
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_ranapkebidanan());
         BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_ranapkebidanan());
@@ -7745,6 +7750,9 @@ public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
         }            
     }
 
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

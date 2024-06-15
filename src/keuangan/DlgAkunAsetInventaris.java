@@ -35,7 +35,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgAkunAsetInventaris extends javax.swing.JDialog {
+public class DlgAkunAsetInventaris extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -798,6 +798,10 @@ private void BtnPoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJadwal;
     }

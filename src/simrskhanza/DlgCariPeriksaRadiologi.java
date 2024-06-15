@@ -36,6 +36,10 @@ import laporan.DlgBerkasRawat;
 import rekammedis.MasterCariTemplateHasilRadiologi;
 import rekammedis.RMRiwayatPerawatan;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeDicom;
     private sekuel Sequel=new sekuel();
@@ -2334,6 +2338,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         MnCetakNota.setEnabled(akses.getperiksa_radiologi());
         BtnHapus.setEnabled(akses.getperiksa_radiologi());
@@ -2345,6 +2352,10 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         ppBerkasDigital.setEnabled(akses.getberkas_digital_perawatan());     
     }
  
+    /**
+     *
+     * @param pasien
+     */
     public void setPasien(String pasien){
         NoRawat.setText(pasien);
     }

@@ -1143,6 +1143,9 @@ private void tgl_permintaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
     private widget.Tanggal tgl_permintaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try {
@@ -1266,6 +1269,9 @@ private void tgl_permintaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         ChkInput.setSelected(true);
         isForm();
@@ -1299,6 +1305,10 @@ private void tgl_permintaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }
@@ -1317,6 +1327,9 @@ private void tgl_permintaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             nip.setEditable(false);
@@ -1331,6 +1344,9 @@ private void tgl_permintaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isInventaris(){
         try {
             ps=koneksi.prepareStatement(

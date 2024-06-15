@@ -36,7 +36,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariKategori extends javax.swing.JDialog {
+public class DlgCariKategori extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private PreparedStatement ps;
@@ -445,10 +445,17 @@ public final class DlgCariKategori extends javax.swing.JDialog {
         TCari.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.getkategori_barang());
     }

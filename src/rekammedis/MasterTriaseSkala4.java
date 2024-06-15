@@ -756,6 +756,10 @@ public class MasterTriaseSkala4 extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

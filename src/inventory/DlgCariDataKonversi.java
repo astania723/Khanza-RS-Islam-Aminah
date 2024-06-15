@@ -33,7 +33,7 @@ import javax.swing.table.TableColumn;
  *
  * @author dosen
  */
-public final class DlgCariDataKonversi extends javax.swing.JDialog {
+public class DlgCariDataKonversi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -403,15 +403,26 @@ public final class DlgCariDataKonversi extends javax.swing.JDialog {
         TCari.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     * @param kodesatuan
+     */
     public void setSatuanKecil(String kodesatuan){
         KodeSatuanKecil.setText(kodesatuan);
         NamaSatuanKecil.setText(Sequel.cariIsi("select kodesatuan.satuan from kodesatuan where kodesatuan.kode_sat=?",kodesatuan));
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnTambah.setEnabled(akses.getkonversi_satuan());
     }

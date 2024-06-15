@@ -304,6 +304,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private widget.Table tbPemisahan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{  
@@ -409,10 +412,18 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getpermintaan_stok_obat_pasien());
     }
     
+    /**
+     *
+     * @param norm
+     * @param kodedokter
+     */
     public void setRM(String norm,String kodedokter){
         this.norm=norm;
         this.kddokter=kodedokter;

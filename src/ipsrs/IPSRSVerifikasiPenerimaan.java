@@ -22,11 +22,23 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 import kepegawaian.DlgCariPetugas;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class IPSRSVerifikasiPenerimaan extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
     private final Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private PreparedStatement ps,pssub,pspenerimaan,pssubpenerimaan,pssisipan;
     private ResultSet rs,rssub,rspenerimaan,rssubpenerimaan,rssisipan;

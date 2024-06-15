@@ -47,7 +47,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class InventoryTelaahResep extends javax.swing.JDialog {
+public class InventoryTelaahResep extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1578,6 +1578,9 @@ public final class InventoryTelaahResep extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1716,6 +1719,12 @@ public final class InventoryTelaahResep extends javax.swing.JDialog {
                        "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab where pasien.no_rkm_medis=? ",Alamat,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param noresep
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String noresep,String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         NoResep.setText(noresep);

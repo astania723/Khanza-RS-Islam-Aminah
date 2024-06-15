@@ -637,10 +637,17 @@ public class MasterMasalahKeperawatanKebidanan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getmaster_masalah_keperawatan());
        BtnHapus.setEnabled(akses.getmaster_masalah_keperawatan());

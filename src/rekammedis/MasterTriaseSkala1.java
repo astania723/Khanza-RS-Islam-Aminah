@@ -760,6 +760,9 @@ public class MasterTriaseSkala1 extends javax.swing.JDialog {
         return tbSpesialis;
     }
     
+    /**
+     *
+     */
     public void isCek(){
        BtnSimpan.setEnabled(akses.getmaster_triase_skala1());
        BtnHapus.setEnabled(akses.getmaster_triase_skala1());

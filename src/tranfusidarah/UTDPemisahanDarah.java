@@ -24,6 +24,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPetugas;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class UTDPemisahanDarah extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeMedis,tabModeNonMedis,tabModeKomponen;
     private sekuel Sequel=new sekuel();
@@ -2019,6 +2023,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KodePetugas.setText("");
         NamaPetugas.setText("");
@@ -2049,6 +2056,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         return tbPemisahan;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnTambah.setEnabled(akses.getutd_pemisahan_darah());
         BtnPrint.setEnabled(akses.getutd_pemisahan_darah());

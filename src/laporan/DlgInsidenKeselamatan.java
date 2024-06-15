@@ -766,6 +766,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kode.setText("");
         Nama.setText("");
@@ -787,6 +790,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         return Kode;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTabel(){
         return tbPenyakit;
     }

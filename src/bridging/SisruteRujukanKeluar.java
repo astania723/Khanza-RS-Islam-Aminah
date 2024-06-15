@@ -3209,6 +3209,9 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
     private widget.Table tbObat2;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         if(TabRujukan.getSelectedIndex()==0){
             tampilData();
@@ -3483,6 +3486,9 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         JenisRujukan.requestFocus();
     }
          
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsisrute_rujukan_keluar());
         BtnHapus.setEnabled(akses.getsisrute_rujukan_keluar());
@@ -3496,6 +3502,9 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         }  
     }
     
+    /**
+     *
+     */
     public void tutupInput(){
         TabRawat.setSelectedIndex(1);
         tampil();
@@ -3774,6 +3783,10 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param NoRawat
+     */
     public void setPasien2(String NoRawat){
         TabRawat.setSelectedIndex(0);
         TNoRw.setText(NoRawat);

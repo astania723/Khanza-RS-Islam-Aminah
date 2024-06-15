@@ -1814,6 +1814,9 @@ public class RMPenilaianLanjutanSkriningFungsional extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         SkalaResiko1.setSelectedIndex(0);
@@ -1905,6 +1908,11 @@ public class RMPenilaianLanjutanSkriningFungsional extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1937,6 +1945,9 @@ public class RMPenilaianLanjutanSkriningFungsional extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_lanjutan_skrining_fungsional());
         BtnHapus.setEnabled(akses.getpenilaian_lanjutan_skrining_fungsional());

@@ -909,6 +909,9 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");      
     }
@@ -992,10 +995,18 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Kd2;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
@@ -1004,6 +1015,11 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         BtnTambah.setEnabled(akses.getobat_penyakit());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param penyakit
+     */
     public void setNoRm(String norwt,String penyakit) {
         PenyakitCari.setText(penyakit);
         tampil();

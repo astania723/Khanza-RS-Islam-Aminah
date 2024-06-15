@@ -1522,6 +1522,9 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoI.setText("");
         TJudul.setText("");
@@ -1569,6 +1572,9 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isInventaris(){
         try {
             ps=koneksi.prepareStatement(

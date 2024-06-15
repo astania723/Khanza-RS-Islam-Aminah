@@ -337,6 +337,9 @@ public class PerpustakaanCariInventaris extends javax.swing.JDialog {
     private widget.Table tbJnsPerawatan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             Valid.tabelKosong(tabMode);

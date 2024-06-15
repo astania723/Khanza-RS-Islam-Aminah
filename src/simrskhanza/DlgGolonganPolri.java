@@ -528,6 +528,10 @@ public class DlgGolonganPolri extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbkecamatan;
     }
@@ -536,6 +540,9 @@ public class DlgGolonganPolri extends javax.swing.JDialog {
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getgolongan_polri());
         BtnHapus.setEnabled(akses.getgolongan_polri());

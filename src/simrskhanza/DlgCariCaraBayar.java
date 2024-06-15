@@ -40,7 +40,7 @@ import javax.swing.text.html.StyleSheet;
  *
  * @author dosen
  */
-public final class DlgCariCaraBayar extends javax.swing.JDialog {
+public class DlgCariCaraBayar extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -540,10 +540,17 @@ public final class DlgCariCaraBayar extends javax.swing.JDialog {
         TCari.requestFocus();
     }
   
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.getadmin());
     }
@@ -582,6 +589,9 @@ public final class DlgCariCaraBayar extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     } 
     
+    /**
+     *
+     */
     public void onCari(){        
         TCari.requestFocus();
     }

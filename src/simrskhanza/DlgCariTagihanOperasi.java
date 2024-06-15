@@ -3506,6 +3506,10 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
         return BtnKeluar;
     }
     
+    /**
+     *
+     * @param pasien
+     */
     public void setPasien(String pasien){
         NoRawat.setText(pasien);
     }

@@ -47,6 +47,9 @@ public class ApiLICA {
     private ObjectMapper mapper = new ObjectMapper();
     private int i=0;
     
+    /**
+     *
+     */
     public ApiLICA(){
         super();
         try {
@@ -57,6 +60,10 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void kirimRalan(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -156,6 +163,10 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void kirimRanap(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -256,6 +267,10 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void ambil(String nopermintaan) {
         try{
             headers = new HttpHeaders();
@@ -289,6 +304,12 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

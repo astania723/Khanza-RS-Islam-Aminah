@@ -29,7 +29,11 @@ public class CommTest
 		return CommPortIdentifier.getPortIdentifiers();
 	}
 
-	public static void main(String[] args)
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args)
 	{
 		System.out.println("\nSearching for devices...");
 		portList = getCleanPortIdentifiers();

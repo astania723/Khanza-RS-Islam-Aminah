@@ -512,6 +512,9 @@ public class DlgSatuanTNI extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         TCari.setText("");
@@ -524,6 +527,10 @@ public class DlgSatuanTNI extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbkecamatan;
     }
@@ -532,6 +539,9 @@ public class DlgSatuanTNI extends javax.swing.JDialog {
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsatuan_tni());
         BtnHapus.setEnabled(akses.getsatuan_tni());

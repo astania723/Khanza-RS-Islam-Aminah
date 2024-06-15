@@ -651,8 +651,13 @@ public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=? ",TPasien,TNoRM.getText());
     }
 
-
-    
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     * @param status
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2,String status) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

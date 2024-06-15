@@ -2044,6 +2044,9 @@ public class RMDataAsuhanGizi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         BB.setText("");
         TB.setText("");
@@ -2171,6 +2174,11 @@ public class RMDataAsuhanGizi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2197,6 +2205,9 @@ public class RMDataAsuhanGizi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getasuhan_gizi());
         BtnHapus.setEnabled(akses.getasuhan_gizi());

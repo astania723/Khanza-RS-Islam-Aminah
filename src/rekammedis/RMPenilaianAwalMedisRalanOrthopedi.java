@@ -2479,6 +2479,9 @@ public class RMPenilaianAwalMedisRalanOrthopedi extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ralan_orthopedi());
         BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ralan_orthopedi());
@@ -2495,6 +2498,9 @@ public class RMPenilaianAwalMedisRalanOrthopedi extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

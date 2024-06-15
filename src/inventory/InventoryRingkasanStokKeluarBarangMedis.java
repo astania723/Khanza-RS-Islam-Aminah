@@ -35,6 +35,10 @@ public class InventoryRingkasanStokKeluarBarangMedis extends javax.swing.JDialog
     private double total=0;
     private DlgCariBangsal asalstok=new DlgCariBangsal(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private String nofak="",mem="",ptg="",sat="",bar="",tanggal="",order="order by databarang.nama_brng";
     /** Creates new form DlgProgramStudi
@@ -1277,6 +1281,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
@@ -1284,6 +1291,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         kdbar.requestFocus();        
     }   
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getringkasan_stok_keluar_obat());
     }

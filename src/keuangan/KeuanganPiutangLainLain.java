@@ -1150,6 +1150,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{    
@@ -1204,6 +1207,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LTotal1.setText(Valid.SetAngka(sisapiutang));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         ChkInput.setSelected(true);
         isForm();
@@ -1219,10 +1225,18 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         Tanggal.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoNota;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }

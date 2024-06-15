@@ -175,6 +175,10 @@ public class ApiSOFTMEDIX {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void kirimRanap(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -292,6 +296,10 @@ public class ApiSOFTMEDIX {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void ambil(String nopermintaan) {
         try{
             headers = new HttpHeaders();

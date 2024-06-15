@@ -515,6 +515,9 @@ public class DlgJabatanTNI extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         TCari.setText("");
@@ -527,14 +530,24 @@ public class DlgJabatanTNI extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbkecamatan;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getjabatan_tni());
         BtnHapus.setEnabled(akses.getjabatan_tni());

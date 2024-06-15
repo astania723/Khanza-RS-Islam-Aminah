@@ -55,8 +55,16 @@ public class DlgPemberianObat extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
+
+    /**
+     *
+     */
     public  DlgCariObat dlgobtjalan=new DlgCariObat(null,false);
     public  DlgCariObat2 dlgobt=new DlgCariObat2(null,false);
+
+    /**
+     *
+     */
     public  DlgCariObat3 dlgobt2=new DlgCariObat3(null,false);
     private riwayatobat Trackobat=new riwayatobat();
     private DlgCariPasien pasien=new DlgCariPasien(null,false);
@@ -1393,6 +1401,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbPemberianObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampilPO() {
         pas="";
         if(!TCariPasien.getText().isEmpty()){
@@ -1546,6 +1557,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     * @param statuspasien
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2,String statuspasien) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1594,6 +1612,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isForm();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     * @param statuspasien
+     */
     public void setNoRm3(String norwt, Date tgl1, Date tgl2,String statuspasien) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1698,6 +1723,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         new Timer(1000, taskPerformer).start();
     }
 
+    /**
+     *
+     * @param kodedokter
+     * @param namadokter
+     */
     public void setDokter(String kodedokter,String namadokter){
         this.kodedokter=kodedokter;
         this.namadokter=namadokter;

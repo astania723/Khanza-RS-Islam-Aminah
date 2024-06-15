@@ -1201,6 +1201,13 @@ private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }       
     }
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param pasien
+     * @param tanggal
+     */
     public void setNoRm(String norwt,String norm,String pasien,Date tanggal) {        
         TNoRw.setText(norwt);
         TNoRM.setText(norm);
@@ -1341,6 +1348,10 @@ private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

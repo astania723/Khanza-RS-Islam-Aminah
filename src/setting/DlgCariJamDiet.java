@@ -372,6 +372,9 @@ public class DlgCariJamDiet extends javax.swing.JDialog {
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -381,6 +384,9 @@ public class DlgCariJamDiet extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
        BtnTambah.setEnabled(akses.getjam_diet_pasien());
     }

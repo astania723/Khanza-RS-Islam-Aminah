@@ -2043,6 +2043,9 @@ public class RMPenilaianLanjutanRisikoJatuhGeriatri extends javax.swing.JDialog 
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2231,6 +2234,11 @@ public class RMPenilaianLanjutanRisikoJatuhGeriatri extends javax.swing.JDialog 
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

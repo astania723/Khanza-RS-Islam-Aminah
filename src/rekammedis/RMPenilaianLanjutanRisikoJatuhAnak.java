@@ -40,7 +40,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
+public class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -1611,6 +1611,9 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         SkalaResiko1.setSelectedIndex(0);
@@ -1694,6 +1697,11 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

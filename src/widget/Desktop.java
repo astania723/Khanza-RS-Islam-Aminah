@@ -28,11 +28,18 @@ public class Desktop extends JDesktopPane {
     //private Color warna = new Color(245,101,163).brighter().brighter();
     private final Color warna = new Color(255,205,255);
 
+    /**
+     *
+     */
     public Desktop() {
         super();
         //setBorder(new LineBorder(Color.darkGray));
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

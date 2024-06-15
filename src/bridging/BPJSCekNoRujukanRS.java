@@ -72,7 +72,7 @@ import simrskhanza.DlgSatuanTNI;
  *
  * @author dosen
  */
-public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
+public class BPJSCekNoRujukanRS extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -88,18 +88,50 @@ public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private ApiBPJS api=new ApiBPJS();
     private ApiMobileJKN apiMobileJKN=new ApiMobileJKN();
+
+    /**
+     *
+     */
     public  DlgPropinsi propin=new DlgPropinsi(null,false);
     public  DlgCariPerusahaan perusahaan=new DlgCariPerusahaan(null,false);
+
+    /**
+     *
+     */
     public  DlgCariBahasa bahasa=new DlgCariBahasa(null,false);
+
+    /**
+     *
+     */
     public  DlgCariCacatFisik cacat=new DlgCariCacatFisik(null,false);
     public  DlgCariSuku suku=new DlgCariSuku(null,false);
     public  DlgGolonganTNI golongantni=new DlgGolonganTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanTNI satuantni=new DlgSatuanTNI(null,false);
     public  DlgPangkatTNI pangkattni=new DlgPangkatTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanTNI jabatantni=new DlgJabatanTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgGolonganPolri golonganpolri=new DlgGolonganPolri(null,false);
     public  DlgSatuanPolri satuanpolri=new DlgSatuanPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgPangkatPolri pangkatpolri=new DlgPangkatPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanPolri jabatanpolri=new DlgJabatanPolri(null,false);
     private BPJSCekReferensiDokterDPJP dpjp=new BPJSCekReferensiDokterDPJP(null,false);
     private BPJSSuratKontrol skdp=new BPJSSuratKontrol(null,false);
@@ -6512,6 +6544,9 @@ public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TNo.setText("");
         TNm.setText("");
@@ -7299,6 +7334,10 @@ public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
         ppStatusFinger.setEnabled(akses.getbpjs_sep());
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean SimpanAntrianOnSite(){
         statusantrean=true;
         if((!NoRujukan.getText().isEmpty())||(!NoSKDP.getText().isEmpty())){

@@ -421,6 +421,9 @@ public class InhealthCariReferensiJenpelRuang extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -429,6 +432,9 @@ public class InhealthCariReferensiJenpelRuang extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
        BtnTambah.setEnabled(akses.getinhealth_referensi_jenpel_ruang_rawat());
     }

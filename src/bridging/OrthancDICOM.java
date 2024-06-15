@@ -61,6 +61,12 @@ public class OrthancDICOM extends javax.swing.JDialog {
     private final JProgressBar progressBar = new JProgressBar();
     private final ApiOrthanc orthanc=new ApiOrthanc();
     private final validasi Valid=new validasi();
+
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public OrthancDICOM(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -159,6 +165,10 @@ public class OrthancDICOM extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         urlpanggil=url;
         try {
@@ -377,6 +387,12 @@ public class OrthancDICOM extends javax.swing.JDialog {
     private widget.InternalFrame internalFrame1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param Judul
+     * @param NoRawat
+     * @param Series
+     */
     public void setJudul(String Judul,String NoRawat,String Series){
         norawat=NoRawat;
         series=Series;

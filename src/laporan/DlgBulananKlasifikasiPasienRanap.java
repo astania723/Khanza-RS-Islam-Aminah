@@ -23,6 +23,10 @@ import javax.swing.text.html.StyleSheet;
 import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgBulananKlasifikasiPasienRanap extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -564,6 +568,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getbulanan_klasifikasi_pasien_ranap());
     }

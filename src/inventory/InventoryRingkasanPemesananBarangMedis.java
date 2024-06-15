@@ -28,8 +28,16 @@ public class InventoryRingkasanPemesananBarangMedis extends javax.swing.JDialog 
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  InventoryCariSuplier suplier=new InventoryCariSuplier(null,false);
     public  DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private PreparedStatement ps;
     private ResultSet rs;
@@ -1389,6 +1397,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getringkasan_pemesanan_obat());
     }

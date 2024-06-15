@@ -24,6 +24,10 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiBPJSAplicare {        
     private String Key,Consid;
     private String salt;
@@ -38,6 +42,9 @@ public class ApiBPJSAplicare {
     private HttpComponentsClientHttpRequestFactory factory;
     private ApiBPJSAesKeySpec mykey;
     
+    /**
+     *
+     */
     public ApiBPJSAplicare(){
         try {           
             Key = koneksiDB.SECRETKEYAPIAPLICARE();
@@ -47,6 +54,11 @@ public class ApiBPJSAplicare {
         }
     }
     
+    /**
+     *
+     * @param utc
+     * @return
+     */
     public String getHmac(String utc) {               
         salt = Consid +"&"+utc;
 	generateHmacSHA256Signature = null;
@@ -82,6 +94,10 @@ public class ApiBPJSAplicare {
         return data;
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;

@@ -23,6 +23,10 @@ import javax.swing.text.html.StyleSheet;
 import simrskhanza.DlgCariBangsal;
 import simrskhanza.DlgCariCaraBayar;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgBulananHAIs extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();

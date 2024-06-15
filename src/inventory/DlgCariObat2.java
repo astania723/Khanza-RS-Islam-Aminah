@@ -73,6 +73,10 @@ public class DlgCariObat2 extends javax.swing.JDialog {
                    VALIDASIULANGBERIOBAT="",DEPOAKTIFOBAT="",utc="",penjab="";
     private WarnaTable2 warna=new WarnaTable2();
     private DlgCariBangsal caribangsal=new DlgCariBangsal(null,false);
+
+    /**
+     *
+     */
     public DlgCariAturanPakai aturanpakai=new DlgCariAturanPakai(null,false);
     private DlgCariMetodeRacik metoderacik=new DlgCariMetodeRacik(null,false);
     private WarnaTable2 warna2=new WarnaTable2();
@@ -2428,6 +2432,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -2631,6 +2638,10 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         } 
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }
@@ -2690,6 +2701,13 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         TCari.requestFocus();
     } 
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param pasien
+     * @param tanggal
+     */
     public void setNoRm(String norwt,String norm,String pasien,Date tanggal) {       
         aktifpcare="no";
         TNoRw.setText(norwt);
@@ -3417,6 +3435,10 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }            
     }
     
+    /**
+     *
+     * @param no_resep
+     */
     public void tampilobat2(String no_resep) { 
         this.noresep=no_resep;
         try{
@@ -4574,6 +4596,11 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }            
     }
     
+    /**
+     *
+     * @param aktif
+     * @param nokunjung
+     */
     public void setPCare(String aktif,String nokunjung){
         aktifpcare=aktif;
         nokunjungan=nokunjung;

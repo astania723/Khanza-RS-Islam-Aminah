@@ -28,8 +28,20 @@ public class DapurRingkasanPengadaan extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DapurCariSuplier suplier=new DapurCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DapurBarang barang=new DapurBarang(null,false);
     private PreparedStatement ps;
     private ResultSet rs;
@@ -1137,6 +1149,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getdapur_ringkasan_pembelian());
     }

@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class SatuSehatKirimObservationRadiologi extends javax.swing.JDialog {
+public class SatuSehatKirimObservationRadiologi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -926,6 +926,10 @@ public final class SatuSehatKirimObservationRadiologi extends javax.swing.JDialo
         BtnPrint.setEnabled(akses.getsatu_sehat_kirim_observation_radiologi());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

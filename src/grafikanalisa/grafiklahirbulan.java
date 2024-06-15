@@ -145,6 +145,7 @@ public class grafiklahirbulan extends JDialog {
          /**
           * Creates a panel for the demo (used by SuperDemo.java).
           *
+     * @param symbol
           * @return A panel.
           */
 

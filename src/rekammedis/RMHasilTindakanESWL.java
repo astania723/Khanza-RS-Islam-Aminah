@@ -42,7 +42,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author perpustakaan
  */
-public final class RMHasilTindakanESWL extends javax.swing.JDialog {
+public class RMHasilTindakanESWL extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -126,19 +126,19 @@ public final class RMHasilTindakanESWL extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Diagnosa.setDocument(new batasInput((int)50).getKata(Diagnosa));
-        Tindakan.setDocument(new batasInput((int)50).getKata(Tindakan));
-        ObatAnastesi.setDocument(new batasInput((int)150).getKata(ObatAnastesi));
-        ObatLainLain.setDocument(new batasInput((int)150).getKata(ObatLainLain));
-        UraianTindakan.setDocument(new batasInput((int)300).getKata(UraianTindakan));
-        Focus.setDocument(new batasInput((int)50).getKata(Focus));
-        Rate.setDocument(new batasInput((int)50).getKata(Rate));
-        Power.setDocument(new batasInput((int)50).getKata(Power));
-        Shock.setDocument(new batasInput((int)50).getKata(Shock));
-        Diintegrasi.setDocument(new batasInput((int)50).getKata(Diintegrasi));
-        Kekurangan.setDocument(new batasInput((int)50).getKata(Kekurangan));
-        Anjungan.setDocument(new batasInput((int)50).getKata(Anjungan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Diagnosa.setDocument(new batasInput(50).getKata(Diagnosa));
+        Tindakan.setDocument(new batasInput(50).getKata(Tindakan));
+        ObatAnastesi.setDocument(new batasInput(150).getKata(ObatAnastesi));
+        ObatLainLain.setDocument(new batasInput(150).getKata(ObatLainLain));
+        UraianTindakan.setDocument(new batasInput(300).getKata(UraianTindakan));
+        Focus.setDocument(new batasInput(50).getKata(Focus));
+        Rate.setDocument(new batasInput(50).getKata(Rate));
+        Power.setDocument(new batasInput(50).getKata(Power));
+        Shock.setDocument(new batasInput(50).getKata(Shock));
+        Diintegrasi.setDocument(new batasInput(50).getKata(Diintegrasi));
+        Kekurangan.setDocument(new batasInput(50).getKata(Kekurangan));
+        Anjungan.setDocument(new batasInput(50).getKata(Anjungan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1672,6 +1672,11 @@ public final class RMHasilTindakanESWL extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1679,6 +1684,9 @@ public final class RMHasilTindakanESWL extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gethasil_tindakan_eswl());
         BtnHapus.setEnabled(akses.gethasil_tindakan_eswl());
@@ -1696,6 +1704,9 @@ public final class RMHasilTindakanESWL extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

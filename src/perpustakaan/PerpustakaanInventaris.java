@@ -1278,6 +1278,9 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
     private widget.Tanggal tgl_pengadaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             Valid.tabelKosong(tabMode);
@@ -1378,6 +1381,9 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         no_inventaris.setText("");
         kode_buku.setText("");

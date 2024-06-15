@@ -41,7 +41,7 @@ import kepegawaian.DlgCariPetugas;
  * 
  * @author windiartohugroho
  */
-public final class SuratPersetujuanRawatInap extends javax.swing.JDialog {
+public class SuratPersetujuanRawatInap extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -53,6 +53,11 @@ public final class SuratPersetujuanRawatInap extends javax.swing.JDialog {
     private StringBuilder htmlContent;
     private String finger="",lokasifile="";
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public SuratPersetujuanRawatInap(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -1593,6 +1598,9 @@ public final class SuratPersetujuanRawatInap extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         NamaPJ.setText("");
         Hubungan.setSelectedIndex(0);
@@ -1667,6 +1675,11 @@ public final class SuratPersetujuanRawatInap extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1689,7 +1702,9 @@ public final class SuratPersetujuanRawatInap extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_persetujuan_rawat_inap());
         BtnHapus.setEnabled(akses.getsurat_persetujuan_rawat_inap());

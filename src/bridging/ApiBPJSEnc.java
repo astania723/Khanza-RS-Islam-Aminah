@@ -22,6 +22,10 @@ import javax.crypto.spec.SecretKeySpec;
  * @author dhias
  */
 public class ApiBPJSEnc {
+
+    /**
+     *
+     */
     public static final String ALGORITHM = "AES/CBC/PKCS5Padding";
 
     public static ApiBPJSAesKeySpec generateKey(String key) 
@@ -42,6 +46,19 @@ public class ApiBPJSEnc {
         return aesKeySpec;
     }
 
+    /**
+     *
+     * @param cipherText
+     * @param key
+     * @param iv
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public static String decrypt(String cipherText, SecretKeySpec key, IvParameterSpec iv) 
                     throws NoSuchPaddingException, NoSuchAlgorithmException,
                 InvalidAlgorithmParameterException, InvalidKeyException,

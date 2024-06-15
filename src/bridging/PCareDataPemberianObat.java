@@ -836,6 +836,12 @@ private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         BtnPrint.setEnabled(akses.getpcare_pemberian_obat());
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl1,Date tgl2) {
         TCari.setText(norwt);
         DTPCari1.setDate(tgl1);

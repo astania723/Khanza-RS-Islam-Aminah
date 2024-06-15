@@ -42,7 +42,7 @@ import kepegawaian.DlgCariPetugas;
  *
  * @author windiartohugroho
  */
-public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog {
+public class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -2395,6 +2395,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2482,6 +2485,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         HubunganDenganPasien.setSelectedIndex(0);
         TglPernyataan.setDate(new Date());
@@ -2600,6 +2606,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpersetujuan_penolakan_tindakan());
         BtnHapus.setEnabled(akses.getpersetujuan_penolakan_tindakan());
@@ -2617,6 +2626,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }
