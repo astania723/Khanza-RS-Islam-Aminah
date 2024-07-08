@@ -12,52 +12,32 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.net.URI;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.security.*;
+import java.security.cert.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.time.format.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.scheme.Scheme;
+import javax.net.ssl.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.junit.Test;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
-import rekammedis.RMRiwayatPerawatan;
-import simrskhanza.DlgKamarInap;
+import org.junit.*;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
+import rekammedis.*;
+import simrskhanza.*;
 
 
 /**
@@ -6737,6 +6717,9 @@ public class BPJSDataSEP extends javax.swing.JDialog {
     
     public boolean SimpanAntrianOnSite(){
         statusantrean=true;
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = currentDateTime.format(formatter);
         if(Sequel.cariInteger("select count(referensi_mobilejkn_bpjs.no_rawat) from referensi_mobilejkn_bpjs where referensi_mobilejkn_bpjs.no_rawat=?", TNoRw.getText())==0){
             if((!NoRujukan.getText().isEmpty())||(!NoSKDP.getText().isEmpty())){
                 if(TujuanKunjungan.getSelectedItem().toString().trim().equals("0. Normal")&&FlagProsedur.getSelectedItem().toString().trim().isEmpty()&&Penunjang.getSelectedItem().toString().trim().isEmpty()&&AsesmenPoli.getSelectedItem().toString().trim().isEmpty()){
@@ -6799,7 +6782,7 @@ public class BPJSDataSEP extends javax.swing.JDialog {
                             jammulai=rs.getString("jam_mulai");
                             jamselesai=rs.getString("jam_selesai");
                             kuota=rs.getInt("kuota");
-                            datajam=Sequel.cariIsi("select DATE_ADD(concat('"+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"',' ','"+jammulai+"'),INTERVAL "+(Integer.parseInt(nomorreg)*10)+" MINUTE) ");
+                            datajam=Sequel.cariIsi("select DATE_ADD(concat('"+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"',' ','"+jammulai+"'),INTERVAL "+(Integer.parseInt(nomorreg)*5)+" MINUTE) ");
                             parsedDate = dateFormat.parse(datajam);
                         }else{
                             statusantrean=false;
@@ -6865,11 +6848,11 @@ public class BPJSDataSEP extends javax.swing.JDialog {
                             System.out.println("respon WS BPJS Kirim Pakai NoRujukan : "+nameNode.path("code").asText()+" "+nameNode.path("message").asText()+"\n");
                             if(nameNode.path("code").asText().equals("200")){
                                 statusantrean=true;
-//                                Sequel.menyimpan("log_addantreanbpjs", "?,?,?",3,new String[]{TNoRw.getText(),nameNode.path("code").asText(),nameNode.path("message").asText()});
+                                Sequel.menyimpan("log_taskid", "?,?,?,?,?",5,new String[]{TNoRw.getText(),nameNode.path("code").asText(),nameNode.path("message").asText(),requestJson,formattedDateTime});
                             }else if(nameNode.path("code").asText().equals("201")){
                                 statusantrean=false;
                                 JOptionPane.showMessageDialog(null,nameNode.path("message").asText());
-//                                Sequel.menyimpan("log_addantreanbpjs", "?,?,?",3,new String[]{TNoRw.getText(),nameNode.path("code").asText(),nameNode.path("message").asText()});
+                                Sequel.menyimpan("log_taskid", "?,?,?,?,?",5,new String[]{TNoRw.getText(),nameNode.path("code").asText(),nameNode.path("message").asText(),requestJson,formattedDateTime});
                             }
                         } catch (Exception e) {
                             statusantrean=false;
@@ -6922,8 +6905,10 @@ public class BPJSDataSEP extends javax.swing.JDialog {
                                 System.out.println("respon WS BPJS Kirim Pakai SKDP : "+nameNode.path("code").asText()+" "+nameNode.path("message").asText()+"\n");
                                 if(nameNode.path("code").asText().equals("200")){
                                     statusantrean=true;
+                                    Sequel.menyimpan("log_taskid", "?,?,?,?,?",5,new String[]{TNoRw.getText(),nameNode.path("code").asText(),nameNode.path("message").asText(),requestJson,formattedDateTime});
                                 }else if(nameNode.path("code").asText().equals("201")){
                                     statusantrean=false;
+                                    Sequel.menyimpan("log_taskid", "?,?,?,?,?",5,new String[]{TNoRw.getText(),nameNode.path("code").asText(),nameNode.path("message").asText(),requestJson,formattedDateTime});
                                     System.out.println("Notif No.SKDP : "+nameNode.path("message").asText());
                                 }
                             } catch (Exception e) {

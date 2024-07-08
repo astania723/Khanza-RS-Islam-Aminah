@@ -12,13 +12,9 @@
 
 package simrskhanza;
 
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.event.*;
+import java.sql.*;
 
 /**
  *

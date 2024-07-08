@@ -11,7 +11,7 @@
  */
 package simrskhanza;
 
-import usu.widget.util.WidgetUtilities;
+import usu.widget.util.*;
 
 /**
  *
@@ -24,10 +24,12 @@ public class SIMRSKhanza {
      */
     public static void main(String[] args) {
         WidgetUtilities.invokeLater(() -> {
-           frmUtama utama=frmUtama.getInstance();
+           frmUtama utama = frmUtama.getInstance();
            utama.isWall();
            utama.setVisible(true);
         }); 
     }
     
 }
+
+

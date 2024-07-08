@@ -1,7 +1,6 @@
 package widget;
 
-import java.awt.Color;
-import java.awt.Insets;
+import java.awt.*;
 
 /**
  *

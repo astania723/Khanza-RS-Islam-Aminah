@@ -11,144 +11,24 @@
  */
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import grafikanalisa.grafiksqlttv;
-import inventory.DlgCariObat2;
-import inventory.DlgCariObat3;
-import inventory.DlgCopyResep;
-import inventory.DlgPemberianObat;
-import inventory.DlgPeresepanDokter;
-import inventory.DlgPermintaanResepPulang;
-import inventory.DlgPermintaanStokPasien;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import grafikanalisa.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
-import kepegawaian.DlgCariPegawai2;
-import keuangan.DlgCariPerawatanRanap;
-import keuangan.DlgCariPerawatanRanap2;
-import keuangan.Jurnal;
-import laporan.DlgBerkasRawat;
-import laporan.DlgDiagnosaPenyakit;
-import permintaan.DlgBookingOperasi;
-import permintaan.DlgPermintaanLaboratorium;
-import permintaan.DlgPermintaanPelayananInformasiObat;
-import permintaan.DlgPermintaanRadiologi;
-import rekammedis.DlgSBAR;
-import rekammedis.DlgSOAPOld;
-import rekammedis.RMCari5SOAPTerakhir;
-import rekammedis.RMCariPemeriksaanObservasi;
-import rekammedis.RMCatatanADIMEGizi;
-import rekammedis.RMCatatanPersalinan;
-import rekammedis.RMChecklistKriteriaKeluarHCU;
-import rekammedis.RMChecklistKriteriaKeluarICU;
-import rekammedis.RMChecklistKriteriaMasukHCU;
-import rekammedis.RMChecklistKriteriaMasukICU;
-import rekammedis.RMChecklistPostOperasi;
-import rekammedis.RMChecklistPreOperasi;
-import rekammedis.RMDataAsuhanGizi;
-import rekammedis.RMDataCatatanCekGDS;
-import rekammedis.RMDataCatatanKeperawatanRanap;
-import rekammedis.RMDataCatatanKeseimbanganCairan;
-import rekammedis.RMDataCatatanObservasiCHBP;
-import rekammedis.RMDataCatatanObservasiInduksiPersalinan;
-import rekammedis.RMDataCatatanObservasiRanap;
-import rekammedis.RMDataCatatanObservasiRanapKebidanan;
-import rekammedis.RMDataCatatanObservasiRanapPostPartum;
-import rekammedis.RMDataFollowUpDBD;
-import rekammedis.RMDataMonitoringAsuhanGizi;
-import rekammedis.RMDataMonitoringReaksiTranfusi;
-import rekammedis.RMDataResumePasienRanap;
-import rekammedis.RMDataSkriningGiziLanjut;
-import rekammedis.RMGenerateKlaim;
-import rekammedis.RMHasilEndoskopiFaringLaring;
-import rekammedis.RMHasilEndoskopiHidung;
-import rekammedis.RMHasilEndoskopiTelinga;
-import rekammedis.RMHasilPemeriksaanEKG;
-import rekammedis.RMHasilPemeriksaanUSG;
-import rekammedis.RMHasilPemeriksaanUSGGynecologi;
-import rekammedis.RMHasilPemeriksaanUSGNeonatus;
-import rekammedis.RMHasilPemeriksaanUSGUrologi;
-import rekammedis.RMHasilTindakanESWL;
-import rekammedis.RMKonselingFarmasi;
-import rekammedis.RMMonitoringAldrettePascaAnestesi;
-import rekammedis.RMMonitoringBromagePascaAnestesi;
-import rekammedis.RMMonitoringStewardPascaAnestesi;
-import rekammedis.RMPemantauanEWSD;
-import rekammedis.RMPemantauanEWSNeonatus;
-import rekammedis.RMPemantauanMEOWS;
-import rekammedis.RMPemantauanPEWS;
-import rekammedis.RMPemantauanPEWSM;
-import rekammedis.RMPengkajianRestrain;
-import rekammedis.RMPenilaianAwalKeperawatanKebidananRanap;
-import rekammedis.RMPenilaianAwalKeperawatanRanap;
-import rekammedis.RMPenilaianAwalKeperawatanRanapAnak;
-import rekammedis.RMPenilaianAwalKeperawatanRanapNeonatus;
-import rekammedis.RMPenilaianAwalMedisHemodialisa;
-import rekammedis.RMPenilaianAwalMedisRanapDewasa;
-import rekammedis.RMPenilaianAwalMedisRanapKandungan;
-import rekammedis.RMPenilaianAwalMedisRanapNeonatus;
-import rekammedis.RMPenilaianFisioterapi;
-import rekammedis.RMPenilaianKorbanKekerasan;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhAnak;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhDewasa;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhGeriatri;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhLansia;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhPsikiatri;
-import rekammedis.RMPenilaianLanjutanSkriningFungsional;
-import rekammedis.RMPenilaianLevelKecemasanRanapAnak;
-import rekammedis.RMPenilaianPasienImunitasRendah;
-import rekammedis.RMPenilaianPasienPenyakitMenular;
-import rekammedis.RMPenilaianPasienTerminal;
-import rekammedis.RMPenilaianPreAnastesi;
-import rekammedis.RMPenilaianPreInduksi;
-import rekammedis.RMPenilaianPreOperasi;
-import rekammedis.RMPenilaianPsikologi;
-import rekammedis.RMPenilaianRisikoDekubitus;
-import rekammedis.RMPenilaianRisikoJatuhNeonatus;
-import rekammedis.RMPenilaianTambahanBunuhDiri;
-import rekammedis.RMPenilaianTambahanGeriatri;
-import rekammedis.RMPenilaianTambahanMelarikanDiri;
-import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
-import rekammedis.RMPenilaianUlangNyeri;
-import rekammedis.RMPerencanaanPemulangan;
-import rekammedis.RMRekonsiliasiObat;
-import rekammedis.RMRiwayatPerawatan;
-import rekammedis.RMSignInSebelumAnastesi;
-import rekammedis.RMSignOutSebelumMenutupLuka;
-import rekammedis.RMSkriningNutrisiAnak;
-import rekammedis.RMSkriningNutrisiDewasa;
-import rekammedis.RMSkriningNutrisiLansia;
-import rekammedis.RMTimeOutSebelumInsisi;
-import rekammedis.RMTransferPasienAntarRuang;
-import rekammedis.ValidasiSBAR;
-import surat.SuratKontrol;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import laporan.*;
+import permintaan.*;
+import rekammedis.*;
+import surat.*;
 
 /**
  *
@@ -9044,7 +8924,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgSOAPOld soap = new DlgSOAPOld(null, false);
             soap.setNoRawat(TNoRw.getText(), TNoRw.getText());
-            soap.setSize(internalFrame1.getWidth(), internalFrame1.getHeight());
+            soap.setSize(internalFrame1.getWidth() - 100, internalFrame1.getHeight() - 50);
             soap.setLocationRelativeTo(internalFrame1);
             soap.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
@@ -9079,34 +8959,6 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 	    }//GEN-LAST:event_BtnUbahLaporanOperasiActionPerformed
 
 	private void BtnGrafikTTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGrafikTTVActionPerformed
-        //    DefaultCategoryDataset dcd = new DefaultCategoryDataset();
-        //    try {
-        //        rs = koneksi.prepareStatement("select replace(suhu_tubuh,',','.') as suhu_tubuh,nadi,respirasi,spo2,DATE_FORMAT(tgl_perawatan , '%d-%m-%Y') as tgl from pemeriksaan_ranap where no_rawat='"+TNoRw.getText()+"'").executeQuery();
-        //        while(rs.next()) {
-        //            dcd.setValue(rs.getDouble("suhu_tubuh"),"Suhu",rs.getString("tgl"));
-        //            dcd.setValue(rs.getDouble("nadi"),"Nadi",rs.getString("tgl"));
-        //            dcd.setValue(rs.getDouble("respirasi"),"Respirasi",rs.getString("tgl"));
-        //            dcd.setValue(rs.getDouble("spo2"),"Oksigen",rs.getString("tgl"));
-        //        }
-        //
-        //        if(rs!=null){
-        //            rs.close();
-        //        }
-        //    } catch (Exception e) {
-        //        System.out.println("Notifikasi : " + e);
-        //    }
-        //    JFreeChart freeChart = ChartFactory.createBarChart("Grafik TTV Pasien "+TPasien.getText(),"TTV","", dcd, PlotOrientation.VERTICAL,true, true,false);
-        //    ChartFrame cf = new ChartFrame("Grafik TTV Pasien",freeChart);
-        //
-        //    cf.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
-        //    cf.setLocationRelativeTo(panelBiasa3);
-        //    cf.setSize(1200, 600);
-        //    cf.setLocation(100, 100);
-        //    cf.setAlwaysOnTop(true);
-        //    cf.setIconImage(new ImageIcon(super.getClass().getResource("/picture/addressbook-edit24.png")).getImage());
-        //    cf.setVisible(true);
-        //    cf.setBackground(Color.WHITE);
-
         grafiksqlttv kas = new grafiksqlttv("Grafik TTV Pasien " + TPasien.getText(),
                 "select DATE_FORMAT(tgl_perawatan , '%d/%m/%Y') as tgl,jam_rawat,replace(suhu_tubuh,',','.') as suhu_tubuh,nadi,respirasi,spo2 from pemeriksaan_ranap where no_rawat='" + TNoRw.getText() + "' and suhu_tubuh <>''", "Suhu", "Nadi", "Respirasi", "Spo2");
         kas.setModal(true);

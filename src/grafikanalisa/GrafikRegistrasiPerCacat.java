@@ -11,17 +11,13 @@
 
 package grafikanalisa;
 
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import javax.swing.ImageIcon;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
+import fungsi.*;
+import java.sql.*;
+import javax.swing.*;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.*;
+import org.jfree.data.category.*;
+import org.jfree.data.general.*;
 
 /**
  *

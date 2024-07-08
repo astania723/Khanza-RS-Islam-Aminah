@@ -1,8 +1,8 @@
 
 package widget;
 
-import java.awt.Color;
-import usu.widget.glass.TextBoxGlass;
+import java.awt.*;
+import usu.widget.glass.*;
 
 /**
  *

@@ -11,167 +11,25 @@
  */
 package simrskhanza;
 
-import bridging.BPJSCekDataIndukKecelakaan;
-import bridging.BPJSCekSuplesiJasaRaharja;
-import bridging.BPJSDataSEP;
-import bridging.BPJSNik;
-import bridging.BPJSPeserta;
-import bridging.BPJSSPRI;
-import bridging.BPJSSuratKontrol;
-import bridging.CoronaPasien;
-import bridging.DlgDataTB;
-import bridging.INACBGPerawatanCorona;
-import bridging.PCareDataPendaftaran;
-import bridging.SisruteRujukanKeluar;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import informasi.InformasiAnalisaKamin;
-import inventory.DlgInputStokPasien;
-import inventory.DlgPenjualan;
-import inventory.DlgPeresepanDokter;
-import inventory.DlgPermintaanResepPulang;
-import inventory.DlgPermintaanStokPasien;
-import inventory.DlgResepObat;
-import inventory.DlgResepPulang;
-import inventory.DlgReturJual;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Window;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
+import bridging.*;
+import fungsi.*;
+import informasi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import keuangan.DlgBilingRanap;
-import keuangan.DlgKamar;
-import keuangan.DlgLhtPiutang;
-import keuangan.DlgPerkiraanBiayaRanap;
-import keuangan.DlgPerkiraanBiayaRanapManual;
-import laporan.DlgBerkasRawat;
-import laporan.DlgDataHAIs;
-import laporan.DlgDataInsidenKeselamatan;
-import laporan.DlgDataKlasifikasiPasienRanap;
-import laporan.DlgDiagnosaPenyakit;
-import permintaan.DlgBookingOperasi;
-import permintaan.DlgPermintaanLaboratorium;
-import permintaan.DlgPermintaanPelayananInformasiObat;
-import permintaan.DlgPermintaanRadiologi;
-import rekammedis.RMCatatanADIMEGizi;
-import rekammedis.RMCatatanPersalinan;
-import rekammedis.RMChecklistKriteriaKeluarHCU;
-import rekammedis.RMChecklistKriteriaKeluarICU;
-import rekammedis.RMChecklistKriteriaMasukHCU;
-import rekammedis.RMChecklistKriteriaMasukICU;
-import rekammedis.RMChecklistPostOperasi;
-import rekammedis.RMChecklistPreOperasi;
-import rekammedis.RMDataAsuhanGizi;
-import rekammedis.RMDataCatatanCekGDS;
-import rekammedis.RMDataCatatanKeperawatanRanap;
-import rekammedis.RMDataCatatanKeseimbanganCairan;
-import rekammedis.RMDataCatatanObservasiCHBP;
-import rekammedis.RMDataCatatanObservasiInduksiPersalinan;
-import rekammedis.RMDataCatatanObservasiRanap;
-import rekammedis.RMDataCatatanObservasiRanapKebidanan;
-import rekammedis.RMDataCatatanObservasiRanapPostPartum;
-import rekammedis.RMDataFollowUpDBD;
-import rekammedis.RMDataMonitoringAsuhanGizi;
-import rekammedis.RMDataMonitoringReaksiTranfusi;
-import rekammedis.RMDataResumePasienRanap;
-import rekammedis.RMDataSkriningGiziLanjut;
-import rekammedis.RMGenerateKlaim;
-import rekammedis.RMHasilEndoskopiFaringLaring;
-import rekammedis.RMHasilEndoskopiHidung;
-import rekammedis.RMHasilEndoskopiTelinga;
-import rekammedis.RMHasilPemeriksaanEKG;
-import rekammedis.RMHasilPemeriksaanUSG;
-import rekammedis.RMHasilPemeriksaanUSGGynecologi;
-import rekammedis.RMHasilPemeriksaanUSGNeonatus;
-import rekammedis.RMHasilPemeriksaanUSGUrologi;
-import rekammedis.RMHasilTindakanESWL;
-import rekammedis.RMHemodialisa;
-import rekammedis.RMKonselingFarmasi;
-import rekammedis.RMMonitoringAldrettePascaAnestesi;
-import rekammedis.RMMonitoringBromagePascaAnestesi;
-import rekammedis.RMMonitoringStewardPascaAnestesi;
-import rekammedis.RMPemantauanEWSNeonatus;
-import rekammedis.RMPemantauanMEOWS;
-import rekammedis.RMPemantauanPEWS;
-import rekammedis.RMPemantauanPEWSD;
-import rekammedis.RMPemantauanPEWSM;
-import rekammedis.RMPengkajianRestrain;
-import rekammedis.RMPenilaianAwalKeperawatanKebidananRanap;
-import rekammedis.RMPenilaianAwalKeperawatanRanap;
-import rekammedis.RMPenilaianAwalKeperawatanRanapAnak;
-import rekammedis.RMPenilaianAwalKeperawatanRanapKritis;
-import rekammedis.RMPenilaianAwalKeperawatanRanapNeonatus;
-import rekammedis.RMPenilaianAwalMedisHemodialisa;
-import rekammedis.RMPenilaianAwalMedisRanapDewasa;
-import rekammedis.RMPenilaianAwalMedisRanapKandungan;
-import rekammedis.RMPenilaianAwalMedisRanapNeonatus;
-import rekammedis.RMPenilaianFisioterapi;
-import rekammedis.RMPenilaianKorbanKekerasan;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhAnak;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhDewasa;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhGeriatri;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhLansia;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhPsikiatri;
-import rekammedis.RMPenilaianLanjutanSkriningFungsional;
-import rekammedis.RMPenilaianLevelKecemasanRanapAnak;
-import rekammedis.RMPenilaianPasienImunitasRendah;
-import rekammedis.RMPenilaianPasienPenyakitMenular;
-import rekammedis.RMPenilaianPasienTerminal;
-import rekammedis.RMPenilaianPreAnastesi;
-import rekammedis.RMPenilaianPreInduksi;
-import rekammedis.RMPenilaianPreOperasi;
-import rekammedis.RMPenilaianPsikologi;
-import rekammedis.RMPenilaianRisikoDekubitus;
-import rekammedis.RMPenilaianRisikoJatuhNeonatus;
-import rekammedis.RMPenilaianTambahanBunuhDiri;
-import rekammedis.RMPenilaianTambahanGeriatri;
-import rekammedis.RMPenilaianTambahanMelarikanDiri;
-import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
-import rekammedis.RMPenilaianUlangNyeri;
-import rekammedis.RMPerencanaanPemulangan;
-import rekammedis.RMRekonsiliasiObat;
-import rekammedis.RMRiwayatPerawatan;
-import rekammedis.RMSignInSebelumAnastesi;
-import rekammedis.RMSignOutSebelumMenutupLuka;
-import rekammedis.RMSkriningMPP;
-import rekammedis.RMSkriningNutrisiAnak;
-import rekammedis.RMSkriningNutrisiDewasa;
-import rekammedis.RMSkriningNutrisiLansia;
-import rekammedis.RMTimeOutSebelumInsisi;
-import rekammedis.RMTransferPasienAntarRuang;
-import rekammedis.RMUjiFungsiKFR;
-import surat.SuratKeteranganRawatInap;
-import surat.SuratKontrol;
-import surat.SuratPenolakanAnjuranMedis;
-import surat.SuratPernyataanPasienUmum;
-import surat.SuratPersetujuanPenolakanTindakan;
-import surat.SuratPersetujuanPenundaanPelayanan;
-import surat.SuratPersetujuanUmum;
-import surat.SuratPulangAtasPermintaanSendiri;
-import surat.SuratSakit;
-import surat.SuratSakitPihak2;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import laporan.*;
+import permintaan.*;
+import rekammedis.*;
+import surat.*;
 
 /**
  *
@@ -223,7 +81,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         tabMode = new DefaultTableModel(null, new Object[]{
             "No.Rawat", "Nomer RM", "Nama Pasien", "Alamat Pasien", "Penanggung Jawab", "Hubungan P.J.", "Jenis Bayar", "Kamar", "Tarif Kamar",
             "Diagnosa Awal", "Diagnosa Akhir", "Tgl.Masuk", "Jam Masuk", "Tgl.Keluar", "Jam Keluar",
-            "Ttl.Biaya", "Stts.Pulang", "Lama", "Dokter P.J.", "Kamar", "Status Bayar", "Agama", "No. Telp Pasien", "SEP BPJS", "No.KTP"
+            "Ttl.Biaya", "Stts.Pulang", "Lama", "Dokter P.J.", "Kamar", "Status Bayar", "Agama", "No. Telp Pasien", "SEP BPJS", "No.KTP", "Tgl.Registrasi"
         }) {
             @Override
             public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -236,7 +94,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         tbKamIn.setPreferredScrollableViewportSize(new Dimension(500, 500));
         tbKamIn.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 25; i++) {
+        for (i = 0; i < 26; i++) {
             TableColumn column = tbKamIn.getColumnModel().getColumn(i);
             if (i == 0) {
                 column.setPreferredWidth(105);
@@ -287,9 +145,12 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 column.setPreferredWidth(130);
             } else if (i == 24) {
                 column.setPreferredWidth(130);
+            } else if (i == 25) {
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }
         }
-        tbKamIn.setDefaultRenderer(Object.class, new WarnaTable());
+        tbKamIn.setDefaultRenderer(Object.class, new WarnaTableRanap());
 
         norawat.setDocument(new batasInput((byte) 17).getKata(norawat));
         kdkamar.setDocument(new batasInput((byte) 15).getKata(kdkamar));
@@ -17296,6 +17157,19 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
             }
         }
     }
+    
+    private void btnHariActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        if (tabMode.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        } else if (R1.isSelected() == false) {
+            JOptionPane.showMessageDialog(rootPane, "Tampilkan data yang belum pulang terlebih dahulu");
+        } else {
+            updateHari();
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    } 
 
     /**
      * @param args the command line arguments
@@ -17704,6 +17578,7 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
     private javax.swing.JMenu MnHasilUSG, MnHasilEndoskopi, MnCatatanObservasi;
     private widget.Label lblSEP, lblKTP;
     private widget.TextBox TSEP, TNoKTP;
+    private widget.Button btnHari;
 
     private void tampil() {
         if (R1.isSelected() == true) {
@@ -17747,7 +17622,7 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
                     "select kamar_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,reg_periksa.p_jawab,reg_periksa.hubunganpj,"
                     + "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir,"
                     + "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar,"
-                    + "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,dokter.nm_dokter,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar, "
+                    + "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,dokter.nm_dokter,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar,reg_periksa.tgl_registrasi, "
                     + "pasien.agama,DATE_FORMAT(pasien.tgl_lahir, '%d-%m-%Y') as tgl_lahir,pasien.no_tlp,pasien.no_peserta,pasien.no_ktp,IF(bridging_sep.no_sep IS NULL,'-',bridging_sep.no_sep) as no_sep from kamar_inap inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "
                     + "inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "
                     + "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec "
@@ -17762,7 +17637,7 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
                         rs.getString("kamar"), Valid.SetAngka(rs.getDouble("trf_kamar")), rs.getString("diagnosa_awal"),
                         rs.getString("diagnosa_akhir"), rs.getString("tgl_masuk"), rs.getString("jam_masuk"), rs.getString("tgl_keluar"),
                         rs.getString("jam_keluar"), Valid.SetAngka(rs.getDouble("ttl_biaya")), rs.getString("stts_pulang"),
-                        rs.getString("lama"), rs.getString("nm_dokter"), rs.getString("kd_kamar"), rs.getString("status_bayar"), rs.getString("agama"), rs.getString("no_tlp"), rs.getString("no_sep"), rs.getString("no_ktp")
+                        rs.getString("lama"), rs.getString("nm_dokter"), rs.getString("kd_kamar"), rs.getString("status_bayar"), rs.getString("agama"), rs.getString("no_tlp"), rs.getString("no_sep"), rs.getString("no_ktp"), rs.getString("tgl_registrasi")
                     });
                     psanak = koneksi.prepareStatement(
                             "select pasien.no_rkm_medis,pasien.nm_pasien,ranap_gabung.no_rawat2,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.no_peserta, "
@@ -18659,6 +18534,7 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
         lblKTP = new widget.Label();
         TSEP = new widget.TextBox();
         TNoKTP = new widget.TextBox();
+        btnHari = new widget.Button();
 
         lblSEP.setText("SEP :");
         lblSEP.setName("lblSEP"); // NOI18N
@@ -18681,5 +18557,16 @@ private void MnPenilaianAwalMedisRanapNeonatusActionPerformed(java.awt.event.Act
         TNoKTP.setName("TNoKTP"); // NOI18N
         TNoKTP.setPreferredSize(new java.awt.Dimension(150, 23));
         panelGlass9.add(TNoKTP);
+        
+        btnHari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/download24.png"))); // NOI18N
+        btnHari.setText("Update Hari Perawatan");
+        btnHari.setName("btnHari"); // NOI18N
+        btnHari.setPreferredSize(new java.awt.Dimension(180, 30));
+        btnHari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHariActionPerformed(evt);
+            }
+        });
+        panelCari.add(btnHari);
     }
 }

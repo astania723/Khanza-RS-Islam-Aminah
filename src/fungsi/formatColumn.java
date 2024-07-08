@@ -5,12 +5,9 @@
 
 package fungsi;
 
-import java.text.NumberFormat;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
+import java.text.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *

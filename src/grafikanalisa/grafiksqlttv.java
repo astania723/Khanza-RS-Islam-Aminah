@@ -15,31 +15,20 @@ package grafikanalisa;
  */
 
 
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.NumberFormat;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
+import fungsi.*;
+import java.awt.*;
+import java.sql.*;
+import java.text.*;
+import javax.swing.*;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.labels.StandardCategoryToolTipGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.CombinedDomainCategoryPlot;
-import org.jfree.chart.renderer.category.LineAndShapeRenderer;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.*;
+import org.jfree.chart.annotations.CategoryTextAnnotation;
+import org.jfree.chart.axis.*;
+import org.jfree.chart.labels.*;
+import org.jfree.chart.plot.*;
+import org.jfree.chart.renderer.category.*;
+import org.jfree.data.category.*;
+import org.jfree.ui.TextAnchor;
 
 
 /**
@@ -210,6 +199,12 @@ public class grafiksqlttv extends JDialog {
             subplot2.setDomainGridlinesVisible(true);
             subplot3.setDomainGridlinesVisible(true);
             subplot4.setDomainGridlinesVisible(true);
+            
+            // Add annotations for permanent tooltips
+            addAnnotations(subplot1, dataset1);
+            addAnnotations(subplot2, dataset2);
+            addAnnotations(subplot3, dataset3);
+            addAnnotations(subplot4, dataset4);
 
             // Create domain axis
             CategoryAxis domainAxis = new CategoryAxis("TTV");
@@ -259,6 +254,21 @@ public class grafiksqlttv extends JDialog {
           *
           * @param args  ignored.
           */
-
+        private static void addAnnotations(CategoryPlot plot, CategoryDataset dataset) {
+        for (int row = 0; row < dataset.getRowCount(); row++) {
+            for (int column = 0; column < dataset.getColumnCount(); column++) {
+                Number value = dataset.getValue(row, column);
+                if (value != null) {
+                    String annotationText = value.toString();
+                    double adjustedValue = value.doubleValue() - 5; 
+                    CategoryTextAnnotation annotation = new CategoryTextAnnotation(
+                        annotationText, dataset.getColumnKey(column), adjustedValue);
+                    annotation.setFont(new Font("Tahoma", Font.PLAIN, 9));
+                    annotation.setTextAnchor(TextAnchor.TOP_CENTER);
+                    plot.addAnnotation(annotation);
+                }
+            }
+        }
+    }
 }
 

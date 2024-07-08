@@ -1,10 +1,10 @@
 
 package widget;
 
-import java.awt.Color;
-import javax.swing.JScrollPane;
-import javax.swing.border.LineBorder;
-import usu.widget.glass.ViewPortGlass;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import usu.widget.glass.*;
 
 /**
  *

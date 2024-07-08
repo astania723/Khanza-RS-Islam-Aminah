@@ -2,9 +2,10 @@ package widget;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.GeneralPath;
-import java.util.Random;
+import java.awt.geom.*;
+import java.util.*;
 import javax.swing.*;
+import javax.swing.Timer;
  
 /**
  *

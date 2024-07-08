@@ -5,11 +5,9 @@
  */
 package setting;
 
-import fungsi.batasInput;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane;
+import fungsi.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *

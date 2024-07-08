@@ -11,8 +11,8 @@
 
 package bridging;
 
-import fungsi.akses;
-import java.awt.Cursor;
+import fungsi.*;
+import java.awt.*;
 
 /**
  *

@@ -4,9 +4,7 @@
  */
 package widget;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 /**
  *

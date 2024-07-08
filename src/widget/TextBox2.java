@@ -1,8 +1,8 @@
 
 package widget;
 
-import java.awt.Color;
-import javax.swing.JTextField;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *

@@ -1,12 +1,9 @@
 
 package misc;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Enumeration;
-import java.util.Formatter;
-import org.smslib.helper.CommPortIdentifier;
-import org.smslib.helper.SerialPort;
+import java.io.*;
+import java.util.*;
+import org.smslib.helper.*;
 
 public class CommTest
 {

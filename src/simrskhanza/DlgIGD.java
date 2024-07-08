@@ -11,170 +11,28 @@
  */
 package simrskhanza;
 
-import bridging.BPJSCekDataIndukKecelakaan;
-import bridging.BPJSCekSuplesiJasaRaharja;
-import bridging.BPJSDataSEP;
-import bridging.BPJSProgramPRB;
-import bridging.BPJSSPRI;
-import bridging.BPJSSuratKontrol;
-import bridging.CoronaPasien;
-import bridging.DlgDataTB;
-import bridging.ICareRiwayatPerawatan;
-import bridging.ICareRiwayatPerawatanFKTP;
-import bridging.INACBGPerawatanCorona;
-import bridging.InhealthDataSJP;
-import bridging.PCareDataPendaftaran;
-import bridging.SisruteRujukanKeluar;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import grafikanalisa.grafikperiksaperagama;
-import grafikanalisa.grafikperiksaperbulan;
-import grafikanalisa.grafikperiksaperdokter;
-import grafikanalisa.grafikperiksaperhari;
-import grafikanalisa.grafikperiksaperjk;
-import grafikanalisa.grafikperiksaperpekerjaan;
-import grafikanalisa.grafikperiksaperpoli;
-import grafikanalisa.grafikperiksapertahun;
-import grafikanalisa.grafiksql;
-import inventory.DlgCopyResep;
-import inventory.DlgPemberianObat;
-import inventory.DlgPeresepanDokter;
-import inventory.DlgResepObat;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
-import java.util.Calendar;
+import bridging.*;
+import fungsi.*;
+import grafikanalisa.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import keuangan.DlgBilingParsialRalan;
-import keuangan.DlgBilingRalan;
-import keuangan.DlgLhtPiutang;
-import laporan.DlgBerkasRawat;
-import laporan.DlgDataInsidenKeselamatan;
-import laporan.DlgDiagnosaPenyakit;
-import laporan.DlgFrekuensiPenyakitRalan;
-import permintaan.DlgBookingOperasi;
-import permintaan.DlgPermintaanLaboratorium;
-import permintaan.DlgPermintaanPelayananInformasiObat;
-import permintaan.DlgPermintaanRadiologi;
-import permintaan.DlgPermintaanRanap;
-import rekammedis.RMCatatanADIMEGizi;
-import rekammedis.RMCatatanPersalinan;
-import rekammedis.RMChecklistKriteriaMasukHCU;
-import rekammedis.RMChecklistKriteriaMasukICU;
-import rekammedis.RMChecklistPostOperasi;
-import rekammedis.RMChecklistPreOperasi;
-import rekammedis.RMDataAsuhanGizi;
-import rekammedis.RMDataCatatanCekGDS;
-import rekammedis.RMDataCatatanKeperawatanRalan;
-import rekammedis.RMDataCatatanKeseimbanganCairan;
-import rekammedis.RMDataCatatanObservasiCHBP;
-import rekammedis.RMDataCatatanObservasiIGD;
-import rekammedis.RMDataCatatanObservasiInduksiPersalinan;
-import rekammedis.RMDataMonitoringAsuhanGizi;
-import rekammedis.RMDataMonitoringReaksiTranfusi;
-import rekammedis.RMDataResumePasien;
-import rekammedis.RMDataSkriningGiziLanjut;
-import rekammedis.RMDeteksiDiniCorona;
-import rekammedis.RMEdukasiPasienKeluargaRawatJalan;
-import rekammedis.RMHasilPemeriksaanEKG;
-import rekammedis.RMHemodialisa;
-import rekammedis.RMKonselingFarmasi;
-import rekammedis.RMMonitoringAldrettePascaAnestesi;
-import rekammedis.RMMonitoringBromagePascaAnestesi;
-import rekammedis.RMMonitoringStewardPascaAnestesi;
-import rekammedis.RMPemantauanEWSD;
-import rekammedis.RMPemantauanEWSNeonatus;
-import rekammedis.RMPemantauanMEOWS;
-import rekammedis.RMPemantauanPEWS;
-import rekammedis.RMPemantauanPEWSM;
-import rekammedis.RMPengkajianRestrain;
-import rekammedis.RMPenilaianAwalKeperawatanIGD;
-import rekammedis.RMPenilaianAwalKeperawatanKebidananIGD;
-import rekammedis.RMPenilaianAwalMedisHemodialisa;
-import rekammedis.RMPenilaianAwalMedisIGD;
-import rekammedis.RMPenilaianAwalMedisIGDPsikiatri;
-import rekammedis.RMPenilaianFisioterapi;
-import rekammedis.RMPenilaianKorbanKekerasan;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhAnak;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhDewasa;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhGeriatri;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhLansia;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhPsikiatri;
-import rekammedis.RMPenilaianLanjutanSkriningFungsional;
-import rekammedis.RMPenilaianPasienImunitasRendah;
-import rekammedis.RMPenilaianPasienKeracunan;
-import rekammedis.RMPenilaianPasienPenyakitMenular;
-import rekammedis.RMPenilaianPasienTerminal;
-import rekammedis.RMPenilaianPreAnastesi;
-import rekammedis.RMPenilaianPreInduksi;
-import rekammedis.RMPenilaianPreOperasi;
-import rekammedis.RMPenilaianPsikologi;
-import rekammedis.RMPenilaianRisikoJatuhNeonatus;
-import rekammedis.RMPenilaianTambahanBunuhDiri;
-import rekammedis.RMPenilaianTambahanGeriatri;
-import rekammedis.RMPenilaianTambahanMelarikanDiri;
-import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
-import rekammedis.RMPenilaianUlangNyeri;
-import rekammedis.RMRekonsiliasiObat;
-import rekammedis.RMRiwayatPerawatan;
-import rekammedis.RMSignInSebelumAnastesi;
-import rekammedis.RMSignOutSebelumMenutupLuka;
-import rekammedis.RMSkriningNutrisiAnak;
-import rekammedis.RMSkriningNutrisiDewasa;
-import rekammedis.RMSkriningNutrisiLansia;
-import rekammedis.RMTimeOutSebelumInsisi;
-import rekammedis.RMTransferPasienAntarRuang;
-import rekammedis.RMTriaseIGD;
-import surat.SuratBebasNarkoba;
-import surat.SuratBebasTato;
-import surat.SuratButaWarna;
-import surat.SuratCutiHamil;
-import surat.SuratKeteranganBebasTBC;
-import surat.SuratKeteranganCovid;
-import surat.SuratKewaspadaanKesehatan;
-import surat.SuratKontrol;
-import surat.SuratPenolakanAnjuranMedis;
-import surat.SuratPernyataanPasienUmum;
-import surat.SuratPersetujuanPenolakanTindakan;
-import surat.SuratPersetujuanPenundaanPelayanan;
-import surat.SuratPersetujuanRawatInap;
-import surat.SuratPersetujuanUmum;
-import surat.SuratPulangAtasPermintaanSendiri;
-import surat.SuratSakit;
-import surat.SuratSakitPihak2;
-import surat.SuratTidakHamil;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import laporan.*;
+import permintaan.*;
+import rekammedis.*;
+import surat.*;
 
 /**
  *
@@ -345,7 +203,7 @@ public class DlgIGD extends javax.swing.JDialog {
                 column.setPreferredWidth(80);
             }
         }
-        tbPetugas.setDefaultRenderer(Object.class, new WarnaTable());
+        tbPetugas.setDefaultRenderer(Object.class, new WarnaTableIGD());
 
         TNoReg.setDocument(new batasInput((byte) 8).getKata(TNoReg));
         TNoRw.setDocument(new batasInput((byte) 17).getKata(TNoRw));
@@ -5574,31 +5432,37 @@ public class DlgIGD extends javax.swing.JDialog {
                     TCari.requestFocus();
                 } else {
                     if (akses.getedit_registrasi() == true) {
-                        if (Sequel.queryu2tf("update reg_periksa set no_rawat=?,no_reg=?,tgl_registrasi=?,jam_reg=?,kd_dokter=?,no_rkm_medis=?,kd_poli=?,"
-                                + "p_jawab=?,almt_pj=?,biaya_reg=?,hubunganpj=?,stts_daftar=?,kd_pj=?,umurdaftar=?,sttsumur=? where no_rawat=?", 16, new String[]{
-                                    TNoRw.getText(), TNoReg.getText(), Valid.SetTgl(DTPReg.getSelectedItem() + ""), CmbJam.getSelectedItem() + ":" + CmbMenit.getSelectedItem() + ":" + CmbDetik.getSelectedItem(),
-                                    KdDokter.getText(), TNoRM.getText(), "IGDK", TPngJwb.getText(), TAlmt.getText(), TBiaya.getText(), THbngn.getText(),
-                                    TStatus.getText(), kdpnj.getText(), umur, sttsumur, tbPetugas.getValueAt(tbPetugas.getSelectedRow(), 2).toString()
-                                }) == true) {
-                            tabMode.setValueAt(TNoReg.getText(), tbPetugas.getSelectedRow(), 1);
-                            tabMode.setValueAt(TNoRw.getText(), tbPetugas.getSelectedRow(), 2);
-                            tabMode.setValueAt(Valid.SetTgl(DTPReg.getSelectedItem() + ""), tbPetugas.getSelectedRow(), 3);
-                            tabMode.setValueAt(CmbJam.getSelectedItem() + ":" + CmbMenit.getSelectedItem() + ":" + CmbDetik.getSelectedItem(), tbPetugas.getSelectedRow(), 4);
-                            tabMode.setValueAt(KdDokter.getText(), tbPetugas.getSelectedRow(), 5);
-                            tabMode.setValueAt(TDokter.getText(), tbPetugas.getSelectedRow(), 6);
-                            tabMode.setValueAt(TNoRM.getText(), tbPetugas.getSelectedRow(), 7);
-                            tabMode.setValueAt(TPasien.getText(), tbPetugas.getSelectedRow(), 8);
-                            tabMode.setValueAt(JK.getText(), tbPetugas.getSelectedRow(), 9);
-                            tabMode.setValueAt(umur + " " + sttsumur, tbPetugas.getSelectedRow(), 10);
-                            tabMode.setValueAt("IGD", tbPetugas.getSelectedRow(), 11);
-                            tabMode.setValueAt(TPngJwb.getText(), tbPetugas.getSelectedRow(), 12);
-                            tabMode.setValueAt(TAlmt.getText(), tbPetugas.getSelectedRow(), 13);
-                            tabMode.setValueAt(THbngn.getText(), tbPetugas.getSelectedRow(), 14);
-                            tabMode.setValueAt(TBiaya.getText(), tbPetugas.getSelectedRow(), 15);
-                            tabMode.setValueAt(TStatus.getText(), tbPetugas.getSelectedRow(), 16);
-                            tabMode.setValueAt(nmpnj.getText(), tbPetugas.getSelectedRow(), 17);
-                            tabMode.setValueAt(kdpnj.getText(), tbPetugas.getSelectedRow(), 19);
-                            emptTeks();
+                        try {
+                            i = JOptionPane.showConfirmDialog(null, "Apakah data yang di ubah sudah benar ????", "Konfirmasi", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+                            if (i == JOptionPane.YES_OPTION) {
+                                if (Sequel.queryu2tf("update reg_periksa set no_rawat=?,no_reg=?,tgl_registrasi=?,jam_reg=?,kd_dokter=?,no_rkm_medis=?,kd_poli=?,"
+                                        + "p_jawab=?,almt_pj=?,biaya_reg=?,hubunganpj=?,stts_daftar=?,kd_pj=?,umurdaftar=?,sttsumur=? where no_rawat=?", 16, new String[]{
+                                            TNoRw.getText(), TNoReg.getText(), Valid.SetTgl(DTPReg.getSelectedItem() + ""), CmbJam.getSelectedItem() + ":" + CmbMenit.getSelectedItem() + ":" + CmbDetik.getSelectedItem(),
+                                            KdDokter.getText(), TNoRM.getText(), "IGDK", TPngJwb.getText(), TAlmt.getText(), TBiaya.getText(), THbngn.getText(),
+                                            TStatus.getText(), kdpnj.getText(), umur, sttsumur, tbPetugas.getValueAt(tbPetugas.getSelectedRow(), 2).toString()
+                                        }) == true) {
+                                    tabMode.setValueAt(TNoReg.getText(), tbPetugas.getSelectedRow(), 1);
+                                    tabMode.setValueAt(TNoRw.getText(), tbPetugas.getSelectedRow(), 2);
+                                    tabMode.setValueAt(Valid.SetTgl(DTPReg.getSelectedItem() + ""), tbPetugas.getSelectedRow(), 3);
+                                    tabMode.setValueAt(CmbJam.getSelectedItem() + ":" + CmbMenit.getSelectedItem() + ":" + CmbDetik.getSelectedItem(), tbPetugas.getSelectedRow(), 4);
+                                    tabMode.setValueAt(KdDokter.getText(), tbPetugas.getSelectedRow(), 5);
+                                    tabMode.setValueAt(TDokter.getText(), tbPetugas.getSelectedRow(), 6);
+                                    tabMode.setValueAt(TNoRM.getText(), tbPetugas.getSelectedRow(), 7);
+                                    tabMode.setValueAt(TPasien.getText(), tbPetugas.getSelectedRow(), 8);
+                                    tabMode.setValueAt(JK.getText(), tbPetugas.getSelectedRow(), 9);
+                                    tabMode.setValueAt(umur + " " + sttsumur, tbPetugas.getSelectedRow(), 10);
+                                    tabMode.setValueAt("IGD", tbPetugas.getSelectedRow(), 11);
+                                    tabMode.setValueAt(TPngJwb.getText(), tbPetugas.getSelectedRow(), 12);
+                                    tabMode.setValueAt(TAlmt.getText(), tbPetugas.getSelectedRow(), 13);
+                                    tabMode.setValueAt(THbngn.getText(), tbPetugas.getSelectedRow(), 14);
+                                    tabMode.setValueAt(TBiaya.getText(), tbPetugas.getSelectedRow(), 15);
+                                    tabMode.setValueAt(TStatus.getText(), tbPetugas.getSelectedRow(), 16);
+                                    tabMode.setValueAt(nmpnj.getText(), tbPetugas.getSelectedRow(), 17);
+                                    tabMode.setValueAt(kdpnj.getText(), tbPetugas.getSelectedRow(), 19);
+                                    emptTeks();
+                                }
+                            }
+                        } catch (Exception e) {
                         }
                     } else {
                         JOptionPane.showMessageDialog(rootPane, "Maaf hak akses anda dibatasi, silahkan konfirmasi kepada admin..!!! ");
@@ -6606,9 +6470,9 @@ private void MnRawatJalanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             tbPetugas.requestFocus();
         } else {
             if (tbPetugas.getSelectedRow() != -1) {
-                if (Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?", TNoRw.getText()) > 0) {
-                    JOptionPane.showMessageDialog(null, "Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
-                } else {
+//                if (Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?", TNoRw.getText()) > 0) {
+//                    JOptionPane.showMessageDialog(null, "Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
+//                } else {
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     DlgRawatJalan dlgrwjl = new DlgRawatJalan(null, false);
                     dlgrwjl.isCek();
@@ -6619,7 +6483,7 @@ private void MnRawatJalanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     dlgrwjl.setNoRm(TNoRw.getText(), DTPCari1.getDate(), DTPCari2.getDate());
                     dlgrwjl.setVisible(true);
                     this.setCursor(Cursor.getDefaultCursor());
-                }
+//                }
             }
 
         }

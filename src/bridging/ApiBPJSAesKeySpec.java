@@ -4,8 +4,7 @@
 
 package bridging;
 
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.spec.*;
 
 public class ApiBPJSAesKeySpec {
     private SecretKeySpec key;

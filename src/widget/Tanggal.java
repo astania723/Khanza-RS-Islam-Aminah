@@ -5,8 +5,8 @@
 
 package widget;
 
-import java.awt.Color;
-import uz.ncipro.calendar.JDateTimePicker;
+import java.awt.*;
+import uz.ncipro.calendar.*;
 
 /**
  *

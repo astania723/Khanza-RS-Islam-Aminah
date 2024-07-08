@@ -11,163 +11,24 @@
  */
 package simrskhanza;
 
-import bridging.ICareRiwayatPerawatan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventory.DlgCariObat;
-import inventory.DlgCopyResep;
-import inventory.DlgPemberianObat;
-import inventory.DlgPeresepanDokter;
-import inventory.InventoryResepLuar;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import bridging.*;
+import fungsi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPegawai;
-import kepegawaian.DlgCariPegawai2;
-import kepegawaian.DlgCariPetugas;
-import keuangan.DlgJnsPerawatanRalan;
-import keuangan.Jurnal;
-import laporan.DlgBerkasRawat;
-import permintaan.DlgBookingOperasi;
-import permintaan.DlgPermintaanLaboratorium;
-import permintaan.DlgPermintaanPelayananInformasiObat;
-import permintaan.DlgPermintaanRadiologi;
-import rekammedis.DlgOdontogram;
-import rekammedis.DlgSBAR;
-import rekammedis.MasterCariTemplatePemeriksaan;
-import rekammedis.MasterCariTemplateSOAPIE;
-import rekammedis.RMCari5SOAPTerakhir;
-import rekammedis.RMCatatanADIMEGizi;
-import rekammedis.RMCatatanPersalinan;
-import rekammedis.RMChecklistKriteriaMasukHCU;
-import rekammedis.RMChecklistKriteriaMasukICU;
-import rekammedis.RMChecklistPostOperasi;
-import rekammedis.RMChecklistPreOperasi;
-import rekammedis.RMDataAsuhanGizi;
-import rekammedis.RMDataCatatanCekGDS;
-import rekammedis.RMDataCatatanKeperawatanRalan;
-import rekammedis.RMDataCatatanKeseimbanganCairan;
-import rekammedis.RMDataCatatanObservasiCHBP;
-import rekammedis.RMDataCatatanObservasiIGD;
-import rekammedis.RMDataCatatanObservasiInduksiPersalinan;
-import rekammedis.RMDataMonitoringAsuhanGizi;
-import rekammedis.RMDataMonitoringReaksiTranfusi;
-import rekammedis.RMDataResumePasien;
-import rekammedis.RMDataSkriningGiziLanjut;
-import rekammedis.RMEdukasiPasienKeluargaRawatJalan;
-import rekammedis.RMGenerateKlaim;
-import rekammedis.RMHasilEndoskopiFaringLaring;
-import rekammedis.RMHasilEndoskopiHidung;
-import rekammedis.RMHasilEndoskopiTelinga;
-import rekammedis.RMHasilPemeriksaanEKG;
-import rekammedis.RMHasilPemeriksaanUSG;
-import rekammedis.RMHasilPemeriksaanUSGGynecologi;
-import rekammedis.RMHasilPemeriksaanUSGNeonatus;
-import rekammedis.RMHasilPemeriksaanUSGUrologi;
-import rekammedis.RMHasilTindakanESWL;
-import rekammedis.RMKonselingFarmasi;
-import rekammedis.RMMCU;
-import rekammedis.RMMonitoringAldrettePascaAnestesi;
-import rekammedis.RMMonitoringBromagePascaAnestesi;
-import rekammedis.RMMonitoringStewardPascaAnestesi;
-import rekammedis.RMPemantauanEWSNeonatus;
-import rekammedis.RMPemantauanMEOWS;
-import rekammedis.RMPemantauanPEWS;
-import rekammedis.RMPemantauanPEWSD;
-import rekammedis.RMPemantauanPEWSM;
-import rekammedis.RMPenatalaksanaanTerapiOkupasi;
-import rekammedis.RMPengkajianRestrain;
-import rekammedis.RMPenilaianAwalKeperawatanBayiAnak;
-import rekammedis.RMPenilaianAwalKeperawatanGigi;
-import rekammedis.RMPenilaianAwalKeperawatanIGD;
-import rekammedis.RMPenilaianAwalKeperawatanKebidanan;
-import rekammedis.RMPenilaianAwalKeperawatanKebidananIGD;
-import rekammedis.RMPenilaianAwalKeperawatanRalan;
-import rekammedis.RMPenilaianAwalKeperawatanRalanGeriatri;
-import rekammedis.RMPenilaianAwalKeperawatanRalanPsikiatri;
-import rekammedis.RMPenilaianAwalMedisHemodialisa;
-import rekammedis.RMPenilaianAwalMedisIGD;
-import rekammedis.RMPenilaianAwalMedisIGDPsikiatri;
-import rekammedis.RMPenilaianAwalMedisRalanAnak;
-import rekammedis.RMPenilaianAwalMedisRalanBedah;
-import rekammedis.RMPenilaianAwalMedisRalanBedahMulut;
-import rekammedis.RMPenilaianAwalMedisRalanDewasa;
-import rekammedis.RMPenilaianAwalMedisRalanGeriatri;
-import rekammedis.RMPenilaianAwalMedisRalanKandungan;
-import rekammedis.RMPenilaianAwalMedisRalanKulitDanKelamin;
-import rekammedis.RMPenilaianAwalMedisRalanMata;
-import rekammedis.RMPenilaianAwalMedisRalanNeurologi;
-import rekammedis.RMPenilaianAwalMedisRalanOrthopedi;
-import rekammedis.RMPenilaianAwalMedisRalanParu;
-import rekammedis.RMPenilaianAwalMedisRalanPenyakitDalam;
-import rekammedis.RMPenilaianAwalMedisRalanPsikiatrik;
-import rekammedis.RMPenilaianAwalMedisRalanRehabMedik;
-import rekammedis.RMPenilaianAwalMedisRalanTHT;
-import rekammedis.RMPenilaianFisioterapi;
-import rekammedis.RMPenilaianKorbanKekerasan;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhAnak;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhDewasa;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhGeriatri;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhLansia;
-import rekammedis.RMPenilaianLanjutanRisikoJatuhPsikiatri;
-import rekammedis.RMPenilaianLanjutanSkriningFungsional;
-import rekammedis.RMPenilaianPasienImunitasRendah;
-import rekammedis.RMPenilaianPasienKeracunan;
-import rekammedis.RMPenilaianPasienPenyakitMenular;
-import rekammedis.RMPenilaianPasienTerminal;
-import rekammedis.RMPenilaianPreAnastesi;
-import rekammedis.RMPenilaianPreInduksi;
-import rekammedis.RMPenilaianPreOperasi;
-import rekammedis.RMPenilaianPsikologi;
-import rekammedis.RMPenilaianRisikoJatuhNeonatus;
-import rekammedis.RMPenilaianTambahanBunuhDiri;
-import rekammedis.RMPenilaianTambahanGeriatri;
-import rekammedis.RMPenilaianTambahanMelarikanDiri;
-import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
-import rekammedis.RMPenilaianTerapiWicara;
-import rekammedis.RMPenilaianUlangNyeri;
-import rekammedis.RMRekonsiliasiObat;
-import rekammedis.RMRiwayatPerawatan;
-import rekammedis.RMSignInSebelumAnastesi;
-import rekammedis.RMSignOutSebelumMenutupLuka;
-import rekammedis.RMSkriningNutrisiAnak;
-import rekammedis.RMSkriningNutrisiDewasa;
-import rekammedis.RMSkriningNutrisiLansia;
-import rekammedis.RMTimeOutSebelumInsisi;
-import rekammedis.RMTransferPasienAntarRuang;
-import rekammedis.RMTriaseIGD;
-import rekammedis.RMUjiFungsiKFR;
-import rekammedis.ValidasiObservasiIGD;
-import rekammedis.ValidasiSBAR;
-import surat.SuratKontrol;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import laporan.*;
+import permintaan.*;
+import rekammedis.*;
+import surat.*;
 
 /**
  *
@@ -183,22 +44,14 @@ public class DlgRawatJalan extends javax.swing.JDialog {
     private validasi Valid = new validasi();
     private DlgCariPasien pasien = new DlgCariPasien(null, false);
     private DlgCariDokter dokter = new DlgCariDokter(null, false);
-
-    /**
-     *
-     */
     public DlgCariPetugas petugas = new DlgCariPetugas(null, false);
-
-    /**
-     *
-     */
     public DlgCariPegawai pegawai = new DlgCariPegawai(null, false);
     public DlgCariPegawai2 pegawai2 = new DlgCariPegawai2(null, false);
     private RMCari5SOAPTerakhir soapterakhir = new RMCari5SOAPTerakhir(null, false);
     private MasterCariTemplateSOAPIE templatesoapie = new MasterCariTemplateSOAPIE(null, false);
     private PreparedStatement ps, ps2, ps3, ps4, ps5, ps6, ps7, pstindakan, psset_tarif, psrekening;
     private ResultSet rs, rs2, rstindakan, rsset_tarif, rsrekening;
-    private int i = 0, jmlparsial = 0, jml = 0, index = 0, tinggi = 0;
+    private int i = 0, jmlparsial = 0, jml = 0, index = 0, tinggi = 0, j = 0;
     private String aktifkanparsial = "no", kode_poli = "", kd_pj = "", poli_ralan = "No", cara_bayar_ralan = "No", TANGGALMUNDUR = "yes",
             Suspen_Piutang_Tindakan_Ralan = "", Tindakan_Ralan = "", Beban_Jasa_Medik_Dokter_Tindakan_Ralan = "", Utang_Jasa_Medik_Dokter_Tindakan_Ralan = "",
             Beban_Jasa_Medik_Paramedis_Tindakan_Ralan = "", Utang_Jasa_Medik_Paramedis_Tindakan_Ralan = "", Beban_KSO_Tindakan_Ralan = "", Utang_KSO_Tindakan_Ralan = "",
@@ -1603,7 +1456,7 @@ public class DlgRawatJalan extends javax.swing.JDialog {
             }
         } catch (Exception e) {
             System.out.println("Notifikasi : " + e);
-        }
+        }  
     }
 
     /**
@@ -8195,7 +8048,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgCopyResep daftar = new DlgCopyResep(null, false);
             daftar.isCek();
-            daftar.setRM(TNoRw.getText(), TNoRM.getText(), KdDok.getText(), kd_pj, "ralan");
+            daftar.setRM(TNoRw.getText(), TNoRM.getText(), KdPeg.getText(), kd_pj, "ralan");
             daftar.tampil();
             daftar.setSize(internalFrame1.getWidth(), internalFrame1.getHeight());
             daftar.setLocationRelativeTo(internalFrame1);
@@ -10416,19 +10269,7 @@ private void BtnGenerateBerkasKlaimActionPerformed(java.awt.event.ActionEvent ev
     }//GEN-LAST:event_BtnGenerateBerkasKlaimActionPerformed
 
     private void BtnIcareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIcareActionPerformed
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        variabel = Sequel.cariIsi("select maping_dokter_dpjpvclaim.kd_dokter_bpjs from maping_dokter_dpjpvclaim where maping_dokter_dpjpvclaim.kd_dokter=?", KdPeg.getText());
-        if (!variabel.isEmpty()) {
-            akses.setform("DlgReg");
-            ICareRiwayatPerawatan dlgki = new ICareRiwayatPerawatan(null, false);
-            dlgki.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
-            dlgki.setLocationRelativeTo(internalFrame1);
-            dlgki.setPasien(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis=?", TNoRM.getText()), variabel);
-            dlgki.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Maaf, Dokter tidak terdaftar di mapping dokter BPJS...!!!");
-        }
-        this.setCursor(Cursor.getDefaultCursor());
+        icare();
     }//GEN-LAST:event_BtnIcareActionPerformed
 
     /**
@@ -13295,39 +13136,80 @@ private void BtnGenerateBerkasKlaimActionPerformed(java.awt.event.ActionEvent ev
                                 LCount.setText("" + tabModePemeriksaan.getRowCount());
                             }
                         } else {
-                            if (akses.getkode().equals(KdPeg.getText())) {
-                                if (Sequel.menyimpantf("pemeriksaan_ralan", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", "Data", 21, new String[]{
-                                    TNoRw.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""), cmbJam.getSelectedItem() + ":" + cmbMnt.getSelectedItem() + ":" + cmbDtk.getSelectedItem(),
-                                    TSuhu.getText(), TTensi.getText(), TNadi.getText(), TRespirasi.getText(), TTinggi.getText(), TBerat.getText(),
-                                    SpO2.getText(), TGCS.getText(), cmbKesadaran.getSelectedItem().toString(), TKeluhan.getText(), TPemeriksaan.getText(), TAlergi.getText(),
-                                    LingkarPerut.getText(), TindakLanjut.getText(), TPenilaian.getText(), TInstruksi.getText(), TEvaluasi.getText(), KdPeg.getText()}) == true) {
-                                    tabModePemeriksaan.addRow(new Object[]{
-                                        false, TNoRw.getText(), TNoRM.getText(), TPasien.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""), cmbJam.getSelectedItem() + ":" + cmbMnt.getSelectedItem() + ":" + cmbDtk.getSelectedItem(),
-                                        TSuhu.getText(), TTensi.getText(), TNadi.getText(), TRespirasi.getText(), TTinggi.getText(), TBerat.getText(), SpO2.getText(), TGCS.getText(), cmbKesadaran.getSelectedItem().toString(),
-                                        TKeluhan.getText(), TPemeriksaan.getText(), TAlergi.getText(), LingkarPerut.getText(), TindakLanjut.getText(), TPenilaian.getText(), TInstruksi.getText(), TEvaluasi.getText(),
-                                        KdPeg.getText(), TPegawai.getText(), Jabatan.getText()
-                                    });
-                                    TSuhu.setText("");
-                                    TTensi.setText("");
-                                    TNadi.setText("");
-                                    TRespirasi.setText("");
-                                    TTinggi.setText("");
-                                    TBerat.setText("");
-                                    TGCS.setText("");
-                                    TKeluhan.setText("");
-                                    TPemeriksaan.setText("");
-                                    TAlergi.setText("");
-                                    LingkarPerut.setText("");
-                                    TindakLanjut.setText("");
-                                    TPenilaian.setText("");
-                                    TInstruksi.setText("");
-                                    SpO2.setText("");
-                                    TEvaluasi.setText("");
-                                    cmbKesadaran.setSelectedIndex(0);
-                                    LCount.setText("" + tabModePemeriksaan.getRowCount());
+                            j = Sequel.cariInteger("select COUNT(mutasi_berkas.no_rawat) from mutasi_berkas where mutasi_berkas.diterima='0000-00-00 00:00:00' and mutasi_berkas.no_rawat=?",TNoRw.getText());
+                            if(j==0){
+                                i = JOptionPane.showConfirmDialog(null, "Task Id 3 & 4 Belum Ada, Apa Mau Lanjut Menyimpan ????", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+                                if (i == JOptionPane.YES_OPTION) {
+                                    if (akses.getkode().equals(KdPeg.getText())) {
+                                        if (Sequel.menyimpantf("pemeriksaan_ralan", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", "Data", 21, new String[]{
+                                            TNoRw.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""), cmbJam.getSelectedItem() + ":" + cmbMnt.getSelectedItem() + ":" + cmbDtk.getSelectedItem(),
+                                            TSuhu.getText(), TTensi.getText(), TNadi.getText(), TRespirasi.getText(), TTinggi.getText(), TBerat.getText(),
+                                            SpO2.getText(), TGCS.getText(), cmbKesadaran.getSelectedItem().toString(), TKeluhan.getText(), TPemeriksaan.getText(), TAlergi.getText(),
+                                            LingkarPerut.getText(), TindakLanjut.getText(), TPenilaian.getText(), TInstruksi.getText(), TEvaluasi.getText(), KdPeg.getText()}) == true) {
+                                            tabModePemeriksaan.addRow(new Object[]{
+                                                false, TNoRw.getText(), TNoRM.getText(), TPasien.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""), cmbJam.getSelectedItem() + ":" + cmbMnt.getSelectedItem() + ":" + cmbDtk.getSelectedItem(),
+                                                TSuhu.getText(), TTensi.getText(), TNadi.getText(), TRespirasi.getText(), TTinggi.getText(), TBerat.getText(), SpO2.getText(), TGCS.getText(), cmbKesadaran.getSelectedItem().toString(),
+                                                TKeluhan.getText(), TPemeriksaan.getText(), TAlergi.getText(), LingkarPerut.getText(), TindakLanjut.getText(), TPenilaian.getText(), TInstruksi.getText(), TEvaluasi.getText(),
+                                                KdPeg.getText(), TPegawai.getText(), Jabatan.getText()
+                                            });
+                                            TSuhu.setText("");
+                                            TTensi.setText("");
+                                            TNadi.setText("");
+                                            TRespirasi.setText("");
+                                            TTinggi.setText("");
+                                            TBerat.setText("");
+                                            TGCS.setText("");
+                                            TKeluhan.setText("");
+                                            TPemeriksaan.setText("");
+                                            TAlergi.setText("");
+                                            LingkarPerut.setText("");
+                                            TindakLanjut.setText("");
+                                            TPenilaian.setText("");
+                                            TInstruksi.setText("");
+                                            SpO2.setText("");
+                                            TEvaluasi.setText("");
+                                            cmbKesadaran.setSelectedIndex(0);
+                                            LCount.setText("" + tabModePemeriksaan.getRowCount());
+                                        }
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "Hanya bisa disimpan oleh dokter/petugas yang bersangkutan..!!");
+                                    }
                                 }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Hanya bisa disimpan oleh dokter/petugas yang bersangkutan..!!");
+                            }else{
+                                if (akses.getkode().equals(KdPeg.getText())) {
+                                    if (Sequel.menyimpantf("pemeriksaan_ralan", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", "Data", 21, new String[]{
+                                        TNoRw.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""), cmbJam.getSelectedItem() + ":" + cmbMnt.getSelectedItem() + ":" + cmbDtk.getSelectedItem(),
+                                        TSuhu.getText(), TTensi.getText(), TNadi.getText(), TRespirasi.getText(), TTinggi.getText(), TBerat.getText(),
+                                        SpO2.getText(), TGCS.getText(), cmbKesadaran.getSelectedItem().toString(), TKeluhan.getText(), TPemeriksaan.getText(), TAlergi.getText(),
+                                        LingkarPerut.getText(), TindakLanjut.getText(), TPenilaian.getText(), TInstruksi.getText(), TEvaluasi.getText(), KdPeg.getText()}) == true) {
+                                        tabModePemeriksaan.addRow(new Object[]{
+                                            false, TNoRw.getText(), TNoRM.getText(), TPasien.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""), cmbJam.getSelectedItem() + ":" + cmbMnt.getSelectedItem() + ":" + cmbDtk.getSelectedItem(),
+                                            TSuhu.getText(), TTensi.getText(), TNadi.getText(), TRespirasi.getText(), TTinggi.getText(), TBerat.getText(), SpO2.getText(), TGCS.getText(), cmbKesadaran.getSelectedItem().toString(),
+                                            TKeluhan.getText(), TPemeriksaan.getText(), TAlergi.getText(), LingkarPerut.getText(), TindakLanjut.getText(), TPenilaian.getText(), TInstruksi.getText(), TEvaluasi.getText(),
+                                            KdPeg.getText(), TPegawai.getText(), Jabatan.getText()
+                                        });
+                                        TSuhu.setText("");
+                                        TTensi.setText("");
+                                        TNadi.setText("");
+                                        TRespirasi.setText("");
+                                        TTinggi.setText("");
+                                        TBerat.setText("");
+                                        TGCS.setText("");
+                                        TKeluhan.setText("");
+                                        TPemeriksaan.setText("");
+                                        TAlergi.setText("");
+                                        LingkarPerut.setText("");
+                                        TindakLanjut.setText("");
+                                        TPenilaian.setText("");
+                                        TInstruksi.setText("");
+                                        SpO2.setText("");
+                                        TEvaluasi.setText("");
+                                        cmbKesadaran.setSelectedIndex(0);
+                                        LCount.setText("" + tabModePemeriksaan.getRowCount());
+                                    }
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Hanya bisa disimpan oleh dokter/petugas yang bersangkutan..!!");
+                                }
                             }
                         }
                     }
@@ -13539,6 +13421,24 @@ private void BtnGenerateBerkasKlaimActionPerformed(java.awt.event.ActionEvent ev
         } catch (Exception e) {
         }
         LCount.setText("" + tabModePemeriksaanSbar.getRowCount());
+    }
+    
+    public void icare(){
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        variabel = Sequel.cariIsi("select maping_dokter_dpjpvclaim.kd_dokter_bpjs from maping_dokter_dpjpvclaim inner join reg_periksa on maping_dokter_dpjpvclaim.kd_dokter=reg_periksa.kd_dokter where reg_periksa.no_rawat=?", TNoRw.getText());
+        if (!variabel.isEmpty()) {
+            akses.setform("DlgReg");
+            ICareRiwayatPerawatan dlgki = new ICareRiwayatPerawatan(null, false);
+            dlgki.setModal(true);
+            dlgki.setAlwaysOnTop(true);
+            dlgki.setSize(internalFrame1.getWidth() - 100, internalFrame1.getHeight() - 50);
+            dlgki.setLocationRelativeTo(internalFrame1);
+            dlgki.setPasien(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis=?", TNoRM.getText()), variabel);
+            dlgki.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Maaf, Dokter tidak terdaftar di mapping dokter BPJS...!!!");
+        }
+        this.setCursor(Cursor.getDefaultCursor());
     }
 
 }

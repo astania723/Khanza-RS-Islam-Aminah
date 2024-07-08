@@ -5,12 +5,12 @@
  */
 package bridging;
 
-import AESsecurity.EnkripsiAES;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import java.io.FileInputStream;
-import java.sql.Connection;
-import java.util.Properties;
-import javax.swing.JOptionPane;
+import AESsecurity.*;
+import com.mysql.jdbc.jdbc2.optional.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
 
 /**
  *

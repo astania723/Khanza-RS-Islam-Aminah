@@ -5,25 +5,15 @@
  */
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+
 
 /**
  *
@@ -34,8 +24,8 @@ public class PanelDiagnosa extends widget.panelisi {
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
-    private PreparedStatement pspenyakit,psdiagnosapasien,psprosedur,pstindakanpasien;
-    private ResultSet rs;
+    private PreparedStatement pspenyakit,psdiagnosapasien,psprosedur,pstindakanpasien,psnomor,psupdatenomor;
+    private ResultSet rs,rsnomor;
     private int jml=0,i=0,index=0;
     private String[] kode,nama,ciripny,keterangan,kategori,cirium,kode2,panjang,pendek;
     private boolean[] pilih;
@@ -1047,6 +1037,39 @@ public class PanelDiagnosa extends widget.panelisi {
                         Sequel.queryu2("delete from diagnosa_pasien where no_rawat=? and kd_penyakit=?",2,new String[]{
                             tbDiagnosaPasien.getValueAt(i,2).toString(),tbDiagnosaPasien.getValueAt(i,5).toString()
                         });
+                        try{
+                            psnomor=koneksi.prepareStatement("select prioritas from diagnosa_pasien where no_rawat=? order by prioritas");
+                            try{
+                                psnomor.setString(1,tbDiagnosaPasien.getValueAt(i,2).toString());
+                                rsnomor=psnomor.executeQuery();
+                                int nomorbarud=1;
+                                while(rsnomor.next()){
+                                    int nomorsekarangd=rsnomor.getInt("prioritas");
+                                    if(nomorsekarangd != nomorbarud){
+                                        psupdatenomor=koneksi.prepareStatement("update diagnosa_pasien set prioritas=? where prioritas=? and no_rawat=?");
+                                        psupdatenomor.setInt(1, nomorbarud);
+                                        psupdatenomor.setInt(2, nomorsekarangd);
+                                        psupdatenomor.setString(3,tbDiagnosaPasien.getValueAt(i,2).toString());
+                                        psupdatenomor.executeUpdate();
+                                    }
+                                    nomorbarud++;
+                                }
+                            }catch(Exception e){
+                                System.out.println("Notifikasi : "+e);
+                            }finally{
+                                if(rsnomor!=null){
+                                    rsnomor.close();
+                                }
+                                if(psnomor!=null){
+                                    psnomor.close();
+                                }
+                                if(psupdatenomor!=null){
+                                    psupdatenomor.close();
+                                }
+                            }
+                        }catch(Exception e){
+                            System.out.println("Notifikasi : "+e);
+                        }
                     }
                 }
             }                     
@@ -1059,6 +1082,39 @@ public class PanelDiagnosa extends widget.panelisi {
                         Sequel.queryu2("delete from prosedur_pasien where no_rawat=? and kode=?",2,new String[]{
                             tbTindakanPasien.getValueAt(i,2).toString(),tbTindakanPasien.getValueAt(i,5).toString()
                         });
+                        try{
+                            psnomor=koneksi.prepareStatement("select prioritas from prosedur_pasien where no_rawat=? order by prioritas");
+                            try{
+                                psnomor.setString(1,tbTindakanPasien.getValueAt(i,2).toString());
+                                rsnomor=psnomor.executeQuery();
+                                int nomorbarup=1;
+                                while(rsnomor.next()){
+                                    int nomorsekarangp=rsnomor.getInt("prioritas");
+                                    if(nomorsekarangp != nomorbarup){
+                                        psupdatenomor=koneksi.prepareStatement("update prosedur_pasien set prioritas=? where prioritas=? and no_rawat=?");
+                                        psupdatenomor.setInt(1, nomorbarup);
+                                        psupdatenomor.setInt(2, nomorsekarangp);
+                                        psupdatenomor.setString(3,tbTindakanPasien.getValueAt(i,2).toString());
+                                        psupdatenomor.executeUpdate();
+                                    }
+                                    nomorbarup++;
+                                }
+                            }catch(Exception e){
+                                System.out.println("Notifikasi : "+e);
+                            }finally{
+                                if(rsnomor!=null){
+                                    rsnomor.close();
+                                }
+                                if(psnomor!=null){
+                                    psnomor.close();
+                                }
+                                if(psupdatenomor!=null){
+                                    psupdatenomor.close();
+                                }
+                            }
+                        }catch(Exception e){
+                            System.out.println("Notifikasi : "+e);
+                        }
                     }
                 }
             }
@@ -1126,4 +1182,5 @@ public class PanelDiagnosa extends widget.panelisi {
         }
         this.setCursor(Cursor.getDefaultCursor());
     }
+    
 }

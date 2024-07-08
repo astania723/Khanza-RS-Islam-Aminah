@@ -1,10 +1,10 @@
 
 package widget;
 
-import java.awt.Color;
+import java.awt.*;
 import static java.awt.image.ImageObserver.WIDTH;
-import javax.swing.JTextArea;
-import javax.swing.border.EmptyBorder;
+import javax.swing.*;
+import javax.swing.border.*;
 
 /**
  *

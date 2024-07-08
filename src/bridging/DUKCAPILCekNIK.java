@@ -5,19 +5,13 @@
  */
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import java.io.FileInputStream;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import org.springframework.http.*;
+import org.springframework.web.client.*;
 
 /**
  *

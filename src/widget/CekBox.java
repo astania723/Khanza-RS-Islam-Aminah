@@ -5,8 +5,8 @@
 
 package widget;
 
-import java.awt.Color;
-import javax.swing.JCheckBox;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *

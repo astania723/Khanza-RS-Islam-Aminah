@@ -5,9 +5,9 @@
 
 package widget;
 
-import java.awt.Color;
-import javax.swing.JRadioButton;
-import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.*;
 
 /**
  *
