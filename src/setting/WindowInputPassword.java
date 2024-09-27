@@ -5,11 +5,9 @@
  */
 package setting;
 
-import fungsi.batasInput;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane;
+import fungsi.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
@@ -22,6 +20,8 @@ public class WindowInputPassword extends javax.swing.JDialog {
     
     /**
      * Creates new form WindowInputPassword
+     * @param parent
+     * @param modal
      */
     public WindowInputPassword(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -212,6 +212,12 @@ public class WindowInputPassword extends javax.swing.JDialog {
     private widget.Label jLabel12;
     private widget.Label jLabel9;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     *
+     * @param user
+     * @param pass
+     */
     public void SetUserPass(String user, String pass){
         PassLama.setText("");
         Passbaru1.setText("");

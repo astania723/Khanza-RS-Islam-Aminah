@@ -1,27 +1,29 @@
 package bridging;
 
-import fungsi.koneksiDB;
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
-import java.security.KeyManagementException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import org.apache.http.conn.scheme.Scheme;
+import fungsi.*;
+import java.io.*;
+import java.nio.charset.*;
+import java.security.*;
+import java.security.cert.*;
+import javax.crypto.*;
+import javax.crypto.spec.*;
+import javax.net.ssl.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.security.crypto.codec.Base64;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.client.*;
+import org.springframework.security.crypto.codec.*;
+import org.springframework.web.client.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiKemenkesSisrute {        
     private String Key,Consid,pass;
+
+    /**
+     *
+     */
     public ApiKemenkesSisrute(){
         try {                    
             pass = koneksiDB.PASSSISRUTE();
@@ -38,6 +40,11 @@ public class ApiKemenkesSisrute {
             System.out.println("Notifikasi : "+ex);
         }
     }
+
+    /**
+     *
+     * @return
+     */
     public String getHmac() {        
         long GetUTCdatetimeAsString = GetUTCdatetimeAsString();        
         String salt = Consid +"&"+String.valueOf(GetUTCdatetimeAsString);
@@ -67,6 +74,10 @@ public class ApiKemenkesSisrute {
 	}
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         long millis = System.currentTimeMillis();   
         return millis/1000;

@@ -1,27 +1,14 @@
 package inventory;
 
 
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
 public class DlgUbahPemesanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -65,13 +52,6 @@ public class DlgUbahPemesanan extends javax.swing.JDialog {
             "Harga(Rp)","Subtotal(Rp)","Disk(%)","Diskon(Rp)","Total","Stok","No.Batch",
             "Ralan", "Kelas 1", "Kelas 2", "Kelas 3", "Utama", "VIP", "VVIP", "Beli Luar", 
             "Jual Bebas", "Karyawan","HPP","Isi","Isibesar","Dasar"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-               boolean a = false;
-               if ((colIndex==0)||(colIndex==5)||(colIndex==6)||(colIndex==7)||(colIndex==9)||(colIndex==10)||(colIndex==13)) {
-                   a=true;
-               }
-               return a;
-             }
               
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
@@ -81,6 +61,13 @@ public class DlgUbahPemesanan extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==5)||(colIndex==6)||(colIndex==7)||(colIndex==9)||(colIndex==10)||(colIndex==13)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1267,7 +1254,7 @@ private void kdgudangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             }            
         }
         
@@ -1457,7 +1444,7 @@ private void kdgudangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),8);
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
 
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,10).toString()); 
@@ -1465,7 +1452,7 @@ private void kdgudangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),10);
                 y=0;
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));
@@ -1480,6 +1467,10 @@ private void kdgudangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         
     }
     
+    /**
+     *
+     * @param Faktur
+     */
     public void isCek(String Faktur){
         try {
             try {

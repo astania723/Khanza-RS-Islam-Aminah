@@ -12,33 +12,17 @@
 
 package inventory;
 
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 import widget.Button;
 
 /**
@@ -75,18 +59,18 @@ public class InventoryResepLuar extends javax.swing.JDialog {
         tabModeResep=new DefaultTableModel(null,new Object[]{
                 "Jumlah","Kode Barang","Nama Barang","Satuan","Komposisi","Jenis Obat","Aturan Pakai","I.F."
             }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==0)||(colIndex==6)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==6)) {
+                 a=true;
+               }
+               return a;
+             }
              /*Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };*/
@@ -125,17 +109,17 @@ public class InventoryResepLuar extends javax.swing.JDialog {
         tabModeResepRacikan=new DefaultTableModel(null,new Object[]{
                 "No","Nama Racikan","Kode Racik","Metode Racik","Jml.Racik","Aturan Pakai","Keterangan"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = true;
-                if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
-                    a=false;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = true;
+               if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
+                 a=false;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -172,13 +156,6 @@ public class InventoryResepLuar extends javax.swing.JDialog {
         tabModeDetailResepRacikan=new DefaultTableModel(null,new Object[]{
                 "No","Kode Barang","Nama Barang","Satuan","Jenis Obat","Kps","P1","/","P2","Kandungan","Jml","I.F.","Komposisi"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==6)||(colIndex==8)||(colIndex==9)||(colIndex==10)) {
-                    a=true;
-                }
-                return a;
-             }             
              Class[] types = new Class[] {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,
@@ -186,6 +163,13 @@ public class InventoryResepLuar extends javax.swing.JDialog {
                 java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
                 java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==6)||(colIndex==8)||(colIndex==9)||(colIndex==10)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1296,6 +1280,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbResep;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampilobat() {        
         z=0;
         for(i=0;i<tbResep.getRowCount();i++){
@@ -1381,6 +1368,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }            
     }
 
+    /**
+     *
+     */
     public void emptTeksobat() {
         if(ChkRM.isSelected()==true){
             Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(resep_luar.no_resep,3),signed)),0) from resep_luar where resep_luar.tgl_perawatan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' ",
@@ -1388,6 +1378,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbResep;
     }
@@ -1396,6 +1390,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         return BtnSimpan;
     }
     
+    /**
+     *
+     */
     public void isCek(){   
         BtnTambah.setEnabled(akses.getresep_luar());
         TCari.requestFocus();
@@ -1598,10 +1595,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 persenracik=Double.parseDouble(tbDetailResepObatRacikan.getValueAt(r,9).toString().replaceAll("%",""));
                 kapasitasracik=Double.parseDouble(tbDetailResepObatRacikan.getValueAt(r,5).toString());
                 for(i=0;i<tbDetailResepObatRacikan.getRowCount();i++){ 
-                    if(noracik==tbDetailResepObatRacikan.getValueAt(i,0).toString()){
+                    if(noracik == null ? tbDetailResepObatRacikan.getValueAt(i,0).toString() == null : noracik.equals(tbDetailResepObatRacikan.getValueAt(i,0).toString())){
                         if(!tbDetailResepObatRacikan.getValueAt(i,9).toString().contains("%")){
-                            jumlahracik=jumlahracik+(Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,5).toString())*
-                                    Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,10).toString()));
+                            jumlahracik += (Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,5).toString())*
+                                  Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,10).toString()));
                         }
                     }
                 }
@@ -1655,6 +1652,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     */
     public void MatikanJam(){
         ChkJln.setSelected(false);
     }

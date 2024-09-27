@@ -1,30 +1,20 @@
 package kepegawaian;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgCariPegawai extends javax.swing.JDialog {
+public class DlgCariPegawai extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -429,6 +419,9 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");   
         TCari.requestFocus();
@@ -467,6 +460,11 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         }
     } 
     
+    /**
+     *
+     * @param kode
+     * @return
+     */
     public String tampil3(String kode) {
         try {
             if(Valid.daysOld("./cache/pegawai.iyem")>7){
@@ -501,6 +499,11 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         return iyem;
     }
     
+    /**
+     *
+     * @param kode
+     * @return
+     */
     public String tampilJbatan(String kode) {
         try {
             if(Valid.daysOld("./cache/pegawai.iyem")>7){
@@ -535,6 +538,11 @@ public final class DlgCariPegawai extends javax.swing.JDialog {
         return iyem;
     }
     
+    /**
+     *
+     * @param kode
+     * @return
+     */
     public String tampilDepartemen(String kode) {
         try {
             if(Valid.daysOld("./cache/pegawai.iyem")>7){

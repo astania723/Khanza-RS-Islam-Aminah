@@ -1,18 +1,15 @@
 package rekammedis;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgSOAPOld extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -37,10 +34,14 @@ public class DlgSOAPOld extends javax.swing.JDialog {
         LoadHTML.setEditorKit(kit);
         StyleSheet styleSheet = kit.getStyleSheet();
         styleSheet.addRule(
-                ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                ".isi2 td{font: 8.5px tahoma;height:12px;background: #ffffff;color:#323232;}"+
-                ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"
+//                ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+//                ".isi2 td{font: 8.5px tahoma;height:12px;background: #ffffff;color:#323232;}"+
+//                ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+//                ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"
+                ".isi td, .isi2 td, .isi3 td, .isi4 td { font: 10px Tahoma; height: 12px; background: #ffffff; color: #323232; padding: 5px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }" +
+                ".isi td, .isi3 td { border-right: 1px solid #e2e7dd; }" +
+                ".isi td, .isi3 td { border-bottom: 1px solid #e2e7dd; }" +
+                ".isi3 td, .isi4 td { border-top: 1px solid #e2e7dd; }"
         );
         Document doc = kit.createDefaultDocument();
         LoadHTML.setDocument(doc);
@@ -448,6 +449,11 @@ htmlContent.append("<tr class='isi'  ><td align='center' ").append(stylee).appen
         
     }
     
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void setNoRawat(String x,String y)
     {
         this.noRawat=x;
@@ -455,6 +461,9 @@ htmlContent.append("<tr class='isi'  ><td align='center' ").append(stylee).appen
         prosesCari();
     }
 
+    /**
+     *
+     */
     public void tampil() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

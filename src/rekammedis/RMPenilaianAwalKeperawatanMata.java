@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -297,28 +280,28 @@ public class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         BB.setDocument(new batasInput((byte)5).getKata(BB));
         TB.setDocument(new batasInput((byte)5).getKata(TB));
         BMI.setDocument(new batasInput((byte)5).getKata(BMI));
-        KeluhanUtama.setDocument(new batasInput((int)150).getKata(KeluhanUtama));
-        RPD.setDocument(new batasInput((int)100).getKata(RPD));
-        RPS.setDocument(new batasInput((int)100).getKata(RPS));
-        RPK.setDocument(new batasInput((int)100).getKata(RPK));
-        RPO.setDocument(new batasInput((int)100).getKata(RPO));
-        Alergi.setDocument(new batasInput((int)20).getKata(Alergi));
-        KetBantu.setDocument(new batasInput((int)50).getKata(KetBantu));
-        KetProthesa.setDocument(new batasInput((int)50).getKata(KetProthesa));
-        KetBudaya.setDocument(new batasInput((int)50).getKata(KetBudaya));
-        KetPsiko.setDocument(new batasInput((int)70).getKata(KetPsiko));
-        KetTinggal.setDocument(new batasInput((int)40).getKata(KetTinggal));
-        KetEdukasi.setDocument(new batasInput((int)50).getKata(KetEdukasi));
-        KetLapor.setDocument(new batasInput((int)15).getKata(KetLapor));
-        KetProvokes.setDocument(new batasInput((int)40).getKata(KetProvokes));
-        KetQuality.setDocument(new batasInput((int)50).getKata(KetQuality));
-        Lokasi.setDocument(new batasInput((int)50).getKata(Lokasi));
-        Durasi.setDocument(new batasInput((int)20).getKata(Durasi));
-        KetNyeri.setDocument(new batasInput((int)40).getKata(KetNyeri));
-        KetDokter.setDocument(new batasInput((int)15).getKata(KetDokter));
-        Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
+        KeluhanUtama.setDocument(new batasInput(150).getKata(KeluhanUtama));
+        RPD.setDocument(new batasInput(100).getKata(RPD));
+        RPS.setDocument(new batasInput(100).getKata(RPS));
+        RPK.setDocument(new batasInput(100).getKata(RPK));
+        RPO.setDocument(new batasInput(100).getKata(RPO));
+        Alergi.setDocument(new batasInput(20).getKata(Alergi));
+        KetBantu.setDocument(new batasInput(50).getKata(KetBantu));
+        KetProthesa.setDocument(new batasInput(50).getKata(KetProthesa));
+        KetBudaya.setDocument(new batasInput(50).getKata(KetBudaya));
+        KetPsiko.setDocument(new batasInput(70).getKata(KetPsiko));
+        KetTinggal.setDocument(new batasInput(40).getKata(KetTinggal));
+        KetEdukasi.setDocument(new batasInput(50).getKata(KetEdukasi));
+        KetLapor.setDocument(new batasInput(15).getKata(KetLapor));
+        KetProvokes.setDocument(new batasInput(40).getKata(KetProvokes));
+        KetQuality.setDocument(new batasInput(50).getKata(KetQuality));
+        Lokasi.setDocument(new batasInput(50).getKata(Lokasi));
+        Durasi.setDocument(new batasInput(20).getKata(Durasi));
+        KetNyeri.setDocument(new batasInput(40).getKata(KetNyeri));
+        KetDokter.setDocument(new batasInput(15).getKata(KetDokter));
+        Rencana.setDocument(new batasInput(200).getKata(Rencana));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -4363,6 +4346,11 @@ public class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -4370,7 +4358,9 @@ public class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         isRawat(); 
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_mata());
         BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_mata());

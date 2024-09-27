@@ -1,29 +1,14 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
 public class DlgCariReturPiutang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -32,6 +17,10 @@ public class DlgCariReturPiutang extends javax.swing.JDialog {
     private Jurnal jur=new Jurnal();
     private riwayatobat Trackobat=new riwayatobat();
     public DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public DlgBarang barang=new DlgBarang(null,false);
     private double ttlretur=0,subtotal=0;
     private Connection koneksi=koneksiDB.condb();
@@ -1008,8 +997,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         subtotal=0;
                         int no=1;
                         while(rs2.next()){
-                            ttlretur=ttlretur+rs2.getDouble(8);
-                            subtotal=subtotal+rs2.getDouble(8);
+                            ttlretur += rs2.getDouble(8);
+                            subtotal += rs2.getDouble(8);
                             tabMode.addRow(new Object[]{
                                 "","",no+". Batch : "+rs2.getString("no_batch"),"Faktur : "+rs2.getString("no_faktur"),"Nota : "+rs2.getString(1),rs2.getString(2)+", "+rs2.getString(3),
                                 rs2.getString(4)+", "+rs2.getString(5),

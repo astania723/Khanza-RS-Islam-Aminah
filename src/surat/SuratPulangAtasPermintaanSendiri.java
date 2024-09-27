@@ -5,42 +5,26 @@
 
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.time.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
  * 
  * @author windiartohugroho
  */
-public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog {
+public class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -122,7 +106,7 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         NamaPihak2.setDocument(new batasInput((byte)50).getKata(NamaPihak2));
         SaksiKeluarga.setDocument(new batasInput((byte)50).getKata(SaksiKeluarga));
-        AlamatPj.setDocument(new batasInput((int)100).getKata(AlamatPj));  
+        AlamatPj.setDocument(new batasInput(100).getKata(AlamatPj));  
         UmurPJ.setDocument(new batasInput((byte)3).getKata(UmurPJ));    
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -467,7 +451,7 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-06-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -481,7 +465,7 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-06-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -619,7 +603,7 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         FormInput.add(jLabel11);
         jLabel11.setBounds(394, 150, 50, 23);
 
-        Hubungan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suami", "Istri", "Anak", "Ayah", "Saudara", "Keponakan" }));
+        Hubungan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suami", "Istri", "Anak", "Ayah", "Saudara", "Keponakan", "Ibu", "Diri Sendiri" }));
         Hubungan.setName("Hubungan"); // NOI18N
         Hubungan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -693,7 +677,7 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         jLabel13.setBounds(436, 120, 85, 23);
 
         TglLahir.setForeground(new java.awt.Color(50, 70, 50));
-        TglLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-06-2023" }));
+        TglLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-10-2023" }));
         TglLahir.setDisplayFormat("dd-MM-yyyy");
         TglLahir.setName("TglLahir"); // NOI18N
         TglLahir.setOpaque(false);
@@ -746,7 +730,7 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         Pilihan.setBounds(433, 70, 300, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-06-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-10-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1416,6 +1400,9 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1489,6 +1476,9 @@ public final class SuratPulangAtasPermintaanSendiri extends javax.swing.JDialog 
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Pilihan.setText("");
         NamaPihak2.setText("");

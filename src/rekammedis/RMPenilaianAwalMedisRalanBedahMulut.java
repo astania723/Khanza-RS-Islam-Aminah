@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -186,40 +169,40 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KeluhanUtama.setDocument(new batasInput((int)2000).getKata(KeluhanUtama));
-        RPS.setDocument(new batasInput((int)2000).getKata(RPS));
-        RPK.setDocument(new batasInput((int)1000).getKata(RPK));
-        Alergi.setDocument(new batasInput((int)50).getKata(Alergi));
-        TD.setDocument(new batasInput((int)8).getKata(TD));
-        Nadi.setDocument(new batasInput((int)5).getKata(Nadi));
-        Suhu.setDocument(new batasInput((int)5).getKata(Suhu));
-        RR.setDocument(new batasInput((int)5).getKata(RR));
-        BB.setDocument(new batasInput((int)5).getKata(BB));
-        TB.setDocument(new batasInput((int)5).getKata(TB));
-        StatusNutrisi.setDocument(new batasInput((int)50).getKata(StatusNutrisi));
-        KeteranganKulit.setDocument(new batasInput((int)30).getKata(KeteranganKulit));
-        KeteranganKepala.setDocument(new batasInput((int)30).getKata(KeteranganKepala));
-        KeteranganMata.setDocument(new batasInput((int)30).getKata(KeteranganMata));
-        KeteranganLeher.setDocument(new batasInput((int)30).getKata(KeteranganLeher));
-        KeteranganKelenjar.setDocument(new batasInput((int)30).getKata(KeteranganKelenjar));
-        KeteranganDada.setDocument(new batasInput((int)30).getKata(KeteranganDada));
-        KeteranganPerut.setDocument(new batasInput((int)30).getKata(KeteranganPerut));
-        KeteranganEkstrimitas.setDocument(new batasInput((int)30).getKata(KeteranganEkstrimitas));
-        Wajah.setDocument(new batasInput((int)1000).getKata(Wajah));
-        IntraOral.setDocument(new batasInput((int)1000).getKata(IntraOral));
-        GigiGeligi.setDocument(new batasInput((int)1000).getKata(GigiGeligi));
-        Laborat.setDocument(new batasInput((int)300).getKata(Laborat));
-        Radiologi.setDocument(new batasInput((int)300).getKata(Radiologi));
-        Penunjang.setDocument(new batasInput((int)300).getKata(Penunjang));
-        AsesmenKerja.setDocument(new batasInput((int)500).getKata(AsesmenKerja));
-        AsesmenBanding.setDocument(new batasInput((int)500).getKata(AsesmenBanding));
-        Permasalahan.setDocument(new batasInput((int)1000).getKata(Permasalahan));
-        Terapi.setDocument(new batasInput((int)1000).getKata(Terapi));
-        Tindakan.setDocument(new batasInput((int)1000).getKata(Tindakan));
-        Edukasi.setDocument(new batasInput((int)1000).getKata(Edukasi));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KeluhanUtama.setDocument(new batasInput(2000).getKata(KeluhanUtama));
+        RPS.setDocument(new batasInput(2000).getKata(RPS));
+        RPK.setDocument(new batasInput(1000).getKata(RPK));
+        Alergi.setDocument(new batasInput(50).getKata(Alergi));
+        TD.setDocument(new batasInput(8).getKata(TD));
+        Nadi.setDocument(new batasInput(5).getKata(Nadi));
+        Suhu.setDocument(new batasInput(5).getKata(Suhu));
+        RR.setDocument(new batasInput(5).getKata(RR));
+        BB.setDocument(new batasInput(5).getKata(BB));
+        TB.setDocument(new batasInput(5).getKata(TB));
+        StatusNutrisi.setDocument(new batasInput(50).getKata(StatusNutrisi));
+        KeteranganKulit.setDocument(new batasInput(30).getKata(KeteranganKulit));
+        KeteranganKepala.setDocument(new batasInput(30).getKata(KeteranganKepala));
+        KeteranganMata.setDocument(new batasInput(30).getKata(KeteranganMata));
+        KeteranganLeher.setDocument(new batasInput(30).getKata(KeteranganLeher));
+        KeteranganKelenjar.setDocument(new batasInput(30).getKata(KeteranganKelenjar));
+        KeteranganDada.setDocument(new batasInput(30).getKata(KeteranganDada));
+        KeteranganPerut.setDocument(new batasInput(30).getKata(KeteranganPerut));
+        KeteranganEkstrimitas.setDocument(new batasInput(30).getKata(KeteranganEkstrimitas));
+        Wajah.setDocument(new batasInput(1000).getKata(Wajah));
+        IntraOral.setDocument(new batasInput(1000).getKata(IntraOral));
+        GigiGeligi.setDocument(new batasInput(1000).getKata(GigiGeligi));
+        Laborat.setDocument(new batasInput(300).getKata(Laborat));
+        Radiologi.setDocument(new batasInput(300).getKata(Radiologi));
+        Penunjang.setDocument(new batasInput(300).getKata(Penunjang));
+        AsesmenKerja.setDocument(new batasInput(500).getKata(AsesmenKerja));
+        AsesmenBanding.setDocument(new batasInput(500).getKata(AsesmenBanding));
+        Permasalahan.setDocument(new batasInput(1000).getKata(Permasalahan));
+        Terapi.setDocument(new batasInput(1000).getKata(Terapi));
+        Tindakan.setDocument(new batasInput(1000).getKata(Tindakan));
+        Edukasi.setDocument(new batasInput(1000).getKata(Edukasi));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -2021,7 +2004,61 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
                     "</tr>"
                 );
                 for (i = 0; i < tabMode.getRowCount(); i++) {
-                    htmlContent.append("<tr class='isi'><td valign='top'>").append(tbObat.getValueAt(i,0).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,1).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,2).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,3).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,4).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,5).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,6).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,7).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,8).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,9).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,10).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,11).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,12).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,13).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,14).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,15).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,16).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,17).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,18).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,19).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,20).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,21).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,22).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,23).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,24).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,25).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,26).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,27).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,28).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,29).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,30).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,31).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,32).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,33).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,34).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,35).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,36).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,37).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,38).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,39).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,40).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,41).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,42).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,43).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,44).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,45).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,46).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,47).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,48).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,49).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,50).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,51).toString()).append("</td></tr>");
+                    htmlContent.append(
+                        "<tr class='isi'>"+
+                           "<td valign='top'>"+tbObat.getValueAt(i,0).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,1).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,2).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,3).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,4).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,5).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,6).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,7).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,8).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,9).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,10).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,11).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,12).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,13).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,14).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,15).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,16).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,17).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,18).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,19).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,20).toString()+"</td>"+ 
+                            "<td valign='top'>"+tbObat.getValueAt(i,21).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,22).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,23).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,24).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,25).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,26).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,27).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,28).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,29).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,30).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,31).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,32).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,33).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,34).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,35).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,36).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,37).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,38).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,39).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,40).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,41).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,42).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,43).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,44).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,45).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,46).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,47).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,48).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,49).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,50).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,51).toString()+"</td>"+
+                        "</tr>");
                 }
                 LoadHTML.setText(
                     "<html>"+
@@ -2032,19 +2069,19 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
                 );
 
                 File g = new File("file2.css");            
-                try (BufferedWriter bg = new BufferedWriter(new FileWriter(g))) {
-                    bg.write(
-                            ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi2 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#323232;}"+
-                                    ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi5 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#AA0000;}"+
-                                    ".isi6 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#FF0000;}"+
-                                    ".isi7 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#C8C800;}"+
-                                    ".isi8 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#00AA00;}"+
-                                    ".isi9 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#969696;}"
-                    );
-                }
+                BufferedWriter bg = new BufferedWriter(new FileWriter(g));
+                bg.write(
+                    ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                    ".isi2 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#323232;}"+
+                    ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                    ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                    ".isi5 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#AA0000;}"+
+                    ".isi6 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#FF0000;}"+
+                    ".isi7 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#C8C800;}"+
+                    ".isi8 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#00AA00;}"+
+                    ".isi9 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#969696;}"
+                );
+                bg.close();
 
                 File f = new File("DataPenilaianAwalMedisRalanBedahMulut.html");            
                 BufferedWriter bw = new BufferedWriter(new FileWriter(f));            
@@ -2583,6 +2620,9 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2797,6 +2837,11 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2805,9 +2850,9 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ralan());
-        BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ralan());
-        BtnEdit.setEnabled(akses.getpenilaian_awal_medis_ralan());
+        BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ralan_bedah_mulut());
+        BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ralan_bedah_mulut());
+        BtnEdit.setEnabled(akses.getpenilaian_awal_medis_ralan_bedah_mulut());
         if(akses.getjml2()>=1){
             KdDokter.setEditable(false);
             BtnDokter.setEnabled(false);
@@ -2820,6 +2865,9 @@ public class RMPenilaianAwalMedisRalanBedahMulut extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

@@ -1,35 +1,33 @@
 package inventaris;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventarisCariHibah extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  InventarisAsalHibah asalhibah=new InventarisAsalHibah(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  InventarisBarang barang=new InventarisBarang(null,false);
     private PreparedStatement ps,ps2,pscaribeli;
@@ -969,7 +967,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                             no++;
                         }
                         tabMode.addRow(new Object[]{"","Akun Aset :",rs.getString("akun_aset"),"Total :","","",Valid.SetAngka(rs.getDouble("totalhibah"))});
-                        totalhibah=totalhibah+rs.getDouble("totalhibah");
+                        totalhibah += rs.getDouble("totalhibah");
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
                     } finally{
@@ -997,6 +995,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");

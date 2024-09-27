@@ -5,43 +5,26 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
  *
  * @author perpustakaan
  */
-public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
+public class RMPenilaianPreInduksi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -181,40 +164,40 @@ public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        TD.setDocument(new batasInput((int)8).getKata(TD));
-        Nadi.setDocument(new batasInput((int)5).getKata(Nadi));
-        RR.setDocument(new batasInput((int)5).getKata(RR));
-        Suhu.setDocument(new batasInput((int)5).getKata(Suhu));
-        EKG.setDocument(new batasInput((int)50).getKata(EKG));
-        Lainlain.setDocument(new batasInput((int)50).getKata(Lainlain));
-        Perencanaan.setDocument(new batasInput((int)300).getKata(Perencanaan));
-        InfusPerifier.setDocument(new batasInput((int)300).getKata(InfusPerifier));
-        CVC.setDocument(new batasInput((int)70).getKata(CVC));
-        KeteranganPremedikasi.setDocument(new batasInput((int)50).getKata(KeteranganPremedikasi));
-        KeteranganInfusInduksi.setDocument(new batasInput((int)70).getKata(KeteranganInfusInduksi));
-        FaceMaskNo.setDocument(new batasInput((int)20).getKata(FaceMaskNo));
-        NasopharingNo.setDocument(new batasInput((int)20).getKata(NasopharingNo));
-        ETTNo.setDocument(new batasInput((int)20).getKata(ETTNo));
-        ETTJenis.setDocument(new batasInput((int)20).getKata(ETTJenis));
-        ETTFiksasi.setDocument(new batasInput((int)25).getKata(ETTFiksasi));
-        LMANo.setDocument(new batasInput((int)20).getKata(LMANo));
-        LMAJenis.setDocument(new batasInput((int)20).getKata(LMAJenis));
-        Tracheostomi.setDocument(new batasInput((int)60).getKata(Tracheostomi));
-        BronchoscopiFiberoptik.setDocument(new batasInput((int)60).getKata(BronchoscopiFiberoptik));
-        Glidescopi.setDocument(new batasInput((int)60).getKata(Glidescopi));
-        TatalaksanaLainlain.setDocument(new batasInput((int)100).getKata(TatalaksanaLainlain));
-        KeteranganIntubasi.setDocument(new batasInput((int)200).getKata(KeteranganIntubasi));
-        IntubasiSulitVentilasi.setDocument(new batasInput((int)100).getKata(IntubasiSulitVentilasi));
-        IntubasiSulitIntubasi.setDocument(new batasInput((int)100).getKata(IntubasiSulitIntubasi));
-        Ventilasi.setDocument(new batasInput((int)100).getKata(Ventilasi));
-        TeknikRegionalJenis.setDocument(new batasInput((int)100).getKata(TeknikRegionalJenis));
-        TeknikRegionalLokasi.setDocument(new batasInput((int)40).getKata(TeknikRegionalLokasi));
-        TeknikRegionalJenisJarum.setDocument(new batasInput((int)30).getKata(TeknikRegionalJenisJarum));
-        TeknikRegionalKateterFiksasi.setDocument(new batasInput((int)40).getKata(TeknikRegionalKateterFiksasi));
-        TeknikRegionalObatobatan.setDocument(new batasInput((int)400).getKata(TeknikRegionalObatobatan));
-        TeknikRegionalKomplikasi.setDocument(new batasInput((int)200).getKata(TeknikRegionalKomplikasi));
-        TeknikRegionalHasil.setDocument(new batasInput((int)100).getKata(TeknikRegionalHasil));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TD.setDocument(new batasInput(8).getKata(TD));
+        Nadi.setDocument(new batasInput(5).getKata(Nadi));
+        RR.setDocument(new batasInput(5).getKata(RR));
+        Suhu.setDocument(new batasInput(5).getKata(Suhu));
+        EKG.setDocument(new batasInput(50).getKata(EKG));
+        Lainlain.setDocument(new batasInput(50).getKata(Lainlain));
+        Perencanaan.setDocument(new batasInput(300).getKata(Perencanaan));
+        InfusPerifier.setDocument(new batasInput(300).getKata(InfusPerifier));
+        CVC.setDocument(new batasInput(70).getKata(CVC));
+        KeteranganPremedikasi.setDocument(new batasInput(50).getKata(KeteranganPremedikasi));
+        KeteranganInfusInduksi.setDocument(new batasInput(70).getKata(KeteranganInfusInduksi));
+        FaceMaskNo.setDocument(new batasInput(20).getKata(FaceMaskNo));
+        NasopharingNo.setDocument(new batasInput(20).getKata(NasopharingNo));
+        ETTNo.setDocument(new batasInput(20).getKata(ETTNo));
+        ETTJenis.setDocument(new batasInput(20).getKata(ETTJenis));
+        ETTFiksasi.setDocument(new batasInput(25).getKata(ETTFiksasi));
+        LMANo.setDocument(new batasInput(20).getKata(LMANo));
+        LMAJenis.setDocument(new batasInput(20).getKata(LMAJenis));
+        Tracheostomi.setDocument(new batasInput(60).getKata(Tracheostomi));
+        BronchoscopiFiberoptik.setDocument(new batasInput(60).getKata(BronchoscopiFiberoptik));
+        Glidescopi.setDocument(new batasInput(60).getKata(Glidescopi));
+        TatalaksanaLainlain.setDocument(new batasInput(100).getKata(TatalaksanaLainlain));
+        KeteranganIntubasi.setDocument(new batasInput(200).getKata(KeteranganIntubasi));
+        IntubasiSulitVentilasi.setDocument(new batasInput(100).getKata(IntubasiSulitVentilasi));
+        IntubasiSulitIntubasi.setDocument(new batasInput(100).getKata(IntubasiSulitIntubasi));
+        Ventilasi.setDocument(new batasInput(100).getKata(Ventilasi));
+        TeknikRegionalJenis.setDocument(new batasInput(100).getKata(TeknikRegionalJenis));
+        TeknikRegionalLokasi.setDocument(new batasInput(40).getKata(TeknikRegionalLokasi));
+        TeknikRegionalJenisJarum.setDocument(new batasInput(30).getKata(TeknikRegionalJenisJarum));
+        TeknikRegionalKateterFiksasi.setDocument(new batasInput(40).getKata(TeknikRegionalKateterFiksasi));
+        TeknikRegionalObatobatan.setDocument(new batasInput(400).getKata(TeknikRegionalObatobatan));
+        TeknikRegionalKomplikasi.setDocument(new batasInput(200).getKata(TeknikRegionalKomplikasi));
+        TeknikRegionalHasil.setDocument(new batasInput(100).getKata(TeknikRegionalHasil));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -2587,6 +2570,9 @@ public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TD.setText("");
         Nadi.setText("");
@@ -2717,6 +2703,11 @@ public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2724,6 +2715,9 @@ public final class RMPenilaianPreInduksi extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_pre_induksi());
         BtnHapus.setEnabled(akses.getpenilaian_pre_induksi());

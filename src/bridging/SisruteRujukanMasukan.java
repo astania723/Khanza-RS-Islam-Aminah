@@ -11,37 +11,17 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.BackgroundMusic;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import simrskhanza.DlgIGD;
-import simrskhanza.DlgReg;
+import javax.swing.table.*;
+import kepegawaian.*;
+import org.springframework.http.*;
+import simrskhanza.*;
 
 /**
  *
@@ -1105,6 +1085,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         new Timer(1000, taskPerformer).start();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){            
             Sequel.cariIsi("select pegawai.no_ktp from pegawai where pegawai.nik=?",Nama,akses.getkode());

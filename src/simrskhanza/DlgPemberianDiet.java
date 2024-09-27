@@ -1,29 +1,16 @@
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import laporan.LaporanSisaDietPasien;
-import setting.DlgCariJamDiet;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import laporan.*;
+import setting.*;
 
 /**
  *
@@ -1267,6 +1254,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbRekapDiet;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {   
         try{
             Valid.tabelKosong(tabMode);
@@ -1316,6 +1306,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void tampil2() {   
         try{
             Valid.tabelKosong(tabMode2);  
@@ -1359,7 +1352,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
-
+    /**
+     *
+     */
     public void emptTeks() {
         KdDiet.setText("");
         NmDiet.setText("");
@@ -1415,6 +1410,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getdiet_pasien());
         BtnHapus.setEnabled(akses.getdiet_pasien());

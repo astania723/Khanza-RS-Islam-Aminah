@@ -6,39 +6,25 @@
 
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
  * 
  * @author windiartohugroho
  */
-public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
+public class SuratPernyataanPasienUmum extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -49,6 +35,11 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private String finger="",lokasifile="";
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public SuratPernyataanPasienUmum(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -112,10 +103,10 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));    
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));  
         NoSurat.setDocument(new batasInput((byte)20).getKata(NoSurat));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         NamaPJ.setDocument(new batasInput((byte)50).getKata(NamaPJ));
         NoKTP.setDocument(new batasInput((byte)20).getKata(NoKTP));
-        AlamatPj.setDocument(new batasInput((int)100).getKata(AlamatPj));  
+        AlamatPj.setDocument(new batasInput(100).getKata(AlamatPj));  
         TempatLahir.setDocument(new batasInput((byte)20).getKata(TempatLahir));  
         NoTelp.setDocument(new batasInput((byte)30).getKata(NoTelp));    
         
@@ -1348,6 +1339,9 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1421,6 +1415,9 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         NamaPJ.setText("");
         TempatLahir.setText("");
@@ -1489,6 +1486,11 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1511,7 +1513,9 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_pernyataan_pasien_umum());
         BtnHapus.setEnabled(akses.getsurat_pernyataan_pasien_umum());

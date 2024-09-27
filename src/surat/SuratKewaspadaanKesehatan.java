@@ -9,26 +9,15 @@
 
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -899,6 +888,9 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -947,6 +939,9 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoRw.setText("");
         TNoRM.setText("");
@@ -981,6 +976,14 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
     }
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param pasien
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt,String norm,String pasien, Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1006,7 +1009,9 @@ public class SuratKewaspadaanKesehatan extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_kewaspadaan_kesehatan());
         BtnHapus.setEnabled(akses.getsurat_kewaspadaan_kesehatan());

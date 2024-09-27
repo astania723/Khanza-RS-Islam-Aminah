@@ -11,19 +11,13 @@
 
 package laporan;
 
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.event.DocumentEvent;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import widget.*;
 
 /**
  *
@@ -575,7 +569,7 @@ public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(this.getHeight()<605){   
             panelDiagnosa1.ScrollInput.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            panelDiagnosa1.FormData.setPreferredSize(new Dimension(panelDiagnosa1.FormData.WIDTH,420));
+            panelDiagnosa1.FormData.setPreferredSize(new Dimension(PanelBiasa.WIDTH,420));
             if(this.getWidth()<900){
                 panelDiagnosa1.ScrollInput.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
                 panelDiagnosa1.FormData.setPreferredSize(new Dimension(890,420));
@@ -586,7 +580,7 @@ public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
             panelDiagnosa1.ScrollInput.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);            
             if(this.getWidth()<900){
                 panelDiagnosa1.ScrollInput.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
-                panelDiagnosa1.FormData.setPreferredSize(new Dimension(890,panelDiagnosa1.FormData.HEIGHT));
+                panelDiagnosa1.FormData.setPreferredSize(new Dimension(890,PanelBiasa.HEIGHT));
             }else{
                 panelDiagnosa1.ScrollInput.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);                
             }
@@ -650,8 +644,13 @@ public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=? ",TPasien,TNoRM.getText());
     }
 
-
-    
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     * @param status
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2,String status) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

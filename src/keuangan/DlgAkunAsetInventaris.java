@@ -10,26 +10,14 @@
  */
 
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventaris.InventarisJenis;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import inventaris.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -92,7 +80,7 @@ public class DlgAkunAsetInventaris extends javax.swing.JDialog {
         tbJadwal.setDefaultRenderer(Object.class, new WarnaTable());
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         kdrek.setDocument(new batasInput((byte)15).getKata(kdrek));
-        kdjenis.setDocument(new batasInput((int)10).getKata(kdjenis));
+        kdjenis.setDocument(new batasInput(10).getKata(kdjenis));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -798,6 +786,10 @@ private void BtnPoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJadwal;
     }

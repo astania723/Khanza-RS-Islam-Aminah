@@ -4,24 +4,21 @@
 
 package bridging;
 
-import java.nio.charset.StandardCharsets;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.*;
+import java.security.*;
+import java.util.*;
+import javax.crypto.*;
+import javax.crypto.spec.*;
 
 /**
  *
  * @author dhias
  */
 public class ApiBPJSEnc {
+
+    /**
+     *
+     */
     public static final String ALGORITHM = "AES/CBC/PKCS5Padding";
 
     public static ApiBPJSAesKeySpec generateKey(String key) 
@@ -42,6 +39,19 @@ public class ApiBPJSEnc {
         return aesKeySpec;
     }
 
+    /**
+     *
+     * @param cipherText
+     * @param key
+     * @param iv
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public static String decrypt(String cipherText, SecretKeySpec key, IvParameterSpec iv) 
                     throws NoSuchPaddingException, NoSuchAlgorithmException,
                 InvalidAlgorithmParameterException, InvalidKeyException,

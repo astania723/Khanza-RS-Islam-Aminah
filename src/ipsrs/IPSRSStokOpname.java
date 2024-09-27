@@ -12,31 +12,16 @@
 
 package ipsrs;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DecimalFormat;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -212,8 +197,8 @@ public class IPSRSStokOpname extends javax.swing.JDialog {
         BtnJenis = new widget.Button();
         label9 = new widget.Label();
         TCari = new widget.TextBox();
-        BtnAll = new widget.Button();
         BtnCari = new widget.Button();
+        BtnAll = new widget.Button();
         panelisi1 = new widget.panelisi();
         BtnHapus = new widget.Button();
         label10 = new widget.Label();
@@ -484,24 +469,6 @@ public class IPSRSStokOpname extends javax.swing.JDialog {
         });
         panelisi3.add(TCari);
 
-        BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
-        BtnAll.setMnemonic('3');
-        BtnAll.setToolTipText("Alt+3");
-        BtnAll.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnAll.setName("BtnAll"); // NOI18N
-        BtnAll.setPreferredSize(new java.awt.Dimension(28, 23));
-        BtnAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAllActionPerformed(evt);
-            }
-        });
-        BtnAll.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                BtnAllKeyPressed(evt);
-            }
-        });
-        panelisi3.add(BtnAll);
-
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari.setMnemonic('2');
         BtnCari.setToolTipText("Alt+2");
@@ -519,6 +486,24 @@ public class IPSRSStokOpname extends javax.swing.JDialog {
             }
         });
         panelisi3.add(BtnCari);
+
+        BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
+        BtnAll.setMnemonic('3');
+        BtnAll.setToolTipText("Alt+3");
+        BtnAll.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnAll.setName("BtnAll"); // NOI18N
+        BtnAll.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAllActionPerformed(evt);
+            }
+        });
+        BtnAll.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnAllKeyPressed(evt);
+            }
+        });
+        panelisi3.add(BtnAll);
 
         jPanel1.add(panelisi3, java.awt.BorderLayout.PAGE_START);
 
@@ -874,9 +859,9 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
                 rstampil=pstampil.executeQuery();
                 total=0;
                 while(rstampil.next()){                
-                    totalreal=totalreal+rstampil.getDouble(10); 
-                    total=total+rstampil.getDouble(11);
-                    totallebih=totallebih+rstampil.getDouble(12);
+                    totalreal += rstampil.getDouble(10); 
+                    total += rstampil.getDouble(11);
+                    totallebih += rstampil.getDouble(12);
                     tabMode.addRow(new Object[]{rstampil.getString(1),
                        rstampil.getString(2),df2.format(rstampil.getDouble(3)),
                        rstampil.getString(4),rstampil.getString(5),rstampil.getString(6),
@@ -932,6 +917,10 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Stok;
     }

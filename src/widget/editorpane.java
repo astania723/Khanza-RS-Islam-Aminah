@@ -5,15 +5,19 @@
  */
 package widget;
 
-import java.awt.Color;
-import javax.swing.JEditorPane;
-import javax.swing.border.LineBorder;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.*;
 
 /**
  *
  * @author khanzasoft
  */
 public class editorpane extends JEditorPane{
+
+    /**
+     *
+     */
     public editorpane() {
         super();
         setFont(new java.awt.Font("Tahoma", 0, 11));        

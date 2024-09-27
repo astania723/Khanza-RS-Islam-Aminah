@@ -1,45 +1,23 @@
 package simrskhanza;
-import bridging.DUKCAPILJakartaCekNik;
-import bridging.DUKCAPILJakartaPostLahir;
-import fungsi.WarnaTable;
-import fungsi.WarnaTable5;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import grafikanalisa.grafikberat;
-import grafikanalisa.grafikjkelbayi;
-import grafikanalisa.grafiklahirbulan;
-import grafikanalisa.grafiklahirtahun;
-import grafikanalisa.grafikpanjang;
-import grafikanalisa.grafikproses;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
+import bridging.*;
+import fungsi.*;
+import grafikanalisa.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.time.*;
+import java.time.temporal.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgIKBBayi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabModeAPGAR;
     private sekuel Sequel=new sekuel();
@@ -244,7 +222,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 
         NoRm.setDocument(new batasInput((byte)15).getKata(NoRm));
         NmBayi.setDocument(new batasInput((byte)40).getKata(NmBayi));
-        AlamatIbu.setDocument(new batasInput((int)200).getKata(AlamatIbu));
+        AlamatIbu.setDocument(new batasInput(200).getKata(AlamatIbu));
         Nmibu.setDocument(new batasInput((byte)50).getKata(Nmibu));
         UmurIbu.setDocument(new batasInput((byte)8).getKata(UmurIbu));
         NmAyah.setDocument(new batasInput((byte)50).getKata(NmAyah));
@@ -270,10 +248,10 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         G.setDocument(new batasInput((byte)10).getKata(G));
         P.setDocument(new batasInput((byte)10).getKata(P));
         A.setDocument(new batasInput((byte)10).getKata(A));
-        Resusitas.setDocument(new batasInput((int)100).getKata(Resusitas));
-        ObatDiberikan.setDocument(new batasInput((int)300).getKata(ObatDiberikan));
-        Mikasi.setDocument(new batasInput((int)100).getKata(Mikasi));
-        Mikonium.setDocument(new batasInput((int)100).getKata(Mikonium));
+        Resusitas.setDocument(new batasInput(100).getKata(Resusitas));
+        ObatDiberikan.setDocument(new batasInput(300).getKata(ObatDiberikan));
+        Mikasi.setDocument(new batasInput(100).getKata(Mikasi));
+        Mikonium.setDocument(new batasInput(100).getKata(Mikonium));
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -4053,6 +4031,9 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         jkelcari=""; tglcari="";
         if(! cmbCrJk.getSelectedItem().toString().equals("SEMUA")){
@@ -4251,7 +4232,10 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
 
-
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoRm;
     }
@@ -4260,6 +4244,17 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         return BtnKeluar;
     }
 
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param ibubayi
+     * @param alamatibu
+     * @param jkel
+     * @param umur
+     * @param tgllhir
+     * @param daftar
+     */
     public void setNoRM(String norm,String nama,String ibubayi,String alamatibu,
             String jkel,String umur,Date tgllhir,Date daftar){
         NoRm.setText(norm);
@@ -4277,6 +4272,9 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         autoSKL();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getkelahiran_bayi());
         BtnHapus.setEnabled(akses.getkelahiran_bayi());

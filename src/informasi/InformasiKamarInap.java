@@ -1,21 +1,12 @@
 package informasi;
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariBangsal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 /**
  *
@@ -734,6 +725,9 @@ private void R3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event
     private widget.Table tbKamIn;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         if(R1.isSelected()==true){
             kmr=" stts_pulang='-' ";

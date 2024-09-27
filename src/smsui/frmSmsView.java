@@ -5,14 +5,12 @@
  */
 package smsui;
 
-import fungsi.koneksiDB;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.sql.Connection;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import smsobj.Status;
-import smsservice.SMSReadService;
+import fungsi.*;
+import java.awt.*;
+import java.sql.*;
+import javax.swing.*;
+import smsobj.*;
+import smsservice.*;
 
 /**
  *

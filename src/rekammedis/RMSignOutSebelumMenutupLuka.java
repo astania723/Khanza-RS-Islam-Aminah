@@ -6,37 +6,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -137,7 +119,7 @@ public class RMSignOutSebelumMenutupLuka extends javax.swing.JDialog {
         Tindakan.setDocument(new batasInput((byte)50).getKata(Tindakan));
         PerhatianUtamaFasePemulihan.setDocument(new batasInput((byte)100).getKata(PerhatianUtamaFasePemulihan));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1629,6 +1611,9 @@ public class RMSignOutSebelumMenutupLuka extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1766,6 +1751,11 @@ public class RMSignOutSebelumMenutupLuka extends javax.swing.JDialog {
         Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=? ",TglLahir,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1777,6 +1767,14 @@ public class RMSignOutSebelumMenutupLuka extends javax.swing.JDialog {
         isForm();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     * @param KodeDokter
+     * @param NamaDokter
+     * @param Operasi
+     */
     public void setNoRm(String norwt, Date tgl2,String KodeDokter,String NamaDokter,String Operasi) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1812,6 +1810,9 @@ public class RMSignOutSebelumMenutupLuka extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsignout_sebelum_menutup_luka());
         BtnHapus.setEnabled(akses.getsignout_sebelum_menutup_luka());

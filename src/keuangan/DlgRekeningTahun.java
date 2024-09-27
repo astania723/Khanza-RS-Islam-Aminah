@@ -11,32 +11,15 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -881,6 +864,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{       
@@ -991,6 +977,10 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Kd;
     }
@@ -1003,6 +993,9 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         asalform=akses.getform();       
         BtnSimpan.setEnabled(akses.getrekening_tahun());

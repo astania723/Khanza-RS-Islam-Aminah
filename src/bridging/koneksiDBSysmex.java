@@ -5,12 +5,12 @@
  */
 package bridging;
 
-import AESsecurity.EnkripsiAES;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import java.io.FileInputStream;
-import java.sql.Connection;
-import java.util.Properties;
-import javax.swing.JOptionPane;
+import AESsecurity.*;
+import com.mysql.jdbc.jdbc2.optional.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
 
 /**
  *
@@ -21,7 +21,6 @@ public class koneksiDBSysmex {
     private static final Properties prop = new Properties();  
     private static final MysqlDataSource dataSource=new MysqlDataSource();
     
-    public koneksiDBSysmex(){} 
     public static Connection condb(){ 
         if(connection == null){
             try{
@@ -37,5 +36,10 @@ public class koneksiDBSysmex {
         }
         return connection;        
     }
+
+    /**
+     *
+     */
+    public koneksiDBSysmex(){}
     
 }

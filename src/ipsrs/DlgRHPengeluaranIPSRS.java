@@ -1,25 +1,11 @@
 package ipsrs;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class DlgRHPengeluaranIPSRS extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -512,7 +498,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 while(rs2.next()){
                     jumlah=rs2.getDouble("jumlah");
                     total=rs2.getDouble("total");
-                    totalkeluar=totalkeluar+total;
+                    totalkeluar += total;
                 }
                 if((jumlah+jumlah2)>0){
                     tabMode.addRow(new Object[]{

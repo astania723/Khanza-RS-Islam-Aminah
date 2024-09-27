@@ -12,26 +12,16 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.FileInputStream;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 import org.apache.commons.codec.binary.Base64;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 
 /**
  *
@@ -348,6 +338,10 @@ public class PCareCariKegiatanKelompok extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param tanggal
+     */
     public void tampil(String tanggal) {        
         try {
             URL = link+"/kelompok/kegiatan/"+tanggal;
@@ -417,6 +411,10 @@ public class PCareCariKegiatanKelompok extends javax.swing.JDialog {
         }
     } 
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

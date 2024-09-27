@@ -5,39 +5,20 @@
 
 package rekammedis;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -64,6 +45,7 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
     private JsonNode root;
     private JsonNode response;
     private FileReader myObj;
+    private String TANGGALMUNDUR="yes";
     
     /** Creates new form DlgRujuk
      * @param parent
@@ -352,27 +334,27 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         BB.setDocument(new batasInput((byte)5).getKata(BB));
         TB.setDocument(new batasInput((byte)5).getKata(TB));
         BMI.setDocument(new batasInput((byte)5).getKata(BMI));
-        KeluhanUtama.setDocument(new batasInput((int)150).getKata(KeluhanUtama));
-        RPD.setDocument(new batasInput((int)100).getKata(RPD));
-        RPK.setDocument(new batasInput((int)100).getKata(RPK));
-        RPO.setDocument(new batasInput((int)100).getKata(RPO));
-        Alergi.setDocument(new batasInput((int)25).getKata(Alergi));
-        KetBantu.setDocument(new batasInput((int)50).getKata(KetBantu));
-        KetProthesa.setDocument(new batasInput((int)50).getKata(KetProthesa));
-        KetBudaya.setDocument(new batasInput((int)50).getKata(KetBudaya));
-        KetPsiko.setDocument(new batasInput((int)70).getKata(KetPsiko));
-        KetTinggal.setDocument(new batasInput((int)40).getKata(KetTinggal));
-        KetEdukasi.setDocument(new batasInput((int)50).getKata(KetEdukasi));
-        KetLapor.setDocument(new batasInput((int)15).getKata(KetLapor));
-        KetProvokes.setDocument(new batasInput((int)40).getKata(KetProvokes));
-        KetQuality.setDocument(new batasInput((int)50).getKata(KetQuality));
-        Lokasi.setDocument(new batasInput((int)50).getKata(Lokasi));
-        Durasi.setDocument(new batasInput((int)25).getKata(Durasi));
-        KetNyeri.setDocument(new batasInput((int)40).getKata(KetNyeri));
-        KetDokter.setDocument(new batasInput((int)15).getKata(KetDokter));
-        Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
+        KeluhanUtama.setDocument(new batasInput(150).getKata(KeluhanUtama));
+        RPD.setDocument(new batasInput(100).getKata(RPD));
+        RPK.setDocument(new batasInput(100).getKata(RPK));
+        RPO.setDocument(new batasInput(100).getKata(RPO));
+        Alergi.setDocument(new batasInput(25).getKata(Alergi));
+        KetBantu.setDocument(new batasInput(50).getKata(KetBantu));
+        KetProthesa.setDocument(new batasInput(50).getKata(KetProthesa));
+        KetBudaya.setDocument(new batasInput(50).getKata(KetBudaya));
+        KetPsiko.setDocument(new batasInput(70).getKata(KetPsiko));
+        KetTinggal.setDocument(new batasInput(40).getKata(KetTinggal));
+        KetEdukasi.setDocument(new batasInput(50).getKata(KetEdukasi));
+        KetLapor.setDocument(new batasInput(15).getKata(KetLapor));
+        KetProvokes.setDocument(new batasInput(40).getKata(KetProvokes));
+        KetQuality.setDocument(new batasInput(50).getKata(KetQuality));
+        Lokasi.setDocument(new batasInput(50).getKata(Lokasi));
+        Durasi.setDocument(new batasInput(25).getKata(Durasi));
+        KetNyeri.setDocument(new batasInput(40).getKata(KetNyeri));
+        KetDokter.setDocument(new batasInput(15).getKata(KetDokter));
+        Rencana.setDocument(new batasInput(200).getKata(Rencana));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -488,6 +470,11 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         Document doc = kit.createDefaultDocument();
         LoadHTML.setDocument(doc);
         
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
         
         ChkAccor.setSelected(false);
         isMenu();
@@ -504,6 +491,7 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
     private void initComponents() {
 
         LoadHTML = new widget.editorpane();
+		TanggalRegistrasi = new widget.TextBox();
         Popup = new javax.swing.JPopupMenu();
         ppBersihkan = new javax.swing.JMenuItem();
         ppSemua = new javax.swing.JMenuItem();
@@ -719,6 +707,9 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
 
         LoadHTML.setBorder(null);
         LoadHTML.setName("LoadHTML"); // NOI18N
+		
+		TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         Popup.setName("Popup"); // NOI18N
 
@@ -2488,27 +2479,15 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         }else if(NmPetugas.getText().trim().isEmpty()){
             Valid.textKosong(BtnDokter,"Petugas");
         }else{
-            if(Sequel.menyimpantf("penilaian_awal_keperawatan_ralan","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",57,new String[]{
-                    TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),TD.getText(),Nadi.getText(),RR.getText(),
-                    Suhu.getText(),GCS.getText(),BB.getText(),TB.getText(),BMI.getText(),KeluhanUtama.getText(),RPD.getText(),RPK.getText(),RPO.getText(),Alergi.getText(),AlatBantu.getSelectedItem().toString(),KetBantu.getText(), 
-                    Prothesa.getSelectedItem().toString(),KetProthesa.getText(),ADL.getSelectedItem().toString(),StatusPsiko.getSelectedItem().toString(),KetPsiko.getText(),HubunganKeluarga.getSelectedItem().toString(), 
-                    TinggalDengan.getSelectedItem().toString(),KetTinggal.getText(),Ekonomi.getSelectedItem().toString(),StatusBudaya.getSelectedItem().toString(),KetBudaya.getText(),Edukasi.getSelectedItem().toString(), 
-                    KetEdukasi.getText(),ATS.getSelectedItem().toString(),BJM.getSelectedItem().toString(),MSA.getSelectedItem().toString(),Hasil.getSelectedItem().toString(),Lapor.getSelectedItem().toString(),KetLapor.getText(), 
-                    SG1.getSelectedItem().toString(),Nilai1.getSelectedItem().toString(),SG2.getSelectedItem().toString(),Nilai2.getSelectedItem().toString(),TotalHasil.getText(),Nyeri.getSelectedItem().toString(),
-                    Provokes.getSelectedItem().toString(),KetProvokes.getText(),Quality.getSelectedItem().toString(),KetQuality.getText(),Lokasi.getText(),Menyebar.getSelectedItem().toString(),SkalaNyeri.getSelectedItem().toString(),
-                    Durasi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(),KetDokter.getText(),Rencana.getText(),KdPetugas.getText()
-                })==true){
-                    for (i = 0; i < tbMasalahKeperawatan.getRowCount(); i++) {
-                        if(tbMasalahKeperawatan.getValueAt(i,0).toString().equals("true")){
-                            Sequel.menyimpan2("penilaian_awal_keperawatan_ralan_masalah","?,?",2,new String[]{TNoRw.getText(),tbMasalahKeperawatan.getValueAt(i,1).toString()});
-                        }
-                    }
-                    for (i = 0; i < tbRencanaKeperawatan.getRowCount(); i++) {
-                        if(tbRencanaKeperawatan.getValueAt(i,0).toString().equals("true")){
-                            Sequel.menyimpan2("penilaian_awal_keperawatan_ralan_rencana","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()});
-                        }
-                    }
-                    emptTeks();
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19))==true){
+                    simpan();
+                }
             }
         }
     
@@ -2538,7 +2517,9 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                 hapus();
             }else{
                 if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -2574,7 +2555,14 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19))==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -2711,7 +2699,239 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                                 ps2.close();
                             }
                         }
-                        htmlContent.append("<tr class='isi'><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='32%' valign='top'>No.Rawat</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("no_rawat")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>No.R.M.</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("no_rkm_medis")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Nama Pasien</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("nm_pasien")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>J.K.</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("jk")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Agama</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("agama")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Bahasa</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("nama_bahasa")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Tgl.Lahir</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("nama_cacat")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Cacat Fisik</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("tgl_lahir")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Petugas</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("nip")).append(" ").append(rs.getString("nama")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Tgl.Asuhan</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("tanggal")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Informasi</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("informasi")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='34%' valign='top'>TD</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("td")).append("mmHg</td></tr><tr class='isi2'><td width='34%' valign='top'>Nadi</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("nadi")).append("x/menit</td></tr><tr class='isi2'><td width='34%' valign='top'>RR</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("rr")).append("x/menit</td></tr><tr class='isi2'><td width='34%' valign='top'>Suhu</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("suhu")).append("\u00b0C</td></tr><tr class='isi2'><td width='34%' valign='top'>GCS</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("gcs")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='34%' valign='top'>BB</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("bb")).append("Kg</td></tr><tr class='isi2'><td width='34%' valign='top'>TB</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("tb")).append("cm</td></tr><tr class='isi2'><td width='34%' valign='top'>BMI</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>").append(rs.getString("bmi")).append("Kg/m\u00b2</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='32%' valign='top'>Keluhan Utama</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("keluhan_utama")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>RPD</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("rpd")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>RPK</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("rpk")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>RPO</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("rpo")).append("</td></tr><tr class='isi2'><td width='32%' valign='top'>Alergi</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>").append(rs.getString("alergi")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='44%' valign='top'>Alat Bantu</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("alat_bantu")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Ket. Alat Bantu</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("ket_bantu")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Prothesa</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("prothesa")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Ket. Prothesa</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("ket_pro")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>ADL</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("adl")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='64%' valign='top'>Status Psikologis</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("status_psiko")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Ket. Psikologi</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("ket_psiko")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Hubungan pasien dengan anggota keluarga</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("hub_keluarga")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Tinggal dengan</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("tinggal_dengan")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Ket. Tinggal</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("ket_tinggal")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Ekonomi</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("ekonomi")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Kepercayaan / Budaya / Nilai-nilai khusus yang perlu diperhatikan</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("budaya")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Ket. Budaya</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("ket_budaya")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Edukasi diberikan kepada </td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("edukasi")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Ket. Edukasi</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("ket_edukasi")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='64%' valign='top'>Tidak seimbang/sempoyongan/limbung</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("berjalan_a")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Jalan dengan menggunakan alat bantu (kruk, tripot, kursi roda, orang lain)</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("berjalan_b")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Menopang saat akan duduk, tampak memegang pinggiran kursi atau meja/benda lain sebagai penopang</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("berjalan_c")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Hasil</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("hasil")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Dilaporan ke dokter?</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("lapor")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Jam Lapor</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("ket_lapor")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='64%' valign='top'>Apakah ada penurunan berat badanyang tidak diinginkan selama enam bulan terakhir?</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("sg1")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Apakah nafsu makan berkurang karena tidak nafsu makan?</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("sg2")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Nilai 1</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("nilai1")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Nilai 2</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("nilai2")).append("</td></tr><tr class='isi2'><td width='64%' valign='top'>Total Skor</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>").append(rs.getString("total_hasil")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'><table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'><tr class='isi2'><td width='44%' valign='top'>Tingkat Nyeri</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("nyeri")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Provokes</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("provokes")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Ket. Provokes</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("ket_provokes")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Kualitas</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("quality")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Ket. Kualitas</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("ket_quality")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Lokas</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("lokasi")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Menyebar</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("menyebar")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Skala Nyeri</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("skala_nyeri")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Durasi</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("durasi")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Nyeri Hilang</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("nyeri_hilang")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Ket. Hilang Nyeri</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("ket_nyeri")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Lapor Ke Dokter</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("pada_dokter")).append("</td></tr><tr class='isi2'><td width='44%' valign='top'>Jam Lapor</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>").append(rs.getString("ket_dokter")).append("</td></tr></table></td><td valign='top' cellpadding='0' cellspacing='0'>Masalah Keperawatan : ").append(masalahkeperawatan).append("<br><br>Rencana Keperawatan : ").append(rs.getString("rencana")).append("</td></tr>");
+                        htmlContent.append(
+                            "<tr class='isi'>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>No.Rawat</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("no_rawat")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>No.R.M.</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("no_rkm_medis")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Nama Pasien</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("nm_pasien")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>J.K.</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("jk")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Agama</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("agama")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Bahasa</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("nama_bahasa")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Tgl.Lahir</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("nama_cacat")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Cacat Fisik</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("tgl_lahir")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Petugas</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("nip")+" "+rs.getString("nama")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Tgl.Asuhan</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("tanggal")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Informasi</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("informasi")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>TD</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("td")+"mmHg</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>Nadi</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("nadi")+"x/menit</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>RR</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("rr")+"x/menit</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>Suhu</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("suhu")+"°C</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>GCS</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("gcs")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>BB</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("bb")+"Kg</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>TB</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("tb")+"cm</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='34%' valign='top'>BMI</td><td valign='top'>:&nbsp;</td><td width='65%' valign='top'>"+rs.getString("bmi")+"Kg/m²</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Keluhan Utama</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("keluhan_utama")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>RPD</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("rpd")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>RPK</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("rpk")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>RPO</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("rpo")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='32%' valign='top'>Alergi</td><td valign='top'>:&nbsp;</td><td width='67%' valign='top'>"+rs.getString("alergi")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Alat Bantu</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("alat_bantu")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Ket. Alat Bantu</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("ket_bantu")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Prothesa</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("prothesa")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Ket. Prothesa</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("ket_pro")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>ADL</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("adl")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Status Psikologis</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("status_psiko")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Ket. Psikologi</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("ket_psiko")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Hubungan pasien dengan anggota keluarga</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("hub_keluarga")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Tinggal dengan</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("tinggal_dengan")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Ket. Tinggal</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("ket_tinggal")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Ekonomi</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("ekonomi")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Kepercayaan / Budaya / Nilai-nilai khusus yang perlu diperhatikan</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("budaya")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Ket. Budaya</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("ket_budaya")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Edukasi diberikan kepada </td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("edukasi")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Ket. Edukasi</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("ket_edukasi")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Tidak seimbang/sempoyongan/limbung</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("berjalan_a")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Jalan dengan menggunakan alat bantu (kruk, tripot, kursi roda, orang lain)</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("berjalan_b")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Menopang saat akan duduk, tampak memegang pinggiran kursi atau meja/benda lain sebagai penopang</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("berjalan_c")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Hasil</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("hasil")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Dilaporan ke dokter?</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("lapor")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Jam Lapor</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("ket_lapor")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Apakah ada penurunan berat badanyang tidak diinginkan selama enam bulan terakhir?</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("sg1")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Apakah nafsu makan berkurang karena tidak nafsu makan?</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("sg2")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Nilai 1</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("nilai1")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Nilai 2</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("nilai2")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='64%' valign='top'>Total Skor</td><td valign='top'>:&nbsp;</td><td width='35%' valign='top'>"+rs.getString("total_hasil")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "<table width='100%' border='0' cellpadding='0' cellspacing='0'align='center'>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Tingkat Nyeri</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("nyeri")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Provokes</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("provokes")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Ket. Provokes</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("ket_provokes")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Kualitas</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("quality")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Ket. Kualitas</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("ket_quality")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Lokas</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("lokasi")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Menyebar</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("menyebar")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Skala Nyeri</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("skala_nyeri")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Durasi</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("durasi")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Nyeri Hilang</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("nyeri_hilang")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Ket. Hilang Nyeri</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("ket_nyeri")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Lapor Ke Dokter</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("pada_dokter")+"</td>"+
+                                        "</tr>"+
+                                        "<tr class='isi2'>"+
+                                            "<td width='44%' valign='top'>Jam Lapor</td><td valign='top'>:&nbsp;</td><td width='55%' valign='top'>"+rs.getString("ket_dokter")+"</td>"+
+                                        "</tr>"+
+                                    "</table>"+
+                                "</td>"+
+                                "<td valign='top' cellpadding='0' cellspacing='0'>"+
+                                    "Masalah Keperawatan : "+masalahkeperawatan+"<br><br>"+
+                                    "Rencana Keperawatan : "+rs.getString("rencana")+
+                                "</td>"+
+                            "</tr>"
+                        );
                     }
                     LoadHTML.setText(
                         "<html>"+
@@ -3106,7 +3326,7 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-            if(Valid.daysOld("./cache/masalahkeperawatan.iyem")<8){
+            if(Valid.daysOld("./cache/masalahkeperawatan.iyem")<30){
                 tampilMasalah2();
             }else{
                 tampilMasalah();
@@ -3475,6 +3695,7 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
     private widget.TextBox TPasien1;
     private javax.swing.JTabbedPane TabRawat;
     private javax.swing.JTabbedPane TabRencanaKeperawatan;
+    private widget.TextBox TanggalRegistrasi;
     private widget.Tanggal TglAsuhan;
     private widget.TextBox TglLahir;
     private widget.ComboBox TinggalDengan;
@@ -3678,6 +3899,9 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         Informasi.setSelectedIndex(0);
@@ -3806,59 +4030,19 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             PadaDokter.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString());
             KetLapor.setText(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
             Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
+            Valid.tabelKosong(tabModeMasalah);
+            Valid.tabelKosong(tabModeRencana);
+            for (i = 0; i < tbMasalahDetail.getRowCount(); i++) {
+                tabModeMasalah.addRow(new Object[]{
+                    true,tbMasalahDetail.getValueAt(i,0).toString(),tbMasalahDetail.getValueAt(i,1).toString()
+                });
+            }
+            for (i = 0; i < tbRencanaDetail.getRowCount(); i++) {
+                tabModeRencana.addRow(new Object[]{
+                    true,tbRencanaDetail.getValueAt(i,0).toString(),tbRencanaDetail.getValueAt(i,1).toString()
+                });
+            }
             Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
-            
-            try {
-                Valid.tabelKosong(tabModeMasalah);
-                ps=koneksi.prepareStatement(
-                        "select master_masalah_keperawatan.kode_masalah,master_masalah_keperawatan.nama_masalah from master_masalah_keperawatan "+
-                        "inner join penilaian_awal_keperawatan_ralan_masalah on penilaian_awal_keperawatan_ralan_masalah.kode_masalah=master_masalah_keperawatan.kode_masalah "+
-                        "where penilaian_awal_keperawatan_ralan_masalah.no_rawat=? order by penilaian_awal_keperawatan_ralan_masalah.kode_masalah");
-                try {
-                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
-                    rs=ps.executeQuery();
-                    while(rs.next()){
-                        tabModeMasalah.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notif : "+e);
-                } finally{
-                    if(rs!=null){
-                        rs.close();
-                    }
-                    if(ps!=null){
-                        ps.close();
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Notif : "+e);
-            }
-            
-            try {
-                Valid.tabelKosong(tabModeRencana);
-                ps=koneksi.prepareStatement(
-                        "select master_rencana_keperawatan.kode_rencana,master_rencana_keperawatan.rencana_keperawatan from master_rencana_keperawatan "+
-                        "inner join penilaian_awal_keperawatan_ralan_rencana on penilaian_awal_keperawatan_ralan_rencana.kode_rencana=master_rencana_keperawatan.kode_rencana "+
-                        "where penilaian_awal_keperawatan_ralan_rencana.no_rawat=? order by penilaian_awal_keperawatan_ralan_rencana.kode_rencana");
-                try {
-                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
-                    rs=ps.executeQuery();
-                    while(rs.next()){
-                        tabModeRencana.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notif : "+e);
-                } finally{
-                    if(rs!=null){
-                        rs.close();
-                    }
-                    if(ps!=null){
-                        ps.close();
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Notif : "+e);
-            }
         }
     }
 
@@ -3866,8 +4050,8 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         try {
             ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rkm_medis,pasien.nm_pasien, if(pasien.jk='L','Laki-Laki','Perempuan') as jk,"+
-                    "pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,reg_periksa.tgl_registrasi "+
-                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,reg_periksa.tgl_registrasi,"+
+                    "reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien "+
                     "inner join cacat_fisik on cacat_fisik.id=pasien.cacat_fisik "+
                     "where reg_periksa.no_rawat=?");
@@ -3883,6 +4067,7 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                     Agama.setText(rs.getString("agama"));
                     Bahasa.setText(rs.getString("nama_bahasa"));
                     CacatFisik.setText(rs.getString("nama_cacat"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -3899,6 +4084,11 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -3921,6 +4111,13 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             if(NmPetugas.getText().isEmpty()){
                 KdPetugas.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
+            }
+        }  
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                TglAsuhan.setEditable(false);
+                TglAsuhan.setEnabled(false);
             }
         }            
     }
@@ -4193,8 +4390,6 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         })==true){
             TNoRM1.setText("");
             TPasien1.setText("");
-            Sequel.meghapus("penilaian_awal_keperawatan_ralan_masalah","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
-            Sequel.meghapus("penilaian_awal_keperawatan_ralan_rencana","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
             Valid.tabelKosong(tabModeDetailMasalah);
             Valid.tabelKosong(tabModeDetailRencana);
             ChkAccor.setSelected(false);
@@ -4217,23 +4412,147 @@ public class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                 Provokes.getSelectedItem().toString(),KetProvokes.getText(),Quality.getSelectedItem().toString(),KetQuality.getText(),Lokasi.getText(),Menyebar.getSelectedItem().toString(),SkalaNyeri.getSelectedItem().toString(),
                 Durasi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(),KetDokter.getText(),Rencana.getText(),KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
              })==true){
+                tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
+                tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
+                tbObat.setValueAt(TPasien.getText(),tbObat.getSelectedRow(),2);
+                tbObat.setValueAt(Jk.getText(),tbObat.getSelectedRow(),3);
+                tbObat.setValueAt(Agama.getText(),tbObat.getSelectedRow(),4);
+                tbObat.setValueAt(Bahasa.getText(),tbObat.getSelectedRow(),5);
+                tbObat.setValueAt(CacatFisik.getText(),tbObat.getSelectedRow(),6);
+                tbObat.setValueAt(TglLahir.getText(),tbObat.getSelectedRow(),7);
+                tbObat.setValueAt(Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),tbObat.getSelectedRow(),8);
+                tbObat.setValueAt(Informasi.getSelectedItem().toString(),tbObat.getSelectedRow(),9);
+                tbObat.setValueAt(TD.getText(),tbObat.getSelectedRow(),10);
+                tbObat.setValueAt(Nadi.getText(),tbObat.getSelectedRow(),11);
+                tbObat.setValueAt(RR.getText(),tbObat.getSelectedRow(),12);
+                tbObat.setValueAt(Suhu.getText(),tbObat.getSelectedRow(),13);
+                tbObat.setValueAt(GCS.getText(),tbObat.getSelectedRow(),14);
+                tbObat.setValueAt(BB.getText(),tbObat.getSelectedRow(),15);
+                tbObat.setValueAt(TB.getText(),tbObat.getSelectedRow(),16);
+                tbObat.setValueAt(BMI.getText(),tbObat.getSelectedRow(),17);
+                tbObat.setValueAt(KeluhanUtama.getText(),tbObat.getSelectedRow(),18);
+                tbObat.setValueAt(RPD.getText(),tbObat.getSelectedRow(),19);
+                tbObat.setValueAt(RPK.getText(),tbObat.getSelectedRow(),20);
+                tbObat.setValueAt(RPO.getText(),tbObat.getSelectedRow(),21);
+                tbObat.setValueAt(Alergi.getText(),tbObat.getSelectedRow(),22);
+                tbObat.setValueAt(AlatBantu.getSelectedItem().toString(),tbObat.getSelectedRow(),23);
+                tbObat.setValueAt(KetBantu.getText(),tbObat.getSelectedRow(),24);
+                tbObat.setValueAt(Prothesa.getSelectedItem().toString(),tbObat.getSelectedRow(),25);
+                tbObat.setValueAt(KetProthesa.getText(),tbObat.getSelectedRow(),26);
+                tbObat.setValueAt(ADL.getSelectedItem().toString(),tbObat.getSelectedRow(),27);
+                tbObat.setValueAt(StatusPsiko.getSelectedItem().toString(),tbObat.getSelectedRow(),28);
+                tbObat.setValueAt(KetPsiko.getText(),tbObat.getSelectedRow(),29);
+                tbObat.setValueAt(HubunganKeluarga.getSelectedItem().toString(),tbObat.getSelectedRow(),30);
+                tbObat.setValueAt(TinggalDengan.getSelectedItem().toString(),tbObat.getSelectedRow(),31);
+                tbObat.setValueAt(KetTinggal.getText(),tbObat.getSelectedRow(),32);
+                tbObat.setValueAt(Ekonomi.getSelectedItem().toString(),tbObat.getSelectedRow(),33);
+                tbObat.setValueAt(StatusBudaya.getSelectedItem().toString(),tbObat.getSelectedRow(),34);
+                tbObat.setValueAt(KetBudaya.getText(),tbObat.getSelectedRow(),35);
+                tbObat.setValueAt(Edukasi.getSelectedItem().toString(),tbObat.getSelectedRow(),36);
+                tbObat.setValueAt(KetEdukasi.getText(),tbObat.getSelectedRow(),37);
+                tbObat.setValueAt(ATS.getSelectedItem().toString(),tbObat.getSelectedRow(),38);
+                tbObat.setValueAt(BJM.getSelectedItem().toString(),tbObat.getSelectedRow(),39);
+                tbObat.setValueAt(MSA.getSelectedItem().toString(),tbObat.getSelectedRow(),40);
+                tbObat.setValueAt(Hasil.getSelectedItem().toString(),tbObat.getSelectedRow(),41);
+                tbObat.setValueAt(Lapor.getSelectedItem().toString(),tbObat.getSelectedRow(),42);
+                tbObat.setValueAt(KetLapor.getText(),tbObat.getSelectedRow(),43);
+                tbObat.setValueAt( SG1.getSelectedItem().toString(),tbObat.getSelectedRow(),44);
+                tbObat.setValueAt(Nilai1.getSelectedItem().toString(),tbObat.getSelectedRow(),45);
+                tbObat.setValueAt(SG2.getSelectedItem().toString(),tbObat.getSelectedRow(),46);
+                tbObat.setValueAt(Nilai2.getSelectedItem().toString(),tbObat.getSelectedRow(),47);
+                tbObat.setValueAt(TotalHasil.getText(),tbObat.getSelectedRow(),48);
+                tbObat.setValueAt(Nyeri.getSelectedItem().toString(),tbObat.getSelectedRow(),49);
+                tbObat.setValueAt(Provokes.getSelectedItem().toString(),tbObat.getSelectedRow(),50);
+                tbObat.setValueAt(KetProvokes.getText(),tbObat.getSelectedRow(),51);
+                tbObat.setValueAt(Quality.getSelectedItem().toString(),tbObat.getSelectedRow(),52);
+                tbObat.setValueAt(KetQuality.getText(),tbObat.getSelectedRow(),53);
+                tbObat.setValueAt(Lokasi.getText(),tbObat.getSelectedRow(),54);
+                tbObat.setValueAt(Menyebar.getSelectedItem().toString(),tbObat.getSelectedRow(),55);
+                tbObat.setValueAt(SkalaNyeri.getSelectedItem().toString(),tbObat.getSelectedRow(),56);
+                tbObat.setValueAt(Durasi.getText(),tbObat.getSelectedRow(),57);
+                tbObat.setValueAt(NyeriHilang.getSelectedItem().toString(),tbObat.getSelectedRow(),58);
+                tbObat.setValueAt(KetNyeri.getText(),tbObat.getSelectedRow(),59);
+                tbObat.setValueAt(PadaDokter.getSelectedItem().toString(),tbObat.getSelectedRow(),60);
+                tbObat.setValueAt(KetDokter.getText(),tbObat.getSelectedRow(),61);
+                tbObat.setValueAt(Rencana.getText(),tbObat.getSelectedRow(),62);
+                tbObat.setValueAt(KdPetugas.getText(),tbObat.getSelectedRow(),63);
+                tbObat.setValueAt(NmPetugas.getText(),tbObat.getSelectedRow(),64);
                 Sequel.meghapus("penilaian_awal_keperawatan_ralan_masalah","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                Sequel.meghapus("penilaian_awal_keperawatan_ralan_rencana","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                Valid.tabelKosong(tabModeDetailMasalah);
+                Valid.tabelKosong(tabModeDetailRencana);
                 for (i = 0; i < tbMasalahKeperawatan.getRowCount(); i++) {
                     if(tbMasalahKeperawatan.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan2("penilaian_awal_keperawatan_ralan_masalah","?,?",2,new String[]{TNoRw.getText(),tbMasalahKeperawatan.getValueAt(i,1).toString()});
+                        if(Sequel.menyimpantf2("penilaian_awal_keperawatan_ralan_masalah","?,?",2,new String[]{TNoRw.getText(),tbMasalahKeperawatan.getValueAt(i,1).toString()})==true){
+                            tabModeDetailMasalah.addRow(new String[]{
+                                tbMasalahKeperawatan.getValueAt(i,1).toString(),tbMasalahKeperawatan.getValueAt(i,2).toString()
+                            });
+                        }
                     }
                 }
-                Sequel.meghapus("penilaian_awal_keperawatan_ralan_rencana","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 for (i = 0; i < tbRencanaKeperawatan.getRowCount(); i++) {
                     if(tbRencanaKeperawatan.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan2("penilaian_awal_keperawatan_ralan_rencana","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()});
+                        if(Sequel.menyimpantf2("penilaian_awal_keperawatan_ralan_rencana","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()})==true){
+                            tabModeDetailRencana.addRow(new String[]{
+                                tbRencanaKeperawatan.getValueAt(i,1).toString(),tbRencanaKeperawatan.getValueAt(i,2).toString()
+                            });
+                        }
                     }
                 }
-                getMasalah();
-                tampil();
                 DetailRencana.setText(Rencana.getText());
-                emptTeks();
+                TNoRM1.setText(TNoRM.getText());
+                TPasien1.setText(TPasien.getText());
+                emptTeks();;
                 TabRawat.setSelectedIndex(1);
+        }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("penilaian_awal_keperawatan_ralan","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",57,new String[]{
+                TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),TD.getText(),Nadi.getText(),RR.getText(),
+                Suhu.getText(),GCS.getText(),BB.getText(),TB.getText(),BMI.getText(),KeluhanUtama.getText(),RPD.getText(),RPK.getText(),RPO.getText(),Alergi.getText(),AlatBantu.getSelectedItem().toString(),KetBantu.getText(), 
+                Prothesa.getSelectedItem().toString(),KetProthesa.getText(),ADL.getSelectedItem().toString(),StatusPsiko.getSelectedItem().toString(),KetPsiko.getText(),HubunganKeluarga.getSelectedItem().toString(), 
+                TinggalDengan.getSelectedItem().toString(),KetTinggal.getText(),Ekonomi.getSelectedItem().toString(),StatusBudaya.getSelectedItem().toString(),KetBudaya.getText(),Edukasi.getSelectedItem().toString(), 
+                KetEdukasi.getText(),ATS.getSelectedItem().toString(),BJM.getSelectedItem().toString(),MSA.getSelectedItem().toString(),Hasil.getSelectedItem().toString(),Lapor.getSelectedItem().toString(),KetLapor.getText(), 
+                SG1.getSelectedItem().toString(),Nilai1.getSelectedItem().toString(),SG2.getSelectedItem().toString(),Nilai2.getSelectedItem().toString(),TotalHasil.getText(),Nyeri.getSelectedItem().toString(),
+                Provokes.getSelectedItem().toString(),KetProvokes.getText(),Quality.getSelectedItem().toString(),KetQuality.getText(),Lokasi.getText(),Menyebar.getSelectedItem().toString(),SkalaNyeri.getSelectedItem().toString(),
+                Durasi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(),KetDokter.getText(),Rencana.getText(),KdPetugas.getText()
+            })==true){
+                tabMode.addRow(new String[]{
+                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Jk.getText(),Agama.getText(),Bahasa.getText(),CacatFisik.getText(),TglLahir.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),
+                    Informasi.getSelectedItem().toString(),TD.getText(),Nadi.getText(),RR.getText(),Suhu.getText(),GCS.getText(),BB.getText(),TB.getText(),BMI.getText(),KeluhanUtama.getText(),RPD.getText(),RPK.getText(),RPO.getText(),Alergi.getText(),
+                    AlatBantu.getSelectedItem().toString(),KetBantu.getText(),Prothesa.getSelectedItem().toString(),KetProthesa.getText(),ADL.getSelectedItem().toString(),StatusPsiko.getSelectedItem().toString(),KetPsiko.getText(),
+                    HubunganKeluarga.getSelectedItem().toString(),TinggalDengan.getSelectedItem().toString(),KetTinggal.getText(),Ekonomi.getSelectedItem().toString(),StatusBudaya.getSelectedItem().toString(),KetBudaya.getText(),Edukasi.getSelectedItem().toString(),
+                    KetEdukasi.getText(),ATS.getSelectedItem().toString(),BJM.getSelectedItem().toString(),MSA.getSelectedItem().toString(),Hasil.getSelectedItem().toString(),Lapor.getSelectedItem().toString(),KetLapor.getText(), SG1.getSelectedItem().toString(),
+                    Nilai1.getSelectedItem().toString(),SG2.getSelectedItem().toString(),Nilai2.getSelectedItem().toString(),TotalHasil.getText(),Nyeri.getSelectedItem().toString(),Provokes.getSelectedItem().toString(),KetProvokes.getText(),
+                    Quality.getSelectedItem().toString(),KetQuality.getText(),Lokasi.getText(),Menyebar.getSelectedItem().toString(),SkalaNyeri.getSelectedItem().toString(),Durasi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),
+                    PadaDokter.getSelectedItem().toString(),KetDokter.getText(),Rencana.getText(),KdPetugas.getText(),NmPetugas.getText()
+                });
+                LCount.setText(""+tabMode.getRowCount());
+                Valid.tabelKosong(tabModeDetailMasalah);
+                Valid.tabelKosong(tabModeDetailRencana);
+                for (i = 0; i < tbMasalahKeperawatan.getRowCount(); i++) {
+                    if(tbMasalahKeperawatan.getValueAt(i,0).toString().equals("true")){
+                        if(Sequel.menyimpantf2("penilaian_awal_keperawatan_ralan_masalah","?,?",2,new String[]{TNoRw.getText(),tbMasalahKeperawatan.getValueAt(i,1).toString()})==true){
+                            tabModeDetailMasalah.addRow(new String[]{
+                                tbMasalahKeperawatan.getValueAt(i,1).toString(),tbMasalahKeperawatan.getValueAt(i,2).toString()
+                            });
+                        }
+                    }
+                }
+                for (i = 0; i < tbRencanaKeperawatan.getRowCount(); i++) {
+                    if(tbRencanaKeperawatan.getValueAt(i,0).toString().equals("true")){
+                        if(Sequel.menyimpantf2("penilaian_awal_keperawatan_ralan_rencana","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()})==true){
+                            tabModeDetailRencana.addRow(new String[]{
+                                tbRencanaKeperawatan.getValueAt(i,1).toString(),tbRencanaKeperawatan.getValueAt(i,2).toString()
+                            });
+                        }
+                    }
+                }
+                DetailRencana.setText(Rencana.getText());
+                TNoRM1.setText(TNoRM.getText());
+                TPasien1.setText(TPasien.getText());
+                emptTeks();
         }
     }
 }

@@ -2,32 +2,16 @@ package inventaris;
 
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
 public class InventarisHibah extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -881,7 +865,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -999,7 +983,7 @@ sbttl=0;
             }catch (Exception e) {
                 w=0;                
             }
-            sbttl=sbttl+w;       
+            sbttl += w;       
         }
         LTotal.setText(Valid.SetAngka(sbttl));
     }

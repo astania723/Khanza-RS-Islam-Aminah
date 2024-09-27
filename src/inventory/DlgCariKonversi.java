@@ -11,16 +11,12 @@
 
 package inventory;
 
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *

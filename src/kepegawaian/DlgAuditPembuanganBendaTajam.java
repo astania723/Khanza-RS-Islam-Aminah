@@ -5,32 +5,16 @@
 
 package kepegawaian;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -101,7 +85,7 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         KdRuang.setDocument(new batasInput((byte)20).getKata(KdRuang));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1048,18 +1032,18 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     setiap_injeksi_needle_langsung_dimasukkan_safety_box=Double.parseDouble(rs.getString("setiap_injeksi_needle_langsung_dimasukkan_safety_box").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsetiap_injeksi_needle_langsung_dimasukkan_safety_box=ttlsetiap_injeksi_needle_langsung_dimasukkan_safety_box+setiap_injeksi_needle_langsung_dimasukkan_safety_box;
+                    ttlsetiap_injeksi_needle_langsung_dimasukkan_safety_box += setiap_injeksi_needle_langsung_dimasukkan_safety_box;
                     setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box=Double.parseDouble(rs.getString("setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsetiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box=ttlsetiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box+setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box;
+                    ttlsetiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box += setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box;
                     setiap_benda_tajam_jarum_dimasukkan_safety_box=Double.parseDouble(rs.getString("setiap_benda_tajam_jarum_dimasukkan_safety_box").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsetiap_benda_tajam_jarum_dimasukkan_safety_box=ttlsetiap_benda_tajam_jarum_dimasukkan_safety_box+setiap_benda_tajam_jarum_dimasukkan_safety_box;
+                    ttlsetiap_benda_tajam_jarum_dimasukkan_safety_box += setiap_benda_tajam_jarum_dimasukkan_safety_box;
                     safety_box_tigaperempat_diganti=Double.parseDouble(rs.getString("safety_box_tigaperempat_diganti").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsafety_box_tigaperempat_diganti=ttlsafety_box_tigaperempat_diganti+safety_box_tigaperempat_diganti;
+                    ttlsafety_box_tigaperempat_diganti += safety_box_tigaperempat_diganti;
                     safety_box_keadaan_bersih=Double.parseDouble(rs.getString("safety_box_keadaan_bersih").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsafety_box_keadaan_bersih=ttlsafety_box_keadaan_bersih+safety_box_keadaan_bersih;
+                    ttlsafety_box_keadaan_bersih += safety_box_keadaan_bersih;
                     saftey_box_tertutup_setelah_digunakan=Double.parseDouble(rs.getString("saftey_box_tertutup_setelah_digunakan").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsaftey_box_tertutup_setelah_digunakan=ttlsaftey_box_tertutup_setelah_digunakan+saftey_box_tertutup_setelah_digunakan;
-                    ttlpenilaian=ttlpenilaian+(((setiap_injeksi_needle_langsung_dimasukkan_safety_box+setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box+setiap_benda_tajam_jarum_dimasukkan_safety_box+
+                    ttlsaftey_box_tertutup_setelah_digunakan += saftey_box_tertutup_setelah_digunakan;
+                    ttlpenilaian += (((setiap_injeksi_needle_langsung_dimasukkan_safety_box+setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box+setiap_benda_tajam_jarum_dimasukkan_safety_box+
                             safety_box_tigaperempat_diganti+safety_box_keadaan_bersih+saftey_box_tertutup_setelah_digunakan)/6)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("id_ruang"),rs.getString("nama_ruang"),rs.getString("setiap_injeksi_needle_langsung_dimasukkan_safety_box"),rs.getString("setiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box"),
@@ -1069,7 +1053,7 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlsetiap_injeksi_needle_langsung_dimasukkan_safety_box,""+ttlsetiap_pemasangan_iv_canula_langsung_dimasukkan_safety_box,""+ttlsetiap_benda_tajam_jarum_dimasukkan_safety_box,
@@ -1102,6 +1086,9 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         KdRuang.setText("");
         NmRuang.setText("");
@@ -1145,6 +1132,9 @@ public class DlgAuditPembuanganBendaTajam extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_pembuangan_benda_tajam());
         BtnHapus.setEnabled(akses.getaudit_pembuangan_benda_tajam());

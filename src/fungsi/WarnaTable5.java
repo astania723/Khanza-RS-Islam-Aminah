@@ -5,18 +5,26 @@
 
 package fungsi;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Insets;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.table.TableCellRenderer;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
  * @author Owner
  */
 public class WarnaTable5 extends JTextArea implements TableCellRenderer {
+
+    /**
+     *
+     * @param table
+     * @param value
+     * @param isSelected
+     * @param hasFocus
+     * @param row
+     * @param column
+     * @return
+     */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column){
         this.setText((String) value);

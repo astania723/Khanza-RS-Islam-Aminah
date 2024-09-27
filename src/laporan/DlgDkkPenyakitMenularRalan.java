@@ -11,24 +11,13 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -410,80 +399,80 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 while(rs2.next()){   
                     switch (rs2.getString("jk")) {
                         case "L":
-                            matil=matil+Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
-                            tmatil=tmatil+Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
+                            matil += Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
+                            tmatil += Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
                             break;
                         case "P": 
-                            matip=matip+Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
-                            tmatip=tmatip+Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
+                            matip += Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
+                            tmatip += Sequel.cariInteger("select ifnull(count(pasien_mati.no_rkm_medis),0) from pasien_mati where pasien_mati.no_rkm_medis=?",rs2.getString("no_rkm_medis"));
                             break;
                     }
                     
                     if(rs2.getString("umur").contains("Hr")||rs2.getString("umur").contains("Bl")){
                         switch (rs2.getString("jk")) {
                             case "L":
-                                kr1l=kr1l+1;
-                                tkr1l=tkr1l+1;
+                                kr1l += 1;
+                                tkr1l += 1;
                                 break;
                             case "P":
-                                kr1p=kr1p+1;
-                                tkr1p=tkr1p+1;
+                                kr1p += 1;
+                                tkr1p += 1;
                                 break;
                         }
                     }else if(rs2.getString("umur").contains("Th")){
                         if(Valid.SetAngka(rs2.getString("umur").replaceAll(" Th","").replaceAll("Th","").replaceAll(" ",""))<=4){
                             switch (rs2.getString("jk")) {
                                 case "L":
-                                    th1s4l=th1s4l+1;
-                                    tth1s4l=tth1s4l+1;
+                                    th1s4l += 1;
+                                    tth1s4l += 1;
                                     break;
                                 case "P":
-                                    th1s4p=th1s4p+1;
-                                    tth1s4p=tth1s4p+1;
+                                    th1s4p += 1;
+                                    tth1s4p += 1;
                                     break;
                             }
                         }else if(Valid.SetAngka(rs2.getString("umur").replaceAll(" Th","").replaceAll("Th","").replaceAll(" ",""))<=14){
                             switch (rs2.getString("jk")) {
                                 case "L":
-                                    th5s14l=th5s14l+1;
-                                    tth5s14l=tth5s14l+1;
+                                    th5s14l += 1;
+                                    tth5s14l += 1;
                                     break;
                                 case "P":
-                                    th5s14p=th5s14p+1;
-                                    tth5s14p=tth5s14p+1;
+                                    th5s14p += 1;
+                                    tth5s14p += 1;
                                     break;
                             }
                         }else if(Valid.SetAngka(rs2.getString("umur").replaceAll(" Th","").replaceAll("Th","").replaceAll(" ",""))<=44){
                             switch (rs2.getString("jk")) {
                                 case "L":
-                                    th15s44l=th15s44l+1;
-                                    tth15s44l=tth15s44l+1;
+                                    th15s44l += 1;
+                                    tth15s44l += 1;
                                     break;
                                 case "P":
-                                    th15S44p=th15S44p+1;
-                                    tth15S44p=tth15S44p+1;
+                                    th15S44p += 1;
+                                    tth15S44p += 1;
                                     break;
                             }
                         }else if(Valid.SetAngka(rs2.getString("umur").replaceAll(" Th","").replaceAll("Th","").replaceAll(" ",""))<=64){
                             switch (rs2.getString("jk")) {
                                 case "L":
-                                    th45s64l=th45s64l+1;
-                                    tth45s64l=tth45s64l+1;
+                                    th45s64l += 1;
+                                    tth45s64l += 1;
                                     break;
                                 case "P":
-                                    th45s64p=th45s64p+1;
-                                    tth45s64p=tth45s64p+1;
+                                    th45s64p += 1;
+                                    tth45s64p += 1;
                                     break;
                             }
                         }else if(Valid.SetAngka(rs2.getString("umur").replaceAll(" Th","").replaceAll("Th","").replaceAll(" ",""))>64){
                             switch (rs2.getString("jk")) {
                                 case "L":
-                                    th65plusl=th65plusl+1;
-                                    tth65plusl=tth65plusl+1;
+                                    th65plusl += 1;
+                                    tth65plusl += 1;
                                     break;
                                 case "P":
-                                    th65plusp=th65plusp+1;
-                                    tth65plusp=tth65plusp+1;
+                                    th65plusp += 1;
+                                    tth65plusp += 1;
                                     break;
                             }
                         }

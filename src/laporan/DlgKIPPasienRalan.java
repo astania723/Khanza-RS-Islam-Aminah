@@ -1,26 +1,17 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgKIPPasienRalan extends javax.swing.JDialog {
     private final validasi Valid=new validasi();
     private final sekuel Sequel=new sekuel();

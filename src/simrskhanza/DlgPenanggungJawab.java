@@ -11,29 +11,17 @@
 
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import restore.DlgRestoreCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import restore.*;
 
 /**
  *
@@ -101,11 +89,11 @@ public class DlgPenanggungJawab extends javax.swing.JDialog {
         
         KdAsuransi.setDocument(new batasInput((byte)3).getKata(KdAsuransi));
         NmAsuransi.setDocument(new batasInput((byte)30).getKata(NmAsuransi));
-        Perusahaan.setDocument(new batasInput((int)60).getKata(Perusahaan));
-        Attn.setDocument(new batasInput((int)60).getKata(Attn));
-        AlamatAsuransi.setDocument(new batasInput((int)130).getKata(AlamatAsuransi));
+        Perusahaan.setDocument(new batasInput(60).getKata(Perusahaan));
+        Attn.setDocument(new batasInput(60).getKata(Attn));
+        AlamatAsuransi.setDocument(new batasInput(130).getKata(AlamatAsuransi));
         NoTelp.setDocument(new batasInput((byte)40).getKata(NoTelp));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -1042,6 +1030,10 @@ private void NmAsuransiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
@@ -1050,6 +1042,9 @@ private void NmAsuransiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getcara_bayar());
         BtnHapus.setEnabled(akses.getcara_bayar());

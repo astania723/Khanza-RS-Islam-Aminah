@@ -12,28 +12,17 @@
 
 package viabarcode;
 
-import fungsi.WarnaTable;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventory.riwayatobat;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import fungsi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
-import simrskhanza.DlgRawatJalan;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
+import simrskhanza.*;
 
 /**
  *
@@ -631,12 +620,12 @@ public class DlgBarcodeRalan extends javax.swing.JDialog {
                             tbTindakan.getValueAt(i,7).toString(),tbTindakan.getValueAt(i,9).toString(),
                             tbTindakan.getValueAt(i,10).toString(),tbTindakan.getValueAt(i,4).toString()
                         })==true){
-                            ttljmdokter=ttljmdokter+Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
-                            ttlkso=ttlkso+Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
-                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
-                            ttljasasarana=ttljasasarana+Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
-                            ttlbhp=ttlbhp+Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
-                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
+                            ttljmdokter += Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
+                            ttlkso += Double.parseDouble(tbTindakan.getValueAt(i,9).toString());
+                            ttlpendapatan += Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
+                            ttljasasarana += Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
+                            ttlbhp += Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
+                            ttlmenejemen += Double.parseDouble(tbTindakan.getValueAt(i,10).toString());
                         }else{
                             sukses=false;
                         }
@@ -706,7 +695,7 @@ public class DlgBarcodeRalan extends javax.swing.JDialog {
                                                 }
                                                 ttljual=ttljual+Double.parseDouble(tbObat.getValueAt(i,9).toString())+Double.parseDouble(tbObat.getValueAt(i,10).toString())+
                                                     (Double.parseDouble(tbObat.getValueAt(i,6).toString())*(Double.parseDouble(tbObat.getValueAt(i,1).toString())/carikapasitas.getDouble(1)));
-                                                ttlhpp=ttlhpp+(Double.parseDouble(tbObat.getValueAt(i,11).toString())*(Double.parseDouble(tbObat.getValueAt(i,1).toString())/carikapasitas.getDouble(1)));
+                                                ttlhpp += (Double.parseDouble(tbObat.getValueAt(i,11).toString())*(Double.parseDouble(tbObat.getValueAt(i,1).toString())/carikapasitas.getDouble(1)));
                                             }else{
                                                 sukses=false;
                                             }  
@@ -731,7 +720,7 @@ public class DlgBarcodeRalan extends javax.swing.JDialog {
                                                 }
                                                 ttljual=ttljual+Double.parseDouble(tbObat.getValueAt(i,9).toString())+Double.parseDouble(tbObat.getValueAt(i,10).toString())+
                                                     (Double.parseDouble(tbObat.getValueAt(i,6).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
-                                                ttlhpp=ttlhpp+(Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
+                                                ttlhpp += (Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
                                             }else{
                                                 sukses=false;
                                             }                               
@@ -767,7 +756,7 @@ public class DlgBarcodeRalan extends javax.swing.JDialog {
                                         }
                                         ttljual=ttljual+Double.parseDouble(tbObat.getValueAt(i,9).toString())+Double.parseDouble(tbObat.getValueAt(i,10).toString())+
                                             (Double.parseDouble(tbObat.getValueAt(i,6).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
-                                        ttlhpp=ttlhpp+(Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
+                                        ttlhpp += (Double.parseDouble(tbObat.getValueAt(i,11).toString())*Double.parseDouble(tbObat.getValueAt(i,1).toString()));
                                     }else{
                                         sukses=false;
                                     }                                 
@@ -1032,6 +1021,9 @@ public class DlgBarcodeRalan extends javax.swing.JDialog {
     private widget.Table tbTindakan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampiltindakan() {
         try{     
             jml=0;
@@ -1192,6 +1184,10 @@ public class DlgBarcodeRalan extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     */
     public void setNoRm(String norwt) {
         this.kd_pj=Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",norwt);
         this.kd_poli=Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",norwt);

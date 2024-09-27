@@ -10,28 +10,15 @@
 
 package kepegawaian;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -95,9 +82,9 @@ public class PengajuanCutiPegawai extends javax.swing.JDialog {
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
-        Kepentingan.setDocument(new batasInput((int)70).getKata(Kepentingan));
-        NoPengajuan.setDocument(new batasInput((int)17).getKata(NoPengajuan));
-        Alamat.setDocument(new batasInput((int)100).getKata(Alamat));
+        Kepentingan.setDocument(new batasInput(70).getKata(Kepentingan));
+        NoPengajuan.setDocument(new batasInput(17).getKata(NoPengajuan));
+        Alamat.setDocument(new batasInput(100).getKata(Alamat));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         Jumlah.setDocument(new batasInput((byte)3).getOnlyAngka(Jumlah));
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -1151,7 +1138,7 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         rs.getString("urgensi"),rs.getString("alamat"),rs.getString("jumlah"),rs.getString("kepentingan"),rs.getString("nik_pj"),
                         rs.getString("nama"),rs.getString("status")
                     });
-                    i=i+rs.getInt("jumlah");
+                    i += rs.getInt("jumlah");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);

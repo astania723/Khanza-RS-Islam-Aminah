@@ -1,31 +1,12 @@
 package rekammedis;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgGolonganPolri;
-import simrskhanza.DlgJabatanPolri;
-import simrskhanza.DlgPangkatPolri;
-import simrskhanza.DlgSatuanPolri;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import simrskhanza.*;
 
 public class DlgSOAPRanapAggotaPolri extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
@@ -1010,6 +991,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getsoap_ranap_polri());
     }

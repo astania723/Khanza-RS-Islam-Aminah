@@ -5,35 +5,18 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.WarnaTable5;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -3019,6 +3002,9 @@ public class RMPenilaianAwalMedisRanapNeonatus extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -3206,6 +3192,11 @@ public class RMPenilaianAwalMedisRanapNeonatus extends javax.swing.JDialog {
         Sequel.cariIsi("select tgl_lahir from pasien where no_rkm_medis=? ",TglLahir,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -3213,7 +3204,9 @@ public class RMPenilaianAwalMedisRanapNeonatus extends javax.swing.JDialog {
         isRawat(); 
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_ranap());
         BtnHapus.setEnabled(akses.getpenilaian_awal_medis_ranap());

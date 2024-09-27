@@ -5,11 +5,8 @@
 
 package fungsi;
 
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.PlainDocument;
+import javax.swing.*;
+import javax.swing.text.*;
 
 /**
  *
@@ -19,6 +16,10 @@ public class batasInput {
     private final int length;
     private PlainDocument filter;
 
+    /**
+     *
+     * @param length
+     */
     public batasInput(int length){this.length=length;}
 
     public PlainDocument getFilter(final JTextField inputan){
@@ -56,6 +57,11 @@ public class batasInput {
         };return filter;
     }
 
+    /**
+     *
+     * @param inputan
+     * @return
+     */
     public PlainDocument getFilter(final JTextArea inputan){
         filter=new PlainDocument(){
             @Override
@@ -91,6 +97,11 @@ public class batasInput {
         };return filter;
     }
   
+    /**
+     *
+     * @param inputan
+     * @return
+     */
     public PlainDocument getOnlyAngka(final JTextField inputan) {
         filter=new PlainDocument(){
             @Override
@@ -101,7 +112,11 @@ public class batasInput {
                 for(int i=0;i<upp.length;i++){
                     upp[i]=Character.toUpperCase(upp[i]);
                         boolean isOnlyAngka=Character.isDigit(upp[i]);
+                        boolean isOnlyTitik=Character.valueOf(upp[i]).toString().equals(".");
                         if(isOnlyAngka==true){
+                            upp[c]=upp[i];
+                            c++;
+                        }else if(isOnlyTitik==true){
                             upp[c]=upp[i];
                             c++;
                         }
@@ -150,6 +165,11 @@ public class batasInput {
         };return filter;
     }
    
+    /**
+     *
+     * @param inputan
+     * @return
+     */
     public PlainDocument getKata(final JTextArea inputan){
         filter=new PlainDocument(){
             @Override

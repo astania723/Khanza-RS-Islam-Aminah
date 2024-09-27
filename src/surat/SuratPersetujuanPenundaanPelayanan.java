@@ -6,44 +6,26 @@
 
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
  * 
  * @author windiartohugroho
  */
-public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialog {
+public class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -135,15 +117,15 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));    
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));  
         NoSurat.setDocument(new batasInput((byte)20).getKata(NoSurat));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         NamaPJ.setDocument(new batasInput((byte)50).getKata(NamaPJ));
         UmurPJ.setDocument(new batasInput((byte)3).getKata(UmurPJ));
-        NoKTP.setDocument(new batasInput((int)20).getKata(NoKTP));  
-        AlamatPj.setDocument(new batasInput((int)100).getKata(AlamatPj));  
+        NoKTP.setDocument(new batasInput(20).getKata(NoKTP));  
+        AlamatPj.setDocument(new batasInput(100).getKata(AlamatPj));  
         NoTelpPJ.setDocument(new batasInput((byte)30).getKata(NoTelpPJ));   
         PoliRuangan.setDocument(new batasInput((byte)40).getKata(PoliRuangan));   
         DokterPengirim.setDocument(new batasInput((byte)40).getKata(DokterPengirim));   
-        PelayananDilakukan.setDocument(new batasInput((int)120).getKata(PelayananDilakukan));   
+        PelayananDilakukan.setDocument(new batasInput(120).getKata(PelayananDilakukan));   
         KeteranganAlternatifDiberikan.setDocument(new batasInput((byte)50).getKata(KeteranganAlternatifDiberikan));   
         KeteranganPenundaanPelayananKarena.setDocument(new batasInput((byte)50).getKata(KeteranganPenundaanPelayananKarena));   
         
@@ -1675,6 +1657,9 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1758,6 +1743,9 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         KodeDokter.setText("");
@@ -1864,7 +1852,9 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpersetujuan_penundaan_pelayanan());
         BtnHapus.setEnabled(akses.getpersetujuan_penundaan_pelayanan());

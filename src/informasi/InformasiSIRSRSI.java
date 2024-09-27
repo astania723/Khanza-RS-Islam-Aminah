@@ -1,11 +1,10 @@
 package informasi;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-import javafx.scene.web.WebView;
+import java.awt.*;
+import javafx.application.*;
+import javafx.embed.swing.*;
+import javafx.scene.*;
+import javafx.scene.web.*;
 import javax.swing.*;
 
 /**

@@ -11,30 +11,15 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgCariPerusahaan;
-import simrskhanza.DlgCariPoli;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
 /**
  *
@@ -50,6 +35,10 @@ public class KeuanganKlaimRalan extends javax.swing.JDialog {
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private DlgCariPoli poli=new DlgCariPoli(null,false);
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPerusahaan perusahaan=new DlgCariPerusahaan(null,false);
     private double totalpiutang=0;
     private boolean semua;
@@ -866,7 +855,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         i,rs.getString("tgl_registrasi"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("jk"),rs.getString("nm_perawatan"),
                         Valid.SetAngka(rs.getDouble("uangmuka")),Valid.SetAngka(rs.getDouble("totalpiutang")),rs.getString("status")
                     });
-                    totalpiutang=totalpiutang+rs.getDouble("totalpiutang");
+                    totalpiutang += rs.getDouble("totalpiutang");
                     i++;
                 }
             } catch (Exception e) {

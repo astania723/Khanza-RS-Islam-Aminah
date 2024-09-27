@@ -1,33 +1,18 @@
 package bridging;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventory.riwayatobat;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 import org.apache.commons.codec.binary.Base64;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 
 public class PCareDataPemberianObat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -836,6 +821,12 @@ private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         BtnPrint.setEnabled(akses.getpcare_pemberian_obat());
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl1,Date tgl2) {
         TCari.setText(norwt);
         DTPCari1.setDate(tgl1);

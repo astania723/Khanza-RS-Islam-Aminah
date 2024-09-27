@@ -1,32 +1,16 @@
 package ipsrs;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
 public class IPSRSPemesanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -1231,7 +1215,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 } 
             }
 
@@ -1332,13 +1316,13 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch (Exception e) {
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,8).toString());                
             }catch (Exception e) {
                 y=0;                
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));
@@ -1352,6 +1336,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -1371,6 +1358,10 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(ipsrspemesanan.no_faktur,3),signed)),0) from ipsrspemesanan where ipsrspemesanan.tgl_pesan='"+Valid.SetTgl(TglPesan.getSelectedItem()+"")+"'","PNM"+TglPesan.getSelectedItem().toString().substring(6,10)+TglPesan.getSelectedItem().toString().substring(3,5)+TglPesan.getSelectedItem().toString().substring(0,2),3,NoFaktur); 
     }
 
+    /**
+     *
+     * @param noorder
+     */
     public void tampil(String noorder) {
         NoOrder.setText(noorder);
         kdsup.setText(Sequel.cariIsi("select surat_pemesanan_non_medis.kode_suplier from surat_pemesanan_non_medis where surat_pemesanan_non_medis.no_pemesanan=?",noorder));

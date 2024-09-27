@@ -5,33 +5,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -47,6 +31,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
     private ResultSet rs;
     private int i=0;    
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+    private String TANGGALMUNDUR="yes";
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -57,7 +42,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
         setSize(628,674);
 
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.R.M.","Nama Pasien","Umur","JK","Tgl.Lahir","Tgl.Obser","Jam Obser","Hemoglobin",
+            "No.Rawat","No.R.M.","Nama Pasien","Umur","JK","Tgl.Lahir","Tanggal","Jam","Hemoglobin",
             "Hematokrit","Leokosit","Trombosit","Terapi Cairan","NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
@@ -110,8 +95,8 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
         Hema.setDocument(new batasInput((byte)3).getKata(Hema));
         Leo.setDocument(new batasInput((byte)7).getKata(Leo));
         Trombo.setDocument(new batasInput((byte)10).getKata(Trombo));
-        TerapiCairan.setDocument(new batasInput((int)100).getKata(TerapiCairan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TerapiCairan.setDocument(new batasInput(100).getKata(TerapiCairan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -162,6 +147,12 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
         ChkInput.setSelected(false);
         isForm();
         jam();
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -178,6 +169,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
         MnFollowUpDBD = new javax.swing.JMenuItem();
         JK = new widget.TextBox();
         Umur = new widget.TextBox();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -251,6 +243,9 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
 
         Umur.setHighlighter(null);
         Umur.setName("Umur"); // NOI18N
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -771,18 +766,16 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
         }else if(NIP.getText().trim().isEmpty()||NamaPetugas.getText().trim().isEmpty()){
             Valid.textKosong(NIP,"Petugas");
         }else{
-            if(Sequel.menyimpantf("follow_up_dbd","?,?,?,?,?,?,?,?,?","Data",9,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                Hemo.getText(),Hema.getText(),Leo.getText(),Trombo.getText(),TerapiCairan.getText(),NIP.getText()
-            })==true){
-                tabMode.addRow(new String[]{
-                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),TglLahir.getText(),
-                    Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                    Hemo.getText(),Hema.getText(),Leo.getText(),Trombo.getText(),TerapiCairan.getText(),NIP.getText(),NamaPetugas.getText()
-                });
-                LCount.setText(""+tabMode.getRowCount());
-                emptTeks();
-            }   
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                    simpan();
+                }
+            } 
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
@@ -812,7 +805,9 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                 hapus();
             }else{
                 if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -841,7 +836,14 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -894,7 +896,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                     "follow_up_dbd.nip,petugas.nama from follow_up_dbd inner join reg_periksa on follow_up_dbd.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on follow_up_dbd.nip=petugas.nip where "+
-                    "follow_up_dbd.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' order by follow_up_dbd.tgl_perawatan",param);
+                    "follow_up_dbd.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' order by follow_up_dbd.tgl_perawatan,follow_up_dbd.jam_rawat",param);
             }else{
                 Valid.MyReportqry("rptDataFollowUpDBD.jasper","report","::[ Data Follow Up DBD ]::",
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -906,7 +908,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                     "follow_up_dbd.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' and "+
                     "(reg_periksa.no_rawat like '%"+TCari.getText().trim()+"%' or pasien.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
                     "pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or follow_up_dbd.nip like '%"+TCari.getText().trim()+"%' or petugas.nama like '%"+TCari.getText().trim()+"%') "+
-                    "order by follow_up_dbd.tgl_perawatan ",param);
+                    "order by follow_up_dbd.tgl_perawatan,follow_up_dbd.jam_rawat ",param);
             }  
         }
         this.setCursor(Cursor.getDefaultCursor());
@@ -1040,7 +1042,8 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                     "follow_up_dbd.hematokrit,follow_up_dbd.leokosit,follow_up_dbd.trombosit,follow_up_dbd.terapi_cairan,"+
                     "petugas.nama from follow_up_dbd inner join reg_periksa on follow_up_dbd.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join dokter on dokter.kd_dokter=reg_periksa.kd_dokter "+
-                    "inner join petugas on follow_up_dbd.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+                    "inner join petugas on follow_up_dbd.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' "+
+                    "order by follow_up_dbd.tgl_perawatan,follow_up_dbd.jam_rawat",param);
         }
     }//GEN-LAST:event_MnFollowUpDBDActionPerformed
 
@@ -1112,6 +1115,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox TerapiCairan;
     private widget.TextBox TglLahir;
     private widget.TextBox Trombo;
@@ -1138,6 +1142,9 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1149,7 +1156,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                     "follow_up_dbd.nip,petugas.nama from follow_up_dbd inner join reg_periksa on follow_up_dbd.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on follow_up_dbd.nip=petugas.nip where "+
-                    "follow_up_dbd.tgl_perawatan between ? and ? order by follow_up_dbd.tgl_perawatan");
+                    "follow_up_dbd.tgl_perawatan between ? and ? order by follow_up_dbd.tgl_perawatan,follow_up_dbd.jam_rawat");
             }else{
                 ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -1159,7 +1166,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on follow_up_dbd.nip=petugas.nip where "+
                     "follow_up_dbd.tgl_perawatan between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or follow_up_dbd.nip like ? or petugas.nama like ?) "+
-                    "order by follow_up_dbd.tgl_perawatan ");
+                    "order by follow_up_dbd.tgl_perawatan,follow_up_dbd.jam_rawat ");
             }
                 
             try {
@@ -1233,8 +1240,8 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
     private void isRawat() {
         try {
             ps=koneksi.prepareStatement(
-                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
-                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.no_rawat=?");
+                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi,reg_periksa.umurdaftar,"+
+                    "reg_periksa.sttsumur,reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.no_rawat=?");
             try {
                 ps.setString(1,TNoRw.getText());
                 rs=ps.executeQuery();
@@ -1245,6 +1252,7 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                     JK.setText(rs.getString("jk"));
                     Umur.setText(rs.getString("umurdaftar")+" "+rs.getString("sttsumur"));
                     TglLahir.setText(rs.getString("tgl_lahir"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1298,7 +1306,18 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
                 NIP.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
-        }            
+        } 
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+                ChkKejadian.setEnabled(false);
+                Jam.setEnabled(false);
+                Menit.setEnabled(false);
+                Detik.setEnabled(false);
+            }
+        }
     }
 
     private void jam(){
@@ -1389,6 +1408,21 @@ public class RMDataFollowUpDBD extends javax.swing.JDialog {
         }else{
             JOptionPane.showMessageDialog(null,"Gagal menghapus..!!");
         }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("follow_up_dbd","?,?,?,?,?,?,?,?,?","Data",9,new String[]{
+            TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+            Hemo.getText(),Hema.getText(),Leo.getText(),Trombo.getText(),TerapiCairan.getText(),NIP.getText()
+        })==true){
+            tabMode.addRow(new String[]{
+                TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),TglLahir.getText(),
+                Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+                Hemo.getText(),Hema.getText(),Leo.getText(),Trombo.getText(),TerapiCairan.getText(),NIP.getText(),NamaPetugas.getText()
+            });
+            LCount.setText(""+tabMode.getRowCount());
+            emptTeks();
+        } 
     }
     
     

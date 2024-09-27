@@ -6,34 +6,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -130,9 +113,9 @@ public class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        HasilSkrining.setDocument(new batasInput((int)200).getKata(HasilSkrining));
-        Saran.setDocument(new batasInput((int)200).getKata(Saran));
-        TCari.setDocument(new batasInput((int)124).getKata(TCari));
+        HasilSkrining.setDocument(new batasInput(200).getKata(HasilSkrining));
+        Saran.setDocument(new batasInput(200).getKata(Saran));
+        TCari.setDocument(new batasInput(124).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -464,7 +447,7 @@ public class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-03-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-03-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -478,7 +461,7 @@ public class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-03-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-03-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -599,7 +582,7 @@ public class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
         TPasien.setBounds(336, 10, 285, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-03-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-03-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1611,6 +1594,9 @@ public class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         SkalaResiko1.setSelectedIndex(0);
@@ -1694,6 +1680,11 @@ public class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

@@ -1,32 +1,23 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class KeuanganCariTagihanObatBHP extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPetugas pegawai=new DlgCariPetugas(null,false);
     private PreparedStatement ps,ps2;
     private ResultSet rs,rs2;
@@ -851,8 +842,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         nilaitagihan=0;
                         rs2=ps2.executeQuery();
                         while(rs2.next()){
-                            nilaitagihan=nilaitagihan+(rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
-                            totaltagihan=totaltagihan+(rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
+                            nilaitagihan += (rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
+                            totaltagihan += (rs2.getDouble("tagihan")-rs2.getDouble("bayar"));
                             tabMode.addRow(new Object[]{
                                 "",rs2.getString("tgl_tempo"),rs2.getString("no_faktur"),rs2.getString("kode_suplier")+" "+rs2.getString("nama_suplier"),Valid.SetAngka((rs2.getDouble("tagihan")-rs2.getDouble("bayar")))
                             });
@@ -890,6 +881,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
               
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.setText("");
         NoTagihan.setText("");
@@ -898,6 +892,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         TCari.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         MnHapusTagihan.setEnabled(akses.gettagihan_hutang_obat());

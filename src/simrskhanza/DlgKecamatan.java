@@ -11,25 +11,15 @@
 
 package simrskhanza;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -575,6 +565,11 @@ public class DlgKecamatan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     * @param nama
+     * @return
+     */
     public String tampil3(String nama) {
         try {
             if(Valid.daysOld("./cache/masterkecamatan.iyem")>7){
@@ -609,6 +604,9 @@ public class DlgKecamatan extends javax.swing.JDialog {
         return iyem;
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         Nama.requestFocus();
@@ -624,6 +622,9 @@ public class DlgKecamatan extends javax.swing.JDialog {
         return tbkecamatan;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.setText("");
         TCari.requestFocus();

@@ -5,31 +5,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import laporan.DlgBerkasRawat;
-import laporan.DlgDiagnosaPenyakit;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import laporan.*;
 
 
 /**
@@ -198,43 +184,43 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        DiagnosaAwal.setDocument(new batasInput((int)70).getKata(DiagnosaAwal));
-        Alasan.setDocument(new batasInput((int)200).getKata(Alasan));
-        KeluhanUtama.setDocument(new batasInput((int)3000).getKata(KeluhanUtama));
-        PemeriksaanFisik.setDocument(new batasInput((int)3000).getKata(PemeriksaanFisik));
-        JalannyaPenyakit.setDocument(new batasInput((int)3000).getKata(JalannyaPenyakit));
-        PemeriksaanRad.setDocument(new batasInput((int)3000).getKata(PemeriksaanRad));
-        HasilLaborat.setDocument(new batasInput((int)3000).getKata(HasilLaborat));
-        TindakanSelamaDiRS.setDocument(new batasInput((int)3000).getKata(TindakanSelamaDiRS));
-        ObatSelamaDiRS.setDocument(new batasInput((int)3000).getKata(ObatSelamaDiRS));
-        DiagnosaUtama.setDocument(new batasInput((int)500).getKata(DiagnosaUtama));
-        DiagnosaSekunder1.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder1));
-        DiagnosaSekunder2.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder2));
-        DiagnosaSekunder3.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder3));
-        DiagnosaSekunder4.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder4));
-        ProsedurUtama.setDocument(new batasInput((int)500).getKata(ProsedurUtama));
-        ProsedurSekunder1.setDocument(new batasInput((int)500).getKata(ProsedurSekunder1));
-        ProsedurSekunder2.setDocument(new batasInput((int)500).getKata(ProsedurSekunder2));
-        ProsedurSekunder3.setDocument(new batasInput((int)500).getKata(ProsedurSekunder3));
-        KodeDiagnosaUtama.setDocument(new batasInput((int)10).getKata(KodeDiagnosaUtama));
-        KodeDiagnosaSekunder1.setDocument(new batasInput((int)10).getKata(KodeDiagnosaSekunder1));
-        KodeDiagnosaSekunder2.setDocument(new batasInput((int)10).getKata(KodeDiagnosaSekunder2));
-        KodeDiagnosaSekunder3.setDocument(new batasInput((int)10).getKata(KodeDiagnosaSekunder3));
-        KodeDiagnosaSekunder4.setDocument(new batasInput((int)10).getKata(KodeDiagnosaSekunder4));
-        KodeProsedurUtama.setDocument(new batasInput((int)8).getKata(KodeProsedurUtama));
-        KodeProsedurSekunder1.setDocument(new batasInput((int)8).getKata(KodeProsedurSekunder1));
-        KodeProsedurSekunder2.setDocument(new batasInput((int)8).getKata(KodeProsedurSekunder2));
-        KodeProsedurSekunder3.setDocument(new batasInput((int)8).getKata(KodeProsedurSekunder3));
-        Alergi.setDocument(new batasInput((int)200).getKata(Alergi));
-        Diet.setDocument(new batasInput((int)3000).getKata(Diet));
-        LabBelum.setDocument(new batasInput((int)3000).getKata(LabBelum));
-        Edukasi.setDocument(new batasInput((int)3000).getKata(Edukasi));
-        KetKeadaanPulang.setDocument(new batasInput((int)200).getKata(KetKeadaanPulang));
-        KetKeluar.setDocument(new batasInput((int)200).getKata(KetKeluar));
-        KetDilanjutkan.setDocument(new batasInput((int)200).getKata(KetDilanjutkan));
-        ObatPulang.setDocument(new batasInput((int)3000).getKata(ObatPulang));
+        DiagnosaAwal.setDocument(new batasInput(70).getKata(DiagnosaAwal));
+        Alasan.setDocument(new batasInput(200).getKata(Alasan));
+        KeluhanUtama.setDocument(new batasInput(3000).getKata(KeluhanUtama));
+        PemeriksaanFisik.setDocument(new batasInput(3000).getKata(PemeriksaanFisik));
+        JalannyaPenyakit.setDocument(new batasInput(3000).getKata(JalannyaPenyakit));
+        PemeriksaanRad.setDocument(new batasInput(3000).getKata(PemeriksaanRad));
+        HasilLaborat.setDocument(new batasInput(3000).getKata(HasilLaborat));
+        TindakanSelamaDiRS.setDocument(new batasInput(3000).getKata(TindakanSelamaDiRS));
+        ObatSelamaDiRS.setDocument(new batasInput(3000).getKata(ObatSelamaDiRS));
+        DiagnosaUtama.setDocument(new batasInput(500).getKata(DiagnosaUtama));
+        DiagnosaSekunder1.setDocument(new batasInput(500).getKata(DiagnosaSekunder1));
+        DiagnosaSekunder2.setDocument(new batasInput(500).getKata(DiagnosaSekunder2));
+        DiagnosaSekunder3.setDocument(new batasInput(500).getKata(DiagnosaSekunder3));
+        DiagnosaSekunder4.setDocument(new batasInput(500).getKata(DiagnosaSekunder4));
+        ProsedurUtama.setDocument(new batasInput(500).getKata(ProsedurUtama));
+        ProsedurSekunder1.setDocument(new batasInput(500).getKata(ProsedurSekunder1));
+        ProsedurSekunder2.setDocument(new batasInput(500).getKata(ProsedurSekunder2));
+        ProsedurSekunder3.setDocument(new batasInput(500).getKata(ProsedurSekunder3));
+        KodeDiagnosaUtama.setDocument(new batasInput(10).getKata(KodeDiagnosaUtama));
+        KodeDiagnosaSekunder1.setDocument(new batasInput(10).getKata(KodeDiagnosaSekunder1));
+        KodeDiagnosaSekunder2.setDocument(new batasInput(10).getKata(KodeDiagnosaSekunder2));
+        KodeDiagnosaSekunder3.setDocument(new batasInput(10).getKata(KodeDiagnosaSekunder3));
+        KodeDiagnosaSekunder4.setDocument(new batasInput(10).getKata(KodeDiagnosaSekunder4));
+        KodeProsedurUtama.setDocument(new batasInput(8).getKata(KodeProsedurUtama));
+        KodeProsedurSekunder1.setDocument(new batasInput(8).getKata(KodeProsedurSekunder1));
+        KodeProsedurSekunder2.setDocument(new batasInput(8).getKata(KodeProsedurSekunder2));
+        KodeProsedurSekunder3.setDocument(new batasInput(8).getKata(KodeProsedurSekunder3));
+        Alergi.setDocument(new batasInput(200).getKata(Alergi));
+        Diet.setDocument(new batasInput(3000).getKata(Diet));
+        LabBelum.setDocument(new batasInput(3000).getKata(LabBelum));
+        Edukasi.setDocument(new batasInput(3000).getKata(Edukasi));
+        KetKeadaanPulang.setDocument(new batasInput(200).getKata(KetKeadaanPulang));
+        KetKeluar.setDocument(new batasInput(200).getKata(KetKeluar));
+        KetDilanjutkan.setDocument(new batasInput(200).getKata(KetDilanjutkan));
+        ObatPulang.setDocument(new batasInput(3000).getKata(ObatPulang));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -561,7 +547,7 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                tampil();
+//                tampil();
                 datapenyakit();
             }
             @Override
@@ -2397,7 +2383,7 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
                 ps=koneksi.prepareStatement("select dpjp_ranap.kd_dokter,dokter.nm_dokter from dpjp_ranap inner join dokter on dpjp_ranap.kd_dokter=dokter.kd_dokter where dpjp_ranap.no_rawat=? and dpjp_ranap.kd_dokter<>?");
                 try {
                     ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
-                    ps.setString(2,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
+                    ps.setString(2,tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());
                     rs=ps.executeQuery();
                     i=2;
                     while(rs.next()){
@@ -2428,6 +2414,7 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
             }
             param.put("ruang",KdRuang.getText()+" "+NmRuang.getText());
             param.put("tanggalkeluar",Valid.SetTgl3(Keluar.getText()));
+            param.put("jamkeluar",JamKeluar.getText());
             Valid.MyReport("rptLaporanResumeRanap.jasper","report","::[ Laporan Resume Pasien ]::",param);
         }
     }//GEN-LAST:event_MnLaporanResumeActionPerformed
@@ -2662,9 +2649,9 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
     }//GEN-LAST:event_ObatSelamaDiRSKeyPressed
 
   private void BtnDiagnosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDiagnosaActionPerformed
-    if(TNoRw.getText().trim().isEmpty()){
+    if(TNoRw.getText().isEmpty()&&TNoRM.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
-            TCari.requestFocus();
+//            TCari.requestFocus();
         }else{
             penyakit.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             penyakit.setLocationRelativeTo(internalFrame1);
@@ -2673,6 +2660,15 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
             penyakit.panelDiagnosa1.tampil();
             penyakit.setVisible(true);
         }
+//    if(TNoRw.getText().isEmpty()&&TNoRM.getText().isEmpty()){
+//            JOptionPane.showMessageDialog(null,"Pasien masih kosong...!!!");
+//        }else{
+//            carikeluhan.setNoRawat(TNoRw.getText());
+//            carikeluhan.tampil();
+//            carikeluhan.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//            carikeluhan.setLocationRelativeTo(internalFrame1);
+//            carikeluhan.setVisible(true);
+//        }
   }//GEN-LAST:event_BtnDiagnosaActionPerformed
 
   private void BtnDokter6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDokter6ActionPerformed
@@ -2946,6 +2942,9 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Alasan.setText("");
         KeluhanUtama.setText("");
@@ -3094,6 +3093,11 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -3208,6 +3212,9 @@ public class RMDataResumePasienRanap extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getdata_resume_pasien());
         BtnHapus.setEnabled(akses.getdata_resume_pasien());

@@ -4,34 +4,17 @@
  */
 
 package bridging;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDepartemen;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import org.springframework.http.*;
 
 /**
  *
@@ -546,8 +529,11 @@ public class SatuSehatMapingOrganisasi extends javax.swing.JDialog {
                     if(Sequel.menyimpantf("satu_sehat_mapping_departemen","?,?","Kode Departemen",2,new String[]{
                             KodeDepartemen.getText(),response.asText()
                         })==true){
+                        tabMode.addRow(new String[]{
+                            KodeDepartemen.getText(),NamaDepartemen.getText(),response.asText()
+                        });
                         emptTeks();
-                        tampil();
+                        LCount.setText(""+tabMode.getRowCount());
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"Gagal melakukan mapping organisasi ke server Satu Sehat Kemenkes");
@@ -671,9 +657,11 @@ public class SatuSehatMapingOrganisasi extends javax.swing.JDialog {
                     root = mapper.readTree(json);
                     response = root.path("id");
                     if(!response.asText().isEmpty()){
-                        Valid.hapusTable(tabMode,KodeDepartemen,"satu_sehat_mapping_departemen","dep_id");
-                        emptTeks();
-                        tampil();
+                        if(Valid.hapusTabletf(tabMode,KodeDepartemen,"satu_sehat_mapping_departemen","dep_id")==true){
+                            tabMode.removeRow(tbJnsPerawatan.getSelectedRow());
+                            emptTeks();
+                            LCount.setText(""+tabMode.getRowCount());
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Gagal melakukan mapping organisasi ke server Satu Sehat Kemenkes");
                     } 
@@ -792,8 +780,10 @@ public class SatuSehatMapingOrganisasi extends javax.swing.JDialog {
                         if(Sequel.mengedittf("satu_sehat_mapping_departemen","dep_id=?","dep_id=?,id_organisasi_satusehat=?",3,new String[]{
                                 KodeDepartemen.getText(),response.asText(),tbJnsPerawatan.getValueAt(tbJnsPerawatan.getSelectedRow(),0).toString()
                             })==true){
+                            tabMode.setValueAt(KodeDepartemen.getText(),tbJnsPerawatan.getSelectedRow(),0);
+                            tabMode.setValueAt(NamaDepartemen.getText(),tbJnsPerawatan.getSelectedRow(),1);
+                            tabMode.setValueAt(response.asText(),tbJnsPerawatan.getSelectedRow(),3);
                             emptTeks();
-                            tampil();
                         }
                     }else{
                         JOptionPane.showMessageDialog(null,"Gagal melakukan mapping organisasi ke server Satu Sehat Kemenkes");
@@ -958,8 +948,7 @@ public class SatuSehatMapingOrganisasi extends javax.swing.JDialog {
     private void tampil() {
         Valid.tabelKosong(tabMode);
         try{
-           ps=koneksi.prepareStatement(
-                   "select satu_sehat_mapping_departemen.dep_id,departemen.nama,satu_sehat_mapping_departemen.id_organisasi_satusehat "+
+           ps=koneksi.prepareStatement("select satu_sehat_mapping_departemen.dep_id,departemen.nama,satu_sehat_mapping_departemen.id_organisasi_satusehat "+
                    "from satu_sehat_mapping_departemen inner join departemen on satu_sehat_mapping_departemen.dep_id=departemen.dep_id "+
                    (TCari.getText().isEmpty()?"":"where satu_sehat_mapping_departemen.dep_id like ? or departemen.nama like ? or "+
                    "satu_sehat_mapping_departemen.id_organisasi_satusehat like ? ")+" order by departemen.nama");
@@ -991,6 +980,9 @@ public class SatuSehatMapingOrganisasi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KodeDepartemen.setText("");
         NamaDepartemen.setText("");

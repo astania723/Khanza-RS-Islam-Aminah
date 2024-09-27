@@ -11,7 +11,7 @@
 
 package smsui;
 
-import smsobj.Status;
+import smsobj.*;
 
 /**
  *

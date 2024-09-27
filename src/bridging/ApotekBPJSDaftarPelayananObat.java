@@ -12,47 +12,31 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.net.URI;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.util.HashMap;
-import java.util.Map;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.scheme.Scheme;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.security.*;
+import java.security.cert.*;
+import java.util.*;
+import javax.net.ssl.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.junit.Test;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.junit.*;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
 /**
  *
  * @author dosen
  */
-public final class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
+public class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
@@ -466,11 +450,23 @@ public final class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
         }
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
@@ -480,6 +476,16 @@ public final class ApotekBPJSDaftarPelayananObat extends javax.swing.JDialog {
         public String getMethod() {
             return "DELETE";
         }
+
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     }
 
     @Test

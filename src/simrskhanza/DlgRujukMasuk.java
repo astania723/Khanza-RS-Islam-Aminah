@@ -12,30 +12,17 @@
 
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import laporan.DlgCariPenyakit;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import laporan.*;
 
 
 /**
@@ -43,8 +30,7 @@ import laporan.DlgCariPenyakit;
  * @author perpustakaan
  */
 public class DlgRujukMasuk extends javax.swing.JDialog {
-    private final DefaultTableModel tabMode;
-    private DefaultTableModel tabMode2;
+    private DefaultTableModel tabMode,tabMode2;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -67,11 +53,12 @@ public class DlgRujukMasuk extends javax.swing.JDialog {
                   "Diagnosa Akhir","Status","Dokter Perujuk","Kategori Rujuk","Poli Rujukan","No.Balasan","Keterangan","Kode Penyakit","Nama Penyakit"};
         tabMode=new DefaultTableModel(null,row){
              Class[] types = new Class[] {
-                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
-                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                 java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
+                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                 java.lang.String.class,java.lang.String.class
              };
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                  boolean a = false;
@@ -1306,7 +1293,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }                 
             }
             
@@ -1315,7 +1302,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }                 
             }
             
@@ -1324,7 +1311,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }                 
             }
             
@@ -1333,7 +1320,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }                 
             }
             
@@ -1431,7 +1418,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }                 
             }
             
@@ -1440,7 +1427,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }                 
             }
             
@@ -1449,7 +1436,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }                 
             }
             
@@ -1458,7 +1445,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }                 
             }
             
@@ -1598,7 +1585,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }                 
             }
             
@@ -1607,7 +1594,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }                 
             }
             
@@ -1616,7 +1603,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }                 
             }
             
@@ -1625,7 +1612,7 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }                 
             }
             
@@ -1899,6 +1886,12 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1909,7 +1902,9 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         isForm();
     }
       
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getrujukan_masuk());
         BtnHapus.setEnabled(akses.getrujukan_masuk());
@@ -1918,6 +1913,9 @@ private void TAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         
     }
     
+    /**
+     *
+     */
     public void tampil2() {        
         Valid.tabelKosong(tabMode2);
         try{

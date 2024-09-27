@@ -5,30 +5,18 @@
  */
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import org.apache.http.conn.scheme.Scheme;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.security.*;
+import java.security.cert.*;
+import java.sql.*;
+import javax.net.ssl.*;
+import javax.swing.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
 /**
  *
@@ -47,6 +35,9 @@ public class ApiLICA {
     private ObjectMapper mapper = new ObjectMapper();
     private int i=0;
     
+    /**
+     *
+     */
     public ApiLICA(){
         super();
         try {
@@ -57,6 +48,10 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void kirimRalan(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -156,6 +151,10 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void kirimRanap(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -256,6 +255,10 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @param nopermintaan
+     */
     public void ambil(String nopermintaan) {
         try{
             headers = new HttpHeaders();
@@ -289,6 +292,12 @@ public class ApiLICA {
         }
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

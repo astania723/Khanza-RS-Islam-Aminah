@@ -1,36 +1,23 @@
 package inventory;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
-import keuangan.Jurnal;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventorySuratPemesanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -69,19 +56,19 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
                 "Jml","Satuan Beli","Kode Barang","Nama Barang","Satuan","Harga(Rp)","Subtotal(Rp)",
                 "Disk(%)","Diskon(Rp)","Total","Jml.Stok","Isi","Isi Besar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-               boolean a = false;
-               if ((colIndex==0)||(colIndex==5)||(colIndex==7)||(colIndex==8)) {
-                   a=true;
-               }
-               return a;
-             }
               
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class ,java.lang.Double.class ,java.lang.Double.class 
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==5)||(colIndex==7)||(colIndex==8)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1503,7 +1490,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 }            
             }
 
@@ -1622,7 +1609,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),6);
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
 
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,8).toString()); 
@@ -1630,7 +1617,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),8);
                 y=0;
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));
@@ -1645,6 +1632,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         
     }   
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -1664,6 +1654,10 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 "SPM"+Tanggal.getSelectedItem().toString().substring(8,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,NoPemesanan); 
     }
 
+    /**
+     *
+     * @return
+     */
     public DefaultTableModel tabMode(){
         return tabMode;
     }

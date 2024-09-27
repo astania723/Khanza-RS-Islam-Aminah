@@ -12,19 +12,12 @@
 
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.sql.Connection;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -1580,6 +1573,9 @@ public class DlgPilihanCetakDokumen extends javax.swing.JDialog {
         
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         try{         
             Valid.tabelKosong(TabMode);
@@ -1631,6 +1627,9 @@ public class DlgPilihanCetakDokumen extends javax.swing.JDialog {
         
     }
     
+    /**
+     *
+     */
     public void tampil3() {
         try{         
             Valid.tabelKosong(TabMode);
@@ -1707,6 +1706,12 @@ public class DlgPilihanCetakDokumen extends javax.swing.JDialog {
             this.JenisPelayanan=JenisPelayanan;
     }
     
+    /**
+     *
+     * @param NoRujukan
+     * @param TglRujukan
+     * @param KdpoliTujuan
+     */
     public void setRujukan(String NoRujukan,String TglRujukan,String KdpoliTujuan){
         this.NoRujukan=NoRujukan;
         this.TglRujukan=TglRujukan;

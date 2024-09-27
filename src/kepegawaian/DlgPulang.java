@@ -10,28 +10,19 @@
  */
 
 package kepegawaian;
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgPulang extends javax.swing.JDialog {
+public class DlgPulang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -82,7 +73,7 @@ public final class DlgPulang extends javax.swing.JDialog {
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
         
         //catatan.setDocument(new batasInput((int)100).getKata(catatan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -582,6 +573,9 @@ public final class DlgPulang extends javax.swing.JDialog {
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         Valid.tabelKosong(tabMode);
         try{            
@@ -628,6 +622,9 @@ public final class DlgPulang extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         catatan.setText("");
         id_pegawai.setText("");

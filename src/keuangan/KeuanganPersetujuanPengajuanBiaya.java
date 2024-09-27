@@ -2,30 +2,15 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
@@ -57,12 +42,12 @@ public class KeuanganPersetujuanPengajuanBiaya extends javax.swing.JDialog {
                 "No.Pengajuan","Tanggal","NIP","Diajukan Oleh","Bidang","Departemen","Urgensi","Uraian","Tujuan",
                 "Target Sasaran","Lokasi","Jml","Harga", "Total", "Keterangan"
             }){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                   java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                   java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                   java.lang.String.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.String.class
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -895,11 +880,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private void hitung(){
         belumdisetujui=0;
         for(i=0;i<tabMode.getRowCount();i++){
-            belumdisetujui=belumdisetujui+Valid.SetAngka(tbBangsal.getValueAt(i,13).toString());
+            belumdisetujui += Valid.SetAngka(tbBangsal.getValueAt(i,13).toString());
         }
         LCount.setText(""+Valid.SetAngka(belumdisetujui));
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             kdpegawai.setEditable(false);

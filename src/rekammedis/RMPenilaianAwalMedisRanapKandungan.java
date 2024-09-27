@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -207,13 +190,13 @@ public class RMPenilaianAwalMedisRanapKandungan extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KeluhanUtama.setDocument(new batasInput((int)2000).getKata(KeluhanUtama));
-        RPS.setDocument(new batasInput((int)2000).getKata(RPS));
-        RPK.setDocument(new batasInput((int)2000).getKata(RPK));
-        RPD.setDocument(new batasInput((int)1000).getKata(RPD));
-        RPO.setDocument(new batasInput((int)1000).getKata(RPO));
-        Alergi.setDocument(new batasInput((int)50).getKata(Alergi));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KeluhanUtama.setDocument(new batasInput(2000).getKata(KeluhanUtama));
+        RPS.setDocument(new batasInput(2000).getKata(RPS));
+        RPK.setDocument(new batasInput(2000).getKata(RPK));
+        RPD.setDocument(new batasInput(1000).getKata(RPD));
+        RPO.setDocument(new batasInput(1000).getKata(RPO));
+        Alergi.setDocument(new batasInput(50).getKata(Alergi));
         GCS.setDocument(new batasInput((byte)10).getKata(GCS));
         TD.setDocument(new batasInput((byte)8).getKata(TD));
         Nadi.setDocument(new batasInput((byte)5).getKata(Nadi));
@@ -226,17 +209,17 @@ public class RMPenilaianAwalMedisRanapKandungan extends javax.swing.JDialog {
         TBJ.setDocument(new batasInput((byte)10).getKata(TBJ));
         His.setDocument(new batasInput((byte)10).getKata(His));
         DJJ.setDocument(new batasInput((byte)10).getKata(DJJ));
-        Ultra.setDocument(new batasInput((int)3000).getKata(Ultra));
-        Kardio.setDocument(new batasInput((int)3000).getKata(Kardio));
-        Laborat.setDocument(new batasInput((int)3000).getKata(Laborat));
-        Diagnosis.setDocument(new batasInput((int)500).getKata(Diagnosis));
-        Tatalaksana.setDocument(new batasInput((int)5000).getKata(Tatalaksana));
-        Inspeksi.setDocument(new batasInput((int)5000).getKata(Inspeksi));
-        Inspekulo.setDocument(new batasInput((int)5000).getKata(Inspekulo));
-        VT.setDocument(new batasInput((int)5000).getKata(VT));
-        RT.setDocument(new batasInput((int)5000).getKata(RT));
-        Edukasi.setDocument(new batasInput((int)1000).getKata(Edukasi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Ultra.setDocument(new batasInput(3000).getKata(Ultra));
+        Kardio.setDocument(new batasInput(3000).getKata(Kardio));
+        Laborat.setDocument(new batasInput(3000).getKata(Laborat));
+        Diagnosis.setDocument(new batasInput(500).getKata(Diagnosis));
+        Tatalaksana.setDocument(new batasInput(5000).getKata(Tatalaksana));
+        Inspeksi.setDocument(new batasInput(5000).getKata(Inspeksi));
+        Inspekulo.setDocument(new batasInput(5000).getKata(Inspekulo));
+        VT.setDocument(new batasInput(5000).getKata(VT));
+        RT.setDocument(new batasInput(5000).getKata(RT));
+        Edukasi.setDocument(new batasInput(1000).getKata(Edukasi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -2886,6 +2869,9 @@ public class RMPenilaianAwalMedisRanapKandungan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2961,6 +2947,9 @@ public class RMPenilaianAwalMedisRanapKandungan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -3118,6 +3107,11 @@ public class RMPenilaianAwalMedisRanapKandungan extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -3142,6 +3136,9 @@ public class RMPenilaianAwalMedisRanapKandungan extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

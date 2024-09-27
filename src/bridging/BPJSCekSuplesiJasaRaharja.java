@@ -12,31 +12,15 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import simrskhanza.DlgCariPasien;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import org.springframework.http.*;
+import simrskhanza.*;
 
 /**
  *
@@ -233,7 +217,7 @@ public class BPJSCekSuplesiJasaRaharja extends javax.swing.JDialog {
         jLabel18.setPreferredSize(new java.awt.Dimension(60, 23));
         panelGlass6.add(jLabel18);
 
-        DTPTanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-11-2021" }));
+        DTPTanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-01-2024" }));
         DTPTanggal.setDisplayFormat("dd-MM-yyyy");
         DTPTanggal.setName("DTPTanggal"); // NOI18N
         DTPTanggal.setOpaque(false);
@@ -343,19 +327,6 @@ public class BPJSCekSuplesiJasaRaharja extends javax.swing.JDialog {
         }        
     }//GEN-LAST:event_BtnPrintActionPerformed
 
-    private void btnPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasienActionPerformed
-        akses.setform("DlgBPJSCekSuplesiJasaRaharja");
-        pasien.emptTeks();
-        pasien.isCek();
-        pasien.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.setLocationRelativeTo(internalFrame1);
-        pasien.setVisible(true);
-    }//GEN-LAST:event_btnPasienActionPerformed
-
-    private void btnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPasienKeyPressed
-        Valid.pindah(evt,NoKartu,BtnPrint);
-    }//GEN-LAST:event_btnPasienKeyPressed
-
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         if(NoKartu.getText().trim().isEmpty()){
@@ -373,6 +344,19 @@ public class BPJSCekSuplesiJasaRaharja extends javax.swing.JDialog {
             Valid.pindah(evt,NoKartu,BtnPrint);
         }
     }//GEN-LAST:event_BtnCariKeyPressed
+
+    private void btnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPasienKeyPressed
+        Valid.pindah(evt,NoKartu,BtnPrint);
+    }//GEN-LAST:event_btnPasienKeyPressed
+
+    private void btnPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasienActionPerformed
+        akses.setform("DlgBPJSCekSuplesiJasaRaharja");
+        pasien.emptTeks();
+        pasien.isCek();
+        pasien.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        pasien.setLocationRelativeTo(internalFrame1);
+        pasien.setVisible(true);
+    }//GEN-LAST:event_btnPasienActionPerformed
 
     /**
     * @param args the command line arguments
@@ -445,10 +429,24 @@ public class BPJSCekSuplesiJasaRaharja extends javax.swing.JDialog {
         }
     }   
     
+    /**
+     *
+     * @param nokartu
+     * @param namapasien
+     * @param tanggal
+     */
     public void setRM(String nokartu, String namapasien, Date tanggal){
         NoKartu.setText(nokartu);
         NamaPasien.setText(namapasien);
         DTPTanggal.setDate(tanggal);
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public JTable getTable(){
+        return tbKamar;
     }
  
 }

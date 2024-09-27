@@ -1,22 +1,11 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 public class DlgKlasifikasiPasienPerBangsal extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
@@ -386,13 +375,13 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 while(rs.next()){
                     if((!rs.getString("nm_bangsal").toLowerCase().contains("apotek"))&&(!rs.getString("nm_bangsal").toLowerCase().contains("gudang"))&&(!rs.getString("nm_bangsal").toLowerCase().contains("depo"))&&(!rs.getString("nm_bangsal").toLowerCase().contains("farmasi"))){
                         pasien=Sequel.cariInteger("select count(DISTINCT data_klasifikasi_pasien_ranap.no_rawat) from data_klasifikasi_pasien_ranap inner join kamar inner join bangsal on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal where data_klasifikasi_pasien_ranap.tanggal between ? and ? and kamar.kd_bangsal=?",Valid.SetTgl(Tgl1.getSelectedItem()+""),Valid.SetTgl(Tgl2.getSelectedItem()+""),rs.getString("kd_bangsal"));
-                        jmlpasien=jmlpasien+pasien;
+                        jmlpasien += pasien;
                         Minimal=Sequel.cariInteger("select count(data_klasifikasi_pasien_ranap.Minimal) from data_klasifikasi_pasien_ranap inner join kamar inner join bangsal on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal where data_klasifikasi_pasien_ranap.Minimal='IYA' and data_klasifikasi_pasien_ranap.tanggal between ? and ? and kamar.kd_bangsal=?",Valid.SetTgl(Tgl1.getSelectedItem()+""),Valid.SetTgl(Tgl2.getSelectedItem()+""),rs.getString("kd_bangsal"));
-                        jmlMinimal=jmlMinimal+Minimal;
+                        jmlMinimal += Minimal;
                         Partial=Sequel.cariInteger("select count(data_klasifikasi_pasien_ranap.Partial) from data_klasifikasi_pasien_ranap inner join kamar inner join bangsal on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal where data_klasifikasi_pasien_ranap.Partial='IYA' and data_klasifikasi_pasien_ranap.tanggal between ? and ? and kamar.kd_bangsal=?",Valid.SetTgl(Tgl1.getSelectedItem()+""),Valid.SetTgl(Tgl2.getSelectedItem()+""),rs.getString("kd_bangsal"));
-                        jmlPartial=jmlPartial+Partial;
+                        jmlPartial += Partial;
                         Total=Sequel.cariInteger("select count(data_klasifikasi_pasien_ranap.Total) from data_klasifikasi_pasien_ranap inner join kamar inner join bangsal on data_klasifikasi_pasien_ranap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal where data_klasifikasi_pasien_ranap.Total='IYA' and data_klasifikasi_pasien_ranap.tanggal between ? and ? and kamar.kd_bangsal=?",Valid.SetTgl(Tgl1.getSelectedItem()+""),Valid.SetTgl(Tgl2.getSelectedItem()+""),rs.getString("kd_bangsal"));
-                        jmlTotal=jmlTotal+Total;
+                        jmlTotal += Total;
                         htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_bangsal")).append("</td><td valign='middle' align='center'>").append(pasien).append("</td><td valign='middle' align='center'>").append(Minimal).append("</td><td valign='middle' align='center'>").append(Partial).append("</td><td valign='middle' align='center'>").append(Total).append("</td></tr>"); 
                         i++;
                     }                        
@@ -422,6 +411,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.gethais_perbangsal());
     }

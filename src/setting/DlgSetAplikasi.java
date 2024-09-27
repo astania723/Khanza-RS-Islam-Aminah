@@ -11,32 +11,16 @@
 
 package setting;
 
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Canvas;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.net.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.filechooser.*;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.table.*;
 
 /**
  *
@@ -80,7 +64,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         tbAdmin.setDefaultRenderer(Object.class, new WarnaTable());
 
         Nm.setDocument(new batasInput((byte)60).getKata(Nm));
-        Almt.setDocument(new batasInput((int)150).getKata(Almt));
+        Almt.setDocument(new batasInput(150).getKata(Almt));
         Kota.setDocument(new batasInput((byte)30).getKata(Kota));
         Propinsi.setDocument(new batasInput((byte)30).getKata(Propinsi));
         Kontak.setDocument(new batasInput((byte)50).getKata(Kontak));
@@ -845,6 +829,9 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nm.setText("");
         Almt.setText("");
@@ -872,6 +859,10 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
 
         Image image;
 
+        /**
+         *
+         * @param file
+         */
         public void setImage(String file) {
             URL url = null;
             try {
@@ -882,11 +873,20 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
             image = getToolkit().getImage(url);
             repaint();
         }
+
+        /**
+         *
+         * @param file
+         */
         public void setImageIcon(ImageIcon file) {
             image = file.getImage();
             repaint();
         }
 
+        /**
+         *
+         * @param g
+         */
         @Override
         public void paint(Graphics g) {
             try {

@@ -1,21 +1,16 @@
 package surat;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -55,16 +50,16 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());
 
         Kd.setDocument(new batasInput((byte)3).getKata(Kd));
-        Diagnosa.setDocument(new batasInput((int)200).getKata(Diagnosa));
-        TindakanKedokteran.setDocument(new batasInput((int)200).getKata(TindakanKedokteran));
-        IndikasiTindakan.setDocument(new batasInput((int)200).getKata(IndikasiTindakan));
-        TataCara.setDocument(new batasInput((int)400).getKata(TataCara));
-        Tujuan.setDocument(new batasInput((int)200).getKata(Tujuan));
-        Risiko.setDocument(new batasInput((int)200).getKata(Risiko));
-        Komplikasi.setDocument(new batasInput((int)200).getKata(Komplikasi));
-        Prognosis.setDocument(new batasInput((int)200).getKata(Prognosis));
-        AlternatifResiko.setDocument(new batasInput((int)200).getKata(AlternatifResiko));
-        LainLain.setDocument(new batasInput((int)200).getKata(LainLain));
+        Diagnosa.setDocument(new batasInput(200).getKata(Diagnosa));
+        TindakanKedokteran.setDocument(new batasInput(200).getKata(TindakanKedokteran));
+        IndikasiTindakan.setDocument(new batasInput(200).getKata(IndikasiTindakan));
+        TataCara.setDocument(new batasInput(400).getKata(TataCara));
+        Tujuan.setDocument(new batasInput(200).getKata(Tujuan));
+        Risiko.setDocument(new batasInput(200).getKata(Risiko));
+        Komplikasi.setDocument(new batasInput(200).getKata(Komplikasi));
+        Prognosis.setDocument(new batasInput(200).getKata(Prognosis));
+        AlternatifResiko.setDocument(new batasInput(200).getKata(AlternatifResiko));
+        LainLain.setDocument(new batasInput(200).getKata(LainLain));
         Biaya.setDocument(new batasInput((byte)12).getOnlyAngka(Biaya));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));    
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -1042,10 +1037,17 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbDokter;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettemplate_persetujuan_penolakan_tindakan());
         BtnHapus.setEnabled(akses.gettemplate_persetujuan_penolakan_tindakan());

@@ -5,27 +5,18 @@
 
 package smsservice;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JTextArea;
-import org.smslib.AGateway;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.*;
+import javax.swing.*;
+import org.smslib.*;
 import org.smslib.AGateway.GatewayStatuses;
 import org.smslib.AGateway.Protocols;
-import org.smslib.ICallNotification;
-import org.smslib.IGatewayStatusNotification;
-import org.smslib.IInboundMessageNotification;
-import org.smslib.InboundMessage;
 import org.smslib.Message.MessageTypes;
-import org.smslib.Service;
+import org.smslib.modem.*;
 import org.smslib.modem.ModemGateway.IPProtocols;
-import org.smslib.modem.SerialModemGateway;
-import smsobj.Status;
+import smsobj.*;
 /**
  *
  * @author perpustakaan
@@ -36,15 +27,28 @@ public class SMSReadService {
     Service service;
     private final Connection koneksi;
 
+    /**
+     *
+     * @param koneksi
+     * @param textArea
+     */
     public SMSReadService(Connection koneksi,JTextArea textArea){
         this.koneksi = koneksi;
         this.textArea = textArea;
     }
 
+    /**
+     *
+     * @param status
+     */
     public void setStatus(Status status){
         this.status = status;
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void startService() throws Exception{
         Properties prop = new Properties();
         try {
@@ -87,7 +91,9 @@ public class SMSReadService {
 
     class PesanMasukHandler implements IInboundMessageNotification{
         public void process(AGateway ag, MessageTypes tipePesan, InboundMessage pesanMasuk) {
-            if(tipePesan==MessageTypes.STATUSREPORT) return;
+            if(tipePesan==MessageTypes.STATUSREPORT) {
+                return;
+            }
             try {
                 String sql = "INSERT INTO sms VALUES(0,?,?,?,?,?,?)";
                 PreparedStatement prepare =koneksi.prepareStatement(sql);

@@ -11,29 +11,16 @@
 
 package inventaris;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -99,11 +86,11 @@ public class KeslingMutuAirLimbah extends javax.swing.JDialog {
 
         Meteran.setDocument(new batasInput((byte)10).getKata(Meteran));
         JmlHarian.setDocument(new batasInput((byte)10).getKata(JmlHarian));
-        PH.setDocument(new batasInput((int)10).getKata(PH));
-        Suhu.setDocument(new batasInput((int)10).getKata(Suhu));
-        Salt.setDocument(new batasInput((int)10).getKata(Salt));
-        TDS.setDocument(new batasInput((int)10).getKata(TDS));
-        EC.setDocument(new batasInput((int)10).getKata(EC));
+        PH.setDocument(new batasInput(10).getKata(PH));
+        Suhu.setDocument(new batasInput(10).getKata(Suhu));
+        Salt.setDocument(new batasInput(10).getKata(Salt));
+        TDS.setDocument(new batasInput(10).getKata(TDS));
+        EC.setDocument(new batasInput(10).getKata(EC));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1013,12 +1000,12 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     tabMode.addRow(new String[]{
                         i+"",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)
                     });
-                    total=total+rs.getDouble(5);
-                    ph=ph+rs.getDouble(6);
-                    suhu=suhu+rs.getDouble(7);
-                    tds=tds+rs.getDouble(8);
-                    ec=ec+rs.getDouble(9);
-                    salt=salt+rs.getDouble(10);
+                    total += rs.getDouble(5);
+                    ph += rs.getDouble(6);
+                    suhu += rs.getDouble(7);
+                    tds += rs.getDouble(8);
+                    ec += rs.getDouble(9);
+                    salt += rs.getDouble(10);
                     i++;
                 }
             } catch (Exception e) {
@@ -1042,6 +1029,9 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Meteran.setText("0");
         JmlHarian.setText("0");

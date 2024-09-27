@@ -1,25 +1,17 @@
 package inventory;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgPengeluaranApotek extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -51,18 +43,18 @@ public class DlgPengeluaranApotek extends javax.swing.JDialog {
             "Jml","Kode Barang","No.Batch","Nama Barang","Kategori",
             "Satuan","Harga(Rp)","Total(Rp)","Stok","No.Faktur"
         }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==0)||(colIndex==2)||(colIndex==9)) {
-                    a=true;
-                }
-                return a;
-            }
             
             Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.String.class
             };
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){
+              boolean a = false;
+              if ((colIndex==0)||(colIndex==2)||(colIndex==9)) {
+                a=true;
+              }
+              return a;
+            }
             @Override
             public Class getColumnClass(int columnIndex) {
                return types [columnIndex];
@@ -103,8 +95,8 @@ public class DlgPengeluaranApotek extends javax.swing.JDialog {
         NoKeluar.setDocument(new batasInput((byte)15).getKata(NoKeluar));
         kdgudang.setDocument(new batasInput((byte)5).getKata(kdgudang));
         kdptg.setDocument(new batasInput((byte)20).getKata(kdptg));
-        catatan.setDocument(new batasInput((int)200).getKata(catatan));   
-        TCari.setDocument(new batasInput((int)100).getKata(TCari)); 
+        catatan.setDocument(new batasInput(200).getKata(catatan));   
+        TCari.setDocument(new batasInput(100).getKata(TCari)); 
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1054,7 +1046,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -1261,7 +1253,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             } catch (Exception e) {
                 y=0;
             }
-            ttl=ttl+y;
+            ttl += y;
         }
         LTotal.setText(Valid.SetAngka(ttl));
     }

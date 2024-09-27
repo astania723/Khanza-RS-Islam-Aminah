@@ -1,43 +1,24 @@
 package surat;
 
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.BorderLayout;
+import fungsi.*;
+import java.awt.*;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import javafx.application.Platform;
+import javafx.application.*;
+import javafx.beans.value.*;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker.State;
 import static javafx.concurrent.Worker.State.FAILED;
-import javafx.embed.swing.JFXPanel;
-import javafx.print.PageLayout;
-import javafx.print.PageOrientation;
-import javafx.print.Paper;
-import javafx.print.Printer;
-import javafx.print.PrinterJob;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.transform.Scale;
-import javafx.scene.web.PopupFeatures;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Callback;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.event.DocumentEvent;
+import javafx.embed.swing.*;
+import javafx.print.*;
+import javafx.scene.*;
+import javafx.scene.transform.*;
+import javafx.scene.web.*;
+import javafx.stage.*;
+import javafx.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
 /**
  *
@@ -307,6 +288,9 @@ public class SuratMasuk extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScane(){
         Platform.setImplicitExit(false);
     }
@@ -394,6 +378,10 @@ public class SuratMasuk extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURLInput(String url) {  
         try {
             createSceneInput();
@@ -409,6 +397,9 @@ public class SuratMasuk extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScaneInput(){
         Platform.setImplicitExit(false);
     }
@@ -846,6 +837,9 @@ public class SuratMasuk extends javax.swing.JDialog {
     private widget.panelisi panelGlass8;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){        
         
     }

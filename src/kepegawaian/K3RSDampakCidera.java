@@ -11,21 +11,13 @@
 
 package kepegawaian;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -70,7 +62,7 @@ public class K3RSDampakCidera extends javax.swing.JDialog {
         tbSpesialis.setDefaultRenderer(Object.class, new WarnaTable());
 
         TKd.setDocument(new batasInput((byte)5).getKata(TKd));
-        TNm.setDocument(new batasInput((int)150).getKata(TNm));
+        TNm.setDocument(new batasInput(150).getKata(TNm));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -629,6 +621,10 @@ public class K3RSDampakCidera extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbSpesialis;
     }

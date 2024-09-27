@@ -11,29 +11,19 @@
 
 package inventory;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgCariDataKonversi extends javax.swing.JDialog {
+public class DlgCariDataKonversi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -403,15 +393,26 @@ public final class DlgCariDataKonversi extends javax.swing.JDialog {
         TCari.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     * @param kodesatuan
+     */
     public void setSatuanKecil(String kodesatuan){
         KodeSatuanKecil.setText(kodesatuan);
         NamaSatuanKecil.setText(Sequel.cariIsi("select kodesatuan.satuan from kodesatuan where kodesatuan.kode_sat=?",kodesatuan));
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnTambah.setEnabled(akses.getkonversi_satuan());
     }

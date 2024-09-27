@@ -11,19 +11,12 @@
 
 package setting;
 
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -431,6 +424,10 @@ public class DlgVakum extends javax.swing.JDialog {
     private widget.Table tbAdmin;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param nm_table
+     */
     public void hapus(String nm_table){
         int jawab=JOptionPane.showConfirmDialog(null, "Yakin anda mau menghapus isi tabel "+nm_table+" ????","Konfirmasi",JOptionPane.YES_NO_OPTION);
             if(jawab==JOptionPane.YES_OPTION){

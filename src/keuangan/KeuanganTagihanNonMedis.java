@@ -2,31 +2,17 @@
 
 package keuangan;
 
-import fungsi.WarnaTable3;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import ipsrs.IPSRSCariSuplier;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import fungsi.*;
+import ipsrs.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 /**
  *
@@ -113,7 +99,7 @@ public class KeuanganTagihanNonMedis extends javax.swing.JDialog {
 
         NoTagihan.setDocument(new batasInput((byte)20).getKata(NoTagihan));
         nip.setDocument(new batasInput((byte)20).getKata(nip));
-        Keterangan.setDocument(new batasInput((int)150).getKata(Keterangan));        
+        Keterangan.setDocument(new batasInput(150).getKata(Keterangan));        
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1072,6 +1058,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         Valid.tabelKosong(tabMode);
         try{
@@ -1112,8 +1101,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("tgl_pesan"),rs.getString("tgl_tempo"),
                         rs.getDouble("tagihan"),(rs.getDouble("tagihan")-rs.getDouble("bayar"))
                     });
-                    sisahutang=sisahutang+rs.getDouble("tagihan");
-                    cicilan=cicilan+rs.getDouble("bayar");
+                    sisahutang += rs.getDouble("tagihan");
+                    cicilan += rs.getDouble("bayar");
                 }
                 LCount.setText(Valid.SetAngka(sisahutang-cicilan));
             } catch (Exception e) {
@@ -1136,7 +1125,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         bayar=0;
         for(i=0;i<row;i++){  
             if(tbBangsal.getValueAt(i,0).toString().equals("true")){
-                 bayar=bayar+Double.parseDouble(tbBangsal.getValueAt(i,9).toString());     
+                 bayar += Double.parseDouble(tbBangsal.getValueAt(i,9).toString());     
             }
         }
         LCount1.setText(Valid.SetAngka(bayar));
@@ -1193,6 +1182,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 "TN"+Tanggal.getSelectedItem().toString().substring(6,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,NoTagihan); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();

@@ -11,38 +11,19 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventory.InventoryCariSuplier;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
@@ -80,13 +61,13 @@ public class KeuanganBayarPemesananFarmasi extends javax.swing.JDialog {
 
         Object[] row={"Tgl.Bayar","Tgl.Faktur","Tgl.Datang","Tgl.Tempo","No.Faktur","Supplier","Akun Bayar","No.Bukti","Pembayaran","Keterangan","Petugas","Nip","Nama"};
         tabMode=new DefaultTableModel(null,row){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             Class[] types = new Class[]{
                 java.lang.Object.class, java.lang.Object.class,java.lang.Object.class,java.lang.Object.class, 
                 java.lang.Object.class,java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class
             };
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1254,7 +1235,7 @@ private void BtnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble("besar_bayar");
+                    total += rs.getDouble("besar_bayar");
                     tabMode.addRow(new Object[]{
                         rs.getString("tgl_bayar"),rs.getString("tgl_faktur"),rs.getString("tgl_pesan"),
                         rs.getString("tgl_tempo"),rs.getString("no_faktur"),rs.getString("nama_suplier"),rs.getString("nama_bayar"),
@@ -1280,6 +1261,9 @@ private void BtnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         LTotal.setText(Valid.SetAngka(total));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");
         besar_bayar.setText("0");
@@ -1316,6 +1300,10 @@ private void BtnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         return no_faktur;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }

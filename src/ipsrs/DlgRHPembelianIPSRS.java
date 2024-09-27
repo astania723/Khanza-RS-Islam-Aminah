@@ -1,28 +1,18 @@
 package ipsrs;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRHPembelianIPSRS extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -30,6 +20,10 @@ public class DlgRHPembelianIPSRS extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private PreparedStatement ps;
     private ResultSet rs;
@@ -980,9 +974,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         rs.getString("nama_brng"),rs.getString("satuan"),rs.getDouble("jumlah"),rs.getDouble("harga"),
                         rs.getDouble("subtotal"),rs.getDouble("dis"),rs.getDouble("besardis"),rs.getDouble("total")
                     });  
-                    tagihan=tagihan+rs.getDouble("total");
-                    subtotal=subtotal+rs.getDouble("subtotal");
-                    diskon=diskon+rs.getDouble("besardis");
+                    tagihan += rs.getDouble("total");
+                    subtotal += rs.getDouble("subtotal");
+                    diskon += rs.getDouble("besardis");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

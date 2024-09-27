@@ -11,20 +11,12 @@
 
 package setting;
 
-import fungsi.WarnaTable;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -638,6 +630,9 @@ public class DlgSetTarif extends javax.swing.JDialog {
     private widget.Table tbAdmin;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         String sql="select * from set_tarif";
         prosesCari(sql);
@@ -677,6 +672,9 @@ public class DlgSetTarif extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         YesNo1.setSelectedIndex(0);
         YesNo2.setSelectedIndex(0);

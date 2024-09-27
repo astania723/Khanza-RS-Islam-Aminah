@@ -6,57 +6,40 @@
 package fungsi;
 
 
+import java.awt.*;
 import java.awt.Desktop;
 import java.awt.Dialog.ModalExclusionType;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.awt.event.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import jxl.Workbook;
+import javax.swing.*;
+import javax.swing.table.*;
+import jxl.*;
+import jxl.write.*;
 import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
-import net.sf.jasperreports.engine.JRResultSetDataSource;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
-import uz.ncipro.calendar.JDateTimePicker;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.*;
+import uz.ncipro.calendar.*;
+import widget.*;
 import widget.Button;
-import widget.ComboBox;
-import widget.Tanggal;
 import widget.TextArea;
-import widget.TextBox;
 /**
  *
  * @author Owner
  */
-public final class validasi {
+public class validasi {
+  /**
+   * Converts milliseconds to days
+     * @param milli
+   */
+  public static int milliToDay(long milli) {
+    return (int) ((double) milli / (1000 * 24 * 60 * 60));
+  }
     private int a,j,i,result=0;
     private String s,s1,auto,PEMBULATANHARGAOBAT=koneksiDB.PEMBULATANHARGAOBAT();
     private final Connection connect=koneksiDB.condb();
@@ -77,20 +60,37 @@ public final class validasi {
     private final String[] nomina={"","satu","dua","tiga","empat","lima","enam",
                          "tujuh","delapan","sembilan","sepuluh","sebelas"};
     
+    /**
+     *
+     */
     public validasi(){
         super();
     };
 
+    /**
+     *
+     * @param tabMode
+     * @param strAwal
+     * @param pnj
+     * @param teks
+     */
     public void autoNomer(DefaultTableModel tabMode,String strAwal,Integer pnj,javax.swing.JTextField teks){        
         s=Integer.toString(tabMode.getRowCount()+1);
         j=s.length();
         s1="";
         for(i = 1;i<=pnj-j;i++){
-            s1=s1+"0";
+          s1 += "0";
         }
         teks.setText(strAwal+s1+s);
     }
 
+    /**
+     *
+     * @param tabel
+     * @param strAwal
+     * @param pnj
+     * @param teks
+     */
     public void autoNomer(String tabel,String strAwal,Integer pnj,javax.swing.JTextField teks){
         try {
             ps=connect.prepareStatement("select * from "+tabel);
@@ -101,7 +101,7 @@ public final class validasi {
                j=s.length();
                s1="";
                for(i = 1;i<=pnj-j;i++){
-                   s1=s1+"0";
+                 s1 += "0";
                }
                teks.setText(strAwal+s1+s);      
             }catch(Exception e){
@@ -130,7 +130,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText(strAwal+s1+s);
              }catch(Exception e){
@@ -162,7 +162,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText(strAwal+s1+s);
              }catch(Exception e){
@@ -195,7 +195,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText((strAwal+s1+s).substring(4,6)+(strAwal+s1+s).substring(2,4)+(strAwal+s1+s).substring(0,2));
              }catch(Exception e){
@@ -228,7 +228,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText((strAwal+s1+s).substring(2,4)+(strAwal+s1+s).substring(0,2)+(strAwal+s1+s).substring(4,6));
              }catch(Exception e){
@@ -261,7 +261,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 teks.setText(s1+s+strAwal);
              }catch(Exception e){
@@ -292,7 +292,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 auto=strAwal+s1+s;             
              }catch(Exception e){
@@ -328,7 +328,7 @@ public final class validasi {
                 j=s.length();
                 s1="";
                 for(i = 1;i<=pnj-j;i++){
-                    s1=s1+"0";
+                  s1 += "0";
                 }
                 auto=strAwal+s1+s;
              }catch(Exception e){
@@ -350,6 +350,14 @@ public final class validasi {
         return auto;
     }
 
+    /**
+     *
+     * @param tabMode
+     * @param table
+     * @param field_acuan
+     * @param nilai_field
+     * @param update
+     */
     public void editTable(DefaultTableModel tabMode,String table,String field_acuan,JTextField nilai_field,String update) {
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
@@ -376,6 +384,13 @@ public final class validasi {
         return status;
     }
     
+    /**
+     *
+     * @param table
+     * @param field_acuan
+     * @param nilai_field
+     * @param update
+     */
     public void editTable(String table,String field_acuan,JTextField nilai_field,String update) {
         if(nilai_field.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"Maaf, Gagal mengedit. Pilih dulu data yang mau diedit.\nKlik data pada table untuk memilih...!!!!");
@@ -394,6 +409,17 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param tabMode
+     * @param table
+     * @param field_acuan
+     * @param nilai_field
+     * @param update
+     * @param i
+     * @param a
+     * @return
+     */
     public boolean editTabletf(DefaultTableModel tabMode,String table,String field_acuan,String nilai_field,String update,int i, String[] a) {
         status=true;
         if(tabMode.getRowCount()==0){
@@ -420,6 +446,14 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param tabMode
+     * @param table
+     * @param field_acuan
+     * @param nilai_field
+     * @param update
+     */
     public void editTable(DefaultTableModel tabMode,String table,String field_acuan,JLabel nilai_field,String update) {
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
@@ -432,6 +466,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param model
+     * @param table
+     * @param file
+     */
     public void fillData(DefaultTableModel model,JTable table, File file) {
         try {
             WritableWorkbook workbook1 = Workbook.createWorkbook(file);
@@ -467,6 +507,14 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param tabMode
+     * @param nilai_field
+     * @param table
+     * @param field
+     * @return
+     */
     public boolean hapusTabletf(DefaultTableModel tabMode,JTextField nilai_field,String table,String field) {
         status=true;
         if(tabMode.getRowCount()==0){
@@ -521,6 +569,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param month
+     * @param year
+     * @return
+     */
     public int hariAkhad(int month,int year){ 
         j=0; 
         Calendar calendar=Calendar.getInstance(); 
@@ -541,10 +595,14 @@ public final class validasi {
     public int jumlahHari(int month,int year){ 
         Calendar calendar=Calendar.getInstance(); 
         calendar.set(year, month-1,1); 
-        int days = calendar.getActualMaximum(Calendar.DAY_OF_MONTH); 
-        return days; 
+        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH); 
     } 
     
+    /**
+     *
+     * @param cmb
+     * @param query
+     */
     public void loadCombo(JComboBox cmb,String query){
         cmb.removeAllItems();
         try {
@@ -572,6 +630,10 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param cmb
+     */
     public void LoadTahun(JComboBox cmb){        
         cmb.removeAllItems();
         for(i =(year+1);i>=1980;i--){
@@ -580,6 +642,10 @@ public final class validasi {
         cmb.setSelectedItem(year);
     }
 
+    /**
+     *
+     * @param cmb
+     */
     public void LoadTahunAkd(JComboBox cmb){
         cmb.removeAllItems();
         for(i = 1950;i<=year;i++){
@@ -843,6 +909,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JTextField kiri,JCheckBox kanan){
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -851,6 +923,13 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     * @param bawah
+     */
     public void pindah(java.awt.event.KeyEvent evt,JTextField kiri,JTextField kanan,JTextField bawah){
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -869,6 +948,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JTextField kiri,JTextArea kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -877,6 +962,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JTextArea kiri,JTextArea kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -885,6 +976,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JTextArea kiri,JTextField kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -893,6 +990,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JTextArea kiri,JButton kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -901,6 +1004,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JTextField kiri,JComboBox kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -909,6 +1018,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JComboBox kiri,JComboBox kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -917,6 +1032,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JComboBox kiri,JTextField kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -933,6 +1054,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JButton kiri,JTextArea kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -941,6 +1068,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(KeyEvent evt, TextArea kiri, ComboBox kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -949,6 +1082,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(KeyEvent evt, Tanggal kiri, Button kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -957,6 +1096,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(KeyEvent evt, Button kiri, ComboBox kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -965,6 +1110,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(java.awt.event.KeyEvent evt,JTextField kiri,JButton kanan){
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -981,6 +1132,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(KeyEvent evt, TextArea kiri, Tanggal kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -989,6 +1146,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah2(KeyEvent evt, Button kiri, TextBox kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_TAB){
             kanan.requestFocus();
@@ -1005,6 +1168,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JTextArea kiri,JTextArea kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1013,6 +1182,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(KeyEvent evt, JComboBox kiri, JTextArea kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1021,6 +1196,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JTextField kiri,JButton kanan){
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1063,6 +1244,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JTextArea kiri,JComboBox kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1087,6 +1274,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JCheckBox kiri,JDateTimePicker kanan){
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1095,6 +1288,12 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(KeyEvent evt, Button kiri, TextArea kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1103,6 +1302,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JDateTimePicker kiri,JTextField kanan){
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1111,6 +1316,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JComboBox kiri,JComboBox kanan){
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1119,6 +1330,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(java.awt.event.KeyEvent evt,JComboBox kiri,JButton kanan){
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1135,6 +1352,12 @@ public final class validasi {
         }
     }
 
+    /**
+     *
+     * @param evt
+     * @param kiri
+     * @param kanan
+     */
     public void pindah(KeyEvent evt, JTextArea kiri, JButton kanan) {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             kanan.requestFocus();
@@ -1163,7 +1386,9 @@ public final class validasi {
                 String[] browsers = {"x-www-browser","epiphany", "firefox", "mozilla", "konqueror","chrome","chromium","netscape","opera","links","lynx","midori"};
                 // Build a command string which looks like "browser1 "url" || browser2 "url" ||..."
                 StringBuilder cmd = new StringBuilder();
-                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/").append(url).append( "\" ");
+                for(i=0; i<browsers.length; i++) {
+                    cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/").append(url).append( "\" ");
+                }
                 rt.exec(new String[] { "sh", "-c", cmd.toString() });
             } 
         }catch (Exception e){
@@ -1171,6 +1396,10 @@ public final class validasi {
         } 
     }
     
+    /**
+     *
+     * @param url
+     */
     public void panggilUrl2(String url){
         String os = System.getProperty("os.name").toLowerCase();
         Runtime rt = Runtime.getRuntime();                                
@@ -1183,7 +1412,9 @@ public final class validasi {
                 String[] browsers = {"x-www-browser","epiphany", "firefox", "mozilla", "konqueror","chrome","chromium","netscape","opera","links","lynx","midori"};
                 // Build a command string which looks like "browser1 "url" || browser2 "url" ||..."
                 StringBuilder cmd = new StringBuilder();
-                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append(url).append( "\" ");
+                for(i=0; i<browsers.length; i++) {
+                    cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append(url).append( "\" ");
+                }
                 rt.exec(new String[] { "sh", "-c", cmd.toString() });
             } 
         }catch (Exception e){
@@ -1191,6 +1422,11 @@ public final class validasi {
         } 
     }
     
+    /**
+     *
+     * @param url
+     * @throws URISyntaxException
+     */
     public void printUrl(String url) throws URISyntaxException{
         try{
            desktop.print(new File(new java.net.URI("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+url)));  
@@ -1209,6 +1445,11 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param original
+     * @return
+     */
     public String SetTgl(String original){
         original=original.replaceAll("'","");
         s = "";
@@ -1219,6 +1460,11 @@ public final class validasi {
         return s;
     }
     
+    /**
+     *
+     * @param original
+     * @return
+     */
     public String SetTglJam(String original){
         original=original.replaceAll("'","");
         s = "";
@@ -1229,6 +1475,11 @@ public final class validasi {
         return s;
     }
     
+    /**
+     *
+     * @param original
+     * @return
+     */
     public String SetTgl3(String original){
         original=original.replaceAll("'","");
         s = "";
@@ -1257,6 +1508,11 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param dtp
+     * @param tgl
+     */
     public void SetTgl2(JDateTimePicker dtp,String tgl){            
         try {
            Date dtpa = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(tgl.replaceAll("'",""));
@@ -1266,10 +1522,14 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param tgl
+     * @return
+     */
     public Date SetTgl2(String tgl){
         try {
-           Date dtpa = new SimpleDateFormat("yyyy-MM-dd").parse(tgl.replaceAll("'",""));
-           return dtpa;
+           return new SimpleDateFormat("yyyy-MM-dd").parse(tgl.replaceAll("'",""));
         } catch (ParseException ex) {
            return new Date();
         }
@@ -1285,16 +1545,31 @@ public final class validasi {
         return s;
     }
     
+    /**
+     *
+     * @param teks
+     * @param pesan
+     */
     public void textKosong(JTextField teks,String pesan){
         JOptionPane.showMessageDialog(null,"Maaf, "+pesan+" tidak boleh kosong...!!!");
         teks.requestFocus();
     }
 
+    /**
+     *
+     * @param teks
+     * @param pesan
+     */
     public void textKosong(JTextArea teks,String pesan){
         JOptionPane.showMessageDialog(null,"Maaf, "+pesan+" tidak boleh kosong...!!!");
         teks.requestFocus();
     }
     
+    /**
+     *
+     * @param teks
+     * @param pesan
+     */
     public void textKosong(JButton teks,String pesan){
         JOptionPane.showMessageDialog(null,"Maaf, "+pesan+" tidak boleh kosong...!!!");
         teks.requestFocus();
@@ -1312,6 +1587,11 @@ public final class validasi {
         teks.requestFocus();
     }
     
+    /**
+     *
+     * @param nilai
+     * @return
+     */
     public String SetAngka(double nilai){        
        return df2.format(nilai);
     }
@@ -1320,6 +1600,11 @@ public final class validasi {
        return df4.format(nilai);
     }
     
+    /**
+     *
+     * @param nilai
+     * @return
+     */
     public String SetAngka4(double nilai){        
        return df5.format(nilai);
     }
@@ -1328,6 +1613,11 @@ public final class validasi {
        return df3.format(nilai);
     }
     
+    /**
+     *
+     * @param nilai
+     * @return
+     */
     public String SetAngka5(double nilai){        
        return df6.format(nilai);
     }
@@ -1336,6 +1626,11 @@ public final class validasi {
        return df7.format(nilai);
     }
     
+    /**
+     *
+     * @param nilai
+     * @return
+     */
     public double SetAngka7(double nilai){        
        return Double.parseDouble(df7.format(nilai));
     }
@@ -1374,6 +1669,12 @@ public final class validasi {
         return x;
     }
     
+    /**
+     *
+     * @param number
+     * @param multiple
+     * @return
+     */
     public double roundUp(double number, int multiple) {
         if(PEMBULATANHARGAOBAT.equals("yes")){
             result = multiple;
@@ -1391,6 +1692,11 @@ public final class validasi {
         }
     }
     
+    /**
+     *
+     * @param angka
+     * @return
+     */
     public String terbilang(double angka){
         if(angka<12)
         {
@@ -1435,16 +1741,17 @@ public final class validasi {
         return "";
     }  
     
+    /**
+     *
+     * @param path
+     * @return
+     */
     public int daysOld(String path) {
         file=new File(path);
-        if (file.lastModified() < 1) return 0;
+        if (file.lastModified() < 1) {
+            return 0;
+        }
         return milliToDay(Calendar.getInstance().getTimeInMillis() - file.lastModified());
     }
 
-    /**
-     * Converts milliseconds to days
-     */
-    public static int milliToDay(long milli) {
-        return (int) ((double) milli / (1000 * 24 * 60 * 60));
-    }
 }

@@ -10,24 +10,14 @@
  */
 
 package keuangan;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.event.DocumentEvent;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.event.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 /**
  *
@@ -719,7 +709,7 @@ public class DlgPembayaranPerAKunBayar3 extends javax.swing.JDialog {
                         }
                     }
                     if((petugas.toLowerCase().trim().contains(User.getText().toLowerCase().trim()))&&(rs.getString("nama_pasien").toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())||nonota.toLowerCase().trim().contains(TCari.getText().toLowerCase().trim()))){
-                        all=all+rs.getDouble("jumlah_bayar");
+                        all += rs.getDouble("jumlah_bayar");
                         htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(no).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_bayar")).append("</td><td valign='middle' align='center'>").append(nonota).append("</td><td valign='middle' align='left'>").append(rs.getString("nama_pasien")).append("</td><td valign='middle' align='center'>").append(carabayar).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("jumlah_bayar"))).append("</td><td valign='middle' align='left'>").append(petugas).append("</td><td><table width='100%' border='0' align='left' cellpadding='3px' cellspacing='0' class='tbl_form'>");
                         for(i=0;i<kolom;i++){
                             bayar=0;
@@ -739,7 +729,7 @@ public class DlgPembayaranPerAKunBayar3 extends javax.swing.JDialog {
                             if(bayar>0){
                                 htmlContent.append("<tr class='isi'><td valign='middle' width='70%' align='left' border='0'>").append(namabayar[i]).append("</td><td valign='middle' width='30%' align='right' border='0'>").append(Valid.SetAngka(bayar)).append("</td></tr>");
                             }
-                            totalbayar[i]=totalbayar[i]+bayar;
+                            totalbayar[i] += bayar;
                         }
                         htmlContent.append( 
                                     "</table>"+
@@ -873,7 +863,7 @@ public class DlgPembayaranPerAKunBayar3 extends javax.swing.JDialog {
                         }
                     }
                     if((petugas.toLowerCase().trim().contains(User.getText().toLowerCase().trim()))&&(rs.getString("nama_pasien").toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())||nonota.toLowerCase().trim().contains(TCari.getText().toLowerCase().trim()))){
-                        all=all+rs.getDouble("jumlah_bayar");
+                        all += rs.getDouble("jumlah_bayar");
                         htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(no).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_bayar")).append("</td><td valign='middle' align='center'>").append(nonota).append("</td><td valign='middle' align='left'>").append(rs.getString("nama_pasien")).append("</td><td valign='middle' align='center'>").append(carabayar).append("</td><td valign='middle' align='right'>").append(Math.round(rs.getDouble("jumlah_bayar"))).append("</td><td valign='middle' align='left'>").append(petugas).append("</td><td><table width='100%' border='0' align='left' cellpadding='3px' cellspacing='0' class='tbl_form'>");
                         for(i=0;i<kolom;i++){
                             bayar=0;
@@ -893,7 +883,7 @@ public class DlgPembayaranPerAKunBayar3 extends javax.swing.JDialog {
                             if(bayar>0){
                                 htmlContent.append("<tr class='isi'><td valign='middle' width='70%' align='left' border='0'>").append(namabayar[i]).append("</td><td valign='middle' width='30%' align='right' border='0'>").append(Math.round(bayar)).append("</td></tr>");
                             }
-                            totalbayar[i]=totalbayar[i]+bayar;
+                            totalbayar[i] += bayar;
                         }
                         htmlContent.append( 
                                     "</table>"+

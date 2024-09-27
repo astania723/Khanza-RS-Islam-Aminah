@@ -4,41 +4,24 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import org.springframework.http.*;
 
 /**
  *
  * @author dosen
  */
-public final class SatuSehatKirimCondition extends javax.swing.JDialog {
+public class SatuSehatKirimCondition extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -70,18 +53,18 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
                 "P","Tanggal Registrasi","No.Rawat","No.RM","Nama Pasien","No.KTP Pasien","Stts Rawat","Stts Lanjut",
                 "Tanggal Pulang","ID Encounter","ICD 10","Nama Penyakit","ID Condition"
             }){
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                boolean a = false;
+                if (colIndex==0) {
+                    a=true;
+                }
+                return a;
+             }
              Class[] types = new Class[] {
                  java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
                  java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
                  java.lang.String.class, java.lang.String.class, java.lang.String.class
              };
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                 boolean a = false;
-                 if (colIndex==0) {
-                     a=true;
-                 }
-                 return a;
-             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -611,9 +594,12 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
                         root = mapper.readTree(json);
                         response = root.path("id");
                         if(!response.asText().isEmpty()){
-                            Sequel.menyimpan("satu_sehat_condition","?,?,?,?","Diagnosa",4,new String[]{
+                            if(Sequel.menyimpantf2("satu_sehat_condition","?,?,?,?","Diagnosa",4,new String[]{
                                 tbObat.getValueAt(i,2).toString(),tbObat.getValueAt(i,10).toString(),tbObat.getValueAt(i,7).toString(),response.asText()
-                            });
+                            })==true){
+                                tbObat.setValueAt(response.asText(),i,12);
+                                tbObat.setValueAt(false,i,0);
+                            }
                         }
                     }catch(Exception e){
                         System.out.println("Notifikasi Bridging : "+e);
@@ -623,7 +609,6 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
                 }
             }
         }
-        tampil();
     }//GEN-LAST:event_BtnKirimActionPerformed
 
     private void ppPilihSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppPilihSemuaActionPerformed
@@ -693,6 +678,7 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
                         requestEntity = new HttpEntity(json,headers);
                         json=api.getRest().exchange(link+"/Condition/"+tbObat.getValueAt(i,12).toString(), HttpMethod.PUT, requestEntity, String.class).getBody();
                         System.out.println("Result JSON : "+json);
+                        tbObat.setValueAt(false,i,0);
                     }catch(Exception e){
                         System.out.println("Notifikasi Bridging : "+e);
                     }
@@ -701,7 +687,6 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
                 }
             }
         }
-        tampil();
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void BtnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllActionPerformed
@@ -775,7 +760,7 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
                    "where nota_jalan.tanggal between ? and ? "+
                    (TCari.getText().isEmpty()?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or diagnosa_pasien.kd_penyakit like ? or penyakit.nm_penyakit like ? or "+
-                   "reg_periksa.stts like ? or reg_periksa.status_lanjut like ?)")+" order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg,reg_periksa.no_rawat,diagnosa_pasien.prioritas");
+                   "reg_periksa.stts like ? or reg_periksa.status_lanjut like ?)"));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -819,7 +804,7 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
                    "where nota_inap.tanggal between ? and ? "+
                    (TCari.getText().isEmpty()?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or diagnosa_pasien.kd_penyakit like ? or penyakit.nm_penyakit like ? or "+
-                   "reg_periksa.stts like ? or reg_periksa.status_lanjut like ?)")+" order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg,reg_periksa.no_rawat,diagnosa_pasien.prioritas");
+                   "reg_periksa.stts like ? or reg_periksa.status_lanjut like ?)"));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -862,6 +847,10 @@ public final class SatuSehatKirimCondition extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getsatu_sehat_kirim_condition());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

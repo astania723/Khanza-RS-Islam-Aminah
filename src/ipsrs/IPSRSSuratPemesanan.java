@@ -2,34 +2,17 @@ package ipsrs;
 
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class IPSRSSuratPemesanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -45,6 +28,10 @@ public class IPSRSSuratPemesanan extends javax.swing.JDialog {
     private int jml=0,i=0,row=0,index=0,pilihan=1;
     private String[] kodebarang,namabarang,satuanbeli;
     private double[] harga,jumlah,subtotal,diskon,besardiskon,jmltotal;
+
+    /**
+     *
+     */
     public boolean tampilkan=true;
     private boolean sukses=true;
     private File file;
@@ -1418,7 +1405,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                         jml++;
                     }
                 } catch (Exception e) {
-                    jml=jml+0;
+                    jml += 0;
                 }            
             }
 
@@ -1530,7 +1517,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),5);
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
 
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,7).toString()); 
@@ -1538,7 +1525,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),7);
                 y=0;
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));
@@ -1553,6 +1540,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         
     }   
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -1572,10 +1562,17 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 "SPM"+Tanggal.getSelectedItem().toString().substring(6,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,NoPemesanan); 
     }
 
+    /**
+     *
+     * @return
+     */
     public DefaultTableModel tabMode(){
         return tabMode;
     }
     
+    /**
+     *
+     */
     public void panggilgetData(){
         getData();
     }

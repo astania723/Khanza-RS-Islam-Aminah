@@ -11,22 +11,13 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -51,12 +42,12 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
         setSize(885,674);
 
         tabMode=new DefaultTableModel(null,new Object[]{"Tanggal","No.Nota","No.Rawat","No.RM","Nama Pasien","Akun Bayar","Pembayaran"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -87,12 +78,12 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
         tbRawatJalan.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabMode2=new DefaultTableModel(null,new Object[]{"Tanggal","No.Nota","No.Rawat","No.RM","Nama Pasien","Akun Bayar","Pembayaran"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -123,12 +114,12 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
         tbRawatInap.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabMode3=new DefaultTableModel(null,new Object[]{"Tanggal","No.Nota","Jenis Harga","No.RM","Nama Pasien","Akun Bayar","Pembayaran"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -159,11 +150,11 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
         tbPenjualanBebas.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabMode4=new DefaultTableModel(null,new Object[]{"Tanggal","Nomor","Terima Dari","Keperluan","Kategori","Pemasukan"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -192,11 +183,11 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
         tbPemasukanLain.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabMode5=new DefaultTableModel(null,new Object[]{"Tanggal","No.Deposit","No.Rawat","No.RM","Nama Pasien","Akun Bayar","Deposit"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -227,12 +218,12 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
         tbDeposit.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabMode6=new DefaultTableModel(null,new Object[]{"Tanggal","No.Tagihan","No.RM","Nama Pasien","Akun Bayar","Akun Piutang","Pembayaran"}){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -817,6 +808,9 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
     private widget.Table tbRawatJalan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
         try{    
@@ -837,7 +831,7 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
                     tabMode.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getDouble(7)
                     });
-                    rawatjalan=rawatjalan+rs.getDouble(7);
+                    rawatjalan += rs.getDouble(7);
                 }
             } catch (Exception e) {
                 System.out.println("Notif Rawat Jalan : "+e);
@@ -868,7 +862,7 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
                     tabMode2.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getDouble(7)
                     });
-                    rawatinap=rawatinap+rs.getDouble(7);
+                    rawatinap += rs.getDouble(7);
                 }
             } catch (Exception e) {
                 System.out.println("Notif Rawat Inap : "+e);
@@ -898,7 +892,7 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
                     tabMode3.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),Math.round(rs.getDouble(7))
                     });
-                    jualbebas=jualbebas+rs.getDouble(7);
+                    jualbebas += rs.getDouble(7);
                 }
             } catch (Exception e) {
                 System.out.println("Notif Jual Bebas : "+e);
@@ -927,7 +921,7 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
                     tabMode4.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6)
                     });
-                    pemasukanlain=pemasukanlain+rs.getDouble(6);
+                    pemasukanlain += rs.getDouble(6);
                 }
             } catch (Exception e) {
                 System.out.println("Notif Pemasukan Lain : "+e);
@@ -955,7 +949,7 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
                     tabMode5.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getDouble(7)
                     });
-                    deposit=deposit+rs.getDouble(7);
+                    deposit += rs.getDouble(7);
                 }
             } catch (Exception e) {
                 System.out.println("Notif Deposit : "+e);
@@ -986,7 +980,7 @@ public class DlgOmsetPenerimaan extends javax.swing.JDialog {
                     tabMode6.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getDouble(7)
                     });
-                    bayarpiutang=bayarpiutang+rs.getDouble(7);
+                    bayarpiutang += rs.getDouble(7);
                 }
             } catch (Exception e) {
                 System.out.println("Notif Deposit : "+e);

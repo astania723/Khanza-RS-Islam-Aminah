@@ -11,37 +11,18 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
@@ -79,13 +60,13 @@ public class KeuanganPiutangLainLain extends javax.swing.JDialog {
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Nota","Tgl.Piutang","NIP","Nama Petugas","Kode","Nama Peminjam/Perusahaan","Kode Rek","Akun","Keterangan","Tgl.Tempo","Pinjam","Sisa Piutang","Status"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                  java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                  java.lang.String.class,java.lang.String.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.String.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1150,6 +1131,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{    
@@ -1178,8 +1162,8 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 total=0;
                 sisapiutang=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble("nominal");
-                    sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
+                    total += rs.getDouble("nominal");
+                    sisapiutang += rs.getDouble("sisapiutang");
                     tabMode.addRow(new Object[]{
                         rs.getString("nota_piutang"),rs.getString("tgl_piutang"),rs.getString("nip"),rs.getString("nama"),rs.getString("kode_peminjam"),
                         rs.getString("nama_peminjam"),rs.getString("kd_rek"),rs.getString("nama_bayar"),rs.getString("keterangan"),rs.getString("tgltempo"),
@@ -1204,6 +1188,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LTotal1.setText(Valid.SetAngka(sisapiutang));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         ChkInput.setSelected(true);
         isForm();
@@ -1219,10 +1206,18 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         Tanggal.requestFocus();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoNota;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }

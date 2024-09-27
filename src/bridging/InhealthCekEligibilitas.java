@@ -11,61 +11,23 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.time.temporal.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import laporan.DlgCariPenyakit;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.web.client.RestTemplate;
-import simrskhanza.DlgCariBahasa;
-import simrskhanza.DlgCariCacatFisik;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgCariPerusahaan;
-import simrskhanza.DlgCariSuku;
-import simrskhanza.DlgGolonganPolri;
-import simrskhanza.DlgGolonganTNI;
-import simrskhanza.DlgJabatanPolri;
-import simrskhanza.DlgJabatanTNI;
-import simrskhanza.DlgKabupaten;
-import simrskhanza.DlgKecamatan;
-import simrskhanza.DlgKelurahan;
-import simrskhanza.DlgPangkatPolri;
-import simrskhanza.DlgPangkatTNI;
-import simrskhanza.DlgPasien;
-import simrskhanza.DlgPilihanCetakDokumen;
-import simrskhanza.DlgPropinsi;
-import simrskhanza.DlgSatuanPolri;
-import simrskhanza.DlgSatuanTNI;
+import javax.swing.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import laporan.*;
+import org.springframework.http.*;
+import org.springframework.web.client.*;
+import simrskhanza.*;
 
 /**
  *
@@ -87,19 +49,58 @@ public class InhealthCekEligibilitas extends javax.swing.JDialog {
     private InhealthCariReferensiJenpelRuang kamar=new InhealthCariReferensiJenpelRuang(null,false);
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     public  DlgPropinsi propin=new DlgPropinsi(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPerusahaan perusahaan=new DlgCariPerusahaan(null,false);
     public  DlgCariBahasa bahasa=new DlgCariBahasa(null,false);
+
+    /**
+     *
+     */
     public  DlgCariCacatFisik cacat=new DlgCariCacatFisik(null,false);
     public  DlgCariSuku suku=new DlgCariSuku(null,false);
+
+    /**
+     *
+     */
     public  DlgGolonganTNI golongantni=new DlgGolonganTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanTNI satuantni=new DlgSatuanTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgPangkatTNI pangkattni=new DlgPangkatTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanTNI jabatantni=new DlgJabatanTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgGolonganPolri golonganpolri=new DlgGolonganPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanPolri satuanpolri=new DlgSatuanPolri(null,false);
     private DlgPilihanCetakDokumen pilihan=new DlgPilihanCetakDokumen(null,false);
             
+    /**
+     *
+     */
     public  DlgPangkatPolri pangkatpolri=new DlgPangkatPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanPolri jabatanpolri=new DlgJabatanPolri(null,false);
     private int pilih=0,p_no_ktp=0,p_tmp_lahir=0,p_nm_ibu=0,p_alamat=0,
             p_pekerjaan=0,p_no_tlp=0,p_umur=0,p_namakeluarga=0,p_no_peserta=0,
@@ -1044,7 +1045,7 @@ public class InhealthCekEligibilitas extends javax.swing.JDialog {
         
         ChkCari.setSelected(false);
         isForm();
-        NoKartu.setDocument(new batasInput((int)80).getKata(NoKartu));
+        NoKartu.setDocument(new batasInput(80).getKata(NoKartu));
         TNo.setDocument(new batasInput((byte)15).getKata(TNo));
         TNm.setDocument(new batasInput((byte)40).getKata(TNm));
         NmIbu.setDocument(new batasInput((byte)40).getKata(NmIbu));
@@ -1052,8 +1053,8 @@ public class InhealthCekEligibilitas extends javax.swing.JDialog {
         Kdpnj.setDocument(new batasInput((byte)3).getKata(Kdpnj));
         TTlp.setDocument(new batasInput((byte)13).getOnlyAngka(TTlp));
         TTmp.setDocument(new batasInput((byte)15).getKata(TTmp));
-        Alamat.setDocument(new batasInput((int)200).getFilter(Alamat));
-        AlamatPj.setDocument(new batasInput((int)100).getFilter(AlamatPj));
+        Alamat.setDocument(new batasInput(200).getFilter(Alamat));
+        AlamatPj.setDocument(new batasInput(100).getFilter(AlamatPj));
         Pekerjaan.setDocument(new batasInput((byte)15).getKata(Pekerjaan));
         PekerjaanPj.setDocument(new batasInput((byte)15).getKata(PekerjaanPj));
         TUmur.setDocument(new batasInput((byte)10).getKata(TUmur));
@@ -4569,6 +4570,10 @@ public class InhealthCekEligibilitas extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param nomorpeserta
+     */
     public void cekEligibilitas(String nomorpeserta){
         try {
             String URL = koneksiDB.URLAPIINHEALTH()+"/api/EligibilitasPeserta";	

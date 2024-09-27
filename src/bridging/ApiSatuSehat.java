@@ -1,30 +1,21 @@
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.koneksiDB;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import org.apache.http.conn.scheme.Scheme;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.security.*;
+import java.security.cert.*;
+import javax.crypto.*;
+import javax.net.ssl.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiSatuSehat {        
     private String key,clientid,urlauth,token;
     private long millis;
@@ -48,6 +39,10 @@ public class ApiSatuSehat {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String TokenSatuSehat(){
         try {    
             header = new HttpHeaders();
@@ -61,11 +56,27 @@ public class ApiSatuSehat {
         return token;
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @param data
+     * @param utc
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public String Decrypt(String data,String utc)throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         System.out.println(data);
         mykey = ApiBPJSEnc.generateKey(clientid+key+utc);
@@ -75,6 +86,12 @@ public class ApiSatuSehat {
         return data;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {

@@ -10,33 +10,17 @@
  */
 
 package kepegawaian;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import java.util.logging.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -744,13 +728,6 @@ public class DlgJadwalTambahan extends javax.swing.JDialog {
             "31("+konversi(Integer.parseInt(ThnCari.getSelectedItem().toString()),Integer.parseInt(BlnCari.getSelectedItem().toString()),31)+")"
         };
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                  java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                  java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
@@ -761,6 +738,13 @@ public class DlgJadwalTambahan extends javax.swing.JDialog {
                  java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                  java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];

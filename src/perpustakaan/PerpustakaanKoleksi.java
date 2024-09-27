@@ -10,29 +10,14 @@
  */
 
 package perpustakaan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -46,7 +31,9 @@ public class PerpustakaanKoleksi extends javax.swing.JDialog {
     private ResultSet rs;
     private Connection koneksi=koneksiDB.condb();
 
-    /** Creates new form DlgJnsPerawatan */
+    /** Creates new form DlgJnsPerawatan
+     * @param parent
+     * @param modal */
     public PerpustakaanKoleksi(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -90,7 +77,7 @@ public class PerpustakaanKoleksi extends javax.swing.JDialog {
         tbJnsPerawatan.setDefaultRenderer(Object.class, new WarnaTable());
 
         KodeBuku.setDocument(new batasInput((byte)10).getKata(KodeBuku));
-        Judul.setDocument(new batasInput((int)200).getKata(Judul));
+        Judul.setDocument(new batasInput(200).getKata(Judul));
         Halaman.setDocument(new batasInput((byte)5).getOnlyAngka(Halaman));
         KodePenerbit.setDocument(new batasInput((byte)10).getKata(KodePenerbit));
         KodePengarang.setDocument(new batasInput((byte)7).getKata(KodePengarang));
@@ -1267,6 +1254,9 @@ private void btnJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         KodeBuku.setText("");
         Judul.setText("");
@@ -1331,6 +1321,10 @@ private void btnJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }
@@ -1349,6 +1343,9 @@ private void btnJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getkoleksi_perpustakaan());
         BtnHapus.setEnabled(akses.getkoleksi_perpustakaan());

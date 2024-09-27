@@ -12,33 +12,16 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.FileInputStream;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 import org.apache.commons.codec.binary.Base64;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 
 /**
  *
@@ -581,22 +564,42 @@ public class PCareCekFaskesSubspesialis extends javax.swing.JDialog {
         return tbKamar;
     }   
     
+    /**
+     *
+     * @return
+     */
     public String KodeSpesialis(){
         return KdSpesialis.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public String NamaSpesialis(){
         return NmSpesialis.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public String KodeSarana(){
         return KdSarana.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public String NamaSarana(){
         return NmSarana.getText();
     }
     
+    /**
+     *
+     * @return
+     */
     public Date TanggalRujuk(){
         return Tanggal.getDate();
     }

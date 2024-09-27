@@ -12,45 +12,25 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.BorderLayout;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import java.awt.event.*;
+import javafx.application.*;
 import javafx.concurrent.Worker.State;
 import static javafx.concurrent.Worker.State.FAILED;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-import javafx.scene.web.PopupFeatures;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Callback;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import javafx.embed.swing.*;
+import javafx.scene.*;
+import javafx.scene.web.*;
+import javax.swing.*;
+import org.springframework.http.*;
 
 /**
  *
  * @author dosen
  */
-public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
+public class ICareRiwayatPerawatan extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private ApiICareBPJS api=new ApiICareBPJS();
     private String link="",utc="",requestJson="";
@@ -62,9 +42,7 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
     private JsonNode response;
     private final JFXPanel jfxPanel = new JFXPanel();
     private WebEngine engine;
- 
     private final JLabel lblStatus = new JLabel();
-
     private final JTextField txtURL = new JTextField();
     private final JProgressBar progressBar = new JProgressBar();
         
@@ -80,8 +58,8 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
         setSize(628,674);
 
         
-        NoKartu.setDocument(new batasInput((int)100).getKata(NoKartu));
-        KdDPJPLayanan.setDocument(new batasInput((int)100).getKata(KdDPJPLayanan));
+        NoKartu.setDocument(new batasInput(100).getKata(NoKartu));
+        KdDPJPLayanan.setDocument(new batasInput(100).getKata(KdDPJPLayanan));
         
         try {
             link=koneksiDB.URLAPIICARE();
@@ -283,42 +261,77 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
     private widget.panelisi panelGlass6;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
+//            headers = new HttpHeaders();
+//            headers.setContentType(MediaType.APPLICATION_JSON);
+//            headers.add("Content-Type","application/json");
+//            headers.add("x-cons-id",koneksiDB.CONSIDAPIICARE());
+//            utc=String.valueOf(api.GetUTCdatetimeAsString());
+//            headers.add("x-timestamp",utc);
+//            headers.add("x-signature",api.getHmac(utc));
+//            headers.add("user_key",koneksiDB.USERKEYAPIICARE());
+//            //System.out.println("x-signature:"+api.getHmac(utc));
+//            //System.out.println("x-timestamp:"+utc);
+//            //System.out.println("x-cons-id:"+koneksiDB.CONSIDAPIICARE());
+//            //System.out.println("user_key:"+koneksiDB.USERKEYAPIICARE());
+//            requestJson="{"+
+//                            "\"param\": \""+NoKartu.getText().trim()+"\","+
+//                            "\"kodedokter\": "+KdDPJPLayanan.getText().trim()+""+
+//                        "}";
+//            System.out.println("JSON : "+requestJson+"\n");
+//	    requestEntity = new HttpEntity(requestJson,headers);
+//            requestJson= mapper.writeValueAsString(api.getRest().exchange(link+"/validate", HttpMethod.POST, requestEntity,Object.class).getBody());
+//            System.out.println("URL:"+link+"/validate");
+//            System.out.println("JSON : "+requestJson);
+//            root = mapper.readTree(requestJson);
+//            nameNode = root.path("metaData");
+//            if(nameNode.path("code").asText().equals("200")){
+//                response = mapper.readTree(api.Decrypt(root.path("response").asText(),utc));
+//                System.out.println("Response : "+response.path("url"));
+//                try {
+//                    loadURL(response.path("url").asText());
+//                } catch (Exception ex) {
+//                    System.out.println("Notifikasi : "+ex);
+//                }
+//            }else {
+//                JOptionPane.showMessageDialog(null,nameNode.path("message").asText());                
+//            } 
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.add("Content-Type","application/json");
-            headers.add("x-cons-id",koneksiDB.CONSIDAPIICARE());
-            utc=String.valueOf(api.GetUTCdatetimeAsString());
-            headers.add("x-timestamp",utc);
-            headers.add("x-signature",api.getHmac(utc));
-            headers.add("user_key",koneksiDB.USERKEYAPIICARE());
-            //System.out.println("x-signature:"+api.getHmac(utc));
-            //System.out.println("x-timestamp:"+utc);
-            //System.out.println("x-cons-id:"+koneksiDB.CONSIDAPIICARE());
-            //System.out.println("user_key:"+koneksiDB.USERKEYAPIICARE());
-            requestJson="{"+
-                            "\"param\": \""+NoKartu.getText().trim()+"\","+
-                            "\"kodedokter\": "+KdDPJPLayanan.getText().trim()+""+
-                        "}";
-            System.out.println("JSON : "+requestJson+"\n");
-	    requestEntity = new HttpEntity(requestJson,headers);
-            requestJson= mapper.writeValueAsString(api.getRest().exchange(link+"/validate", HttpMethod.POST, requestEntity,Object.class).getBody());
-            System.out.println("URL:"+link+"/validate");
-            System.out.println("JSON : "+requestJson);
-            root = mapper.readTree(requestJson);
+            headers.add("Content-Type", "application/json");
+            headers.add("x-cons-id", koneksiDB.CONSIDAPIICARE());
+            utc = String.valueOf(api.GetUTCdatetimeAsString());
+            headers.add("x-timestamp", utc);
+            headers.add("x-signature", api.getHmac(utc));
+            headers.add("user_key", koneksiDB.USERKEYAPIICARE());
+
+            requestJson = "{\"param\": \"" + NoKartu.getText().trim() + "\",\"kodedokter\": " + KdDPJPLayanan.getText().trim() + "}";
+            System.out.println("JSON : " + requestJson + "\n");
+
+            requestEntity = new HttpEntity<>(requestJson, headers);
+            String validateUrl = link + "/validate"; // Store the URL in a local variable
+            System.out.println("URL:" + validateUrl);
+            String requestJsonResponse = mapper.writeValueAsString(api.getRest().exchange(validateUrl, HttpMethod.POST, requestEntity, Object.class).getBody());
+            System.out.println("JSON : " + requestJsonResponse);
+
+            root = mapper.readTree(requestJsonResponse);
             nameNode = root.path("metaData");
-            if(nameNode.path("code").asText().equals("200")){
-                response = mapper.readTree(api.Decrypt(root.path("response").asText(),utc));
-                System.out.println("Response : "+response.path("url"));
+            if (nameNode.path("code").asText().equals("200")) {
+                response = mapper.readTree(api.Decrypt(root.path("response").asText(), utc));
+                System.out.println("Response : " + response.path("url"));
                 try {
                     loadURL(response.path("url").asText());
                 } catch (Exception ex) {
-                    System.out.println("Notifikasi : "+ex);
+                    System.out.println("Notifikasi : " + ex);
                 }
-            }else {
-                JOptionPane.showMessageDialog(null,nameNode.path("message").asText());                
-            }   
+            } else {
+                JOptionPane.showMessageDialog(null, nameNode.path("message").asText());
+            }
+
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex.getMessage());
             if(ex.toString().contains("UnknownHostException")){
@@ -327,87 +340,135 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
         }
     } 
     
+    /**
+     *
+     * @param param
+     * @param kodedokter
+     */
     public void setPasien(String param,String kodedokter){
         NoKartu.setText(param);
         KdDPJPLayanan.setText(kodedokter);
+        tampil();
     }
     
+//    private void createScene() {        
+//        Platform.runLater(new Runnable() {
+//
+//            public void run() {
+//                WebView view = new WebView();
+//                
+//                engine = view.getEngine();
+//                engine.setJavaScriptEnabled(true);
+//                
+//                engine.setCreatePopupHandler(new Callback<PopupFeatures, WebEngine>() {
+//                    @Override
+//                    public WebEngine call(PopupFeatures p) {
+//                        Stage stage = new Stage(StageStyle.TRANSPARENT);
+//                        return view.getEngine();
+//                    }
+//                });
+//                
+//                engine.titleProperty().addListener((ObservableValue<? extends String> observable, String oldValue, final String newValue) -> {
+//                    SwingUtilities.invokeLater(() -> {
+//                        ICareRiwayatPerawatan.this.setTitle(newValue);
+//                    });
+//                });
+//                
+//                
+//                engine.setOnStatusChanged((final WebEvent<String> event) -> {
+//                    SwingUtilities.invokeLater(() -> {
+//                        lblStatus.setText(event.getData());
+//                    });
+//                });
+//                
+//                
+//                engine.getLoadWorker().workDoneProperty().addListener((ObservableValue<? extends Number> observableValue, Number oldValue, final Number newValue) -> {
+//                    SwingUtilities.invokeLater(() -> {
+//                        progressBar.setValue(newValue.intValue());
+//                    });                                                   
+//                });
+//                
+//                engine.getLoadWorker().exceptionProperty().addListener((ObservableValue<? extends Throwable> o, Throwable old, final Throwable value) -> {
+//                    if (engine.getLoadWorker().getState() == FAILED) {
+//                        SwingUtilities.invokeLater(() -> {
+//                            JOptionPane.showMessageDialog(
+//                                    PanelContent,
+//                                    (value != null) ?
+//                                            engine.getLocation() + "\n" + value.getMessage() :
+//                                            engine.getLocation() + "\nUnexpected Catatan.",
+//                                    "Loading Catatan...",
+//                                    JOptionPane.ERROR_MESSAGE);
+//                        });
+//                    }
+//                });
+//                
+//                
+//                engine.locationProperty().addListener((ObservableValue<? extends String> ov, String oldValue, final String newValue) -> {
+//                    SwingUtilities.invokeLater(() -> {
+//                        txtURL.setText(newValue);
+//                    });
+//                });
+//                
+//                engine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
+//                    @Override
+//                    public void changed(ObservableValue ov, State oldState, State newState) {
+//                        if (newState == State.SUCCEEDED) {
+//                            try {
+//                                System.out.println("URL : "+engine.getLocation());
+//                            } catch (Exception ex) {
+//                                System.out.println("Notifikasi : "+ex);
+//                            }
+//                        } 
+//                    }
+//                });
+//                
+//                jfxPanel.setScene(new Scene(view));
+//            }
+//        });
+//    }
+    
     private void createScene() {        
-        Platform.runLater(new Runnable() {
+        Platform.runLater(() -> {
+            WebView view = new WebView();
+            engine = view.getEngine();
+            engine.setJavaScriptEnabled(true);
 
-            public void run() {
-                WebView view = new WebView();
-                
-                engine = view.getEngine();
-                engine.setJavaScriptEnabled(true);
-                
-                engine.setCreatePopupHandler(new Callback<PopupFeatures, WebEngine>() {
-                    @Override
-                    public WebEngine call(PopupFeatures p) {
-                        Stage stage = new Stage(StageStyle.TRANSPARENT);
-                        return view.getEngine();
+            engine.setOnStatusChanged(event -> lblStatus.setText(event.getData()));
+
+            engine.getLoadWorker().workDoneProperty().addListener((observable, oldValue, newValue) -> progressBar.setValue(newValue.intValue()));
+
+            engine.getLoadWorker().exceptionProperty().addListener((observable, old, value) -> {
+                if (engine.getLoadWorker().getState() == FAILED) {
+                    SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(
+                            PanelContent,
+                            (value != null) ? engine.getLocation() + "\n" + value.getMessage() : engine.getLocation() + "\nUnexpected Catatan.",
+                            "Loading Catatan...",
+                            JOptionPane.ERROR_MESSAGE)
+                    );
+                }
+            });
+
+            engine.locationProperty().addListener((observable, oldValue, newValue) -> txtURL.setText(newValue));
+
+            engine.getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+                if (newState == State.SUCCEEDED) {
+                    try {
+                        System.out.println("URL : " + engine.getLocation());
+                    } catch (Exception ex) {
+                        System.out.println("Notifikasi : " + ex);
                     }
-                });
-                
-                engine.titleProperty().addListener((ObservableValue<? extends String> observable, String oldValue, final String newValue) -> {
-                    SwingUtilities.invokeLater(() -> {
-                        ICareRiwayatPerawatan.this.setTitle(newValue);
-                    });
-                });
-                
-                
-                engine.setOnStatusChanged((final WebEvent<String> event) -> {
-                    SwingUtilities.invokeLater(() -> {
-                        lblStatus.setText(event.getData());
-                    });
-                });
-                
-                
-                engine.getLoadWorker().workDoneProperty().addListener((ObservableValue<? extends Number> observableValue, Number oldValue, final Number newValue) -> {
-                    SwingUtilities.invokeLater(() -> {
-                        progressBar.setValue(newValue.intValue());
-                    });                                                   
-                });
-                
-                engine.getLoadWorker().exceptionProperty().addListener((ObservableValue<? extends Throwable> o, Throwable old, final Throwable value) -> {
-                    if (engine.getLoadWorker().getState() == FAILED) {
-                        SwingUtilities.invokeLater(() -> {
-                            JOptionPane.showMessageDialog(
-                                    PanelContent,
-                                    (value != null) ?
-                                            engine.getLocation() + "\n" + value.getMessage() :
-                                            engine.getLocation() + "\nUnexpected Catatan.",
-                                    "Loading Catatan...",
-                                    JOptionPane.ERROR_MESSAGE);
-                        });
-                    }
-                });
-                
-                
-                engine.locationProperty().addListener((ObservableValue<? extends String> ov, String oldValue, final String newValue) -> {
-                    SwingUtilities.invokeLater(() -> {
-                        txtURL.setText(newValue);
-                    });
-                });
-                
-                engine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
-                    @Override
-                    public void changed(ObservableValue ov, State oldState, State newState) {
-                        if (newState == State.SUCCEEDED) {
-                            try {
-                                System.out.println("URL : "+engine.getLocation());
-                            } catch (Exception ex) {
-                                System.out.println("Notifikasi : "+ex);
-                            }
-                        } 
-                    }
-                });
-                
-                jfxPanel.setScene(new Scene(view));
-            }
+                }
+            });
+
+            jfxPanel.setScene(new Scene(view));
         });
     }
+    
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         try {
             createScene();
@@ -423,6 +484,9 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
         });        
     }    
     
+    /**
+     *
+     */
     public void CloseScane(){
         Platform.setImplicitExit(false);
     }

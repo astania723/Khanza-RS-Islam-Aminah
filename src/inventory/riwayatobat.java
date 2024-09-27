@@ -4,10 +4,8 @@
  */
 package inventory;
 
-import fungsi.koneksiDB;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.sql.*;
 
 /**
  *
@@ -18,6 +16,20 @@ public class riwayatobat {
     private ResultSet rs,rsawal;
     private PreparedStatement ps,psawal;
     private double stokawal=0,stokakhir=0;
+
+    /**
+     *
+     * @param kodebarang
+     * @param masuk
+     * @param keluar
+     * @param posisi
+     * @param petugas
+     * @param kdbangsal
+     * @param status
+     * @param nobatch
+     * @param nofaktur
+     * @param keterangan
+     */
     public void catatRiwayat(String kodebarang,double masuk,double keluar,String posisi,String petugas,String kdbangsal,String status,String nobatch,String nofaktur,String keterangan){        
         try {
             stokakhir=0;stokawal=0;            

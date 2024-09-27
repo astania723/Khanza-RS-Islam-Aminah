@@ -12,46 +12,30 @@
 
 package inventory;
 
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 import widget.Button;
 
 /**
  *
  * @author dosen
  */
-public final class DlgPeresepanDokter extends javax.swing.JDialog {
+public class DlgPeresepanDokter extends javax.swing.JDialog {
     private final DefaultTableModel tabModeResep,tabModeDetailResepRacikan,tabModeResepRacikan;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
-    private PreparedStatement psresep,pscarikapasitas,psresepasuransi,ps2;
-    private ResultSet rsobat,carikapasitas,rs2;
+    private PreparedStatement psresep,pscarikapasitas,psresepasuransi,ps2,psaturanobat;
+    private ResultSet rsobat,carikapasitas,rs2,rsaturanobat;
     private double x=0,y=0,kenaikan=0,ttl=0,ppnobat=0,jumlahracik=0,persenracik=0,kapasitasracik=0;
     private int i=0,z=0,row2=0,r=0;
     private boolean ubah=false,copy=false,sukses=true;
@@ -65,7 +49,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
     private DlgCariMetodeRacik metoderacik=new DlgCariMetodeRacik(null,false);
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     private String noracik="",aktifkanbatch="no",STOKKOSONGRESEP="no",qrystokkosong="",tampilkan_ppnobat_ralan="",status="",bangsal="",resep="",DEPOAKTIFOBAT="",
-            kamar="",norawatibu="",kelas,bangsaldefault=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),RESEPRAJALKEPLAN="no",penjab="";
+            kamar="",norawatibu="",kelas,bangsaldefault=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),RESEPRAJALKEPLAN="no",RESEPRANAPKEPLAN="no",penjab="",aturanobat="",norawatdipilih="";
     /** Creates new form DlgPenyakit
      * @param parent
      * @param modal */
@@ -78,18 +62,18 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "K","Jumlah","Aturan Pakai","Kode Barang","Nama Barang","Satuan",
                 "Komposisi","Harga(Rp)","Jenis Obat","I.F.","H.Beli","Stok"
             }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==0)||(colIndex==1)||(colIndex==2)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class,java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class,java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
                 java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==1)||(colIndex==2)) {
+                 a=true;
+               }
+               return a;
+             }
              /*Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };*/
@@ -139,17 +123,17 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "No","Nama Racikan","Kode Racik","Metode Racik","Jml.Racik",
                 "Aturan Pakai","Keterangan"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = true;
-                if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
-                    a=false;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = true;
+               if ((colIndex==0)||(colIndex==2)||(colIndex==3)) {
+                 a=false;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -188,13 +172,6 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "Jenis Obat","Stok","Kps","P1","/","P2","Kandungan","Jml","I.F.",
                 "Komposisi"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==9)||(colIndex==11)||(colIndex==12)||(colIndex==13)) {
-                    a=true;
-                }
-                return a;
-             }             
              Class[] types = new Class[] {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,
@@ -203,6 +180,13 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
                 java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==9)||(colIndex==11)||(colIndex==12)||(colIndex==13)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -254,7 +238,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
 
         warna3.kolom=9;
         tbDetailResepObatRacikan.setDefaultRenderer(Object.class,warna3);
-        
+      
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -389,6 +373,12 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         } catch (Exception e) {
             RESEPRAJALKEPLAN="no";
         }
+        
+        try {
+            RESEPRANAPKEPLAN=koneksiDB.RESEPRANAPKEPLAN();
+        } catch (Exception e) {
+            RESEPRANAPKEPLAN="no";
+        }
     }    
     
 
@@ -510,7 +500,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
       }
     });
 
-    internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Peresepan Obat Oleh Dokter ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+    internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Peresepan Obat Oleh Dokter ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
     internalFrame1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
     internalFrame1.setName("internalFrame1"); // NOI18N
     internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -879,6 +869,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
     TabRawat.setBackground(new java.awt.Color(255, 255, 253));
     TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
     TabRawat.setForeground(new java.awt.Color(50, 50, 50));
+	TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
     TabRawat.setName("TabRawat"); // NOI18N
     TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1229,7 +1220,7 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                         } catch (Exception e) {
                             System.out.println("Notif : "+e);
                         }
-                    }else if(RESEPRAJALKEPLAN.equals("yes")&&status.equals("ranap")&&(ubah==false)){
+                    }else if(RESEPRANAPKEPLAN.equals("yes")&&status.equals("ranap")&&(ubah==false)){
                         try {
                             ps2=koneksi.prepareStatement(
                                 "select pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat from pemeriksaan_ranap where pemeriksaan_ranap.no_rawat=? and pemeriksaan_ranap.nip=? order by pemeriksaan_ranap.tgl_perawatan desc,pemeriksaan_ranap.jam_rawat desc limit 1");
@@ -1691,10 +1682,13 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
   private widget.Table tbResep;
   // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampilobat() {        
         z=0;
         for(i=0;i<tbResep.getRowCount();i++){
-            if(!tbResep.getValueAt(i,0).toString().isEmpty()){
+            if(!tbResep.getValueAt(i,1).toString().isEmpty()){
                 z++;
             }
         }    
@@ -1963,14 +1957,25 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbResep;
     }
     
+    /**
+     *
+     * @return
+     */
     public Button getButton(){
         return BtnSimpan;
     }
     
+    /**
+     *
+     */
     public void isCek(){   
         BtnTambah.setEnabled(akses.getresep_dokter());
         TCari.requestFocus();
@@ -2431,10 +2436,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 persenracik=Double.parseDouble(tbDetailResepObatRacikan.getValueAt(r,12).toString().replaceAll("%",""));
                 kapasitasracik=Double.parseDouble(tbDetailResepObatRacikan.getValueAt(r,8).toString());
                 for(i=0;i<tbDetailResepObatRacikan.getRowCount();i++){ 
-                    if(noracik==tbDetailResepObatRacikan.getValueAt(i,0).toString()){
+                    if(noracik == null ? tbDetailResepObatRacikan.getValueAt(i,0).toString() == null : noracik.equals(tbDetailResepObatRacikan.getValueAt(i,0).toString())){
                         if(!tbDetailResepObatRacikan.getValueAt(i,12).toString().contains("%")){
-                            jumlahracik=jumlahracik+(Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,8).toString())*
-                                    Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,13).toString()));
+                            jumlahracik += (Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,8).toString())*
+                                  Double.parseDouble(tbDetailResepObatRacikan.getValueAt(i,13).toString()));
                         }
                     }
                 }
@@ -2445,6 +2450,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
     
+    /**
+     *
+     * @param no_resep
+     */
     public void tampilobat(String no_resep) {
         NoResep.setText(no_resep);
         ubah=true;
@@ -3247,6 +3256,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     * @param no_resep
+     */
     public void tampilobat2(String no_resep) {
         try {
             Valid.tabelKosong(tabModeResep);
@@ -4085,7 +4098,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     } catch (Exception e) {
                         y=0;
                     }
-                    ttl=ttl+y;
+                    ttl += y;
                 }  
             } catch (Exception e) {
             }                           
@@ -4099,14 +4112,14 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 } catch (Exception e) {
                     y=0;
                 }
-                ttl=ttl+y;
+                ttl += y;
             }
         }
         LTotal.setText(Valid.SetAngka(ttl));
         ppnobat=0;
         if(tampilkan_ppnobat_ralan.equals("Yes")){
             ppnobat=Math.round(ttl*0.11);
-            ttl=ttl+ppnobat;
+            ttl += ppnobat;
             LPpn.setText(Valid.SetAngka(ppnobat));
             LTotalTagihan.setText(Valid.SetAngka(ttl));
         }

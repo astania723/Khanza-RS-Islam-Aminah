@@ -10,29 +10,15 @@
  */
 
 package bridging;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.DlgJnsPerawatanLab;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
 /**
  *
@@ -714,6 +700,9 @@ public class InhealthTindakanLaborat extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdtindakan.setText("");
         TTindakan.setText("");
@@ -729,7 +718,9 @@ public class InhealthTindakanLaborat extends javax.swing.JDialog {
         }
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getinhealth_mapping_tindakan_laborat());
         BtnHapus.setEnabled(akses.getinhealth_mapping_tindakan_laborat());
@@ -737,6 +728,10 @@ public class InhealthTindakanLaborat extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getinhealth_mapping_tindakan_laborat());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }    

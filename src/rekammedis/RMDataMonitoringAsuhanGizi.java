@@ -11,34 +11,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -54,6 +37,7 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
     private ResultSet rs;
     private int i=0;    
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+    private String TANGGALMUNDUR="yes";
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -102,9 +86,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdPetugas.setDocument(new batasInput((byte)20).getKata(KdPetugas));
-        Monitoring.setDocument(new batasInput((int)500).getKata(Monitoring));
-        Evaluasi.setDocument(new batasInput((int)500).getKata(Evaluasi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Monitoring.setDocument(new batasInput(500).getKata(Monitoring));
+        Evaluasi.setDocument(new batasInput(500).getKata(Evaluasi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -157,6 +141,12 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         isForm();
         
         jam();
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -173,6 +163,7 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         MnAsuhanGizi = new javax.swing.JMenuItem();
         JK = new widget.TextBox();
         Umur = new widget.TextBox();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -240,6 +231,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
 
         Umur.setHighlighter(null);
         Umur.setName("Umur"); // NOI18N
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -724,16 +718,16 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         }else if(Evaluasi.getText().trim().isEmpty()){
             Valid.textKosong(Evaluasi,"Evaluasi");
         }else{
-            if(Sequel.menyimpantf("monitoring_asuhan_gizi","?,?,?,?,?","Data",5,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),Monitoring.getText(),Evaluasi.getText(),KdPetugas.getText()
-            })==true){
-                tabMode.addRow(new String[]{
-                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                    Monitoring.getText(),Evaluasi.getText(),KdPetugas.getText(),NmPetugas.getText()
-                });
-                LCount.setText(""+tabMode.getRowCount());
-                emptTeks();
-            }   
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                    simpan();
+                }
+            } 
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
@@ -763,7 +757,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
                 hapus();
             }else{
                 if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -796,7 +792,14 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -981,7 +984,7 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
     private void MnAsuhanGiziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAsuhanGiziActionPerformed
         if(tbObat.getSelectedRow()>-1){
             Map<String, Object> param = new HashMap<>();
-            param.put("diagnosa",Sequel.cariIsi("select diagnosa_awal from kamar_inap where diagnosa_awal<>'' and no_rawat=? ",TNoRw.getText()));
+            param.put("diagnosa",Sequel.cariIsi("select kamar_inap.diagnosa_awal from kamar_inap where kamar_inap.diagnosa_awal<>'' and kamar_inap.no_rawat=? ",TNoRw.getText()));
             Valid.MyReportqry("rptFormulirMonitoringAsuhanGizi.jasper","report","::[ Formulir Monitoring & Evaluasi Asuhan Gizi Pasien ]::",
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
                     "pasien.jk,monitoring_asuhan_gizi.tanggal,monitoring_asuhan_gizi.monitoring,monitoring_asuhan_gizi.evaluasi,"+
@@ -1047,6 +1050,7 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox Umur;
     private widget.Button btnPetugas;
     private widget.InternalFrame internalFrame1;
@@ -1068,6 +1072,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1136,6 +1143,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Monitoring.setText("");
         Evaluasi.setText("");
@@ -1163,7 +1173,7 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         try {
             ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
-                    "reg_periksa.tgl_registrasi from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "reg_periksa.tgl_registrasi,reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "where reg_periksa.no_rawat=?");
             try {
                 ps.setString(1,TNoRw.getText());
@@ -1174,6 +1184,7 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
                     TPasien.setText(rs.getString("nm_pasien"));
                     JK.setText(rs.getString("jk"));
                     Umur.setText(rs.getString("umurdaftar")+" "+rs.getString("sttsumur"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1213,6 +1224,9 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getmonitoring_asuhan_gizi());
         BtnHapus.setEnabled(akses.getmonitoring_asuhan_gizi());
@@ -1227,7 +1241,18 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
                 KdPetugas.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
-        }            
+        }   
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+                ChkKejadian.setEnabled(false);
+                Jam.setEnabled(false);
+                Menit.setEnabled(false);
+                Detik.setEnabled(false);
+            }
+        }
     }
 
     private void jam(){
@@ -1312,6 +1337,19 @@ public class RMDataMonitoringAsuhanGizi extends javax.swing.JDialog {
         }else{
             JOptionPane.showMessageDialog(null,"Gagal menghapus..!!");
         }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("monitoring_asuhan_gizi","?,?,?,?,?","Data",5,new String[]{
+            TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),Monitoring.getText(),Evaluasi.getText(),KdPetugas.getText()
+        })==true){
+            tabMode.addRow(new String[]{
+                TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+                Monitoring.getText(),Evaluasi.getText(),KdPetugas.getText(),NmPetugas.getText()
+            });
+            LCount.setText(""+tabMode.getRowCount());
+            emptTeks();
+        } 
     }
     
 }

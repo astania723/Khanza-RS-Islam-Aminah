@@ -12,29 +12,16 @@
 
 package dapur;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DecimalFormat;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -814,9 +801,9 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
                 rstampil=pstampil.executeQuery();
                 total=0;
                 while(rstampil.next()){                
-                    totalreal=totalreal+rstampil.getDouble(10); 
-                    total=total+rstampil.getDouble(11);
-                    totallebih=totallebih+rstampil.getDouble(12);
+                    totalreal += rstampil.getDouble(10); 
+                    total += rstampil.getDouble(11);
+                    totallebih += rstampil.getDouble(12);
                     tabMode.addRow(new Object[]{rstampil.getString(1),
                        rstampil.getString(2),df2.format(rstampil.getDouble(3)),
                        rstampil.getString(4),rstampil.getString(5),rstampil.getString(6),
@@ -872,6 +859,10 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return Stok;
     }
@@ -880,7 +871,9 @@ private void StokKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stok
         return BtnKeluar;
     }
     
-        
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getdapur_opname());
         BtnPrint.setEnabled(akses.getdapur_opname()); 

@@ -1,29 +1,18 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgPenggunaObat extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -992,7 +981,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 rspasien.getString("no_rawat")+"  "+rspasien.getString("no_rkm_medis")+"  "+rspasien.getString("nm_pasien"),
                                 rspasien.getDouble("jml"),rspasien.getString("nm_bangsal"),rspasien.getString("status"),rspasien.getString("alamat"),noresep,dokter
                             });
-                            jmlobat=jmlobat+rspasien.getDouble("jml");
+                            jmlobat += rspasien.getDouble("jml");
                             i++;
                         }
                         if(jmlobat>0){

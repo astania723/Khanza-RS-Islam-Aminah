@@ -11,39 +11,23 @@
 
 package permintaan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
+public class DlgPermintaanLaboratorium extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2,tabMode3,tabModeMB,tabModeDetailMB;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -183,16 +167,16 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         tbTarifPA.setDefaultRenderer(Object.class, new WarnaTable());
         
         tabModeDetailMB=new DefaultTableModel(null,new Object[]{"P","Pemeriksaan","Satuan","Nilai Rujukan","id_template","Kode Jenis"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                    boolean a = false;
-                    if (colIndex==0) {
-                        a=true;
-                    }
-                    return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -261,22 +245,22 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KodePerujuk.setDocument(new batasInput((byte)20).getKata(KodePerujuk));
-        Pemeriksaan.setDocument(new batasInput((int)100).getKata(Pemeriksaan));    
-        PemeriksaanPA.setDocument(new batasInput((int)100).getKata(PemeriksaanPA));  
-        PemeriksaanMB.setDocument(new batasInput((int)100).getKata(PemeriksaanMB));    
+        Pemeriksaan.setDocument(new batasInput(100).getKata(Pemeriksaan));    
+        PemeriksaanPA.setDocument(new batasInput(100).getKata(PemeriksaanPA));  
+        PemeriksaanMB.setDocument(new batasInput(100).getKata(PemeriksaanMB));    
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));          
         TCariMB.setDocument(new batasInput((byte)100).getKata(TCariMB));        
         TNoPermintaanPK.setDocument(new batasInput((byte)15).getKata(TNoPermintaanPK));
-        TNoPermintaanPA.setDocument(new batasInput((int)15).getKata(TNoPermintaanPA));
-        TNoPermintaanMB.setDocument(new batasInput((int)15).getKata(TNoPermintaanPA));  
-        InformasiTambahan.setDocument(new batasInput((int)60).getKata(InformasiTambahan));
-        DiagnosisKlinis.setDocument(new batasInput((int)80).getKata(DiagnosisKlinis));
-        DiperolehDengan.setDocument(new batasInput((int)40).getKata(DiperolehDengan));
-        LokasiPengambilan.setDocument(new batasInput((int)40).getKata(LokasiPengambilan));
-        Diawetkan.setDocument(new batasInput((int)40).getKata(Diawetkan));
-        DilakukanPA.setDocument(new batasInput((int)100).getKata(DilakukanPA));
-        NomorPA.setDocument(new batasInput((int)20).getKata(NomorPA));
-        DiagnosaPA.setDocument(new batasInput((int)100).getKata(DiagnosaPA));
+        TNoPermintaanPA.setDocument(new batasInput(15).getKata(TNoPermintaanPA));
+        TNoPermintaanMB.setDocument(new batasInput(15).getKata(TNoPermintaanPA));  
+        InformasiTambahan.setDocument(new batasInput(60).getKata(InformasiTambahan));
+        DiagnosisKlinis.setDocument(new batasInput(80).getKata(DiagnosisKlinis));
+        DiperolehDengan.setDocument(new batasInput(40).getKata(DiperolehDengan));
+        LokasiPengambilan.setDocument(new batasInput(40).getKata(LokasiPengambilan));
+        Diawetkan.setDocument(new batasInput(40).getKata(Diawetkan));
+        DilakukanPA.setDocument(new batasInput(100).getKata(DilakukanPA));
+        NomorPA.setDocument(new batasInput(20).getKata(NomorPA));
+        DiagnosaPA.setDocument(new batasInput(100).getKata(DiagnosaPA));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             Pemeriksaan.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -2241,6 +2225,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         autoNomor3();
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus(); 
     }
@@ -2378,6 +2365,11 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         new Timer(1000, taskPerformer).start();
     }
 
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     */
     public void setNoRm(String norwt,String posisi) {
         TNoRw.setText(norwt);
         this.status=posisi;
@@ -2386,6 +2378,13 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isReset();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     * @param kddokter
+     * @param nmdokter
+     */
     public void setNoRm(String norwt,String posisi,String kddokter,String nmdokter) {
         TNoRw.setText(norwt);
         this.status=posisi;

@@ -3,42 +3,24 @@
  */
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
  *
  * @author perpustakaan
  */
-public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog {
+public class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -49,6 +31,7 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
     private String finger="",finger2="";
+    private String TANGGALMUNDUR="yes";
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -126,9 +109,9 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        Keluar.setDocument(new batasInput((int)200).getKata(Keluar));
-        Instruksi.setDocument(new batasInput((int)250).getKata(Instruksi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Keluar.setDocument(new batasInput(200).getKata(Keluar));
+        Instruksi.setDocument(new batasInput(250).getKata(Instruksi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -202,6 +185,12 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
         ChkInput.setSelected(false);
         isForm();
         jam();
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -218,6 +207,7 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
         MnMonitoringSkorAldrette = new javax.swing.JMenuItem();
         MnMonitoringSkorAldrette2 = new javax.swing.JMenuItem();
         JK = new widget.TextBox();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -335,6 +325,9 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
 
         JK.setHighlighter(null);
         JK.setName("JK"); // NOI18N
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -1082,7 +1075,6 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
     private void TNoRwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRwKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             isRawat();
-            isPsien();
         }else{            
             Valid.pindah(evt,TCari,Tanggal);
         }
@@ -1104,21 +1096,16 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
         }else if(Instruksi.getText().trim().isEmpty()){
             Valid.textKosong(Instruksi,"Instruksi");
         }else{
-            if(Sequel.menyimpantf("skor_aldrette_pasca_anestesi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",17,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                SkalaKriteria1.getSelectedItem().toString(),NilaKriteria1.getText(),SkalaKriteria2.getSelectedItem().toString(),NilaKriteria2.getText(),SkalaKriteria3.getSelectedItem().toString(),NilaKriteria3.getText(),
-                SkalaKriteria4.getSelectedItem().toString(),NilaKriteria4.getText(),SkalaKriteria5.getSelectedItem().toString(),NilaKriteria5.getText(), 
-                NilaiKriteriaTotal.getText(),Keluar.getText(),Instruksi.getText(),KdDokter.getText(),NIP.getText()
-            })==true){
-                tabMode.addRow(new String[]{
-                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JK.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                    SkalaKriteria1.getSelectedItem().toString(),NilaKriteria1.getText(),SkalaKriteria2.getSelectedItem().toString(),NilaKriteria2.getText(),SkalaKriteria3.getSelectedItem().toString(),NilaKriteria3.getText(),
-                    SkalaKriteria4.getSelectedItem().toString(),NilaKriteria4.getText(),SkalaKriteria5.getSelectedItem().toString(),NilaKriteria5.getText(),
-                    NilaiKriteriaTotal.getText(),Keluar.getText(),Instruksi.getText(),KdDokter.getText(),NmDokter.getText(),NIP.getText(),NamaPetugas.getText()
-                });
-                emptTeks();
-                LCount.setText(""+tabMode.getRowCount());
-            }  
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                    simpan();
+                }
+            }
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
@@ -1148,7 +1135,9 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
                 hapus();
             }else{
                 if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -1183,7 +1172,14 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
                     ganti();
                 }else{
                     if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -1579,6 +1575,7 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox TglLahir;
     private widget.Label TingkatSkor;
     private widget.Button btnPetugas;
@@ -1624,6 +1621,9 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1702,6 +1702,9 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         SkalaKriteria1.setSelectedIndex(0);
@@ -1749,24 +1752,26 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
             Valid.SetTgl(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
         }
     }
+    
     private void isRawat() {
-         Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat='"+TNoRw.getText()+"' ",TNoRM);
-    }
-
-    private void isPsien() {
         try {
-            ps=koneksi.prepareStatement("select pasien.nm_pasien,pasien.jk,date_format(pasien.tgl_lahir,'%d-%m-%Y') as lahir from pasien where pasien.no_rkm_medis=?");
+            ps=koneksi.prepareStatement(
+                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi,reg_periksa.jam_reg "+
+                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.no_rawat=?");
             try {
-                ps.setString(1,TNoRM.getText());
+                ps.setString(1,TNoRw.getText());
                 rs=ps.executeQuery();
                 if(rs.next()){
+                    TNoRM.setText(rs.getString("no_rkm_medis"));
+                    DTPCari1.setDate(rs.getDate("tgl_registrasi"));
                     TPasien.setText(rs.getString("nm_pasien"));
                     JK.setText(rs.getString("jk"));
-                    TglLahir.setText(rs.getString("lahir"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
+                    TglLahir.setText(rs.getString("tgl_lahir"));
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
-            }finally {
+            } finally{
                 if(rs!=null){
                     rs.close();
                 }
@@ -1779,13 +1784,16 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
-        Sequel.cariIsi("select reg_periksa.tgl_registrasi from reg_periksa where reg_periksa.no_rawat='"+norwt+"'", DTPCari1);
         DTPCari2.setDate(tgl2);
         isRawat();
-        isPsien();
         ChkInput.setSelected(true);
         isForm();
     }
@@ -1825,7 +1833,18 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
                 NIP.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
-        }            
+        } 
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+                ChkKejadian.setEnabled(false);
+                Jam.setEnabled(false);
+                Menit.setEnabled(false);
+                Detik.setEnabled(false);
+            }
+        }
     }
 
     private void jam(){
@@ -1943,5 +1962,23 @@ public final class RMMonitoringAldrettePascaAnestesi extends javax.swing.JDialog
             NilaiKriteriaTotal.setText("0");
             TingkatSkor.setText("Pasien Tidak Dapat Dipindahkan Ke Ruangan Perawatan, Karena Kondisi Yang Lemah");
         }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("skor_aldrette_pasca_anestesi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",17,new String[]{
+            TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+            SkalaKriteria1.getSelectedItem().toString(),NilaKriteria1.getText(),SkalaKriteria2.getSelectedItem().toString(),NilaKriteria2.getText(),SkalaKriteria3.getSelectedItem().toString(),NilaKriteria3.getText(),
+            SkalaKriteria4.getSelectedItem().toString(),NilaKriteria4.getText(),SkalaKriteria5.getSelectedItem().toString(),NilaKriteria5.getText(), 
+            NilaiKriteriaTotal.getText(),Keluar.getText(),Instruksi.getText(),KdDokter.getText(),NIP.getText()
+        })==true){
+            tabMode.addRow(new String[]{
+                TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JK.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+                SkalaKriteria1.getSelectedItem().toString(),NilaKriteria1.getText(),SkalaKriteria2.getSelectedItem().toString(),NilaKriteria2.getText(),SkalaKriteria3.getSelectedItem().toString(),NilaKriteria3.getText(),
+                SkalaKriteria4.getSelectedItem().toString(),NilaKriteria4.getText(),SkalaKriteria5.getSelectedItem().toString(),NilaKriteria5.getText(),
+                NilaiKriteriaTotal.getText(),Keluar.getText(),Instruksi.getText(),KdDokter.getText(),NmDokter.getText(),NIP.getText(),NamaPetugas.getText()
+            });
+            emptTeks();
+            LCount.setText(""+tabMode.getRowCount());
+        } 
     }
 }

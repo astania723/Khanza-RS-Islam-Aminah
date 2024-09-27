@@ -11,33 +11,22 @@
  */
 
 package inventory;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgPermintaanStokPasien extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -46,6 +35,10 @@ public class DlgPermintaanStokPasien extends javax.swing.JDialog {
     private PreparedStatement pstampil;
     private ResultSet rstampil;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     public DlgCariAturanPakai aturanpakaiobat=new DlgCariAturanPakai(null,false);
     private double ttl=0,y=0,ppnobat=0,stokobat,kenaikan=0;
@@ -1088,6 +1081,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         jml=0;
         for(i=0;i<tbDokter.getRowCount();i++){
@@ -1486,20 +1482,22 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                  } catch (Exception e) {
                      y=0;
                  }
-                 ttl=ttl+y;
+                 ttl += y;
             }
             LTotal.setText(Valid.SetAngka(ttl));
             ppnobat=0;
             if(tampilkan_ppnobat_ranap.equals("Yes")){
                  ppnobat=ttl*0.11;
-                 ttl=ttl+ppnobat;
+                 ttl += ppnobat;
                  LPpn.setText(Valid.SetAngka(ppnobat));
             }
             LTotalTagihan.setText(Valid.SetAngka(ttl));
         } 
     }
     
-    
+    /**
+     *
+     */
     public void emptTeksobat() {
         if(ChkRM.isSelected()==true){
             Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(no_permintaan,4),signed)),0) from permintaan_stok_obat_pasien where tgl_permintaan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' ",
@@ -1507,6 +1505,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     * @param no_permintaan
+     */
     public void tampilObat(String no_permintaan) {
         NoResep.setText(no_permintaan);
         ubah=true;
@@ -2065,13 +2067,13 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
              } catch (Exception e) {
                  y=0;
              }
-             ttl=ttl+y;
+             ttl += y;
         }
         LTotal.setText(Valid.SetAngka(ttl));
         ppnobat=0;
         if(tampilkan_ppnobat_ranap.equals("Yes")){
              ppnobat=ttl*0.11;
-             ttl=ttl+ppnobat;
+             ttl += ppnobat;
              LPpn.setText(Valid.SetAngka(ppnobat));
         }
         LTotalTagihan.setText(Valid.SetAngka(ttl));

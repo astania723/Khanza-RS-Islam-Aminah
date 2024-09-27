@@ -5,32 +5,16 @@
 
 package kepegawaian;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -100,7 +84,7 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
 
         Nip.setDocument(new batasInput((byte)20).getKata(Nip));
         Tindakan.setDocument(new batasInput((byte)50).getKata(Tindakan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1078,18 +1062,18 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     topi=Double.parseDouble(rs.getString("topi").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttltopi=ttltopi+topi;
+                    ttltopi += topi;
                     masker=Double.parseDouble(rs.getString("masker").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlmasker=ttlmasker+masker;
+                    ttlmasker += masker;
                     kacamata=Double.parseDouble(rs.getString("kacamata").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlkacamata=ttlkacamata+kacamata;
+                    ttlkacamata += kacamata;
                     sarungtangan=Double.parseDouble(rs.getString("sarungtangan").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsarungtangan=ttlsarungtangan+sarungtangan;
+                    ttlsarungtangan += sarungtangan;
                     apron=Double.parseDouble(rs.getString("apron").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlapron=ttlapron+apron;
+                    ttlapron += apron;
                     sepatu=Double.parseDouble(rs.getString("sepatu").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlsepatu=ttlsepatu+sepatu;
-                    ttlpenilaian=ttlpenilaian+(((topi+masker+kacamata+sarungtangan+apron+sepatu)/6)*100);
+                    ttlsepatu += sepatu;
+                    ttlpenilaian += (((topi+masker+kacamata+sarungtangan+apron+sepatu)/6)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("tindakan"),rs.getString("nik"),rs.getString("nama"),rs.getString("jbtn"),rs.getString("topi"),
                         rs.getString("masker"),rs.getString("kacamata"),rs.getString("sarungtangan"),rs.getString("apron"),rs.getString("sepatu"),
@@ -1097,7 +1081,7 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":","","",""+ttltopi,""+ttlmasker,""+ttlkacamata,""+ttlsarungtangan,""+ttlapron,""+ttlsepatu,
@@ -1128,8 +1112,9 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
-    
-    
+    /**
+     *
+     */
     public void emptTeks() {
         Nip.setText("");
         NamaPetugas.setText("");
@@ -1177,6 +1162,9 @@ public class DlgAuditKepatuhanAPD extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_kepatuhan_apd());
         BtnHapus.setEnabled(akses.getaudit_kepatuhan_apd());

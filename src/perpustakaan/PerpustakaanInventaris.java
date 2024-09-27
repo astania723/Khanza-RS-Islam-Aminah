@@ -10,30 +10,15 @@
  */
 
 package perpustakaan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -1278,6 +1263,9 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
     private widget.Tanggal tgl_pengadaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             Valid.tabelKosong(tabMode);
@@ -1360,7 +1348,7 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
                         rs.getString("asal_buku"),rs.getString("tgl_pengadaan"),rs.getString("harga"),
                         rs.getString("status_buku"),rs.getString("nm_ruang"),rs.getString("no_rak"),rs.getString("no_box")
                     });
-                    nilai_inven=nilai_inven+rs.getDouble("harga");
+                    nilai_inven += rs.getDouble("harga");
                 }
             }catch(Exception e){
                 System.out.println("Notifikasi : "+e);
@@ -1378,6 +1366,9 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         no_inventaris.setText("");
         kode_buku.setText("");

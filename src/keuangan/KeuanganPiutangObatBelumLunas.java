@@ -2,31 +2,17 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventory.DlgCariPiutang;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -66,18 +52,18 @@ public class KeuanganPiutangObatBelumLunas extends javax.swing.JDialog {
                 "P","No.Nota","Tgl.Piutang","Pasien","Catatan","Total Piutang","Uang Muka","Ogkos Kirim","Cicilan+Disk+T.Terbayar",
                 "Sisa Piutang","Jatuh Tempo","Bayar","Diskon Bayar","Tidak Terbayar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==0)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
                 java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==0)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -902,9 +888,9 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
         try{
             sisapiutang=0;
             ps=koneksi.prepareStatement(
-                    "select piutang.nota_piutang,piutang.tgl_piutang,piutang.no_rkm_medis,piutang.nm_pasien,piutang.catatan,piutang.ongkir,piutang.uangmuka,piutang.sisapiutang,"+
+                    "select distinct piutang.nota_piutang,piutang.tgl_piutang,piutang.no_rkm_medis,piutang.nm_pasien,piutang.catatan,piutang.ongkir,piutang.uangmuka,piutang.sisapiutang,"+
                     "piutang.tgltempo,(select ifnull(SUM(bayar_piutang.besar_cicilan)+SUM(bayar_piutang.diskon_piutang)+SUM(bayar_piutang.tidak_terbayar),0) from bayar_piutang where bayar_piutang.no_rawat=piutang.nota_piutang) as cicilan  "+
-                    "from piutang "+(TCari.getText().trim().isEmpty()?"":"where piutang.nota_piutang like ? or petugas.nama like ? or "+
+                    "from piutang INNER JOIN detailpiutang on piutang.nota_piutang=detailpiutang.nota_piutang "+(TCari.getText().trim().isEmpty()?"":"where piutang.nota_piutang like ? or petugas.nama like ? or "+
                     "piutang.no_rkm_medis like ? or piutang.nm_pasien like ?")+" having piutang.sisapiutang-cicilan>0 order by piutang.tgl_piutang");
             try {
                 if(!TCari.getText().trim().isEmpty()){
@@ -921,7 +907,7 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
                         (rs.getDouble("uangmuka")+rs.getDouble("sisapiutang")-rs.getDouble("ongkir")),rs.getDouble("uangmuka"),rs.getDouble("ongkir"),rs.getDouble("cicilan"),
                         (rs.getDouble("sisapiutang")-rs.getDouble("cicilan")),rs.getString("tgltempo"),(rs.getDouble("sisapiutang")-rs.getDouble("cicilan")),0,0
                     });
-                    sisapiutang=sisapiutang+(rs.getDouble("sisapiutang")-rs.getDouble("cicilan"));
+                    sisapiutang += (rs.getDouble("sisapiutang")-rs.getDouble("cicilan"));
                 }
             } catch (Exception e) {
                 System.out.println(e);
@@ -1029,6 +1015,9 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         BtnBayar.setEnabled(akses.getbayar_piutang());

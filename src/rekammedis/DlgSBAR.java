@@ -1,23 +1,16 @@
 package rekammedis;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgSBAR extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -389,17 +382,12 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 while(rs.next()){
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append(" / ").append(rs.getString("jk")).append(" / ").append(rs.getString("umur")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut")).append("</td><td valign='top' align='center'><table width='100%' border='0' align='center' cellpadding='2px' cellspacing='0'>");
                     try {
-                        // try {
-//                        rs2=koneksi.prepareStatement(
-//                                "select pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat,pemeriksaan_ranap.keluhan,"+
-//                                "pemeriksaan_ranap.pemeriksaan,pemeriksaan_ranap.rtl,pemeriksaan_ranap.penilaian,pemeriksaan_ranap.nik,pegawai.nama,departemen.nama "+
-//                                "from pemeriksaan_ranap inner join pegawai on pemeriksaan_ranap.nik=pegawai.nik inner join departemen on pegawai.departemen=departemen.dep_id where pemeriksaan_ranap.no_rawat='"+rs.getString("no_rawat")+"' "+
-//                                "order by pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat").executeQuery();
+                        
                         rs2=koneksi.prepareStatement(
                                 "select pemeriksaan_ranap_sbar.tgl_perawatan,pemeriksaan_ranap_sbar.jam_rawat,pemeriksaan_ranap_sbar.situation,"+
-                                "pemeriksaan_ranap_sbar.background,pemeriksaan_ranap_sbar.assesment,pemeriksaan_ranap_sbar.recommendation,pemeriksaan_ranap_sbar.nip,pemeriksaan_ranap_sbar.kd_dokter,pegawai.nama,departemen.nama,"+
+                                "pemeriksaan_ranap_sbar.background,pemeriksaan_ranap_sbar.assesment,pemeriksaan_ranap_sbar.recommendation,pemeriksaan_ranap_sbar.nip,pemeriksaan_ranap_sbar.kd_dokter,pegawai.nama,"+
                                 "namavalidator.nama as namavalidator,validasi_pemeriksaan_sbar.nik_validator,validasi_pemeriksaan_sbar.tgl_validasi,validasi_pemeriksaan_sbar.jam_validasi,validasi_pemeriksaan_sbar.status_validasi "+ 
-                                "from pemeriksaan_ranap_sbar inner join pegawai on pemeriksaan_ranap_sbar.nip=pegawai.nik inner join departemen on pegawai.departemen=departemen.dep_id LEFT JOIN pegawai AS namavalidator ON pemeriksaan_ranap_sbar.kd_dokter=namavalidator.nik left join validasi_pemeriksaan_sbar on pemeriksaan_ranap_sbar.jam_rawat = validasi_pemeriksaan_sbar.jam_rawat AND pemeriksaan_ranap_sbar.no_rawat = validasi_pemeriksaan_sbar.no_rawat AND pemeriksaan_ranap_sbar.tgl_perawatan = validasi_pemeriksaan_sbar.tgl_perawatan "+
+                                "from pemeriksaan_ranap_sbar inner join pegawai on pemeriksaan_ranap_sbar.nip=pegawai.nik LEFT JOIN pegawai AS namavalidator ON pemeriksaan_ranap_sbar.kd_dokter=namavalidator.nik left join validasi_pemeriksaan_sbar on pemeriksaan_ranap_sbar.jam_rawat = validasi_pemeriksaan_sbar.jam_rawat AND pemeriksaan_ranap_sbar.no_rawat = validasi_pemeriksaan_sbar.no_rawat AND pemeriksaan_ranap_sbar.tgl_perawatan = validasi_pemeriksaan_sbar.tgl_perawatan "+
                                 "where pemeriksaan_ranap_sbar.no_rawat='"+rs.getString("no_rawat")+"' "+
                                 "order by pemeriksaan_ranap_sbar.tgl_perawatan,pemeriksaan_ranap_sbar.jam_rawat").executeQuery();
                         if(rs2.next()){
@@ -434,10 +422,8 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                                 }else{
                                     gbrverif="<img src ='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/images/notverif.png' align='center' width='100' height='50'/";
                                 }
-//                                 System.out.println("Notif Rekening : "+stylee);
-//                                 System.out.println("Notif Rekening : "+rs2.getString("nik"));
-                                //2021/04/18/000056
-                                htmlContent.append("<tr class='isi'  ><td align='center' ").append(stylee).append(" >").append(rs2.getString("tgl_perawatan")).append("<br>").append(rs2.getString("jam_rawat")).append("</td><td valign='top'  ").append(stylee).append(" >").append(rs2.getString("nama")).append("<br>(").append(rs2.getString("departemen.nama")).append(")</td><td align='left' ").append(stylee).append(" >").append(rs2.getString("situation")).append("</td><td align='left' ").append(stylee).append(">").append(rs2.getString("background")).append("</td><td align='left' ").append(stylee).append(">").append(rs2.getString("assesment")).append("</td><td align='left' ").append(stylee).append(">").append(rs2.getString("recommendation")).append("</td><td align='left' ").append(stylee).append(" ").append(gbrverif).append("><br>").append(rs2.getString("namavalidator")).append("<br>").append(rs2.getString("tgl_validasi")).append("<br>").append(rs2.getString("jam_validasi")).append("</td></tr>"); 
+
+                                htmlContent.append("<tr class='isi'  ><td align='center' ").append(stylee).append(" >").append(rs2.getString("tgl_perawatan")).append("<br>").append(rs2.getString("jam_rawat")).append("</td><td valign='top'  ").append(stylee).append(" >").append(rs2.getString("nama")).append("</td><td align='left' ").append(stylee).append(" >").append(rs2.getString("situation")).append("</td><td align='left' ").append(stylee).append(">").append(rs2.getString("background")).append("</td><td align='left' ").append(stylee).append(">").append(rs2.getString("assesment")).append("</td><td align='left' ").append(stylee).append(">").append(rs2.getString("recommendation")).append("</td><td align='left' ").append(stylee).append(" ").append(gbrverif).append("><br>").append(rs2.getString("namavalidator")).append("<br>").append(rs2.getString("tgl_validasi")).append("<br>").append(rs2.getString("jam_validasi")).append("</td></tr>"); 
                             } 
                         }       
                     } catch (Exception e) {
@@ -484,6 +470,11 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         BtnPrint.setEnabled(akses.getharian_klasifikasi_pasien_ranap());
     }
     
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void setNoRawat(String x,String y)
     {
         this.noRawat=x;
@@ -491,6 +482,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         prosesCari();
     }
 
+    /**
+     *
+     */
     public void tampil() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

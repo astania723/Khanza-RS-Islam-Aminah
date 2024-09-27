@@ -5,16 +5,11 @@
 
 package widget;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.LayoutManager;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+import java.awt.image.*;
+import javax.swing.*;
 
 /**
  *
@@ -26,16 +21,27 @@ public class PanelWT extends JPanel{
     private Color warnaAtas = new Color(255,255,255);
     private Color warnaBawah = new Color(0,0,0);
 
+    /**
+     *
+     */
     public PanelWT(){
         super();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(3,3,3,3));
     }
 
+    /**
+     *
+     * @param layout
+     */
     public PanelWT(LayoutManager layout) {
         super(layout);
         addComponentListener(new GradientCacheManager());
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getWarnaAtas() {
         return warnaAtas;
     }
@@ -44,6 +50,10 @@ public class PanelWT extends JPanel{
         this.warnaAtas = warnaAtas;
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getWarnaBawah() {
         return warnaBawah;
     }
@@ -52,6 +62,10 @@ public class PanelWT extends JPanel{
         this.warnaBawah = warnaBawah;
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         createImageCache();

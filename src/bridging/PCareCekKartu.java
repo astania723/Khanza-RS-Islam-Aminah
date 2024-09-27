@@ -11,39 +11,19 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.table.*;
 import org.apache.commons.codec.binary.Base64;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import simrskhanza.DlgPasien;
-import simrskhanza.DlgPilihanCetakDokumen;
+import org.springframework.http.*;
+import simrskhanza.*;
 
 /**
  *
@@ -908,7 +888,7 @@ public class PCareCekKartu extends javax.swing.JDialog {
         
         ChkCari.setSelected(false);
         isForm();
-        NoKartu.setDocument(new batasInput((int)80).getKata(NoKartu));
+        NoKartu.setDocument(new batasInput(80).getKata(NoKartu));
         TNo.setDocument(new batasInput((byte)15).getKata(TNo));
         TNm.setDocument(new batasInput((byte)40).getKata(TNm));
         NmIbu.setDocument(new batasInput((byte)40).getKata(NmIbu));
@@ -916,8 +896,8 @@ public class PCareCekKartu extends javax.swing.JDialog {
         Kdpnj.setDocument(new batasInput((byte)3).getKata(Kdpnj));
         TTlp.setDocument(new batasInput((byte)13).getOnlyAngka(TTlp));
         TTmp.setDocument(new batasInput((byte)15).getKata(TTmp));
-        Alamat.setDocument(new batasInput((int)200).getFilter(Alamat));
-        AlamatPj.setDocument(new batasInput((int)100).getFilter(AlamatPj));
+        Alamat.setDocument(new batasInput(200).getFilter(Alamat));
+        AlamatPj.setDocument(new batasInput(100).getFilter(AlamatPj));
         Pekerjaan.setDocument(new batasInput((byte)15).getKata(Pekerjaan));
         PekerjaanPj.setDocument(new batasInput((byte)15).getKata(PekerjaanPj));
         TUmur.setDocument(new batasInput((byte)10).getKata(TUmur));
@@ -936,7 +916,7 @@ public class PCareCekKartu extends javax.swing.JDialog {
         EMail.setDocument(new batasInput((byte)50).getFilter(EMail));
         NIP.setDocument(new batasInput((byte)30).getFilter(NIP));
         TSuhu.setDocument(new batasInput((byte)5).getFilter(TSuhu));
-        Keluhan.setDocument(new batasInput((int)400).getFilter(Keluhan));
+        Keluhan.setDocument(new batasInput(400).getFilter(Keluhan));
         Respiratory.setDocument(new batasInput((byte)3).getFilter(Respiratory));
         Heartrate.setDocument(new batasInput((byte)3).getFilter(Heartrate));
         TinggiBadan.setDocument(new batasInput((byte)3).getFilter(TinggiBadan));
@@ -4747,6 +4727,9 @@ public class PCareCekKartu extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TNo.setText("");
         TNm.setText("");
@@ -5219,6 +5202,9 @@ public class PCareCekKartu extends javax.swing.JDialog {
         Sequel.mengedit("pasien","no_rkm_medis=?","umur=CONCAT(CONCAT(CONCAT(TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()), ' Th '),CONCAT(TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12), ' Bl ')),CONCAT(TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()), ' Hr'))",1,new String[]{TNo.getText()});
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpcare_cek_kartu());
     }

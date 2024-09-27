@@ -11,29 +11,15 @@
 
 package bridging;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.DlgBilingRalan;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import keuangan.*;
+import simrskhanza.*;
 
 /**
  *
@@ -955,44 +941,44 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         while(rs2.next()){
                             switch (rs2.getString("status")) {
                                 case "Laborat":
-                                    ttlLaborat=ttlLaborat+rs2.getDouble("totalbiaya");
-                                    Laborat=Laborat+rs2.getDouble("totalbiaya");
+                                    ttlLaborat += rs2.getDouble("totalbiaya");
+                                    Laborat += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Radiologi":
-                                    ttlRadiologi=ttlRadiologi+rs2.getDouble("totalbiaya");
-                                    Radiologi=Radiologi+rs2.getDouble("totalbiaya");
+                                    ttlRadiologi += rs2.getDouble("totalbiaya");
+                                    Radiologi += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Obat":
-                                    ttlObat=ttlObat+rs2.getDouble("totalbiaya");
-                                    Obat=Obat+rs2.getDouble("totalbiaya");
+                                    ttlObat += rs2.getDouble("totalbiaya");
+                                    Obat += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Ralan Dokter":
-                                    ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble("totalbiaya");
-                                    Ralan_Dokter=Ralan_Dokter+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Dokter += rs2.getDouble("totalbiaya");
+                                    Ralan_Dokter += rs2.getDouble("totalbiaya");
                                     break;     
                                 case "Ralan Dokter Paramedis":
-                                    ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble("totalbiaya");
-                                    Ralan_Dokter_paramedis=Ralan_Dokter_paramedis+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Dokter += rs2.getDouble("totalbiaya");
+                                    Ralan_Dokter_paramedis += rs2.getDouble("totalbiaya");
                                     break;    
                                 case "Ralan Paramedis":
-                                    ttlRalan_Paramedis=ttlRalan_Paramedis+rs2.getDouble("totalbiaya");
-                                    Ralan_Paramedis=Ralan_Paramedis+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Paramedis += rs2.getDouble("totalbiaya");
+                                    Ralan_Paramedis += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Tambahan":
-                                    ttlTambahan=ttlTambahan+rs2.getDouble("totalbiaya");
-                                    Tambahan=Tambahan+rs2.getDouble("totalbiaya");
+                                    ttlTambahan += rs2.getDouble("totalbiaya");
+                                    Tambahan += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Potongan":
-                                    ttlPotongan=ttlPotongan+rs2.getDouble("totalbiaya");
-                                    Potongan=Potongan+rs2.getDouble("totalbiaya");
+                                    ttlPotongan += rs2.getDouble("totalbiaya");
+                                    Potongan += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Registrasi":
-                                    ttlRegistrasi=ttlRegistrasi+rs2.getDouble("totalbiaya");
-                                    Registrasi=Registrasi+rs2.getDouble("totalbiaya");
+                                    ttlRegistrasi += rs2.getDouble("totalbiaya");
+                                    Registrasi += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Operasi":
-                                    ttlOperasi=ttlOperasi+rs2.getDouble("totalbiaya");
-                                    Operasi=Operasi+rs2.getDouble("totalbiaya");
+                                    ttlOperasi += rs2.getDouble("totalbiaya");
+                                    Operasi += rs2.getDouble("totalbiaya");
                                     break;
                             }                                
                         }
@@ -1012,7 +998,7 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                 "operasi.biayaperawat_luar+operasi.biayaalat+operasi.biaya_dokter_pjanak+operasi.biaya_dokter_umum+" +
                                 "operasi.biayasewaok+operasi.akomodasi+operasi.bagian_rs+operasi.biaya_omloop+operasi.biaya_omloop2+"+
                                 "operasi.biaya_omloop3+operasi.biayasarpras) from operasi where kategori='-' and no_rawat=?",rs.getString("no_rawat"));
-                        ttlkebidanan=ttlkebidanan+kebidanan;
+                        ttlkebidanan += kebidanan;
                         tarifincabg=Sequel.cariIsiAngka("select inacbg_grouping_stage1.tarif from inacbg_grouping_stage1 inner join bridging_sep on inacbg_grouping_stage1.no_sep=bridging_sep.no_sep where bridging_sep.no_rawat=?",rs.getString("no_rawat"))+
                                     Sequel.cariIsiAngka("select inacbg_grouping_stage12.tarif from inacbg_grouping_stage12 inner join inacbg_klaim_baru2 on inacbg_grouping_stage12.no_sep=inacbg_klaim_baru2.no_sep where inacbg_klaim_baru2.no_rawat=?",rs.getString("no_rawat"))+
                                     Sequel.cariIsiAngka("select inacbg_grouping_stage1_internal.tarif from inacbg_grouping_stage1_internal inner join bridging_sep_internal on inacbg_grouping_stage1_internal.no_sep=bridging_sep_internal.no_sep where bridging_sep_internal.no_rawat=?",rs.getString("no_rawat"));
@@ -1021,8 +1007,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         }else {
                             untungrugiinacbg=0;
                         }
-                        ttltarifincabg=ttltarifincabg+tarifincabg;
-                        ttluntungrugiinacbg=ttluntungrugiinacbg+untungrugiinacbg;                                               
+                        ttltarifincabg += tarifincabg;
+                        ttluntungrugiinacbg += untungrugiinacbg;                                               
                     } catch (Exception e) {
                         System.out.println("Notif 2 : "+e);
                     } finally{

@@ -1,32 +1,17 @@
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariDokter2;
-import laporan.DlgCariPenyakit;
-import simrskhanza.DlgCariPoli;
-import simrskhanza.DlgCariPoli2;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import laporan.*;
+import simrskhanza.*;
 
 /**
  *
@@ -118,12 +103,12 @@ public class SuratKontrol extends javax.swing.JDialog {
 
         TNoRM.setDocument(new batasInput((byte)15).getKata(TNoRM));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        Diagnosa.setDocument(new batasInput((int)50).getKata(Diagnosa));
-        Terapi.setDocument(new batasInput((int)200).getKata(Terapi));
-        Alasan1.setDocument(new batasInput((int)50).getKata(Alasan1));
-        Alasan2.setDocument(new batasInput((int)50).getKata(Alasan2));
-        Rtl1.setDocument(new batasInput((int)50).getKata(Rtl1));
-        Rtl2.setDocument(new batasInput((int)50).getKata(Rtl2));
+        Diagnosa.setDocument(new batasInput(50).getKata(Diagnosa));
+        Terapi.setDocument(new batasInput(200).getKata(Terapi));
+        Alasan1.setDocument(new batasInput(50).getKata(Alasan1));
+        Alasan2.setDocument(new batasInput(50).getKata(Alasan2));
+        Rtl1.setDocument(new batasInput(50).getKata(Rtl1));
+        Rtl2.setDocument(new batasInput(50).getKata(Rtl2));
         NoReg.setDocument(new batasInput((byte)6).getKata(NoReg));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -1752,6 +1737,15 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil();
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param kodepoli
+     * @param namapoli
+     * @param kodedokter
+     * @param namadokter
+     */
     public void setNoRm(String norm,String nama,String kodepoli,String namapoli,String kodedokter,String namadokter) {
         TNoRM.setText(norm);
         TPasien.setText(nama);
@@ -1786,6 +1780,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         BtnEdit.setEnabled(akses.getskdp_bpjs());
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

@@ -11,29 +11,15 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import restore.DlgRestorePeminjamPiutang;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import restore.*;
 
 /**
  *
@@ -87,9 +73,9 @@ public class KeuanganPeminjamPiutang extends javax.swing.JDialog {
         
         KdPeminjam.setDocument(new batasInput((byte)5).getKata(KdPeminjam));
         NmPeminjam.setDocument(new batasInput((byte)50).getKata(NmPeminjam));
-        AlamatPeminjam.setDocument(new batasInput((int)150).getKata(AlamatPeminjam));
+        AlamatPeminjam.setDocument(new batasInput(150).getKata(AlamatPeminjam));
         NoTelp.setDocument(new batasInput((byte)13).getKata(NoTelp));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -954,6 +940,10 @@ private void NmPeminjamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
@@ -962,6 +952,9 @@ private void NmPeminjamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         TCari.requestFocus();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpeminjam_piutang());
         BtnHapus.setEnabled(akses.getpeminjam_piutang());

@@ -1,30 +1,14 @@
 package toko;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
 public class TokoPenjualan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -1305,7 +1289,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -1467,14 +1451,14 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             } catch (Exception e) {
                 y=0;
             }
-            ttl=ttl+y;
+            ttl += y;
 
             try {
                 z=Double.parseDouble(tabMode.getValueAt(r,12).toString())*Double.parseDouble(tabMode.getValueAt(r,0).toString()); 
             } catch (Exception e) {
                 z=0;
             }
-            ttlhpp=ttlhpp+z;
+            ttlhpp += z;
         }
         
         LTotal.setText(Valid.SetAngka(ttl));
@@ -1508,6 +1492,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LKembali.setText(Valid.SetAngka(bayar-tagihanppn));     
     }
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         Ongkir.setText("0");
@@ -1531,6 +1518,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
     
+    /**
+     *
+     */
     public void autoNomor(){
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(tokopenjualan.nota_jual,5),signed)),0) from tokopenjualan where tokopenjualan.tgl_jual='"+Valid.SetTgl(Tgl.getSelectedItem()+"")+"' ",
                 "TJ"+Tgl.getSelectedItem().toString().substring(6,10)+Tgl.getSelectedItem().toString().substring(3,5)+Tgl.getSelectedItem().toString().substring(0,2),5,NoNota); 

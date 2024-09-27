@@ -11,30 +11,16 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
@@ -91,15 +77,15 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
         tbPemeriksaan.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        NamaObat.setDocument(new batasInput((int)100).getKata(NamaObat));
+        NamaObat.setDocument(new batasInput(100).getKata(NamaObat));
         DosisObat.setDocument(new batasInput((byte)20).getKata(DosisObat));
         Frekuensi.setDocument(new batasInput((byte)10).getKata(Frekuensi));
-        AturanPakai.setDocument(new batasInput((int)150).getKata(AturanPakai));
+        AturanPakai.setDocument(new batasInput(150).getKata(AturanPakai));
         PemberianTerakhir.setDocument(new batasInput((byte)20).getKata(PemberianTerakhir));
-        PerubahanAturanPakai.setDocument(new batasInput((int)150).getKata(PerubahanAturanPakai));
+        PerubahanAturanPakai.setDocument(new batasInput(150).getKata(PerubahanAturanPakai));
         TNoRekonsialiasi.setDocument(new batasInput((byte)20).getKata(TNoRekonsialiasi));
-        AlergiObat.setDocument(new batasInput((int)70).getKata(AlergiObat));
-        ManifestasiAlergi.setDocument(new batasInput((int)70).getKata(ManifestasiAlergi));
+        AlergiObat.setDocument(new batasInput(70).getKata(AlergiObat));
+        ManifestasiAlergi.setDocument(new batasInput(70).getKata(ManifestasiAlergi));
         
         
         petugas.addWindowListener(new WindowListener() {
@@ -1011,6 +997,9 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
     private widget.Table tbPemeriksaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         AlergiObat.setText("");
@@ -1076,6 +1065,10 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
         new Timer(1000, taskPerformer).start();
     } 
     
+    /**
+     *
+     * @param norwt
+     */
     public void setNoRm(String norwt) {
         TNoRw.setText(norwt);   
         try {
@@ -1106,6 +1099,9 @@ public class RMRekonsiliasiObat extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnSimpan.setEnabled(akses.getrekonsiliasi_obat());
         if(akses.getjml2()>=1){

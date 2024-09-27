@@ -12,18 +12,12 @@
 
 package simrskhanza;
 
-import fungsi.akses;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.FileInputStream;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariDokter2;
+import fungsi.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import kepegawaian.*;
 
 /**
  *

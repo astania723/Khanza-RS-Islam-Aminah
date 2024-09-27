@@ -1,30 +1,19 @@
 package toko;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class TokoCariReturPiutang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -32,6 +21,10 @@ public class TokoCariReturPiutang extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     public  TokoMember member=new TokoMember(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  TokoBarang barang=new TokoBarang(null,false);
     private riwayattoko Trackbarang=new riwayattoko();
     private PreparedStatement ps,ps2,pscaripesan,pstoko_detail_returpiutang;
@@ -1073,8 +1066,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         i=1;
                         subtotal=0;
                         while(rs2.next()){
-                            tagihan=tagihan+rs2.getDouble("total");
-                            subtotal=subtotal+rs2.getDouble("total");
+                            tagihan += rs2.getDouble("total");
+                            subtotal += rs2.getDouble("total");
                             tabMode.addRow(new Object[]{
                                 i+". "+rs2.getString("kode_brng"),rs2.getString("nama_brng"),"No. Nota : "+rs2.getString("nota_piutang"),rs2.getString("satuan"),rs2.getString("jml_retur"),Valid.SetAngka(rs2.getDouble("h_retur")),Valid.SetAngka(rs2.getDouble("total"))
                             });
@@ -1108,6 +1101,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");

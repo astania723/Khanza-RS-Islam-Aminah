@@ -15,29 +15,17 @@ package grafikanalisa;
  */
 
 
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
+import fungsi.*;
+import java.awt.*;
+import java.sql.*;
+import javax.swing.*;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.labels.StandardCategoryToolTipGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.CombinedDomainCategoryPlot;
-import org.jfree.chart.renderer.category.LineAndShapeRenderer;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.*;
+import org.jfree.chart.axis.*;
+import org.jfree.chart.labels.*;
+import org.jfree.chart.plot.*;
+import org.jfree.chart.renderer.category.*;
+import org.jfree.data.category.*;
 
 
 /**
@@ -48,6 +36,8 @@ public class grafiksql3 extends JDialog {
         /**
            * Creates a dataset.
            *
+     * @param query
+     * @param kolom
            * @return A dataset.
            */
 
@@ -77,6 +67,8 @@ public class grafiksql3 extends JDialog {
        /**
           * Creates a dataset.
           *
+     * @param query
+     * @param kolom
           * @return A dataset.
           */
         public static CategoryDataset createDataset2(String query,String kolom) {//grafik volume
@@ -130,14 +122,16 @@ public class grafiksql3 extends JDialog {
              plot.add(subplot1,2 );
              plot.add(subplot2,1 );
 
-             JFreeChart result = new JFreeChart("",new Font("SansSerif", Font.PLAIN,6 ), plot, true);
-             return result;
+             return new JFreeChart("",new Font("SansSerif", Font.PLAIN,6 ), plot, true);
 
          }
 
          /**
           * Creates a panel for the demo (used by SuperDemo.java).
           *
+     * @param query
+     * @param query2
+     * @param kolom2
           * @return A panel.
           */
 
@@ -148,7 +142,16 @@ public class grafiksql3 extends JDialog {
          sekuel Sequel = new sekuel();
          validasi Valid = new validasi();
          Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
-         public grafiksql3(String title,String query,String query2,String Kolom,String Kolom2) {
+
+    /**
+     *
+     * @param title
+     * @param query
+     * @param query2
+     * @param Kolom
+     * @param Kolom2
+     */
+    public grafiksql3(String title,String query,String query2,String Kolom,String Kolom2) {
            // super(title);
            setTitle(title);
            JPanel chartPanel = createDemoPanel(query,query2,Kolom,Kolom2);

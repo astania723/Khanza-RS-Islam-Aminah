@@ -10,48 +10,26 @@
  */
 
 package bridging;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.net.URI;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.scheme.Scheme;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.security.*;
+import java.security.cert.*;
+import java.sql.*;
+import java.util.*;
+import javax.net.ssl.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.junit.Test;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.junit.*;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
 
 /**
@@ -136,16 +114,16 @@ public class BPJSProgramPRB extends javax.swing.JDialog {
         
         tabMode2=new DefaultTableModel(null,new Object[]{
             "Jumlah","Kode Obat","Nama Obat","Signa 1","Signa 2"}){
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                boolean a = false;
+                if ((colIndex==0)||(colIndex==3)||(colIndex==4)) {
+                    a=true;
+                }
+                return a;
+             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                 boolean a = false;
-                 if ((colIndex==0)||(colIndex==3)||(colIndex==4)) {
-                     a=true;
-                 }
-                 return a;
-             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -174,7 +152,7 @@ public class BPJSProgramPRB extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class,warna);
 
         NoRawat.setDocument(new batasInput((byte)17).getKata(NoRawat));
-        Alamat.setDocument(new batasInput((int)200).getKata(Alamat));
+        Alamat.setDocument(new batasInput(200).getKata(Alamat));
         Email.setDocument(new batasInput((byte)40).getKata(Email));
         Saran.setDocument(new batasInput((byte)100).getKata(Saran));
         Keterangan.setDocument(new batasInput((byte)100).getKata(Keterangan));
@@ -1084,7 +1062,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 z=0;        
                 for(i=0;i<tbObat.getRowCount();i++){
                     if(Valid.SetAngka(tbObat.getValueAt(i,0).toString())>0){
-                        obat=obat+"{\"kdObat\":\""+tbObat.getValueAt(i,1).toString()+"\",\"signa1\":\""+tbObat.getValueAt(i,3).toString().trim()+"\",\"signa2\":\""+tbObat.getValueAt(i,4).toString().trim()+"\",\"jmlObat\":\""+tbObat.getValueAt(i,0).toString()+"\"},";
+                        obat=obat+"{\"kdObat\":\""+tbObat.getValueAt(i,1).toString()+"\",\"signa1\":\""+tbObat.getValueAt(i,3).toString().trim()+"\",\"signa2\":\""+tbObat.getValueAt(i,4).toString().trim()+"\",\"jmlObat\":\""+Valid.SetAngka2(Double.parseDouble(tbObat.getValueAt(i,0).toString()))+"\"},";
                         z++;
                     }
                 }
@@ -1514,6 +1492,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbProgramPRB;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{     
@@ -1610,6 +1591,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
    
+    /**
+     *
+     * @param norawat
+     * @param nosep
+     * @param nokartu
+     * @param norm
+     * @param namapasien
+     * @param alamat
+     * @param email
+     * @param kodedpjp
+     * @param namadpjp
+     */
     public void setNoRm(String norawat,String nosep,String nokartu,String norm,String namapasien,String alamat,String email,String kodedpjp,String namadpjp) {
         NoRawat.setText(norawat);
         NoSEP.setText(nosep);
@@ -1641,6 +1634,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         btnDokterDPJP.setEnabled(akses.getbpjs_program_prb());
         BtnHapus.setEnabled(akses.getbpjs_program_prb());
@@ -1732,6 +1728,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Alamat.requestFocus();
     }
     
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest() throws Exception {
         RestTemplate restTemplate = new RestTemplate();

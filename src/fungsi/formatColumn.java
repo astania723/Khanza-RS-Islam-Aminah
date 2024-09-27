@@ -5,12 +5,9 @@
 
 package fungsi;
 
-import java.text.NumberFormat;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
+import java.text.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -19,7 +16,15 @@ import javax.swing.table.TableColumnModel;
 public class formatColumn {
     public static int curr = 0;
     public static int angka = 1;
+
+    /**
+     *
+     */
     public static int kanan = 2;
+
+    /**
+     *
+     */
     public static int tengah = 3;
     public static int tanggal = 4;
     private DefaultTableModel model;
@@ -31,7 +36,7 @@ public class formatColumn {
         switch (format) {
             case 0:{
                 class CurrRender extends DefaultTableCellRenderer{
-                public CurrRender(){
+                CurrRender(){
                     super();
                     setHorizontalAlignment(SwingConstants.RIGHT);
                 }

@@ -1,26 +1,12 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 public class DlgRBObatPercaraBayar extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -652,22 +638,22 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                keuntungan=0;
                //Object[] row={"No.","Dokter","Tanggal","Nama Obat","Jml","Biaya Obat","Embalase","Tuslah"};
                while(rsresep.next()){
-                   biaya=biaya+rsresep.getDouble("biaya_obat");
-                   ttlbiaya=ttlbiaya+rsresep.getDouble("biaya_obat");
-                   embalase=embalase+rsresep.getDouble("embalase");
-                   ttembalase=ttembalase+rsresep.getDouble("embalase");
-                   tuslah=tuslah+rsresep.getDouble("tuslah");
-                   tttuslah=tttuslah+rsresep.getDouble("tuslah");
-                   subtotal=subtotal+rsresep.getDouble("subtotal");
-                   ttsubtotal=ttsubtotal+rsresep.getDouble("subtotal");
-                   ttotal=ttotal+rsresep.getDouble("total");
-                   tttotal=tttotal+rsresep.getDouble("total");
-                   hrgbeli=hrgbeli+rsresep.getDouble("h_beli");
-                   tthrgbeli=tthrgbeli+rsresep.getDouble("h_beli");
-                   subhargabeli=subhargabeli+rsresep.getDouble("total_asal");
-                   ttsubhrgbeli=ttsubhrgbeli+rsresep.getDouble("total_asal");
-                   keuntungan=keuntungan+rsresep.getDouble("keuntungan");
-                   ttkeuntungan=ttkeuntungan+rsresep.getDouble("keuntungan");
+                   biaya += rsresep.getDouble("biaya_obat");
+                   ttlbiaya += rsresep.getDouble("biaya_obat");
+                   embalase += rsresep.getDouble("embalase");
+                   ttembalase += rsresep.getDouble("embalase");
+                   tuslah += rsresep.getDouble("tuslah");
+                   tttuslah += rsresep.getDouble("tuslah");
+                   subtotal += rsresep.getDouble("subtotal");
+                   ttsubtotal += rsresep.getDouble("subtotal");
+                   ttotal += rsresep.getDouble("total");
+                   tttotal += rsresep.getDouble("total");
+                   hrgbeli += rsresep.getDouble("h_beli");
+                   tthrgbeli += rsresep.getDouble("h_beli");
+                   subhargabeli += rsresep.getDouble("total_asal");
+                   ttsubhrgbeli += rsresep.getDouble("total_asal");
+                   keuntungan += rsresep.getDouble("keuntungan");
+                   ttkeuntungan += rsresep.getDouble("keuntungan");
                    tabMode.addRow(new Object[]{
                        "","   "+a+". ("+rsresep.getString("no_rawat")+") "+rsresep.getString("nm_pasien"),
                        rsresep.getString("tgl_perawatan")+" "+rsresep.getString("jam"),rsresep.getString("kode_brng")+" "+rsresep.getString("nama_brng"),
@@ -720,22 +706,22 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                keuntungan=0;
                //Object[] row={"No.","Dokter","Tanggal","Nama Obat","Jml","Biaya Obat","Embalase","Tuslah"};
                while(rsresep.next()){
-                   biaya=biaya+rsresep.getDouble("biaya_obat");
-                   ttlbiaya=ttlbiaya+rsresep.getDouble("biaya_obat");
-                   embalase=embalase+rsresep.getDouble("embalase");
-                   ttembalase=ttembalase+rsresep.getDouble("embalase");
-                   tuslah=tuslah+rsresep.getDouble("tuslah");
-                   tttuslah=tttuslah+rsresep.getDouble("tuslah");
-                   subtotal=subtotal+rsresep.getDouble("subtotal");
-                   ttsubtotal=ttsubtotal+rsresep.getDouble("subtotal");
-                   ttotal=ttotal+rsresep.getDouble("total");
-                   tttotal=tttotal+rsresep.getDouble("total");
-                   hrgbeli=hrgbeli+rsresep.getDouble("h_beli");
-                   tthrgbeli=tthrgbeli+rsresep.getDouble("h_beli");
-                   subhargabeli=subhargabeli+rsresep.getDouble("total_asal");
-                   ttsubhrgbeli=ttsubhrgbeli+rsresep.getDouble("total_asal");
-                   keuntungan=keuntungan+rsresep.getDouble("keuntungan");
-                   ttkeuntungan=ttkeuntungan+rsresep.getDouble("keuntungan");
+                   biaya += rsresep.getDouble("biaya_obat");
+                   ttlbiaya += rsresep.getDouble("biaya_obat");
+                   embalase += rsresep.getDouble("embalase");
+                   ttembalase += rsresep.getDouble("embalase");
+                   tuslah += rsresep.getDouble("tuslah");
+                   tttuslah += rsresep.getDouble("tuslah");
+                   subtotal += rsresep.getDouble("subtotal");
+                   ttsubtotal += rsresep.getDouble("subtotal");
+                   ttotal += rsresep.getDouble("total");
+                   tttotal += rsresep.getDouble("total");
+                   hrgbeli += rsresep.getDouble("h_beli");
+                   tthrgbeli += rsresep.getDouble("h_beli");
+                   subhargabeli += rsresep.getDouble("total_asal");
+                   ttsubhrgbeli += rsresep.getDouble("total_asal");
+                   keuntungan += rsresep.getDouble("keuntungan");
+                   ttkeuntungan += rsresep.getDouble("keuntungan");
                    tabMode.addRow(new Object[]{
                        "","   "+a+". ("+rsresep.getString("no_rawat")+") "+rsresep.getString("nm_pasien"),
                        rsresep.getString("tgl_perawatan")+" "+rsresep.getString("jam"),rsresep.getString("kode_brng")+" "+rsresep.getString("nama_brng"),

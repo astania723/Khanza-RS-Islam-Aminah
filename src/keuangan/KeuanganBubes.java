@@ -1,27 +1,17 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class KeuanganBubes extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -551,8 +541,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             if(rs.next()){  
                                 switch (rs2.getString("balance")) {
                                     case "K":
-                                        saldoakhir=saldoakhir+(rs.getDouble("kredit")-rs.getDouble("debet"));
-                                        saldoawal=saldoawal+(rs.getDouble("kredit")-rs.getDouble("debet"));
+                                        saldoakhir += (rs.getDouble("kredit")-rs.getDouble("debet"));
+                                        saldoawal += (rs.getDouble("kredit")-rs.getDouble("debet"));
                                         break;
                                     case "D":
                                         saldoakhir=saldoakhir+rs.getDouble("debet")-rs.getDouble("kredit");
@@ -593,7 +583,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         while(rs.next()){  
                             switch (rs2.getString("balance")) {
                                 case "K":
-                                    saldoakhir=saldoakhir+(rs.getDouble("kredit")-rs.getDouble("debet"));
+                                    saldoakhir += (rs.getDouble("kredit")-rs.getDouble("debet"));
                                     break;
                                 case "D":
                                     saldoakhir=saldoakhir+rs.getDouble("debet")-rs.getDouble("kredit");
@@ -644,6 +634,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getbuku_besar());
     }

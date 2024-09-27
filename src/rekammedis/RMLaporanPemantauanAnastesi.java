@@ -1,33 +1,16 @@
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -514,79 +497,79 @@ public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
         tbRiwayatKehamilan1.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KeluhanUtama.setDocument(new batasInput((int)500).getKata(KeluhanUtama));
-        RPK.setDocument(new batasInput((int)100).getKata(RPK));
-        PSK.setDocument(new batasInput((int)100).getKata(PSK));
-        RBedah.setDocument(new batasInput((int)100).getKata(RBedah));
-        Alergi.setDocument(new batasInput((int)25).getKata(Alergi));
-        KeteranganKomplikasiKehamilan.setDocument(new batasInput((int)30).getKata(KeteranganKomplikasiKehamilan));
-        UmurMinarche.setDocument(new batasInput((int)10).getKata(UmurMinarche));
-        LamaMenstruasi.setDocument(new batasInput((int)10).getKata(LamaMenstruasi));
-        BanyaknyaPembalut.setDocument(new batasInput((int)10).getKata(BanyaknyaPembalut));
-        SiklusMenstruasi.setDocument(new batasInput((int)10).getKata(SiklusMenstruasi));
-        KaliMenikah.setDocument(new batasInput((int)5).getKata(KaliMenikah));
-        UsiaKawin1.setDocument(new batasInput((int)5).getKata(UsiaKawin1));
-        UsiaKawin2.setDocument(new batasInput((int)5).getKata(UsiaKawin2));
-        UsiaKawin3.setDocument(new batasInput((int)5).getKata(UsiaKawin3));
-        G.setDocument(new batasInput((int)10).getKata(G));
-        P.setDocument(new batasInput((int)10).getKata(P));
-        A.setDocument(new batasInput((int)10).getKata(A));
-        Hidup.setDocument(new batasInput((int)10).getKata(Hidup));
-        UsiaKehamilan.setDocument(new batasInput((int)10).getKata(UsiaKehamilan));
-        ANC.setDocument(new batasInput((int)5).getKata(ANC));
-        ANCKe.setDocument(new batasInput((int)5).getKata(ANCKe));
-        LamanyaKB.setDocument(new batasInput((int)10).getKata(LamanyaKB));
-        KeteranganKomplikasiKB.setDocument(new batasInput((int)50).getKata(KeteranganKomplikasiKB));
-        BerhentiKB.setDocument(new batasInput((int)20).getKata(BerhentiKB));
-        AlasanBerhentiKB.setDocument(new batasInput((int)50).getKata(AlasanBerhentiKB));
-        KebiasaanObatDiminum.setDocument(new batasInput((int)100).getKata(KebiasaanObatDiminum));
-        KebiasaanJumlahRokok.setDocument(new batasInput((int)5).getKata(KebiasaanJumlahRokok));
-        KebiasaanJumlahAlkohol.setDocument(new batasInput((int)5).getKata(KebiasaanJumlahAlkohol));
-        KesadaranMental.setDocument(new batasInput((int)40).getKata(KesadaranMental));
-        GCS.setDocument(new batasInput((int)10).getKata(GCS));
-        TD.setDocument(new batasInput((int)8).getKata(TD));
-        Nadi.setDocument(new batasInput((int)5).getKata(Nadi));
-        RR.setDocument(new batasInput((int)5).getKata(RR));
-        Suhu.setDocument(new batasInput((int)5).getKata(Suhu));
-        SpO2.setDocument(new batasInput((int)5).getKata(SpO2));
-        BB.setDocument(new batasInput((int)5).getKata(BB));
-        TB.setDocument(new batasInput((int)5).getKata(TB));
-        LILA.setDocument(new batasInput((int)5).getKata(LILA));
-        TFU.setDocument(new batasInput((int)10).getKata(TFU));
-        TBJ.setDocument(new batasInput((int)10).getKata(TBJ));
-        Letak.setDocument(new batasInput((int)10).getKata(Letak));
-        Presentasi.setDocument(new batasInput((int)10).getKata(Presentasi));
-        Penurunan.setDocument(new batasInput((int)10).getKata(Penurunan));
-        Kontraksi.setDocument(new batasInput((int)10).getKata(Kontraksi));
-        Kekuatan.setDocument(new batasInput((int)10).getKata(Kekuatan));
-        LamanyaKontraksi.setDocument(new batasInput((int)5).getKata(LamanyaKontraksi));
-        DJJ.setDocument(new batasInput((int)5).getKata(DJJ));
-        Portio.setDocument(new batasInput((int)10).getKata(Portio));
-        PembukaanServiks.setDocument(new batasInput((int)5).getKata(PembukaanServiks));
-        Ketuban.setDocument(new batasInput((int)10).getKata(Ketuban));
-        Hodge.setDocument(new batasInput((int)10).getKata(Hodge));
-        KeteranganInspekulo.setDocument(new batasInput((int)50).getKata(KeteranganInspekulo));
-        KeteranganLakmus.setDocument(new batasInput((int)50).getKata(KeteranganLakmus));
-        KeteranganCTG.setDocument(new batasInput((int)50).getKata(KeteranganCTG));
-        KeteranganBerjalan.setDocument(new batasInput((int)50).getKata(KeteranganBerjalan));
-        KeteranganEkstrimitasAtas.setDocument(new batasInput((int)50).getKata(KeteranganEkstrimitasAtas));
-        KeteranganEkstrimitasBawah.setDocument(new batasInput((int)50).getKata(KeteranganEkstrimitasBawah));
-        KeteranganKemampuanMenggenggam.setDocument(new batasInput((int)50).getKata(KeteranganKemampuanMenggenggam));
-        KeteranganKemampuanKoordinasi.setDocument(new batasInput((int)50).getKata(KeteranganKemampuanKoordinasi));
-        KeteranganAdakahPerilaku.setDocument(new batasInput((int)50).getKata(KeteranganAdakahPerilaku));
-        KeteranganTinggalDengan.setDocument(new batasInput((int)50).getKata(KeteranganTinggalDengan));
-        KeteranganNilaiKepercayaan.setDocument(new batasInput((int)50).getKata(KeteranganNilaiKepercayaan));
-        KeteranganEdukasiPsikologis.setDocument(new batasInput((int)50).getKata(KeteranganEdukasiPsikologis));
-        KetProvokes.setDocument(new batasInput((int)50).getKata(KetProvokes));
-        KetQuality.setDocument(new batasInput((int)50).getKata(KetQuality));
-        Lokasi.setDocument(new batasInput((int)50).getKata(Lokasi));
-        Durasi.setDocument(new batasInput((int)5).getKata(Durasi));
-        KetNyeri.setDocument(new batasInput((int)50).getKata(KetNyeri));
-        KetPadaDokter.setDocument(new batasInput((int)10).getKata(KetPadaDokter));
-        KeteranganDiagnosaKhususGizi.setDocument(new batasInput((int)50).getKata(KeteranganDiagnosaKhususGizi));
-        KeteranganDiketahuiDietisen.setDocument(new batasInput((int)10).getKata(KeteranganDiketahuiDietisen));
-        Masalah.setDocument(new batasInput((int)1000).getKata(Masalah));
-        Tindakan.setDocument(new batasInput((int)1000).getKata(Tindakan));
+        KeluhanUtama.setDocument(new batasInput(500).getKata(KeluhanUtama));
+        RPK.setDocument(new batasInput(100).getKata(RPK));
+        PSK.setDocument(new batasInput(100).getKata(PSK));
+        RBedah.setDocument(new batasInput(100).getKata(RBedah));
+        Alergi.setDocument(new batasInput(25).getKata(Alergi));
+        KeteranganKomplikasiKehamilan.setDocument(new batasInput(30).getKata(KeteranganKomplikasiKehamilan));
+        UmurMinarche.setDocument(new batasInput(10).getKata(UmurMinarche));
+        LamaMenstruasi.setDocument(new batasInput(10).getKata(LamaMenstruasi));
+        BanyaknyaPembalut.setDocument(new batasInput(10).getKata(BanyaknyaPembalut));
+        SiklusMenstruasi.setDocument(new batasInput(10).getKata(SiklusMenstruasi));
+        KaliMenikah.setDocument(new batasInput(5).getKata(KaliMenikah));
+        UsiaKawin1.setDocument(new batasInput(5).getKata(UsiaKawin1));
+        UsiaKawin2.setDocument(new batasInput(5).getKata(UsiaKawin2));
+        UsiaKawin3.setDocument(new batasInput(5).getKata(UsiaKawin3));
+        G.setDocument(new batasInput(10).getKata(G));
+        P.setDocument(new batasInput(10).getKata(P));
+        A.setDocument(new batasInput(10).getKata(A));
+        Hidup.setDocument(new batasInput(10).getKata(Hidup));
+        UsiaKehamilan.setDocument(new batasInput(10).getKata(UsiaKehamilan));
+        ANC.setDocument(new batasInput(5).getKata(ANC));
+        ANCKe.setDocument(new batasInput(5).getKata(ANCKe));
+        LamanyaKB.setDocument(new batasInput(10).getKata(LamanyaKB));
+        KeteranganKomplikasiKB.setDocument(new batasInput(50).getKata(KeteranganKomplikasiKB));
+        BerhentiKB.setDocument(new batasInput(20).getKata(BerhentiKB));
+        AlasanBerhentiKB.setDocument(new batasInput(50).getKata(AlasanBerhentiKB));
+        KebiasaanObatDiminum.setDocument(new batasInput(100).getKata(KebiasaanObatDiminum));
+        KebiasaanJumlahRokok.setDocument(new batasInput(5).getKata(KebiasaanJumlahRokok));
+        KebiasaanJumlahAlkohol.setDocument(new batasInput(5).getKata(KebiasaanJumlahAlkohol));
+        KesadaranMental.setDocument(new batasInput(40).getKata(KesadaranMental));
+        GCS.setDocument(new batasInput(10).getKata(GCS));
+        TD.setDocument(new batasInput(8).getKata(TD));
+        Nadi.setDocument(new batasInput(5).getKata(Nadi));
+        RR.setDocument(new batasInput(5).getKata(RR));
+        Suhu.setDocument(new batasInput(5).getKata(Suhu));
+        SpO2.setDocument(new batasInput(5).getKata(SpO2));
+        BB.setDocument(new batasInput(5).getKata(BB));
+        TB.setDocument(new batasInput(5).getKata(TB));
+        LILA.setDocument(new batasInput(5).getKata(LILA));
+        TFU.setDocument(new batasInput(10).getKata(TFU));
+        TBJ.setDocument(new batasInput(10).getKata(TBJ));
+        Letak.setDocument(new batasInput(10).getKata(Letak));
+        Presentasi.setDocument(new batasInput(10).getKata(Presentasi));
+        Penurunan.setDocument(new batasInput(10).getKata(Penurunan));
+        Kontraksi.setDocument(new batasInput(10).getKata(Kontraksi));
+        Kekuatan.setDocument(new batasInput(10).getKata(Kekuatan));
+        LamanyaKontraksi.setDocument(new batasInput(5).getKata(LamanyaKontraksi));
+        DJJ.setDocument(new batasInput(5).getKata(DJJ));
+        Portio.setDocument(new batasInput(10).getKata(Portio));
+        PembukaanServiks.setDocument(new batasInput(5).getKata(PembukaanServiks));
+        Ketuban.setDocument(new batasInput(10).getKata(Ketuban));
+        Hodge.setDocument(new batasInput(10).getKata(Hodge));
+        KeteranganInspekulo.setDocument(new batasInput(50).getKata(KeteranganInspekulo));
+        KeteranganLakmus.setDocument(new batasInput(50).getKata(KeteranganLakmus));
+        KeteranganCTG.setDocument(new batasInput(50).getKata(KeteranganCTG));
+        KeteranganBerjalan.setDocument(new batasInput(50).getKata(KeteranganBerjalan));
+        KeteranganEkstrimitasAtas.setDocument(new batasInput(50).getKata(KeteranganEkstrimitasAtas));
+        KeteranganEkstrimitasBawah.setDocument(new batasInput(50).getKata(KeteranganEkstrimitasBawah));
+        KeteranganKemampuanMenggenggam.setDocument(new batasInput(50).getKata(KeteranganKemampuanMenggenggam));
+        KeteranganKemampuanKoordinasi.setDocument(new batasInput(50).getKata(KeteranganKemampuanKoordinasi));
+        KeteranganAdakahPerilaku.setDocument(new batasInput(50).getKata(KeteranganAdakahPerilaku));
+        KeteranganTinggalDengan.setDocument(new batasInput(50).getKata(KeteranganTinggalDengan));
+        KeteranganNilaiKepercayaan.setDocument(new batasInput(50).getKata(KeteranganNilaiKepercayaan));
+        KeteranganEdukasiPsikologis.setDocument(new batasInput(50).getKata(KeteranganEdukasiPsikologis));
+        KetProvokes.setDocument(new batasInput(50).getKata(KetProvokes));
+        KetQuality.setDocument(new batasInput(50).getKata(KetQuality));
+        Lokasi.setDocument(new batasInput(50).getKata(Lokasi));
+        Durasi.setDocument(new batasInput(5).getKata(Durasi));
+        KetNyeri.setDocument(new batasInput(50).getKata(KetNyeri));
+        KetPadaDokter.setDocument(new batasInput(10).getKata(KetPadaDokter));
+        KeteranganDiagnosaKhususGizi.setDocument(new batasInput(50).getKata(KeteranganDiagnosaKhususGizi));
+        KeteranganDiketahuiDietisen.setDocument(new batasInput(10).getKata(KeteranganDiketahuiDietisen));
+        Masalah.setDocument(new batasInput(1000).getKata(Masalah));
+        Tindakan.setDocument(new batasInput(1000).getKata(Tindakan));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -7335,6 +7318,9 @@ public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         Anamnesis.setSelectedIndex(0);
@@ -7727,7 +7713,9 @@ public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
         tampilPersalinan();
     }
     
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_ranapkebidanan());
         BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_ranapkebidanan());
@@ -7745,6 +7733,9 @@ public class RMLaporanPemantauanAnastesi extends javax.swing.JDialog {
         }            
     }
 
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

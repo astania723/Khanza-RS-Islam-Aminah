@@ -5,34 +5,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -48,6 +31,7 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
     private ResultSet rs;
     private int i=0;    
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+    private String TANGGALMUNDUR="yes";
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -156,6 +140,12 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
         ChkInput.setSelected(false);
         isForm();
         jam();
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -170,6 +160,9 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         MnCatatanCekGDS = new javax.swing.JMenuItem();
+        JK = new widget.TextBox();
+        Umur = new widget.TextBox();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -233,6 +226,15 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
             }
         });
         jPopupMenu1.add(MnCatatanCekGDS);
+
+        JK.setHighlighter(null);
+        JK.setName("JK"); // NOI18N
+
+        Umur.setHighlighter(null);
+        Umur.setName("Umur"); // NOI18N
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -708,7 +710,6 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
     private void TNoRwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRwKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             isRawat();
-            isPsien();
         }else{            
             Valid.pindah(evt,TCari,Tanggal);
         }
@@ -724,12 +725,15 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
         }else if(NIP.getText().trim().isEmpty()||NamaPetugas.getText().trim().isEmpty()){
             Valid.textKosong(NIP,"Petugas");
         }else{
-            if(Sequel.menyimpantf("catatan_cek_gds","?,?,?,?,?,?,?","Data",7,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                GDP.getText(),Insulin.getText(),ObatGula.getText(),NIP.getText()
-            })==true){
-                tampil();
-                emptTeks();
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                    simpan();
+                }
             }
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
@@ -760,7 +764,9 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                 hapus();
             }else{
                 if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -789,7 +795,14 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -842,7 +855,7 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                     "from catatan_cek_gds inner join reg_periksa on catatan_cek_gds.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on catatan_cek_gds.nip=petugas.nip where "+
-                    "catatan_cek_gds.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' order by catatan_cek_gds.tgl_perawatan",param);
+                    "catatan_cek_gds.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' order by catatan_cek_gds.tgl_perawatan,catatan_cek_gds.jam_rawat",param);
             }else{
                 Valid.MyReportqry("rptDataCatatanCekGDS.jasper","report","::[ Data Catatan Cek GDS ]::",
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -854,7 +867,7 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                     "catatan_cek_gds.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' and "+
                     "(reg_periksa.no_rawat like '%"+TCari.getText().trim()+"%' or pasien.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
                     "pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or catatan_cek_gds.nip like '%"+TCari.getText().trim()+"%' or petugas.nama like '%"+TCari.getText().trim()+"%') "+
-                    "order by catatan_cek_gds.tgl_perawatan ",param);
+                    "order by catatan_cek_gds.tgl_perawatan,catatan_cek_gds.jam_rawat ",param);
             }  
         }
         this.setCursor(Cursor.getDefaultCursor());
@@ -897,8 +910,8 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
 
     private void BtnAllKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnAllKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            tampil();
             TCari.setText("");
+            tampil();
         }else{
             Valid.pindah(evt, BtnCari, TPasien);
         }
@@ -988,7 +1001,7 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                     "catatan_cek_gds.insulin,catatan_cek_gds.obat_gula,catatan_cek_gds.nip,petugas.nama "+
                     "from catatan_cek_gds inner join reg_periksa on catatan_cek_gds.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join petugas on catatan_cek_gds.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+                    "inner join petugas on catatan_cek_gds.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' order by catatan_cek_gds.tgl_perawatan,catatan_cek_gds.jam_rawat",param);
         }
     }//GEN-LAST:event_MnCatatanCekGDSActionPerformed
 
@@ -1037,6 +1050,7 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
     private widget.PanelBiasa FormInput;
     private widget.TextBox GDP;
     private widget.TextBox Insulin;
+    private widget.TextBox JK;
     private widget.ComboBox Jam;
     private widget.Label LCount;
     private widget.ComboBox Menit;
@@ -1051,7 +1065,9 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox TglLahir;
+    private widget.TextBox Umur;
     private widget.Button btnPetugas;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel12;
@@ -1072,6 +1088,9 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1083,7 +1102,7 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                     "from catatan_cek_gds inner join reg_periksa on catatan_cek_gds.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on catatan_cek_gds.nip=petugas.nip where "+
-                    "catatan_cek_gds.tgl_perawatan between ? and ? order by catatan_cek_gds.tgl_perawatan");
+                    "catatan_cek_gds.tgl_perawatan between ? and ? order by catatan_cek_gds.tgl_perawatan,catatan_cek_gds.jam_rawat");
             }else{
                 ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -1094,7 +1113,7 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                     "inner join petugas on catatan_cek_gds.nip=petugas.nip where "+
                     "catatan_cek_gds.tgl_perawatan between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? "+
                     "or pasien.nm_pasien like ? or catatan_cek_gds.nip like ? or petugas.nama like ?) "+
-                    "order by catatan_cek_gds.tgl_perawatan ");
+                    "order by catatan_cek_gds.tgl_perawatan,catatan_cek_gds.jam_rawat ");
             }
                 
             try {
@@ -1149,6 +1168,8 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
             TNoRw.setText(tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
             TNoRM.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());
+            Umur.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());
+            JK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
             TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             Jam.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(0,2));
             Menit.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(3,5));
@@ -1160,21 +1181,47 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
         }
     }
     private void isRawat() {
-         Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat='"+TNoRw.getText()+"' ",TNoRM);
-    }
-
-    private void isPsien() {
-        Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
-        Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=? ",TglLahir,TNoRM.getText());
+        try {
+            ps=koneksi.prepareStatement(
+                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
+                    "reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.no_rawat=?");
+            try {
+                ps.setString(1,TNoRw.getText());
+                rs=ps.executeQuery();
+                if(rs.next()){
+                    TNoRM.setText(rs.getString("no_rkm_medis"));
+                    DTPCari1.setDate(rs.getDate("tgl_registrasi"));
+                    TPasien.setText(rs.getString("nm_pasien"));
+                    JK.setText(rs.getString("jk"));
+                    Umur.setText(rs.getString("umurdaftar")+" "+rs.getString("sttsumur"));
+                    TglLahir.setText(rs.getString("tgl_lahir"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : "+e);
+        }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
-        Sequel.cariIsi("select reg_periksa.tgl_registrasi from reg_periksa where reg_periksa.no_rawat='"+norwt+"'", DTPCari1);
         DTPCari2.setDate(tgl2);
         isRawat();
-        isPsien();
         ChkInput.setSelected(true);
         isForm();
     }
@@ -1193,6 +1240,9 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getcatatan_cek_gds());
         BtnHapus.setEnabled(akses.getcatatan_cek_gds());
@@ -1207,7 +1257,17 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
                 NIP.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
-        }            
+        } 
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+                ChkKejadian.setEnabled(false);
+                Jam.setEnabled(false);
+                Menit.setEnabled(false);
+                Detik.setEnabled(false);
+            }
+        }
     }
 
     private void jam(){
@@ -1264,13 +1324,26 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        Sequel.mengedit("catatan_cek_gds","tgl_perawatan=? and jam_rawat=? and no_rawat=?","no_rawat=?,tgl_perawatan=?,jam_rawat=?,gdp=?,insulin=?,obat_gula=?,nip=?",10,new String[]{
-            TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-            GDP.getText(),Insulin.getText(),ObatGula.getText(),NIP.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),6).toString(),
-            tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
-        });
-        if(tabMode.getRowCount()!=0){tampil();}
-        emptTeks();
+        if(Sequel.mengedittf("catatan_cek_gds","tgl_perawatan=? and jam_rawat=? and no_rawat=?","no_rawat=?,tgl_perawatan=?,jam_rawat=?,gdp=?,insulin=?,obat_gula=?,nip=?",10,new String[]{
+                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+                GDP.getText(),Insulin.getText(),ObatGula.getText(),NIP.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),6).toString(),
+                tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+            })==true){
+            tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
+            tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
+            tbObat.setValueAt(TPasien.getText(),tbObat.getSelectedRow(),2);
+            tbObat.setValueAt(Umur.getText(),tbObat.getSelectedRow(),3);
+            tbObat.setValueAt(JK.getText(),tbObat.getSelectedRow(),4);
+            tbObat.setValueAt(TglLahir.getText(),tbObat.getSelectedRow(),5);
+            tbObat.setValueAt(Valid.SetTgl(Tanggal.getSelectedItem()+""),tbObat.getSelectedRow(),6);
+            tbObat.setValueAt(Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),tbObat.getSelectedRow(),7);
+            tbObat.setValueAt(GDP.getText(),tbObat.getSelectedRow(),8);
+            tbObat.setValueAt(Insulin.getText(),tbObat.getSelectedRow(),9);
+            tbObat.setValueAt(ObatGula.getText(),tbObat.getSelectedRow(),10);
+            tbObat.setValueAt(NIP.getText(),tbObat.getSelectedRow(),11);
+            tbObat.setValueAt(NamaPetugas.getText(),tbObat.getSelectedRow(),12);
+            emptTeks();
+        }
     }
 
     private void hapus() {
@@ -1282,6 +1355,21 @@ public class RMDataCatatanCekGDS extends javax.swing.JDialog {
             emptTeks();
         }else{
             JOptionPane.showMessageDialog(null,"Gagal menghapus..!!");
+        }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("catatan_cek_gds","?,?,?,?,?,?,?","Data",7,new String[]{
+            TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+            GDP.getText(),Insulin.getText(),ObatGula.getText(),NIP.getText()
+        })==true){
+            tabMode.addRow(new String[]{
+                TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),TglLahir.getText(),
+                Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+                GDP.getText(),Insulin.getText(),ObatGula.getText(),NIP.getText(),NamaPetugas.getText()
+            });
+            LCount.setText(""+tabMode.getRowCount());
+            emptTeks();
         }
     }
     

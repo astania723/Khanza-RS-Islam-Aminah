@@ -6,22 +6,25 @@
 
 package widget;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.RenderingHints;
-import java.awt.geom.Area;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.border.AbstractBorder;
+import java.awt.*;
+import java.awt.geom.*;
+import javax.swing.border.*;
 
 /**
  *
  * @author khanzasoft
  */
 public class RoundedCornerBorder extends AbstractBorder{
+
+    /**
+     *
+     * @param c
+     * @param g
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     */
     @Override public void paintBorder(
       Component c, Graphics g, int x, int y, int width, int height) {
     Graphics2D g2 = (Graphics2D)g.create();
@@ -45,7 +48,14 @@ public class RoundedCornerBorder extends AbstractBorder{
   @Override public Insets getBorderInsets(Component c) {
     return new Insets(4, 8, 4, 8);
   }
-  @Override public Insets getBorderInsets(Component c, Insets insets) {
+
+    /**
+     *
+     * @param c
+     * @param insets
+     * @return
+     */
+    @Override public Insets getBorderInsets(Component c, Insets insets) {
     insets.left = insets.right = 8;
     insets.top = insets.bottom = 4;
     return insets;

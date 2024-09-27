@@ -11,45 +11,25 @@
 
 package permintaan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgPermintaanRadiologi extends javax.swing.JDialog {
+public class DlgPermintaanRadiologi extends javax.swing.JDialog {
     private DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -116,8 +96,8 @@ public final class DlgPermintaanRadiologi extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KodePerujuk.setDocument(new batasInput((byte)20).getKata(KodePerujuk));
         TNoPermintaan.setDocument(new batasInput((byte)15).getKata(TNoPermintaan));
-        InformasiTambahan.setDocument(new batasInput((int)60).getKata(InformasiTambahan));
-        DiagnosisKlinis.setDocument(new batasInput((int)80).getKata(DiagnosisKlinis));
+        InformasiTambahan.setDocument(new batasInput(60).getKata(InformasiTambahan));
+        DiagnosisKlinis.setDocument(new batasInput(80).getKata(DiagnosisKlinis));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCariPeriksa.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -1173,6 +1153,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
     
+    /**
+     *
+     */
     public void isReset(){
         jml=tbPemeriksaan.getRowCount();
         for(i=0;i<jml;i++){ 
@@ -1182,6 +1165,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         tampil2();
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TCariPeriksa.setText("");
         TNoPermintaan.requestFocus();
@@ -1319,6 +1305,13 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     * @param kddokter
+     * @param nmdokter
+     */
     public void setNoRm(String norwt,String posisi,String kddokter,String nmdokter) {
         TNoRw.setText(norwt);
         this.status=posisi;
@@ -1334,6 +1327,9 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         NmPerujuk.setText(nmdokter);
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnSimpan.setEnabled(akses.getpermintaan_radiologi());
         BtnPrint.setEnabled(akses.getpermintaan_radiologi());

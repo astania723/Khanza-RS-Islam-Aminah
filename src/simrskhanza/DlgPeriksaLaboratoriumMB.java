@@ -11,42 +11,24 @@
 
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
-import keuangan.DlgJnsPerawatanLab;
-import keuangan.Jurnal;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgPeriksaLaboratoriumMB extends javax.swing.JDialog {
+public class DlgPeriksaLaboratoriumMB extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -1331,7 +1313,7 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             for(i=0;i<tbTarif.getRowCount();i++){
                 if(tbTarif.getValueAt(i,0).toString().equals("true")){                                       
                     item=Double.parseDouble(tbTarif.getValueAt(i,3).toString());
-                    ttl=ttl+item;  
+                    ttl += item;  
                     Sequel.menyimpan("temporary_lab","'0','"+tbTarif.getValueAt(i,1).toString()+"','"+tbTarif.getValueAt(i,2).toString()+"','"+tbTarif.getValueAt(i,3).toString()+"','Pemeriksaan','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Biaya Lab");
                 }                
             }
@@ -1342,7 +1324,7 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     } catch (Exception e) {
                         item=0;
                     }                    
-                    ttl=ttl+item;  
+                    ttl += item;  
                     Sequel.menyimpan("temporary_lab","'0','"+tbPemeriksaan.getValueAt(i,15).toString()+"','"+tbPemeriksaan.getValueAt(i,1).toString()+"','"+item+"','Detail Pemeriksaan','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Biaya Lab");
                 }                
             }
@@ -1861,6 +1843,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         KodePerujuk.setText("");
         NmPerujuk.setText("");
@@ -1943,6 +1928,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         TUmur.setText(Umur.getText());
     }
     
+    /**
+     *
+     */
     public void isReset(){
         jml=tbTarif.getRowCount();
         for(i=0;i<jml;i++){ 
@@ -2007,6 +1995,11 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         new Timer(1000, taskPerformer).start();
     }
 
+    /**
+     *
+     * @param norwt
+     * @param posisi
+     */
     public void setNoRm(String norwt,String posisi) {
         noorder="";
         TNoRw.setText(norwt);
@@ -2040,6 +2033,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isReset();
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             KdPtg.setText(akses.getkode());
@@ -2252,11 +2248,22 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
+    /**
+     *
+     * @param kodeperujuk
+     * @param namaperujuk
+     */
     public void setDokterPerujuk(String kodeperujuk,String namaperujuk){
         KodePerujuk.setText(kodeperujuk);
         NmPerujuk.setText(namaperujuk);
     }
     
+    /**
+     *
+     * @param order
+     * @param norawat
+     * @param posisi
+     */
     public void setOrder(String order,String norawat,String posisi){
         noorder=order;
         TNoRw.setText(norawat);
@@ -2326,24 +2333,24 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         })==true){
                             if(!noorder.isEmpty()){
                                 if(Sequel.cariIsi("select permintaan_pemeriksaan_labmb.stts_bayar from permintaan_pemeriksaan_labmb where permintaan_pemeriksaan_labmb.noorder='"+noorder+"' and permintaan_pemeriksaan_labmb.kd_jenis_prw='"+tbTarif.getValueAt(i,1).toString()+"'").equals("Belum")){
-                                    ttlbhp=ttlbhp+Double.parseDouble(tbTarif.getValueAt(i,5).toString());
-                                    ttljmdokter=ttljmdokter+Double.parseDouble(tbTarif.getValueAt(i,7).toString());
-                                    ttljmpetugas=ttljmpetugas+Double.parseDouble(tbTarif.getValueAt(i,8).toString());
-                                    ttlkso=ttlkso+Double.parseDouble(tbTarif.getValueAt(i,9).toString()); 
-                                    ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTarif.getValueAt(i,3).toString());      
-                                    ttljasasarana=ttljasasarana+Double.parseDouble(tbTarif.getValueAt(i,4).toString());
-                                    ttljmperujuk=ttljmperujuk+Double.parseDouble(tbTarif.getValueAt(i,6).toString());
-                                    ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTarif.getValueAt(i,10).toString());
+                                    ttlbhp += Double.parseDouble(tbTarif.getValueAt(i,5).toString());
+                                    ttljmdokter += Double.parseDouble(tbTarif.getValueAt(i,7).toString());
+                                    ttljmpetugas += Double.parseDouble(tbTarif.getValueAt(i,8).toString());
+                                    ttlkso += Double.parseDouble(tbTarif.getValueAt(i,9).toString()); 
+                                    ttlpendapatan += Double.parseDouble(tbTarif.getValueAt(i,3).toString());      
+                                    ttljasasarana += Double.parseDouble(tbTarif.getValueAt(i,4).toString());
+                                    ttljmperujuk += Double.parseDouble(tbTarif.getValueAt(i,6).toString());
+                                    ttlmenejemen += Double.parseDouble(tbTarif.getValueAt(i,10).toString());
                                 }
                             }else{
-                                ttlbhp=ttlbhp+Double.parseDouble(tbTarif.getValueAt(i,5).toString());
-                                ttljmdokter=ttljmdokter+Double.parseDouble(tbTarif.getValueAt(i,7).toString());
-                                ttljmpetugas=ttljmpetugas+Double.parseDouble(tbTarif.getValueAt(i,8).toString());
-                                ttlkso=ttlkso+Double.parseDouble(tbTarif.getValueAt(i,9).toString()); 
-                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTarif.getValueAt(i,3).toString());      
-                                ttljasasarana=ttljasasarana+Double.parseDouble(tbTarif.getValueAt(i,4).toString());
-                                ttljmperujuk=ttljmperujuk+Double.parseDouble(tbTarif.getValueAt(i,6).toString());
-                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTarif.getValueAt(i,10).toString());
+                                ttlbhp += Double.parseDouble(tbTarif.getValueAt(i,5).toString());
+                                ttljmdokter += Double.parseDouble(tbTarif.getValueAt(i,7).toString());
+                                ttljmpetugas += Double.parseDouble(tbTarif.getValueAt(i,8).toString());
+                                ttlkso += Double.parseDouble(tbTarif.getValueAt(i,9).toString()); 
+                                ttlpendapatan += Double.parseDouble(tbTarif.getValueAt(i,3).toString());      
+                                ttljasasarana += Double.parseDouble(tbTarif.getValueAt(i,4).toString());
+                                ttljmperujuk += Double.parseDouble(tbTarif.getValueAt(i,6).toString());
+                                ttlmenejemen += Double.parseDouble(tbTarif.getValueAt(i,10).toString());
                             }
                                 
                     }else{
@@ -2364,24 +2371,24 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                 })==true){
                                     if(!noorder.isEmpty()){
                                         if(Sequel.cariIsi("select permintaan_detail_permintaan_labmb.stts_bayar from permintaan_detail_permintaan_labmb where permintaan_detail_permintaan_labmb.noorder='"+noorder+"' and permintaan_detail_permintaan_labmb.kd_jenis_prw='"+tbPemeriksaan.getValueAt(i,15).toString()+"' and permintaan_detail_permintaan_labmb.id_template='"+tbPemeriksaan.getValueAt(i,6).toString()+"'").equals("Belum")){
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString());
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbPemeriksaan.getValueAt(i,11).toString());
-                                            ttljmpetugas=ttljmpetugas+Double.parseDouble(tbPemeriksaan.getValueAt(i,12).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbPemeriksaan.getValueAt(i,13).toString()); 
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());     
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
-                                            ttljmperujuk=ttljmperujuk+Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbPemeriksaan.getValueAt(i,14).toString()); 
+                                            ttlbhp += Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbPemeriksaan.getValueAt(i,11).toString());
+                                            ttljmpetugas += Double.parseDouble(tbPemeriksaan.getValueAt(i,12).toString());
+                                            ttlkso += Double.parseDouble(tbPemeriksaan.getValueAt(i,13).toString()); 
+                                            ttlpendapatan += Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());     
+                                            ttljasasarana += Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
+                                            ttljmperujuk += Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
+                                            ttlmenejemen += Double.parseDouble(tbPemeriksaan.getValueAt(i,14).toString()); 
                                         }
                                     }else{
-                                        ttlbhp=ttlbhp+Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString());
-                                        ttljmdokter=ttljmdokter+Double.parseDouble(tbPemeriksaan.getValueAt(i,11).toString());
-                                        ttljmpetugas=ttljmpetugas+Double.parseDouble(tbPemeriksaan.getValueAt(i,12).toString());
-                                        ttlkso=ttlkso+Double.parseDouble(tbPemeriksaan.getValueAt(i,13).toString()); 
-                                        ttlpendapatan=ttlpendapatan+Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());     
-                                        ttljasasarana=ttljasasarana+Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
-                                        ttljmperujuk=ttljmperujuk+Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
-                                        ttlmenejemen=ttlmenejemen+Double.parseDouble(tbPemeriksaan.getValueAt(i,14).toString()); 
+                                        ttlbhp += Double.parseDouble(tbPemeriksaan.getValueAt(i,9).toString());
+                                        ttljmdokter += Double.parseDouble(tbPemeriksaan.getValueAt(i,11).toString());
+                                        ttljmpetugas += Double.parseDouble(tbPemeriksaan.getValueAt(i,12).toString());
+                                        ttlkso += Double.parseDouble(tbPemeriksaan.getValueAt(i,13).toString()); 
+                                        ttlpendapatan += Double.parseDouble(tbPemeriksaan.getValueAt(i,7).toString());     
+                                        ttljasasarana += Double.parseDouble(tbPemeriksaan.getValueAt(i,8).toString());
+                                        ttljmperujuk += Double.parseDouble(tbPemeriksaan.getValueAt(i,10).toString());
+                                        ttlmenejemen += Double.parseDouble(tbPemeriksaan.getValueAt(i,14).toString()); 
                                     }
 
                             }else{

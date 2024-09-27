@@ -1,28 +1,17 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRHKSO extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -640,21 +629,21 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             while(rsrawatjalandr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatjalandr.getString("tgl_registrasi"),rsrawatjalandr.getString("nm_pasien"),
                                     rsrawatjalandr.getString("nm_perawatan"),Valid.SetAngka(rsrawatjalandr.getDouble("kso"))});                   
-                                total=total+rsrawatjalandr.getDouble("kso");
+                                total += rsrawatjalandr.getDouble("kso");
                             }
 
                             rsrawatjalandrpr.beforeFirst();
                             while(rsrawatjalandrpr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatjalandrpr.getString("tgl_registrasi"),rsrawatjalandrpr.getString("nm_pasien"),
                                     rsrawatjalandrpr.getString("nm_perawatan"),Valid.SetAngka(rsrawatjalandrpr.getDouble("kso"))});                   
-                                total=total+rsrawatjalandrpr.getDouble("kso");
+                                total += rsrawatjalandrpr.getDouble("kso");
                             }
 
                             rsrawatjalanpr.beforeFirst();
                             while(rsrawatjalanpr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatjalanpr.getString("tgl_registrasi"),rsrawatjalanpr.getString("nm_pasien"),
                                     rsrawatjalanpr.getString("nm_perawatan"),Valid.SetAngka(rsrawatjalanpr.getDouble("kso"))});                   
-                                total=total+rsrawatjalanpr.getDouble("kso");
+                                total += rsrawatjalanpr.getDouble("kso");
                             }                           
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -738,21 +727,21 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             while(rsrawatinapdr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatinapdr.getString("tgl_perawatan")+" "+rsrawatinapdr.getString("jam_rawat"),rsrawatinapdr.getString("nm_pasien"),
                                     rsrawatinapdr.getString("nm_perawatan"),Valid.SetAngka(rsrawatinapdr.getDouble("kso"))});                   
-                                total=total+rsrawatinapdr.getDouble("kso");
+                                total += rsrawatinapdr.getDouble("kso");
                             }
 
                             rsrawatinapdrpr.beforeFirst();
                             while(rsrawatinapdrpr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatinapdrpr.getString("tgl_perawatan")+" "+rsrawatinapdrpr.getString("jam_rawat"),rsrawatinapdrpr.getString("nm_pasien"),
                                     rsrawatinapdrpr.getString("nm_perawatan"),Valid.SetAngka(rsrawatinapdrpr.getDouble("kso"))});                   
-                                total=total+rsrawatinapdrpr.getDouble("kso");
+                                total += rsrawatinapdrpr.getDouble("kso");
                             }
 
                             rsrawatinappr.beforeFirst();
                             while(rsrawatinappr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatinappr.getString("tgl_perawatan")+" "+rsrawatinappr.getString("jam_rawat"),rsrawatinappr.getString("nm_pasien"),
                                     rsrawatinappr.getString("nm_perawatan"),Valid.SetAngka(rsrawatinappr.getDouble("kso"))});                   
-                                total=total+rsrawatinappr.getDouble("kso");
+                                total += rsrawatinappr.getDouble("kso");
                             }                           
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -869,7 +858,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("nm_pasien"),
                                     rsperiksa_radiologi.getString("nm_perawatan"),Valid.SetAngka(rsperiksa_radiologi.getDouble("kso"))
                                 });    
-                                total=total+rsperiksa_radiologi.getDouble("kso");
+                                total += rsperiksa_radiologi.getDouble("kso");
                             }
                        } catch (Exception e) {
                            System.out.println("Notifikasi : "+e);
@@ -887,7 +876,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         tabMode.addRow(new Object[]{"","","Total :","","",Valid.SetAngka(total)});                    
                    }    
                    i++;
-                   totaljm=totaljm+total;
+                   totaljm += total;
                 } 
                 if(totaljm>0){
                    tabMode.addRow(new Object[]{">> ","Total KSO :","","","",Valid.SetAngka(totaljm)});     
@@ -908,6 +897,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         //BtnPrint.setEnabled(var.getharian_penjab());
     }

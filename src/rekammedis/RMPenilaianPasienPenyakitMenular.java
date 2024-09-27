@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -128,17 +111,17 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KeteranganRiwayatKontak.setDocument(new batasInput((int)70).getKata(KeteranganRiwayatKontak));
-        KeteranganTransmisiPenularan.setDocument(new batasInput((int)70).getKata(KeteranganTransmisiPenularan));
-        KeluhanYangDirasakan.setDocument(new batasInput((int)1000).getKata(KeluhanYangDirasakan));
-        RiwayatPenyakitKeluarga.setDocument(new batasInput((int)1000).getKata(RiwayatPenyakitKeluarga));
-        RiwayatAlergi.setDocument(new batasInput((int)100).getKata(RiwayatAlergi));
-        RiwayatVaksin.setDocument(new batasInput((int)100).getKata(RiwayatVaksin));
-        RiwayatPengobatan.setDocument(new batasInput((int)1000).getKata(RiwayatPengobatan));
-        DiagnosaUtama.setDocument(new batasInput((int)500).getKata(DiagnosaUtama));
-        DiagnosaTambahan.setDocument(new batasInput((int)500).getKata(DiagnosaTambahan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KeteranganRiwayatKontak.setDocument(new batasInput(70).getKata(KeteranganRiwayatKontak));
+        KeteranganTransmisiPenularan.setDocument(new batasInput(70).getKata(KeteranganTransmisiPenularan));
+        KeluhanYangDirasakan.setDocument(new batasInput(1000).getKata(KeluhanYangDirasakan));
+        RiwayatPenyakitKeluarga.setDocument(new batasInput(1000).getKata(RiwayatPenyakitKeluarga));
+        RiwayatAlergi.setDocument(new batasInput(100).getKata(RiwayatAlergi));
+        RiwayatVaksin.setDocument(new batasInput(100).getKata(RiwayatVaksin));
+        RiwayatPengobatan.setDocument(new batasInput(1000).getKata(RiwayatPengobatan));
+        DiagnosaUtama.setDocument(new batasInput(500).getKata(DiagnosaUtama));
+        DiagnosaTambahan.setDocument(new batasInput(500).getKata(DiagnosaTambahan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -467,11 +450,6 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
         TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.setPreferredSize(new java.awt.Dimension(457, 480));
-        TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TabRawatMouseClicked(evt);
-            }
-        });
 
         internalFrame2.setBorder(null);
         internalFrame2.setName("internalFrame2"); // NOI18N
@@ -661,7 +639,7 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
         label11.setBounds(380, 40, 52, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-03-2023 07:03:40" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-04-2024 10:16:59" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -947,7 +925,7 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-03-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-04-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -961,7 +939,7 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-03-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-04-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1049,7 +1027,14 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
                     KeteranganTransmisiPenularan.getText(),KebutuhanRuangRawat.getSelectedItem().toString(),KeluhanYangDirasakan.getText(),RiwayatPenyakitKeluarga.getText(),RiwayatAlergi.getText(),RiwayatVaksin.getText(),
                     RiwayatPengobatan.getText(),DiagnosaUtama.getText(),DiagnosaTambahan.getText()
                 })==true){
-                    emptTeks();
+                tabMode.addRow(new String[]{
+                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),Jk.getText(),KdDokter.getText(),NmDokter.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),
+                    Anamnesis.getSelectedItem().toString(),Hubungan.getText(),MengetahuiKondisi.getSelectedItem().toString(),PenyakitSama.getSelectedItem().toString(),RiwayatKontak.getSelectedItem().toString(),KeteranganRiwayatKontak.getText(),
+                    TransmisiPenularan.getSelectedItem().toString(),KeteranganTransmisiPenularan.getText(),KebutuhanRuangRawat.getSelectedItem().toString(),KeluhanYangDirasakan.getText(),RiwayatPenyakitKeluarga.getText(),RiwayatAlergi.getText(),
+                    RiwayatVaksin.getText(),RiwayatPengobatan.getText(),DiagnosaUtama.getText(),DiagnosaTambahan.getText()
+                });
+                LCount.setText(""+tabMode.getRowCount());
+                emptTeks();
             }
         }
     
@@ -1183,7 +1168,33 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
                     "</tr>"
                 );
                 for (i = 0; i < tabMode.getRowCount(); i++) {
-                    htmlContent.append("<tr class='isi'><td valign='top'>").append(tbObat.getValueAt(i,0).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,1).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,2).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,3).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,4).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,5).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,6).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,7).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,8).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,9).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,10).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,11).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,12).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,13).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,14).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,15).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,16).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,17).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,18).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,19).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,20).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,21).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,22).toString()).append("</td><td valign='top'>").append(tbObat.getValueAt(i,23).toString()).append("</td></tr>");
+                    htmlContent.append(
+                        "<tr class='isi'>"+
+                           "<td valign='top'>"+tbObat.getValueAt(i,0).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,1).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,2).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,3).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,4).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,5).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,6).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,7).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,8).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,9).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,10).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,11).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,12).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,13).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,14).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,15).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,16).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,17).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,18).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,19).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,20).toString()+"</td>"+ 
+                            "<td valign='top'>"+tbObat.getValueAt(i,21).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,22).toString()+"</td>"+
+                            "<td valign='top'>"+tbObat.getValueAt(i,23).toString()+"</td>"+
+                        "</tr>");
                 }
                 LoadHTML.setText(
                     "<html>"+
@@ -1194,19 +1205,19 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
                 );
 
                 File g = new File("file2.css");            
-                try (BufferedWriter bg = new BufferedWriter(new FileWriter(g))) {
-                    bg.write(
-                            ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi2 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#323232;}"+
-                                    ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi5 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#AA0000;}"+
-                                    ".isi6 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#FF0000;}"+
-                                    ".isi7 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#C8C800;}"+
-                                    ".isi8 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#00AA00;}"+
-                                    ".isi9 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#969696;}"
-                    );
-                }
+                BufferedWriter bg = new BufferedWriter(new FileWriter(g));
+                bg.write(
+                    ".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                    ".isi2 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#323232;}"+
+                    ".isi3 td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                    ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                    ".isi5 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#AA0000;}"+
+                    ".isi6 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#FF0000;}"+
+                    ".isi7 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#C8C800;}"+
+                    ".isi8 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#00AA00;}"+
+                    ".isi9 td{font: 8.5px tahoma;border:none;height:12px;background: #ffffff;color:#969696;}"
+                );
+                bg.close();
 
                 File f = new File("DataPenilaianPasienPenyakitMenular.html");            
                 BufferedWriter bw = new BufferedWriter(new FileWriter(f));            
@@ -1325,12 +1336,6 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
     private void KeluhanYangDirasakanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeluhanYangDirasakanKeyPressed
         Valid.pindah2(evt,KebutuhanRuangRawat,RiwayatPenyakitKeluarga);
     }//GEN-LAST:event_KeluhanYangDirasakanKeyPressed
-
-    private void TabRawatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMouseClicked
-        if(TabRawat.getSelectedIndex()==1){
-            tampil();
-        }
-    }//GEN-LAST:event_TabRawatMouseClicked
 
     private void MengetahuiKondisiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MengetahuiKondisiKeyPressed
         Valid.pindah(evt,Hubungan,PenyakitSama);
@@ -1522,6 +1527,9 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1591,6 +1599,9 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -1620,9 +1631,22 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());
             TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());
             Jk.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString()); 
-            Anamnesis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
-            Hubungan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
-            KeluhanYangDirasakan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
+            Anamnesis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString()); 
+            Hubungan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString()); 
+            MengetahuiKondisi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString()); 
+            PenyakitSama.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString()); 
+            RiwayatKontak.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString()); 
+            KeteranganRiwayatKontak.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString()); 
+            TransmisiPenularan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString()); 
+            KeteranganTransmisiPenularan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString()); 
+            KebutuhanRuangRawat.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString()); 
+            KeluhanYangDirasakan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString()); 
+            RiwayatPenyakitKeluarga.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString()); 
+            RiwayatAlergi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()); 
+            RiwayatVaksin.setText(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString()); 
+            RiwayatPengobatan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString()); 
+            DiagnosaUtama.setText(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString()); 
+            DiagnosaTambahan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString()); 
             Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
         }
     }
@@ -1682,6 +1706,9 @@ public class RMPenilaianPasienPenyakitMenular extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

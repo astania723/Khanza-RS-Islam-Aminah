@@ -11,26 +11,14 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -94,7 +82,7 @@ public class DlgKtgPenyakit extends javax.swing.JDialog {
 
         TKd.setDocument(new batasInput((byte)8).getKata(TKd));
         TNm.setDocument(new batasInput((byte)30).getKata(TNm));
-        TCiri.setDocument(new batasInput((int)200).getKata(TCiri));
+        TCiri.setDocument(new batasInput(200).getKata(TCiri));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -699,6 +687,9 @@ public class DlgKtgPenyakit extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -717,6 +708,10 @@ public class DlgKtgPenyakit extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKtgPny;
     }

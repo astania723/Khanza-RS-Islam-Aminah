@@ -10,33 +10,16 @@
  */
 
 package kepegawaian;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import java.util.logging.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -95,10 +78,10 @@ public class DlgBulanan extends javax.swing.JDialog {
         }
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
 
-        Nik.setDocument(new batasInput((int)25).getKata(Nik));
-        catatan.setDocument(new batasInput((int)100).getKata(catatan));
+        Nik.setDocument(new batasInput(25).getKata(Nik));
+        catatan.setDocument(new batasInput(100).getKata(catatan));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -1196,6 +1179,9 @@ public class DlgBulanan extends javax.swing.JDialog {
     private widget.Tanggal tglPulang;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{  
@@ -1310,6 +1296,9 @@ public class DlgBulanan extends javax.swing.JDialog {
         Valid.LoadTahun(ThnCari);
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpresensi_bulanan());
         BtnHapus.setEnabled(akses.getpresensi_bulanan());

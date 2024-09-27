@@ -10,35 +10,17 @@
  */
 
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import restore.DlgRestoreTarifRanap;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgKtgPerawatan;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import restore.*;
+import simrskhanza.*;
 
 /**
  *
@@ -69,19 +51,19 @@ public class DlgJnsPerawatanRanap extends javax.swing.JDialog {
                       "Ttl Biaya Pr","Ttl Biaya Dr & Pr","Jenis Bayar",
                       "Kamar","Kelas"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
                 java.lang.Double.class, java.lang.Double.class,java.lang.Double.class,java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -112,17 +94,17 @@ public class DlgJnsPerawatanRanap extends javax.swing.JDialog {
         TKd.setDocument(new batasInput((byte)15).getKata(TKd));
         TNm.setDocument(new batasInput((byte)80).getKata(TNm));
         KdKtg.setDocument(new batasInput((byte)5).getKata(KdKtg));        
-        BagianRs.setDocument(new batasInput((int)15).getOnlyAngka(BagianRs));
-        BhpMedis.setDocument(new batasInput((int)15).getOnlyAngka(BhpMedis));
-        TTndDr.setDocument(new batasInput((int)15).getOnlyAngka(TTndDr));
-        TTndPr.setDocument(new batasInput((int)15).getOnlyAngka(TTndPr));
-        TJmlDr.setDocument(new batasInput((int)20).getOnlyAngka(TJmlDr));
-        TJmlPr.setDocument(new batasInput((int)20).getOnlyAngka(TJmlPr));
-        TJmlDrPr.setDocument(new batasInput((int)20).getOnlyAngka(TJmlPr));
-        KSO.setDocument(new batasInput((int)20).getOnlyAngka(KSO));
-        Menejemen.setDocument(new batasInput((int)20).getOnlyAngka(Menejemen));
-        kdpnj.setDocument(new batasInput((int)3).getKata(kdpnj));
-        KdKamar.setDocument(new batasInput((int)5).getKata(KdKamar));
+        BagianRs.setDocument(new batasInput(15).getOnlyAngka(BagianRs));
+        BhpMedis.setDocument(new batasInput(15).getOnlyAngka(BhpMedis));
+        TTndDr.setDocument(new batasInput(15).getOnlyAngka(TTndDr));
+        TTndPr.setDocument(new batasInput(15).getOnlyAngka(TTndPr));
+        TJmlDr.setDocument(new batasInput(20).getOnlyAngka(TJmlDr));
+        TJmlPr.setDocument(new batasInput(20).getOnlyAngka(TJmlPr));
+        TJmlDrPr.setDocument(new batasInput(20).getOnlyAngka(TJmlPr));
+        KSO.setDocument(new batasInput(20).getOnlyAngka(KSO));
+        Menejemen.setDocument(new batasInput(20).getOnlyAngka(Menejemen));
+        kdpnj.setDocument(new batasInput(3).getKata(kdpnj));
+        KdKamar.setDocument(new batasInput(5).getKata(KdKamar));
 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));                  
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -247,8 +229,19 @@ public class DlgJnsPerawatanRanap extends javax.swing.JDialog {
     
     }
     
+    /**
+     *
+     */
     public DlgKtgPerawatan ktg=new DlgKtgPerawatan(null,false);
+
+    /**
+     *
+     */
     public DlgCariBangsal bangsal=new DlgCariBangsal(null,false);
+
+    /**
+     *
+     */
     public DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
 
     /** This method is called from within the constructor to
@@ -1445,6 +1438,9 @@ private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TKd.setText("");
         TNm.setText("");
@@ -1546,6 +1542,9 @@ private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettarif_ranap());
         BtnHapus.setEnabled(akses.gettarif_ranap());

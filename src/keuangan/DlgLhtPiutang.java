@@ -2,30 +2,16 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 /**
  *
@@ -56,18 +42,18 @@ public class DlgLhtPiutang extends javax.swing.JDialog {
                 "No.Rawat/No.tagihan","Tgl.Piutang","Pasien","Status","Total Piutang","Uang Muka",
                 "Cicilan","Diskon Bayar","Tidak Terbayar","Sisa Piutang","Jatuh Tempo","Cara Bayar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if (colIndex==0) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -735,6 +721,9 @@ private void MnDetailCicilanActionPerformed(java.awt.event.ActionEvent evt) {//G
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         Valid.tabelKosong(tabMode);
         try{
@@ -765,11 +754,11 @@ private void MnDetailCicilanActionPerformed(java.awt.event.ActionEvent evt) {//G
                         cicilan,diskon,tidakterbayar,(rs.getDouble(7)-cicilan-diskon-tidakterbayar),rs.getString(8),rs.getString(9)
                     });
                     sisapiutang=sisapiutang+rs.getDouble(7)-cicilan-diskon-tidakterbayar;
-                    totalpiutang=totalpiutang+rs.getDouble("totalpiutang");
-                    totalcicilan=totalcicilan+cicilan;
-                    totaluangmuka=totaluangmuka+rs.getDouble("uangmuka");
-                    totaldiskon=totaldiskon+diskon;
-                    totaltidakterbayar=totaltidakterbayar+tidakterbayar;
+                    totalpiutang += rs.getDouble("totalpiutang");
+                    totalcicilan += cicilan;
+                    totaluangmuka += rs.getDouble("uangmuka");
+                    totaldiskon += diskon;
+                    totaltidakterbayar += tidakterbayar;
                 }
             } catch (Exception e) {
                 System.out.println(e);
@@ -794,12 +783,19 @@ private void MnDetailCicilanActionPerformed(java.awt.event.ActionEvent evt) {//G
         }
     }
 
+    /**
+     *
+     * @param norm
+     * @param tgl
+     */
     public void setNoRm(String norm, Date tgl){
         TCari.setText(norm);
         Tgl1.setDate(tgl);
     }
     
-
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         MnDetailCicilan.setEnabled(akses.getbayar_piutang());

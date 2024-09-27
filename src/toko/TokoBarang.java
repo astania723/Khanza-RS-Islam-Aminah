@@ -10,29 +10,16 @@
  */
 
 package toko;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventory.DlgCariSatuan;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import restore.DlgRestoreTokoBarang;
+import fungsi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import restore.*;
 
 /**
  *
@@ -45,6 +32,10 @@ public class TokoBarang extends javax.swing.JDialog {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public DlgCariSatuan satuan=new DlgCariSatuan(null,false); 
     public TokoCariJenis jenis=new TokoCariJenis(null,false);
 
@@ -66,8 +57,7 @@ public class TokoBarang extends javax.swing.JDialog {
             };
             @Override
             public boolean isCellEditable(int rowIndex, int colIndex) {
-                boolean a = false;
-                return a;
+                return false;
             }
 
             @Override
@@ -1231,6 +1221,9 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         kode_brng.requestFocus();
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus();
     }
@@ -1252,6 +1245,10 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }
@@ -1270,6 +1267,9 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettoko_barang());
         BtnHapus.setEnabled(akses.gettoko_barang());

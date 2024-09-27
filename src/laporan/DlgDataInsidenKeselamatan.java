@@ -11,42 +11,21 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.*;
+import org.jfree.data.category.*;
+import org.jfree.data.general.*;
 
 
 /**
@@ -139,14 +118,14 @@ public class DlgDataInsidenKeselamatan extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         nip.setDocument(new batasInput((byte)20).getKata(nip));
         KodeInsiden.setDocument(new batasInput((byte)5).getKata(KodeInsiden));
-        Lokasi.setDocument(new batasInput((int)60).getKata(Lokasi));
-        UnitTerkait.setDocument(new batasInput((int)60).getKata(UnitTerkait));
-        Akibat.setDocument(new batasInput((int)150).getKata(Akibat));
-        Tindakan.setDocument(new batasInput((int)150).getKata(Tindakan));
-        Identifikasi.setDocument(new batasInput((int)150).getKata(Identifikasi));
-        TindakLanjut.setDocument(new batasInput((int)150).getKata(TindakLanjut));
-        Kronologis.setDocument(new batasInput((int)300).getKata(Kronologis));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Lokasi.setDocument(new batasInput(60).getKata(Lokasi));
+        UnitTerkait.setDocument(new batasInput(60).getKata(UnitTerkait));
+        Akibat.setDocument(new batasInput(150).getKata(Akibat));
+        Tindakan.setDocument(new batasInput(150).getKata(Tindakan));
+        Identifikasi.setDocument(new batasInput(150).getKata(Identifikasi));
+        TindakLanjut.setDocument(new batasInput(150).getKata(TindakLanjut));
+        Kronologis.setDocument(new batasInput(300).getKata(Kronologis));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1824,6 +1803,13 @@ public class DlgDataInsidenKeselamatan extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     * @param unit
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2,String unit) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

@@ -11,20 +11,13 @@
 
 package inventory;
 
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -67,7 +60,7 @@ public class DlgAturanPakai extends javax.swing.JDialog {
         }
 
         tbkabupaten.setDefaultRenderer(Object.class, new WarnaTable());
-        Nama.setDocument(new batasInput((int)150).getKata(Nama));
+        Nama.setDocument(new batasInput(150).getKata(Nama));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -326,9 +319,13 @@ public class DlgAturanPakai extends javax.swing.JDialog {
         if(Nama.getText().trim().isEmpty()){
             Valid.textKosong(Nama,"Kabupaten");
         }else{
-            Sequel.menyimpan("master_aturan_pakai","'"+Nama.getText()+"'","Aturan Pakai");
-            tampil();
-            emptTeks();
+            if(Sequel.menyimpantf("master_aturan_pakai","'"+Nama.getText()+"'","Aturan Pakai")==true){
+                tabMode.addRow(new String[]{
+                    Nama.getText()
+                });
+                LCount.setText(""+tabMode.getRowCount());
+                emptTeks();
+            }
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
@@ -351,9 +348,13 @@ public class DlgAturanPakai extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnBatalKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        Valid.hapusTable(tabMode,Nama,"master_aturan_pakai","aturan");
-        tampil();
-        emptTeks();
+        if(Valid.hapusTabletf(tabMode,Nama,"master_aturan_pakai","aturan")==true){
+            if(tbkabupaten.getSelectedRow()!= -1){
+                tabMode.removeRow(tbkabupaten.getSelectedRow());
+                emptTeks();
+                LCount.setText(""+tabMode.getRowCount());
+            }
+        }
 }//GEN-LAST:event_BtnHapusActionPerformed
 
     private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnHapusKeyPressed
@@ -515,6 +516,9 @@ public class DlgAturanPakai extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Nama.setText("");
         TCari.setText("");
@@ -527,10 +531,17 @@ public class DlgAturanPakai extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbkabupaten;
     }
     
+    /**
+     *
+     */
     public void onCari(){
         TCari.requestFocus();
     }

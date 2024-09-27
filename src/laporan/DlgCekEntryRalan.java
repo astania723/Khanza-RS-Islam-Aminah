@@ -11,23 +11,13 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -384,6 +374,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){        
         try{   
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
@@ -402,32 +395,32 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 ttlobat=0;ttldiagnosa=0;ttlprosedur=0;ttlbilling=0;
                 while(rs.next()){
                     kamarinap=Sequel.cariInteger("select count(distinct no_rawat) from reg_periksa where status_lanjut='Ranap' and tgl_registrasi=?",rs.getString(1));
-                    ttlkamarinap=ttlkamarinap+kamarinap;
-                    ttlregistrasi=ttlregistrasi+rs.getInt(2);
+                    ttlkamarinap += kamarinap;
+                    ttlregistrasi += rs.getInt(2);
                     tnddokter=Sequel.cariInteger("select count(distinct no_rawat) from rawat_jl_dr where tgl_perawatan=? ",rs.getString(1));
-                    ttltnddokter=ttltnddokter+tnddokter;
+                    ttltnddokter += tnddokter;
                     tndpetugas=Sequel.cariInteger("select count(distinct no_rawat) from rawat_jl_pr where tgl_perawatan=? ",rs.getString(1));
-                    ttltndpetugas=ttltndpetugas+tndpetugas;
+                    ttltndpetugas += tndpetugas;
                     tnddrpr=Sequel.cariInteger("select count(distinct no_rawat) from rawat_jl_drpr where tgl_perawatan=? ",rs.getString(1));
-                    ttltnddrpr=ttltnddrpr+tnddrpr;
+                    ttltnddrpr += tnddrpr;
                     pemeriksaan=Sequel.cariInteger("select count(distinct no_rawat) from pemeriksaan_ralan where tgl_perawatan=? ",rs.getString(1));
-                    ttlpemeriksaan=ttlpemeriksaan+pemeriksaan;
+                    ttlpemeriksaan += pemeriksaan;
                     laborat=Sequel.cariInteger("select count(distinct no_rawat) from periksa_lab where status='Ralan' and tgl_periksa=? ",rs.getString(1));
-                    ttllaborat=ttllaborat+laborat;
+                    ttllaborat += laborat;
                     radiologi=Sequel.cariInteger("select count(distinct no_rawat) from periksa_radiologi where status='Ralan' and tgl_periksa=? ",rs.getString(1));
-                    ttlradiologi=ttlradiologi+radiologi;
+                    ttlradiologi += radiologi;
                     operasi=Sequel.cariInteger("select count(distinct no_rawat) from operasi where status='Ralan' and DATE_FORMAT(tgl_operasi, '%y-%m-%d')=? ",rs.getString(1));
-                    ttloperasi=ttloperasi+operasi;
+                    ttloperasi += operasi;
                     obat=Sequel.cariInteger("select count(distinct no_rawat) from detail_pemberian_obat where status='Ralan' and tgl_perawatan=? ",rs.getString(1));
-                    ttlobat=ttlobat+obat;
+                    ttlobat += obat;
                     diagnosa=Sequel.cariInteger("select count(distinct diagnosa_pasien.no_rawat) from diagnosa_pasien inner join reg_periksa "+
                             " on diagnosa_pasien.no_rawat=reg_periksa.no_rawat where diagnosa_pasien.status='Ralan' and reg_periksa.tgl_registrasi=?",rs.getString(1));
-                    ttldiagnosa=ttldiagnosa+diagnosa;
+                    ttldiagnosa += diagnosa;
                     prosedur=Sequel.cariInteger("select count(distinct prosedur_pasien.no_rawat) from prosedur_pasien inner join reg_periksa "+
                             " on prosedur_pasien.no_rawat=reg_periksa.no_rawat where prosedur_pasien.status='Ralan' and reg_periksa.tgl_registrasi=?",rs.getString(1));
-                    ttlprosedur=ttlprosedur+prosedur;
+                    ttlprosedur += prosedur;
                     billing=Sequel.cariInteger("select count(distinct no_rawat) from nota_jalan where tanggal=?",rs.getString(1));
-                    ttlbilling=ttlbilling+billing;
+                    ttlbilling += billing;
                     tabMode.addRow(new Object[]{
                        rs.getString(1),rs.getString(2),kamarinap,tnddokter,tndpetugas,
                        tnddrpr,pemeriksaan,laborat,radiologi,operasi,obat,diagnosa,

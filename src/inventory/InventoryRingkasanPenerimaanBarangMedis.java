@@ -1,36 +1,33 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
+import fungsi.*;
 import static fungsi.akses.getringkasan_penerimaan_obat;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventoryRingkasanPenerimaanBarangMedis extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  InventoryCariSuplier suplier=new InventoryCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  DlgBarang barang=new DlgBarang(null,false);
     private PreparedStatement ps;
@@ -48,11 +45,11 @@ public class InventoryRingkasanPenerimaanBarangMedis extends javax.swing.JDialog
         
         Object[] row={"Kode Barang","Nama Barang","Satuan","Jenis","Jumlah","Total","Kode Sat"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Double.class, java.lang.Double.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              /*Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };*/
@@ -1370,7 +1367,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 rs=ps.executeQuery();
                 tagihan=0;
                 while(rs.next()){
-                    tagihan=tagihan+rs.getDouble("total");
+                    tagihan += rs.getDouble("total");
                     tabMode.addRow(new Object[]{
                         rs.getString("kode_brng"),rs.getString("nama_brng"),rs.getString("satuan"),rs.getString("namajenis"),rs.getDouble("jumlah"),rs.getDouble("total"),rs.getString("kode_sat")
                     });   
@@ -1391,6 +1388,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
@@ -1398,6 +1398,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(getringkasan_penerimaan_obat());
     }

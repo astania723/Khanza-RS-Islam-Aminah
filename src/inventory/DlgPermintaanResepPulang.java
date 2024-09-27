@@ -11,32 +11,17 @@
  */
 
 package inventory;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class DlgPermintaanResepPulang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -46,7 +31,15 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
     private PreparedStatement pstampil;
     private ResultSet rstampil;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
+
+    /**
+     *
+     */
     public DlgCariAturanPakai aturanpakaiobat=new DlgCariAturanPakai(null,false);
     private double ttl=0,y=0,ppnobat=0,stokobat,kenaikan=0;
     private int jml=0,i=0,index=0;
@@ -65,19 +58,19 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
         tabMode=new DefaultTableModel(null,new Object[]{
                 "Jumlah","Aturan Pakai","Kode Barang","Nama Barang","Jenis","Satuan","Kps","Stok","Harga","HargaBeli","Subtotal"
             }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==0)||(colIndex==1)||(colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==14)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==1)||(colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==14)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1354,13 +1347,13 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                  } catch (Exception e) {
                      y=0;
                  }
-                 ttl=ttl+y;
+                 ttl += y;
             }
             LTotal.setText(Valid.SetAngka(ttl));
             ppnobat=0;
             if(tampilkan_ppnobat_ranap.equals("Yes")){
                  ppnobat=ttl*0.11;
-                 ttl=ttl+ppnobat;
+                 ttl += ppnobat;
                  LPpn.setText(Valid.SetAngka(ppnobat));
             }
             LTotalTagihan.setText(Valid.SetAngka(ttl));
@@ -1755,13 +1748,13 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
              } catch (Exception e) {
                  y=0;
              }
-             ttl=ttl+y;
+             ttl += y;
         }
         LTotal.setText(Valid.SetAngka(ttl));
         ppnobat=0;
         if(tampilkan_ppnobat_ranap.equals("Yes")){
              ppnobat=ttl*0.11;
-             ttl=ttl+ppnobat;
+             ttl += ppnobat;
              LPpn.setText(Valid.SetAngka(ppnobat));
         }
         LTotalTagihan.setText(Valid.SetAngka(ttl));

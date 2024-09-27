@@ -1,28 +1,18 @@
 package keuangan;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPegawai;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class KeuanganJasaTindakan extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -925,16 +915,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                             }
@@ -1004,16 +994,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1091,17 +1081,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1168,16 +1158,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1228,16 +1218,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1339,16 +1329,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                             }
@@ -1420,16 +1410,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1509,17 +1499,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1588,16 +1578,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1650,16 +1640,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1761,16 +1751,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                             }
@@ -1842,16 +1832,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -1931,17 +1921,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2010,16 +2000,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2072,16 +2062,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2182,16 +2172,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                             }
@@ -2262,16 +2252,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2350,17 +2340,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2428,16 +2418,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2489,16 +2479,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2598,16 +2588,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                             }
@@ -2678,16 +2668,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2765,17 +2755,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2842,16 +2832,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -2902,16 +2892,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasasarana)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamedis)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(bhp)).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(total)).append("</td></tr>");
                     }
@@ -3009,16 +2999,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                             }
@@ -3088,16 +3078,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3175,17 +3165,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3252,16 +3242,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3312,16 +3302,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3423,16 +3413,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                             }
@@ -3504,16 +3494,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3593,17 +3583,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3672,16 +3662,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3734,16 +3724,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -3845,16 +3835,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                             }
@@ -3926,16 +3916,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4015,17 +4005,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4094,16 +4084,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4156,16 +4146,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4266,16 +4256,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                             }
@@ -4346,16 +4336,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4434,17 +4424,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4512,16 +4502,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4573,16 +4563,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4682,16 +4672,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                       Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
                                       Sequel.cariIsiAngka("select sum(rawat_jl_drpr.biaya_rawat) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
 
-                                subjasasarana=subjasasarana+jasasarana;
-                                ttljasasarana=ttljasasarana+jasasarana;
-                                subjasamedis=subjasamedis+jasamedis;
-                                ttljasamedis=ttljasamedis+jasamedis;
-                                subjasamenejemen=subjasamenejemen+jasamenejemen;
-                                ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                                subbhp=subbhp+bhp;
-                                ttlbhp=ttlbhp+bhp;
-                                subtotal=subtotal+total;
-                                ttltotal=ttltotal+total;
+                                subjasasarana += jasasarana;
+                                ttljasasarana += jasasarana;
+                                subjasamedis += jasamedis;
+                                ttljasamedis += jasamedis;
+                                subjasamenejemen += jasamenejemen;
+                                ttljasamenejemen += jasamenejemen;
+                                subbhp += bhp;
+                                ttlbhp += bhp;
+                                subtotal += total;
+                                ttltotal += total;
 
                                 htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs2.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs2.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs2.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs2.getString("tgl_registrasi")).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                             }
@@ -4762,16 +4752,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                               Sequel.cariIsiAngka("select sum(rawat_inap_pr.biaya_rawat) from rawat_inap_pr where rawat_inap_pr.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(rawat_inap_drpr.biaya_rawat) from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4849,17 +4839,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 "sum(operasi.biaya_dokter_umum)+sum(operasi.biayaalat)+sum(operasi.biayasewaok)+sum(operasi.akomodasi)+"+
                                 "sum(operasi.bagian_rs)+sum(operasi.biayasarpras) from operasi where operasi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
 
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
 
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
 
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4926,16 +4916,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         total=Sequel.cariIsiAngka("select sum(periksa_lab.biaya) from periksa_lab where periksa_lab.no_rawat=? ",rs.getString("no_rawat"))+
                               Sequel.cariIsiAngka("select sum(detail_periksa_lab.biaya_item) from detail_periksa_lab where detail_periksa_lab.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }
@@ -4986,16 +4976,16 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         bhp=Sequel.cariIsiAngka("select sum(periksa_radiologi.bhp) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
                         total=Sequel.cariIsiAngka("select sum(periksa_radiologi.biaya) from periksa_radiologi where periksa_radiologi.no_rawat=? ",rs.getString("no_rawat"));
 
-                        subjasasarana=subjasasarana+jasasarana;
-                        ttljasasarana=ttljasasarana+jasasarana;
-                        subjasamedis=subjasamedis+jasamedis;
-                        ttljasamedis=ttljasamedis+jasamedis;
-                        subjasamenejemen=subjasamenejemen+jasamenejemen;
-                        ttljasamenejemen=ttljasamenejemen+jasamenejemen;
-                        subbhp=subbhp+bhp;
-                        ttlbhp=ttlbhp+bhp;
-                        subtotal=subtotal+total;
-                        ttltotal=ttltotal+total;
+                        subjasasarana += jasasarana;
+                        ttljasasarana += jasasarana;
+                        subjasamedis += jasamedis;
+                        ttljasamedis += jasamedis;
+                        subjasamenejemen += jasamenejemen;
+                        ttljasamenejemen += jasamenejemen;
+                        subbhp += bhp;
+                        ttlbhp += bhp;
+                        subtotal += total;
+                        ttltotal += total;
 
                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(rs.getString("no_rawat")).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut").equals("Ralan")?rs.getString("tgl_registrasi"):Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00','Belum Pulang',kamar_inap.tgl_keluar) from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1 ",rs.getString("no_rawat"))).append("</td><td valign='middle' align='right'>").append(Math.round(jasasarana)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamedis)).append("</td><td valign='middle' align='right'>").append(Math.round(jasamenejemen)).append("</td><td valign='middle' align='right'>").append(Math.round(bhp)).append("</td><td valign='middle' align='right'>").append(Math.round(total)).append("</td></tr>");
                     }

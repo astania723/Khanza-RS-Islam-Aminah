@@ -11,33 +11,15 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgCariPoli;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 /**
  *
@@ -845,6 +827,9 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
         Valid.tabelKosong(tabMode);
@@ -883,44 +868,44 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         while(rs2.next()){
                             switch (rs2.getString("status")) {
                                 case "Laborat":
-                                    ttlLaborat=ttlLaborat+rs2.getDouble("totalbiaya");
-                                    Laborat=Laborat+rs2.getDouble("totalbiaya");
+                                    ttlLaborat += rs2.getDouble("totalbiaya");
+                                    Laborat += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Radiologi":
-                                    ttlRadiologi=ttlRadiologi+rs2.getDouble("totalbiaya");
-                                    Radiologi=Radiologi+rs2.getDouble("totalbiaya");
+                                    ttlRadiologi += rs2.getDouble("totalbiaya");
+                                    Radiologi += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Obat":
-                                    ttlObat=ttlObat+rs2.getDouble("totalbiaya");
-                                    Obat=Obat+rs2.getDouble("totalbiaya");
+                                    ttlObat += rs2.getDouble("totalbiaya");
+                                    Obat += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Ralan Dokter":
-                                    ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble("totalbiaya");
-                                    Ralan_Dokter=Ralan_Dokter+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Dokter += rs2.getDouble("totalbiaya");
+                                    Ralan_Dokter += rs2.getDouble("totalbiaya");
                                     break;     
                                 case "Ralan Dokter Paramedis":
-                                    ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble("totalbiaya");
-                                    Ralan_Dokter_paramedis=Ralan_Dokter_paramedis+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Dokter += rs2.getDouble("totalbiaya");
+                                    Ralan_Dokter_paramedis += rs2.getDouble("totalbiaya");
                                     break;    
                                 case "Ralan Paramedis":
-                                    ttlRalan_Paramedis=ttlRalan_Paramedis+rs2.getDouble("totalbiaya");
-                                    Ralan_Paramedis=Ralan_Paramedis+rs2.getDouble("totalbiaya");
+                                    ttlRalan_Paramedis += rs2.getDouble("totalbiaya");
+                                    Ralan_Paramedis += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Tambahan":
-                                    ttlTambahan=ttlTambahan+rs2.getDouble("totalbiaya");
-                                    Tambahan=Tambahan+rs2.getDouble("totalbiaya");
+                                    ttlTambahan += rs2.getDouble("totalbiaya");
+                                    Tambahan += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Potongan":
-                                    ttlPotongan=ttlPotongan+rs2.getDouble("totalbiaya");
-                                    Potongan=Potongan+rs2.getDouble("totalbiaya");
+                                    ttlPotongan += rs2.getDouble("totalbiaya");
+                                    Potongan += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Registrasi":
-                                    ttlRegistrasi=ttlRegistrasi+rs2.getDouble("totalbiaya");
-                                    Registrasi=Registrasi+rs2.getDouble("totalbiaya");
+                                    ttlRegistrasi += rs2.getDouble("totalbiaya");
+                                    Registrasi += rs2.getDouble("totalbiaya");
                                     break;
                                 case "Operasi":
-                                    ttlOperasi=ttlOperasi+rs2.getDouble("totalbiaya");
-                                    Operasi=Operasi+rs2.getDouble("totalbiaya");
+                                    ttlOperasi += rs2.getDouble("totalbiaya");
+                                    Operasi += rs2.getDouble("totalbiaya");
                                     break;
                             }                                
                         }
@@ -936,15 +921,15 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         }
                     }
                     ekses=rs.getDouble("uangmuka");
-                    ttlekses=ttlekses+ekses;
+                    ttlekses += ekses;
                     dibayar=Sequel.cariIsiAngka("select sum(bayar_piutang.besar_cicilan) from bayar_piutang where bayar_piutang.no_rawat=?",rs.getString("no_rawat"));
-                    ttldibayar=ttldibayar+dibayar;
+                    ttldibayar += dibayar;
                     diskon=Sequel.cariIsiAngka("select sum(bayar_piutang.diskon_piutang) from bayar_piutang where bayar_piutang.no_rawat=?",rs.getString("no_rawat"));
-                    ttldiskon=ttldiskon+diskon;
+                    ttldiskon += diskon;
                     tidakdibayar=Sequel.cariIsiAngka("select sum(bayar_piutang.tidak_terbayar) from bayar_piutang where bayar_piutang.no_rawat=?",rs.getString("no_rawat"));
-                    ttltidakdibayar=ttltidakdibayar+tidakdibayar;
+                    ttltidakdibayar += tidakdibayar;
                     sisa=rs.getDouble("totalpiutang")-ekses-dibayar-diskon-tidakdibayar;
-                    ttlsisa=ttlsisa+sisa;
+                    ttlsisa += sisa;
 
                     tabMode.addRow(new Object[] {
                         rs.getString("tgl_registrasi"),

@@ -6,34 +6,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -126,9 +109,9 @@ public class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        HasilSkrining.setDocument(new batasInput((int)200).getKata(HasilSkrining));
-        Saran.setDocument(new batasInput((int)200).getKata(Saran));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        HasilSkrining.setDocument(new batasInput(200).getKata(HasilSkrining));
+        Saran.setDocument(new batasInput(200).getKata(Saran));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1548,6 +1531,9 @@ public class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1624,6 +1610,9 @@ public class RMPenilaianLanjutanRisikoJatuhDewasa extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.setDate(new Date());
         SkalaResiko1.setSelectedIndex(0);

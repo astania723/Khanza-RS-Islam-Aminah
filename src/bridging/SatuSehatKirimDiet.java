@@ -4,41 +4,24 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import org.springframework.http.*;
 
 /**
  *
  * @author dosen
  */
-public final class SatuSehatKirimDiet extends javax.swing.JDialog {
+public class SatuSehatKirimDiet extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -561,17 +544,17 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                         headers.setContentType(MediaType.APPLICATION_JSON);
                         headers.add("Authorization", "Bearer "+api.TokenSatuSehat());
                         json = "{" +
-                                    "\"resourceType\" : \"Composition\" ," +
+                                    "\"resourceType\" : \"Composition\"," +
                                     "\"identifier\" : {" +
-                                        "\"system\" : \"http://sys-ids.kemkes.go.id/composition/10000004\"," +
-                                        "\"value\" : \"P20240001\"" +
+                                        "\"system\" : \"http://sys-ids.kemkes.go.id/composition/"+koneksiDB.IDSATUSEHAT()+"\"," +
+                                        "\"value\" : \""+tbObat.getValueAt(i,2).toString()+"\"" +
                                     "}," +
                                     "\"status\" : \"final\"," +
                                     "\"type\" : {" +
                                         "\"coding\" : [" +
                                             "{" +
-                                                "\"system\" : \"http://loinc.org\" ," +
-                                                "\"code\" : \"18842-5\" ," +
+                                                "\"system\" : \"http://loinc.org\"," +
+                                                "\"code\" : \"18842-5\"," +
                                                 "\"display\" : \"Discharge summary\"" +
                                             "}" +
                                         "]" +
@@ -580,29 +563,29 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                                         "{" +
                                             "\"coding\" : [" +
                                                 "{" +
-                                                    "\"system\" : \"http://loinc.org\" ," +
-                                                    "\"code\" : \"LP173421-1\" ," +
+                                                    "\"system\" : \"http://loinc.org\"," +
+                                                    "\"code\" : \"LP173421-1\"," +
                                                     "\"display\" : \"Report\"" +
                                                 "}" +
                                             "]" +
                                         "}" +
                                     "]," +
                                     "\"subject\" : {" +
-                                        "\"reference\" : \"Patient/"+idpasien+"\" ," +
+                                        "\"reference\" : \"Patient/"+idpasien+"\"," +
                                         "\"display\" : \""+tbObat.getValueAt(i,4).toString()+"\"" +
                                     "}," +
                                     "\"encounter\" : {" +
                                         "\"reference\" : \"Encounter/"+tbObat.getValueAt(i,6).toString()+"\","+
                                         "\"display\" : \"Kunjungan "+tbObat.getValueAt(i,4).toString()+" pada tanggal "+tbObat.getValueAt(i,1).toString()+" dengan nomor kunjungan "+tbObat.getValueAt(i,2).toString()+"\""+
                                     "}," +
-                                    "\"date\" : \""+tbObat.getValueAt(i,10).toString().substring(0,10)+"\" ," +
+                                    "\"date\" : \""+tbObat.getValueAt(i,10).toString().replaceAll(" ","T")+"01+07:00\" ," +
                                     "\"author\" : [" +
                                         "{" +
-                                            "\"reference\" : \"Practitioner/"+idpraktisi+"\" ," +
+                                            "\"reference\" : \"Practitioner/"+idpraktisi+"\"," +
                                             "\"display\" : \""+tbObat.getValueAt(i,8).toString()+"\"" +
                                         "}" +
                                     "]," +
-                                    "\"title\" : \"Modul Gizi\" ," +
+                                    "\"title\" : \"Modul Gizi\"," +
                                     "\"custodian\" : {" +
                                         "\"reference\" : \"Organization/"+koneksiDB.IDSATUSEHAT()+"\"" +
                                     "}," +
@@ -611,14 +594,14 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                                             "\"code\" : {" +
                                                 "\"coding\" : [" +
                                                     "{" +
-                                                        "\"system\" : \"http://loinc.org\" ," +
-                                                        "\"code\" : \"42344-2\" ," +
+                                                        "\"system\" : \"http://loinc.org\"," +
+                                                        "\"code\" : \"42344-2\"," +
                                                         "\"display\" : \"Discharge diet (narrative)\"" +
                                                     "}" +
                                                 "]" +
                                             "}," +
                                             "\"text\" : {" +
-                                                "\"status\" : \"additional\" ," +
+                                                "\"status\" : \"additional\"," +
                                                 "\"div\" : \""+tbObat.getValueAt(i,7).toString()+"\"" +
                                             "}" +
                                         "}" +
@@ -632,9 +615,12 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                         root = mapper.readTree(json);
                         response = root.path("id");
                         if(!response.asText().isEmpty()){
-                            Sequel.menyimpan("satu_sehat_diet","?,?,?","Diet/Gizi",5,new String[]{
-                                tbObat.getValueAt(i,2).toString(),tbObat.getValueAt(i,10).toString(),response.asText()
-                            });
+                            if(Sequel.menyimpantf2("satu_sehat_diet","?,?,?","Diet/Gizi",3,new String[]{
+                                tbObat.getValueAt(i,2).toString(),tbObat.getValueAt(i,10).toString().substring(0,19),response.asText()
+                            })==true){
+                                tbObat.setValueAt(response.asText(),i,11);
+                                tbObat.setValueAt(false,i,0);
+                            }
                         }
                     }catch(Exception e){
                         System.out.println("Notifikasi Bridging : "+e);
@@ -644,7 +630,6 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                 }
             }
         }
-        tampil();
     }//GEN-LAST:event_BtnKirimActionPerformed
 
     private void ppPilihSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppPilihSemuaActionPerformed
@@ -673,8 +658,8 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                                     "\"resourceType\" : \"Composition\"," +
                                     "\"id\": \""+tbObat.getValueAt(i,11).toString()+"\"," +
                                     "\"identifier\" : {" +
-                                        "\"system\" : \"http://sys-ids.kemkes.go.id/composition/10000004\"," +
-                                        "\"value\" : \"P20240001\"" +
+                                        "\"system\" : \"http://sys-ids.kemkes.go.id/composition/"+koneksiDB.IDSATUSEHAT()+"\"," +
+                                        "\"value\" : \""+tbObat.getValueAt(i,2).toString()+"\"" +
                                     "}," +
                                     "\"status\" : \"final\"," +
                                     "\"type\" : {" +
@@ -705,7 +690,7 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                                         "\"reference\" : \"Encounter/"+tbObat.getValueAt(i,6).toString()+"\","+
                                         "\"display\" : \"Kunjungan "+tbObat.getValueAt(i,4).toString()+" pada tanggal "+tbObat.getValueAt(i,1).toString()+" dengan nomor kunjungan "+tbObat.getValueAt(i,2).toString()+"\""+
                                     "}," +
-                                    "\"date\" : \""+tbObat.getValueAt(i,10).toString().substring(0,10)+"\" ," +
+                                    "\"date\" : \""+tbObat.getValueAt(i,10).toString().replaceAll(" ","T")+"+07:00\" ," +
                                     "\"author\" : [" +
                                         "{" +
                                             "\"reference\" : \"Practitioner/"+idpraktisi+"\" ," +
@@ -729,7 +714,7 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                                             "}," +
                                             "\"text\" : {" +
                                                 "\"status\" : \"additional\" ," +
-                                                "\"div\" : \""+tbObat.getValueAt(i,7).toString()+"\"" +
+                                                "\"div\" : \""+tbObat.getValueAt(i,7).toString().replaceAll("(\r\n|\r|\n|\n\r)","<br>").replaceAll("\t", " ")+"\"" +
                                             "}" +
                                         "}" +
                                     "]" +
@@ -739,6 +724,7 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                         requestEntity = new HttpEntity(json,headers);
                         json=api.getRest().exchange(link+"/Composition/"+tbObat.getValueAt(i,11).toString(), HttpMethod.PUT, requestEntity, String.class).getBody();
                         System.out.println("Result JSON : "+json);
+                        tbObat.setValueAt(false,i,0);
                     }catch(Exception e){
                         System.out.println("Notifikasi Bridging : "+e);
                     }
@@ -747,7 +733,6 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                 }
             }
         }
-        tampil();
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void BtnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllActionPerformed
@@ -810,7 +795,8 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
     private void tampil() {
         Valid.tabelKosong(tabMode);
         try{
-            ps=koneksi.prepareStatement("select reg_periksa.tgl_registrasi,reg_periksa.jam_reg,reg_periksa.no_rawat,reg_periksa.no_rkm_medis,"+
+            ps=koneksi.prepareStatement(
+                   "select reg_periksa.tgl_registrasi,reg_periksa.jam_reg,reg_periksa.no_rawat,reg_periksa.no_rkm_medis,"+
                    "pasien.nm_pasien,pasien.no_ktp,satu_sehat_encounter.id_encounter,catatan_adime_gizi.instruksi,"+
                    "pegawai.nama,pegawai.no_ktp as ktppraktisi,catatan_adime_gizi.tanggal,"+
                    "ifnull(satu_sehat_diet.id_diet,'') as satu_sehat_diet "+
@@ -823,9 +809,7 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                    "and satu_sehat_diet.tanggal=catatan_adime_gizi.tanggal "+
                    "where catatan_adime_gizi.instruksi<>'' and nota_jalan.tanggal between ? and ? "+
                    (TCari.getText().isEmpty()?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
-                   "pasien.nm_pasien like ? or pasien.no_ktp like ? or pegawai.no_ktp like ? or pegawai.nama like ?) ")+
-                   "order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
-                   "reg_periksa.no_rawat,catatan_adime_gizi.tanggal");
+                   "pasien.nm_pasien like ? or pasien.no_ktp like ? or pegawai.no_ktp like ? or pegawai.nama like ?) "));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -856,7 +840,8 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                 }
             }
             
-            ps=koneksi.prepareStatement("select reg_periksa.tgl_registrasi,reg_periksa.jam_reg,reg_periksa.no_rawat,reg_periksa.no_rkm_medis,"+
+            ps=koneksi.prepareStatement(
+                   "select reg_periksa.tgl_registrasi,reg_periksa.jam_reg,reg_periksa.no_rawat,reg_periksa.no_rkm_medis,"+
                    "pasien.nm_pasien,pasien.no_ktp,satu_sehat_encounter.id_encounter,catatan_adime_gizi.instruksi,"+
                    "pegawai.nama,pegawai.no_ktp as ktppraktisi,catatan_adime_gizi.tanggal,"+
                    "ifnull(satu_sehat_diet.id_diet,'') as satu_sehat_diet "+
@@ -869,9 +854,7 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
                    "and satu_sehat_diet.tanggal=catatan_adime_gizi.tanggal "+
                    "where catatan_adime_gizi.instruksi<>'' and nota_inap.tanggal between ? and ? "+
                    (TCari.getText().isEmpty()?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
-                   "pasien.nm_pasien like ? or pasien.no_ktp like ? or pegawai.no_ktp like ? or pegawai.nama like ?) ")+
-                   "order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
-                   "reg_periksa.no_rawat,catatan_adime_gizi.tanggal");
+                   "pasien.nm_pasien like ? or pasien.no_ktp like ? or pegawai.no_ktp like ? or pegawai.nama like ?) "));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -912,6 +895,10 @@ public final class SatuSehatKirimDiet extends javax.swing.JDialog {
         BtnPrint.setEnabled(akses.getsatu_sehat_kirim_diet());
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

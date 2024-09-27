@@ -1,28 +1,12 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgCariPoli;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 public class DlgRBTindakanPoli extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -719,7 +703,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsobat.next()){
                       obat=rsobat.getDouble(1); 
                    }
-                   ttlobat=ttlobat+obat;
+                   ttlobat += obat;
                    
                    obatlangsung=0;
                    psobatlangsung.setString(1,rsdokter.getString(1));
@@ -730,7 +714,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsobatlangsung.next()){
                       obatlangsung=rsobatlangsung.getDouble(1); 
                    }
-                   ttlobatlangsung=ttlobatlangsung+obatlangsung;
+                   ttlobatlangsung += obatlangsung;
                    
                    laborat=0;
                    pslaborat.setString(1,rsdokter.getString(1));
@@ -761,7 +745,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rstambahan.next()){
                       tambahan=rstambahan.getDouble(1); 
                    }
-                   ttltambahan=ttltambahan+tambahan;
+                   ttltambahan += tambahan;
                    
                    potongan=0;
                    pspotongan.setString(1,rsdokter.getString(1));
@@ -772,7 +756,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rspotongan.next()){
                       potongan=rspotongan.getDouble(1); 
                    }
-                   ttlpotongan=ttlpotongan+potongan;
+                   ttlpotongan += potongan;
                    
                    registrasi=0;
                    psregistrasi.setString(1,rsdokter.getString(1));
@@ -783,7 +767,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsregistrasi.next()){
                       registrasi=rsregistrasi.getDouble(1); 
                    }  
-                   ttlregistrasi=ttlregistrasi+registrasi;
+                   ttlregistrasi += registrasi;
                    
                    radiologi=0;
                    psradiologi.setString(1,rsdokter.getString(1));
@@ -794,7 +778,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsradiologi.next()){
                       radiologi=rsradiologi.getDouble(1); 
                    }
-                   ttlradiologi=ttlradiologi+radiologi;
+                   ttlradiologi += radiologi;
                    
                    ttlbiaya=ttlbiaya+jm+jm2+obat+obatlangsung+laborat+radiologi+itemlaborat+tambahan+registrasi-potongan;
                    tabMode.addRow(new Object[]{"",a+". "+rsdokter.getString(2),rsdokter.getString(3),Valid.SetAngka(obat+obatlangsung),Valid.SetAngka(laborat+itemlaborat),Valid.SetAngka(jm+jm2),Valid.SetAngka(tambahan),Valid.SetAngka(potongan),Valid.SetAngka(registrasi),Valid.SetAngka(radiologi),Valid.SetAngka(jm+jm2+obat+obatlangsung+laborat+radiologi+itemlaborat+tambahan+registrasi-potongan)});
@@ -863,7 +847,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsobat.next()){
                       obat=rsobat.getDouble(1); 
                    }
-                   ttlobat=ttlobat+obat;
+                   ttlobat += obat;
                    
                    obatlangsung=0;
                    psobatlangsung.setString(1,rsdokter.getString(1));
@@ -874,7 +858,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsobatlangsung.next()){
                       obatlangsung=rsobatlangsung.getDouble(1); 
                    }
-                   ttlobatlangsung=ttlobatlangsung+obatlangsung;
+                   ttlobatlangsung += obatlangsung;
                    
                    laborat=0;
                    pslaborat.setString(1,rsdokter.getString(1));
@@ -905,7 +889,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rstambahan.next()){
                       tambahan=rstambahan.getDouble(1); 
                    }
-                   ttltambahan=ttltambahan+tambahan;
+                   ttltambahan += tambahan;
                    
                    potongan=0;
                    pspotongan.setString(1,rsdokter.getString(1));
@@ -916,7 +900,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rspotongan.next()){
                       potongan=rspotongan.getDouble(1); 
                    }
-                   ttlpotongan=ttlpotongan+potongan;
+                   ttlpotongan += potongan;
                    
                    registrasi=0;
                    psregistrasi.setString(1,rsdokter.getString(1));
@@ -927,7 +911,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsregistrasi.next()){
                       registrasi=rsregistrasi.getDouble(1); 
                    }  
-                   ttlregistrasi=ttlregistrasi+registrasi;
+                   ttlregistrasi += registrasi;
                    
                    radiologi=0;
                    psradiologi.setString(1,rsdokter.getString(1));
@@ -938,7 +922,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                    if(rsradiologi.next()){
                       radiologi=rsradiologi.getDouble(1); 
                    }
-                   ttlradiologi=ttlradiologi+radiologi;
+                   ttlradiologi += radiologi;
                    
                    ttlbiaya=ttlbiaya+jm+jm2+obat+obatlangsung+laborat+radiologi+itemlaborat+tambahan+registrasi-potongan;
                    tabMode.addRow(new Object[]{"",a+". "+rsdokter.getString(2),rsdokter.getString(3),Valid.SetAngka(obat+obatlangsung),Valid.SetAngka(laborat+itemlaborat),Valid.SetAngka(jm+jm2),Valid.SetAngka(tambahan),Valid.SetAngka(potongan),Valid.SetAngka(registrasi),Valid.SetAngka(radiologi),Valid.SetAngka(jm+jm2+obat+obatlangsung+laborat+radiologi+itemlaborat+tambahan+registrasi-potongan)});
@@ -1143,7 +1127,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                             if(rsdetailobat.next()){
                                 detailobat=rsdetailobat.getDouble(1);
                             }
-                            ttlobat=ttlobat+detailobat;
+                            ttlobat += detailobat;
 
                             detailobatlangsung=0;
                             psdetailobatlangsung.setString(1,rspasien.getString(4));
@@ -1155,7 +1139,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                             if(rsdetailobatlangsung.next()){
                                 detailobatlangsung=rsdetailobatlangsung.getDouble(1);
                             }
-                            ttlobatlangsung=ttlobatlangsung+detailobatlangsung;
+                            ttlobatlangsung += detailobatlangsung;
 
                             detaillaborat=0;
                             psdetaillaborat.setString(1,rspasien.getString(4));
@@ -1177,7 +1161,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                                  }
                                  detaillaborat=rsdetaillaborat.getDouble(1)+detailitemlaborat;
                             }
-                            ttllaborat=ttllaborat+detaillaborat;
+                            ttllaborat += detaillaborat;
 
                             detailtambahan=0;
                             psdetailtambahan.setString(1,rspasien.getString(4));
@@ -1189,7 +1173,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                             if(rsdetailtambahan.next()){
                                 detailtambahan=rsdetailtambahan.getDouble(1);
                             }
-                            ttltambahan=ttltambahan+detailtambahan;
+                            ttltambahan += detailtambahan;
 
                             detailpotongan=0;
                             psdetailpotongan.setString(1,rspasien.getString(4));
@@ -1201,7 +1185,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                             if(rsdetailpotongan.next()){
                                 detailpotongan=rsdetailpotongan.getDouble(1);
                             }
-                            ttlpotongan=ttlpotongan+detailpotongan;
+                            ttlpotongan += detailpotongan;
 
                             detailregistrasi=0;
                             psdetailregistrasi.setString(1,rspasien.getString(4));
@@ -1213,7 +1197,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                             if(rsdetailregistrasi.next()){
                                 detailregistrasi=rsdetailregistrasi.getDouble(1);
                             }
-                            ttlregistrasi=ttlregistrasi+detailregistrasi;
+                            ttlregistrasi += detailregistrasi;
                             
                             detailradiologi=0;
                             psdetailradiologi.setString(1,rspasien.getString(4));
@@ -1225,7 +1209,7 @@ private void ppTampilkanPasienBtnPrintActionPerformed(java.awt.event.ActionEvent
                             if(rsdetailradiologi.next()){
                                  detailradiologi=rsdetailradiologi.getDouble(1);
                             }
-                            ttlradiologi=ttlradiologi+detailradiologi;
+                            ttlradiologi += detailradiologi;
                             
                             ttlbiaya=ttlbiaya+detaillaborat+detailradiologi+detailobat+detailobatlangsung-detailpotongan+detailregistrasi+detailtambahan+detailtindakan+detailtindakan2;
 

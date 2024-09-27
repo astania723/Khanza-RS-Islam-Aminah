@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPegawai;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -146,30 +129,30 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
         JumlahSaudara.setDocument(new batasInput((byte)2).getKata(JumlahSaudara));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KekerasanYangDialami.setDocument(new batasInput((int)350).getKata(KekerasanYangDialami));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KekerasanYangDialami.setDocument(new batasInput(350).getKata(KekerasanYangDialami));
         TempatKejadian.setDocument(new batasInput((byte)40).getKata(TempatKejadian));
         LamaKekerasan.setDocument(new batasInput((byte)2).getKata(LamaKekerasan));
         JumlahSaudara.setDocument(new batasInput((byte)2).getKata(JumlahSaudara));
-        SeberapaSeringPenganiayaan.setDocument(new batasInput((int)150).getKata(SeberapaSeringPenganiayaan));
-        PemicuKekerasan.setDocument(new batasInput((int)150).getKata(PemicuKekerasan));
-        SiapaYangMelakukanKekerasan.setDocument(new batasInput((int)50).getKata(SiapaYangMelakukanKekerasan));
-        DampakYangTerjadi.setDocument(new batasInput((int)200).getKata(DampakYangTerjadi));
-        TandaYangDidapatkan.setDocument(new batasInput((int)350).getKata(TandaYangDidapatkan));
-        RiwayatKelainan.setDocument(new batasInput((int)50).getKata(RiwayatKelainan));
-        PemeriksaanKepala.setDocument(new batasInput((int)50).getKata(PemeriksaanKepala));
-        PemeriksaanThoraks.setDocument(new batasInput((int)50).getKata(PemeriksaanThoraks));
-        PemeriksaanLeher.setDocument(new batasInput((int)50).getKata(PemeriksaanLeher));
-        PemeriksaanAbdomen.setDocument(new batasInput((int)50).getKata(PemeriksaanAbdomen));
-        PemeriksaanGenitalia.setDocument(new batasInput((int)50).getKata(PemeriksaanGenitalia));
-        PemeriksaanEkstrimitasAtas.setDocument(new batasInput((int)50).getKata(PemeriksaanEkstrimitasAtas));
-        PemeriksaanEkstrimitasBawah.setDocument(new batasInput((int)50).getKata(PemeriksaanEkstrimitasBawah));
-        PemeriksaanAnus.setDocument(new batasInput((int)50).getKata(PemeriksaanAnus));
+        SeberapaSeringPenganiayaan.setDocument(new batasInput(150).getKata(SeberapaSeringPenganiayaan));
+        PemicuKekerasan.setDocument(new batasInput(150).getKata(PemicuKekerasan));
+        SiapaYangMelakukanKekerasan.setDocument(new batasInput(50).getKata(SiapaYangMelakukanKekerasan));
+        DampakYangTerjadi.setDocument(new batasInput(200).getKata(DampakYangTerjadi));
+        TandaYangDidapatkan.setDocument(new batasInput(350).getKata(TandaYangDidapatkan));
+        RiwayatKelainan.setDocument(new batasInput(50).getKata(RiwayatKelainan));
+        PemeriksaanKepala.setDocument(new batasInput(50).getKata(PemeriksaanKepala));
+        PemeriksaanThoraks.setDocument(new batasInput(50).getKata(PemeriksaanThoraks));
+        PemeriksaanLeher.setDocument(new batasInput(50).getKata(PemeriksaanLeher));
+        PemeriksaanAbdomen.setDocument(new batasInput(50).getKata(PemeriksaanAbdomen));
+        PemeriksaanGenitalia.setDocument(new batasInput(50).getKata(PemeriksaanGenitalia));
+        PemeriksaanEkstrimitasAtas.setDocument(new batasInput(50).getKata(PemeriksaanEkstrimitasAtas));
+        PemeriksaanEkstrimitasBawah.setDocument(new batasInput(50).getKata(PemeriksaanEkstrimitasBawah));
+        PemeriksaanAnus.setDocument(new batasInput(50).getKata(PemeriksaanAnus));
         
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1755,6 +1738,9 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1826,6 +1812,9 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         Anamnesis.setSelectedIndex(0);
@@ -1942,6 +1931,9 @@ public class RMPenilaianKorbanKekerasan extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

@@ -1,24 +1,13 @@
 package bridging;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -1160,6 +1149,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {     
         Valid.tabelKosong(tabMode);
         try{    
@@ -1209,6 +1201,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         NoRM.setText("");
         NamaPasien.setText("");
@@ -1270,12 +1265,21 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getperawatan_pasien_corona());
         BtnHapus.setEnabled(akses.getperawatan_pasien_corona());
         BtnEdit.setEnabled(akses.getperawatan_pasien_corona());
     }
     
+    /**
+     *
+     * @param norawat
+     * @param norm
+     * @param namapasien
+     */
     public void setPasien(String norawat,String norm,String namapasien){
         NoRawat.setText(norawat);
         NoRM.setText(norm);
@@ -1287,6 +1291,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isForm(); 
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

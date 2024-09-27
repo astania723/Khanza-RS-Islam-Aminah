@@ -1,37 +1,30 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPegawai;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class KeuanganCariPenagihanPiutangPasien extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
     private DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     private DlgAkunPenagihanPiutang akuntagih=new DlgAkunPenagihanPiutang(null,false);
@@ -1199,8 +1192,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                                 "","",rs2.getString("tgl_piutang"),rs2.getString("nip"),rs2.getString("nama_perusahaan"),rs2.getString("no_rawat"),
                                 rs2.getString("no_peserta"),Valid.SetAngka(rs2.getDouble("sisapiutang")),rs2.getString("no_rkm_medis")+" "+rs2.getString("nm_pasien"),rs2.getString("status_lanjut")
                             }); 
-                            nilaitagihan=nilaitagihan+rs2.getDouble("sisapiutang");
-                            totaltagihan=totaltagihan+rs2.getDouble("sisapiutang");
+                            nilaitagihan += rs2.getDouble("sisapiutang");
+                            totaltagihan += rs2.getDouble("sisapiutang");
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -1250,6 +1243,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         TCari.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         if(akses.getkode().equals("Admin Utama")){

@@ -1,40 +1,23 @@
 /*
- * Kontribusi dari M. Syukur RS. Jiwa Prov Sultra
+ * By Mas Elkhanza
  */
 
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -127,18 +110,18 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KetAlloAuto.setDocument(new batasInput((int)2000).getKata(KetAlloAuto));
-        Ciriyangmenyolok.setDocument(new batasInput((int)1000).getKata(Ciriyangmenyolok));
-        Hasilpsikotes.setDocument(new batasInput((int)2000).getKata(Hasilpsikotes));
-        Kepribadian.setDocument(new batasInput((int)3000).getKata(Kepribadian));
-        Psikodinamika.setDocument(new batasInput((int)3000).getKata(Psikodinamika));
-        Kesimpulanpsikolog.setDocument(new batasInput((int)50).getKata(Kesimpulanpsikolog));
-        KetLokalis.setDocument(new batasInput((int)3000).getKata(KetLokalis));
-        Hasilpsikotes.setDocument(new batasInput((int)3000).getKata(Hasilpsikotes));
-        Kepribadian.setDocument(new batasInput((int)500).getKata(Kepribadian));
-        Psikodinamika.setDocument(new batasInput((int)5000).getKata(Psikodinamika));
-        Kesimpulanpsikolog.setDocument(new batasInput((int)1000).getKata(Kesimpulanpsikolog));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KetAlloAuto.setDocument(new batasInput(2000).getKata(KetAlloAuto));
+        Ciriyangmenyolok.setDocument(new batasInput(1000).getKata(Ciriyangmenyolok));
+        Hasilpsikotes.setDocument(new batasInput(2000).getKata(Hasilpsikotes));
+        Kepribadian.setDocument(new batasInput(3000).getKata(Kepribadian));
+        Psikodinamika.setDocument(new batasInput(3000).getKata(Psikodinamika));
+        Kesimpulanpsikolog.setDocument(new batasInput(50).getKata(Kesimpulanpsikolog));
+        KetLokalis.setDocument(new batasInput(3000).getKata(KetLokalis));
+        Hasilpsikotes.setDocument(new batasInput(3000).getKata(Hasilpsikotes));
+        Kepribadian.setDocument(new batasInput(500).getKata(Kepribadian));
+        Psikodinamika.setDocument(new batasInput(5000).getKata(Psikodinamika));
+        Kesimpulanpsikolog.setDocument(new batasInput(1000).getKata(Kesimpulanpsikolog));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -891,7 +874,7 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
         Informasi.setBounds(84, 70, 128, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-06-2022 23:53:44" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-12-2023 13:46:54" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1000,7 +983,7 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-06-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1014,7 +997,7 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-06-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1217,7 +1200,7 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'><b>Tgl.Lahir</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'><b>J.K.</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='80px'><b>NIP</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'><b>Nama Dokter</b></td>"+
+                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'><b>Nama Petugas</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'><b>Tanggal</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='72px'><b>Dikirim Dari</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='62px'><b>Tujuan Pemeriksaan</b></td>"+
@@ -1410,10 +1393,6 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());          
             param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-            try {
-                param.put("lokalis",getClass().getResource("/picture/semua.png").openStream());
-            } catch (Exception e) {
-            } 
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.isEmpty()?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
             
@@ -1680,6 +1659,9 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Informasi.setSelectedIndex(0);
         Dikirimdari.setSelectedIndex(0);
@@ -1760,6 +1742,11 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1784,6 +1771,9 @@ public class RMPenilaianPsikologi extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

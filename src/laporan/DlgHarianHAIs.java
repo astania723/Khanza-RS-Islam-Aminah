@@ -1,28 +1,17 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgHarianHAIs extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -610,37 +599,37 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     deku=0;urine=0;sputum=0;darah=0;antibiotik=0;
                     if(rs.getString("DEKU").equals("IYA")){
                         deku=1;
-                        jmldeku=jmldeku+1;
+                        jmldeku += 1;
                     }
                     if(!rs.getString("URINE").isEmpty()){
                         urine=1;
-                        jmlurine=jmlurine+1;
+                        jmlurine += 1;
                     }
                     if(!rs.getString("SPUTUM").isEmpty()){
                         sputum=1;
-                        jmlsputum=jmlsputum+1;
+                        jmlsputum += 1;
                     }
                     if(!rs.getString("DARAH").isEmpty()){
                         darah=1;
-                        jmldarah=jmldarah+1;
+                        jmldarah += 1;
                     }
                     if(!rs.getString("ANTIBIOTIK").isEmpty()){
                         antibiotik=1;
-                        jmlANTIBIOTIK=jmlANTIBIOTIK+1;
+                        jmlANTIBIOTIK += 1;
                     }
                     
-                    jmlETT=jmlETT+rs.getInt("ETT");
-                    jmlCVL=jmlCVL+rs.getInt("CVL");
-                    jmlIVL=jmlIVL+rs.getInt("IVL");
-                    jmlUC=jmlUC+rs.getInt("UC");
-                    jmlVAP=jmlVAP+rs.getInt("VAP");
-                    jmlIAD=jmlIAD+rs.getInt("IAD");
-                    jmlPLEB=jmlPLEB+rs.getInt("PLEB");
-                    jmlISK=jmlISK+rs.getInt("ISK");
-                    jmlILO=jmlILO+rs.getInt("ILO");
-                    jmlHAP=jmlHAP+rs.getInt("HAP");
-                    jmlTinea=jmlTinea+rs.getInt("Tinea");
-                    jmlScabies=jmlScabies+rs.getInt("Scabies");
+                    jmlETT += rs.getInt("ETT");
+                    jmlCVL += rs.getInt("CVL");
+                    jmlIVL += rs.getInt("IVL");
+                    jmlUC += rs.getInt("UC");
+                    jmlVAP += rs.getInt("VAP");
+                    jmlIAD += rs.getInt("IAD");
+                    jmlPLEB += rs.getInt("PLEB");
+                    jmlISK += rs.getInt("ISK");
+                    jmlILO += rs.getInt("ILO");
+                    jmlHAP += rs.getInt("HAP");
+                    jmlTinea += rs.getInt("Tinea");
+                    jmlScabies += rs.getInt("Scabies");
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("tanggal")).append("</td><td valign='middle' align='center'>").append(rs.getString("ETT")).append("</td><td valign='middle' align='center'>").append(rs.getString("CVL")).append("</td><td valign='middle' align='center'>").append(rs.getString("IVL")).append("</td><td valign='middle' align='center'>").append(rs.getString("UC")).append("</td><td valign='middle' align='center'>").append(rs.getString("VAP")).append("</td><td valign='middle' align='center'>").append(rs.getString("IAD")).append("</td><td valign='middle' align='center'>").append(rs.getString("PLEB")).append("</td><td valign='middle' align='center'>").append(rs.getString("ISK")).append("</td><td valign='middle' align='center'>").append(rs.getString("ILO")).append("</td><td valign='middle' align='center'>").append(rs.getString("HAP")).append("</td><td valign='middle' align='center'>").append(rs.getString("Tinea")).append("</td><td valign='middle' align='center'>").append(rs.getString("Scabies")).append("</td><td valign='middle' align='center'>").append(deku).append("</td><td valign='middle' align='center'>").append(sputum).append("</td><td valign='middle' align='center'>").append(darah).append("</td><td valign='middle' align='center'>").append(urine).append("</td><td valign='middle' align='center'>").append(antibiotik).append("</td><td valign='middle' align='left'>").append(rs.getString("ruang")).append("</td></tr>");
                     i++;
                 }
@@ -671,6 +660,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getharian_HAIs());
     }

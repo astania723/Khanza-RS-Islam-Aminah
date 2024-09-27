@@ -1,53 +1,26 @@
 package permintaan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.security.*;
+import java.security.cert.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.apache.http.conn.scheme.Scheme;
+import javax.crypto.spec.*;
+import javax.net.ssl.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
-import simrskhanza.DlgPasien;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
+import simrskhanza.*;
 
 /**
  *
@@ -76,6 +49,12 @@ public class DlgPengingatVaksin extends javax.swing.JDialog {
     private Scheme scheme;
     private HttpComponentsClientHttpRequestFactory factory;
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {
@@ -1369,6 +1348,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     */
     public void setNoRm(String norm,String nama) {
         TNoRM.setText(norm);
         TPasien.setText(nama);
@@ -1378,6 +1362,15 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil();
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param kodepoli
+     * @param namapoli
+     * @param kodedokter
+     * @param namadokter
+     */
     public void setNoRm(String norm,String nama,String kodepoli,String namapoli,String kodedokter,String namadokter) {
         TNoRM.setText(norm);
         TPasien.setText(nama);

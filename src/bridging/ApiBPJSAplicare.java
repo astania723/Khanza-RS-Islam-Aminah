@@ -1,29 +1,22 @@
 package bridging;
 
-import fungsi.koneksiDB;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.Mac;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import org.apache.http.conn.scheme.Scheme;
+import fungsi.*;
+import java.io.*;
+import java.security.*;
+import java.security.cert.*;
+import javax.crypto.*;
+import javax.crypto.spec.*;
+import javax.net.ssl.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.security.crypto.codec.Base64;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.client.*;
+import org.springframework.security.crypto.codec.*;
+import org.springframework.web.client.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiBPJSAplicare {        
     private String Key,Consid;
     private String salt;
@@ -38,6 +31,9 @@ public class ApiBPJSAplicare {
     private HttpComponentsClientHttpRequestFactory factory;
     private ApiBPJSAesKeySpec mykey;
     
+    /**
+     *
+     */
     public ApiBPJSAplicare(){
         try {           
             Key = koneksiDB.SECRETKEYAPIAPLICARE();
@@ -47,6 +43,11 @@ public class ApiBPJSAplicare {
         }
     }
     
+    /**
+     *
+     * @param utc
+     * @return
+     */
     public String getHmac(String utc) {               
         salt = Consid +"&"+utc;
 	generateHmacSHA256Signature = null;
@@ -82,6 +83,10 @@ public class ApiBPJSAplicare {
         return data;
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;

@@ -1,35 +1,33 @@
 package ipsrs;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class IPSRSCariPembelian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private PreparedStatement ps,ps2,pscaribeli,psipsrsdetailbeli;
@@ -581,13 +579,9 @@ public class IPSRSCariPembelian extends javax.swing.JDialog {
         panelisi3.add(label13);
         label13.setBounds(305, 40, 80, 23);
 
+        kdsup.setEditable(false);
         kdsup.setName("kdsup"); // NOI18N
         kdsup.setPreferredSize(new java.awt.Dimension(80, 23));
-        kdsup.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                kdsupKeyPressed(evt);
-            }
-        });
         panelisi3.add(kdsup);
         kdsup.setBounds(389, 10, 80, 23);
 
@@ -711,20 +705,6 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         barang.setAlwaysOnTop(false);
         barang.setVisible(true);
     }//GEN-LAST:event_btnBarangActionPerformed
-
-    private void kdsupKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdsupKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
-            Sequel.cariIsi("select ipsrssuplier.nama_suplier from ipsrssuplier where ipsrssuplier.kode_suplier=?", nmsup,kdsup.getText());            
-        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
-            Sequel.cariIsi("select ipsrssuplier.nama_suplier from ipsrssuplier where ipsrssuplier.kode_suplier=?", nmsup,kdsup.getText());
-            NoFaktur.requestFocus();
-        }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            Sequel.cariIsi("select ipsrssuplier.nama_suplier from ipsrssuplier where ipsrssuplier.kode_suplier=?", nmsup,kdsup.getText());
-            kdptg.requestFocus();
-        }else if(evt.getKeyCode()==KeyEvent.VK_UP){
-            btnSuplierActionPerformed(null);
-        }
-    }//GEN-LAST:event_kdsupKeyPressed
 
     private void NoFakturKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoFakturKeyPressed
         Valid.pindah(evt, BtnKeluar, kdsup);
@@ -1082,7 +1062,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         tabMode.addRow(new Object[]{"","","","","","PPN",":","","","","",Valid.SetAngka(rs.getDouble("ppn"))});
                         tabMode.addRow(new Object[]{"","","","","","Biaya Tambahan",":","","","","",Valid.SetAngka(rs.getDouble("meterai"))});
                         tabMode.addRow(new Object[]{"","","","","","Tagihan",":","","","","",Valid.SetAngka(rs.getDouble("tagihan"))});
-                        tagihan=tagihan+rs.getDouble("tagihan");
+                        tagihan += rs.getDouble("tagihan");
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
                     } finally{
@@ -1110,12 +1090,18 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getipsrs_pengadaan_barang());
         if(akses.getkode().equals("Admin Utama")){

@@ -1,35 +1,21 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgDetailJMDokter extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -59,12 +45,12 @@ public class DlgDetailJMDokter extends javax.swing.JDialog {
 
         Object[] row={"No.","Nama Dokter","Nama Pasien","Ruang","Jenis Bayar","Nama Tindakan","Tarif","Jml","Biaya","Paket BHP/Obat","J.M.Dokter","J.S.Rmh Skt"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, 
                 java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1270,11 +1256,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralan.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralan.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_registrasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                             c++;
@@ -1334,11 +1320,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralandrpr.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralandrpr.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_registrasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                             c++;
@@ -1405,11 +1391,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakan_dokter");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_periksa"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (P.J. Rad)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakan_dokter"),rstindakan.getDouble("bagian_rs")}); 
                                             c++;
@@ -1473,11 +1459,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_perujuk");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_perujuk");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_periksa"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Perujuk Rad)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_perujuk"),0}); 
                                             c++;
@@ -1571,7 +1557,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -1677,7 +1663,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_perujuk")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -1768,10 +1754,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator1.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator1.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator1");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator1");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_operasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Operator 1)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),0,rstindakan.getDouble("biayaoperator1"),rstindakan.getDouble("bagian_rs")}); 
                                             c++;
@@ -1834,10 +1820,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator2");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator2");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_operasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Operator 2)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),0,rstindakan.getDouble("biayaoperator2"),0}); 
                                             c++;
@@ -1900,10 +1886,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator3.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator3.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator3");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator3");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_operasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Operator 3)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),0,rstindakan.getDouble("biayaoperator3"),0}); 
                                             c++;
@@ -1966,10 +1952,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_operasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Dokter Anak)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),0,rstindakan.getDouble("biayadokter_anak"),0}); 
                                             c++;
@@ -2032,10 +2018,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anestesi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anestesi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anestesi");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anestesi");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_operasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Dokter Anestesi)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),0,rstindakan.getDouble("biayadokter_anestesi"),0}); 
                                             c++;
@@ -2098,10 +2084,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_pjanak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_pjanak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_pjanak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_pjanak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_operasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Dokter Pj Anak)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),0,rstindakan.getDouble("biaya_dokter_pjanak"),0}); 
                                             c++;
@@ -2164,10 +2150,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_umum.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_umum.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_umum");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_umum");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             tabMode.addRow(new Object[]{"",c+". "+rspasien.getString("tgl_operasi"),rspasien.getString("no_rkm_medis")+" "+rspasien.getString("nm_pasien"),rspasien.getString("nm_poli"),rspasien.getString("png_jawab"),rstindakan.getString("nm_perawatan")+" (Dokter Umum)",rstindakan.getDouble("total_byr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),0,rstindakan.getDouble("biaya_dokter_umum"),0}); 
                                             c++;
@@ -2311,11 +2297,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                         pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                         rstindakan=pstindakanranap.executeQuery();
                                         while(rstindakan.next()){
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
-                                            ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                            ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                            ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                            ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                            ttljml += rstindakan.getDouble("jml");
+                                            ttlbiaya += rstindakan.getDouble("total");
+                                            ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                            ttluangrs += rstindakan.getDouble("material");
+                                            ttlbhp += rstindakan.getDouble("bhp");
                                             if(a==1){
                                                 tabMode.addRow(new Object[]{"",c+". "+tanggal,pasien,kamar,penjab,rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                                 c++;
@@ -2455,11 +2441,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                         pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                         rstindakan=pstindakanranapdrpr.executeQuery();
                                         while(rstindakan.next()){
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
-                                            ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                            ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                            ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                            ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                            ttljml += rstindakan.getDouble("jml");
+                                            ttlbiaya += rstindakan.getDouble("total");
+                                            ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                            ttluangrs += rstindakan.getDouble("material");
+                                            ttlbhp += rstindakan.getDouble("bhp");
                                             if(a==1){
                                                 tabMode.addRow(new Object[]{"",c+". "+tanggal,pasien,kamar,penjab,rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                                 c++;
@@ -2553,11 +2539,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                         pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                         rstindakan=pstindakanranap.executeQuery();
                                         while(rstindakan.next()){
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
-                                            ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                            ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                            ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                            ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                            ttljml += rstindakan.getDouble("jml");
+                                            ttlbiaya += rstindakan.getDouble("total");
+                                            ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                            ttluangrs += rstindakan.getDouble("material");
+                                            ttlbhp += rstindakan.getDouble("bhp");
                                             if(a==1){
                                                 tabMode.addRow(new Object[]{"",c+". "+tanggal,pasien,kamar,penjab,rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                                 c++;
@@ -2602,11 +2588,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,norawatbayi);
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     tabMode.addRow(new Object[]{"",c+". "+tanggal,pasien,kamar,penjab,rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                                     c++;
@@ -2704,11 +2690,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                         pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                         rstindakan=pstindakanranapdrpr.executeQuery();
                                         while(rstindakan.next()){
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
-                                            ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                            ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                            ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                            ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                            ttljml += rstindakan.getDouble("jml");
+                                            ttlbiaya += rstindakan.getDouble("total");
+                                            ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                            ttluangrs += rstindakan.getDouble("material");
+                                            ttlbhp += rstindakan.getDouble("bhp");
                                             if(a==1){
                                                 tabMode.addRow(new Object[]{"",c+". "+tanggal,pasien,kamar,penjab,rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                                 c++;
@@ -2753,11 +2739,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,norawatbayi);
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     tabMode.addRow(new Object[]{"",c+". "+tanggal,pasien,kamar,penjab,rstindakan.getString("nm_perawatan"),rstindakan.getDouble("total_byrdr"),rstindakan.getDouble("jml"),rstindakan.getDouble("total"),rstindakan.getDouble("bhp"),rstindakan.getDouble("tarif_tindakandr"),rstindakan.getDouble("material")}); 
                                                     c++;
@@ -2858,11 +2844,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralan.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralan.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>");
                                             c++;
@@ -2922,11 +2908,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralandrpr.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralandrpr.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>");
                                             c++;
@@ -2993,11 +2979,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakan_dokter");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (P.J. Rad)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakan_dokter"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bagian_rs"))).append("</td></tr>");
                                             c++;
@@ -3061,11 +3047,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_perujuk");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_perujuk");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Perujuk Rad)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_perujuk"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -3159,7 +3145,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -3265,7 +3251,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_perujuk")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -3356,10 +3342,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator1.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator1.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator1");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator1");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 1)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayaoperator1"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bagian_rs"))).append("</td></tr>");
                                             c++;
@@ -3422,10 +3408,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator2");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator2");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 2)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayaoperator2"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -3488,10 +3474,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator3.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator3.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator3");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator3");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 3)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayaoperator3"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -3554,10 +3540,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anak)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayadokter_anak"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -3620,10 +3606,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anestesi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anestesi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anestesi");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anestesi");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anestesi)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayadokter_anestesi"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -3686,10 +3672,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_pjanak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_pjanak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_pjanak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_pjanak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Pj Anak)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biaya_dokter_pjanak"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -3752,10 +3738,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_umum.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_umum.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_umum");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_umum");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Umum)</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biaya_dokter_umum"))).append("</td><td valign='middle' align='right'>0</td></tr>"); 
                                             c++;
@@ -3901,11 +3887,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                     c++;
@@ -4049,11 +4035,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                     c++;
@@ -4150,11 +4136,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                     c++;
@@ -4199,11 +4185,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranap.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranap.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                         c++;
@@ -4304,11 +4290,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>");
                                                     c++;
@@ -4353,11 +4339,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranapdrpr.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranapdrpr.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("material"))).append("</td></tr>");
                                                         c++;
@@ -4470,11 +4456,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralan.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralan.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>");
                                             c++;
@@ -4534,11 +4520,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralandrpr.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralandrpr.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>");
                                             c++;
@@ -4605,11 +4591,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakan_dokter");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (P.J. Rad)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakan_dokter"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bagian_rs"))).append("</td></tr>");
                                             c++;
@@ -4673,11 +4659,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_perujuk");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_perujuk");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Perujuk Rad)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_perujuk"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -4771,7 +4757,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -4877,7 +4863,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_perujuk")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -4968,10 +4954,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator1.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator1.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator1");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator1");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 1)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayaoperator1"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bagian_rs"))).append("</td></tr>");
                                             c++;
@@ -5034,10 +5020,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator2");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator2");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 2)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayaoperator2"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -5100,10 +5086,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator3.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator3.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator3");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator3");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 3)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayaoperator3"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -5166,10 +5152,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anak)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayadokter_anak"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -5232,10 +5218,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anestesi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anestesi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anestesi");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anestesi");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anestesi)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayadokter_anestesi"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -5298,10 +5284,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_pjanak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_pjanak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_pjanak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_pjanak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Pj Anak)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biaya_dokter_pjanak"))).append("</td><td valign='middle' align='right'>0</td></tr>");
                                             c++;
@@ -5364,10 +5350,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_umum.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_umum.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_umum");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_umum");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Umum)</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>0</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biaya_dokter_umum"))).append("</td><td valign='middle' align='right'>0</td></tr>"); 
                                             c++;
@@ -5513,11 +5499,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                     c++;
@@ -5661,11 +5647,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                     c++;
@@ -5762,11 +5748,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                     c++;
@@ -5811,11 +5797,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranap.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranap.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>"); 
                                                         c++;
@@ -5916,11 +5902,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>");
                                                     c++;
@@ -5965,11 +5951,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranapdrpr.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranapdrpr.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total_byrdr"))).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("total"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("bhp"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("material"))).append("</td></tr>");
                                                         c++;
@@ -6082,11 +6068,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralan.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralan.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                             c++;
@@ -6146,11 +6132,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralandrpr.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralandrpr.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                             c++;
@@ -6217,11 +6203,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakan_dokter");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (P.J. Rad)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
                                             c++;
@@ -6285,11 +6271,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_perujuk");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_perujuk");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Perujuk Rad)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_perujuk"))).append("</td></tr>");
                                             c++;
@@ -6383,7 +6369,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -6489,7 +6475,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_perujuk")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -6580,10 +6566,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator1.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator1.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator1");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator1");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 1)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayaoperator1"))).append("</td></tr>");
                                             c++;
@@ -6646,10 +6632,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator2");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator2");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 2)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayaoperator2"))).append("</td></tr>");
                                             c++;
@@ -6712,10 +6698,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator3.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator3.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator3");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator3");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 3)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayaoperator3"))).append("</td></tr>");
                                             c++;
@@ -6778,10 +6764,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anak)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayadokter_anak"))).append("</td></tr>");
                                             c++;
@@ -6844,10 +6830,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anestesi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anestesi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anestesi");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anestesi");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anestesi)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biayadokter_anestesi"))).append("</td></tr>");
                                             c++;
@@ -6910,10 +6896,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_pjanak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_pjanak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_pjanak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_pjanak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Pj Anak)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biaya_dokter_pjanak"))).append("</td></tr>");
                                             c++;
@@ -6976,10 +6962,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_umum.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_umum.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_umum");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_umum");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Umum)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("biaya_dokter_umum"))).append("</td></tr>"); 
                                             c++;
@@ -7125,11 +7111,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                     c++;
@@ -7273,11 +7259,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                     c++;
@@ -7374,11 +7360,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                     c++;
@@ -7423,11 +7409,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranap.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranap.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                         c++;
@@ -7528,11 +7514,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                                     c++;
@@ -7577,11 +7563,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranapdrpr.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranapdrpr.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                                         c++;
@@ -7688,11 +7674,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralan.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralan.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                             c++;
@@ -7752,11 +7738,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanralandrpr.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanralandrpr.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                        ttluangrs += rstindakan.getDouble("material");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                             c++;
@@ -7823,11 +7809,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_tindakan_dokter");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (P.J. Rad)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakan_dokter"))).append("</td></tr>");
                                             c++;
@@ -7891,11 +7877,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanradiologi2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanradiologi2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("tarif_perujuk");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
-                                        ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("tarif_perujuk");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
+                                        ttlbhp += rstindakan.getDouble("bhp");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_periksa")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Perujuk Rad)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_perujuk"))).append("</td></tr>");
                                             c++;
@@ -7989,7 +7975,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_tindakan_dokter")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -8095,7 +8081,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                  biayaitem=rsdetaillab.getDouble("biaya_item");
                                                  detailbhp=rsdetaillab.getDouble("bhp");
                                             }
-                                            ttljml=ttljml+rstindakan.getDouble("jml");
+                                            ttljml += rstindakan.getDouble("jml");
                                             ttlbiaya=ttlbiaya+rstindakan.getDouble("total")+detailtotal;
                                             ttljm=ttljm+rstindakan.getDouble("tarif_perujuk")+detailjm;
                                             ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs")+detailrs;
@@ -8186,10 +8172,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator1.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator1.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator1");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator1");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 1)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayaoperator1"))).append("</td></tr>");
                                             c++;
@@ -8252,10 +8238,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator2.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator2.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator2");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator2");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 2)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayaoperator2"))).append("</td></tr>");
                                             c++;
@@ -8318,10 +8304,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakanoperator3.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakanoperator3.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayaoperator3");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayaoperator3");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Operator 3)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayaoperator3"))).append("</td></tr>");
                                             c++;
@@ -8384,10 +8370,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anak)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayadokter_anak"))).append("</td></tr>");
                                             c++;
@@ -8450,10 +8436,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_anestesi.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_anestesi.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biayadokter_anestesi");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biayadokter_anestesi");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Anestesi)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biayadokter_anestesi"))).append("</td></tr>");
                                             c++;
@@ -8516,10 +8502,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_pjanak.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_pjanak.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_pjanak");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_pjanak");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Pj Anak)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biaya_dokter_pjanak"))).append("</td></tr>");
                                             c++;
@@ -8582,10 +8568,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     pstindakandokter_umum.setString(4,rspasien.getString("no_rawat"));
                                     rstindakan=pstindakandokter_umum.executeQuery();
                                     while(rstindakan.next()){
-                                        ttljml=ttljml+rstindakan.getDouble("jml");
-                                        ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                        ttljm=ttljm+rstindakan.getDouble("biaya_dokter_umum");
-                                        ttluangrs=ttluangrs+rstindakan.getDouble("bagian_rs");
+                                        ttljml += rstindakan.getDouble("jml");
+                                        ttlbiaya += rstindakan.getDouble("total");
+                                        ttljm += rstindakan.getDouble("biaya_dokter_umum");
+                                        ttluangrs += rstindakan.getDouble("bagian_rs");
                                         if(a==1){
                                             htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(rspasien.getString("tgl_operasi")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_pasien")).append("</td><td valign='middle' align='left'>").append(rspasien.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(rspasien.getString("png_jawab")).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append(" (Dokter Umum)</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("biaya_dokter_umum"))).append("</td></tr>"); 
                                             c++;
@@ -8731,11 +8717,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                     c++;
@@ -8879,11 +8865,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                     c++;
@@ -8980,11 +8966,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranap.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranap.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                     c++;
@@ -9029,11 +9015,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranap.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranap.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>"); 
                                                         c++;
@@ -9134,11 +9120,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                             pstindakanranapdrpr.setString(4,rspasien.getString("no_rawat"));
                                             rstindakan=pstindakanranapdrpr.executeQuery();
                                             while(rstindakan.next()){
-                                                ttljml=ttljml+rstindakan.getDouble("jml");
-                                                ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                ttljml += rstindakan.getDouble("jml");
+                                                ttlbiaya += rstindakan.getDouble("total");
+                                                ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                ttluangrs += rstindakan.getDouble("material");
+                                                ttlbhp += rstindakan.getDouble("bhp");
                                                 if(a==1){
                                                     htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                                     c++;
@@ -9183,11 +9169,11 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                                 pstindakanranapdrpr.setString(4,norawatbayi);
                                                 rstindakan=pstindakanranapdrpr.executeQuery();
                                                 while(rstindakan.next()){
-                                                    ttljml=ttljml+rstindakan.getDouble("jml");
-                                                    ttlbiaya=ttlbiaya+rstindakan.getDouble("total");
-                                                    ttljm=ttljm+rstindakan.getDouble("tarif_tindakandr");
-                                                    ttluangrs=ttluangrs+rstindakan.getDouble("material");
-                                                    ttlbhp=ttlbhp+rstindakan.getDouble("bhp");
+                                                    ttljml += rstindakan.getDouble("jml");
+                                                    ttlbiaya += rstindakan.getDouble("total");
+                                                    ttljm += rstindakan.getDouble("tarif_tindakandr");
+                                                    ttluangrs += rstindakan.getDouble("material");
+                                                    ttlbhp += rstindakan.getDouble("bhp");
                                                     if(a==1){
                                                         htmlContent.append("<tr class='isi'><td valign='middle' align='left'>").append(c).append("</td><td valign='middle' align='left'>").append(tanggal).append("</td><td valign='middle' align='left'>").append(norm).append("</td><td valign='middle' align='left'>").append(pasien).append("</td><td valign='middle' align='left'>").append(kamar).append("</td><td valign='middle' align='center'>").append(penjab).append("</td><td valign='middle' align='left'>").append(rstindakan.getString("nm_perawatan")).append("</td><td valign='middle' align='center'>").append(rstindakan.getDouble("jml")).append("</td><td valign='middle' align='right'>").append(Math.round(rstindakan.getDouble("tarif_tindakandr"))).append("</td></tr>");
                                                         c++;

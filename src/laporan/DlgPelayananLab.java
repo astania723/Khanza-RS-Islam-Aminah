@@ -11,25 +11,14 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -459,6 +448,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){        
         try{   
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
@@ -503,7 +495,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("permintaansampel"),rs.getString("sampelhasil"),rs.getString("permintaanhasil")
                     });
                     i++;
-                    lamajam=lamajam+rs.getDouble("permintaansampel");
+                    lamajam += rs.getDouble("permintaansampel");
                     if(rs.getDouble("permintaansampel")<=15){
                         limabelas++;
                     }else if((rs.getDouble("permintaansampel")>15)&&(rs.getDouble("permintaansampel")<=30)){
@@ -514,7 +506,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         lebihsatujam++;
                     }
                     
-                    lamajam2=lamajam2+rs.getDouble("sampelhasil");
+                    lamajam2 += rs.getDouble("sampelhasil");
                     if(rs.getDouble("sampelhasil")<=15){
                         limabelas2++;
                     }else if((rs.getDouble("sampelhasil")>15)&&(rs.getDouble("sampelhasil")<=30)){
@@ -525,7 +517,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         lebihsatujam2++;
                     }
                     
-                    lamajam3=lamajam3+rs.getDouble("permintaanhasil");
+                    lamajam3 += rs.getDouble("permintaanhasil");
                     if(rs.getDouble("permintaanhasil")<=15){
                         limabelas3++;
                     }else if((rs.getDouble("permintaanhasil")>15)&&(rs.getDouble("permintaanhasil")<=30)){

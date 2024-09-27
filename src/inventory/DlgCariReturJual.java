@@ -1,37 +1,34 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariReturJual extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Jurnal jur=new Jurnal();
     private riwayatobat Trackobat=new riwayatobat();
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private double ttlretur=0,subtotal=0;
     private Connection koneksi=koneksiDB.condb();
@@ -428,6 +425,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         panelisi4.add(label24);
         label24.setBounds(0, 10, 70, 23);
 
+        kdsat.setEditable(false);
         kdsat.setName("kdsat"); // NOI18N
         kdsat.setPreferredSize(new java.awt.Dimension(80, 23));
         kdsat.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -467,6 +465,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         panelisi4.add(label17);
         label17.setBounds(295, 10, 90, 23);
 
+        kdbar.setEditable(false);
         kdbar.setName("kdbar"); // NOI18N
         kdbar.setPreferredSize(new java.awt.Dimension(80, 23));
         kdbar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -542,6 +541,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         panelisijual.add(label13);
         label13.setBounds(320, 10, 55, 23);
 
+        Kdptg.setEditable(false);
         Kdptg.setName("Kdptg"); // NOI18N
         Kdptg.setPreferredSize(new java.awt.Dimension(80, 23));
         Kdptg.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1020,8 +1020,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         no=1;
                         rs2=ps2.executeQuery();
                         while(rs2.next()){
-                            ttlretur=ttlretur+rs2.getDouble(8);
-                            subtotal=subtotal+rs2.getDouble(8);                            
+                            ttlretur += rs2.getDouble(8);
+                            subtotal += rs2.getDouble(8);                            
                             tabMode.addRow(new Object[]{
                                 "","",no+". Batch : "+rs2.getString("no_batch"),"Faktur : "+rs2.getString("no_faktur"),"Nota : "+rs2.getString(1),
                                 rs2.getString(2)+", "+rs2.getString(3),rs2.getString(4)+", "+rs2.getString(5),Valid.SetAngka(rs2.getDouble(6)),
@@ -1058,6 +1058,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getretur_dari_pembeli());
         if(akses.getkode().equals("Admin Utama")){

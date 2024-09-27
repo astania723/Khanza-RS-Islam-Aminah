@@ -1,27 +1,12 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 public class DlgRHMenejemen extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -658,21 +643,21 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             while(rsrawatjalandr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatjalandr.getString("tgl_registrasi"),rsrawatjalandr.getString("nm_pasien"),
                                     rsrawatjalandr.getString("nm_perawatan"),Valid.SetAngka(rsrawatjalandr.getDouble("menejemen"))});                   
-                                total=total+rsrawatjalandr.getDouble("menejemen");
+                                total += rsrawatjalandr.getDouble("menejemen");
                             }
 
                             rsrawatjalandrpr.beforeFirst();
                             while(rsrawatjalandrpr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatjalandrpr.getString("tgl_registrasi"),rsrawatjalandrpr.getString("nm_pasien"),
                                     rsrawatjalandrpr.getString("nm_perawatan"),Valid.SetAngka(rsrawatjalandrpr.getDouble("menejemen"))});                   
-                                total=total+rsrawatjalandrpr.getDouble("menejemen");
+                                total += rsrawatjalandrpr.getDouble("menejemen");
                             }
 
                             rsrawatjalanpr.beforeFirst();
                             while(rsrawatjalanpr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatjalanpr.getString("tgl_registrasi"),rsrawatjalanpr.getString("nm_pasien"),
                                     rsrawatjalanpr.getString("nm_perawatan"),Valid.SetAngka(rsrawatjalanpr.getDouble("menejemen"))});                   
-                                total=total+rsrawatjalanpr.getDouble("menejemen");
+                                total += rsrawatjalanpr.getDouble("menejemen");
                             }                           
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -756,21 +741,21 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             while(rsrawatinapdr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatinapdr.getString("tgl_perawatan")+" "+rsrawatinapdr.getString("jam_rawat"),rsrawatinapdr.getString("nm_pasien"),
                                     rsrawatinapdr.getString("nm_perawatan"),Valid.SetAngka(rsrawatinapdr.getDouble("menejemen"))});                   
-                                total=total+rsrawatinapdr.getDouble("menejemen");
+                                total += rsrawatinapdr.getDouble("menejemen");
                             }
 
                             rsrawatinapdrpr.beforeFirst();
                             while(rsrawatinapdrpr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatinapdrpr.getString("tgl_perawatan")+" "+rsrawatinapdrpr.getString("jam_rawat"),rsrawatinapdrpr.getString("nm_pasien"),
                                     rsrawatinapdrpr.getString("nm_perawatan"),Valid.SetAngka(rsrawatinapdrpr.getDouble("menejemen"))});                   
-                                total=total+rsrawatinapdrpr.getDouble("menejemen");
+                                total += rsrawatinapdrpr.getDouble("menejemen");
                             }
 
                             rsrawatinappr.beforeFirst();
                             while(rsrawatinappr.next()){
                                 tabMode.addRow(new Object[]{"","","     "+rsrawatinappr.getString("tgl_perawatan")+" "+rsrawatinappr.getString("jam_rawat"),rsrawatinappr.getString("nm_pasien"),
                                     rsrawatinappr.getString("nm_perawatan"),Valid.SetAngka(rsrawatinappr.getDouble("menejemen"))});                   
-                                total=total+rsrawatinappr.getDouble("menejemen");
+                                total += rsrawatinappr.getDouble("menejemen");
                             }                           
                         } catch (Exception e) {
                             System.out.println("Notifikasi : "+e);
@@ -819,7 +804,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsbagian_rs.getString("tgl_operasi"),rsbagian_rs.getString("nm_pasien"),
                                     rsbagian_rs.getString("nm_perawatan")+" (N.M.S)",Valid.SetAngka(rsbagian_rs.getDouble("bagian_rs"))
                                 });      
-                                total=total+rsbagian_rs.getDouble("bagian_rs");
+                                total += rsbagian_rs.getDouble("bagian_rs");
                             }
                         } catch (Exception e) {
                             System.out.println("Notif Operasi : "+e);
@@ -924,7 +909,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                     "","","     "+rsperiksa_radiologi.getString("tgl_periksa")+" "+rsperiksa_radiologi.getString("jam"),rsperiksa_radiologi.getString("nm_pasien"),
                                     rsperiksa_radiologi.getString("nm_perawatan"),Valid.SetAngka(rsperiksa_radiologi.getDouble("menejemen"))
                                 });    
-                                total=total+rsperiksa_radiologi.getDouble("menejemen");
+                                total += rsperiksa_radiologi.getDouble("menejemen");
                             }
                        } catch (Exception e) {
                            System.out.println("Notifikasi : "+e);
@@ -942,7 +927,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         tabMode.addRow(new Object[]{"","","Total :","","",Valid.SetAngka(total)});                    
                    }    
                    i++;
-                   totaljm=totaljm+total;
+                   totaljm += total;
                 } 
                 if(totaljm>0){
                    tabMode.addRow(new Object[]{">> ","Total Menejemen :","","","",Valid.SetAngka(totaljm)});     
@@ -963,6 +948,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         //BtnPrint.setEnabled(var.getharian_penjab());
     }

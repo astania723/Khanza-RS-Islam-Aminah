@@ -2,30 +2,20 @@ package toko;
 
 
 
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class TokoSuratPemesanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -40,6 +30,10 @@ public class TokoSuratPemesanan extends javax.swing.JDialog {
     private int jml=0,i=0,row=0,index=0,pilihan=1;
     private String[] kodebarang,namabarang,satuanbeli;
     private double[] h_beli,jumlah,subtotal,diskon,besardiskon,jmltotal;
+
+    /**
+     *
+     */
     public boolean tampilkan=true;
     private boolean sukses=true;
 
@@ -1320,7 +1314,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             }            
         }
         
@@ -1438,7 +1432,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),5);
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
 
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,7).toString()); 
@@ -1446,7 +1440,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 tbDokter.setValueAt(0,tbDokter.getSelectedRow(),7);
                 y=0;
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));
@@ -1461,6 +1455,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         
     }   
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -1484,6 +1481,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         return tabMode;
     }
     
+    /**
+     *
+     */
     public void panggilgetData(){
         getData();
     }

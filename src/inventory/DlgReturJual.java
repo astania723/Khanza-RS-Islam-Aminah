@@ -1,27 +1,13 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgPasien;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
+import simrskhanza.*;
 
 public class DlgReturJual extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -57,12 +43,12 @@ public class DlgReturJual extends javax.swing.JDialog {
         tabMode=new DefaultTableModel(null,new Object[]{
                 "No.Nota","Kode Barang","Nama Barang","Satuan","Hrg.Retur(Rp)","Jml.Retur","Total Retur(Rp)","No.Batch","No.Faktur"
             }){           
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.String.class,
                 java.lang.String.class
             };  
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             @Override
             public Class getColumnClass(int columnIndex) {
                return types [columnIndex];
@@ -1340,7 +1326,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 rs=ps.executeQuery();
                 ttlretur=0;
                 while(rs.next()){
-                    ttlretur=ttlretur+rs.getDouble(9);
+                    ttlretur += rs.getDouble(9);
                     tabMode.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),
                         rs.getString(4),rs.getDouble(7),
@@ -1404,6 +1390,9 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }            
     }
     
+    /**
+     *
+     */
     public void isCek(){  
         autonomor();
         Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi",kdgudang);
@@ -1420,6 +1409,11 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }        
     }
     
+    /**
+     *
+     * @param norm
+     * @param norawat
+     */
     public void setPasien(String norm,String norawat){
         kdmem.setText(norm);
         this.norawat=norawat;

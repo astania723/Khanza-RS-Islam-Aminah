@@ -1,15 +1,19 @@
 package widget;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JWindow;
-import javax.swing.Timer;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class RunText3 {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         EventQueue.invokeLater(new Runnable() {
             
@@ -23,6 +27,9 @@ public class RunText3 {
     private JLabel label = new JLabel("Slide Text Swing, Slide Text Swing, ..........");
     private JPanel windowContents = new JPanel();
 
+    /**
+     *
+     */
     public RunText3() {
         windowContents.add(label);
         window.add(windowContents);

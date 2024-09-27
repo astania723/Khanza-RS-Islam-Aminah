@@ -5,18 +5,11 @@
 
 package widget;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.LayoutManager;
-import java.awt.RenderingHints;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.geom.GeneralPath;
-import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+import java.awt.image.*;
+import javax.swing.*;
 
 /**
  *
@@ -38,23 +31,43 @@ public class panelisi extends JPanel{
         this.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(239,244,234)));
     }
 
+    /**
+     *
+     * @param layout
+     */
     public panelisi(LayoutManager layout) {
         super(layout);
         addComponentListener(new GradientCacheManager());
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getWarnaAtas() {
         return warnaAtas;
     }
 
+    /**
+     *
+     * @param warnaAtas
+     */
     public void setWarnaAtas(Color warnaAtas) {
         this.warnaAtas = warnaAtas;
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getWarnaBawah() {
         return warnaBawah;
     }
 
+    /**
+     *
+     * @param warnaBawah
+     */
     public void setWarnaBawah(Color warnaBawah) {
         this.warnaBawah = warnaBawah;
     }

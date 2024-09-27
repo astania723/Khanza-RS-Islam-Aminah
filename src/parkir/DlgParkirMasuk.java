@@ -1,23 +1,12 @@
 package parkir;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgPetugas;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
@@ -1048,6 +1037,9 @@ private void KdPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {       
         NomorKendaraan.setText("");
         NomorKendaraan.requestFocus();
@@ -1059,11 +1051,9 @@ private void KdPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
 
-    
-   
-
-    
-    
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             KdPetugas.setEditable(false);

@@ -11,27 +11,15 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -132,12 +120,12 @@ public class DlgDataHAIs extends javax.swing.JDialog {
         PLEB.setDocument(new batasInput((byte)2).getOnlyAngka(PLEB));
         ISK.setDocument(new batasInput((byte)2).getOnlyAngka(ISK));
         ILO.setDocument(new batasInput((byte)2).getOnlyAngka(ILO));
-        Sputum.setDocument(new batasInput((int)200).getKata(Sputum));
-        Darah.setDocument(new batasInput((int)200).getKata(Darah));
-        Urine.setDocument(new batasInput((int)200).getKata(Urine));
-        Antibiotik.setDocument(new batasInput((int)200).getKata(Antibiotik));
+        Sputum.setDocument(new batasInput(200).getKata(Sputum));
+        Darah.setDocument(new batasInput(200).getKata(Darah));
+        Urine.setDocument(new batasInput(200).getKata(Urine));
+        Antibiotik.setDocument(new batasInput(200).getKata(Antibiotik));
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1333,6 +1321,9 @@ public class DlgDataHAIs extends javax.swing.JDialog {
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Tanggal.requestFocus();
         ETT.setText("0");
@@ -1391,6 +1382,12 @@ public class DlgDataHAIs extends javax.swing.JDialog {
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl1, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

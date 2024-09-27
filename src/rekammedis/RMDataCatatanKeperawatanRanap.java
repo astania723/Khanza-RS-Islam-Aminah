@@ -3,42 +3,19 @@
  * and open the template in the editor.
  */
 
-/*
- * DlgDataSkriningGiziLanjut.java
- * Kontribusi Haris Rochmatullah RS Bhayangkara Nganjuk
- * Created on 11 November 2020, 20:19:56
- */
-
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -55,6 +32,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
     private int i=0;    
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private String dpjp="";
+    private String TANGGALMUNDUR="yes";
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -105,8 +83,8 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        Uraian.setDocument(new batasInput((int)2000).getKata(Uraian));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Uraian.setDocument(new batasInput(2000).getKata(Uraian));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -157,6 +135,12 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
         ChkInput.setSelected(false);
         isForm();
         jam();
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -173,6 +157,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
         MnCatatanKeperawatanRawatInap = new javax.swing.JMenuItem();
         JK = new widget.TextBox();
         Umur = new widget.TextBox();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -239,6 +224,9 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
 
         Umur.setHighlighter(null);
         Umur.setName("Umur"); // NOI18N
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -708,16 +696,16 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
         }else if(Uraian.getText().trim().isEmpty()){
             Valid.textKosong(NIP,"Uraian");
         }else{
-            if(Sequel.menyimpantf("catatan_keperawatan_ranap","?,?,?,?,?","Data",5,new String[]{
-                Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),TNoRw.getText(),Uraian.getText(),NIP.getText()
-            })==true){
-                tabMode.addRow(new String[]{
-                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),TglLahir.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),
-                    Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),Uraian.getText(),NIP.getText(),NamaPetugas.getText()
-                });
-                LCount.setText(""+tabMode.getRowCount());
-                emptTeks();
-            }   
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                    simpan();
+                }
+            } 
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
@@ -746,8 +734,10 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString())){
-                    hapus();
+                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString())){
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -778,7 +768,14 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -830,7 +827,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                     "catatan_keperawatan_ranap.nip,petugas.nama from catatan_keperawatan_ranap inner join reg_periksa on catatan_keperawatan_ranap.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on catatan_keperawatan_ranap.nip=petugas.nip where "+
-                    "catatan_keperawatan_ranap.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' order by catatan_keperawatan_ranap.tanggal",param);
+                    "catatan_keperawatan_ranap.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' order by catatan_keperawatan_ranap.tanggal,catatan_keperawatan_ranap.jam",param);
             }else{
                 Valid.MyReportqry("rptDataCatatanKeperawatanRanap.jasper","report","::[ Data Catatan Keperawatan Rawat Inap ]::",
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -841,7 +838,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                     "catatan_keperawatan_ranap.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' and "+
                     "(reg_periksa.no_rawat like '%"+TCari.getText().trim()+"%' or pasien.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
                     "pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or catatan_keperawatan_ranap.nip like '%"+TCari.getText().trim()+"%' or petugas.nama like '%"+TCari.getText().trim()+"%') "+
-                    "order by catatan_keperawatan_ranap.tanggal ",param);
+                    "order by catatan_keperawatan_ranap.tanggal,catatan_keperawatan_ranap.jam ",param);
             }  
         }
         this.setCursor(Cursor.getDefaultCursor());
@@ -979,7 +976,8 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                     "pasien.jk,pasien.tgl_lahir,catatan_keperawatan_ranap.tanggal,catatan_keperawatan_ranap.jam,catatan_keperawatan_ranap.uraian,"+
                     "petugas.nama from catatan_keperawatan_ranap inner join reg_periksa on catatan_keperawatan_ranap.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join petugas on catatan_keperawatan_ranap.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+                    "inner join petugas on catatan_keperawatan_ranap.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' "+
+                    "order by catatan_keperawatan_ranap.tanggal,catatan_keperawatan_ranap.jam",param);
         }
     }//GEN-LAST:event_MnCatatanKeperawatanRawatInapActionPerformed
 
@@ -1032,6 +1030,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox TglLahir;
     private widget.TextBox Umur;
     private widget.TextArea Uraian;
@@ -1064,7 +1063,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                     "catatan_keperawatan_ranap.nip,petugas.nama from catatan_keperawatan_ranap inner join reg_periksa on catatan_keperawatan_ranap.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on catatan_keperawatan_ranap.nip=petugas.nip where "+
-                    "catatan_keperawatan_ranap.tanggal between ? and ? order by catatan_keperawatan_ranap.tanggal");
+                    "catatan_keperawatan_ranap.tanggal between ? and ? order by catatan_keperawatan_ranap.tanggal,catatan_keperawatan_ranap.jam");
             }else{
                 ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,reg_periksa.sttsumur,"+
@@ -1073,7 +1072,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on catatan_keperawatan_ranap.nip=petugas.nip where "+
                     "catatan_keperawatan_ranap.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or catatan_keperawatan_ranap.nip like ? or petugas.nama like ?) "+
-                    "order by catatan_keperawatan_ranap.tanggal ");
+                    "order by catatan_keperawatan_ranap.tanggal,catatan_keperawatan_ranap.jam ");
             }
                 
             try {
@@ -1139,7 +1138,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
         try {
             ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi,reg_periksa.umurdaftar,"+
-                    "reg_periksa.sttsumur from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.no_rawat=?");
+                    "reg_periksa.sttsumur,reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.no_rawat=?");
             try {
                 ps.setString(1,TNoRw.getText());
                 rs=ps.executeQuery();
@@ -1150,6 +1149,7 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                     JK.setText(rs.getString("jk"));
                     Umur.setText(rs.getString("umurdaftar")+" "+rs.getString("sttsumur"));
                     TglLahir.setText(rs.getString("tgl_lahir"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1203,7 +1203,18 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
                 NIP.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
-        }            
+        }  
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+                ChkKejadian.setEnabled(false);
+                Jam.setEnabled(false);
+                Menit.setEnabled(false);
+                Detik.setEnabled(false);
+            }
+        }
     }
 
     private void jam(){
@@ -1290,5 +1301,18 @@ public class RMDataCatatanKeperawatanRanap extends javax.swing.JDialog {
         }else{
             JOptionPane.showMessageDialog(null,"Gagal menghapus..!!");
         }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("catatan_keperawatan_ranap","?,?,?,?,?","Data",5,new String[]{
+            Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),TNoRw.getText(),Uraian.getText(),NIP.getText()
+        })==true){
+            tabMode.addRow(new String[]{
+                TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),TglLahir.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),Uraian.getText(),NIP.getText(),NamaPetugas.getText()
+            });
+            LCount.setText(""+tabMode.getRowCount());
+            emptTeks();
+        }  
     }
 }

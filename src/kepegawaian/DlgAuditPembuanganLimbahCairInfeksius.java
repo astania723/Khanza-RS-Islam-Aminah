@@ -5,32 +5,16 @@
 
 package kepegawaian;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -101,7 +85,7 @@ public class DlgAuditPembuanganLimbahCairInfeksius extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         KdRuang.setDocument(new batasInput((byte)20).getKata(KdRuang));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1063,18 +1047,18 @@ public class DlgAuditPembuanganLimbahCairInfeksius extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     audit1=Double.parseDouble(rs.getString("audit1").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit1=ttlaudit1+audit1;
+                    ttlaudit1 += audit1;
                     audit2=Double.parseDouble(rs.getString("audit2").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit2=ttlaudit2+audit2;
+                    ttlaudit2 += audit2;
                     audit3=Double.parseDouble(rs.getString("audit3").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit3=ttlaudit3+audit3;
+                    ttlaudit3 += audit3;
                     audit4=Double.parseDouble(rs.getString("audit4").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit4=ttlaudit4+audit4;
+                    ttlaudit4 += audit4;
                     audit5=Double.parseDouble(rs.getString("audit5").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit5=ttlaudit5+audit5;
+                    ttlaudit5 += audit5;
                     audit6=Double.parseDouble(rs.getString("audit6").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlaudit6=ttlaudit6+audit6;
-                    ttlpenilaian=ttlpenilaian+(((audit1+audit2+audit3+
+                    ttlaudit6 += audit6;
+                    ttlpenilaian += (((audit1+audit2+audit3+
                             audit4+audit5+audit6)/6)*100);
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("id_ruang"),
@@ -1085,7 +1069,7 @@ public class DlgAuditPembuanganLimbahCairInfeksius extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlaudit1,""+ttlaudit2,""+ttlaudit3,
@@ -1166,6 +1150,9 @@ public class DlgAuditPembuanganLimbahCairInfeksius extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_pembuangan_limbah_cair_infeksius());
         BtnHapus.setEnabled(akses.getaudit_pembuangan_limbah_cair_infeksius());

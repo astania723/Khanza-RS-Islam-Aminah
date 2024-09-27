@@ -10,28 +10,16 @@
  */
 
 package laporan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import java.util.logging.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -482,37 +470,37 @@ public class DlgJumlahMacamDiet extends javax.swing.JDialog {
                     h29=Sequel.cariInteger("select count(detail_beri_diet.kd_diet) from detail_beri_diet inner join diet on detail_beri_diet.kd_diet=diet.kd_diet where detail_beri_diet.tanggal=? and diet.kd_diet=?",ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-29",rs.getString("kd_diet"));
                     h30=Sequel.cariInteger("select count(detail_beri_diet.kd_diet) from detail_beri_diet inner join diet on detail_beri_diet.kd_diet=diet.kd_diet where detail_beri_diet.tanggal=? and diet.kd_diet=?",ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-30",rs.getString("kd_diet"));
                     h31=Sequel.cariInteger("select count(detail_beri_diet.kd_diet) from detail_beri_diet inner join diet on detail_beri_diet.kd_diet=diet.kd_diet where detail_beri_diet.tanggal=? and diet.kd_diet=?",ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-31",rs.getString("kd_diet"));
-                    jmlh1=jmlh1+h1;
-                    jmlh2=jmlh2+h2;
-                    jmlh3=jmlh3+h3;
-                    jmlh4=jmlh4+h4;
-                    jmlh5=jmlh5+h5;
-                    jmlh6=jmlh6+h6;
-                    jmlh7=jmlh7+h7;
-                    jmlh8=jmlh8+h8;
-                    jmlh9=jmlh9+h9;
-                    jmlh10=jmlh10+h10;
-                    jmlh11=jmlh11+h11;
-                    jmlh12=jmlh12+h12;
-                    jmlh13=jmlh13+h13;
-                    jmlh14=jmlh14+h14;
+                    jmlh1 += h1;
+                    jmlh2 += h2;
+                    jmlh3 += h3;
+                    jmlh4 += h4;
+                    jmlh5 += h5;
+                    jmlh6 += h6;
+                    jmlh7 += h7;
+                    jmlh8 += h8;
+                    jmlh9 += h9;
+                    jmlh10 += h10;
+                    jmlh11 += h11;
+                    jmlh12 += h12;
+                    jmlh13 += h13;
+                    jmlh14 += h14;
                     jmlh15=jmlh14+h14;
-                    jmlh16=jmlh16+h16;
-                    jmlh17=jmlh17+h17;
-                    jmlh18=jmlh18+h18;
-                    jmlh19=jmlh19+h19;
-                    jmlh20=jmlh20+h20;
-                    jmlh21=jmlh21+h21;
-                    jmlh22=jmlh22+h22;
-                    jmlh23=jmlh23+h23;
-                    jmlh24=jmlh24+h24;
-                    jmlh25=jmlh25+h25;
-                    jmlh26=jmlh26+h26;
-                    jmlh27=jmlh27+h27;
-                    jmlh28=jmlh28+h28;
+                    jmlh16 += h16;
+                    jmlh17 += h17;
+                    jmlh18 += h18;
+                    jmlh19 += h19;
+                    jmlh20 += h20;
+                    jmlh21 += h21;
+                    jmlh22 += h22;
+                    jmlh23 += h23;
+                    jmlh24 += h24;
+                    jmlh25 += h25;
+                    jmlh26 += h26;
+                    jmlh27 += h27;
+                    jmlh28 += h28;
                     jmlh29=jmlh28+h28;
-                    jmlh30=jmlh30+h30;
-                    jmlh31=jmlh31+h31;    
+                    jmlh30 += h30;
+                    jmlh31 += h31;    
                     tabMode.addRow(new String[]{                        
                         i+"",rs.getString("nama_diet"),h1+"",h2+"",h3+"",h4+"",h5+"",h6+"",h7+"",h8+"",h9+"",h10+"",
                         h11+"",h12+"",h13+"",h14+"",h15+"",h16+"",h17+"",h18+"",h19+"",h20+"",

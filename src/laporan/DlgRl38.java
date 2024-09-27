@@ -11,24 +11,13 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -411,10 +400,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     tabMode.addRow(new Object[]{
                         i+"."+a,rstindakan2.getString(1),rstindakan2.getInt(2)
                     });
-                    ttl=ttl+rstindakan2.getInt(2);
+                    ttl += rstindakan2.getInt(2);
                     a++;                    
                 }
-                ttl=ttl+rstindakan.getInt(2);
+                ttl += rstindakan.getInt(2);
                 i++;                    
             }
             

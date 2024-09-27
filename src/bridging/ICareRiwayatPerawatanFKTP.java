@@ -12,40 +12,23 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.BorderLayout;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import java.awt.event.*;
+import javafx.application.*;
+import javafx.beans.value.*;
 import javafx.concurrent.Worker.State;
 import static javafx.concurrent.Worker.State.FAILED;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-import javafx.scene.web.PopupFeatures;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Callback;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import org.apache.commons.codec.binary.Base64;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import javafx.embed.swing.*;
+import javafx.scene.*;
+import javafx.scene.web.*;
+import javafx.stage.*;
+import javafx.util.*;
+import javax.swing.*;
+import org.apache.commons.codec.binary.*;
+import org.springframework.http.*;
 
 /**
  *
@@ -81,8 +64,8 @@ public class ICareRiwayatPerawatanFKTP extends javax.swing.JDialog {
         setSize(628,674);
 
         
-        NoKartu.setDocument(new batasInput((int)100).getKata(NoKartu));
-        KdDPJPLayanan.setDocument(new batasInput((int)100).getKata(KdDPJPLayanan));
+        NoKartu.setDocument(new batasInput(100).getKata(NoKartu));
+        KdDPJPLayanan.setDocument(new batasInput(100).getKata(KdDPJPLayanan));
         
         try {
             otorisasi=koneksiDB.USERPCARE()+":"+koneksiDB.PASSPCARE()+":095";
@@ -332,6 +315,11 @@ public class ICareRiwayatPerawatanFKTP extends javax.swing.JDialog {
         }
     } 
     
+    /**
+     *
+     * @param param
+     * @param kodedokter
+     */
     public void setPasien(String param,String kodedokter){
         NoKartu.setText(param);
         KdDPJPLayanan.setText(kodedokter);
@@ -413,6 +401,10 @@ public class ICareRiwayatPerawatanFKTP extends javax.swing.JDialog {
         });
     }
  
+    /**
+     *
+     * @param url
+     */
     public void loadURL(String url) {  
         try {
             createScene();

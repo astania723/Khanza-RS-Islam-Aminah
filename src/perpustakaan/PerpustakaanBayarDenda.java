@@ -11,29 +11,14 @@
 
 package perpustakaan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -1438,7 +1423,7 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
                         rs.getString("tgl_denda"),rs.getString("no_anggota"),rs.getString("nama_anggota"),rs.getString("no_inventaris"),
                         rs.getString("kode_buku")+" "+rs.getString("judul_buku"),rs.getInt("keterlambatan"),rs.getDouble("besar_denda")
                     });
-                    besardenda=besardenda+rs.getDouble("besar_denda");
+                    besardenda += rs.getDouble("besar_denda");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1503,7 +1488,7 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
                         rs.getString("kode_buku")+" "+rs.getString("judul_buku"),rs.getString("kode_denda"),rs.getString("jenis_denda"),
                         rs.getDouble("denda"),rs.getDouble("besar_denda"),rs.getString("keterangan_denda")
                     });
-                    besardenda=besardenda+rs.getDouble("besar_denda");
+                    besardenda += rs.getDouble("besar_denda");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1522,6 +1507,9 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNoI.setText("");
         TJudul.setText("");
@@ -1569,6 +1557,9 @@ public class PerpustakaanBayarDenda extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isInventaris(){
         try {
             ps=koneksi.prepareStatement(

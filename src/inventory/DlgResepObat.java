@@ -10,38 +10,20 @@
  */
 
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -55,6 +37,10 @@ public class DlgResepObat extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private PreparedStatement ps,ps2,psracikan;
     private ResultSet rs,rs2,rsracikan;
+
+    /**
+     *
+     */
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private Date date = new Date();
@@ -2200,7 +2186,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             if(akses.getkode().equals("Admin Utama")){
                 param.put("diserahkanoleh","Petugas Farmasi");
             }else{
-                param.put("diserahkanoleh",Sequel.cariIsi("select petugas.petugas from petugas where petugas.nip=?",akses.getkode()));
+                param.put("diserahkanoleh",Sequel.cariIsi("select petugas.nama from petugas where petugas.nip=?",akses.getkode()));
             }
                 
             param.put("noresep",NoResep.getText());
@@ -2316,14 +2302,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbTambahan1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{  
             ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_perawatan,resep_obat.jam,"+
                     " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter "+
-                    " from resep_obat inner join reg_periksa inner join pasien inner join dokter on resep_obat.no_rawat=reg_periksa.no_rawat  "+
-                    " and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and resep_obat.kd_dokter=dokter.kd_dokter where "+
-                    " concat(resep_obat.tgl_perawatan,' ',resep_obat.jam) between ? and ? "+
+                    " from resep_obat inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
+                    " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
+                    " where concat(resep_obat.tgl_perawatan,' ',resep_obat.jam) between ? and ? "+
                     (TCari.getText().trim().isEmpty()?"":"and (resep_obat.no_resep like ? or resep_obat.no_rawat like ? or "+
                     "pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or dokter.nm_dokter like ?) ")+
                     " order by resep_obat.tgl_perawatan,resep_obat.jam");
@@ -2367,11 +2357,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                             tabMode.addRow(new String[]{
                                 "",rs2.getString("nama_brng"),rs2.getString("jml")+"  x  "+Valid.SetAngka(rs2.getDouble("biaya_obat"))+
                                 " + "+Valid.SetAngka(rs2.getDouble("embalase"))+" + "+Valid.SetAngka(rs2.getDouble("tuslah"))+" = "+Valid.SetAngka(rs2.getDouble("total")),
-                                Sequel.cariIsi("select aturan from aturan_pakai where tgl_perawatan='"+rs.getString("tgl_perawatan")+"' and "+
-                                "jam='"+rs.getString("jam")+"' and no_rawat='"+rs.getString("no_rawat")+"' and kode_brng='"+rs2.getString("kode_brng")+"'")
+                                Sequel.cariIsi("select aturan_pakai.aturan from aturan_pakai where aturan_pakai.tgl_perawatan='"+rs.getString("tgl_perawatan")+"' and "+
+                                "aturan_pakai.jam='"+rs.getString("jam")+"' and aturan_pakai.no_rawat='"+rs.getString("no_rawat")+"' and aturan_pakai.kode_brng='"+rs2.getString("kode_brng")+"'")
                             });
-                            total=total+rs2.getDouble("total");
-                            jumlahtotal=jumlahtotal+rs2.getDouble("total");
+                            total += rs2.getDouble("total");
+                            jumlahtotal += rs2.getDouble("total");
                         }
                     } catch (Exception e) {
                         System.out.println("Notifikasi : "+e);
@@ -2428,8 +2418,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                         " + "+Valid.SetAngka(rs2.getDouble("embalase"))+" + "+Valid.SetAngka(rs2.getDouble("tuslah"))+" = "+Valid.SetAngka(rs2.getDouble("total")),
                                         ""
                                     });
-                                    total=total+rs2.getDouble("total");
-                                    jumlahtotal=jumlahtotal+rs2.getDouble("total");
+                                    total += rs2.getDouble("total");
+                                    jumlahtotal += rs2.getDouble("total");
                                 }                                
                             } catch (Exception e) {
                                 System.out.println("Notifikasi Detail Racikan : "+e);
@@ -2525,6 +2515,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isForm();
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     * @param jam
+     * @param menit
+     * @param detik
+     * @param kodedokter
+     * @param namadokter
+     * @param status
+     */
     public void setNoRm(String norwt,Date tgl1,Date tgl2,String jam,String menit,String detik,String kodedokter,String namadokter,String status) {
         TNoRw.setText(norwt);
         Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat=? ",TNoRm,TNoRw.getText());

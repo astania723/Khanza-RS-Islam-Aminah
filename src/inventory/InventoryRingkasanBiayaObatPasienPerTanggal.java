@@ -1,32 +1,14 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 public class InventoryRingkasanBiayaObatPasienPerTanggal extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -55,13 +37,13 @@ public class InventoryRingkasanBiayaObatPasienPerTanggal extends javax.swing.JDi
         tabMode=new DefaultTableModel(null,new Object[]{
                 "No.","Tanggal","No.Rawat","No.RM","Nama Pasien","Alamat","Cara Bayar","Unit/Layanan","Total"
             }){
-            @Override 
-            public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             Class[] types = new Class[]{
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class
             };
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             @Override
             public Class getColumnClass(int columnIndex) {
                 return types[columnIndex];
@@ -1098,7 +1080,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 i=1;
                 total=0;
                 while(rs.next()){
-                    total=total+rs.getDouble("total");
+                    total += rs.getDouble("total");
                     unit=rs.getString("nm_poli");
                     if(rs.getString("status").equals("Ranap")){
                         unit=Sequel.cariIsi("select concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) from kamar_inap inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc limit 1  ",rs.getString("no_rawat"));

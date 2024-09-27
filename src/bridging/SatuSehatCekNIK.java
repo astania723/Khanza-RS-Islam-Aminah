@@ -5,15 +5,11 @@
  */
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.koneksiDB;
-import java.io.FileReader;
-import javax.swing.JOptionPane;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.io.*;
+import javax.swing.*;
+import org.springframework.http.*;
 
 /**
  *
@@ -21,9 +17,57 @@ import org.springframework.http.MediaType;
  */
 public class SatuSehatCekNIK {
     private String link="",json="";
-    public String birthDate="",province="",provincename="",city="",cityname="",district="",districtname="",village="",
-                  villagename="",rt="",rw="",line="",postalCode="",gender="",noktp="",idpasien="",maritalStatus="",
-                  name="",phone="",email="";
+
+    /**
+     *
+     */
+    public String birthDate="",province="",
+
+    /**
+     *
+     */
+    provincename="",city="",
+
+    /**
+     *
+     */
+    cityname="",
+
+    /**
+     *
+     */
+    district="",districtname="",village="",
+                  villagename="",
+
+    /**
+     *
+     */
+    rt="",
+
+    /**
+     *
+     */
+    rw="",line="",postalCode="",
+
+    /**
+     *
+     */
+    gender="",noktp="",
+
+    /**
+     *
+     */
+    idpasien="",maritalStatus="",
+
+    /**
+     *
+     */
+    name="",
+
+    /**
+     *
+     */
+    phone="",email="";
     private ApiSatuSehat api=new ApiSatuSehat();
     private HttpHeaders headers ;
     private HttpEntity requestEntity;
@@ -32,6 +76,9 @@ public class SatuSehatCekNIK {
     private JsonNode response;
     private FileReader dataPropinsi,dataKabupaten,dataKecamatan,dataKelurahan;
         
+    /**
+     *
+     */
     public SatuSehatCekNIK(){
         super();
         try {
@@ -65,6 +112,10 @@ public class SatuSehatCekNIK {
         } 
     }
     
+    /**
+     *
+     * @param cari
+     */
     public void tampil(String cari) {
         try{
             birthDate="";province="";provincename="";city="";cityname="";district="";districtname="";village="";villagename="";
@@ -245,6 +296,11 @@ public class SatuSehatCekNIK {
         }
     }
     
+    /**
+     *
+     * @param cari
+     * @return
+     */
     public String tampilIDPasien(String cari) {
         idpasien="";
         try{
@@ -266,6 +322,11 @@ public class SatuSehatCekNIK {
         return idpasien;
     }
     
+    /**
+     *
+     * @param cari
+     * @return
+     */
     public String tampilIDParktisi(String cari) {
         idpasien="";
         try{

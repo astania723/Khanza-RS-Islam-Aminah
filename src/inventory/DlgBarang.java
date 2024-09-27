@@ -12,32 +12,17 @@
 
 package inventory;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.HeadlessException;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import restore.DlgRestoreObat;
-import simrskhanza.DlgCariBangsal;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import restore.*;
+import simrskhanza.*;
 
 public class DlgBarang extends javax.swing.JDialog {
 
@@ -46,15 +31,31 @@ public class DlgBarang extends javax.swing.JDialog {
     private validasi Valid = new validasi();
     private Connection koneksi = koneksiDB.condb();
     public DlgCariJenis jenis = new DlgCariJenis(null, false);
+
+    /**
+     *
+     */
     public DlgCariKategori kategori = new DlgCariKategori(null, false);
     public DlgCariGolongan golongan = new DlgCariGolongan(null, false);
+
+    /**
+     *
+     */
     public DlgCariSatuan satuan = new DlgCariSatuan(null, false);
+
+    /**
+     *
+     */
     public DlgCariIndustriFarmasi industri=new DlgCariIndustriFarmasi(null,false);
     private DlgCariBangsal bangsal = new DlgCariBangsal(null, false);
     private double totalstok, stokgudang;
     private PreparedStatement ps, ps2, ps3, ps4;
     private ResultSet rs, rs2, rs3;
     private int i = 0;
+
+    /**
+     *
+     */
     public String aktifkanbatch="no",pengaturanharga=Sequel.cariIsi("select set_harga_obat.setharga from set_harga_obat");
     private String kdlokasi = "", nmlokasi = "", tanggal = "0000-00-00",qrystok="";
 
@@ -70,14 +71,6 @@ public class DlgBarang extends javax.swing.JDialog {
             "Stok Min", "Kode Jenis", "Nama Jenis","Kadaluwarsa","Kode I.F.","Industri Farmasi","Kode Kategori","Kategori",
             "Kode Golongan","Golongan"
         }) {
-            @Override
-            public boolean isCellEditable(int rowIndex, int colIndex) {
-                boolean a = false;
-                if (colIndex == 0) {
-                    a = true;
-                }
-                return a;
-            }
             Class[] types = new Class[]{
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Double.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
@@ -87,6 +80,14 @@ public class DlgBarang extends javax.swing.JDialog {
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class
             };
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+              boolean a = false;
+              if (colIndex == 0) {
+                a = true;
+              }
+              return a;
+            }
 
             @Override
             public Class getColumnClass(int columnIndex) {
@@ -2835,7 +2836,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 rs3 = ps3.executeQuery();
                                 if (rs3.next()) {
                                     stokgudang = rs3.getDouble(1);
-                                    totalstok = totalstok + rs3.getDouble(1);
+                                    totalstok += rs3.getDouble(1);
                                 }
                                 tabMode.addRow(new Object[]{false, "","    "+rs2.getString(2),": " + stokgudang, "", null,null,null,null,null, null, null, null, null, null, null, null, null, null, null, null,null,null, null,null,null,null,null,null,null});
                             } catch (Exception e) {
@@ -2879,6 +2880,9 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
 
+    /**
+     *
+     */
     public void tampil3() {
         Valid.tabelKosong(tabMode);
         try {
@@ -3023,6 +3027,10 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             
     }
     
+    /**
+     *
+     * @param NoRetur
+     */
     public void tampil4(String NoRetur) {
         if(akses.getform().equals("DlgReturJual")){
             if(aktifkanbatch.equals("yes")){
@@ -3264,6 +3272,10 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable() {
         return tbObat;
     }
@@ -3383,6 +3395,11 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
 
+    /**
+     *
+     * @param kodelokasi
+     * @param namalokasi
+     */
     public void setLokasi(String kodelokasi,String namalokasi){
         this.kdlokasi=kodelokasi;
         this.nmlokasi=namalokasi;
@@ -3401,6 +3418,9 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         } 
     }
     
+    /**
+     *
+     */
     public void isBatch(){
         tabMode = new DefaultTableModel(null,new Object[]{
                 "P", "Kode Barang", "Nama Barang", "Kd.Sat Besar", "Nm.Satuan Besar","Isi", "Kd.Sat Kecil", "Nm.Satuan Kecil",
@@ -3409,14 +3429,6 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 "Stok Min", "Kode Jenis", "Nama Jenis","Kadaluwarsa","Kode I.F.","Industri Farmasi","Kode Kategori","Kategori",
                 "Kode Golongan","Golongan","No.Batch","No.Faktur"
             }) {
-                @Override
-                public boolean isCellEditable(int rowIndex, int colIndex) {
-                    boolean a = false;
-                    if (colIndex == 0) {
-                        a = true;
-                    }
-                    return a;
-                }
                 Class[] types = new Class[]{
                     java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                     java.lang.Double.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Object.class,
@@ -3426,6 +3438,14 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                     java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
                 };
+                @Override
+                public boolean isCellEditable(int rowIndex, int colIndex) {
+                  boolean a = false;
+                  if (colIndex == 0) {
+                    a = true;
+                  }
+                  return a;
+                }
 
                 @Override
                 public Class getColumnClass(int columnIndex) {

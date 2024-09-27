@@ -11,25 +11,14 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -509,7 +498,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("durasipelayanan")
                     });
                     i++;
-                    lamajam=lamajam+rs.getDouble("durasivalidasi");
+                    lamajam += rs.getDouble("durasivalidasi");
                     if(rs.getDouble("durasivalidasi")<=15){
                         limabelas++;
                     }else if((rs.getDouble("durasivalidasi")>15)&&(rs.getDouble("durasivalidasi")<=30)){
@@ -519,7 +508,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     }else if(rs.getDouble("durasivalidasi")>60){
                         lebihsatujam++;
                     }
-                    lamajam2=lamajam2+rs.getDouble("durasipenyerahan");
+                    lamajam2 += rs.getDouble("durasipenyerahan");
                     if(rs.getDouble("durasipenyerahan")<=15){
                         limabelas2++;
                     }else if((rs.getDouble("durasipenyerahan")>15)&&(rs.getDouble("durasipenyerahan")<=30)){
@@ -529,7 +518,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     }else if(rs.getDouble("durasipenyerahan")>60){
                         lebihsatujam2++;
                     }
-                    lamajam3=lamajam3+rs.getDouble("durasipelayanan");
+                    lamajam3 += rs.getDouble("durasipelayanan");
                     if(rs.getDouble("durasipelayanan")<=15){
                         limabelas3++;
                     }else if((rs.getDouble("durasipelayanan")>15)&&(rs.getDouble("durasipelayanan")<=30)){

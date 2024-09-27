@@ -1,29 +1,13 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 public class DlgDetailJMDokter2 extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
@@ -53,7 +37,6 @@ public class DlgDetailJMDokter2 extends javax.swing.JDialog {
                 "J.S.","J.P.","Tarif","Total J.S.",
                 "Total J.P.","Total","Tgl.Trans"
              }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,
@@ -63,6 +46,7 @@ public class DlgDetailJMDokter2 extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.String.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1180,8 +1164,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1223,8 +1207,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1266,8 +1250,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1311,8 +1295,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1354,8 +1338,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1397,8 +1381,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1442,8 +1426,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1487,8 +1471,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 if(rstindakan.getString("status").equals("Ralan")){
                                     tabMode.addRow(new Object[]{
@@ -1552,8 +1536,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1597,8 +1581,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                             pstindakan.setString(1,rsreg.getString("no_rawat"));
                             rstindakan=pstindakan.executeQuery();
                             while(rstindakan.next()){
-                                totalsarana=totalsarana+rstindakan.getDouble("totalsarana");
-                                totaljm=totaljm+rstindakan.getDouble("totaljm");
+                                totalsarana += rstindakan.getDouble("totalsarana");
+                                totaljm += rstindakan.getDouble("totaljm");
                                 totalbayar=totalbayar+rstindakan.getDouble("totaljm")+rstindakan.getDouble("totalsarana");
                                 tabMode.addRow(new Object[]{
                                     rsreg.getString("no_rawat"),rsreg.getString("no_rkm_medis"),rsreg.getString("nm_pasien"),
@@ -1649,6 +1633,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         
     }    
     
+    /**
+     *
+     */
     public void isCek(){
         //BtnPrint.setEnabled(var.getjm_ranap_dokter());
     }

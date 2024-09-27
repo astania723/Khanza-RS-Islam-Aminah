@@ -1,7 +1,7 @@
 package widget;
 
-import java.awt.Color;
-import usu.widget.glass.ButtonImageReflection;
+import java.awt.*;
+import usu.widget.glass.*;
 
 /**
  *
@@ -14,6 +14,9 @@ public class ButtonBig extends ButtonImageReflection {
      */
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public ButtonBig() {
         super();
         setForeground(new Color(50,50,50));

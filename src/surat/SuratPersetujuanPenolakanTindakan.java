@@ -5,44 +5,26 @@
 
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
  *
  * @author windiartohugroho
  */
-public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog {
+public class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -192,24 +174,24 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         NoPenyataan.setDocument(new batasInput((byte)20).getKata(NoPenyataan));
-        Diagnosa.setDocument(new batasInput((int)200).getKata(Diagnosa));
-        TindakanKedokteran.setDocument(new batasInput((int)200).getKata(TindakanKedokteran));
-        IndikasiTindakan.setDocument(new batasInput((int)200).getKata(IndikasiTindakan));
-        TataCara.setDocument(new batasInput((int)400).getKata(TataCara));
-        Tujuan.setDocument(new batasInput((int)200).getKata(Tujuan));
-        Risiko.setDocument(new batasInput((int)200).getKata(Risiko));
-        Komplikasi.setDocument(new batasInput((int)200).getKata(Komplikasi));
-        Prognosis.setDocument(new batasInput((int)200).getKata(Prognosis));
-        AlternatifResiko.setDocument(new batasInput((int)200).getKata(AlternatifResiko));
-        LainLain.setDocument(new batasInput((int)200).getKata(LainLain));
+        Diagnosa.setDocument(new batasInput(200).getKata(Diagnosa));
+        TindakanKedokteran.setDocument(new batasInput(200).getKata(TindakanKedokteran));
+        IndikasiTindakan.setDocument(new batasInput(200).getKata(IndikasiTindakan));
+        TataCara.setDocument(new batasInput(400).getKata(TataCara));
+        Tujuan.setDocument(new batasInput(200).getKata(Tujuan));
+        Risiko.setDocument(new batasInput(200).getKata(Risiko));
+        Komplikasi.setDocument(new batasInput(200).getKata(Komplikasi));
+        Prognosis.setDocument(new batasInput(200).getKata(Prognosis));
+        AlternatifResiko.setDocument(new batasInput(200).getKata(AlternatifResiko));
+        LainLain.setDocument(new batasInput(200).getKata(LainLain));
         Biaya.setDocument(new batasInput((byte)12).getOnlyAngka(Biaya));
-        AlasanDiwakilkan.setDocument(new batasInput((int)40).getKata(AlasanDiwakilkan));
-        PenerimaInformasi.setDocument(new batasInput((int)50).getKata(PenerimaInformasi));
-        AlamatPenerima.setDocument(new batasInput((int)100).getKata(AlamatPenerima));
-        NoHPPenerima.setDocument(new batasInput((int)40).getKata(NoHPPenerima));
+        AlasanDiwakilkan.setDocument(new batasInput(40).getKata(AlasanDiwakilkan));
+        PenerimaInformasi.setDocument(new batasInput(50).getKata(PenerimaInformasi));
+        AlamatPenerima.setDocument(new batasInput(100).getKata(AlamatPenerima));
+        NoHPPenerima.setDocument(new batasInput(40).getKata(NoHPPenerima));
         UmurPenerima.setDocument(new batasInput((byte)3).getOnlyAngka(UmurPenerima));
-        SaksiKeluarga.setDocument(new batasInput((int)50).getKata(SaksiKeluarga));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        SaksiKeluarga.setDocument(new batasInput(50).getKata(SaksiKeluarga));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         ChkAccor.setSelected(false);
         isPhoto();
@@ -2395,6 +2377,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2482,6 +2467,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         HubunganDenganPasien.setSelectedIndex(0);
         TglPernyataan.setDate(new Date());
@@ -2600,6 +2588,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpersetujuan_penolakan_tindakan());
         BtnHapus.setEnabled(akses.getpersetujuan_penolakan_tindakan());
@@ -2617,6 +2608,9 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

@@ -1,28 +1,14 @@
 package ipsrs;
 
 
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
 public class IPSRSReturBeli extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -39,6 +25,10 @@ public class IPSRSReturBeli extends javax.swing.JDialog {
     private String[] kodebarang,namabarang,satuan,nofaktur;
     private double[] h_retur,jumlah,jmltotal,harga,stok;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public boolean tampikan=true;
     private boolean sukses=true;
     private String Retur_Beli_Non_Medis=Sequel.cariIsi("select set_akun.Retur_Beli_Non_Medis from set_akun"),Kontra_Retur_Beli_Non_Medis=Sequel.cariIsi("select set_akun.Kontra_Retur_Beli_Non_Medis from set_akun");
@@ -103,8 +93,8 @@ public class IPSRSReturBeli extends javax.swing.JDialog {
         NoRetur.setDocument(new batasInput((byte)20).getKata(NoRetur));
         kdsup.setDocument(new batasInput((byte)5).getKata(kdsup));
         kdptg.setDocument(new batasInput((byte)25).getKata(kdptg)); 
-        Catatan.setDocument(new batasInput((int)40).getKata(Catatan));         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Catatan.setDocument(new batasInput(40).getKata(Catatan));         
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -873,7 +863,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -973,11 +963,14 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch (Exception e) {
                 y=0;                
             }
-            ttl=ttl+y;
+            ttl += y;
         }
         LTotal.setText(Valid.SetAngka(ttl));
     }
     
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();

@@ -6,33 +6,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -49,6 +33,7 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
     private int i=0;    
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private String finger="";
+    private String TANGGALMUNDUR="yes";
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -106,13 +91,13 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KdPetugas.setDocument(new batasInput((byte)20).getKata(KdPetugas));
-        Diagnosa.setDocument(new batasInput((int)40).getKata(Diagnosa));
-        Alergi.setDocument(new batasInput((int)30).getKata(Alergi));
-        ObatPemakaian.setDocument(new batasInput((int)700).getKata(ObatPemakaian));
-        Keluhan.setDocument(new batasInput((int)300).getKata(Keluhan));
-        TindakLanjut.setDocument(new batasInput((int)400).getKata(TindakLanjut));
+        Diagnosa.setDocument(new batasInput(40).getKata(Diagnosa));
+        Alergi.setDocument(new batasInput(30).getKata(Alergi));
+        ObatPemakaian.setDocument(new batasInput(700).getKata(ObatPemakaian));
+        Keluhan.setDocument(new batasInput(300).getKata(Keluhan));
+        TindakLanjut.setDocument(new batasInput(400).getKata(TindakLanjut));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -162,8 +147,13 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         
         ChkInput.setSelected(false);
         isForm();
-        
         jam();
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -179,6 +169,7 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         MnKonselingFarmasi = new javax.swing.JMenuItem();
         JK = new widget.TextBox();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -254,6 +245,9 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
 
         JK.setHighlighter(null);
         JK.setName("JK"); // NOI18N
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -425,7 +419,7 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-04-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-04-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -439,7 +433,7 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-04-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-04-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -535,7 +529,7 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         TPasien.setBounds(336, 10, 285, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-04-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-04-2024" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -824,20 +818,16 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         }else if(TindakLanjut.getText().trim().isEmpty()){
             Valid.textKosong(TindakLanjut,"Tindak Lanjut");
         }else{
-            if(Sequel.menyimpantf("konseling_farmasi","?,?,?,?,?,?,?,?,?","Data",9,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                Diagnosa.getText(),ObatPemakaian.getText(),Alergi.getText(),Keluhan.getText(),PernahKonseling.getSelectedItem().toString(),TindakLanjut.getText(),
-                KdPetugas.getText()
-            })==true){
-                tabMode.addRow(new String[]{
-                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JK.getText(),KdPetugas.getText(),NmPetugas.getText(),
-                    Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                    Diagnosa.getText(),Alergi.getText(),PernahKonseling.getSelectedItem().toString(),ObatPemakaian.getText(),Keluhan.getText(),
-                    TindakLanjut.getText()
-                });
-                emptTeks();
-                LCount.setText(""+tabMode.getRowCount());
-            }  
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                    simpan();
+                }
+            }
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
@@ -867,7 +857,9 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
                 hapus();
             }else{
                 if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -904,7 +896,14 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -1184,6 +1183,7 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox TglLahir;
     private widget.TextArea TindakLanjut;
     private widget.Button btnPetugas;
@@ -1212,6 +1212,9 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1310,8 +1313,8 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
     private void isRawat() {
         try {
             ps=koneksi.prepareStatement(
-                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi "+
-                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi,"+
+                    "reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "where reg_periksa.no_rawat=?");
             try {
                 ps.setString(1,TNoRw.getText());
@@ -1322,6 +1325,7 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
                     TPasien.setText(rs.getString("nm_pasien"));
                     JK.setText(rs.getString("jk"));
                     TglLahir.setText(rs.getString("tgl_lahir"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1361,6 +1365,9 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getkonseling_farmasi());
         BtnHapus.setEnabled(akses.getkonseling_farmasi());
@@ -1375,7 +1382,17 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
                 KdPetugas.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
-        }            
+        }  
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+                ChkKejadian.setEnabled(false);
+                Jam.setEnabled(false);
+                Menit.setEnabled(false);
+                Detik.setEnabled(false);
+            }
+        }
     }
 
     private void jam(){
@@ -1466,6 +1483,23 @@ public class RMKonselingFarmasi extends javax.swing.JDialog {
         }else{
             JOptionPane.showMessageDialog(null,"Gagal menghapus..!!");
         }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("konseling_farmasi","?,?,?,?,?,?,?,?,?","Data",9,new String[]{
+            TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+            Diagnosa.getText(),ObatPemakaian.getText(),Alergi.getText(),Keluhan.getText(),PernahKonseling.getSelectedItem().toString(),TindakLanjut.getText(),
+            KdPetugas.getText()
+        })==true){
+            tabMode.addRow(new String[]{
+                TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JK.getText(),KdPetugas.getText(),NmPetugas.getText(),
+                Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+                Diagnosa.getText(),Alergi.getText(),PernahKonseling.getSelectedItem().toString(),ObatPemakaian.getText(),Keluhan.getText(),
+                TindakLanjut.getText()
+            });
+            emptTeks();
+            LCount.setText(""+tabMode.getRowCount());
+        } 
     }
     
 }

@@ -11,24 +11,13 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -55,12 +44,12 @@ public class DlgLhtBiaya extends javax.swing.JDialog {
                 "Keterangan","Tagihan/Tindakan/Terapi","",
                 "Biaya","Jumlah","Tambahan","Total Biaya"
             }){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
                 java.lang.Double.class, 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -412,7 +401,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                      } catch (Exception e) {
                          y=0; 
                      }
-                     all=all+y;  
+                     all += y;  
                 }
                 LCount.setText(Valid.SetAngka(all));
             } catch (Exception e) {

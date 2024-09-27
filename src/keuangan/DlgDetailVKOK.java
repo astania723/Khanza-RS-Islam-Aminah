@@ -2,24 +2,13 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -69,7 +58,6 @@ public class DlgDetailVKOK extends javax.swing.JDialog {
             "Dokter P.J. Anak","JM dr P.J. Anak","Dokter Umum", "JM dr Umum",
             "Sewa Alat", "Sewa OK/VK", "Akomodasi", "N.M.S.",  "Sarpras","Total" 
         }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
@@ -93,6 +81,7 @@ public class DlgDetailVKOK extends javax.swing.JDialog {
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -242,7 +231,6 @@ public class DlgDetailVKOK extends javax.swing.JDialog {
             "Dokter P.J. Anak","JM dr P.J. Anak","Dokter Umum", "JM dr Umum",
             "Sewa Alat", "Sewa OK/VK", "Akomodasi", "N.M.S.",  "Sarpras","Total" 
         }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                  java.lang.Object.class,
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
@@ -266,6 +254,7 @@ public class DlgDetailVKOK extends javax.swing.JDialog {
                  java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                  java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -877,34 +866,34 @@ public class DlgDetailVKOK extends javax.swing.JDialog {
                          biaya_omloop4=0;biaya_omloop5=0;biayasarpras=0;biaya_dokter_pjanak=0;
                          biaya_dokter_umum=0;
                          while(rs.next()){  
-                             biayaoperator1=biayaoperator1+rs.getDouble("biayaoperator1");
-                             biayaoperator2=biayaoperator2+rs.getDouble("biayaoperator2");
-                             biayaoperator3=biayaoperator3+rs.getDouble("biayaoperator3");
-                             biayaasisten_operator1=biayaasisten_operator1+rs.getDouble("biayaasisten_operator1");
-                             biayaasisten_operator2=biayaasisten_operator2+rs.getDouble("biayaasisten_operator2");
-                             biayaasisten_operator3=biayaasisten_operator3+rs.getDouble("biayaasisten_operator3");
-                             biayainstrumen=biayainstrumen+rs.getDouble("biayainstrumen");
-                             biayadokter_anak=biayadokter_anak+rs.getDouble("biayadokter_anak");
-                             biayaperawaat_resusitas=biayaperawaat_resusitas+rs.getDouble("biayaperawaat_resusitas");
-                             biayadokter_anestesi=biayadokter_anestesi+rs.getDouble("biayadokter_anestesi");
-                             biayaasisten_anestesi=biayaasisten_anestesi+rs.getDouble("biayaasisten_anestesi");
-                             biayaasisten_anestesi2=biayaasisten_anestesi2+rs.getDouble("biayaasisten_anestesi2");
-                             biayabidan=biayabidan+rs.getDouble("biayabidan");
-                             biayabidan2=biayabidan2+rs.getDouble("biayabidan2");
-                             biayabidan3=biayabidan3+rs.getDouble("biayabidan3");
-                             biayaperawat_luar=biayaperawat_luar+rs.getDouble("biayaperawat_luar");
-                             biaya_omloop=biaya_omloop+rs.getDouble("biaya_omloop");
-                             biaya_omloop2=biaya_omloop2+rs.getDouble("biaya_omloop2");
-                             biaya_omloop3=biaya_omloop3+rs.getDouble("biaya_omloop3");
-                             biaya_omloop4=biaya_omloop4+rs.getDouble("biaya_omloop4");
-                             biaya_omloop5=biaya_omloop5+rs.getDouble("biaya_omloop5");
-                             biaya_dokter_pjanak=biaya_dokter_pjanak+rs.getDouble("biaya_dokter_pjanak");
-                             biaya_dokter_umum=biaya_dokter_umum+rs.getDouble("biaya_dokter_umum");
-                             biayaalat=biayaalat+rs.getDouble("biayaalat");
-                             biayasewaok=biayasewaok+rs.getDouble("biayasewaok");
-                             akomodasi=akomodasi+rs.getDouble("akomodasi");
-                             bagian_rs=bagian_rs+rs.getDouble("bagian_rs");
-                             biayasarpras=biayasarpras+rs.getDouble("biayasarpras");
+                             biayaoperator1 += rs.getDouble("biayaoperator1");
+                             biayaoperator2 += rs.getDouble("biayaoperator2");
+                             biayaoperator3 += rs.getDouble("biayaoperator3");
+                             biayaasisten_operator1 += rs.getDouble("biayaasisten_operator1");
+                             biayaasisten_operator2 += rs.getDouble("biayaasisten_operator2");
+                             biayaasisten_operator3 += rs.getDouble("biayaasisten_operator3");
+                             biayainstrumen += rs.getDouble("biayainstrumen");
+                             biayadokter_anak += rs.getDouble("biayadokter_anak");
+                             biayaperawaat_resusitas += rs.getDouble("biayaperawaat_resusitas");
+                             biayadokter_anestesi += rs.getDouble("biayadokter_anestesi");
+                             biayaasisten_anestesi += rs.getDouble("biayaasisten_anestesi");
+                             biayaasisten_anestesi2 += rs.getDouble("biayaasisten_anestesi2");
+                             biayabidan += rs.getDouble("biayabidan");
+                             biayabidan2 += rs.getDouble("biayabidan2");
+                             biayabidan3 += rs.getDouble("biayabidan3");
+                             biayaperawat_luar += rs.getDouble("biayaperawat_luar");
+                             biaya_omloop += rs.getDouble("biaya_omloop");
+                             biaya_omloop2 += rs.getDouble("biaya_omloop2");
+                             biaya_omloop3 += rs.getDouble("biaya_omloop3");
+                             biaya_omloop4 += rs.getDouble("biaya_omloop4");
+                             biaya_omloop5 += rs.getDouble("biaya_omloop5");
+                             biaya_dokter_pjanak += rs.getDouble("biaya_dokter_pjanak");
+                             biaya_dokter_umum += rs.getDouble("biaya_dokter_umum");
+                             biayaalat += rs.getDouble("biayaalat");
+                             biayasewaok += rs.getDouble("biayasewaok");
+                             akomodasi += rs.getDouble("akomodasi");
+                             bagian_rs += rs.getDouble("bagian_rs");
+                             biayasarpras += rs.getDouble("biayasarpras");
                              total=total+rs.getDouble("biayaoperator1")+rs.getDouble("biayaoperator2")+rs.getDouble("biayaoperator3")+
                                    rs.getDouble("biayaasisten_operator1")+rs.getDouble("biayaasisten_operator2")+rs.getDouble("biayaasisten_operator3")+
                                    rs.getDouble("biayainstrumen")+rs.getDouble("biayadokter_anak")+rs.getDouble("biayaperawaat_resusitas")+
@@ -1074,34 +1063,34 @@ public class DlgDetailVKOK extends javax.swing.JDialog {
                          biaya_omloop4=0;biaya_omloop5=0;biayasarpras=0;biaya_dokter_pjanak=0;
                          biaya_dokter_umum=0;
                          while(rs.next()){  
-                             biayaoperator1=biayaoperator1+rs.getDouble("biayaoperator1");
-                             biayaoperator2=biayaoperator2+rs.getDouble("biayaoperator2");
-                             biayaoperator3=biayaoperator3+rs.getDouble("biayaoperator3");
-                             biayaasisten_operator1=biayaasisten_operator1+rs.getDouble("biayaasisten_operator1");
-                             biayaasisten_operator2=biayaasisten_operator2+rs.getDouble("biayaasisten_operator2");
-                             biayaasisten_operator3=biayaasisten_operator3+rs.getDouble("biayaasisten_operator3");
-                             biayainstrumen=biayainstrumen+rs.getDouble("biayainstrumen");
-                             biayadokter_anak=biayadokter_anak+rs.getDouble("biayadokter_anak");
-                             biayaperawaat_resusitas=biayaperawaat_resusitas+rs.getDouble("biayaperawaat_resusitas");
-                             biayadokter_anestesi=biayadokter_anestesi+rs.getDouble("biayadokter_anestesi");
-                             biayaasisten_anestesi=biayaasisten_anestesi+rs.getDouble("biayaasisten_anestesi");
-                             biayaasisten_anestesi2=biayaasisten_anestesi2+rs.getDouble("biayaasisten_anestesi2");
-                             biayabidan=biayabidan+rs.getDouble("biayabidan");
-                             biayabidan2=biayabidan2+rs.getDouble("biayabidan2");
-                             biayabidan3=biayabidan3+rs.getDouble("biayabidan3");
-                             biayaperawat_luar=biayaperawat_luar+rs.getDouble("biayaperawat_luar");
-                             biaya_omloop=biaya_omloop+rs.getDouble("biaya_omloop");
-                             biaya_omloop2=biaya_omloop2+rs.getDouble("biaya_omloop2");
-                             biaya_omloop3=biaya_omloop3+rs.getDouble("biaya_omloop3");
-                             biaya_omloop4=biaya_omloop4+rs.getDouble("biaya_omloop4");
-                             biaya_omloop5=biaya_omloop5+rs.getDouble("biaya_omloop5");
-                             biaya_dokter_pjanak=biaya_dokter_pjanak+rs.getDouble("biaya_dokter_pjanak");
-                             biaya_dokter_umum=biaya_dokter_umum+rs.getDouble("biaya_dokter_umum");
-                             biayaalat=biayaalat+rs.getDouble("biayaalat");
-                             biayasewaok=biayasewaok+rs.getDouble("biayasewaok");
-                             akomodasi=akomodasi+rs.getDouble("akomodasi");
-                             bagian_rs=bagian_rs+rs.getDouble("bagian_rs");
-                             biayasarpras=biayasarpras+rs.getDouble("biayasarpras");
+                             biayaoperator1 += rs.getDouble("biayaoperator1");
+                             biayaoperator2 += rs.getDouble("biayaoperator2");
+                             biayaoperator3 += rs.getDouble("biayaoperator3");
+                             biayaasisten_operator1 += rs.getDouble("biayaasisten_operator1");
+                             biayaasisten_operator2 += rs.getDouble("biayaasisten_operator2");
+                             biayaasisten_operator3 += rs.getDouble("biayaasisten_operator3");
+                             biayainstrumen += rs.getDouble("biayainstrumen");
+                             biayadokter_anak += rs.getDouble("biayadokter_anak");
+                             biayaperawaat_resusitas += rs.getDouble("biayaperawaat_resusitas");
+                             biayadokter_anestesi += rs.getDouble("biayadokter_anestesi");
+                             biayaasisten_anestesi += rs.getDouble("biayaasisten_anestesi");
+                             biayaasisten_anestesi2 += rs.getDouble("biayaasisten_anestesi2");
+                             biayabidan += rs.getDouble("biayabidan");
+                             biayabidan2 += rs.getDouble("biayabidan2");
+                             biayabidan3 += rs.getDouble("biayabidan3");
+                             biayaperawat_luar += rs.getDouble("biayaperawat_luar");
+                             biaya_omloop += rs.getDouble("biaya_omloop");
+                             biaya_omloop2 += rs.getDouble("biaya_omloop2");
+                             biaya_omloop3 += rs.getDouble("biaya_omloop3");
+                             biaya_omloop4 += rs.getDouble("biaya_omloop4");
+                             biaya_omloop5 += rs.getDouble("biaya_omloop5");
+                             biaya_dokter_pjanak += rs.getDouble("biaya_dokter_pjanak");
+                             biaya_dokter_umum += rs.getDouble("biaya_dokter_umum");
+                             biayaalat += rs.getDouble("biayaalat");
+                             biayasewaok += rs.getDouble("biayasewaok");
+                             akomodasi += rs.getDouble("akomodasi");
+                             bagian_rs += rs.getDouble("bagian_rs");
+                             biayasarpras += rs.getDouble("biayasarpras");
                              total=total+rs.getDouble("biayaoperator1")+rs.getDouble("biayaoperator2")+rs.getDouble("biayaoperator3")+
                                    rs.getDouble("biayaasisten_operator1")+rs.getDouble("biayaasisten_operator2")+rs.getDouble("biayaasisten_operator3")+
                                    rs.getDouble("biayainstrumen")+rs.getDouble("biayadokter_anak")+rs.getDouble("biayaperawaat_resusitas")+

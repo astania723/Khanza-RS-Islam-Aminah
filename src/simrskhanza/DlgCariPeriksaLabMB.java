@@ -1,39 +1,20 @@
 package simrskhanza;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
-import laporan.DlgBerkasRawat;
-import rekammedis.RMRiwayatPerawatan;
-import surat.SuratKeteranganCovid;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import keuangan.*;
+import laporan.*;
+import rekammedis.*;
+import surat.*;
 
 public class DlgCariPeriksaLabMB extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
@@ -1260,30 +1241,30 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                   "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
                                   "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
 
-                        ttljmdokter=ttljmdokter+Sequel.cariIsiAngka("select sum(bagian_dokter) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
-                        ttljmpetugas=ttljmpetugas+Sequel.cariIsiAngka("select sum(bagian_laborat) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
-                        ttlkso=ttlkso+Sequel.cariIsiAngka("select sum(kso) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
-                        ttlbhp=ttlbhp+Sequel.cariIsiAngka("select sum(bhp) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
-                        ttlpendapatan=ttlpendapatan+Sequel.cariIsiAngka("select sum(biaya_item) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
-                        ttljasasarana=ttljasasarana+Sequel.cariIsiAngka("select sum(bagian_rs) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
-                        ttljmperujuk=ttljmperujuk+Sequel.cariIsiAngka("select sum(bagian_perujuk) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
-                        ttlmenejemen=ttlmenejemen+Sequel.cariIsiAngka("select sum(menejemen) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
-                                  "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
-                                  "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttljmdokter += Sequel.cariIsiAngka("select sum(bagian_dokter) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttljmpetugas += Sequel.cariIsiAngka("select sum(bagian_laborat) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttlkso += Sequel.cariIsiAngka("select sum(kso) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttlbhp += Sequel.cariIsiAngka("select sum(bhp) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttlpendapatan += Sequel.cariIsiAngka("select sum(biaya_item) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttljasasarana += Sequel.cariIsiAngka("select sum(bagian_rs) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttljmperujuk += Sequel.cariIsiAngka("select sum(bagian_perujuk) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
+                        ttlmenejemen += Sequel.cariIsiAngka("select sum(menejemen) from detail_periksa_lab where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
+                                "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
+                                "' and jam='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),4) +"'");
 
                         status=Sequel.cariIsi("select status from periksa_lab where periksa_lab.kategori='MB' and no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +
                                       "' and tgl_periksa='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),3) +
@@ -1615,7 +1596,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             ttl=0;
                             while(rs2.next()){
                                 item=rs2.getDouble("biaya");//Sequel.cariIsiAngka("select sum(biaya_item) from template_laboratorium where kd_jenis_prw=?",rs2.getString("kd_jenis_prw"));
-                                ttl=ttl+item;                    
+                                ttl += item;                    
                                 Sequel.menyimpan("temporary_lab","'0','"+rs2.getString("kd_jenis_prw")+"','"+rs2.getString("nm_perawatan")+"','"+item+"','Pemeriksaan','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Biaya Lab");                        
                                 ps3=koneksi.prepareStatement(
                                     "select template_laboratorium.Pemeriksaan, detail_periksa_lab.nilai,template_laboratorium.satuan,detail_periksa_lab.nilai_rujukan,detail_periksa_lab.biaya_item,"+
@@ -1629,7 +1610,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     rs3=ps3.executeQuery();
                                     while(rs3.next()){
                                         item=rs3.getDouble("biaya_item");
-                                        ttl=ttl+item; 
+                                        ttl += item; 
                                         Sequel.menyimpan("temporary_lab","'0','"+rs3.getString("kd_jenis_prw")+"','   "+rs3.getString("Pemeriksaan")+"','"+item+"','Detail Pemeriksaan','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Biaya Lab");                        
                                     }
                                 } catch (Exception e) {
@@ -2479,8 +2460,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         rs2=ps2.executeQuery();
                         item=0;
                         while(rs2.next()){     
-                           item=item+rs2.getDouble("biaya");
-                           ttl=ttl+rs2.getDouble("biaya");
+                           item += rs2.getDouble("biaya");
+                           ttl += rs2.getDouble("biaya");
                            tabMode.addRow(new Object[]{"","",rs2.getString("kd_jenis_prw")+" "+rs2.getString("nm_perawatan")+" "+Valid.SetAngka(rs2.getDouble("biaya")),"","","",""});
                            ps3=koneksi.prepareStatement(
                                 "select template_laboratorium.Pemeriksaan, detail_periksa_lab.nilai,template_laboratorium.satuan,detail_periksa_lab.nilai_rujukan,detail_periksa_lab.biaya_item,"+
@@ -2493,8 +2474,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                 ps3.setString(4,rs.getString("jam"));
                                 rs3=ps3.executeQuery();
                                 while(rs3.next()){
-                                    item=item+rs3.getDouble("biaya_item");
-                                    ttl=ttl+rs3.getDouble("biaya_item");
+                                    item += rs3.getDouble("biaya_item");
+                                    ttl += rs3.getDouble("biaya_item");
                                     tabMode.addRow(new Object[]{"","","  "+rs3.getString("Pemeriksaan")+" "+Valid.SetAngka(rs3.getDouble("biaya_item")),rs3.getString("nilai").replaceAll("'","`"),"",rs3.getString("nilai_rujukan"),rs3.getString("keterangan")});
                                 }
                            } catch (Exception e) {
@@ -2645,6 +2626,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }        
     }
     
+    /**
+     *
+     */
     public void tampil3(){        
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         try {
@@ -2877,6 +2861,10 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    /**
+     *
+     * @param norw
+     */
     public void SetNoRw(String norw){
         NoRawat.setText(norw);
         tampil();
@@ -2890,6 +2878,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         MnCetakHasilLab.setEnabled(akses.getpemeriksaan_lab_mb());
         MnCetakNota.setEnabled(akses.getpemeriksaan_lab_mb());

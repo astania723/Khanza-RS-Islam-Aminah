@@ -12,27 +12,15 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import org.springframework.http.*;
 
 /**
  *
@@ -514,6 +502,9 @@ public class BPJSDataAntreanPerTanggal extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             headers = new HttpHeaders();
@@ -599,6 +590,10 @@ public class BPJSDataAntreanPerTanggal extends javax.swing.JDialog {
         NonJKNSelesai.setText(""+umum_selesai);
     }    
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

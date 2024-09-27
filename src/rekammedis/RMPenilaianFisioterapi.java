@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPegawai;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -179,9 +162,9 @@ public class RMPenilaianFisioterapi extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KeluhanUtama.setDocument(new batasInput((int)150).getKata(KeluhanUtama));
-        RiwayatPenyakitSekarang.setDocument(new batasInput((int)100).getKata(RiwayatPenyakitSekarang));
-        RiwayatPenyakitDahulu.setDocument(new batasInput((int)100).getKata(RiwayatPenyakitDahulu));
+        KeluhanUtama.setDocument(new batasInput(150).getKata(KeluhanUtama));
+        RiwayatPenyakitSekarang.setDocument(new batasInput(100).getKata(RiwayatPenyakitSekarang));
+        RiwayatPenyakitDahulu.setDocument(new batasInput(100).getKata(RiwayatPenyakitDahulu));
         TD.setDocument(new batasInput((byte)8).getKata(TD));
         HR.setDocument(new batasInput((byte)5).getKata(HR));
         RR.setDocument(new batasInput((byte)5).getKata(RR));
@@ -201,20 +184,20 @@ public class RMPenilaianFisioterapi extends javax.swing.JDialog {
         KetDeformitas.setDocument(new batasInput((byte)50).getKata(KetDeformitas));
         KetResikoJatuh.setDocument(new batasInput((byte)50).getKata(KetResikoJatuh));
         LainlainFungsioal.setDocument(new batasInput((byte)70).getKata(LainlainFungsioal));
-        KetFisik.setDocument(new batasInput((int)2000).getKata(KetFisik));
-        PemeriksaanMuscu.setDocument(new batasInput((int)200).getKata(PemeriksaanMuscu));
-        PemeriksaanNeuro.setDocument(new batasInput((int)200).getKata(PemeriksaanNeuro));
-        PemeriksaanCardio.setDocument(new batasInput((int)200).getKata(PemeriksaanCardio));
-        PemeriksaanInte.setDocument(new batasInput((int)200).getKata(PemeriksaanInte));
-        PengukuranMuscu.setDocument(new batasInput((int)200).getKata(PengukuranMuscu));
-        PengukuranNeuro.setDocument(new batasInput((int)200).getKata(PengukuranNeuro));
-        PengukuranCardio.setDocument(new batasInput((int)200).getKata(PengukuranCardio));
-        PengukuranInte.setDocument(new batasInput((int)200).getKata(PengukuranInte));
-        Penunjang.setDocument(new batasInput((int)500).getKata(Penunjang));
-        Diagnosis.setDocument(new batasInput((int)100).getKata(Diagnosis));
-        Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
+        KetFisik.setDocument(new batasInput(2000).getKata(KetFisik));
+        PemeriksaanMuscu.setDocument(new batasInput(200).getKata(PemeriksaanMuscu));
+        PemeriksaanNeuro.setDocument(new batasInput(200).getKata(PemeriksaanNeuro));
+        PemeriksaanCardio.setDocument(new batasInput(200).getKata(PemeriksaanCardio));
+        PemeriksaanInte.setDocument(new batasInput(200).getKata(PemeriksaanInte));
+        PengukuranMuscu.setDocument(new batasInput(200).getKata(PengukuranMuscu));
+        PengukuranNeuro.setDocument(new batasInput(200).getKata(PengukuranNeuro));
+        PengukuranCardio.setDocument(new batasInput(200).getKata(PengukuranCardio));
+        PengukuranInte.setDocument(new batasInput(200).getKata(PengukuranInte));
+        Penunjang.setDocument(new batasInput(500).getKata(Penunjang));
+        Diagnosis.setDocument(new batasInput(100).getKata(Diagnosis));
+        Rencana.setDocument(new batasInput(200).getKata(Rencana));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -2627,6 +2610,11 @@ public class RMPenilaianFisioterapi extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);

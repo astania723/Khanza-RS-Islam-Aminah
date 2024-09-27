@@ -11,32 +11,21 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
+public class DlgCariDaftarOperasi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -66,9 +55,6 @@ public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
                 "Akomodasi","N.M.S.","Onloop 1","Onloop 2","Onloop 3","Onloop 4","Onloop 5",
                 "Sarpras","dr Pj Anak","dr Umum","Tarif"
             }){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                return false;
-             }
              Class[] types = new Class[] {
                  java.lang.Object.class,java.lang.Object.class,java.lang.Object.class, java.lang.Double.class, 
                  java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
@@ -79,6 +65,9 @@ public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
                  java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
                  java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               return false;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -561,6 +550,9 @@ public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -569,6 +561,11 @@ public final class DlgCariDaftarOperasi extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     * @param penjab
+     * @param kelasoperasi
+     */
     public void setBayar(String penjab,String kelasoperasi){
         this.kd_pj=penjab;
         this.kelas=kelasoperasi;

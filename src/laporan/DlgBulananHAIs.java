@@ -1,28 +1,17 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgBulananHAIs extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -550,41 +539,41 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 rs=ps.executeQuery();
                 while(rs.next()){
                     pasien=Sequel.cariInteger("select count(data_HAIs.no_rawat) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlpasien=jmlpasien+pasien;
+                    jmlpasien += pasien;
                     ETT=Sequel.cariInteger("select sum(data_HAIs.ETT) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlETT=jmlETT+ETT;
+                    jmlETT += ETT;
                     CVL=Sequel.cariInteger("select sum(data_HAIs.CVL) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlCVL=jmlCVL+CVL;
+                    jmlCVL += CVL;
                     IVL=Sequel.cariInteger("select sum(data_HAIs.IVL) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlIVL=jmlIVL+IVL;
+                    jmlIVL += IVL;
                     UC=Sequel.cariInteger("select sum(data_HAIs.UC) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlUC=jmlUC+UC;
+                    jmlUC += UC;
                     VAP=Sequel.cariInteger("select sum(data_HAIs.VAP) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlVAP=jmlVAP+VAP;
+                    jmlVAP += VAP;
                     IAD=Sequel.cariInteger("select sum(data_HAIs.IAD) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlIAD=jmlIAD+IAD;
+                    jmlIAD += IAD;
                     PLEB=Sequel.cariInteger("select sum(data_HAIs.PLEB) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlPLEB=jmlPLEB+PLEB;
+                    jmlPLEB += PLEB;
                     ISK=Sequel.cariInteger("select sum(data_HAIs.ISK) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlISK=jmlISK+ISK;
+                    jmlISK += ISK;
                     ILO=Sequel.cariInteger("select sum(data_HAIs.ILO) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlILO=jmlILO+ILO;
+                    jmlILO += ILO;
                     HAP=Sequel.cariInteger("select sum(data_HAIs.HAP) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlHAP=jmlHAP+HAP;
+                    jmlHAP += HAP;
                     Tinea=Sequel.cariInteger("select sum(data_HAIs.Tinea) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlTinea=jmlTinea+Tinea;
+                    jmlTinea += Tinea;
                     Scabies=Sequel.cariInteger("select sum(data_HAIs.Scabies) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlScabies=jmlScabies+Scabies;
+                    jmlScabies += Scabies;
                     deku=Sequel.cariInteger("select count(data_HAIs.no_rawat) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.DEKU='IYA' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmldeku=jmldeku+deku;
+                    jmldeku += deku;
                     sputum=Sequel.cariInteger("select count(data_HAIs.no_rawat) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.SPUTUM<>'' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlsputum=jmlsputum+sputum;
+                    jmlsputum += sputum;
                     darah=Sequel.cariInteger("select count(data_HAIs.no_rawat) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.DARAH<>'' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmldarah=jmldarah+darah;
+                    jmldarah += darah;
                     urine=Sequel.cariInteger("select count(data_HAIs.no_rawat) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.URINE<>'' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlurine=jmlurine+urine;
+                    jmlurine += urine;
                     ANTIBIOTIK=Sequel.cariInteger("select count(data_HAIs.no_rawat) from data_HAIs inner join reg_periksa inner join kamar inner join bangsal inner join penjab on data_HAIs.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and data_HAIs.no_rawat=reg_periksa.no_rawat and reg_periksa.kd_pj=penjab.kd_pj where data_HAIs.ANTIBIOTIK<>'' and tanggal=? and bangsal.nm_bangsal like ? and penjab.png_jawab like ?",rs.getString("tanggal"),"%"+NmKamar.getText().trim()+"%","%"+NmPenjab.getText().trim()+"%");
-                    jmlANTIBIOTIK=jmlANTIBIOTIK+ANTIBIOTIK;
+                    jmlANTIBIOTIK += ANTIBIOTIK;
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='center'>").append(rs.getString("tanggal")).append("</td><td valign='middle' align='center'>").append(pasien).append("</td><td valign='middle' align='center'>").append(ETT).append("</td><td valign='middle' align='center'>").append(CVL).append("</td><td valign='middle' align='center'>").append(IVL).append("</td><td valign='middle' align='center'>").append(UC).append("</td><td valign='middle' align='center'>").append(VAP).append("</td><td valign='middle' align='center'>").append(IAD).append("</td><td valign='middle' align='center'>").append(PLEB).append("</td><td valign='middle' align='center'>").append(ISK).append("</td><td valign='middle' align='center'>").append(ILO).append("</td><td valign='middle' align='center'>").append(HAP).append("</td><td valign='middle' align='center'>").append(Tinea).append("</td><td valign='middle' align='center'>").append(Scabies).append("</td><td valign='middle' align='center'>").append(deku).append("</td><td valign='middle' align='center'>").append(sputum).append("</td><td valign='middle' align='center'>").append(darah).append("</td><td valign='middle' align='center'>").append(urine).append("</td><td valign='middle' align='center'>").append(ANTIBIOTIK).append("</td></tr>"); 
                     i++;
                 }

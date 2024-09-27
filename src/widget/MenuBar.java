@@ -5,14 +5,9 @@
 
 package widget;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import javax.swing.BorderFactory;
-import javax.swing.JMenuBar;
+import java.awt.*;
+import java.awt.image.*;
+import javax.swing.*;
 
 /**
  *

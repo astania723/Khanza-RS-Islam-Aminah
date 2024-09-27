@@ -11,28 +11,15 @@
 
 package laporan;
 
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.event.DocumentEvent;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgCariPoli;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.event.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import simrskhanza.*;
 
 /**
  *
@@ -799,15 +786,15 @@ public class DlgSensusHarianPoli extends javax.swing.JDialog {
                                     alamatrujukandari=Sequel.cariIsi("select alamat from rujuk_masuk where no_rawat=?",rsreg.getString("no_rawat"));
                                     if(rsreg.getString("stts_daftar").equals("Baru")){
                                         baru="V";
-                                        jmlbaru=jmlbaru+1;
+                                        jmlbaru += 1;
                                     }else if(rsreg.getString("stts_daftar").equals("Lama")){
                                         lama="V";
-                                        jmllama=jmllama+1;
+                                        jmllama += 1;
                                     }
                                     if(rsreg.getString("jk").equals("L")){
-                                        jmllaki=jmllaki+1;
+                                        jmllaki += 1;
                                     }else{
-                                        jmlper=jmlper+1;
+                                        jmlper += 1;
                                     }
                                     htmlContent.append("<tr class='isi3'><td valign='top' align='center'>").append(i).append("</td><td valign='top' align='center'>").append(rsreg.getString("no_rkm_medis")).append("</td><td valign='top'>").append(rsreg.getString("nm_pasien")).append("</td><td valign='top'>").append(rsreg.getString("alamat")).append("</td><td valign='top' align='center'>").append(rsreg.getString("jk")).append("</td><td valign='top' align='center'>").append(rsreg.getString("umur")).append("</td><td valign='top' align='center'>").append(lama).append("</td><td valign='top' align='center'>").append(baru).append("</td><td valign='top'>").append(rsreg.getString("png_jawab")).append("</td><td valign='top'>").append(rujukandari).append(" ").append(alamatrujukandari).append("</td><td valign='top'><table width='100%' border='0'>");
                                     pspenyakit=koneksi.prepareStatement(
@@ -949,15 +936,15 @@ public class DlgSensusHarianPoli extends javax.swing.JDialog {
                                     alamatrujukandari=Sequel.cariIsi("select alamat from rujuk_masuk where no_rawat=?",rsreg.getString("no_rawat"));
                                     if(rsreg.getString("stts_daftar").equals("Baru")){
                                         baru="V";
-                                        jmlbaru=jmlbaru+1;
+                                        jmlbaru += 1;
                                     }else if(rsreg.getString("stts_daftar").equals("Lama")){
                                         lama="V";
-                                        jmllama=jmllama+1;
+                                        jmllama += 1;
                                     }
                                     if(rsreg.getString("jk").equals("L")){
-                                        jmllaki=jmllaki+1;
+                                        jmllaki += 1;
                                     }else{
-                                        jmlper=jmlper+1;
+                                        jmlper += 1;
                                     }
                                     htmlContent.append("<tr class='isi3'><td valign='top' align='center'>").append(i).append("</td><td valign='top' align='center'>").append(rsreg.getString("no_rkm_medis")).append("</td><td valign='top'>").append(rsreg.getString("nm_pasien")).append("</td><td valign='top'>").append(rsreg.getString("alamat")).append("</td><td valign='top' align='center'>").append(rsreg.getString("jk")).append("</td><td valign='top' align='center'>").append(rsreg.getString("umur")).append("</td><td valign='top' align='center'>").append(lama).append("</td><td valign='top' align='center'>").append(baru).append("</td><td valign='top'>").append(rsreg.getString("png_jawab")).append("</td><td valign='top'>").append(rujukandari).append(" ").append(alamatrujukandari).append("</td><td valign='top'><table width='100%' border='0'>");
                                     pspenyakit=koneksi.prepareStatement(

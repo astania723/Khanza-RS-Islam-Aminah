@@ -1,39 +1,34 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class DlgRekapPenerimaan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  InventoryCariSuplier suplier=new InventoryCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private PreparedStatement ps;
     private ResultSet rs;
@@ -55,7 +50,6 @@ public class DlgRekapPenerimaan extends javax.swing.JDialog {
                 "Harga Beli(Rp)","SubTotal(Rp)","Disk(%)","Bsr.Disk(Rp)","Total(Rp)",
                 "Status Bayar"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,
@@ -64,6 +58,7 @@ public class DlgRekapPenerimaan extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.String.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1344,9 +1339,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         rs.getString("satuan"),rs.getDouble("jumlah"),rs.getDouble("h_pesan"),rs.getDouble("subtotal"),rs.getDouble("dis"),
                         rs.getDouble("besardis"),rs.getDouble("total"),rs.getString("status")
                     });  
-                    tagihan=tagihan+rs.getDouble("total");
-                    subtotal=subtotal+rs.getDouble("subtotal");
-                    diskon=diskon+rs.getDouble("besardis");
+                    tagihan += rs.getDouble("total");
+                    subtotal += rs.getDouble("subtotal");
+                    diskon += rs.getDouble("besardis");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
@@ -1371,6 +1366,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
@@ -1378,6 +1376,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getrekap_pemesanan());
     }

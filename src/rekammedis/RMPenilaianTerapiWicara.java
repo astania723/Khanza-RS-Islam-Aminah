@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -219,62 +202,62 @@ public class RMPenilaianTerapiWicara extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        DiagnosaTerapiWicara.setDocument(new batasInput((int)100).getKata(DiagnosaTerapiWicara));
-        DiagnosaMedis.setDocument(new batasInput((int)100).getKata(DiagnosaMedis));
-        Anamnesa.setDocument(new batasInput((int)300).getKata(Anamnesa));
-        Suhu.setDocument(new batasInput((int)5).getKata(Suhu));
-        RR.setDocument(new batasInput((int)5).getKata(RR));
-        Nadi.setDocument(new batasInput((int)5).getKata(Nadi));
-        TD.setDocument(new batasInput((int)8).getKata(TD));
-        KontakMata.setDocument(new batasInput((int)50).getKata(KontakMata));
-        Atensi.setDocument(new batasInput((int)50).getKata(Atensi));
-        Perilaku.setDocument(new batasInput((int)50).getKata(Perilaku));
-        BicaraSpontan.setDocument(new batasInput((int)50).getKata(BicaraSpontan));
-        PemahamanBahasa.setDocument(new batasInput((int)50).getKata(PemahamanBahasa));
-        Pengujaran.setDocument(new batasInput((int)50).getKata(Pengujaran));
-        Membaca.setDocument(new batasInput((int)50).getKata(Membaca));
-        Penamaan.setDocument(new batasInput((int)50).getKata(Penamaan));
-        LipAnatomis.setDocument(new batasInput((int)30).getKata(LipAnatomis));
-        TongueAnatomis.setDocument(new batasInput((int)30).getKata(TongueAnatomis));
-        HardPalateAnatomis.setDocument(new batasInput((int)30).getKata(HardPalateAnatomis));
-        SoftPalateAnatomis.setDocument(new batasInput((int)30).getKata(SoftPalateAnatomis));
-        UvulaAnatomis.setDocument(new batasInput((int)30).getKata(UvulaAnatomis));
-        MandibulaAnatomis.setDocument(new batasInput((int)30).getKata(MandibulaAnatomis));
-        MaxillaAnatomis.setDocument(new batasInput((int)30).getKata(MaxillaAnatomis));
-        DentalAnatomis.setDocument(new batasInput((int)30).getKata(DentalAnatomis));
-        FaringAnatomis.setDocument(new batasInput((int)30).getKata(FaringAnatomis));
-        LipFisiologis.setDocument(new batasInput((int)30).getKata(LipFisiologis));
-        TongueFisiologis.setDocument(new batasInput((int)30).getKata(TongueFisiologis));
-        HardPalateFisiologis.setDocument(new batasInput((int)30).getKata(HardPalateFisiologis));
-        SoftPalateFisiologis.setDocument(new batasInput((int)30).getKata(SoftPalateFisiologis));
-        UvulaFisiologis.setDocument(new batasInput((int)30).getKata(UvulaFisiologis));
-        MandibulaFisiologis.setDocument(new batasInput((int)30).getKata(MandibulaFisiologis));
-        MaxillaFisiologis.setDocument(new batasInput((int)30).getKata(MaxillaFisiologis));
-        DentalFisiologis.setDocument(new batasInput((int)30).getKata(DentalFisiologis));
-        FaringFisiologis.setDocument(new batasInput((int)30).getKata(FaringFisiologis));
-        Menghisap.setDocument(new batasInput((int)150).getKata(Menghisap));
-        Mengunyah.setDocument(new batasInput((int)150).getKata(Mengunyah));
-        Meniup.setDocument(new batasInput((int)150).getKata(Meniup));
-        Subtitusi.setDocument(new batasInput((int)150).getKata(Subtitusi));
-        Omisi.setDocument(new batasInput((int)150).getKata(Omisi));
-        Distorsi.setDocument(new batasInput((int)150).getKata(Distorsi));
-        Adisi.setDocument(new batasInput((int)150).getKata(Adisi));
-        KemampuanMenelan.setDocument(new batasInput((int)150).getKata(KemampuanMenelan));
-        Pernapasan.setDocument(new batasInput((int)150).getKata(Pernapasan));
-        Pendengaran.setDocument(new batasInput((int)30).getKata(Pendengaran));
-        Penglihatan.setDocument(new batasInput((int)30).getKata(Penglihatan));
-        Kinesek.setDocument(new batasInput((int)30).getKata(Kinesek));
-        Bicara.setDocument(new batasInput((int)30).getKata(Bicara));
-        Tulisan.setDocument(new batasInput((int)30).getKata(Tulisan));
-        Mimik.setDocument(new batasInput((int)30).getKata(Mimik));
-        Gesture.setDocument(new batasInput((int)30).getKata(Gesture));
-        PenunjangMedis.setDocument(new batasInput((int)150).getKata(PenunjangMedis));
-        TujuanTerapiWicara.setDocument(new batasInput((int)150).getKata(TujuanTerapiWicara));
-        ProgramTerapiWicara.setDocument(new batasInput((int)150).getKata(ProgramTerapiWicara));
-        Edukasi.setDocument(new batasInput((int)150).getKata(Edukasi));
-        TindakLanjut.setDocument(new batasInput((int)150).getKata(TindakLanjut));
+        DiagnosaTerapiWicara.setDocument(new batasInput(100).getKata(DiagnosaTerapiWicara));
+        DiagnosaMedis.setDocument(new batasInput(100).getKata(DiagnosaMedis));
+        Anamnesa.setDocument(new batasInput(300).getKata(Anamnesa));
+        Suhu.setDocument(new batasInput(5).getKata(Suhu));
+        RR.setDocument(new batasInput(5).getKata(RR));
+        Nadi.setDocument(new batasInput(5).getKata(Nadi));
+        TD.setDocument(new batasInput(8).getKata(TD));
+        KontakMata.setDocument(new batasInput(50).getKata(KontakMata));
+        Atensi.setDocument(new batasInput(50).getKata(Atensi));
+        Perilaku.setDocument(new batasInput(50).getKata(Perilaku));
+        BicaraSpontan.setDocument(new batasInput(50).getKata(BicaraSpontan));
+        PemahamanBahasa.setDocument(new batasInput(50).getKata(PemahamanBahasa));
+        Pengujaran.setDocument(new batasInput(50).getKata(Pengujaran));
+        Membaca.setDocument(new batasInput(50).getKata(Membaca));
+        Penamaan.setDocument(new batasInput(50).getKata(Penamaan));
+        LipAnatomis.setDocument(new batasInput(30).getKata(LipAnatomis));
+        TongueAnatomis.setDocument(new batasInput(30).getKata(TongueAnatomis));
+        HardPalateAnatomis.setDocument(new batasInput(30).getKata(HardPalateAnatomis));
+        SoftPalateAnatomis.setDocument(new batasInput(30).getKata(SoftPalateAnatomis));
+        UvulaAnatomis.setDocument(new batasInput(30).getKata(UvulaAnatomis));
+        MandibulaAnatomis.setDocument(new batasInput(30).getKata(MandibulaAnatomis));
+        MaxillaAnatomis.setDocument(new batasInput(30).getKata(MaxillaAnatomis));
+        DentalAnatomis.setDocument(new batasInput(30).getKata(DentalAnatomis));
+        FaringAnatomis.setDocument(new batasInput(30).getKata(FaringAnatomis));
+        LipFisiologis.setDocument(new batasInput(30).getKata(LipFisiologis));
+        TongueFisiologis.setDocument(new batasInput(30).getKata(TongueFisiologis));
+        HardPalateFisiologis.setDocument(new batasInput(30).getKata(HardPalateFisiologis));
+        SoftPalateFisiologis.setDocument(new batasInput(30).getKata(SoftPalateFisiologis));
+        UvulaFisiologis.setDocument(new batasInput(30).getKata(UvulaFisiologis));
+        MandibulaFisiologis.setDocument(new batasInput(30).getKata(MandibulaFisiologis));
+        MaxillaFisiologis.setDocument(new batasInput(30).getKata(MaxillaFisiologis));
+        DentalFisiologis.setDocument(new batasInput(30).getKata(DentalFisiologis));
+        FaringFisiologis.setDocument(new batasInput(30).getKata(FaringFisiologis));
+        Menghisap.setDocument(new batasInput(150).getKata(Menghisap));
+        Mengunyah.setDocument(new batasInput(150).getKata(Mengunyah));
+        Meniup.setDocument(new batasInput(150).getKata(Meniup));
+        Subtitusi.setDocument(new batasInput(150).getKata(Subtitusi));
+        Omisi.setDocument(new batasInput(150).getKata(Omisi));
+        Distorsi.setDocument(new batasInput(150).getKata(Distorsi));
+        Adisi.setDocument(new batasInput(150).getKata(Adisi));
+        KemampuanMenelan.setDocument(new batasInput(150).getKata(KemampuanMenelan));
+        Pernapasan.setDocument(new batasInput(150).getKata(Pernapasan));
+        Pendengaran.setDocument(new batasInput(30).getKata(Pendengaran));
+        Penglihatan.setDocument(new batasInput(30).getKata(Penglihatan));
+        Kinesek.setDocument(new batasInput(30).getKata(Kinesek));
+        Bicara.setDocument(new batasInput(30).getKata(Bicara));
+        Tulisan.setDocument(new batasInput(30).getKata(Tulisan));
+        Mimik.setDocument(new batasInput(30).getKata(Mimik));
+        Gesture.setDocument(new batasInput(30).getKata(Gesture));
+        PenunjangMedis.setDocument(new batasInput(150).getKata(PenunjangMedis));
+        TujuanTerapiWicara.setDocument(new batasInput(150).getKata(TujuanTerapiWicara));
+        ProgramTerapiWicara.setDocument(new batasInput(150).getKata(ProgramTerapiWicara));
+        Edukasi.setDocument(new batasInput(150).getKata(Edukasi));
+        TindakLanjut.setDocument(new batasInput(150).getKata(TindakLanjut));
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -3102,6 +3085,9 @@ public class RMPenilaianTerapiWicara extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TglAsuhan.setDate(new Date());
         DiagnosaTerapiWicara.setText("");
@@ -3273,6 +3259,9 @@ public class RMPenilaianTerapiWicara extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_terapi_wicara());
         BtnHapus.setEnabled(akses.getpenilaian_terapi_wicara());

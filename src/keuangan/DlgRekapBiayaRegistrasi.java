@@ -10,33 +10,18 @@
  */
 
 package keuangan;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
 import static java.awt.image.ImageObserver.WIDTH;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.event.DocumentEvent;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
-import simrskhanza.DlgCariCaraBayar2;
-import simrskhanza.DlgCariPoli;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
 /**
  *
@@ -797,6 +782,9 @@ public class DlgRekapBiayaRegistrasi extends javax.swing.JDialog {
     private widget.panelisi panelGlass5;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
         try{        
@@ -857,14 +845,14 @@ public class DlgRekapBiayaRegistrasi extends javax.swing.JDialog {
                             }
                         } 
                         
-                        totalbiaya=totalbiaya+rs.getDouble("biaya_reg");
+                        totalbiaya += rs.getDouble("biaya_reg");
                         htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(baris).append("</td><td valign='middle' align='center'>").append(rs.getString("tgl_registrasi")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_ktp")).append("</td><td valign='middle' align='left'>").append(rs.getString("alamat")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_rkm_medis")).append("</td><td valign='middle' align='left'>").append(kddiangnosa).append(" ").append(diagnosa).append("</td>");
                         for(x=0;x<y;x++){
                             sesuai=0;
                             if(x==i){
                                 sesuai=1;
                             }
-                            jumlah[i]=jumlah[i]+sesuai;
+                            jumlah[i] += sesuai;
                             htmlContent.append("<td valign='middle' align='center'>").append(Integer.toString(sesuai).replaceAll("0","")).append("</td>");
                         } 
                         htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(rs.getDouble("biaya_reg"))).append("</td><td valign='middle' align='center'>").append(rs.getString("status_lanjut")).append("</td></tr>");

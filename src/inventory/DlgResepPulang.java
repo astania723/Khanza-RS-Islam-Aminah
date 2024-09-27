@@ -10,30 +10,16 @@
  */
 
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgInputResepPulang;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 
 /**
@@ -47,6 +33,10 @@ public class DlgResepPulang extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private PreparedStatement ps,psbarang;
     private ResultSet rs;
+
+    /**
+     *
+     */
     public DlgInputResepPulang inputresep=new DlgInputResepPulang(null,false);
     private double jumlahtotal=0;
     private riwayatobat Trackobat=new riwayatobat();
@@ -63,12 +53,12 @@ public class DlgResepPulang extends javax.swing.JDialog {
         setSize(628,674);        
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","Tgl.Resep","Jam","Pasien","Obat","Jml","Harga","Total","Dosis","No.Batch","No.Faktur"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -918,6 +908,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbResep;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{      
@@ -962,7 +955,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     tabMode.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getString(9),rs.getString(10),rs.getString(11)
                     });
-                    jumlahtotal=jumlahtotal+rs.getDouble("total");
+                    jumlahtotal += rs.getDouble("total");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1018,6 +1011,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         btnBarang.setEnabled(akses.getresep_pulang());
         BtnHapus.setEnabled(akses.getresep_pulang());

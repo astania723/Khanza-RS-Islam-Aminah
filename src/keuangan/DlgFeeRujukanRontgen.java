@@ -1,26 +1,12 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class DlgFeeRujukanRontgen extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -46,11 +32,11 @@ public class DlgFeeRujukanRontgen extends javax.swing.JDialog {
         Object[] row={"No.","Tgl.Expose","Nama Pasien","Jenis Bayar","Kode","Rontgen(Rp)","USG(Rp)","Keterangan"};
         
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.Double.class,java.lang.Double.class,java.lang.String.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -507,7 +493,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 psradiologi.setString(2,rstanggal.getString("tgl_periksa"));
                 rsradiologi=psradiologi.executeQuery();
                 while(rsradiologi.next()){
-                    ttlfeeradiologi=ttlfeeradiologi+rsradiologi.getDouble("tarif_perujuk");                    
+                    ttlfeeradiologi += rsradiologi.getDouble("tarif_perujuk");                    
                     if(a==1){
                         tabMode.addRow(new Object[]{
                             i,rstanggal.getString("tgl_periksa"),
@@ -532,7 +518,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 psusg.setString(4,rstanggal.getString("tgl_periksa"));
                 rsusg=psusg.executeQuery();
                 while(rsusg.next()){
-                    ttlfeeusg=ttlfeeusg+rsusg.getDouble("tarif_perujuk");
+                    ttlfeeusg += rsusg.getDouble("tarif_perujuk");
                     if(a==1){
                         tabMode.addRow(new Object[]{
                             i,rstanggal.getString("tgl_periksa"),

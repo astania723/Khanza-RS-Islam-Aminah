@@ -11,34 +11,18 @@
 
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import laporan.DlgCariPenyakit;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import laporan.*;
 
 
 /**
@@ -114,8 +98,8 @@ public class DlgRujuk extends javax.swing.JDialog {
         TNoRj.setDocument(new batasInput((byte)10).getKata(TNoRj));
         TTmpRujuk.setDocument(new batasInput((byte)45).getKata(TTmpRujuk));
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        TDiagnosa.setDocument(new batasInput((int)5000).getKata(TDiagnosa));
-        ket.setDocument(new batasInput((int)5000).getKata(ket));
+        TDiagnosa.setDocument(new batasInput(5000).getKata(TDiagnosa));
+        ket.setDocument(new batasInput(5000).getKata(ket));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         KdDok.setDocument(new batasInput((byte)20).getKata(KdDok));
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -1101,7 +1085,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="rawat inap";
                 }else {
-                    diagnosa2=diagnosa2+", rawat inap";
+                    diagnosa2 += ", rawat inap";
                 }
             }
 
@@ -1110,7 +1094,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan laboratorium";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan laboratorium";
+                    diagnosa2 += ", pemeriksaan laboratorium";
                 }
             }
 
@@ -1119,7 +1103,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="pemeriksaan radiologi";
                 }else {
-                    diagnosa2=diagnosa2+", pemeriksaan radiologi";
+                    diagnosa2 += ", pemeriksaan radiologi";
                 }
             }
 
@@ -1128,7 +1112,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
                 if(diagnosa2.isEmpty()){
                     diagnosa2="operasi";
                 }else {
-                    diagnosa2=diagnosa2+", operasi";
+                    diagnosa2 += ", operasi";
                 }
             }
 
@@ -1408,6 +1392,9 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getrujukan_keluar());
         BtnHapus.setEnabled(akses.getrujukan_keluar());

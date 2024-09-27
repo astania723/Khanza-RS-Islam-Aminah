@@ -1,34 +1,21 @@
 package toko;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class TokoPembelian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -45,6 +32,10 @@ public class TokoPembelian extends javax.swing.JDialog {
     private String[] kodebarang,namabarang,satuan;
     private double[] h_beli,jumlah,subtotal,diskon,besardiskon,jmltotal,dasar,distributor,grosir,retail;
     private WarnaTable2 warna=new WarnaTable2();
+
+    /**
+     *
+     */
     public boolean tampikan=true;
     private boolean sukses=true;
     private String akunbayar,akunpembelian=Sequel.cariIsi("select set_akun.Pengadaan_Toko from set_akun"),PPN_Masukan=Sequel.cariIsi("select set_akun.PPN_Masukan from set_akun");
@@ -1110,7 +1101,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -1223,13 +1214,13 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             }catch (Exception e) {
                 w=0;                
             }
-            sbttl=sbttl+w;                
+            sbttl += w;                
             try {
                 y=Double.parseDouble(tbDokter.getValueAt(i,8).toString());                
             }catch (Exception e) {
                 y=0;                
             }
-            ttldisk=ttldisk+y;
+            ttldisk += y;
         }
         LSubtotal.setText(Valid.SetAngka(sbttl));
         LPotongan.setText(Valid.SetAngka(ttldisk));

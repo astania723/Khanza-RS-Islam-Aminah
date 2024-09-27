@@ -10,31 +10,16 @@
  */
 
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -1077,7 +1062,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         rs.getString("nip")+" "+rs.getString("nama"),rs.getDouble("biaya"),rs.getString("keterangan"),
                         rs.getString("kode_kategori"),rs.getString("nip")
                     });
-                    total=total+rs.getDouble("biaya");
+                    total += rs.getDouble("biaya");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1098,6 +1083,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Pengeluaran.setText("0");
         Keterangan.setText("");
@@ -1137,6 +1125,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         if(akses.getjml2()>=1){
             KdPtg.setEditable(false);
@@ -1154,6 +1145,12 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 "PH"+Tanggal.getSelectedItem().toString().substring(6,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,Nomor); 
     }
     
+    /**
+     *
+     * @param nopengajuan
+     * @param keterangan
+     * @param pengeluaran
+     */
     public void setPengajuan(String nopengajuan,String keterangan,String pengeluaran){
         nopengajuanbiaya=nopengajuan;
         Nomor.setText(nopengajuan);

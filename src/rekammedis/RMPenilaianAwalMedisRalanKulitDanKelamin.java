@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -143,12 +126,12 @@ public class RMPenilaianAwalMedisRalanKulitDanKelamin extends javax.swing.JDialo
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KeluhanUtama.setDocument(new batasInput((int)2000).getKata(KeluhanUtama));
-        RPS.setDocument(new batasInput((int)2000).getKata(RPS));
-        RPD.setDocument(new batasInput((int)1000).getKata(RPD));
-        RPO.setDocument(new batasInput((int)1000).getKata(RPO));
-        RPK.setDocument(new batasInput((int)1000).getKata(RPK));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KeluhanUtama.setDocument(new batasInput(2000).getKata(KeluhanUtama));
+        RPS.setDocument(new batasInput(2000).getKata(RPS));
+        RPD.setDocument(new batasInput(1000).getKata(RPD));
+        RPO.setDocument(new batasInput(1000).getKata(RPO));
+        RPK.setDocument(new batasInput(1000).getKata(RPK));
         TD.setDocument(new batasInput((byte)8).getKata(TD));
         Nadi.setDocument(new batasInput((byte)5).getKata(Nadi));
         Suhu.setDocument(new batasInput((byte)5).getKata(Suhu));
@@ -156,15 +139,15 @@ public class RMPenilaianAwalMedisRalanKulitDanKelamin extends javax.swing.JDialo
         BB.setDocument(new batasInput((byte)5).getKata(BB));
         Nyeri.setDocument(new batasInput((byte)50).getKata(Nyeri));
         GCS.setDocument(new batasInput((byte)10).getKata(GCS));
-        Statusderma.setDocument(new batasInput((int)2000).getKata(Statusderma));
-        Pemeriksaan.setDocument(new batasInput((int)1000).getKata(Pemeriksaan));
-        Diagnosis.setDocument(new batasInput((int)500).getKata(Diagnosis));
-        Diagnosis2.setDocument(new batasInput((int)500).getKata(Diagnosis2));
-        Permasalahan.setDocument(new batasInput((int)500).getKata(Permasalahan));
-        Terapi.setDocument(new batasInput((int)500).getKata(Terapi));
-        Tindakan.setDocument(new batasInput((int)500).getKata(Tindakan));
-        Edukasi.setDocument(new batasInput((int)500).getKata(Edukasi));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Statusderma.setDocument(new batasInput(2000).getKata(Statusderma));
+        Pemeriksaan.setDocument(new batasInput(1000).getKata(Pemeriksaan));
+        Diagnosis.setDocument(new batasInput(500).getKata(Diagnosis));
+        Diagnosis2.setDocument(new batasInput(500).getKata(Diagnosis2));
+        Permasalahan.setDocument(new batasInput(500).getKata(Permasalahan));
+        Terapi.setDocument(new batasInput(500).getKata(Terapi));
+        Tindakan.setDocument(new batasInput(500).getKata(Tindakan));
+        Edukasi.setDocument(new batasInput(500).getKata(Edukasi));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -2129,6 +2112,11 @@ public class RMPenilaianAwalMedisRalanKulitDanKelamin extends javax.swing.JDialo
         }
     }
  
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -2152,6 +2140,9 @@ public class RMPenilaianAwalMedisRalanKulitDanKelamin extends javax.swing.JDialo
         }          
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
        tampil();

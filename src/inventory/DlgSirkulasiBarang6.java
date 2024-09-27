@@ -1,36 +1,14 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import grafikanalisa.grafikpembelianterbanyak;
-import grafikanalisa.grafikpembeliantersedikit;
-import grafikanalisa.grafikpenjualanterbanyak;
-import grafikanalisa.grafikpenjualantersedikit;
-import grafikanalisa.grafikpiutangterbanyak;
-import grafikanalisa.grafikpiutangtersedikit;
-import grafikanalisa.grafikresepterbanyak;
-import grafikanalisa.grafikreseptersedikit;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariBangsal;
+import fungsi.*;
+import grafikanalisa.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 public class DlgSirkulasiBarang6 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -1860,22 +1838,22 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         Valid.SetAngka(jumlahmutasimasuk),Valid.SetAngka(totalmutasimasuk),Valid.SetAngka(jumlahmutasikeluar),Valid.SetAngka(totalmutasikeluar),
                                         Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah),Valid.SetAngka(stokakhir),Valid.SetAngka(totalstokakhir)
                                     });
-                                    ttltotaljual=ttltotaljual+totaljual;
-                                    ttltotalbeli=ttltotalbeli+totalbeli;
-                                    ttltotalpesan=ttltotalpesan+totalpesan;
-                                    ttltotalpiutang=ttltotalpiutang+totalpiutang;
-                                    ttltotalutd=ttltotalutd+totalutd;
-                                    ttltotalkeluar=ttltotalkeluar+totalkeluar;
-                                    ttltotalmutasikeluar=ttltotalmutasikeluar+totalmutasikeluar;
-                                    ttltotalmutasimasuk=ttltotalmutasimasuk+totalmutasimasuk;
-                                    ttltotalretbeli=ttltotalretbeli+totalretbeli;
-                                    ttltotalretjual=ttltotalretjual+totalretjual;
-                                    ttltotalretpiut=ttltotalretpiut+totalretpiut;
-                                    ttltotalpasin=ttltotalpasin+totalpasin;
-                                    ttltotalrespulang=ttltotalrespulang+totalrespulang;
-                                    ttltotalhibah=ttltotalhibah+totalhibah;
-                                    ttltotalstokawal=ttltotalstokawal+totalstokawal;
-                                    ttltotalstokakhir=ttltotalstokakhir+totalstokakhir;
+                                    ttltotaljual += totaljual;
+                                    ttltotalbeli += totalbeli;
+                                    ttltotalpesan += totalpesan;
+                                    ttltotalpiutang += totalpiutang;
+                                    ttltotalutd += totalutd;
+                                    ttltotalkeluar += totalkeluar;
+                                    ttltotalmutasikeluar += totalmutasikeluar;
+                                    ttltotalmutasimasuk += totalmutasimasuk;
+                                    ttltotalretbeli += totalretbeli;
+                                    ttltotalretjual += totalretjual;
+                                    ttltotalretpiut += totalretpiut;
+                                    ttltotalpasin += totalpasin;
+                                    ttltotalrespulang += totalrespulang;
+                                    ttltotalhibah += totalhibah;
+                                    ttltotalstokawal += totalstokawal;
+                                    ttltotalstokakhir += totalstokakhir;
                                 }
                                     
                             }

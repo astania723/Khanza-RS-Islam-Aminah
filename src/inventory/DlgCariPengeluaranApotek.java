@@ -1,32 +1,21 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
-import simrskhanza.DlgCariBangsal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPengeluaranApotek extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
@@ -39,7 +28,15 @@ public class DlgCariPengeluaranApotek extends javax.swing.JDialog {
     private int i=0,no=1;
     private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     public DlgCariBangsal bangsal=new DlgCariBangsal(null,false);
+
+    /**
+     *
+     */
     public DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public DlgBarang barang=new DlgBarang(null,false);
     private DecimalFormat df2 = new DecimalFormat("###,###,###,###,###,###,###");    
     private double ttl=0,subttl=0;
@@ -1206,8 +1203,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         no=1;
                         subttl=0;
                         while(rs2.next()){
-                            subttl=subttl+rs2.getDouble("total");
-                            ttl=ttl+rs2.getDouble("total");
+                            subttl += rs2.getDouble("total");
+                            ttl += rs2.getDouble("total");
                             tabMode.addRow(new String[]{
                                 "",no+". B "+rs2.getString("no_batch")+", F "+rs2.getString("no_faktur"),rs2.getString("kode_brng")+", "+rs2.getString("nama_brng"),
                                 rs2.getString("nama"),rs2.getString("kode_sat"),df2.format(rs2.getDouble("harga_beli")),
@@ -1303,7 +1300,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         rs.getString("no_batch"),rs.getString("no_faktur"),df2.format(rs.getDouble("harga_beli")),
                         df2.format(rs.getDouble("jumlah")),df2.format(rs.getDouble("total"))
                     });
-                    ttl=ttl+rs.getDouble("total");
+                    ttl += rs.getDouble("total");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
@@ -1322,6 +1319,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
@@ -1329,6 +1329,9 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         kdbar.requestFocus();        
     }   
      
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getpengeluaran_stok_apotek());
         if(akses.getkode().equals("Admin Utama")){

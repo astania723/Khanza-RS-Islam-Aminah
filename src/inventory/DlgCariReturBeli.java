@@ -1,32 +1,15 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
 public class DlgCariReturBeli extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -38,6 +21,10 @@ public class DlgCariReturBeli extends javax.swing.JDialog {
     private ResultSet rs,rs2;
     private Connection koneksi=koneksiDB.condb();private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private double ttlretur=0,subtotal=0;
     private String tanggal,noret="",ptg="",sat="",bar="",nofak="";
@@ -1029,8 +1016,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         int no=1;
                         rs2=ps2.executeQuery();
                         while(rs2.next()){
-                            ttlretur=ttlretur+rs2.getDouble(8);
-                            subtotal=subtotal+rs2.getDouble(8);
+                            ttlretur += rs2.getDouble(8);
+                            subtotal += rs2.getDouble(8);
                             tabMode.addRow(new Object[]{
                                 "","","",no+". No.B "+rs2.getString("no_batch"),
                                 rs2.getString(1),rs2.getString(2)+", "+rs2.getString(3),

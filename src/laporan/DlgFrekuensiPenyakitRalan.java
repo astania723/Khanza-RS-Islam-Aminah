@@ -1,38 +1,17 @@
 package laporan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgCariPoli;
-import simrskhanza.DlgKabupaten;
-import simrskhanza.DlgKecamatan;
-import simrskhanza.DlgKelurahan;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.*;
+import org.jfree.data.category.*;
+import org.jfree.data.general.*;
+import simrskhanza.*;
 
 public class DlgFrekuensiPenyakitRalan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -87,7 +66,7 @@ public class DlgFrekuensiPenyakitRalan extends javax.swing.JDialog {
         }
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());   
         
-        TCari.setDocument(new batasInput((int)90).getKata(TCari));
+        TCari.setDocument(new batasInput(90).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -2022,7 +2001,9 @@ private void ppGrafikTerkecilPieActionPerformed(java.awt.event.ActionEvent evt) 
                         ps3.setString(9,rs.getString("kd_penyakit"));
                         rs3=ps3.executeQuery();
                         rs3.last();
-                        if(rs3.getRow()>0) a=rs3.getRow();
+                        if(rs3.getRow()>0) {
+                            a=rs3.getRow();
+                        }
                     } catch (Exception e) {
                         System.out.println("Notif ps3 : "+e);
                     } finally{
@@ -2056,7 +2037,9 @@ private void ppGrafikTerkecilPieActionPerformed(java.awt.event.ActionEvent evt) 
                         ps4.setString(9,rs.getString("kd_penyakit"));
                         rs4=ps4.executeQuery();
                         rs4.last();       
-                        if(rs4.getRow()>0) b=rs4.getRow();
+                        if(rs4.getRow()>0) {
+                            b=rs4.getRow();
+                        }
                     } catch (Exception e) {
                         System.out.println("Notif ps4 : "+e);
                     } finally{
@@ -2089,7 +2072,9 @@ private void ppGrafikTerkecilPieActionPerformed(java.awt.event.ActionEvent evt) 
                         ps5.setString(9,rs.getString("kd_penyakit"));
                         rs5=ps5.executeQuery();
                         rs5.last();
-                        if(rs5.getRow()>0)  c=rs5.getRow()-a;
+                        if(rs5.getRow()>0) {
+                            c=rs5.getRow()-a;
+                        }
                     } catch (Exception e) {
                         System.out.println("Notif ps5 : "+e);
                     } finally{
@@ -2122,7 +2107,9 @@ private void ppGrafikTerkecilPieActionPerformed(java.awt.event.ActionEvent evt) 
                         ps6.setString(9,rs.getString("kd_penyakit"));
                         rs6=ps6.executeQuery();
                         rs6.last();
-                        if(rs6.getRow()>0) d=rs6.getRow()-b;
+                        if(rs6.getRow()>0) {
+                            d=rs6.getRow()-b;
+                        }
                     } catch (Exception e) {
                         System.out.println("Notif ps6 : "+e);
                     } finally{

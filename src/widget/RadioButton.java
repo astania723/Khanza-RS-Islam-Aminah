@@ -5,9 +5,9 @@
 
 package widget;
 
-import java.awt.Color;
-import javax.swing.JRadioButton;
-import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.*;
 
 /**
  *
@@ -17,6 +17,9 @@ public class RadioButton extends JRadioButton{
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public RadioButton(){
         super();
         setFont(new java.awt.Font("Tahoma", 0, 11));

@@ -1,21 +1,16 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRekapPermintaanDiet extends javax.swing.JDialog {
     private final validasi Valid=new validasi();
     private final Connection koneksi=koneksiDB.condb();
@@ -354,8 +349,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     k1=Sequel.cariInteger("select count(detail_beri_diet.no_rawat) from detail_beri_diet inner join reg_periksa inner join kamar_inap inner join kamar on "+
                          "detail_beri_diet.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar where "+
                          "detail_beri_diet.tanggal='"+ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-"+tanggal+"' and kamar.kelas='Kelas 1' and reg_periksa.kd_pj='"+kodebayar[i]+"'");
-                    jumlah=jumlah+k1;
-                    totalk1[i]=totalk1[i]+k1;
+                    jumlah += k1;
+                    totalk1[i] += k1;
                     if(k1>0){
                         stringk1=""+k1;
                     }
@@ -363,8 +358,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     k2=Sequel.cariInteger("select count(detail_beri_diet.no_rawat) from detail_beri_diet inner join reg_periksa inner join kamar_inap inner join kamar on "+
                          "detail_beri_diet.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar where "+
                          "detail_beri_diet.tanggal='"+ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-"+tanggal+"' and kamar.kelas='Kelas 2' and reg_periksa.kd_pj='"+kodebayar[i]+"'");
-                    jumlah=jumlah+k2;
-                    totalk2[i]=totalk2[i]+k2;
+                    jumlah += k2;
+                    totalk2[i] += k2;
                     if(k2>0){
                         stringk2=""+k2;
                     }
@@ -372,8 +367,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     k3=Sequel.cariInteger("select count(detail_beri_diet.no_rawat) from detail_beri_diet inner join reg_periksa inner join kamar_inap inner join kamar on "+
                          "detail_beri_diet.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar where "+
                          "detail_beri_diet.tanggal='"+ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-"+tanggal+"' and kamar.kelas='Kelas 3' and reg_periksa.kd_pj='"+kodebayar[i]+"'");
-                    jumlah=jumlah+k3;
-                    totalk3[i]=totalk3[i]+k3;
+                    jumlah += k3;
+                    totalk3[i] += k3;
                     if(k3>0){
                         stringk3=""+k3;
                     }
@@ -381,8 +376,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     utama=Sequel.cariInteger("select count(detail_beri_diet.no_rawat) from detail_beri_diet inner join reg_periksa inner join kamar_inap inner join kamar on "+
                          "detail_beri_diet.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar where "+
                          "detail_beri_diet.tanggal='"+ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-"+tanggal+"' and kamar.kelas='Kelas Utama' and reg_periksa.kd_pj='"+kodebayar[i]+"'");
-                    jumlah=jumlah+utama;
-                    totalutama[i]=totalutama[i]+utama;
+                    jumlah += utama;
+                    totalutama[i] += utama;
                     if(utama>0){
                         stringutama=""+utama;
                     }
@@ -390,8 +385,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     vip=Sequel.cariInteger("select count(detail_beri_diet.no_rawat) from detail_beri_diet inner join reg_periksa inner join kamar_inap inner join kamar on "+
                          "detail_beri_diet.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar where "+
                          "detail_beri_diet.tanggal='"+ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-"+tanggal+"' and kamar.kelas='Kelas VIP' and reg_periksa.kd_pj='"+kodebayar[i]+"'");
-                    jumlah=jumlah+vip;
-                    totalvip[i]=totalvip[i]+vip;
+                    jumlah += vip;
+                    totalvip[i] += vip;
                     if(vip>0){
                         stringvip=""+vip;
                     }
@@ -399,8 +394,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     vvip=Sequel.cariInteger("select count(detail_beri_diet.no_rawat) from detail_beri_diet inner join reg_periksa inner join kamar_inap inner join kamar on "+
                          "detail_beri_diet.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar where "+
                          "detail_beri_diet.tanggal='"+ThnCari.getSelectedItem()+"-"+BlnCari.getSelectedItem()+"-"+tanggal+"' and kamar.kelas='Kelas VVIP' and reg_periksa.kd_pj='"+kodebayar[i]+"'");
-                    jumlah=jumlah+vvip;
-                    totalvvip[i]=totalvvip[i]+vvip;
+                    jumlah += vvip;
+                    totalvvip[i] += vvip;
                     if(vvip>0){
                         stringvvip=""+vvip;
                     }
@@ -408,7 +403,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     htmlContent.append("<td valign='middle' align='center'>").append(stringk1).append("</td><td valign='middle' align='center'>").append(stringk2).append("</td><td valign='middle' align='center'>").append(stringk3).append("</td><td valign='middle' align='center'>").append(stringutama).append("</td><td valign='middle' align='center'>").append(stringvip).append("</td><td valign='middle' align='center'>").append(stringvvip).append("</td>");
                 }
                 htmlContent.append("<td valign='middle' align='center'>").append(jumlah).append("</td></tr>"); 
-                totaljumlah=totaljumlah+jumlah;
+                totaljumlah += jumlah;
             }
             
             htmlContent.append(                             
@@ -426,12 +421,12 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             
             jumlahtotalk1=0;jumlahtotalk2=0;jumlahtotalk3=0;jumlahtotalutama=0;jumlahtotalvip=0;jumlahtotalvvip=0;
             for(i=0;i<kolom;i++){
-                jumlahtotalk1=jumlahtotalk1+totalk1[i];
-                jumlahtotalk2=jumlahtotalk2+totalk2[i];
-                jumlahtotalk3=jumlahtotalk3+totalk3[i];
-                jumlahtotalutama=jumlahtotalutama+totalutama[i];
-                jumlahtotalvip=jumlahtotalvip+totalvip[i];
-                jumlahtotalvvip=jumlahtotalvvip+totalvvip[i];
+                jumlahtotalk1 += totalk1[i];
+                jumlahtotalk2 += totalk2[i];
+                jumlahtotalk3 += totalk3[i];
+                jumlahtotalutama += totalutama[i];
+                jumlahtotalvip += totalvip[i];
+                jumlahtotalvvip += totalvvip[i];
                 htmlContent.append("<tr class='isi'><td valign='middle' colspan='7'>").append(carabayar[i]).append("</td><td valign='middle' align='center' colspan='2'>").append(totalk1[i]).append("</td><td valign='middle' align='center' colspan='2'>").append(totalk2[i]).append("</td><td valign='middle' align='center' colspan='2'>").append(totalk3[i]).append("</td><td valign='middle' align='center' colspan='2'>").append(totalutama[i]).append("</td><td valign='middle' align='center' colspan='2'>").append(totalvip[i]).append("</td><td valign='middle' align='center' colspan='2'>").append(totalvvip[i]).append("</td><td valign='middle' colspan='").append((kolom*6)-17).append("'>&nbsp;</td></tr>");
             }
             htmlContent.append("<tr class='isi'><td valign='middle' colspan='7'><b>Total :</b></td><td valign='middle' align='center' colspan='2'><b>").append(jumlahtotalk1).append("</b></td><td valign='middle' align='center' colspan='2'><b>").append(jumlahtotalk2).append("</b></td><td valign='middle' align='center' colspan='2'><b>").append(jumlahtotalk3).append("</b></td><td valign='middle' align='center' colspan='2'><b>").append(jumlahtotalutama).append("</b></td><td valign='middle' align='center' colspan='2'><b>").append(jumlahtotalvip).append("</b></td><td valign='middle' align='center' colspan='2'><b>").append(jumlahtotalvvip).append("</b></td><td valign='middle' colspan='").append((kolom*6)-17).append("'>&nbsp;</td></tr>");

@@ -5,34 +5,18 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -161,24 +145,24 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        DiagnosaMedis.setDocument(new batasInput((int)50).getKata(DiagnosaMedis));
-        AlasanMasuk.setDocument(new batasInput((int)150).getKata(AlasanMasuk));
-        KeteranganPengaruhRIKeluarga.setDocument(new batasInput((int)100).getKata(KeteranganPengaruhRIKeluarga));
-        KeteranganPengaruhRIPekerjaanSekolah.setDocument(new batasInput((int)100).getKata(KeteranganPengaruhRIPekerjaanSekolah));
-        KeteranganPengaruhRIKeuangan.setDocument(new batasInput((int)100).getKata(KeteranganPengaruhRIKeuangan));
-        KeteranganAntisipasiMasalah.setDocument(new batasInput((int)100).getKata(KeteranganAntisipasiMasalah));
-        KeteranganBantuanDiperlukan.setDocument(new batasInput((int)100).getKata(KeteranganBantuanDiperlukan));
-        KeteranganYangMembantuKeperluan.setDocument(new batasInput((int)100).getKata(KeteranganYangMembantuKeperluan));
-        KeteranganTinggalSendiri.setDocument(new batasInput((int)100).getKata(KeteranganTinggalSendiri));
-        KeteranganPeralatanMedis.setDocument(new batasInput((int)100).getKata(KeteranganPeralatanMedis));
-        KeteranganAlatBantu.setDocument(new batasInput((int)100).getKata(KeteranganAlatBantu));
-        KeteranganPerawatanKhusus.setDocument(new batasInput((int)100).getKata(KeteranganPerawatanKhusus));
-        KeteranganMemenuhiKebutuhan.setDocument(new batasInput((int)100).getKata(KeteranganMemenuhiKebutuhan));
-        KeteranganNyeriKronis.setDocument(new batasInput((int)100).getKata(KeteranganNyeriKronis));
-        KeteranganEdukasiPasien.setDocument(new batasInput((int)100).getKata(KeteranganEdukasiPasien));
-        KeteranganKeterampilanKhusus.setDocument(new batasInput((int)100).getKata(KeteranganKeterampilanKhusus));
-        SaksiKeluarga.setDocument(new batasInput((int)50).getKata(SaksiKeluarga));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        DiagnosaMedis.setDocument(new batasInput(50).getKata(DiagnosaMedis));
+        AlasanMasuk.setDocument(new batasInput(150).getKata(AlasanMasuk));
+        KeteranganPengaruhRIKeluarga.setDocument(new batasInput(100).getKata(KeteranganPengaruhRIKeluarga));
+        KeteranganPengaruhRIPekerjaanSekolah.setDocument(new batasInput(100).getKata(KeteranganPengaruhRIPekerjaanSekolah));
+        KeteranganPengaruhRIKeuangan.setDocument(new batasInput(100).getKata(KeteranganPengaruhRIKeuangan));
+        KeteranganAntisipasiMasalah.setDocument(new batasInput(100).getKata(KeteranganAntisipasiMasalah));
+        KeteranganBantuanDiperlukan.setDocument(new batasInput(100).getKata(KeteranganBantuanDiperlukan));
+        KeteranganYangMembantuKeperluan.setDocument(new batasInput(100).getKata(KeteranganYangMembantuKeperluan));
+        KeteranganTinggalSendiri.setDocument(new batasInput(100).getKata(KeteranganTinggalSendiri));
+        KeteranganPeralatanMedis.setDocument(new batasInput(100).getKata(KeteranganPeralatanMedis));
+        KeteranganAlatBantu.setDocument(new batasInput(100).getKata(KeteranganAlatBantu));
+        KeteranganPerawatanKhusus.setDocument(new batasInput(100).getKata(KeteranganPerawatanKhusus));
+        KeteranganMemenuhiKebutuhan.setDocument(new batasInput(100).getKata(KeteranganMemenuhiKebutuhan));
+        KeteranganNyeriKronis.setDocument(new batasInput(100).getKata(KeteranganNyeriKronis));
+        KeteranganEdukasiPasien.setDocument(new batasInput(100).getKata(KeteranganEdukasiPasien));
+        KeteranganKeterampilanKhusus.setDocument(new batasInput(100).getKata(KeteranganKeterampilanKhusus));
+        SaksiKeluarga.setDocument(new batasInput(50).getKata(SaksiKeluarga));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         ChkAccor.setSelected(false);
         isPhoto();
@@ -2009,6 +1993,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2096,6 +2083,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TinggalSendiri.setSelectedIndex(0);
         RencanaPemulangan.setDate(new Date());
@@ -2222,6 +2212,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getperencanaan_pemulangan());
         BtnHapus.setEnabled(akses.getperencanaan_pemulangan());
@@ -2239,6 +2232,9 @@ public class RMPerencanaanPemulangan extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

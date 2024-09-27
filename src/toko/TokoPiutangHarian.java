@@ -11,25 +11,14 @@
 
 package toko;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -450,10 +439,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 rs=ps.executeQuery();
                 ttluangmuka=0;ttlbayar=0;ttlongkir=0;ttlsisa=0;
                 while(rs.next()){
-                    ttluangmuka=ttluangmuka+rs.getDouble("uangmuka");
-                    ttlbayar=ttlbayar+rs.getDouble("total");
-                    ttlongkir=ttlongkir+rs.getDouble("ongkir");
-                    ttlsisa=ttlsisa+rs.getDouble("sisapiutang");
+                    ttluangmuka += rs.getDouble("uangmuka");
+                    ttlbayar += rs.getDouble("total");
+                    ttlongkir += rs.getDouble("ongkir");
+                    ttlsisa += rs.getDouble("sisapiutang");
                     tabMode.addRow(new Object[]{
                         rs.getString("nota_piutang"),rs.getString("tgl_piutang"),rs.getString("nip"),rs.getString("nama"),rs.getString("no_member"),rs.getString("nm_member"),
                         rs.getDouble("ongkir"),rs.getDouble("uangmuka"),rs.getDouble("total"),rs.getString("jns_jual"),rs.getDouble("sisapiutang"),rs.getString("catatan")

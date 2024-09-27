@@ -12,26 +12,13 @@
 
 package setting;
 
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventory.DlgBarang;
-import inventory.DlgCariJenis;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import inventory.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -158,8 +145,8 @@ public class DlgSetHarga extends javax.swing.JDialog {
         jualbebas.setDocument(new batasInput((byte)10).getKata(jualbebas));
         karyawan.setDocument(new batasInput((byte)10).getKata(karyawan));
         kdjns.setDocument(new batasInput((byte)4).getKata(kdjns));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
-        TCari1.setDocument(new batasInput((int)100).getKata(TCari1));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
+        TCari1.setDocument(new batasInput(100).getKata(TCari1));
         ralanumum.setDocument(new batasInput((byte)10).getKata(ralanumum));
         ranapk1umum.setDocument(new batasInput((byte)10).getKata(ranapk1umum));
         ranapk2umum.setDocument(new batasInput((byte)10).getKata(ranapk2umum));

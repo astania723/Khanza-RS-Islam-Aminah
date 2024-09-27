@@ -1,32 +1,17 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DecimalFormat;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.DlgBayarPiutang;
-import keuangan.Jurnal;
-import simrskhanza.DlgPasien;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import simrskhanza.*;
 
 public class DlgCariPiutang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -38,7 +23,15 @@ public class DlgCariPiutang extends javax.swing.JDialog {
     private riwayatobat Trackobat=new riwayatobat();
     private Connection koneksi=koneksiDB.condb();
     public  DlgPasien member=new DlgPasien(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private DecimalFormat df2 = new DecimalFormat("###,###,###,###,###,###,###");   
     private double ttljual=0,subttljual=0,ttldisc=0,subttldisc=0,ttlall=0,
@@ -1559,12 +1552,12 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                     try {
                         rs2=ps2.executeQuery();
                         while(rs2.next()){
-                            ttlall=ttlall+rs2.getDouble(7);
-                            subttlall=subttlall+rs2.getDouble(7);
-                            ttldisc=ttldisc+rs2.getDouble(9);
-                            subttldisc=subttldisc+rs2.getDouble(9);
-                            ttljual=ttljual+rs2.getDouble(10);
-                            subttljual=subttljual+rs2.getDouble(10);
+                            ttlall += rs2.getDouble(7);
+                            subttlall += rs2.getDouble(7);
+                            ttldisc += rs2.getDouble(9);
+                            subttldisc += rs2.getDouble(9);
+                            ttljual += rs2.getDouble(10);
+                            subttljual += rs2.getDouble(10);
                             tabMode.addRow(new String[]{
                                 "",no+". "+rs2.getString("no_batch"),rs2.getString("no_faktur"),rs2.getString("kode_brng")+" "+rs2.getString("nama_brng")+" "+rs2.getString("aturan_pakai"),
                                 rs2.getString("satuan"),df2.format(rs2.getDouble("h_jual")),rs2.getString("jumlah"),df2.format(rs2.getDouble("subtotal")),

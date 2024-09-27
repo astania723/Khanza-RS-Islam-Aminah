@@ -11,36 +11,22 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
-import simrskhanza.DlgKtgPerawatan;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
+public class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -55,6 +41,10 @@ public final class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
     private String[] kode,nama,kategori,kelastarif;
     private double[] totaltnd,bagianrs,bhp,jmdokter,jmperawat,kso,menejemen;
     private int jml=0,i=0,index=0;
+
+    /**
+     *
+     */
     public  DlgCariDokter dokter=new DlgCariDokter(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttlpendapatan=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,
@@ -64,6 +54,10 @@ public final class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
             Beban_Jasa_Medik_Paramedis_Tindakan_Ranap="",Utang_Jasa_Medik_Paramedis_Tindakan_Ranap="",Beban_KSO_Tindakan_Ranap="",Utang_KSO_Tindakan_Ranap="",
             Beban_Jasa_Sarana_Tindakan_Ranap="",Utang_Jasa_Sarana_Tindakan_Ranap="",Beban_Jasa_Menejemen_Tindakan_Ranap="",Utang_Jasa_Menejemen_Tindakan_Ranap="",
             HPP_BHP_Tindakan_Ranap="",Persediaan_BHP_Tindakan_Ranap="";    
+
+    /**
+     *
+     */
     public DlgKtgPerawatan ktg=new DlgKtgPerawatan(null,false);
     
     /** Creates new form DlgPenyakit
@@ -78,19 +72,19 @@ public final class DlgCariPerawatanRanap2 extends javax.swing.JDialog {
         Object[] row={"Pagi","Siang","Sore","Malam","Kode","Nama Perawatan","Kategori Perawatan",
                       "Tarif/Biaya","Bagian RS","BHP","JM Dokter","JM Perawat","KSO","Menejemen","Kelas"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==0)||(colIndex==1)||(colIndex==2)||(colIndex==3)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Boolean.class,java.lang.Boolean.class,java.lang.Boolean.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,java.lang.Double.class,
                 java.lang.Double.class, java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Double.class,java.lang.Double.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==0)||(colIndex==1)||(colIndex==2)||(colIndex==3)) {
+                 a=true;
+               }
+               return a;
+             }
              /*Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
              };*/
@@ -861,12 +855,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         }
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,0).toString().equals("false")&&(pg==true)){
                                         pshapustindakan=koneksi.prepareStatement("delete from rawat_inap_dr where rawat_inap_dr.no_rawat=? "+
@@ -886,12 +880,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         }   
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -928,12 +922,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                         }            
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,1).toString().equals("false")&&(sg==true)){
                                         pshapustindakan=koneksi.prepareStatement("delete from rawat_inap_dr where rawat_inap_dr.no_rawat=? "+
@@ -953,12 +947,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         } 
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -995,12 +989,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                         }
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,2).toString().equals("false")&&(sr==true)){
                                         pshapustindakan=koneksi.prepareStatement("delete from rawat_inap_dr where rawat_inap_dr.no_rawat=? "+
@@ -1020,12 +1014,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         } 
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -1062,12 +1056,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                         }
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,3).toString().equals("false")&&(mlm==true)){
                                         pshapustindakan=koneksi.prepareStatement("delete from rawat_inap_dr where rawat_inap_dr.no_rawat=? "+
@@ -1087,12 +1081,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         }   
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
                                 } catch (Exception e) {
@@ -1144,12 +1138,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }       
                                         if(sukses==true){
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,0).toString().equals("false")&&(pg==true)){
                                         pshapustindakan2=koneksi.prepareStatement("delete from rawat_inap_pr where rawat_inap_pr.no_rawat=? "+
@@ -1169,12 +1163,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         } 
                                         if(sukses==true){
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -1211,12 +1205,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }
                                         if(sukses==true){
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,1).toString().equals("false")&&(sg==true)){
                                         pshapustindakan2=koneksi.prepareStatement("delete from rawat_inap_pr where rawat_inap_pr.no_rawat=? "+
@@ -1236,12 +1230,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                         } 
                                         if(sukses==true){
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -1278,12 +1272,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }
                                         if(sukses==true){
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,2).toString().equals("false")&&(sr==true)){
                                         pshapustindakan2=koneksi.prepareStatement("delete from rawat_inap_pr where rawat_inap_pr.no_rawat=? "+
@@ -1303,12 +1297,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                         }
                                         if(sukses==true){
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }       
 
@@ -1345,12 +1339,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }
                                         if(sukses==true){
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,3).toString().equals("false")&&(mlm==true)){
                                         pshapustindakan2=koneksi.prepareStatement("delete from rawat_inap_pr where rawat_inap_pr.no_rawat=? "+
@@ -1370,12 +1364,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                         }  
                                         if(sukses==true){
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
                                 } catch (Exception e) {
@@ -1430,13 +1424,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }  
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,0).toString().equals("false")&&(pg==true)){
                                         pshapustindakan3=koneksi.prepareStatement("delete from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? "+
@@ -1456,13 +1450,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         }  
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -1501,13 +1495,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }                    
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,1).toString().equals("false")&&(sg==true)){
                                         pshapustindakan3=koneksi.prepareStatement("delete from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? "+
@@ -1527,13 +1521,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         } 
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -1572,13 +1566,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,2).toString().equals("false")&&(sr==true)){
                                         pshapustindakan3=koneksi.prepareStatement("delete from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? "+
@@ -1598,13 +1592,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         } 
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
 
@@ -1643,13 +1637,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            } 
                                         }
                                         if(sukses==true){
-                                            ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            ttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }else if(tbKamar.getValueAt(i,3).toString().equals("false")&&(mlm==true)){
                                         pshapustindakan3=koneksi.prepareStatement("delete from rawat_inap_drpr where rawat_inap_drpr.no_rawat=? "+
@@ -1669,13 +1663,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                            }
                                         } 
                                         if(sukses==true){
-                                            hapusttljmdokter=hapusttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
-                                            hapusttljmperawat=hapusttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,11).toString());
-                                            hapusttlkso=hapusttlkso+Double.parseDouble(tbKamar.getValueAt(i,12).toString());
-                                            hapusttlpendapatan=hapusttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                            hapusttlmenejemen=hapusttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,13).toString());
-                                            hapusttljasasarana=hapusttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                            hapusttlbhp=hapusttlbhp+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                            hapusttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                            hapusttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,11).toString());
+                                            hapusttlkso += Double.parseDouble(tbKamar.getValueAt(i,12).toString());
+                                            hapusttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                            hapusttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,13).toString());
+                                            hapusttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                            hapusttlbhp += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
                                         }
                                     }
                                 } catch (Exception e) {
@@ -2524,6 +2518,9 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         LCount.setText(""+tbKamar.getRowCount());
     }
     
+    /**
+     *
+     */
     public void tampil2() { 
         try{ 
             Valid.tabelKosong(tabMode);
@@ -3020,6 +3017,10 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
@@ -3080,6 +3081,23 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
+    /**
+     *
+     * @param kode
+     * @param nama
+     * @param suhu
+     * @param tensi
+     * @param Hasil
+     * @param perkembangan
+     * @param kode2
+     * @param nama2
+     * @param berat
+     * @param tinggi
+     * @param nadi
+     * @param respirasi
+     * @param gcs
+     * @param alergi
+     */
     public void setPetugas(String kode, String nama,String suhu,String tensi, String Hasil, 
             String perkembangan, String kode2, String nama2,String berat,
             String tinggi,String nadi,String respirasi,String gcs,String alergi){

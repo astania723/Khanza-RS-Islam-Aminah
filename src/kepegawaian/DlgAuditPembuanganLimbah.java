@@ -5,32 +5,16 @@
 
 package kepegawaian;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -106,7 +90,7 @@ public class DlgAuditPembuanganLimbah extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         KdRuang.setDocument(new batasInput((byte)20).getKata(KdRuang));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1107,22 +1091,22 @@ public class DlgAuditPembuanganLimbah extends javax.swing.JDialog {
                 i=1;
                 while(rs.next()){
                     pemisahan_limbah_oleh_penghasil_limbah=Double.parseDouble(rs.getString("pemisahan_limbah_oleh_penghasil_limbah").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlpemisahan_limbah_oleh_penghasil_limbah=ttlpemisahan_limbah_oleh_penghasil_limbah+pemisahan_limbah_oleh_penghasil_limbah;
+                    ttlpemisahan_limbah_oleh_penghasil_limbah += pemisahan_limbah_oleh_penghasil_limbah;
                     limbah_infeksius_dimasukkan_kantong_kuning=Double.parseDouble(rs.getString("limbah_infeksius_dimasukkan_kantong_kuning").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttllimbah_infeksius_dimasukkan_kantong_kuning=ttllimbah_infeksius_dimasukkan_kantong_kuning+limbah_infeksius_dimasukkan_kantong_kuning;
+                    ttllimbah_infeksius_dimasukkan_kantong_kuning += limbah_infeksius_dimasukkan_kantong_kuning;
                     limbah_noninfeksius_dimasukkan_kantong_hitam=Double.parseDouble(rs.getString("limbah_noninfeksius_dimasukkan_kantong_hitam").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttllimbah_noninfeksius_dimasukkan_kantong_hitam=ttllimbah_noninfeksius_dimasukkan_kantong_hitam+limbah_noninfeksius_dimasukkan_kantong_hitam;
+                    ttllimbah_noninfeksius_dimasukkan_kantong_hitam += limbah_noninfeksius_dimasukkan_kantong_hitam;
                     limbah_tigaperempat_diikat=Double.parseDouble(rs.getString("limbah_tigaperempat_diikat").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttllimbah_tigaperempat_diikat=ttllimbah_tigaperempat_diikat+limbah_tigaperempat_diikat;
+                    ttllimbah_tigaperempat_diikat += limbah_tigaperempat_diikat;
                     limbah_segera_dibawa_kepembuangan_sementara=Double.parseDouble(rs.getString("limbah_segera_dibawa_kepembuangan_sementara").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttllimbah_segera_dibawa_kepembuangan_sementara=ttllimbah_segera_dibawa_kepembuangan_sementara+limbah_segera_dibawa_kepembuangan_sementara;
-                    kotak_sampah_dalam_kondisi_bersih=Double.parseDouble(rs.getString("kotak_sampah_dalam_kondisi_bersih").replaceAll("Ya","1").replaceAll("Tidak","0"));;
-                    ttlkotak_sampah_dalam_kondisi_bersih=ttlkotak_sampah_dalam_kondisi_bersih+kotak_sampah_dalam_kondisi_bersih;
-                    pembersihan_tempat_sampah_dengan_desinfekten=Double.parseDouble(rs.getString("pembersihan_tempat_sampah_dengan_desinfekten").replaceAll("Ya","1").replaceAll("Tidak","0"));;
-                    ttlpembersihan_tempat_sampah_dengan_desinfekten=ttlpembersihan_tempat_sampah_dengan_desinfekten+pembersihan_tempat_sampah_dengan_desinfekten;
+                    ttllimbah_segera_dibawa_kepembuangan_sementara += limbah_segera_dibawa_kepembuangan_sementara;
+                    kotak_sampah_dalam_kondisi_bersih=Double.parseDouble(rs.getString("kotak_sampah_dalam_kondisi_bersih").replaceAll("Ya","1").replaceAll("Tidak","0"));
+                    ttlkotak_sampah_dalam_kondisi_bersih += kotak_sampah_dalam_kondisi_bersih;
+                    pembersihan_tempat_sampah_dengan_desinfekten=Double.parseDouble(rs.getString("pembersihan_tempat_sampah_dengan_desinfekten").replaceAll("Ya","1").replaceAll("Tidak","0"));
+                    ttlpembersihan_tempat_sampah_dengan_desinfekten += pembersihan_tempat_sampah_dengan_desinfekten;
                     pembersihan_penampungan_sementara_dengan_desinfekten=Double.parseDouble(rs.getString("pembersihan_penampungan_sementara_dengan_desinfekten").replaceAll("Ya","1").replaceAll("Tidak","0"));
-                    ttlpembersihan_penampungan_sementara_dengan_desinfekten=ttlpembersihan_penampungan_sementara_dengan_desinfekten+pembersihan_penampungan_sementara_dengan_desinfekten;
-                    ttlpenilaian=ttlpenilaian+(((pemisahan_limbah_oleh_penghasil_limbah+limbah_infeksius_dimasukkan_kantong_kuning+limbah_noninfeksius_dimasukkan_kantong_hitam+
+                    ttlpembersihan_penampungan_sementara_dengan_desinfekten += pembersihan_penampungan_sementara_dengan_desinfekten;
+                    ttlpenilaian += (((pemisahan_limbah_oleh_penghasil_limbah+limbah_infeksius_dimasukkan_kantong_kuning+limbah_noninfeksius_dimasukkan_kantong_hitam+
                             limbah_tigaperempat_diikat+limbah_segera_dibawa_kepembuangan_sementara+kotak_sampah_dalam_kondisi_bersih+pembersihan_tempat_sampah_dengan_desinfekten+
                             pembersihan_penampungan_sementara_dengan_desinfekten)/8)*100);
                     tabMode.addRow(new String[]{
@@ -1134,7 +1118,7 @@ public class DlgAuditPembuanganLimbah extends javax.swing.JDialog {
                     });
                     i++;
                 }
-                i=i-1;
+                i -= 1;
                 if(i>0){
                     tabMode.addRow(new String[]{
                         "","Ya",":",""+ttlpemisahan_limbah_oleh_penghasil_limbah,""+ttllimbah_infeksius_dimasukkan_kantong_kuning,""+ttllimbah_noninfeksius_dimasukkan_kantong_hitam,
@@ -1172,6 +1156,9 @@ public class DlgAuditPembuanganLimbah extends javax.swing.JDialog {
         LCount.setText(""+i);
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         KdRuang.setText("");
         NmRuang.setText("");
@@ -1219,6 +1206,9 @@ public class DlgAuditPembuanganLimbah extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getaudit_pembuangan_limbah());
         BtnHapus.setEnabled(akses.getaudit_pembuangan_limbah());

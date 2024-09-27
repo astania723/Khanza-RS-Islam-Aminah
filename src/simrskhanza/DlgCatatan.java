@@ -12,13 +12,9 @@
 
 package simrskhanza;
 
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.event.*;
+import java.sql.*;
 
 /**
  *
@@ -308,6 +304,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=? ",TPasien,TNoRM.getText());
     }
 
+    /**
+     *
+     * @param norm
+     */
     public void setNoRm(String norm) {
         TNoRM.setText(norm);  
         isPsien();   

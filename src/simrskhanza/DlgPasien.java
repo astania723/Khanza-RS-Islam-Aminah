@@ -11,57 +11,23 @@
  */
 package simrskhanza;
 
-import bridging.BPJSCekNIK;
-import bridging.BPJSCekNoKartu;
-import bridging.BPJSNik;
-import bridging.BPJSPeserta;
-import bridging.CoronaPasien;
-import bridging.DUKCAPILCekNIK;
-import bridging.DUKCAPILJakartaCekNik;
-import bridging.PCareNIK;
-import bridging.PCarePeserta;
-import bridging.SatuSehatCekNIK;
-import bridging.YaskiReferensiKabupaten;
-import bridging.YaskiReferensiKecamatan;
-import bridging.YaskiReferensiKelurahan;
-import bridging.YaskiReferensiPropinsi;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import grafikanalisa.grafikjkel;
-import grafikanalisa.grafikpasienperagama;
-import grafikanalisa.grafikpasienperpekerjaaan;
-import grafikanalisa.grafiksql;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
+import bridging.*;
+import fungsi.*;
+import grafikanalisa.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.time.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import laporan.DlgBerkasPasien;
-import rekammedis.RMRiwayatPerawatan;
-import widget.PanelBiasa;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import laporan.*;
+import rekammedis.*;
+import widget.*;
 
 
 /**
@@ -73,26 +39,74 @@ public class DlgPasien extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariCaraBayar penjab=new DlgCariCaraBayar(null,false);
     public  DlgKabupaten kab=new DlgKabupaten(null,false);
     public  DlgPropinsi prop=new DlgPropinsi(null,false);
     public  DlgKecamatan kec=new DlgKecamatan(null,false);
+
+    /**
+     *
+     */
     public  DlgKelurahan kel=new DlgKelurahan(null,false);
     public  DlgCariPerusahaan perusahaan=new DlgCariPerusahaan(null,false);
+
+    /**
+     *
+     */
     public  DlgCariBahasa bahasa=new DlgCariBahasa(null,false);
     public  DlgCariCacatFisik cacat=new DlgCariCacatFisik(null,false);
+
+    /**
+     *
+     */
     public  DlgCariSuku suku=new DlgCariSuku(null,false);
     public  DlgGolonganTNI golongantni=new DlgGolonganTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgSatuanTNI satuantni=new DlgSatuanTNI(null,false);
     public  DlgPangkatTNI pangkattni=new DlgPangkatTNI(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanTNI jabatantni=new DlgJabatanTNI(null,false);
     public  DlgGolonganPolri golonganpolri=new DlgGolonganPolri(null,false);
     public  DlgSatuanPolri satuanpolri=new DlgSatuanPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgPangkatPolri pangkatpolri=new DlgPangkatPolri(null,false);
+
+    /**
+     *
+     */
     public  DlgJabatanPolri jabatanpolri=new DlgJabatanPolri(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiPropinsi propinsiref=new YaskiReferensiPropinsi(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiKabupaten kabupatenref=new YaskiReferensiKabupaten(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiKecamatan kecamatanref=new YaskiReferensiKecamatan(null,false);
+
+    /**
+     *
+     */
     public  YaskiReferensiKelurahan kelurahanref=new YaskiReferensiKelurahan(null,false);
     private int pilih=0,z=0,j=0,p_no_ktp=0,p_tmp_lahir=0,p_nm_ibu=0,p_alamat=0,
             p_pekerjaan=0,p_no_tlp=0,p_umur=0,p_namakeluarga=0,p_no_peserta=0,
@@ -1394,6 +1408,7 @@ public class DlgPasien extends javax.swing.JDialog {
                     PropinsiPj.setEditable(rs.getBoolean("propinsi"));
                 }
             } catch (Exception e) {
+                System.out.println("Notifikasi : "+e);
             } finally{
                 if(rs!=null){
                     rs.close();
@@ -1447,6 +1462,7 @@ public class DlgPasien extends javax.swing.JDialog {
                     p_propinsipj=rs.getInt("p_propinsipj");
                 }
             } catch (Exception e) {
+                System.out.println("Notifikasi : "+e);
             } finally{
                 if(rs!=null){
                     rs.close();
@@ -1456,6 +1472,7 @@ public class DlgPasien extends javax.swing.JDialog {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
         } 
         
         if(tampilkantni.equals("Yes")){
@@ -6988,8 +7005,8 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
             CmbJk.setSelectedItem(cekViaBPJS.sex);
             TNoPeserta.setText(cekViaBPJS.noKartu);
             Pekerjaan.setText(cekViaBPJS.jenisPesertaketerangan);
-            TUmurTh.setText(cekViaBPJS.umurumurSekarang);
             Valid.SetTgl(DTPLahir,cekViaBPJS.tglLahir);
+            DTPLahirItemStateChanged(null);
             this.setCursor(Cursor.getDefaultCursor());
         }   
     }//GEN-LAST:event_MnViaBPJSNikActionPerformed
@@ -7006,8 +7023,8 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
             CmbJk.setSelectedItem(cekViaBPJSKartu.sex);
             TKtp.setText(cekViaBPJSKartu.nik);
             Pekerjaan.setText(cekViaBPJSKartu.jenisPesertaketerangan);
-            TUmurTh.setText(cekViaBPJSKartu.umurumurSekarang);
             Valid.SetTgl(DTPLahir,cekViaBPJSKartu.tglLahir);
+            DTPLahirItemStateChanged(null);
             this.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_MnViaBPJSNoKartuActionPerformed
@@ -8381,6 +8398,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -8391,6 +8409,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode.getRowCount());
@@ -8428,6 +8447,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -8438,6 +8458,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode.getRowCount());
@@ -8470,6 +8491,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
             TNm.setText(cekViaSatuSehat.name);
             CmbJk.setSelectedItem(cekViaSatuSehat.gender.toUpperCase());
             Valid.SetTgl(DTPLahir,cekViaSatuSehat.birthDate);
+            DTPLahirItemStateChanged(null);
             Propinsi.setText(cekViaSatuSehat.provincename);
             PropinsiPj.setText(cekViaSatuSehat.provincename);
             Kabupaten.setText(cekViaSatuSehat.cityname);
@@ -9205,6 +9227,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -9215,6 +9238,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode.getRowCount());
@@ -9478,6 +9502,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -9488,6 +9513,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode2.getRowCount());
@@ -9751,6 +9777,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     });
                 }          
             }catch(Exception e){
+                System.out.println("Notifikasi : "+e);
             }finally{
                 if(rs != null){
                     rs.close();
@@ -9761,11 +9788,15 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                 }
             }
         }catch(Exception e){
+            System.out.println(e);
         }
             
         LCount.setText(""+tabMode3.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TNo.setText("");
         Kd2.setText("");
@@ -9981,6 +10012,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                         PropinsiPj.setText(rs.getString("propinsipj"));
                     }
                 } catch (Exception e) {
+                    System.out.println("Notofikasi : "+e);
                 } finally{
                     if(rs != null){
                         rs.close();
@@ -10077,6 +10109,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                         PropinsiPj.setText(rs.getString("propinsipj"));
                     }
                 } catch (Exception e) {
+                    System.out.println("Notofikasi : "+e);
                 } finally{
                     if(rs != null){
                         rs.close();
@@ -10129,6 +10162,10 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbPasien;
     }
@@ -10137,6 +10174,10 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
         return tbPasien2;
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable3(){
         return tbPasien3;
     }
@@ -10296,6 +10337,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                         PasswordPasien.setText("");
                     }
                 } catch (Exception e) {
+                    System.out.println("Notif : "+e);
                 } finally{
                     if(rs!=null){
                         rs.close();
@@ -10305,6 +10347,7 @@ private void AlamatMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
                     }
                 }
             } catch (Exception e) {
+                System.out.println("Notif : "+e);
             } 
         }
     }

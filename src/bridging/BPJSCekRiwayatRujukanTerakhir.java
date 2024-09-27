@@ -12,21 +12,13 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import org.springframework.http.*;
 
 /**
  *
@@ -288,6 +280,10 @@ public class BPJSCekRiwayatRujukanTerakhir extends javax.swing.JDialog {
         }
     }   
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

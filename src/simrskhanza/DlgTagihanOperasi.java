@@ -1,29 +1,14 @@
 package simrskhanza;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
-import keuangan.DlgJnsPerawatanOperasi;
-import keuangan.Jurnal;
-import rekammedis.MasterCariTemplateLaporanOperasi;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import rekammedis.*;
 
 public class DlgTagihanOperasi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
@@ -186,10 +171,10 @@ public class DlgTagihanOperasi extends javax.swing.JDialog {
         kdonloop5.setDocument(new batasInput((byte)20).getKata(kdonloop5));
         kdpjanak.setDocument(new batasInput((byte)20).getKata(kdpjanak));        
         kddrumum.setDocument(new batasInput((byte)20).getKata(kddrumum));      
-        PreOp.setDocument(new batasInput((int)100).getKata(PreOp));      
-        PostOp.setDocument(new batasInput((int)100).getKata(PostOp));      
-        Jaringan.setDocument(new batasInput((int)100).getKata(Jaringan));
-        Laporan.setDocument(new batasInput((int)8000).getKata(Laporan));
+        PreOp.setDocument(new batasInput(100).getKata(PreOp));      
+        PostOp.setDocument(new batasInput(100).getKata(PostOp));      
+        Jaringan.setDocument(new batasInput(100).getKata(Jaringan));
+        Laporan.setDocument(new batasInput(8000).getKata(Laporan));
         
         TCariPaket.setDocument(new batasInput((byte)100).getKata(TCari)); 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari)); 
@@ -2811,7 +2796,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                     Double.parseDouble(tbtindakan.getValueAt(i,26).toString())+
                                     Double.parseDouble(tbtindakan.getValueAt(i,27).toString())+
                                     Double.parseDouble(tbtindakan.getValueAt(i,28).toString());
-                            ttlpendapatan=ttlpendapatan+Double.parseDouble(tbtindakan.getValueAt(i,32).toString()); 
+                            ttlpendapatan += Double.parseDouble(tbtindakan.getValueAt(i,32).toString()); 
                         }else{
                             sukses=false;
                         }
@@ -2824,13 +2809,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                             if(Sequel.menyimpantf2("beri_obat_operasi","'"+TNoRw.getText()+"','"+Valid.SetTgl(tgl.getSelectedItem()+"")+" "+tgl.getSelectedItem().toString().substring(11,19)+
                                 "','"+tbObat.getValueAt(r,1).toString()+"','"+tbObat.getValueAt(r,4).toString()+
                                 "','"+tbObat.getValueAt(r,0).toString()+"'","data")==true){
-                                ttlbhp=ttlbhp+Double.parseDouble(tbObat.getValueAt(r,5).toString());
+                                ttlbhp += Double.parseDouble(tbObat.getValueAt(r,5).toString());
                             }else{
                                 sukses=false;
                             }
                         }
                     }
-                    ttlpendapatan=ttlpendapatan+ttlbhp;
+                    ttlpendapatan += ttlbhp;
                 }
                     
                 if(sukses==true){
@@ -3306,8 +3291,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "alat+dokter_anestesi+asisten_anestesi+asisten_anestesi2+bidan+bidan2+bidan3+perawat_luar+sewa_ok+"+
                    "akomodasi+bagian_rs+omloop+omloop2+omloop3+omloop4+omloop5+sarpras+dokter_pjanak+dokter_umum) as jumlah "+
                    "from paket_operasi "+
-                   "where status='1' and (kd_pj=? or kd_pj='-') and kode_paket like ? or "+
-                   "status='1' and (kd_pj=? or kd_pj='-') and nm_perawatan like ? order by nm_perawatan ");
+                   "where status='1' and (kd_pj=? or kd_pj='-') and (kode_paket like ? or nm_perawatan like ?) order by nm_perawatan ");
             pstindakan2=koneksi.prepareStatement("select kode_paket, nm_perawatan,kategori, operator1, operator2, operator3, "+
                    "asisten_operator1, asisten_operator2,asisten_operator3, instrumen, dokter_anak,perawaat_resusitas,"+
                    "dokter_anestesi, asisten_anestesi, asisten_anestesi2, bidan, bidan2, bidan3, perawat_luar, alat,"+
@@ -3316,8 +3300,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "alat+dokter_anestesi+asisten_anestesi+asisten_anestesi2+bidan+bidan2+bidan3+perawat_luar+sewa_ok+"+
                    "akomodasi+bagian_rs+omloop+omloop2+omloop3+omloop4+omloop5+sarpras+dokter_pjanak+dokter_umum) as jumlah "+
                    "from paket_operasi "+
-                   "where status='1' and kode_paket like ? or "+
-                   "status='1' and nm_perawatan like ? order by nm_perawatan ");
+                   "where status='1' and (kode_paket like ? or nm_perawatan like ?) order by nm_perawatan ");
             pstindakan3=koneksi.prepareStatement("select kode_paket, nm_perawatan,kategori, operator1, operator2, operator3, "+
                    "asisten_operator1, asisten_operator2,asisten_operator3, instrumen, dokter_anak,perawaat_resusitas,"+
                    "dokter_anestesi, asisten_anestesi, asisten_anestesi2, bidan, bidan2, bidan3, perawat_luar, alat,"+
@@ -3326,8 +3309,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "alat+dokter_anestesi+asisten_anestesi+asisten_anestesi2+bidan+bidan2+bidan3+perawat_luar+sewa_ok+"+
                    "akomodasi+bagian_rs+omloop+omloop2+omloop3+omloop4+omloop5+sarpras+dokter_pjanak+dokter_umum) as jumlah "+
                    "from paket_operasi "+
-                   "where status='1' and (kd_pj=? or kd_pj='-') and (kelas=? or kelas='-') and kode_paket like ? or "+
-                   "status='1' and (kd_pj=? or kd_pj='-') and (kelas=? or kelas='-') and nm_perawatan like ? order by nm_perawatan ");
+                   "where status='1' and (kd_pj=? or kd_pj='-') and (kelas=? or kelas='-') and (kode_paket like ? or nm_perawatan like ?) order by nm_perawatan ");
             pstindakan4=koneksi.prepareStatement("select kode_paket, nm_perawatan,kategori, operator1, operator2, operator3, "+
                    "asisten_operator1, asisten_operator2,asisten_operator3, instrumen, dokter_anak,perawaat_resusitas,"+
                    "dokter_anestesi, asisten_anestesi, asisten_anestesi2, bidan, bidan2, bidan3, perawat_luar, alat,"+
@@ -3336,15 +3318,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "alat+dokter_anestesi+asisten_anestesi+asisten_anestesi2+bidan+bidan2+bidan3+perawat_luar+sewa_ok+"+
                    "akomodasi+bagian_rs+omloop+omloop2+omloop3+omloop4+omloop5+sarpras+dokter_pjanak+dokter_umum) as jumlah "+
                    "from paket_operasi "+
-                   "where status='1' and (kelas=? or kelas='-') and kode_paket like ? or "+
-                   "status='1' and (kelas=? or kelas='-') and nm_perawatan like ? order by nm_perawatan ");
+                   "where status='1' and (kelas=? or kelas='-') and (kode_paket like ? or nm_perawatan like ?) order by nm_perawatan ");
             
             try {
                 if(cara_bayar_operasi.equals("Yes")&&kelas_operasi.equals("No")){
                     pstindakan.setString(1,kd_pj.trim());
                     pstindakan.setString(2,"%"+TCariPaket.getText()+"%");
-                    pstindakan.setString(3,kd_pj.trim());
-                    pstindakan.setString(4,"%"+TCariPaket.getText()+"%");
+                    pstindakan.setString(3,"%"+TCariPaket.getText()+"%");
                     rs=pstindakan.executeQuery();
                 }else if(cara_bayar_operasi.equals("No")&&kelas_operasi.equals("No")){
                     pstindakan2.setString(1,"%"+TCariPaket.getText()+"%");
@@ -3354,15 +3334,12 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     pstindakan3.setString(1,kd_pj.trim());
                     pstindakan3.setString(2,kelas.trim());
                     pstindakan3.setString(3,"%"+TCariPaket.getText()+"%");
-                    pstindakan3.setString(4,kd_pj.trim());
-                    pstindakan3.setString(5,kelas.trim());
-                    pstindakan3.setString(6,"%"+TCariPaket.getText()+"%");
+                    pstindakan3.setString(4,"%"+TCariPaket.getText()+"%");
                     rs=pstindakan3.executeQuery();
                 }else if(cara_bayar_operasi.equals("No")&&kelas_operasi.equals("Yes")){
                     pstindakan4.setString(1,kelas.trim());
                     pstindakan4.setString(2,"%"+TCariPaket.getText()+"%");
-                    pstindakan4.setString(3,kelas.trim());
-                    pstindakan4.setString(4,"%"+TCariPaket.getText()+"%");
+                    pstindakan4.setString(3,"%"+TCariPaket.getText()+"%");
                     rs=pstindakan4.executeQuery();
                 }
                 
@@ -3526,7 +3503,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 }else if(tbObat.getValueAt(r,5).toString().isEmpty()){
                     y=0;                
                 }
-                biayaobat=biayaobat+y;
+                biayaobat += y;
             }
         }
     }
@@ -3585,7 +3562,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         y=0;
                         break;
                 }
-                biayatindakan=biayatindakan+y;
+                biayatindakan += y;
             }            
         }
     }
@@ -3628,6 +3605,14 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil2();
     }
     
+    /**
+     *
+     * @param norm
+     * @param nama
+     * @param posisi
+     * @param KodeOperator
+     * @param NamaOperator
+     */
     public void setNoRm(String norm,String nama,String posisi,String KodeOperator,String NamaOperator){
         TNoRw.setText(norm);
         TPasien.setText(nama);

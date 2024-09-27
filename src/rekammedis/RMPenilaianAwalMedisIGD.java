@@ -5,36 +5,19 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -176,13 +159,13 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        Hubungan.setDocument(new batasInput((int)30).getKata(Hubungan));
-        KeluhanUtama.setDocument(new batasInput((int)2000).getKata(KeluhanUtama));
-        RPS.setDocument(new batasInput((int)2000).getKata(RPS));
-        RPK.setDocument(new batasInput((int)2000).getKata(RPK));
-        RPD.setDocument(new batasInput((int)1000).getKata(RPD));
-        RPO.setDocument(new batasInput((int)1000).getKata(RPO));
-        Alergi.setDocument(new batasInput((int)50).getKata(Alergi));
+        Hubungan.setDocument(new batasInput(30).getKata(Hubungan));
+        KeluhanUtama.setDocument(new batasInput(2000).getKata(KeluhanUtama));
+        RPS.setDocument(new batasInput(2000).getKata(RPS));
+        RPK.setDocument(new batasInput(2000).getKata(RPK));
+        RPD.setDocument(new batasInput(1000).getKata(RPD));
+        RPO.setDocument(new batasInput(1000).getKata(RPO));
+        Alergi.setDocument(new batasInput(50).getKata(Alergi));
         GCS.setDocument(new batasInput((byte)10).getKata(GCS));
         TD.setDocument(new batasInput((byte)8).getKata(TD));
         Nadi.setDocument(new batasInput((byte)5).getKata(Nadi));
@@ -191,12 +174,12 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
         SPO.setDocument(new batasInput((byte)5).getKata(SPO));
         BB.setDocument(new batasInput((byte)5).getKata(BB));
         TB.setDocument(new batasInput((byte)5).getKata(TB));
-        KetKepala.setDocument(new batasInput((int)5000).getKata(KetKepala));
-        KetLokalis.setDocument(new batasInput((int)3000).getKata(KetLokalis));
-        EKG.setDocument(new batasInput((int)3000).getKata(EKG));
-        Diagnosis.setDocument(new batasInput((int)500).getKata(Diagnosis));
-        Tatalaksana.setDocument(new batasInput((int)5000).getKata(Tatalaksana));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KetKepala.setDocument(new batasInput(5000).getKata(KetKepala));
+        KetLokalis.setDocument(new batasInput(3000).getKata(KetLokalis));
+        EKG.setDocument(new batasInput(3000).getKata(EKG));
+        Diagnosis.setDocument(new batasInput(500).getKata(Diagnosis));
+        Tatalaksana.setDocument(new batasInput(5000).getKata(Tatalaksana));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1671,6 +1654,34 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
             Valid.textKosong(RPD,"Riwayat Penyakit Dahulu");
         }else if(RPO.getText().trim().isEmpty()){
             Valid.textKosong(RPO,"Riwayat Pengunaan obat");
+        }else if(GCS.getText().trim().isEmpty()){
+            Valid.textKosong(GCS,"GCS");
+        }else if(TD.getText().trim().isEmpty()){
+            Valid.textKosong(TD,"Tekanan darah");
+        }else if(Nadi.getText().trim().isEmpty()){
+            Valid.textKosong(Nadi,"Nadi");
+        }else if(RR.getText().trim().isEmpty()){
+            Valid.textKosong(RR,"Respirasi");
+        }else if(Suhu.getText().trim().isEmpty()){
+            Valid.textKosong(Suhu,"Suhu");
+        }else if(SPO.getText().trim().isEmpty()){
+            Valid.textKosong(SPO,"Oksigen");
+        }else if(BB.getText().trim().isEmpty()){
+            Valid.textKosong(BB,"Berat Badan");
+        }else if(TB.getText().trim().isEmpty()){
+            Valid.textKosong(TB,"Tinggi Badan");
+        }else if(KetLokalis.getText().trim().isEmpty()){
+            Valid.textKosong(KetLokalis,"Keterangan Lokalis");
+        }else if(EKG.getText().trim().isEmpty()){
+            Valid.textKosong(EKG,"EKG");
+        }else if(Radiologi.getText().trim().isEmpty()){
+            Valid.textKosong(Radiologi,"Radiologi");
+        }else if(Laborat.getText().trim().isEmpty()){
+            Valid.textKosong(Laborat,"Laboratorium");
+        }else if(Diagnosis.getText().trim().isEmpty()){
+            Valid.textKosong(RPO,"Diagnosis");
+        }else if(Tatalaksana.getText().trim().isEmpty()){
+            Valid.textKosong(Tatalaksana,"Tatalaksana");
         }else{
             if(Sequel.menyimpantf("penilaian_medis_igd","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",43,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),Anamnesis.getSelectedItem().toString(),Hubungan.getText(),
@@ -1744,6 +1755,34 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
             Valid.textKosong(RPD,"Riwayat Penyakit Dahulu");
         }else if(RPO.getText().trim().isEmpty()){
             Valid.textKosong(RPO,"Riwayat Pengunaan obat");
+        }else if(GCS.getText().trim().isEmpty()){
+            Valid.textKosong(GCS,"GCS");
+        }else if(TD.getText().trim().isEmpty()){
+            Valid.textKosong(TD,"Tekanan darah");
+        }else if(Nadi.getText().trim().isEmpty()){
+            Valid.textKosong(Nadi,"Nadi");
+        }else if(RR.getText().trim().isEmpty()){
+            Valid.textKosong(RR,"Respirasi");
+        }else if(Suhu.getText().trim().isEmpty()){
+            Valid.textKosong(Suhu,"Suhu");
+        }else if(SPO.getText().trim().isEmpty()){
+            Valid.textKosong(SPO,"Oksigen");
+        }else if(BB.getText().trim().isEmpty()){
+            Valid.textKosong(BB,"Berat Badan");
+        }else if(TB.getText().trim().isEmpty()){
+            Valid.textKosong(TB,"Tinggi Badan");
+        }else if(KetLokalis.getText().trim().isEmpty()){
+            Valid.textKosong(KetLokalis,"Keterangan Lokalis");
+        }else if(EKG.getText().trim().isEmpty()){
+            Valid.textKosong(EKG,"EKG");
+        }else if(Radiologi.getText().trim().isEmpty()){
+            Valid.textKosong(Radiologi,"Radiologi");
+        }else if(Laborat.getText().trim().isEmpty()){
+            Valid.textKosong(Laborat,"Laboratorium");
+        }else if(Diagnosis.getText().trim().isEmpty()){
+            Valid.textKosong(RPO,"Diagnosis");
+        }else if(Tatalaksana.getText().trim().isEmpty()){
+            Valid.textKosong(Tatalaksana,"Tatalaksana");
         }else{
             if(tbObat.getSelectedRow()>-1){
                 if(akses.getkode().equals("Admin Utama")){
@@ -1964,7 +2003,6 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
         dokter.isCek();
         dokter.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         dokter.setLocationRelativeTo(internalFrame1);
-        dokter.setAlwaysOnTop(false);
         dokter.setVisible(true);
     }//GEN-LAST:event_BtnDokterActionPerformed
 
@@ -2342,6 +2380,9 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -2413,6 +2454,9 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Anamnesis.setSelectedIndex(0);
         Hubungan.setText("");
@@ -2547,6 +2591,9 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_medis_igd());
         BtnHapus.setEnabled(akses.getpenilaian_awal_medis_igd());
@@ -2563,6 +2610,9 @@ public class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
         }            
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

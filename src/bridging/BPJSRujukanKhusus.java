@@ -10,45 +10,26 @@
  */
 
 package bridging;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.net.URI;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.scheme.Scheme;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.security.*;
+import java.security.cert.*;
+import java.sql.*;
+import java.util.*;
+import javax.net.ssl.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.junit.Test;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.junit.*;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
 
 /**
@@ -177,7 +158,7 @@ public class BPJSRujukanKhusus extends javax.swing.JDialog {
         tbProsedur.setDefaultRenderer(Object.class,warna);
 
         NoPeserta.setDocument(new batasInput((byte)17).getKata(NoPeserta));
-        NoRujukan.setDocument(new batasInput((int)200).getKata(NoRujukan));
+        NoRujukan.setDocument(new batasInput(200).getKata(NoRujukan));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
 
         
@@ -1049,6 +1030,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbProsedur;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{     
@@ -1300,7 +1284,15 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         NoRujukan.requestFocus();
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
@@ -1310,9 +1302,17 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         public String getMethod() {
             return "DELETE";
         }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     }
        
-    
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest() throws Exception {
         RestTemplate restTemplate = new RestTemplate();

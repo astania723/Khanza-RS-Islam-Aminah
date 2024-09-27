@@ -11,25 +11,14 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -77,7 +66,7 @@ public class LaporanRekapKunjunganRuangPerTahun extends javax.swing.JDialog {
         }
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
 
-        TCari.setDocument(new batasInput((int)200).getKata(TCari));
+        TCari.setDocument(new batasInput(200).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -405,18 +394,18 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     okt=Sequel.cariInteger("select count(bangsal.kd_bangsal) from reg_periksa inner join kamar_inap inner join kamar inner join bangsal on reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.tgl_registrasi=kamar_inap.tgl_masuk where bangsal.kd_bangsal=? and reg_periksa.tgl_registrasi like ?",rs.getString("kd_bangsal"),"%"+ThnCari.getSelectedItem()+"-10%");
                     nov=Sequel.cariInteger("select count(bangsal.kd_bangsal) from reg_periksa inner join kamar_inap inner join kamar inner join bangsal on reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.tgl_registrasi=kamar_inap.tgl_masuk where bangsal.kd_bangsal=? and reg_periksa.tgl_registrasi like ?",rs.getString("kd_bangsal"),"%"+ThnCari.getSelectedItem()+"-11%");
                     des=Sequel.cariInteger("select count(bangsal.kd_bangsal) from reg_periksa inner join kamar_inap inner join kamar inner join bangsal on reg_periksa.no_rawat=kamar_inap.no_rawat and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.tgl_registrasi=kamar_inap.tgl_masuk where bangsal.kd_bangsal=? and reg_periksa.tgl_registrasi like ?",rs.getString("kd_bangsal"),"%"+ThnCari.getSelectedItem()+"-12%");
-                    ttljan=ttljan+jan;
-                    ttlfeb=ttlfeb+feb;
-                    ttlmar=ttlmar+mar;
-                    ttlapr=ttlapr+apr;
-                    ttlmei=ttlmei+mei;
-                    ttljun=ttljun+jun;
-                    ttljul=ttljul+jul;
-                    ttlagu=ttlagu+agu;
-                    ttlsep=ttlsep+sep;
-                    ttlokt=ttlokt+okt;
-                    ttlnov=ttlnov+nov;
-                    ttldes=ttldes+des;
+                    ttljan += jan;
+                    ttlfeb += feb;
+                    ttlmar += mar;
+                    ttlapr += apr;
+                    ttlmei += mei;
+                    ttljun += jun;
+                    ttljul += jul;
+                    ttlagu += agu;
+                    ttlsep += sep;
+                    ttlokt += okt;
+                    ttlnov += nov;
+                    ttldes += des;
                     tabMode.addRow(new String[]{
                         i+"",rs.getString("nm_bangsal")+" ("+rs.getString("kd_bangsal")+")",jan+"",feb+"",mar+"",apr+"",mei+"",
                         jun+"",jul+"",agu+"",sep+"",okt+"",nov+"",des+"",(jan+feb+mar+apr+

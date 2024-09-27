@@ -2,35 +2,18 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable3;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import toko.TokoSuplier;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import toko.*;
 
 /**
  *
@@ -74,13 +57,6 @@ public class KeuanganHutangToko extends javax.swing.JDialog {
             "Sisa Hutang","Pembayaran","Sisa","Bank Suplier","No.Rekening"
         };
         tabMode=new DefaultTableModel(null,rowRwJlDr){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==10)||(colIndex==0)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
@@ -88,6 +64,13 @@ public class KeuanganHutangToko extends javax.swing.JDialog {
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
                 java.lang.Object.class,java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==10)||(colIndex==0)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1171,6 +1154,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Tanggal tgl_bayar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         Valid.tabelKosong(tabMode);
         try{
@@ -1215,8 +1201,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         0,(rs.getDouble("tagihan")-rs.getDouble("bayar")),rs.getString("nama_bank"),
                         rs.getString("rekening")
                     });
-                    sisahutang=sisahutang+rs.getDouble("tagihan");
-                    cicilan=cicilan+rs.getDouble("bayar");
+                    sisahutang += rs.getDouble("tagihan");
+                    cicilan += rs.getDouble("bayar");
                 }
                 LCount.setText(Valid.SetAngka(sisahutang-cicilan));
             } catch (Exception e) {
@@ -1239,7 +1225,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         bayar=0;
         for(i=0;i<row;i++){  
             if(tbBangsal.getValueAt(i,0).toString().equals("true")){
-                 bayar=bayar+Double.parseDouble(tbBangsal.getValueAt(i,11).toString());     
+                 bayar += Double.parseDouble(tbBangsal.getValueAt(i,11).toString());     
             }
         }
         LCount1.setText(Valid.SetAngka(bayar));

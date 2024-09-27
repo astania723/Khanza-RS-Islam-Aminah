@@ -1,36 +1,30 @@
 package toko;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
 public class TokoCariPembelian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  TokoSuplier suplier=new TokoSuplier(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  TokoBarang barang=new TokoBarang(null,false);
     private PreparedStatement ps,ps2,pscaribeli,pstoko_detail_beli;
     private riwayattoko Trackbarang=new riwayattoko();
@@ -1155,7 +1149,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         tabMode.addRow(new Object[]{"","Petugas",": "+rs.getString(5)+" "+rs.getString(6),"PPN",":","","","","",Valid.SetAngka(rs.getDouble("ppn"))});
                         tabMode.addRow(new Object[]{"","","","Meterai",":","","","","",Valid.SetAngka(rs.getDouble("meterai"))});
                         tabMode.addRow(new Object[]{"","","","Tagihan",":","","","","",Valid.SetAngka(rs.getDouble("tagihan"))});
-                        tagihan=tagihan+rs.getDouble("total");
+                        tagihan += rs.getDouble("total");
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
                     } finally{
@@ -1183,12 +1177,18 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.gettoko_pengadaan_barang());
     }

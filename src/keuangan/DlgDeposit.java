@@ -11,40 +11,20 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
@@ -1243,9 +1223,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 rs=ps.executeQuery();
                 totaldeposit=0;tottaldibayar=0;totalppn=0;
                 while(rs.next()){
-                    totaldeposit=totaldeposit+rs.getDouble(7);
-                    totalppn=totalppn+rs.getDouble(9);
-                    tottaldibayar=tottaldibayar+rs.getDouble(10);
+                    totaldeposit += rs.getDouble(7);
+                    totalppn += rs.getDouble(9);
+                    tottaldibayar += rs.getDouble(10);
                     tabMode.addRow(new String[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),Valid.SetAngka(rs.getDouble(7)),
                         rs.getDouble(8)+"",Valid.SetAngka(rs.getDouble(9)),Valid.SetAngka(rs.getDouble(10)),rs.getString(11),rs.getString(12),rs.getString(13),
@@ -1297,6 +1277,12 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=? ",TPasien,TNoRM.getText());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl1
+     * @param tgl2
+     */
     public void setNoRm(String norwt,Date tgl1,Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1321,6 +1307,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getdeposit_pasien());
         BtnHapus.setEnabled(akses.getdeposit_pasien());

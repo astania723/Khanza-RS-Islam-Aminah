@@ -1,41 +1,24 @@
 package simrskhanza;
-import fungsi.WarnaTable;
-import fungsi.WarnaTable4;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
-import laporan.DlgBerkasRawat;
-import rekammedis.RMRiwayatPerawatan;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import keuangan.*;
+import laporan.*;
+import rekammedis.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPeriksaLabPA extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -120,11 +103,11 @@ public class DlgCariPeriksaLabPA extends javax.swing.JDialog {
         kdmem.setDocument(new batasInput((byte)8).getKata(kdmem));
         kdptg.setDocument(new batasInput((byte)25).getKata(kdptg));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        Makroskopis.setDocument(new batasInput((int)1024).getKata(Makroskopis));
-        Mikroskopis.setDocument(new batasInput((int)1024).getKata(Mikroskopis));
-        Kesimpulan.setDocument(new batasInput((int)300).getKata(Kesimpulan));
-        Kesan.setDocument(new batasInput((int)300).getKata(Kesan));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        Makroskopis.setDocument(new batasInput(1024).getKata(Makroskopis));
+        Mikroskopis.setDocument(new batasInput(1024).getKata(Mikroskopis));
+        Kesimpulan.setDocument(new batasInput(300).getKata(Kesimpulan));
+        Kesan.setDocument(new batasInput(300).getKata(Kesan));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -1456,7 +1439,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             ttl=0;
                             while(rs2.next()){
                                 item=rs2.getDouble("biaya");//Sequel.cariIsiAngka("select sum(biaya_item) from template_laboratorium where kd_jenis_prw=?",rs2.getString("kd_jenis_prw"));
-                                ttl=ttl+item;                    
+                                ttl += item;                    
                                 Sequel.menyimpan("temporary_lab","'0','"+rs2.getString("kd_jenis_prw")+"','"+rs2.getString("nm_perawatan")+"','"+item+"','Pemeriksaan','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Biaya Lab");                        
                             }   
                         } catch (Exception e) {
@@ -2303,7 +2286,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         rs.getString("nm_dokter"),rs.getString("nm_perawatan"),rs.getString("biaya"),diagnosa_klinik,makroskopik,mikroskopik,kesimpulan,kesan,
                         rs.getString("kd_jenis_prw"),rs.getString("png_jawab")
                     });
-                    ttl=ttl+rs.getDouble("biaya");
+                    ttl += rs.getDouble("biaya");
                 }
             } catch (Exception e) {
                 System.out.println("Notif ps : "+e);
@@ -2571,6 +2554,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         MnCetakHasilLab.setEnabled(akses.getpemeriksaan_lab_pa());
         MnCetakNota.setEnabled(akses.getpemeriksaan_lab_pa());

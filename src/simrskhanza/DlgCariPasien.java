@@ -11,20 +11,13 @@
  */
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -460,6 +453,7 @@ private void CarialamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
     }//GEN-LAST:event_tbPasienKeyReleased
 
     /**
+     * @param args
      * @data args the command line arguments
      */
     public static void main(String args[]) {
@@ -682,6 +676,9 @@ private void CarialamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");
         TCari.requestFocus();
@@ -696,10 +693,17 @@ private void CarialamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbPasien;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         asalform=akses.getform();
     }

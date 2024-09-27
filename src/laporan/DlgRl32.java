@@ -11,24 +11,13 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -391,6 +380,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){        
         try{   
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
@@ -414,32 +406,32 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 rujukan=Sequel.cariInteger("select count(rujuk_masuk.no_rawat) from reg_periksa inner join rujuk_masuk "+
                         "on rujuk_masuk.no_rawat=reg_periksa.no_rawat where reg_periksa.kd_poli='"+rs.getString("kd_poli")+"' and "+
                         "reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'");
-                ttlrujukan=ttlrujukan+rujukan;
+                ttlrujukan += rujukan;
                 
                 nonrujukan=Sequel.cariInteger("select count(reg_periksa.no_rawat) from reg_periksa  where reg_periksa.kd_poli='"+rs.getString("kd_poli")+"' and "+
                         "reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' and "+
                         "reg_periksa.no_rawat not in(select no_rawat from rujuk_masuk)");
-                ttlnonrujukan=ttlnonrujukan+nonrujukan;
+                ttlnonrujukan += nonrujukan;
                 
                 dirawat=Sequel.cariInteger("select count(reg_periksa.no_rawat) from reg_periksa inner join kamar_inap "+
                         "on reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.kd_poli='"+rs.getString("kd_poli")+"' and "+
                         "reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' group by reg_periksa.no_rawat");
-                ttldirawat=ttldirawat+dirawat;
+                ttldirawat += dirawat;
                 
                 dirujuk=Sequel.cariInteger("select count(rujuk.no_rawat) from reg_periksa inner join rujuk on rujuk.no_rawat=reg_periksa.no_rawat "+
                         "where reg_periksa.kd_poli='"+rs.getString("kd_poli")+"' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'");
-                ttldirujuk=ttldirujuk+dirujuk;
+                ttldirujuk += dirujuk;
                 
                 meninggal=Sequel.cariInteger("select count(reg_periksa.no_rkm_medis) from pasien_mati inner join reg_periksa "+
                         "on reg_periksa.no_rkm_medis=pasien_mati.no_rkm_medis  where kd_poli='"+rs.getString("kd_poli")+"' and "+
                         "reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"'");
-                ttlmeninggal=ttlmeninggal+meninggal;
+                ttlmeninggal += meninggal;
                 
                 pulang=Sequel.cariInteger("select count(reg_periksa.no_rawat) from reg_periksa inner join kamar_inap "+
                         "on reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.kd_poli='"+rs.getString("kd_poli")+"' and "+
                         "reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' and "+
                         "kamar_inap.stts_pulang<>('Rujuk' or 'Meninggal' or 'Pindah Kamar') group by reg_periksa.no_rawat");
-                ttlpulang=ttlpulang+pulang;
+                ttlpulang += pulang;
                 tabMode.addRow(new Object[]{
                     i,rs.getString("nm_poli"),rujukan,nonrujukan,dirawat,dirujuk,pulang,meninggal,"0"
                 });

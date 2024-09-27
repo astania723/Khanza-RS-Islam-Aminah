@@ -1,22 +1,12 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class DlgCashflow extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -339,7 +329,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     debkred=debkred*(-1);
                 }*/;
                 
-                kasawal=kasawal+debkred;
+                kasawal += debkred;
                 if(!(debkred==0)){
                     tabMode.addRow(new Object[]{"",i+". "+rs.getString(1)+" "+rs.getString(2),df2.format(debkred)});  
                     i++;
@@ -388,7 +378,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     debkred=debkred*(-1);
                 }*/
                 
-                penerimaan=penerimaan+debkred;
+                penerimaan += debkred;
                 tabMode.addRow(new Object[]{"",i+". "+rs.getString(1)+" "+rs.getString(2),df2.format(debkred)});  
                 i++;
             } 
@@ -442,7 +432,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     debkred=debkred*(-1);
                 }*/
                 
-                pengeluaran=pengeluaran+debkred;                
+                pengeluaran += debkred;                
                 tabMode.addRow(new Object[]{"",i+". "+rs.getString(1)+" "+rs.getString(2),df2.format(debkred)});  
                 i++;
             } 

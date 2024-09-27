@@ -1,29 +1,16 @@
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import setting.DlgCariJamDiet;
-import simrskhanza.DlgCariBangsal;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import setting.*;
+import simrskhanza.*;
 
 /**
  *
@@ -1057,6 +1044,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbDataDiet;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {   
         try{
             Valid.tabelKosong(tabMode);
@@ -1106,15 +1096,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void hitung(){
         hewani=0;nabati=0;karbo=0;sayur=0;buah=0;x=0;
         for(i=0;i<tabMode.getRowCount();i++){
             if(!tbDataDiet.getValueAt(i,0).toString().isEmpty()){
-                karbo=karbo+Valid.SetInteger(tbDataDiet.getValueAt(i,6).toString());
-                hewani=hewani+Valid.SetInteger(tbDataDiet.getValueAt(i,7).toString());
-                nabati=nabati+Valid.SetInteger(tbDataDiet.getValueAt(i,8).toString());
-                sayur=sayur+Valid.SetInteger(tbDataDiet.getValueAt(i,9).toString());
-                buah=buah+Valid.SetInteger(tbDataDiet.getValueAt(i,10).toString());
+                karbo += Valid.SetInteger(tbDataDiet.getValueAt(i,6).toString());
+                hewani += Valid.SetInteger(tbDataDiet.getValueAt(i,7).toString());
+                nabati += Valid.SetInteger(tbDataDiet.getValueAt(i,8).toString());
+                sayur += Valid.SetInteger(tbDataDiet.getValueAt(i,9).toString());
+                buah += Valid.SetInteger(tbDataDiet.getValueAt(i,10).toString());
                 x++;
             }else{
                 tabMode.removeRow(i);
@@ -1175,6 +1168,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
          Sequel.cariIsi("select kamar_inap.kd_kamar from kamar_inap where kamar_inap.no_rawat=? order by kamar_inap.tgl_masuk desc limit 1",Kamar,TNoRw.getText());
     }
 
+    /**
+     *
+     * @param norwt
+     * @param pasien
+     * @param kamar
+     * @param bangsal
+     * @param tgl1
+     * @param tgl2
+     * @param tanggal
+     * @param waktudiet
+     * @param jamdiet
+     */
     public void setNoRm(String norwt,String pasien,String kamar,String bangsal,Date tgl1,Date tgl2,String tanggal,String waktudiet,String jamdiet) {
         TNoRw.setText(norwt);
         TPasien.setText(pasien);

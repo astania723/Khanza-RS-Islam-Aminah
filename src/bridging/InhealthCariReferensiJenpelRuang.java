@@ -11,22 +11,13 @@
 
 package bridging;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -50,12 +41,12 @@ public class InhealthCariReferensiJenpelRuang extends javax.swing.JDialog {
         setSize(656,250);
         Object[] row={"No.Bed/Kamar","Kode Bangsal","Nama Bangsal/Kamar","Kode Jenis","Jenis Pelayanan Ruang Rawat","Tarif","Biaya RS","Status"};
         tabMode=new DefaultTableModel(null,row){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
                 java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -421,6 +412,9 @@ public class InhealthCariReferensiJenpelRuang extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -429,6 +423,9 @@ public class InhealthCariReferensiJenpelRuang extends javax.swing.JDialog {
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
        BtnTambah.setEnabled(akses.getinhealth_referensi_jenpel_ruang_rawat());
     }

@@ -11,29 +11,14 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariBangsal;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 /**
  *
@@ -699,8 +684,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Laborat");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlLaborat=ttlLaborat+rs2.getDouble(1);
-                                        Laborat=Laborat+rs2.getDouble(1);
+                                        ttlLaborat += rs2.getDouble(1);
+                                        Laborat += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -719,8 +704,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Radiologi");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRadiologi=ttlRadiologi+rs2.getDouble(1);
-                                        Radiologi=Radiologi+rs2.getDouble(1);
+                                        ttlRadiologi += rs2.getDouble(1);
+                                        Radiologi += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -739,8 +724,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Operasi");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlOperasi=ttlOperasi+rs2.getDouble(1);
-                                        Operasi=Operasi+rs2.getDouble(1);
+                                        ttlOperasi += rs2.getDouble(1);
+                                        Operasi += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -759,8 +744,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Obat");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlObat=ttlObat+rs2.getDouble(1);
-                                        Obat=Obat+rs2.getDouble(1);
+                                        ttlObat += rs2.getDouble(1);
+                                        Obat += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -779,8 +764,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Ranap Dokter");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRanap_Dokter=ttlRanap_Dokter+rs2.getDouble(1);
-                                        Ranap_Dokter=Ranap_Dokter+rs2.getDouble(1);
+                                        ttlRanap_Dokter += rs2.getDouble(1);
+                                        Ranap_Dokter += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -799,8 +784,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Ranap Dokter Paramedis");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRanap_Dokter=ttlRanap_Dokter+rs2.getDouble(1);
-                                        Ranap_Dokter_Paramedis=Ranap_Dokter_Paramedis+rs2.getDouble(1);
+                                        ttlRanap_Dokter += rs2.getDouble(1);
+                                        Ranap_Dokter_Paramedis += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -819,8 +804,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Ranap Paramedis");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRanap_Paramedis=ttlRanap_Paramedis+rs2.getDouble(1);
-                                        Ranap_Paramedis=Ranap_Paramedis+rs2.getDouble(1);
+                                        ttlRanap_Paramedis += rs2.getDouble(1);
+                                        Ranap_Paramedis += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -839,8 +824,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Ralan Dokter");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble(1);
-                                        Ralan_Dokter=Ralan_Dokter+rs2.getDouble(1);
+                                        ttlRalan_Dokter += rs2.getDouble(1);
+                                        Ralan_Dokter += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -859,8 +844,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Ralan Dokter Paramedis");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRalan_Dokter=ttlRalan_Dokter+rs2.getDouble(1);
-                                        Ralan_Dokter_Paramedis=Ralan_Dokter_Paramedis+rs2.getDouble(1);
+                                        ttlRalan_Dokter += rs2.getDouble(1);
+                                        Ralan_Dokter_Paramedis += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -879,8 +864,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Ralan Paramedis");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRalan_Paramedis=ttlRalan_Paramedis+rs2.getDouble(1);
-                                        Ralan_Paramedis=Ralan_Paramedis+rs2.getDouble(1);
+                                        ttlRalan_Paramedis += rs2.getDouble(1);
+                                        Ralan_Paramedis += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -899,8 +884,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Tambahan");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlTambahan=ttlTambahan+rs2.getDouble(1);
-                                        Tambahan=Tambahan+rs2.getDouble(1);
+                                        ttlTambahan += rs2.getDouble(1);
+                                        Tambahan += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -919,8 +904,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Potongan");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlPotongan=ttlPotongan+rs2.getDouble(1);
-                                        Potongan=Potongan+rs2.getDouble(1);
+                                        ttlPotongan += rs2.getDouble(1);
+                                        Potongan += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -939,8 +924,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Kamar");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlKamar=ttlKamar+rs2.getDouble(1);
-                                        Kamar=Kamar+rs2.getDouble(1);
+                                        ttlKamar += rs2.getDouble(1);
+                                        Kamar += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -959,8 +944,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Registrasi");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRegistrasi=ttlRegistrasi+rs2.getDouble(1);
-                                        Registrasi=Registrasi+rs2.getDouble(1);
+                                        ttlRegistrasi += rs2.getDouble(1);
+                                        Registrasi += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -979,8 +964,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Harian");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlHarian=ttlHarian+rs2.getDouble(1);
-                                        Harian=Harian+rs2.getDouble(1);
+                                        ttlHarian += rs2.getDouble(1);
+                                        Harian += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -999,8 +984,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Retur Obat");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlRetur_Obat=ttlRetur_Obat+rs2.getDouble(1);
-                                        Retur_Obat=Retur_Obat+rs2.getDouble(1);
+                                        ttlRetur_Obat += rs2.getDouble(1);
+                                        Retur_Obat += rs2.getDouble(1);
                                     }
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -1019,8 +1004,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Resep Pulang");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlResep_Pulang=ttlResep_Pulang+rs2.getDouble(1);
-                                        Resep_Pulang=Resep_Pulang+rs2.getDouble(1);
+                                        ttlResep_Pulang += rs2.getDouble(1);
+                                        Resep_Pulang += rs2.getDouble(1);
                                     } 
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);
@@ -1039,8 +1024,8 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                     ps2.setString(2,"Service");
                                     rs2=ps2.executeQuery();
                                     while(rs2.next()){
-                                        ttlService=ttlService+rs2.getDouble(1);
-                                        Service=Service+rs2.getDouble(1);
+                                        ttlService += rs2.getDouble(1);
+                                        Service += rs2.getDouble(1);
                                     } 
                                 } catch (Exception e) {
                                     System.out.println("Notif 2: "+e);

@@ -1,20 +1,11 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 public class LaporanTahunanPAM extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
@@ -456,18 +447,18 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     des=0;
                     des=Sequel.cariInteger("select count(surat_penolakan_anjuran_medis.no_rawat) from reg_periksa inner join surat_penolakan_anjuran_medis on surat_penolakan_anjuran_medis.no_rawat=reg_periksa.no_rawat where reg_periksa.status_lanjut='Ralan' and DATE_FORMAT(surat_penolakan_anjuran_medis.tanggal, '%Y-%m')='"+ThnCari.getSelectedItem()+"-12' and reg_periksa.kd_poli='"+rs.getString("kd_poli")+"'");
                     
-                    ttljan=ttljan+jan;
-                    ttlfeb=ttlfeb+feb;
-                    ttlmar=ttlmar+mar;
-                    ttlapr=ttlapr+apr;
-                    ttlmei=ttlmei+mei;
-                    ttljun=ttljun+jun;
-                    ttljul=ttljul+jul;
-                    ttlagu=ttlagu+agu;
-                    ttlsep=ttlsep+sep;
-                    ttlokt=ttlokt+okt;
-                    ttlnov=ttlnov+nov;
-                    ttldes=ttldes+des;
+                    ttljan += jan;
+                    ttlfeb += feb;
+                    ttlmar += mar;
+                    ttlapr += apr;
+                    ttlmei += mei;
+                    ttljun += jun;
+                    ttljul += jul;
+                    ttlagu += agu;
+                    ttlsep += sep;
+                    ttlokt += okt;
+                    ttlnov += nov;
+                    ttldes += des;
                     
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(jan).append("</td><td valign='middle' align='center'>").append(feb).append("</td><td valign='middle' align='center'>").append(mar).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append("</td><td valign='middle' align='center'>").append(apr).append("</td><td valign='middle' align='center'>").append(mei).append("</td><td valign='middle' align='center'>").append(jun).append("</td><td valign='middle' align='center'>").append(apr).append(mei).append(jun).append("</td><td valign='middle' align='center'>").append(jul).append("</td><td valign='middle' align='center'>").append(agu).append("</td><td valign='middle' align='center'>").append(sep).append("</td><td valign='middle' align='center'>").append(jul).append(agu).append(sep).append("</td><td valign='middle' align='center'>").append(okt).append("</td><td valign='middle' align='center'>").append(nov).append("</td><td valign='middle' align='center'>").append(des).append("</td><td valign='middle' align='center'>").append(okt).append(nov).append(des).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append(apr).append(mei).append(jun).append(jul).append(agu).append(sep).append(okt).append(nov).append(des).append("</td></tr>");
                     i++;
@@ -498,18 +489,18 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 des=0;
                 des=Sequel.cariInteger("select count(surat_penolakan_anjuran_medis.no_rawat) from reg_periksa inner join surat_penolakan_anjuran_medis on surat_penolakan_anjuran_medis.no_rawat=reg_periksa.no_rawat where reg_periksa.status_lanjut='Ranap' and DATE_FORMAT(surat_penolakan_anjuran_medis.tanggal, '%Y-%m')='"+ThnCari.getSelectedItem()+"-12'");
 
-                ttljan=ttljan+jan;
-                ttlfeb=ttlfeb+feb;
-                ttlmar=ttlmar+mar;
-                ttlapr=ttlapr+apr;
-                ttlmei=ttlmei+mei;
-                ttljun=ttljun+jun;
-                ttljul=ttljul+jul;
-                ttlagu=ttlagu+agu;
-                ttlsep=ttlsep+sep;
-                ttlokt=ttlokt+okt;
-                ttlnov=ttlnov+nov;
-                ttldes=ttldes+des;
+                ttljan += jan;
+                ttlfeb += feb;
+                ttlmar += mar;
+                ttlapr += apr;
+                ttlmei += mei;
+                ttljun += jun;
+                ttljul += jul;
+                ttlagu += agu;
+                ttlsep += sep;
+                ttlokt += okt;
+                ttlnov += nov;
+                ttldes += des;
 
                 htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>Rawat Inap</td><td valign='middle' align='center'>").append(jan).append("</td><td valign='middle' align='center'>").append(feb).append("</td><td valign='middle' align='center'>").append(mar).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append("</td><td valign='middle' align='center'>").append(apr).append("</td><td valign='middle' align='center'>").append(mei).append("</td><td valign='middle' align='center'>").append(jun).append("</td><td valign='middle' align='center'>").append(apr).append(mei).append(jun).append("</td><td valign='middle' align='center'>").append(jul).append("</td><td valign='middle' align='center'>").append(agu).append("</td><td valign='middle' align='center'>").append(sep).append("</td><td valign='middle' align='center'>").append(jul).append(agu).append(sep).append("</td><td valign='middle' align='center'>").append(okt).append("</td><td valign='middle' align='center'>").append(nov).append("</td><td valign='middle' align='center'>").append(des).append("</td><td valign='middle' align='center'>").append(okt).append(nov).append(des).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append(apr).append(mei).append(jun).append(jul).append(agu).append(sep).append(okt).append(nov).append(des).append("</td></tr>");
                 i++;
@@ -576,18 +567,18 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     des=0;
                     des=Sequel.cariInteger("select count(surat_penolakan_anjuran_medis.no_rawat) from surat_penolakan_anjuran_medis where DATE_FORMAT(surat_penolakan_anjuran_medis.tanggal, '%Y-%m')='"+ThnCari.getSelectedItem()+"-12' and surat_penolakan_anjuran_medis.nik='"+rs.getString("nik")+"'");
                     
-                    ttljan=ttljan+jan;
-                    ttlfeb=ttlfeb+feb;
-                    ttlmar=ttlmar+mar;
-                    ttlapr=ttlapr+apr;
-                    ttlmei=ttlmei+mei;
-                    ttljun=ttljun+jun;
-                    ttljul=ttljul+jul;
-                    ttlagu=ttlagu+agu;
-                    ttlsep=ttlsep+sep;
-                    ttlokt=ttlokt+okt;
-                    ttlnov=ttlnov+nov;
-                    ttldes=ttldes+des;
+                    ttljan += jan;
+                    ttlfeb += feb;
+                    ttlmar += mar;
+                    ttlapr += apr;
+                    ttlmei += mei;
+                    ttljun += jun;
+                    ttljul += jul;
+                    ttlagu += agu;
+                    ttlsep += sep;
+                    ttlokt += okt;
+                    ttlnov += nov;
+                    ttldes += des;
                     
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("nama")).append("(").append(rs.getString("nik")).append(")</td><td valign='middle' align='center'>").append(jan).append("</td><td valign='middle' align='center'>").append(feb).append("</td><td valign='middle' align='center'>").append(mar).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append("</td><td valign='middle' align='center'>").append(apr).append("</td><td valign='middle' align='center'>").append(mei).append("</td><td valign='middle' align='center'>").append(jun).append("</td><td valign='middle' align='center'>").append(apr).append(mei).append(jun).append("</td><td valign='middle' align='center'>").append(jul).append("</td><td valign='middle' align='center'>").append(agu).append("</td><td valign='middle' align='center'>").append(sep).append("</td><td valign='middle' align='center'>").append(jul).append(agu).append(sep).append("</td><td valign='middle' align='center'>").append(okt).append("</td><td valign='middle' align='center'>").append(nov).append("</td><td valign='middle' align='center'>").append(des).append("</td><td valign='middle' align='center'>").append(okt).append(nov).append(des).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append(apr).append(mei).append(jun).append(jul).append(agu).append(sep).append(okt).append(nov).append(des).append("</td></tr>");
                     i++;
@@ -655,18 +646,18 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     des=0;
                     des=Sequel.cariInteger("select count(surat_penolakan_anjuran_medis.no_rawat) from surat_penolakan_anjuran_medis where DATE_FORMAT(surat_penolakan_anjuran_medis.tanggal, '%Y-%m')='"+ThnCari.getSelectedItem()+"-12' and surat_penolakan_anjuran_medis.kode_penolakan='"+rs.getString("kode_penolakan")+"'");
                     
-                    ttljan=ttljan+jan;
-                    ttlfeb=ttlfeb+feb;
-                    ttlmar=ttlmar+mar;
-                    ttlapr=ttlapr+apr;
-                    ttlmei=ttlmei+mei;
-                    ttljun=ttljun+jun;
-                    ttljul=ttljul+jul;
-                    ttlagu=ttlagu+agu;
-                    ttlsep=ttlsep+sep;
-                    ttlokt=ttlokt+okt;
-                    ttlnov=ttlnov+nov;
-                    ttldes=ttldes+des;
+                    ttljan += jan;
+                    ttlfeb += feb;
+                    ttlmar += mar;
+                    ttlapr += apr;
+                    ttlmei += mei;
+                    ttljun += jun;
+                    ttljul += jul;
+                    ttlagu += agu;
+                    ttlsep += sep;
+                    ttlokt += okt;
+                    ttlnov += nov;
+                    ttldes += des;
                     
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("nama_penolakan")).append("</td><td valign='middle' align='center'>").append(jan).append("</td><td valign='middle' align='center'>").append(feb).append("</td><td valign='middle' align='center'>").append(mar).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append("</td><td valign='middle' align='center'>").append(apr).append("</td><td valign='middle' align='center'>").append(mei).append("</td><td valign='middle' align='center'>").append(jun).append("</td><td valign='middle' align='center'>").append(apr).append(mei).append(jun).append("</td><td valign='middle' align='center'>").append(jul).append("</td><td valign='middle' align='center'>").append(agu).append("</td><td valign='middle' align='center'>").append(sep).append("</td><td valign='middle' align='center'>").append(jul).append(agu).append(sep).append("</td><td valign='middle' align='center'>").append(okt).append("</td><td valign='middle' align='center'>").append(nov).append("</td><td valign='middle' align='center'>").append(des).append("</td><td valign='middle' align='center'>").append(okt).append(nov).append(des).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append(apr).append(mei).append(jun).append(jul).append(agu).append(sep).append(okt).append(nov).append(des).append("</td></tr>");
                     i++;
@@ -733,18 +724,18 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     des=0;
                     des=Sequel.cariInteger("select count(surat_penolakan_anjuran_medis.no_rawat) from reg_periksa inner join surat_penolakan_anjuran_medis on surat_penolakan_anjuran_medis.no_rawat=reg_periksa.no_rawat where reg_periksa.status_lanjut='Ralan' and DATE_FORMAT(surat_penolakan_anjuran_medis.tanggal, '%Y-%m')='"+ThnCari.getSelectedItem()+"-12' and reg_periksa.kd_poli='"+rs.getString("kd_poli")+"'");
                     
-                    ttljan=ttljan+jan;
-                    ttlfeb=ttlfeb+feb;
-                    ttlmar=ttlmar+mar;
-                    ttlapr=ttlapr+apr;
-                    ttlmei=ttlmei+mei;
-                    ttljun=ttljun+jun;
-                    ttljul=ttljul+jul;
-                    ttlagu=ttlagu+agu;
-                    ttlsep=ttlsep+sep;
-                    ttlokt=ttlokt+okt;
-                    ttlnov=ttlnov+nov;
-                    ttldes=ttldes+des;
+                    ttljan += jan;
+                    ttlfeb += feb;
+                    ttlmar += mar;
+                    ttlapr += apr;
+                    ttlmei += mei;
+                    ttljun += jun;
+                    ttljul += jul;
+                    ttlagu += agu;
+                    ttlsep += sep;
+                    ttlokt += okt;
+                    ttlnov += nov;
+                    ttldes += des;
                     
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_poli")).append("</td><td valign='middle' align='center'>").append(jan).append("</td><td valign='middle' align='center'>").append(feb).append("</td><td valign='middle' align='center'>").append(mar).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append("</td><td valign='middle' align='center'>").append(apr).append("</td><td valign='middle' align='center'>").append(mei).append("</td><td valign='middle' align='center'>").append(jun).append("</td><td valign='middle' align='center'>").append(apr).append(mei).append(jun).append("</td><td valign='middle' align='center'>").append(jul).append("</td><td valign='middle' align='center'>").append(agu).append("</td><td valign='middle' align='center'>").append(sep).append("</td><td valign='middle' align='center'>").append(jul).append(agu).append(sep).append("</td><td valign='middle' align='center'>").append(okt).append("</td><td valign='middle' align='center'>").append(nov).append("</td><td valign='middle' align='center'>").append(des).append("</td><td valign='middle' align='center'>").append(okt).append(nov).append(des).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append(apr).append(mei).append(jun).append(jul).append(agu).append(sep).append(okt).append(nov).append(des).append("</td></tr>");
                     ps2=koneksi.prepareStatement(
@@ -823,18 +814,18 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 des=0;
                 des=Sequel.cariInteger("select count(surat_penolakan_anjuran_medis.no_rawat) from reg_periksa inner join surat_penolakan_anjuran_medis on surat_penolakan_anjuran_medis.no_rawat=reg_periksa.no_rawat where reg_periksa.status_lanjut='Ranap' and DATE_FORMAT(surat_penolakan_anjuran_medis.tanggal, '%Y-%m')='"+ThnCari.getSelectedItem()+"-12'");
 
-                ttljan=ttljan+jan;
-                ttlfeb=ttlfeb+feb;
-                ttlmar=ttlmar+mar;
-                ttlapr=ttlapr+apr;
-                ttlmei=ttlmei+mei;
-                ttljun=ttljun+jun;
-                ttljul=ttljul+jul;
-                ttlagu=ttlagu+agu;
-                ttlsep=ttlsep+sep;
-                ttlokt=ttlokt+okt;
-                ttlnov=ttlnov+nov;
-                ttldes=ttldes+des;
+                ttljan += jan;
+                ttlfeb += feb;
+                ttlmar += mar;
+                ttlapr += apr;
+                ttlmei += mei;
+                ttljun += jun;
+                ttljul += jul;
+                ttlagu += agu;
+                ttlsep += sep;
+                ttlokt += okt;
+                ttlnov += nov;
+                ttldes += des;
 
                 htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(i).append("</td><td valign='middle' align='left'>Rawat Inap</td><td valign='middle' align='center'>").append(jan).append("</td><td valign='middle' align='center'>").append(feb).append("</td><td valign='middle' align='center'>").append(mar).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append("</td><td valign='middle' align='center'>").append(apr).append("</td><td valign='middle' align='center'>").append(mei).append("</td><td valign='middle' align='center'>").append(jun).append("</td><td valign='middle' align='center'>").append(apr).append(mei).append(jun).append("</td><td valign='middle' align='center'>").append(jul).append("</td><td valign='middle' align='center'>").append(agu).append("</td><td valign='middle' align='center'>").append(sep).append("</td><td valign='middle' align='center'>").append(jul).append(agu).append(sep).append("</td><td valign='middle' align='center'>").append(okt).append("</td><td valign='middle' align='center'>").append(nov).append("</td><td valign='middle' align='center'>").append(des).append("</td><td valign='middle' align='center'>").append(okt).append(nov).append(des).append("</td><td valign='middle' align='center'>").append(jan).append(feb).append(mar).append(apr).append(mei).append(jun).append(jul).append(agu).append(sep).append(okt).append(nov).append(des).append("</td></tr>");
                 

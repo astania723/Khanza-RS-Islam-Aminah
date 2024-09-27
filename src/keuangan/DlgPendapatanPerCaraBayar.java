@@ -10,24 +10,14 @@
  */
 
 package keuangan;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.event.DocumentEvent;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.event.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 /**
  *
@@ -582,9 +572,9 @@ public class DlgPendapatanPerCaraBayar extends javax.swing.JDialog {
                     jmlmcu=Sequel.cariInteger("select count(reg_periksa.no_rawat) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_jalan on reg_periksa.no_rawat=nota_jalan.no_rawat where poliklinik.nm_poli like '%mcu%' and reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_jalan.tanggal,' ',nota_jalan.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");jmlranap=0;
                     jmlranap=Sequel.cariInteger("select count(reg_periksa.no_rawat) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_inap on reg_periksa.no_rawat=nota_inap.no_rawat where reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_inap.tanggal,' ',nota_inap.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");
                     
-                    ttlralan=ttlralan+jmlralan;
-                    ttlmcu=ttlmcu+jmlmcu;
-                    ttlranap=ttlranap+jmlranap;
+                    ttlralan += jmlralan;
+                    ttlmcu += jmlmcu;
+                    ttlranap += jmlranap;
                     
                     nilairalancash=Sequel.cariIsiAngka("select sum(detail_nota_jalan.besar_bayar) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_jalan on reg_periksa.no_rawat=nota_jalan.no_rawat inner join detail_nota_jalan on detail_nota_jalan.no_rawat=nota_jalan.no_rawat where poliklinik.nm_poli not like '%mcu%' and reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_jalan.tanggal,' ',nota_jalan.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");
                     nilaimcucash=Sequel.cariIsiAngka("select sum(detail_nota_jalan.besar_bayar) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_jalan on reg_periksa.no_rawat=nota_jalan.no_rawat inner join detail_nota_jalan on detail_nota_jalan.no_rawat=nota_jalan.no_rawat where poliklinik.nm_poli like '%mcu%' and reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_jalan.tanggal,' ',nota_jalan.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");
@@ -592,17 +582,17 @@ public class DlgPendapatanPerCaraBayar extends javax.swing.JDialog {
                                   Sequel.cariIsiAngka("select sum(deposit.besar_deposit) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_inap on reg_periksa.no_rawat=nota_inap.no_rawat inner join deposit on deposit.no_rawat=nota_inap.no_rawat where reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_inap.tanggal,' ',nota_inap.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'")-
                                   Sequel.cariIsiAngka("select sum(pengembalian_deposit.besar_pengembalian) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_inap on reg_periksa.no_rawat=nota_inap.no_rawat inner join pengembalian_deposit on pengembalian_deposit.no_rawat=nota_inap.no_rawat where reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_inap.tanggal,' ',nota_inap.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");
                     
-                    ttlnilairalancash=ttlnilairalancash+nilairalancash;
-                    ttlnilaimcucash=ttlnilaimcucash+nilaimcucash;
-                    ttlnilairanapcash=ttlnilairanapcash+nilairanapcash;
+                    ttlnilairalancash += nilairalancash;
+                    ttlnilaimcucash += nilaimcucash;
+                    ttlnilairanapcash += nilairanapcash;
                     
                     nilairalanpenjamin=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_jalan on reg_periksa.no_rawat=nota_jalan.no_rawat inner join detail_piutang_pasien on detail_piutang_pasien.no_rawat=nota_jalan.no_rawat where poliklinik.nm_poli not like '%mcu%' and reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_jalan.tanggal,' ',nota_jalan.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");
                     nilaimcupenjamin=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_jalan on reg_periksa.no_rawat=nota_jalan.no_rawat inner join detail_piutang_pasien on detail_piutang_pasien.no_rawat=nota_jalan.no_rawat where poliklinik.nm_poli like '%mcu%' and reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_jalan.tanggal,' ',nota_jalan.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");
                     nilairanappenjamin=Sequel.cariIsiAngka("select sum(detail_piutang_pasien.totalpiutang) from reg_periksa inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join nota_inap on reg_periksa.no_rawat=nota_inap.no_rawat inner join detail_piutang_pasien on detail_piutang_pasien.no_rawat=nota_inap.no_rawat where reg_periksa.kd_pj='"+rs.getString("kd_pj")+"' and concat(nota_inap.tanggal,' ',nota_inap.jam) between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem()+"'");
                     
-                    ttlnilairalanpenjamin=ttlnilairalanpenjamin+nilairalanpenjamin;
-                    ttlnilaimcupenjamin=ttlnilaimcupenjamin+nilaimcupenjamin;
-                    ttlnilairanappenjamin=ttlnilairanappenjamin+nilairanappenjamin;
+                    ttlnilairalanpenjamin += nilairalanpenjamin;
+                    ttlnilaimcupenjamin += nilaimcupenjamin;
+                    ttlnilairanappenjamin += nilairanappenjamin;
                     
                     htmlContent.append("<tr class='isi'><td>").append(i).append("</td><td>").append(rs.getString("png_jawab")).append("</td><td align='right'>").append(Valid.SetAngka(nilairalancash+nilairalanpenjamin)).append("</td><td align='center'>").append(jmlralan).append("</td><td align='right'>").append(Valid.SetAngka(nilaimcucash+nilaimcupenjamin)).append("</td><td align='center'>").append(jmlmcu).append("</td><td align='right'>").append(Valid.SetAngka(nilairanapcash+nilairanappenjamin)).append("</td><td align='center'>").append(jmlranap).append("</td><td align='right'>").append(Valid.SetAngka(nilairalancash+nilaimcucash+nilairanapcash)).append("</td><td align='right'>").append(Valid.SetAngka(nilairalanpenjamin+nilaimcupenjamin+nilairanappenjamin)).append("</td></tr>");   
                     i++;

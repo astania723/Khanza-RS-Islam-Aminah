@@ -10,28 +10,14 @@
  */
 
 package inventaris;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -42,7 +28,9 @@ public class InventarisBarang extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
 
-    /** Creates new form DlgJnsPerawatan */
+    /** Creates new form DlgJnsPerawatan
+     * @param parent
+     * @param modal */
     public InventarisBarang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -1239,6 +1227,9 @@ private void btnJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kode_barang.setText("");
         nama_barang.setText("");
@@ -1291,8 +1282,10 @@ private void btnJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 
-    
-
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbJnsPerawatan;
     }
@@ -1311,6 +1304,9 @@ private void btnJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getinventaris_koleksi());
         BtnHapus.setEnabled(akses.getinventaris_koleksi());

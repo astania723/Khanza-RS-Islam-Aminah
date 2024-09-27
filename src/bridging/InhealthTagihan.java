@@ -12,26 +12,15 @@
 
 package bridging;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -161,10 +150,10 @@ public class InhealthTagihan extends javax.swing.JDialog {
         tabModeTagihanKamar=new DefaultTableModel(null,new Object[]{
                 "P","Kode Jenis","Jenis Pelayanan Ruang Rawat","Tarif","Hari","Total"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -184,10 +173,10 @@ public class InhealthTagihan extends javax.swing.JDialog {
         tabModeTagihanRalan=new DefaultTableModel(null,new Object[]{
                 "P","Kode Jenis","Jenis Pelayanan Ruang Rawat","Tarif","Hari","Total"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -797,6 +786,9 @@ public class InhealthTagihan extends javax.swing.JDialog {
     private widget.Table tbTagihanRawatJalan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         Valid.tabelKosong(tabMode);
         try{
@@ -869,7 +861,9 @@ public class InhealthTagihan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount()); 
     }
 
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getinhealth_kirim_tagihan());       
     }
@@ -915,7 +909,7 @@ public class InhealthTagihan extends javax.swing.JDialog {
                 ps.setString(1,norawat);
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    totaltagihan=totaltagihan+rs.getDouble("total");
+                    totaltagihan += rs.getDouble("total");
                     tabModeTagihanKamar.addRow(new Object[]{
                         true,rs.getString("kode_jenpel_ruang_rawat"),rs.getString("nama_jenpel_ruang_rawat"),rs.getDouble("tarif"),rs.getDouble("lama"),rs.getDouble("total")
                     });
@@ -950,7 +944,7 @@ public class InhealthTagihan extends javax.swing.JDialog {
                 ps.setString(1,norawat);
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    totaltagihan=totaltagihan+rs.getDouble("total");
+                    totaltagihan += rs.getDouble("total");
                     tabModeTagihanKamar.addRow(new Object[]{
                         true,rs.getString("kode_jenpel_ruang_rawat"),rs.getString("nama_jenpel_ruang_rawat"),rs.getDouble("tarif"),rs.getDouble("lama"),rs.getDouble("total")
                     });

@@ -5,14 +5,18 @@
 
 package widget;
 
-import java.awt.Color;
-import uz.ncipro.calendar.JDateTimePicker;
+import java.awt.*;
+import uz.ncipro.calendar.*;
 
 /**
  *
  * @author khanzasoft
  */
-public final class Tanggal extends JDateTimePicker {
+public class Tanggal extends JDateTimePicker {
+
+    /**
+     *
+     */
     public Tanggal(){
         super();
         //setBackground(new Color(245,160,245));

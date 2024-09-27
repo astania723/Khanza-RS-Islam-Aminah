@@ -12,29 +12,16 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.FileInputStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import org.springframework.http.*;
 
 /**
  *
@@ -337,6 +324,10 @@ public class SisruteCekReferensiDiagnosa extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param faskes
+     */
     public void tampil(String faskes) {
         try {
             URL = link+"/referensi/diagnosa?query="+faskes;
@@ -377,7 +368,10 @@ public class SisruteCekReferensiDiagnosa extends javax.swing.JDialog {
         }
     }    
     
- 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }

@@ -5,14 +5,10 @@
 
 package widget;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.geom.GeneralPath;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.geom.*;
+import java.awt.image.*;
+import javax.swing.*;
 
 /**
  *
@@ -25,6 +21,9 @@ public class Panel extends JPanel {
     private final Color black = new Color(30,30,0);
     private final Color warna = new Color(80,80,0);
 
+    /**
+     *
+     */
     public Panel() {
         super();
         //this.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(50,60,70)));

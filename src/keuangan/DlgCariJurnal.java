@@ -1,30 +1,17 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariJurnal extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -788,10 +775,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 subttldebet=0;subttlkredit=0;
                 int no=1;
                 while(rs2.next()){
-                    ttldebet=ttldebet+rs2.getDouble(3);
-                    subttldebet=subttldebet+rs2.getDouble(3);
-                    ttlkredit=ttlkredit+rs2.getDouble(4);
-                    subttlkredit=subttlkredit+rs2.getDouble(4);                    
+                    ttldebet += rs2.getDouble(3);
+                    subttldebet += rs2.getDouble(3);
+                    ttlkredit += rs2.getDouble(4);
+                    subttlkredit += rs2.getDouble(4);                    
                     tabMode.addRow(new Object[]{"","","","",no+". "+rs2.getString(1)+", "+rs2.getString(2),Valid.SetAngka(rs2.getDouble(3)),Valid.SetAngka(rs2.getDouble(4))});
                     no++;
                 }

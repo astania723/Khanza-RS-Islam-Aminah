@@ -11,29 +11,16 @@
 
 package tranfusidarah;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -93,7 +80,7 @@ public class UTDCekalDarah extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         NoDonor.setDocument(new batasInput((byte)15).getKata(NoDonor));
-        Keterangan.setDocument(new batasInput((int)100).getKata(Keterangan));
+        Keterangan.setDocument(new batasInput(100).getKata(Keterangan));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         KodePetugas.setDocument(new batasInput((byte)20).getKata(KodePetugas));
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -1016,6 +1003,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+b);
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         NoDonor.setText("");
         IDPendonor.setText("");
@@ -1042,6 +1032,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     * @param nodonor
+     * @param nama
+     * @param alamat
+     * @param telp
+     */
     public void setDarah(String nodonor,String nama,String alamat,String telp) {
         NoDonor.setText(nodonor);
         IDPendonor.setText(nama);
@@ -1066,6 +1063,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getutd_cekal_darah());
         BtnHapus.setEnabled(akses.getutd_cekal_darah());

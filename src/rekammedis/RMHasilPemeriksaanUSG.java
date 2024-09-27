@@ -5,40 +5,21 @@
 
 package rekammedis;
 
-import bridging.ApiOrthanc;
-import bridging.OrthancDICOM;
-import com.fasterxml.jackson.databind.JsonNode;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import bridging.*;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
 
 
 /**
@@ -57,6 +38,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
     private StringBuilder htmlContent;
     private String finger="";
     private JsonNode root;
+    private String TANGGALMUNDUR="yes";
     
     /** Creates new form DlgRujuk
      * @param parent
@@ -154,22 +136,22 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         tbListDicom.setDefaultRenderer(Object.class, new WarnaTable());
         
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KirimanDari.setDocument(new batasInput((int)50).getKata(KirimanDari));
-        DiagnosaKlinis.setDocument(new batasInput((int)50).getKata(DiagnosaKlinis));
-        HTA.setDocument(new batasInput((int)40).getKata(HTA));
-        JenisPrestasi.setDocument(new batasInput((int)30).getKata(JenisPrestasi));
-        UkuranKantong.setDocument(new batasInput((int)6).getKata(UkuranKantong));
-        UkuranBokong.setDocument(new batasInput((int)6).getKata(UkuranBokong));
-        DiameterBiparietal.setDocument(new batasInput((int)6).getKata(DiameterBiparietal));
-        PanjangFemur.setDocument(new batasInput((int)6).getKata(PanjangFemur));
-        LingkarAbdomen.setDocument(new batasInput((int)6).getKata(LingkarAbdomen));
-        TafsiranBerat.setDocument(new batasInput((int)6).getKata(TafsiranBerat));
-        UsiaKehamilan.setDocument(new batasInput((int)15).getKata(UsiaKehamilan));
-        Plasenta.setDocument(new batasInput((int)50).getKata(Plasenta));
-        IndexCairan.setDocument(new batasInput((int)40).getKata(IndexCairan));
-        Kelainan.setDocument(new batasInput((int)60).getKata(Kelainan));
-        Kesimpulan.setDocument(new batasInput((int)200).getKata(Kesimpulan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        KirimanDari.setDocument(new batasInput(50).getKata(KirimanDari));
+        DiagnosaKlinis.setDocument(new batasInput(50).getKata(DiagnosaKlinis));
+        HTA.setDocument(new batasInput(40).getKata(HTA));
+        JenisPrestasi.setDocument(new batasInput(30).getKata(JenisPrestasi));
+        UkuranKantong.setDocument(new batasInput(6).getKata(UkuranKantong));
+        UkuranBokong.setDocument(new batasInput(6).getKata(UkuranBokong));
+        DiameterBiparietal.setDocument(new batasInput(6).getKata(DiameterBiparietal));
+        PanjangFemur.setDocument(new batasInput(6).getKata(PanjangFemur));
+        LingkarAbdomen.setDocument(new batasInput(6).getKata(LingkarAbdomen));
+        TafsiranBerat.setDocument(new batasInput(6).getKata(TafsiranBerat));
+        UsiaKehamilan.setDocument(new batasInput(15).getKata(UsiaKehamilan));
+        Plasenta.setDocument(new batasInput(50).getKata(Plasenta));
+        IndexCairan.setDocument(new batasInput(40).getKata(IndexCairan));
+        Kelainan.setDocument(new batasInput(60).getKata(Kelainan));
+        Kesimpulan.setDocument(new batasInput(200).getKata(Kesimpulan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -250,6 +232,12 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         Document doc = kit.createDefaultDocument();
         LoadHTML.setDocument(doc);
         LoadHTML2.setDocument(doc);
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -265,6 +253,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         LoadHTML = new widget.editorpane();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         MnPenilaianMedis = new javax.swing.JMenuItem();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         panelGlass8 = new widget.panelisi();
         BtnSimpan = new widget.Button();
@@ -374,6 +363,9 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
             }
         });
         jPopupMenu1.add(MnPenilaianMedis);
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -534,7 +526,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         FormInput.setBackground(new java.awt.Color(255, 255, 255));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(750, 363));
+        FormInput.setPreferredSize(new java.awt.Dimension(750, 373));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -625,7 +617,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         label11.setBounds(538, 40, 52, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-11-2022 13:03:35" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2024 07:18:51" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -882,7 +874,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         FormInput.add(jLabel127);
         jLabel127.setBounds(535, 230, 80, 23);
 
-        PeluangSex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki-laki", "Perempuan" }));
+        PeluangSex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki-laki", "Perempuan", "-" }));
         PeluangSex.setName("PeluangSex"); // NOI18N
         PeluangSex.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -955,7 +947,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-11-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -969,7 +961,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-11-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1025,7 +1017,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         PanelAccor.setPreferredSize(new java.awt.Dimension(430, 43));
         PanelAccor.setLayout(new java.awt.BorderLayout(1, 1));
 
-        ChkAccor.setBackground(new java.awt.Color(255,250,250));
+        ChkAccor.setBackground(new java.awt.Color(255, 250, 250));
         ChkAccor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kiri.png"))); // NOI18N
         ChkAccor.setSelected(true);
         ChkAccor.setFocusable(false);
@@ -1174,21 +1166,15 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         }else if(Kesimpulan.getText().trim().isEmpty()){
             Valid.textKosong(Kesimpulan,"Kesimpulan");
         }else{
-            if(Sequel.menyimpantf("hasil_pemeriksaan_usg","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",21,new String[]{
-                    TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),KdDokter.getText(),
-                    DiagnosaKlinis.getText(),KirimanDari.getText(),HTA.getText(),UkuranKantong.getText(),UkuranBokong.getText(),JenisPrestasi.getText(),
-                    DiameterBiparietal.getText(),PanjangFemur.getText(),LingkarAbdomen.getText(),TafsiranBerat.getText(),UsiaKehamilan.getText(),
-                    Plasenta.getText(),DerajatMaturitas.getSelectedItem().toString(),JumlahAir.getSelectedItem().toString(),IndexCairan.getText(),
-                    Kelainan.getText(),PeluangSex.getSelectedItem().toString(),Kesimpulan.getText()
-                })==true){
-                    tabMode.addRow(new String[]{
-                        TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),KdDokter.getText(),NmDokter.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),
-                        KirimanDari.getText(),DiagnosaKlinis.getText(),HTA.getText(),JenisPrestasi.getText(),UkuranKantong.getText(),UkuranBokong.getText(),DiameterBiparietal.getText(),PanjangFemur.getText(),LingkarAbdomen.getText(),
-                        TafsiranBerat.getText(),UsiaKehamilan.getText(),Plasenta.getText(),DerajatMaturitas.getSelectedItem().toString(),JumlahAir.getSelectedItem().toString(),PeluangSex.getSelectedItem().toString(),
-                        IndexCairan.getText(),Kelainan.getText(),Kesimpulan.getText()
-                    });
-                    emptTeks();
-                    LCount.setText(""+tabMode.getRowCount());
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19))==true){
+                    simpan();
+                }
             }
         }
     
@@ -1218,7 +1204,9 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
                 hapus();
             }else{
                 if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh dokter yang bersangkutan..!!");
                 }
@@ -1254,7 +1242,14 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19))==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh dokter yang bersangkutan..!!");
                     }
@@ -1595,7 +1590,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
             panggilPhoto();
         }else{
             ChkAccor.setSelected(false);
-            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Pernyataan..!!!");
+            JOptionPane.showMessageDialog(null,"Silahkan pilih No.Rawat..!!!");
         }
     }//GEN-LAST:event_ChkAccorActionPerformed
 
@@ -1609,7 +1604,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
                 Valid.panggilUrl("hasilpemeriksaanusg/login.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&no_rawat="+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 this.setCursor(Cursor.getDefaultCursor()); 
             }else{
-                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
             }
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
@@ -1618,7 +1613,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         if(tbObat.getSelectedRow()>-1){
             panggilPhoto();
         }else{
-            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
+            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Rawat terlebih dahulu..!!");
         }
     }//GEN-LAST:event_BtnRefreshPhoto1ActionPerformed
 
@@ -1716,6 +1711,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
     private javax.swing.JTabbedPane TabRawat;
     private widget.TextBox TafsiranBerat;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox TglLahir;
     private widget.TextBox UkuranBokong;
     private widget.TextBox UkuranKantong;
@@ -1762,6 +1758,9 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1889,8 +1888,8 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
     private void isRawat() {
         try {
             ps=koneksi.prepareStatement(
-                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien, pasien.tgl_lahir,reg_periksa.tgl_registrasi "+
-                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien, pasien.tgl_lahir,reg_periksa.tgl_registrasi,"+
+                    "reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "where reg_periksa.no_rawat=?");
             try {
                 ps.setString(1,TNoRw.getText());
@@ -1900,6 +1899,7 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
                     DTPCari1.setDate(rs.getDate("tgl_registrasi"));
                     TPasien.setText(rs.getString("nm_pasien"));
                     TglLahir.setText(rs.getString("tgl_lahir"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1923,6 +1923,9 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
         isRawat(); 
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gethasil_pemeriksaan_usg());
         BtnHapus.setEnabled(akses.gethasil_pemeriksaan_usg());
@@ -1937,7 +1940,14 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
                 KdDokter.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan Dokter...!!");
             }
-        }            
+        }  
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+            }
+        }
     }
     
     public void setTampil(){
@@ -2062,6 +2072,25 @@ public class RMHasilPemeriksaanUSG extends javax.swing.JDialog {
                      }
                  }
             }
+        }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("hasil_pemeriksaan_usg","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",21,new String[]{
+                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),KdDokter.getText(),
+                DiagnosaKlinis.getText(),KirimanDari.getText(),HTA.getText(),UkuranKantong.getText(),UkuranBokong.getText(),JenisPrestasi.getText(),
+                DiameterBiparietal.getText(),PanjangFemur.getText(),LingkarAbdomen.getText(),TafsiranBerat.getText(),UsiaKehamilan.getText(),
+                Plasenta.getText(),DerajatMaturitas.getSelectedItem().toString(),JumlahAir.getSelectedItem().toString(),IndexCairan.getText(),
+                Kelainan.getText(),PeluangSex.getSelectedItem().toString(),Kesimpulan.getText()
+            })==true){
+                tabMode.addRow(new String[]{
+                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),KdDokter.getText(),NmDokter.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),
+                    KirimanDari.getText(),DiagnosaKlinis.getText(),HTA.getText(),JenisPrestasi.getText(),UkuranKantong.getText(),UkuranBokong.getText(),DiameterBiparietal.getText(),PanjangFemur.getText(),LingkarAbdomen.getText(),
+                    TafsiranBerat.getText(),UsiaKehamilan.getText(),Plasenta.getText(),DerajatMaturitas.getSelectedItem().toString(),JumlahAir.getSelectedItem().toString(),PeluangSex.getSelectedItem().toString(),
+                    IndexCairan.getText(),Kelainan.getText(),Kesimpulan.getText()
+                });
+                emptTeks();
+                LCount.setText(""+tabMode.getRowCount());
         }
     }
 }

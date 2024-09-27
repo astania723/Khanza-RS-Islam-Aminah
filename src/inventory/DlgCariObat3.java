@@ -12,27 +12,15 @@
 
 package inventory;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariBangsal;
+import javax.swing.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 /**
  *
@@ -64,13 +52,6 @@ public class DlgCariObat3 extends javax.swing.JDialog {
         Object[] row={"K","Kode Barang","Nama Barang","Msk","Pg","Sg","Sr","Ml","Ttl.Msk","Ttl.Klr","Retur","Rtr.Sh","Ttl.Hlg","No.Batch","No.Faktur","Aturan Pakai",
                       "00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"};
         tabMode=new DefaultTableModel(null,row){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = true;
-                if ((colIndex==1)||(colIndex==2)||(colIndex==3)||(colIndex==8)||(colIndex==9)||(colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==14)||(colIndex==15)) {
-                    a=false;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
@@ -81,6 +62,13 @@ public class DlgCariObat3 extends javax.swing.JDialog {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = true;
+               if ((colIndex==1)||(colIndex==2)||(colIndex==3)||(colIndex==8)||(colIndex==9)||(colIndex==11)||(colIndex==12)||(colIndex==13)||(colIndex==14)||(colIndex==15)) {
+                 a=false;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1201,6 +1189,13 @@ private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }       
     }
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param pasien
+     * @param tanggal
+     */
     public void setNoRm(String norwt,String norm,String pasien,Date tanggal) {        
         TNoRw.setText(norwt);
         TNoRM.setText(norm);
@@ -1341,6 +1336,10 @@ private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }

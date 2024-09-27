@@ -1,33 +1,21 @@
 package ipsrs;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class IPSRSPermintaan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -36,7 +24,7 @@ public class IPSRSPermintaan extends javax.swing.JDialog {
     private PreparedStatement ps;
     private ResultSet rs;
     private int jml=0,i=0,row=0,index=0;
-    private String[] jumlah,kodebarang,namabarang,satuan,jenis,keterangan;
+    private String[] jumlah,kodebarang,namabarang,satuan,jenis,keterangan,stok;
     private WarnaTable2 warna=new WarnaTable2();
     private DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
     private IPSRSCariPermintaan form=new IPSRSCariPermintaan(null,false);
@@ -58,11 +46,11 @@ public class IPSRSPermintaan extends javax.swing.JDialog {
         initComponents();
 
         Object[] judul={
-            "Jml","Kode Barang","Nama Barang","Satuan","Jenis Barang","Keterangan"};
+            "Jml","Kode Barang","Nama Barang","Satuan","Jenis Barang","Keterangan","Stok"};
         tabMode=new DefaultTableModel(null,judul){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
-                if ((colIndex==0)||(colIndex==5)) {
+                if ((colIndex==0)||(colIndex==6)) {
                     a=true;
                 }
                 return a;
@@ -73,7 +61,7 @@ public class IPSRSPermintaan extends javax.swing.JDialog {
         tbDokter.setPreferredScrollableViewportSize(new Dimension(800,800));
         tbDokter.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 6; i++) {
+        for (i = 0; i < 7; i++) {
             TableColumn column = tbDokter.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(42);
@@ -87,6 +75,8 @@ public class IPSRSPermintaan extends javax.swing.JDialog {
                 column.setPreferredWidth(100);
             }else if(i==5){
                 column.setPreferredWidth(200);
+            }else if(i==5){
+                column.setPreferredWidth(42);
             }
         }
         warna.kolom=0;
@@ -779,7 +769,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             iyem="";
             
             ps=koneksi.prepareStatement(
-                "select ipsrsbarang.kode_brng,ipsrsbarang.nama_brng,ipsrsbarang.kode_sat,ipsrsjenisbarang.nm_jenis "+
+                "select ipsrsbarang.kode_brng,ipsrsbarang.nama_brng,ipsrsbarang.kode_sat,ipsrsjenisbarang.nm_jenis,ipsrsbarang.stok "+
                 " from ipsrsbarang inner join ipsrsjenisbarang on ipsrsbarang.jenis=ipsrsjenisbarang.kd_jenis "+
                 " where ipsrsbarang.status='1' order by ipsrsbarang.nama_brng");
             try {
@@ -787,9 +777,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 while(rs.next()){
                     tabMode.addRow(new Object[]{
                         "",rs.getString(1),rs.getString(2),rs.getString(3),
-                        rs.getString(4),""
+                        rs.getString(4),"",rs.getString(5)
                     });
-                    iyem=iyem+"{\"KodeBarang\":\""+rs.getString(1)+"\",\"NamaBarang\":\""+rs.getString(2).replaceAll("\"","")+"\",\"Satuan\":\""+rs.getString(3)+"\",\"Jenis\":\""+rs.getString(4)+"\"},";
+                    iyem=iyem+"{\"KodeBarang\":\""+rs.getString(1)+"\",\"NamaBarang\":\""+rs.getString(2).replaceAll("\"","")+"\",\"Satuan\":\""+rs.getString(3)+"\",\"Jenis\":\""+rs.getString(4)+"\",\"Stok\":\""+rs.getString(5)+"\"},";
                 } 
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
@@ -833,6 +823,8 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             jenis=new String[jml];
             keterangan=null;
             keterangan=new String[jml];
+            stok=null;
+            stok=new String[jml];
             index=0;        
             for(i=0;i<row;i++){
                 if(!tbDokter.getValueAt(i,0).toString().isEmpty()){
@@ -842,12 +834,13 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     satuan[index]=tbDokter.getValueAt(i,3).toString();
                     jenis[index]=tbDokter.getValueAt(i,4).toString();
                     keterangan[index]=tbDokter.getValueAt(i,5).toString();
+                    stok[index]=tbDokter.getValueAt(i,6).toString();
                     index++;
                 }
             }
             Valid.tabelKosong(tabMode);
             for(i=0;i<jml;i++){
-                tabMode.addRow(new Object[]{jumlah[i],kodebarang[i],namabarang[i],satuan[i],jenis[i],keterangan[i]});
+                tabMode.addRow(new Object[]{jumlah[i],kodebarang[i],namabarang[i],satuan[i],jenis[i],keterangan[i],stok[i]});
             }
             
             myObj = new FileReader("./cache/permintaanipsrs.iyem");
@@ -857,14 +850,16 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 if(TCari.getText().trim().isEmpty()){
                     for(JsonNode list:response){
                         tabMode.addRow(new Object[]{
-                            "",list.path("KodeBarang").asText(),list.path("NamaBarang").asText(),list.path("Satuan").asText(),list.path("Jenis").asText(),""
+                            "",list.path("KodeBarang").asText(),list.path("NamaBarang").asText(),list.path("Satuan").asText(),list.path("Jenis").asText(),"",Sequel.cariInteger("select ipsrsbarang.stok "+
+                " from ipsrsbarang where ipsrsbarang.kode_brng=?",list.path("KodeBarang").asText())
                         });
                     }
                 }else{
                     for(JsonNode list:response){
                         if(list.path("KodeBarang").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("NamaBarang").asText().toLowerCase().contains(TCari.getText().toLowerCase())||list.path("Jenis").asText().toLowerCase().contains(TCari.getText().toLowerCase())){
                             tabMode.addRow(new Object[]{
-                                "",list.path("KodeBarang").asText(),list.path("NamaBarang").asText(),list.path("Satuan").asText(),list.path("Jenis").asText(),""
+                                "",list.path("KodeBarang").asText(),list.path("NamaBarang").asText(),list.path("Satuan").asText(),list.path("Jenis").asText(),"",Sequel.cariInteger("select ipsrsbarang.stok "+
+                " from ipsrsbarang where ipsrsbarang.kode_brng=?",list.path("KodeBarang").asText())
                             });
                         }
                     }

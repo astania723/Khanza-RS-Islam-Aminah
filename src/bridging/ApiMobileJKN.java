@@ -1,29 +1,22 @@
 package bridging;
 
-import fungsi.koneksiDB;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.Mac;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import org.apache.http.conn.scheme.Scheme;
+import fungsi.*;
+import java.io.*;
+import java.security.*;
+import java.security.cert.*;
+import javax.crypto.*;
+import javax.crypto.spec.*;
+import javax.net.ssl.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.security.crypto.codec.Base64;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.client.*;
+import org.springframework.security.crypto.codec.*;
+import org.springframework.web.client.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class ApiMobileJKN {        
     private String Key,Consid;
     private String salt;
@@ -38,6 +31,9 @@ public class ApiMobileJKN {
     private HttpComponentsClientHttpRequestFactory factory;
     private ApiBPJSAesKeySpec mykey;
     
+    /**
+     *
+     */
     public ApiMobileJKN(){
         try {
             Key = koneksiDB.SECRETKEYAPIMOBILEJKN();
@@ -60,6 +56,13 @@ public class ApiMobileJKN {
 	return generateHmacSHA256Signature;
     }
     
+    /**
+     *
+     * @param data
+     * @param key
+     * @return
+     * @throws GeneralSecurityException
+     */
     public String generateHmacSHA256Signature(String data, String key)throws GeneralSecurityException {
         hmacData = null;
 	try {
@@ -74,11 +77,27 @@ public class ApiMobileJKN {
 	}
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @param data
+     * @param utc
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public String Decrypt(String data,String utc)throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         System.out.println(data);
         mykey = ApiBPJSEnc.generateKey(Consid+Key+utc);
@@ -87,6 +106,12 @@ public class ApiMobileJKN {
         return data;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {

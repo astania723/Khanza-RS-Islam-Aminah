@@ -1,42 +1,21 @@
 package permintaan;
 
-import fungsi.BackgroundMusic;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
 import static java.awt.image.ImageObserver.HEIGHT;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
-import rekammedis.RMRiwayatPerawatan;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import rekammedis.*;
 
 /**
  *
@@ -131,10 +110,10 @@ public class DlgPermintaanPelayananInformasiObat extends javax.swing.JDialog {
 
         NoRw.setDocument(new batasInput((byte)17).getKata(NoRw));
         NoPermintaan.setDocument(new batasInput((byte)20).getKata(NoPermintaan));
-        Penanya.setDocument(new batasInput((int)70).getKata(Penanya));
-        NoTelp.setDocument(new batasInput((int)30).getKata(NoTelp));
-        KeteranganJenisPertanyaan.setDocument(new batasInput((int)30).getKata(KeteranganJenisPertanyaan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        Penanya.setDocument(new batasInput(70).getKata(Penanya));
+        NoTelp.setDocument(new batasInput(30).getKata(NoTelp));
+        KeteranganJenisPertanyaan.setDocument(new batasInput(30).getKata(KeteranganJenisPertanyaan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -1894,6 +1873,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {     
         Valid.tabelKosong(tabMode);
         try{ 
@@ -1989,7 +1971,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount.setText(""+tabMode.getRowCount());
     }
 
-
+    /**
+     *
+     */
     public void emptTeks() {
         NoRw.setText("");
         NoRM.setText("");
@@ -2034,6 +2018,12 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param norm
+     * @param nama
+     */
     public void setNoRm(String norwt,String norm,String nama) {
         NoRw.setText(norwt);
         NoRM.setText(norm);
@@ -2058,6 +2048,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpelayanan_informasi_obat());
         BtnHapus.setEnabled(akses.getpelayanan_informasi_obat());

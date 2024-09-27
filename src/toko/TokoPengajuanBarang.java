@@ -1,26 +1,13 @@
 package toko;
 
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class TokoPengajuanBarang extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -91,7 +78,7 @@ public class TokoPengajuanBarang extends javax.swing.JDialog {
         NoPengajuan.setDocument(new batasInput((byte)15).getKata(NoPengajuan));
         kdptg.setDocument(new batasInput((byte)25).getKata(kdptg));        
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        Keterangan.setDocument(new batasInput((int)150).getKata(Keterangan));
+        Keterangan.setDocument(new batasInput(150).getKata(Keterangan));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -831,8 +818,9 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
     }
 
-    
-    
+    /**
+     *
+     */
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
@@ -881,7 +869,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     y=0;                
                 }
             }
-            total=total+y;   
+            total += y;   
         }
 
         LTotal.setText(Valid.SetAngka(total));

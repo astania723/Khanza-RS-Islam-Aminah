@@ -1,24 +1,17 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class InventoryPenggunaanBHPOK extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -441,7 +434,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 total=0;
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    total=total+rs.getDouble("total");
+                    total += rs.getDouble("total");
                     tabMode.addRow(new String[]{
                         rs.getString("tanggal"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("kd_obat"),rs.getString("nm_obat"),
                         rs.getString("satuan"),Valid.SetAngka(rs.getDouble("hargasatuan")),rs.getString("jumlah"),Valid.SetAngka(rs.getDouble("total"))
@@ -468,6 +461,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         
     }
 
+    /**
+     *
+     */
     public void isCek(){   
         BtnPrint.setEnabled(akses.getpenggunaan_bhp_ok());
     }

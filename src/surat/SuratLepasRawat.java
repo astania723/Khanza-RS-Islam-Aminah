@@ -9,34 +9,18 @@
 
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariDokter2;
-import kepegawaian.DlgCariPetugas;
-import laporan.DlgCariPenyakit;
-import simrskhanza.DlgCariPoli;
-import simrskhanza.DlgCariPoli2;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import laporan.*;
+import simrskhanza.*;
 
 
 /**
@@ -125,10 +109,10 @@ public class SuratLepasRawat extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));  
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
-        Tempat.setDocument(new batasInput((int)50).getKata(Tempat)); 
-        KdPoli.setDocument(new batasInput((int)5).getKata(KdPoli));  
-        Diagnosa.setDocument(new batasInput((int)50).getKata(Diagnosa));
-        Terapi.setDocument(new batasInput((int)50).getKata(Terapi));
+        Tempat.setDocument(new batasInput(50).getKata(Tempat)); 
+        KdPoli.setDocument(new batasInput(5).getKata(KdPoli));  
+        Diagnosa.setDocument(new batasInput(50).getKata(Diagnosa));
+        Terapi.setDocument(new batasInput(50).getKata(Terapi));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
       
         
@@ -1485,6 +1469,9 @@ public class SuratLepasRawat extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1562,6 +1549,9 @@ public class SuratLepasRawat extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TanggalRawat.setDate(new Date());
         TanggalPulang.setDate(new Date());
@@ -1623,7 +1613,9 @@ public class SuratLepasRawat extends javax.swing.JDialog {
         }
     }
        
-    
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsurat_pulang_atas_permintaan_sendiri());
         BtnHapus.setEnabled(akses.getsurat_pulang_atas_permintaan_sendiri());

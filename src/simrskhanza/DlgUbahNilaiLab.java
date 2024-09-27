@@ -11,25 +11,15 @@
 
 package simrskhanza;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.table.*;
 
 /**
  *
@@ -364,6 +354,12 @@ public class DlgUbahNilaiLab extends javax.swing.JDialog {
     private widget.Table tbPemeriksaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param norwt
+     * @param tanggal
+     * @param jam
+     */
     public void setNoRm(String norwt,String tanggal,String jam) {        
         try {
             TNoRw.setText(norwt);
@@ -402,6 +398,9 @@ public class DlgUbahNilaiLab extends javax.swing.JDialog {
         }         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getperiksa_lab());
     }

@@ -1,36 +1,33 @@
 package ipsrs;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class IPSRSCariPengeluaran extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private riwayatnonmedis Trackbarang=new riwayatnonmedis();
     private PreparedStatement ps,ps2,psdetailpengeluaran;
@@ -893,7 +890,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                Sequel.mengedit("ipsrsbarang","kode_brng=?","stok=stok+?",2,new String[]{
                    rs2.getString("jumlah"),rs2.getString("kode_brng")
                });
-               total=total+rs2.getDouble("total");
+               total += rs2.getDouble("total");
             }         
             Sequel.queryu("delete from tampjurnal");
             Sequel.menyimpan("tampjurnal","?,?,?,?",4,new String[]{Sequel.cariIsi("select Stok_Keluar_Ipsrs from set_akun"),"PERSEDIAAN BARANG","0",""+total});
@@ -1064,8 +1061,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         int no=1;
                         tagihan=0;
                         while(rs2.next()){
-                            tagihan=tagihan+rs2.getDouble(7);
-                            ttltagihan=ttltagihan+rs2.getDouble(7);
+                            tagihan += rs2.getDouble(7);
+                            ttltagihan += rs2.getDouble(7);
                             tabMode.addRow(new Object[]{"","","","",no+". "+rs2.getString(1)+", "+rs2.getString(2),
                                             rs2.getString(3)+", "+rs2.getString(4),rs2.getString(5),Valid.SetAngka(rs2.getDouble(6)),Valid.SetAngka(rs2.getDouble(7))});
                             no++;
@@ -1143,7 +1140,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 rs=ps.executeQuery();
                 ttltagihan=0;
                 while(rs.next()){
-                    ttltagihan=ttltagihan+rs.getDouble("total");
+                    ttltagihan += rs.getDouble("total");
                     tabMode2.addRow(new Object[]{
                         rs.getString("no_keluar"),rs.getString("tanggal"),rs.getString("nip"),
                         rs.getString("nama"),rs.getString("keterangan"),rs.getString("kode_brng"),

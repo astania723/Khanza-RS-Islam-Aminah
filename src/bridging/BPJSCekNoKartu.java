@@ -5,30 +5,104 @@
  */
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.koneksiDB;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JOptionPane;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import org.springframework.http.*;
 
 /**
  *
  * @author khanzasoft
  */
 public class BPJSCekNoKartu {
-    public String cobnmAsuransi="",cobnoAsuransi="",cobtglTAT="",cobtglTMT="",
-            hakKelasketerangan="",hakKelaskode="",informasidinsos="",informasinoSKTM="",
-            informasiprolanisPRB="",jenisPesertaketerangan="",jenisPesertakode="",
-            mrnoMR="",mrnoTelepon="",nama="",nik="",noKartu="",pisa="",
-            provUmumkdProvider="",provUmumnmProvider="",sex="",statusPesertaketerangan="",
-            statusPesertakode="",tglCetakKartu="",tglLahir="",tglTAT="",
-            tglTMT="",umurumurSaatPelayanan="",umurumurSekarang="",informasi="",utc="";
+
+    /**
+     *
+     */
+    public String cobnmAsuransi="",cobnoAsuransi="",cobtglTAT="",
+
+    /**
+     *
+     */
+    cobtglTMT="",
+
+    /**
+     *
+     */
+    hakKelasketerangan="",hakKelaskode="",
+
+    /**
+     *
+     */
+    informasidinsos="",
+
+    /**
+     *
+     */
+    informasinoSKTM="",
+
+    /**
+     *
+     */
+    informasiprolanisPRB="",
+
+    /**
+     *
+     */
+    jenisPesertaketerangan="",
+
+    /**
+     *
+     */
+    jenisPesertakode="",
+
+    /**
+     *
+     */
+    mrnoMR="",mrnoTelepon="",
+
+    /**
+     *
+     */
+    nama="",nik="",noKartu="",
+
+    /**
+     *
+     */
+    pisa="",
+
+    /**
+     *
+     */
+    provUmumkdProvider="",provUmumnmProvider="",sex="",
+
+    /**
+     *
+     */
+    statusPesertaketerangan="",
+            statusPesertakode="",
+
+    /**
+     *
+     */
+    tglCetakKartu="",tglLahir="",
+
+    /**
+     *
+     */
+    tglTAT="",
+
+    /**
+     *
+     */
+    tglTMT="",umurumurSaatPelayanan="",umurumurSekarang="",
+
+    /**
+     *
+     */
+    informasi="",utc="";
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date date = new Date();
     private ApiBPJS api=new ApiBPJS();
@@ -40,6 +114,9 @@ public class BPJSCekNoKartu {
     private JsonNode response;
     private HttpHeaders headers;
         
+    /**
+     *
+     */
     public BPJSCekNoKartu(){
         super();
         try {
@@ -49,6 +126,10 @@ public class BPJSCekNoKartu {
         }
     }
     
+    /**
+     *
+     * @param nokartu
+     */
     public void tampil(String nokartu) {
         try {
             headers = new HttpHeaders();

@@ -5,45 +5,19 @@
  */
 package permintaan;
 
-import AESsecurity.EnkripsiAES;
-import fungsi.BackgroundMusic;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import AESsecurity.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariDokter2;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgKabupaten;
-import simrskhanza.DlgKecamatan;
-import simrskhanza.DlgKelurahan;
-import simrskhanza.DlgPropinsi;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
 /**
  *
@@ -123,14 +97,14 @@ public class DlgBookingPeriksa extends javax.swing.JFrame {
         
         TNo.setDocument(new batasInput((byte)15).getKata(TNo));
         NoReg.setDocument(new batasInput((byte)8).getOnlyAngka(NoReg));
-        Alamat.setDocument(new batasInput((int)200).getKata(Alamat));
+        Alamat.setDocument(new batasInput(200).getKata(Alamat));
         Kelurahan.setDocument(new batasInput((byte)60).getKata(Kelurahan));
         Kecamatan.setDocument(new batasInput((byte)60).getKata(Kecamatan));
         Kabupaten.setDocument(new batasInput((byte)60).getKata(Kabupaten));
         Propinsi.setDocument(new batasInput((byte)60).getKata(Propinsi));
-        BalasanPesan.setDocument(new batasInput((int)200).getKata(BalasanPesan));
-        DataBalasan.setDocument(new batasInput((int)200).getKata(DataBalasan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        BalasanPesan.setDocument(new batasInput(200).getKata(BalasanPesan));
+        DataBalasan.setDocument(new batasInput(200).getKata(DataBalasan));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -2267,6 +2241,9 @@ public class DlgBookingPeriksa extends javax.swing.JFrame {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getbooking_periksa());
         BtnPrint.setEnabled(akses.getbooking_periksa());

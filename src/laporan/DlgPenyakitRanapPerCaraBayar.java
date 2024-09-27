@@ -11,29 +11,15 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 /**
  *
@@ -691,7 +677,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 i=1;
                 ttljmlpasien=0;
                 while(rs.next()){
-                    ttljmlpasien=ttljmlpasien+rs.getInt("jumlah");
+                    ttljmlpasien += rs.getInt("jumlah");
                     tabMode.addRow(new Object[]{
                         i,rs.getString("kd_penyakit"),rs.getString("nm_penyakit"),rs.getString("jumlah")
                     });
@@ -717,6 +703,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
 
+    /**
+     *
+     */
     public void tampil2(){        
         Valid.tabelKosong(tabMode2);
         try{
@@ -735,7 +724,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 i=1;
                 ttljmlpasien=0;
                 while(rs.next()){
-                    ttljmlpasien=ttljmlpasien+rs.getInt("jumlah");
+                    ttljmlpasien += rs.getInt("jumlah");
                     tabMode2.addRow(new Object[]{
                         i,rs.getString("kd_penyakit"),rs.getString("nm_penyakit"),rs.getString("jumlah")
                     });

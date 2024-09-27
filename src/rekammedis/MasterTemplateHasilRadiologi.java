@@ -1,20 +1,11 @@
 package rekammedis;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -55,7 +46,7 @@ public class MasterTemplateHasilRadiologi extends javax.swing.JDialog {
 
         Kd.setDocument(new batasInput((byte)5).getKata(Kd));
         Nm.setDocument(new batasInput((byte)50).getKata(Nm));      
-        Template.setDocument(new batasInput((int)5000).getKata(Template));  
+        Template.setDocument(new batasInput(5000).getKata(Template));  
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));    
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -701,12 +692,18 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         return tbDokter;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettemplate_hasil_radiologi());
         BtnHapus.setEnabled(akses.gettemplate_hasil_radiologi());
         BtnEdit.setEnabled(akses.gettemplate_hasil_radiologi());
     }
     
+    /**
+     *
+     */
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
     }

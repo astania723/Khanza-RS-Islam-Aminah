@@ -11,36 +11,17 @@
 
 package toko;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 import keuangan.*;
 
 /**
@@ -1158,7 +1139,7 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble(4);
+                    total += rs.getDouble(4);
                     tabMode.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)
                     });
@@ -1180,6 +1161,9 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         LTotal.setText(Valid.SetAngka(total));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");
         Cicilan.setText("0");
@@ -1192,6 +1176,12 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         NoNota.requestFocus();
     }
     
+    /**
+     *
+     * @param norawat
+     * @param norm
+     * @param nama
+     */
     public void setData(String norawat,String norm,String nama){
         NoNota.setText(norawat);
         Kdmem.setText(norm);
@@ -1216,6 +1206,10 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoNota;
     }
@@ -1224,6 +1218,9 @@ private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.gettoko_bayar_piutang());
         BtnHapus.setEnabled(akses.gettoko_bayar_piutang());

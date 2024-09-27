@@ -1,23 +1,16 @@
 package ipsrs;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRBiayaHarianIPSRS extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -332,7 +325,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             jumlah=0;
             while(rs.next()){
                 tabMode.addRow(new Object[]{rs.getString(1),Valid.SetAngka(rs.getDouble(2))});
-                jumlah=jumlah+rs.getDouble(2);
+                jumlah += rs.getDouble(2);
             }
             if(jumlah>0){
                 tabMode.addRow(new Object[]{"Total :",Valid.SetAngka(jumlah)});

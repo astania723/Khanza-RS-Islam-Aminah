@@ -11,16 +11,11 @@
 
 package smsui;
 
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -32,7 +27,8 @@ public class DlgLihatPesan extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
 
-    /** Creates new form DlgLihatPesan */
+    /** Creates new form DlgLihatPesan
+     * @param parent */
     public DlgLihatPesan(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -200,6 +196,9 @@ public class DlgLihatPesan extends javax.swing.JDialog {
     private widget.Table tbPesan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         String sql="select * from sms";
         prosesCari(sql);

@@ -10,35 +10,18 @@
  */
 
 package inventaris;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 /**
  *
@@ -1431,6 +1414,9 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
     private widget.Tanggal tgl_pengadaan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         try {
             ps=koneksi.prepareStatement("select inventaris.no_inventaris,inventaris_barang.kode_barang, inventaris_barang.nama_barang, "+
@@ -1473,7 +1459,7 @@ private void ppBarcodeBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {/
                                     rs.getString("nama_ruang"),
                                     rs.getString("no_rak"),
                                     rs.getString("no_box")});
-                     nilai_inven=nilai_inven+rs.getDouble("harga");
+                     nilai_inven += rs.getDouble("harga");
                 }
             }catch(Exception e){
                 System.out.println("Notifikasi : "+e);

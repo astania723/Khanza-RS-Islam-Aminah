@@ -11,29 +11,15 @@
 
 package laporan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
 /**
  *
@@ -678,8 +664,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     public void tampil(){        
         Valid.tabelKosong(tabMode);
         try{
-            ps=koneksi.prepareStatement("select * from bangsal where status='1' and kd_bangsal like ? "+
-                    "or status='1' and nm_bangsal like ? order by kd_bangsal");
+            ps=koneksi.prepareStatement("select * from bangsal where bangsal.status='1' and bangsal.kd_bangsal like ? "+
+                    "or bangsal.status='1' and bangsal.nm_bangsal like ? order by bangsal.kd_bangsal");
             try {
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 ps.setString(2,"%"+TCari.getText().trim()+"%");
@@ -702,7 +688,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlpasien=rs2.getInt(1);
-                            ttljmlpasien=ttljmlpasien+rs2.getInt(1);
+                            ttljmlpasien += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -729,7 +715,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlhari=rs2.getInt(1);
-                            ttljmlhari=ttljmlhari+rs2.getInt(1);
+                            ttljmlhari += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -773,8 +759,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     public void tampil2(){        
         Valid.tabelKosong(tabMode2);
         try{
-            ps=koneksi.prepareStatement("select * from bangsal where status='1' and kd_bangsal like ? "+
-                    "or status='1' and nm_bangsal like ? order by kd_bangsal");
+            ps=koneksi.prepareStatement("select * from bangsal where bangsal.status='1' and bangsal.kd_bangsal like ? "+
+                    "or bangsal.status='1' and bangsal.nm_bangsal like ? order by bangsal.kd_bangsal");
             try {
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 ps.setString(2,"%"+TCari.getText().trim()+"%");
@@ -797,7 +783,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlpasien=rs2.getInt(1);
-                            ttljmlpasien=ttljmlpasien+rs2.getInt(1);
+                            ttljmlpasien += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -824,7 +810,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs2=ps2.executeQuery();
                         if(rs2.next()){
                             jmlhari=rs2.getInt(1);
-                            ttljmlhari=ttljmlhari+rs2.getInt(1);
+                            ttljmlhari += rs2.getInt(1);
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);

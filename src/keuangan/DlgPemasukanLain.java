@@ -10,31 +10,16 @@
  */
 
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -447,7 +432,7 @@ public class DlgPemasukanLain extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-05-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-01-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -461,7 +446,7 @@ public class DlgPemasukanLain extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-05-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-01-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -604,7 +589,7 @@ public class DlgPemasukanLain extends javax.swing.JDialog {
         btnKategori.setBounds(409, 12, 28, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-05-2019 10:17:53" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-01-2024 09:53:11" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -721,7 +706,7 @@ public class DlgPemasukanLain extends javax.swing.JDialog {
                 Sequel.queryu("delete from tampjurnal");
                 try {
                     psakun=koneksi.prepareStatement(
-                        "select kd_rek,'Akun',kd_rek2,'Kontra Akun' from kategori_pemasukan_lain where kode_kategori=?");
+                        "select kategori_pemasukan_lain.kd_rek,'Akun',kategori_pemasukan_lain.kd_rek2,'Kontra Akun' from kategori_pemasukan_lain where kategori_pemasukan_lain.kode_kategori=?");
                     try {
                         psakun.setString(1,KdKategori.getText());
                         rs=psakun.executeQuery();
@@ -1148,7 +1133,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         rs.getString("nip")+" "+rs.getString("nama"),rs.getDouble("besar"),rs.getString("keterangan"),rs.getString("keperluan"),
                         rs.getString("kode_kategori"),rs.getString("nip")
                     });
-                    total=total+rs.getDouble("besar");
+                    total += rs.getDouble("besar");
                 }
             } catch (Exception e){
                 System.out.println(e);
@@ -1170,6 +1155,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         pemasukan.setText("0");
         Keperluan.setText("");
@@ -1223,7 +1211,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     
     private void autoNomor() {
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(no_masuk,3),signed)),0) from pemasukan_lain where tanggal like '%"+Valid.SetTgl(Tanggal.getSelectedItem()+"")+"%' ",
+        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(pemasukan_lain.no_masuk,3),signed)),0) from pemasukan_lain where pemasukan_lain.tanggal like '%"+Valid.SetTgl(Tanggal.getSelectedItem()+"")+"%' ",
                 "PL"+Tanggal.getSelectedItem().toString().substring(6,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,Nomor); 
     }
 }

@@ -1,6 +1,6 @@
 package widget;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  *
@@ -13,6 +13,9 @@ public class Label extends usu.widget.Label {
      */
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public Label() {
         super();
         //setForeground(new Color(90,90,90));

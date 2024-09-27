@@ -5,13 +5,9 @@
 
 package widget;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.image.*;
+import javax.swing.*;
 
 /**
  *
@@ -31,6 +27,10 @@ public class PanelJudul extends JPanel{
         //this.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(174,154,215)));
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

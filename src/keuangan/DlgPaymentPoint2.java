@@ -10,25 +10,14 @@
  */
 
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -570,6 +559,9 @@ public class DlgPaymentPoint2 extends javax.swing.JDialog {
     private widget.panelisi panelGlass6;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
         Valid.tabelKosong(tabMode);
@@ -599,7 +591,7 @@ public class DlgPaymentPoint2 extends javax.swing.JDialog {
                             }
                         }
 
-                        all=all+Math.round(rs.getDouble("jumlah_bayar"));
+                        all += Math.round(rs.getDouble("jumlah_bayar"));
                         tabMode.addRow(new Object[]{
                             i,rs.getString("tgl_bayar"),nonota,rs.getString("nama_pasien"),Math.round(rs.getDouble("jumlah_bayar")),petugas
                         });

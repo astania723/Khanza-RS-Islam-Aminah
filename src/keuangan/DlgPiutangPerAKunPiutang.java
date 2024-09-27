@@ -10,24 +10,14 @@
  */
 
 package keuangan;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.event.DocumentEvent;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.event.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 /**
  *
@@ -458,13 +448,13 @@ public class DlgPiutangPerAKunPiutang extends javax.swing.JDialog {
                 ps.setString(6,"%"+TCari.getText().trim()+"%");
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    uangmuka=uangmuka+rs.getDouble("uangmuka");
-                    piutang=piutang+rs.getDouble("totalpiutang");
+                    uangmuka += rs.getDouble("uangmuka");
+                    piutang += rs.getDouble("totalpiutang");
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(no).append("</td><td valign='middle' align='center'>").append(rs.getString("tanggal")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_nota")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("uangmuka"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("totalpiutang"))).append("</td>");
                     for(i=0;i<kolom;i++){
                         bayar=Sequel.cariIsiAngka("select totalpiutang from detail_piutang_pasien where no_rawat='"+rs.getString("no_rawat")+"' and nama_bayar='"+akunbayar[i]+"'");
                         htmlContent.append("<td valign='middle' align='right'>").append(Valid.SetAngka(bayar)).append("</td>");
-                        totalbayar[i]=totalbayar[i]+bayar;
+                        totalbayar[i] += bayar;
                     }
                     htmlContent.append( 
                         "</tr>"
@@ -497,13 +487,13 @@ public class DlgPiutangPerAKunPiutang extends javax.swing.JDialog {
                 ps.setString(6,"%"+TCari.getText().trim()+"%");
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    uangmuka=uangmuka+rs.getDouble("uangmuka");
-                    piutang=piutang+rs.getDouble("totalpiutang");
+                    uangmuka += rs.getDouble("uangmuka");
+                    piutang += rs.getDouble("totalpiutang");
                     htmlContent.append("<tr class='isi'><td valign='middle' align='center'>").append(no).append("</td><td valign='middle' align='center'>").append(rs.getString("tanggal")).append("</td><td valign='middle' align='center'>").append(rs.getString("no_nota")).append("</td><td valign='middle' align='left'>").append(rs.getString("nm_pasien")).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("uangmuka"))).append("</td><td valign='middle' align='right'>").append(Valid.SetAngka(rs.getDouble("totalpiutang"))).append("</td>");
                     for(i=0;i<kolom;i++){
                         bayar=Sequel.cariIsiAngka("select totalpiutang from detail_piutang_pasien where no_rawat='"+rs.getString("no_rawat")+"' and nama_bayar='"+akunbayar[i]+"'");
                         htmlContent.append("<td valign='middle' align='right'>").append(Valid.SetAngka(bayar)).append("</td>");
-                        totalbayar[i]=totalbayar[i]+bayar;
+                        totalbayar[i] += bayar;
                     }
                     htmlContent.append( 
                         "</tr>"

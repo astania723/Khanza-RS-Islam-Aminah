@@ -11,36 +11,23 @@
 
 package simrskhanza;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgCariCaraBayar extends javax.swing.JDialog {
+public class DlgCariCaraBayar extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -540,10 +527,17 @@ public final class DlgCariCaraBayar extends javax.swing.JDialog {
         TCari.requestFocus();
     }
   
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.getadmin());
     }
@@ -582,6 +576,9 @@ public final class DlgCariCaraBayar extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     } 
     
+    /**
+     *
+     */
     public void onCari(){        
         TCari.requestFocus();
     }

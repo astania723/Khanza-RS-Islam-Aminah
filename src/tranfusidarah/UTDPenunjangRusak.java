@@ -1,28 +1,15 @@
 package tranfusidarah;
 
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class UTDPenunjangRusak extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
@@ -1071,7 +1058,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -1149,11 +1136,14 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             } catch (Exception e) {
                 y=0;
             }
-            subtotal=subtotal+y;
+            subtotal += y;
         }
         LTotal.setText(Valid.SetAngka(subtotal));
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getutd_penunjang_rusak());
         if(akses.getjml2()>=1){
@@ -1164,6 +1154,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
     }
     
+    /**
+     *
+     */
     public void tampil2() {
         Valid.tabelKosong(tabMode2);
         try{
@@ -1203,7 +1196,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                         rs2.getString("nip"),rs2.getString("tanggal"),
                         rs2.getString("keterangan")
                     });
-                    subtotal=subtotal+rs2.getDouble("total");
+                    subtotal += rs2.getDouble("total");
                 }
                 LCount.setText(""+tabMode2.getRowCount());
                 LTotal2.setText(Valid.SetAngka(subtotal));

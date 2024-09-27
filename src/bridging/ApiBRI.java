@@ -1,43 +1,27 @@
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.io.UnsupportedEncodingException;
-import java.net.URI;
-import java.security.GeneralSecurityException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.io.*;
+import java.net.*;
+import java.security.*;
+import java.security.cert.*;
+import java.sql.*;
+import java.text.*;
 import java.util.Date;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.scheme.Scheme;
+import javax.crypto.*;
+import javax.crypto.spec.*;
+import javax.net.ssl.*;
+import javax.swing.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.junit.Test;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.junit.*;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
 import org.springframework.security.crypto.codec.Base64;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.util.*;
+import org.springframework.web.client.*;
 
 public class ApiBRI {        
     private Connection koneksi=koneksiDB.condb();
@@ -64,6 +48,9 @@ public class ApiBRI {
     private boolean status=true;
     private validasi Valid=new validasi();
     
+    /**
+     *
+     */
     public ApiBRI(){
         try {
             ps=koneksi.prepareStatement(
@@ -97,6 +84,13 @@ public class ApiBRI {
         }
     }
 
+    /**
+     *
+     * @param data
+     * @param key
+     * @return
+     * @throws GeneralSecurityException
+     */
     public String generateHmacSHA256Signature(String data, String key)throws GeneralSecurityException {
         hmacData = null;
 	try {
@@ -111,11 +105,21 @@ public class ApiBRI {
 	}
     }
         
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         sslContext = SSLContext.getInstance("SSL");
         TrustManager[] trustManagers= {
@@ -133,6 +137,10 @@ public class ApiBRI {
         return new RestTemplate(factory);
     }
     
+    /**
+     *
+     * @return
+     */
     public String Token(){
         token="";
         try{
@@ -152,6 +160,15 @@ public class ApiBRI {
         return token;
     }
     
+    /**
+     *
+     * @param path
+     * @param verb
+     * @param token
+     * @param timestamp
+     * @param body
+     * @return
+     */
     public String Signature(String path,String verb,String token,String timestamp,String body){
         signature="";
         try {
@@ -163,6 +180,14 @@ public class ApiBRI {
         return signature;
     }
     
+    /**
+     *
+     * @param norawat
+     * @param nama
+     * @param bayar
+     * @param keterangan
+     * @return
+     */
     public boolean buatVA(String norawat,String nama,String bayar,String keterangan){
         status=false;
         try {
@@ -222,7 +247,11 @@ public class ApiBRI {
         return status;
     }
     
-
+    /**
+     *
+     * @param norawat
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest(String norawat) throws Exception {
         RestTemplate restTemplate = new RestTemplate();

@@ -15,29 +15,16 @@ package grafikanalisa;
  */
 
 
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.labels.StandardCategoryToolTipGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.CombinedDomainCategoryPlot;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.LineAndShapeRenderer;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
+import fungsi.*;
+import java.awt.*;
+import java.sql.*;
+import javax.swing.*;
+import org.jfree.chart.*;
+import org.jfree.chart.axis.*;
+import org.jfree.chart.labels.*;
+import org.jfree.chart.plot.*;
+import org.jfree.chart.renderer.category.*;
+import org.jfree.data.category.*;
 
 
 /**
@@ -48,6 +35,7 @@ public class grafikperiksaperagama extends JDialog {
         /**
            * Creates a dataset.
            *
+     * @param symbol
            * @return A dataset.
            */
 
@@ -79,6 +67,7 @@ public class grafikperiksaperagama extends JDialog {
        /**
           * Creates a dataset.
           *
+     * @param symbol
           * @return A dataset.
           */
         public static CategoryDataset createDataset2(String symbol) {//grafik volume
@@ -140,16 +129,16 @@ public class grafikperiksaperagama extends JDialog {
              plot.add(subplot1,2 );
              plot.add(subplot2,1 );
 
-             JFreeChart result = new JFreeChart(
+             return new JFreeChart(
                      "",
                      new Font("SansSerif", Font.PLAIN,6 ), plot, true);
-             return result;
 
          }
 
          /**
           * Creates a panel for the demo (used by SuperDemo.java).
           *
+     * @param symbol
           * @return A panel.
           */
 

@@ -4,9 +4,7 @@
  */
 package widget;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 /**
  *
@@ -58,6 +56,9 @@ public class RunText extends Canvas implements Runnable {
         }
     }
 
+    /**
+     *
+     */
     public void run() {
         isTextMoving = true;
         long time_1 = 0;

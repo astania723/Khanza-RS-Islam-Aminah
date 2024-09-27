@@ -1,19 +1,11 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class DlgCariPermintaanStokPasien extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -304,6 +296,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private widget.Table tbPemisahan;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{  
@@ -409,10 +404,18 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }        
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getpermintaan_stok_obat_pasien());
     }
     
+    /**
+     *
+     * @param norm
+     * @param kodedokter
+     */
     public void setRM(String norm,String kodedokter){
         this.norm=norm;
         this.kddokter=kodedokter;

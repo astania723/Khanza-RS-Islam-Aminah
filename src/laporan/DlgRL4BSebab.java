@@ -1,31 +1,18 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariDokter;
-import simrskhanza.DlgCariCaraBayar;
-import simrskhanza.DlgCariPoli;
-import simrskhanza.DlgKabupaten;
-import simrskhanza.DlgKecamatan;
-import simrskhanza.DlgKelurahan;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgRL4BSebab extends javax.swing.JDialog {
     private final validasi Valid=new validasi();
     private final Connection koneksi=koneksiDB.condb();
@@ -1223,6 +1210,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getrl4bsebab());
     }

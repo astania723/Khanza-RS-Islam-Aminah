@@ -1,36 +1,24 @@
 package keuangan;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 public class KeuanganCariBayarJMDokter extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
     private PreparedStatement ps,ps2,psrekening;
     private ResultSet rs,rs2,rsrekening;
@@ -38,13 +26,73 @@ public class KeuanganCariBayarJMDokter extends javax.swing.JDialog {
     private double totaltagihan=0;
     private boolean sukses=true,rincian=false;  
     public Jurnal jur=new Jurnal();
+
+    /**
+     *
+     */
     public File file;
+
+    /**
+     *
+     */
     public FileWriter fileWriter;
-    public String iyem,Beban_Jasa_Medik_Dokter_Tindakan_Ralan="",Utang_Jasa_Medik_Dokter_Tindakan_Ralan="",Beban_Jasa_Medik_Dokter_Tindakan_Ranap="",Utang_Jasa_Medik_Dokter_Tindakan_Ranap="",
-            Beban_Jasa_Medik_Dokter_Laborat_Ralan="",Utang_Jasa_Medik_Dokter_Laborat_Ralan="",Beban_Jasa_Medik_Dokter_Laborat_Ranap="",Utang_Jasa_Medik_Dokter_Laborat_Ranap="",
-            Beban_Jasa_Medik_Dokter_Radiologi_Ralan="",Utang_Jasa_Medik_Dokter_Radiologi_Ralan="",Beban_Jasa_Medik_Dokter_Radiologi_Ranap="",Utang_Jasa_Medik_Dokter_Radiologi_Ranap="",
-            Beban_Jasa_Medik_Dokter_Operasi_Ralan="",Utang_Jasa_Medik_Dokter_Operasi_Ralan="",Beban_Jasa_Medik_Dokter_Operasi_Ranap="",Utang_Jasa_Medik_Dokter_Operasi_Ranap="",
-            Bayar_JM_Dokter=Sequel.cariIsi("select set_akun.Bayar_JM_Dokter from set_akun"),koderekening="";
+
+    /**
+     *
+     */
+    public String iyem,
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Tindakan_Ralan="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Tindakan_Ralan="",Beban_Jasa_Medik_Dokter_Tindakan_Ranap="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Tindakan_Ranap="",
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Laborat_Ralan="",Utang_Jasa_Medik_Dokter_Laborat_Ralan="",
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Laborat_Ranap="",Utang_Jasa_Medik_Dokter_Laborat_Ranap="",
+            Beban_Jasa_Medik_Dokter_Radiologi_Ralan="",Utang_Jasa_Medik_Dokter_Radiologi_Ralan="",
+
+    /**
+     *
+     */
+    Beban_Jasa_Medik_Dokter_Radiologi_Ranap="",Utang_Jasa_Medik_Dokter_Radiologi_Ranap="",
+            Beban_Jasa_Medik_Dokter_Operasi_Ralan="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Operasi_Ralan="",Beban_Jasa_Medik_Dokter_Operasi_Ranap="",
+
+    /**
+     *
+     */
+    Utang_Jasa_Medik_Dokter_Operasi_Ranap="",
+
+    /**
+     *
+     */
+    Bayar_JM_Dokter=Sequel.cariIsi("select set_akun.Bayar_JM_Dokter from set_akun"),
+
+    /**
+     *
+     */
+    koderekening="";
     public ObjectMapper mapper = new ObjectMapper();
     public JsonNode root;
     public JsonNode response;
@@ -1453,11 +1501,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         tabMode.addRow(new Object[]{
                             rs.getString("no_bayar"),rs.getString("tanggal"),rs.getString("nama_bayar"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("keterangan"),Valid.SetAngka(rs.getDouble("besar_bayar"))
                         });
-                        totaltagihan=totaltagihan+rs.getDouble("besar_bayar");
+                        totaltagihan += rs.getDouble("besar_bayar");
                     }
                 }else{
                     while(rs.next()){
-                        totaltagihan=totaltagihan+rs.getDouble("besar_bayar");
+                        totaltagihan += rs.getDouble("besar_bayar");
                         tabMode.addRow(new Object[]{
                             rs.getString("no_bayar"),rs.getString("tanggal"),rs.getString("nama_bayar"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("keterangan"),Valid.SetAngka(rs.getDouble("besar_bayar"))
                         });
@@ -1951,6 +1999,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         BtnAll.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnHapus.setEnabled(akses.getbayar_jm_dokter());
     }

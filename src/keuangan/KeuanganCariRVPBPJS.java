@@ -2,25 +2,14 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -97,13 +86,6 @@ public class KeuanganCariRVPBPJS extends javax.swing.JDialog {
                 "tambahanbiaya","potonganbiaya","kamar","reseppulang","harianranap","registrasi","Petugas Validasi",
                 "Akun Rekening","Kontra Akun","Service Ranap","PPN Obat"
             }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if ((colIndex==10)||(colIndex==0)) {
-                    a=true;
-                }
-                return a;
-             }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
@@ -124,6 +106,13 @@ public class KeuanganCariRVPBPJS extends javax.swing.JDialog {
                 java.lang.Double.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
                 java.lang.Double.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+               boolean a = false;
+               if ((colIndex==10)||(colIndex==0)) {
+                 a=true;
+               }
+               return a;
+             }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -734,14 +723,14 @@ public class KeuanganCariRVPBPJS extends javax.swing.JDialog {
                 } catch (Exception e) {
                     sisapiutang=0;
                 }
-                ttlpiutang=ttlpiutang+Double.parseDouble(tabMode.getValueAt(i,5).toString());
-                ttliur=ttliur+Double.parseDouble(tabMode.getValueAt(i,6).toString());
-                ttlsudahdibayar=ttlsudahdibayar+Double.parseDouble(tabMode.getValueAt(i,7).toString());
-                ttlsisapiutang=ttlsisapiutang+Double.parseDouble(tabMode.getValueAt(i,8).toString());
-                ttlinacbg=ttlinacbg+Double.parseDouble(tabMode.getValueAt(i,9).toString());
-                total=total+sisapiutang;
-                rugi=rugi+Double.parseDouble(tabMode.getValueAt(i,12).toString());
-                lebih=lebih+Double.parseDouble(tabMode.getValueAt(i,13).toString());
+                ttlpiutang += Double.parseDouble(tabMode.getValueAt(i,5).toString());
+                ttliur += Double.parseDouble(tabMode.getValueAt(i,6).toString());
+                ttlsudahdibayar += Double.parseDouble(tabMode.getValueAt(i,7).toString());
+                ttlsisapiutang += Double.parseDouble(tabMode.getValueAt(i,8).toString());
+                ttlinacbg += Double.parseDouble(tabMode.getValueAt(i,9).toString());
+                total += sisapiutang;
+                rugi += Double.parseDouble(tabMode.getValueAt(i,12).toString());
+                lebih += Double.parseDouble(tabMode.getValueAt(i,13).toString());
                 Sequel.menyimpan("temporary","'"+i+"','"+
                             tabMode.getValueAt(i,1).toString()+"','"+
                             tabMode.getValueAt(i,2).toString()+"','"+
@@ -1618,6 +1607,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbBangsal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil(){
         Valid.tabelKosong(tabMode);
         try{
@@ -1693,8 +1685,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getDouble("kamar"),rs.getDouble("reseppulang"),rs.getDouble("harianranap"),rs.getDouble("registrasi"),
                         rs.getString("petugas"),rs.getString("kd_rek"),rs.getString("kd_rek_kontra"),rs.getDouble("service"),rs.getString("ppn_obat")
                     });
-                    sisapiutang=sisapiutang+rs.getDouble("sisapiutang");
-                    total=total+rs.getDouble("dibayarbpjs");
+                    sisapiutang += rs.getDouble("sisapiutang");
+                    total += rs.getDouble("dibayarbpjs");
                 }
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
@@ -1718,6 +1710,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private void getdata() {
     }
     
+    /**
+     *
+     */
     public void isCek(){
         TCari.requestFocus();
         if(akses.getjml2()>=1){

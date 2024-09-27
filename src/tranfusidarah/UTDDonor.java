@@ -11,33 +11,17 @@
 
 package tranfusidarah;
 
-import fungsi.WarnaTable;
-import fungsi.WarnaTable2;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import widget.*;
 
 /**
  *
@@ -2359,7 +2343,7 @@ public class UTDDonor extends javax.swing.JDialog {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(panelisi4.getHeight()<400){   
             scrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            panelisi4.setPreferredSize(new Dimension(panelisi4.WIDTH,400));
+            panelisi4.setPreferredSize(new Dimension(panelisi.WIDTH,400));
             if(panelisi4.getWidth()<530){
                 scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
                 panelisi4.setPreferredSize(new Dimension(530,400));
@@ -2370,7 +2354,7 @@ public class UTDDonor extends javax.swing.JDialog {
             scrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);            
             if(panelisi4.getWidth()<530){
                 scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);                                
-                panelisi4.setPreferredSize(new Dimension(530,panelisi4.WIDTH));
+                panelisi4.setPreferredSize(new Dimension(530,panelisi.WIDTH));
             }else{
                 scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);                
             }
@@ -2769,7 +2753,7 @@ public class UTDDonor extends javax.swing.JDialog {
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -2845,7 +2829,7 @@ public class UTDDonor extends javax.swing.JDialog {
                     jml++;
                 }
             } catch (Exception e) {
-                jml=jml+0;
+                jml += 0;
             } 
         }
         
@@ -2911,6 +2895,9 @@ public class UTDDonor extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         NomorDonor.setText("");
         NoPendonor.setText("");
@@ -2935,6 +2922,10 @@ public class UTDDonor extends javax.swing.JDialog {
         
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NomorDonor;
     }
@@ -2943,6 +2934,9 @@ public class UTDDonor extends javax.swing.JDialog {
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){ 
         BtnSimpan.setEnabled(akses.getutd_donor());
         BtnHapus.setEnabled(akses.getutd_donor());

@@ -12,35 +12,18 @@
 
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPegawai;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import rekammedis.RMRiwayatPerawatan;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import org.springframework.http.*;
+import rekammedis.*;
 
 
 /**
@@ -212,16 +195,16 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         AlasanLainnya.setDocument(new batasInput((byte)50).getKata(AlasanLainnya));
-        Anamnesis.setDocument(new batasInput((int)700).getKata(Anamnesis));
+        Anamnesis.setDocument(new batasInput(700).getKata(Anamnesis));
         TekananDarah.setDocument(new batasInput((byte)7).getKata(TekananDarah));
         FrekuensiNadi.setDocument(new batasInput((byte)3).getKata(FrekuensiNadi));
         SuhuBadan.setDocument(new batasInput((byte)5).getKata(SuhuBadan));
         Respirasi.setDocument(new batasInput((byte)3).getKata(Respirasi));
-        KeadaanUmum.setDocument(new batasInput((int)300).getKata(KeadaanUmum));
+        KeadaanUmum.setDocument(new batasInput(300).getKata(KeadaanUmum));
         Alergi.setDocument(new batasInput((byte)50).getKata(Alergi));
-        Laborat.setDocument(new batasInput((int)1000).getKata(Laborat));
-        Radiologi.setDocument(new batasInput((int)1000).getKata(Radiologi));
-        TerapiTindakan.setDocument(new batasInput((int)1000).getKata(TerapiTindakan));
+        Laborat.setDocument(new batasInput(1000).getKata(Laborat));
+        Radiologi.setDocument(new batasInput(1000).getKata(Radiologi));
+        TerapiTindakan.setDocument(new batasInput(1000).getKata(TerapiTindakan));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -2849,7 +2832,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="rawat inap";
                 }else {
-                    penyakit2=penyakit2+", rawat inap";
+                    penyakit2 += ", rawat inap";
                 }
             }
 
@@ -2858,7 +2841,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="pemeriksaan laboratorium";
                 }else {
-                    penyakit2=penyakit2+", pemeriksaan laboratorium";
+                    penyakit2 += ", pemeriksaan laboratorium";
                 }
             }
 
@@ -2867,7 +2850,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="pemeriksaan radiologi";
                 }else {
-                    penyakit2=penyakit2+", pemeriksaan radiologi";
+                    penyakit2 += ", pemeriksaan radiologi";
                 }
             }
 
@@ -2876,7 +2859,7 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
                 if(penyakit2.isEmpty()){
                     penyakit2="operasi";
                 }else {
-                    penyakit2=penyakit2+", operasi";
+                    penyakit2 += ", operasi";
                 }
             }
 
@@ -3209,6 +3192,9 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
     private widget.Table tbObat2;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {        
         if(TabRujukan.getSelectedIndex()==0){
             tampilData();
@@ -3483,6 +3469,9 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         JenisRujukan.requestFocus();
     }
          
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getsisrute_rujukan_keluar());
         BtnHapus.setEnabled(akses.getsisrute_rujukan_keluar());
@@ -3496,6 +3485,9 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         }  
     }
     
+    /**
+     *
+     */
     public void tutupInput(){
         TabRawat.setSelectedIndex(1);
         tampil();
@@ -3774,6 +3766,10 @@ public class SisruteRujukanKeluar extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param NoRawat
+     */
     public void setPasien2(String NoRawat){
         TabRawat.setSelectedIndex(0);
         TNoRw.setText(NoRawat);

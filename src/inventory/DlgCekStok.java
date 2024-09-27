@@ -11,25 +11,19 @@
  */
 
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariBangsal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import simrskhanza.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCekStok extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
@@ -52,17 +46,17 @@ public class DlgCekStok extends javax.swing.JDialog {
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "Kode Barang","Nama Barang","Kategori","Satuan","Harga","Stok"}){
-            @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
             Class[] types = new Class[] {
                 java.lang.String.class,java.lang.String.class,java.lang.String.class,
                 java.lang.String.class,java.lang.Double.class,java.lang.Double.class
              };
+            @Override public boolean isCellEditable(int rowIndex, int colIndex){
+              boolean a = false;
+              if (colIndex==0) {
+                a=true;
+              }
+              return a;
+            }
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];

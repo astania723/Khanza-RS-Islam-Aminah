@@ -1,20 +1,20 @@
 package bridging;
 
-import fungsi.koneksiDB;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import org.apache.http.conn.scheme.Scheme;
+import fungsi.*;
+import java.security.*;
+import java.security.cert.*;
+import javax.net.ssl.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
 public class ApiKemenkesCorona {        
     private String Key,pass;
+
+    /**
+     *
+     */
     public ApiKemenkesCorona(){
         try {             
             pass = koneksiDB.PASSCORONA();
@@ -27,11 +27,21 @@ public class ApiKemenkesCorona {
 	return Key;
     }
 
+    /**
+     *
+     * @return
+     */
     public long GetUTCdatetimeAsString(){    
         long millis = System.currentTimeMillis();   
         return millis/1000;
     }
     
+    /**
+     *
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {

@@ -6,34 +6,17 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -117,12 +100,12 @@ public class RMPenilaianUlangNyeri extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
-        KetProvokes.setDocument(new batasInput((int)40).getKata(KetProvokes));
-        KetQuality.setDocument(new batasInput((int)50).getKata(KetQuality));
-        Lokasi.setDocument(new batasInput((int)50).getKata(Lokasi));
-        Durasi.setDocument(new batasInput((int)25).getKata(Durasi));
-        KetNyeri.setDocument(new batasInput((int)40).getKata(KetNyeri));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
+        KetProvokes.setDocument(new batasInput(40).getKata(KetProvokes));
+        KetQuality.setDocument(new batasInput(50).getKata(KetQuality));
+        Lokasi.setDocument(new batasInput(50).getKata(Lokasi));
+        Durasi.setDocument(new batasInput(25).getKata(Durasi));
+        KetNyeri.setDocument(new batasInput(40).getKata(KetNyeri));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -1459,6 +1442,11 @@ public class RMPenilaianUlangNyeri extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
@@ -1484,6 +1472,9 @@ public class RMPenilaianUlangNyeri extends javax.swing.JDialog {
         }
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_ulang_nyeri());
         BtnHapus.setEnabled(akses.getpenilaian_ulang_nyeri());

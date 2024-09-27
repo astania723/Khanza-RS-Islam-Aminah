@@ -1,38 +1,35 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventaris.InventarisAsalHibah;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import inventaris.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
 public class InventoryCariHibahObatBHP extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  InventarisAsalHibah suplier=new InventarisAsalHibah(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  DlgBarang barang=new DlgBarang(null,false);
     private PreparedStatement ps,ps2,pscaribeli,psdetailhibah_obat_bhp;
     private ResultSet rs,rs2;
@@ -1363,7 +1360,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                             no++;
                         }
                         tabMode.addRow(new Object[]{"","Total",":","","","","","",Valid.SetAngka(rs.getDouble("totalhibah")),"",Valid.SetAngka(rs.getDouble("totalnilai"))});
-                        tagihan=tagihan+rs.getDouble("totalnilai");
+                        tagihan += rs.getDouble("totalnilai");
                     } catch (Exception e) {
                         System.out.println("Notifikasi : "+e);
                     } finally{
@@ -1391,10 +1388,16 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.gethibah_obat_bhp());
         if(akses.getkode().equals("Admin Utama")){

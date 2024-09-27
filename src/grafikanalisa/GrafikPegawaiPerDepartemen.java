@@ -11,30 +11,16 @@
 
 package grafikanalisa;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
+import fungsi.*;
+import java.awt.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.*;
+import org.jfree.data.category.*;
+import org.jfree.data.general.*;
 
 /**
  *
@@ -534,13 +520,13 @@ public class GrafikPegawaiPerDepartemen extends javax.swing.JDialog {
                 totall=0;
                 totalp=0;
                 while(rs.next()){
-                    total=total+rs.getDouble(2);
+                    total += rs.getDouble(2);
                     jmll=Sequel.cariInteger("select count(departemen.dep_id) as jumlah,departemen.nama from pegawai inner join departemen "+
                         "on departemen.dep_id=pegawai.departemen where pegawai.jk='Pria' and (pegawai.stts_aktif='AKTIF' or pegawai.stts_aktif='CUTI') and departemen.dep_id=?",rs.getString(1));
                     jmlp=Sequel.cariInteger("select count(departemen.dep_id) as jumlah,departemen.nama from pegawai inner join departemen "+
                         "on departemen.dep_id=pegawai.departemen where pegawai.jk='Wanita' and (pegawai.stts_aktif='AKTIF' or pegawai.stts_aktif='CUTI') and departemen.dep_id=?",rs.getString(1));
-                    totall=totall+jmll;
-                    totalp=totalp+jmlp;
+                    totall += jmll;
+                    totalp += jmlp;
                     tabMode.addRow(new String[]{
                         rs.getString(1),rs.getString(2),"",jmll+"","",jmlp+"",""
                     });

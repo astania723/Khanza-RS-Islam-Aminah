@@ -1,36 +1,29 @@
 package inventory;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgCariPembelian extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     public  InventoryCariSuplier suplier=new InventoryCariSuplier(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     public  DlgBarang barang=new DlgBarang(null,false);
     private PreparedStatement ps,ps2,pscaribeli,psdetailbeli;
@@ -642,6 +635,7 @@ public class DlgCariPembelian extends javax.swing.JDialog {
         panelisi3.add(label13);
         label13.setBounds(305, 40, 80, 23);
 
+        kdsup.setEditable(false);
         kdsup.setName("kdsup"); // NOI18N
         kdsup.setPreferredSize(new java.awt.Dimension(80, 23));
         kdsup.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -818,15 +812,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }//GEN-LAST:event_btnSatuanActionPerformed
 
     private void kdsupKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdsupKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
-            Sequel.cariIsi("select datasuplier.nama_suplier from datasuplier where datasuplier.kode_suplier=?", nmsup,kdsup.getText());            
-        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
-            Sequel.cariIsi("select datasuplier.nama_suplier from datasuplier where datasuplier.kode_suplier=?", nmsup,kdsup.getText());
-            NoFaktur.requestFocus();
-        }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            Sequel.cariIsi("select datasuplier.nama_suplier from datasuplier where datasuplier.kode_suplier=?", nmsup,kdsup.getText());
-            kdptg.requestFocus();
-        }else if(evt.getKeyCode()==KeyEvent.VK_UP){
+        if(evt.getKeyCode()==KeyEvent.VK_UP){
             btnSuplierActionPerformed(null);
         }
     }//GEN-LAST:event_kdsupKeyPressed
@@ -1368,7 +1354,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         tabMode.addRow(new Object[]{"","","","","","Total",":","",Valid.SetAngka(rs.getDouble("total1")),"",Valid.SetAngka(rs.getDouble("potongan")),Valid.SetAngka(rs.getDouble("total2"))});
                         tabMode.addRow(new Object[]{"","","","","","PPN",":","","","","",Valid.SetAngka(rs.getDouble("ppn"))});
                         tabMode.addRow(new Object[]{"","","","","","Tagihan",":","","","","",Valid.SetAngka(rs.getDouble("tagihan"))});
-                        tagihan=tagihan+Sequel.cariIsiAngka("select tagihan from pembelian where no_faktur=?",rs.getString(2));
+                        tagihan += Sequel.cariIsiAngka("select tagihan from pembelian where no_faktur=?",rs.getString(2));
                     } catch (Exception e) {
                         System.out.println("Notifikasi : "+e);
                     } finally{

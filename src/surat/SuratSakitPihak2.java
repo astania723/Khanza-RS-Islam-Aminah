@@ -9,29 +9,16 @@
 
 package surat;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.time.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 /**
@@ -52,6 +39,11 @@ public class SuratSakitPihak2 extends javax.swing.JDialog {
     private LocalDate birthday;
     private Period p;
     
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public SuratSakitPihak2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -112,7 +104,7 @@ public class SuratSakitPihak2 extends javax.swing.JDialog {
         LamaSakit.setDocument(new batasInput((byte)20).getKata(LamaSakit));         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         NamaPihak2.setDocument(new batasInput((byte)50).getKata(NamaPihak2));
-        AlamatPj.setDocument(new batasInput((int)200).getKata(AlamatPj));  
+        AlamatPj.setDocument(new batasInput(200).getKata(AlamatPj));  
         Instansi.setDocument(new batasInput((byte)50).getKata(Instansi));  
         TUmurTh.setDocument(new batasInput((byte)4).getKata(TUmurTh));    
         TUmurBl.setDocument(new batasInput((byte)4).getKata(TUmurBl));    
@@ -1237,6 +1229,9 @@ public class SuratSakitPihak2 extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{

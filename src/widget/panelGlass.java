@@ -5,8 +5,8 @@
 
 package widget;
 
-import java.awt.Color;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *

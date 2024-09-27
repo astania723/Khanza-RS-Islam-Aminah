@@ -1,13 +1,11 @@
 
 package widget;
 
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import usu.util.StringUtil;
-import usu.widget.glass.FormatedTextBox;
-import usu.widget.text.DefaultDocument;
+import java.awt.*;
+import javax.swing.text.*;
+import usu.util.*;
+import usu.widget.glass.*;
+import usu.widget.text.*;
 
 /**
  *

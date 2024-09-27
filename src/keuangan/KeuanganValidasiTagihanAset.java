@@ -2,29 +2,15 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import inventaris.InventarisCariSuplier;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import inventaris.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -596,7 +582,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     try {
                         rs2=ps2.executeQuery();
                         while(rs2.next()){
-                            bayar=bayar+rs2.getDouble("bayar");
+                            bayar += rs2.getDouble("bayar");
                         }
                     } catch (Exception e) {
                         System.out.println("Notif : "+e);
@@ -612,7 +598,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("no_tagihan"),rs.getString("tanggal"),rs.getString("nip")+" "+rs.getString("nama"),
                         rs.getString("keterangan"),Valid.SetAngka(rs.getDouble("tagihan")-bayar)
                     });
-                    sisahutang=sisahutang+(rs.getDouble("tagihan")-bayar);
+                    sisahutang += (rs.getDouble("tagihan")-bayar);
                 }
             } catch (Exception e) {
                 System.out.println(e);

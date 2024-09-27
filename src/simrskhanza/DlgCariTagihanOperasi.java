@@ -1,33 +1,16 @@
 package simrskhanza;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
-import laporan.DlgBerkasRawat;
-import rekammedis.MasterCariTemplateLaporanOperasi;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
+import keuangan.*;
+import laporan.*;
+import rekammedis.*;
 
 public class DlgCariTagihanOperasi extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -100,10 +83,10 @@ public class DlgCariTagihanOperasi extends javax.swing.JDialog {
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());
         kdmem.setDocument(new batasInput((byte)10).getKata(kdmem));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));  
-        PreOp.setDocument(new batasInput((int)100).getKata(PreOp));      
-        PostOp.setDocument(new batasInput((int)100).getKata(PostOp));      
-        Jaringan.setDocument(new batasInput((int)100).getKata(Jaringan));
-        Laporan.setDocument(new batasInput((int)8000).getKata(Laporan));
+        PreOp.setDocument(new batasInput(100).getKata(PreOp));      
+        PostOp.setDocument(new batasInput(100).getKata(PostOp));      
+        Jaringan.setDocument(new batasInput(100).getKata(Jaringan));
+        Laporan.setDocument(new batasInput(8000).getKata(Laporan));
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
@@ -2107,7 +2090,7 @@ private void MnHapusTagihanOperasiActionPerformed(java.awt.event.ActionEvent evt
                             "operasi.biaya_dokter_umum) from operasi where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1) +"' and tgl_operasi='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0)+"'");
                     ttlbhp=Sequel.cariIsiAngka("select sum(jumlah*hargasatuan) from beri_obat_operasi where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1) +"' and tanggal='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0)+"'");
 
-                    ttlpendapatan=ttlpendapatan+ttlbhp;
+                    ttlpendapatan += ttlbhp;
                     if(Sequel.queryutf("delete from operasi where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1)+"' and tgl_operasi='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0) +"'")==true){
                         if(Sequel.queryutf("delete from beri_obat_operasi where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1) +"' and tanggal='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0)+"'")==false){
                            ttlbhp=0;
@@ -2884,7 +2867,7 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_kdasistanestesi2KeyPressed
 
     private void BtnAsnes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAsnes1ActionPerformed
-        pilihan=14;
+        pilihan=16;
         petugas.emptTeks();
         petugas.isCek();
         petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
@@ -2939,9 +2922,12 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                     try {
                         try {
                             rs=koneksi.prepareStatement(
-                                    "select no_rawat, tgl_perawatan, jam_rawat, suhu_tubuh, tensi, nadi, respirasi, tinggi, berat, gcs, keluhan, pemeriksaan, alergi, "+
-                                    "rtl, penilaian from pemeriksaan_ralan where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' "+
-                                    "order by tgl_perawatan, jam_rawat desc limit 1").executeQuery();
+                                "select pemeriksaan_ralan.no_rawat,pemeriksaan_ralan.tgl_perawatan,pemeriksaan_ralan.jam_rawat,pemeriksaan_ralan.suhu_tubuh,"+
+                                "pemeriksaan_ralan.tensi,pemeriksaan_ralan.nadi,pemeriksaan_ralan.respirasi,pemeriksaan_ralan.tinggi,pemeriksaan_ralan.berat,"+
+                                "pemeriksaan_ralan.gcs,pemeriksaan_ralan.keluhan,pemeriksaan_ralan.pemeriksaan,pemeriksaan_ralan.alergi,pemeriksaan_ralan.rtl,"+
+                                "pemeriksaan_ralan.penilaian from pemeriksaan_ralan where pemeriksaan_ralan.no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' "+
+                                "and concat(pemeriksaan_ralan.tgl_perawatan,' ',pemeriksaan_ralan.jam_rawat) <= '"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()+"' "+
+                                "order by pemeriksaan_ralan.tgl_perawatan desc,pemeriksaan_ralan.jam_rawat desc limit 1").executeQuery();
                             if(rs.next()){
                                 param.put("tgl_perawatan",rs.getDate("tgl_perawatan"));
                                 param.put("jam_rawat",rs.getString("jam_rawat"));
@@ -2973,9 +2959,12 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                     try {
                         try {
                             rs=koneksi.prepareStatement(
-                                    "select no_rawat, tgl_perawatan, jam_rawat, suhu_tubuh, tensi, nadi, respirasi, tinggi, berat, gcs, keluhan, pemeriksaan, alergi, "+
-                                    "rtl, penilaian from pemeriksaan_ranap where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' "+
-                                    "order by tgl_perawatan, jam_rawat desc limit 1").executeQuery();
+                                "select pemeriksaan_ranap.no_rawat,pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat,pemeriksaan_ranap.suhu_tubuh,"+
+                                "pemeriksaan_ranap.tensi,pemeriksaan_ranap.nadi,pemeriksaan_ranap.respirasi,pemeriksaan_ranap.tinggi,pemeriksaan_ranap.berat,"+
+                                "pemeriksaan_ranap.gcs,pemeriksaan_ranap.keluhan,pemeriksaan_ranap.pemeriksaan,pemeriksaan_ranap.alergi,pemeriksaan_ranap.rtl,"+
+                                "pemeriksaan_ranap.penilaian from pemeriksaan_ranap where pemeriksaan_ranap.no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' "+
+                                "and concat(pemeriksaan_ranap.tgl_perawatan,' ',pemeriksaan_ranap.jam_rawat) <= '"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()+"' "+
+                                "order by pemeriksaan_ranap.tgl_perawatan desc,pemeriksaan_ranap.jam_rawat desc limit 1").executeQuery();
                             if(rs.next()){
                                 param.put("tgl_perawatan",rs.getDate("tgl_perawatan"));
                                 param.put("jam_rawat",rs.getString("jam_rawat"));
@@ -3016,8 +3005,9 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
             if(!tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString().isEmpty()){
                 try {
                     rs2=koneksi.prepareStatement(
-                        "select diagnosa_preop, diagnosa_postop, jaringan_dieksekusi, selesaioperasi, permintaan_pa, laporan_operasi from laporan_operasi "+
-                        "where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1)+"' and tanggal='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0)+"'").executeQuery();
+                        "select laporan_operasi.diagnosa_preop,laporan_operasi.diagnosa_postop,laporan_operasi.jaringan_dieksekusi,laporan_operasi.selesaioperasi,laporan_operasi.permintaan_pa,"+
+                        "laporan_operasi.laporan_operasi from laporan_operasi where laporan_operasi.no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1)+"' and "+
+                        "laporan_operasi.tanggal='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0)+"'").executeQuery();
                     if(rs2.next()){
                         PreOp.setText(rs2.getString("diagnosa_preop"));
                         PostOp.setText(rs2.getString("diagnosa_postop"));
@@ -3438,7 +3428,7 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                            Valid.SetAngka(rs2.getDouble("biaya_dokter_umum")),
                            Valid.SetAngka(rs2.getDouble("total")),"","","","","",""
                     }); 
-                    total=total+rs2.getDouble("total");
+                    total += rs2.getDouble("total");
                     no++;
                 }
                 if(rs2!=null){
@@ -3456,7 +3446,7 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                         "","","","",no+". "+rs2.getString("nm_obat"),rs2.getString("satuan"), rs2.getString("hargasatuan"),rs2.getString("jumlah"),"","","","","","",
                         "","","","","","","","","","","","","","","","","","","",Valid.SetAngka(rs2.getDouble("jumlah")*rs2.getDouble("hargasatuan")),"","","","","",""
                     });  
-                    total=total+(rs2.getDouble("jumlah")*rs2.getDouble("hargasatuan"));
+                    total += (rs2.getDouble("jumlah")*rs2.getDouble("hargasatuan"));
                     no++;
                 }
                 if(rs2!=null){
@@ -3499,9 +3489,12 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
         return BtnKeluar;
     }
     
+    /**
+     *
+     * @param pasien
+     */
     public void setPasien(String pasien){
         NoRawat.setText(pasien);
-        
     }
- 
+    
 }

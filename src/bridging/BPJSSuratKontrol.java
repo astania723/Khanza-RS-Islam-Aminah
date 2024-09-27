@@ -1,47 +1,26 @@
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.net.URI;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.security.*;
+import java.security.cert.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.X509TrustManager;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.scheme.Scheme;
+import javax.net.ssl.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.conn.scheme.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.junit.Test;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.junit.*;
+import org.springframework.http.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
 /**
  *
@@ -1248,7 +1227,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "select bridging_sep.no_rawat,bridging_sep.no_sep,bridging_sep.no_kartu,bridging_sep.nomr,bridging_sep.nama_pasien,bridging_sep.tanggal_lahir,"+
                     "bridging_sep.jkel,bridging_sep.diagawal,bridging_sep.nmdiagnosaawal,bridging_surat_kontrol_bpjs.tgl_surat,bridging_surat_kontrol_bpjs.no_surat,"+
                     "bridging_surat_kontrol_bpjs.tgl_rencana,bridging_surat_kontrol_bpjs.kd_dokter_bpjs,bridging_surat_kontrol_bpjs.nm_dokter_bpjs,"+
-                    "bridging_surat_kontrol_bpjs.kd_poli_bpjs,bridging_surat_kontrol_bpjs.nm_poli_bpjs from bridging_sep inner join bridging_surat_kontrol_bpjs "+
+                    "bridging_surat_kontrol_bpjs.kd_poli_bpjs,bridging_surat_kontrol_bpjs.nm_poli_bpjs,DATE_ADD(bridging_sep.tglrujukan, INTERVAL 89 DAY) AS masa_berlaku from bridging_sep inner join bridging_surat_kontrol_bpjs "+
                     "on bridging_surat_kontrol_bpjs.no_sep=bridging_sep.no_sep where bridging_surat_kontrol_bpjs.no_surat='"+NoSurat.getText()+"'",param);              
             this.setCursor(Cursor.getDefaultCursor());
         }else{
@@ -1540,22 +1519,52 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         BtnEdit.setEnabled(akses.getbpjs_surat_kontrol());
     }
 
+    /**
+     *
+     * @return
+     */
     public JTable getTable(){
         return tbObat;
     }
     
+    /**
+     *
+     */
     public static class HttpEntityEnclosingDeleteRequest extends HttpEntityEnclosingRequestBase {
+
+        /**
+         *
+         * @param uri
+         */
         public HttpEntityEnclosingDeleteRequest(final URI uri) {
             super();
             setURI(uri);
         }
 
+        /**
+         *
+         * @return
+         */
         @Override
         public String getMethod() {
             return "DELETE";
         }
+
+        /**
+         *
+         * @return
+         * @throws CloneNotSupportedException
+         */
+        @Override
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     @Test
     public void bodyWithDeleteRequest() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
@@ -1643,7 +1652,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             }
             status=Sequel.menyimpantf2("booking_registrasi","?,?,?,?,?,?,?,?,?,?,?","Pasien dan Tanggal",11,new String[]{
                 Valid.SetTgl(TanggalSurat.getSelectedItem()+""),"08:00:00",NoRM.getText(),Valid.SetTgl(TanggalKontrol.getSelectedItem()+""),
-                kodedokter,kodepoli,noreg,Sequel.cariIsi("select pasien.kd_pj from pasien where pasien.no_rkm_medis=?",NoRM.getText()),"0",
+                kodedokter,kodepoli,noreg,"BPJ","0",
                 Valid.SetTgl(TanggalKontrol.getSelectedItem()+"")+" "+TanggalKontrol.getSelectedItem().toString().substring(11,19),"belum"
             });
         }

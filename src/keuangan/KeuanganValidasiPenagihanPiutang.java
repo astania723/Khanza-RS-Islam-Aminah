@@ -2,32 +2,17 @@
 
 package keuangan;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import simrskhanza.DlgCariCaraBayar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import simrskhanza.*;
 
 /**
  *
@@ -424,7 +409,7 @@ public class KeuanganValidasiPenagihanPiutang extends javax.swing.JDialog {
         PanelAccor.setPreferredSize(new java.awt.Dimension(445, 43));
         PanelAccor.setLayout(new java.awt.BorderLayout(1, 1));
 
-        ChkAccor.setBackground(new java.awt.Color(255,250,250));
+        ChkAccor.setBackground(new java.awt.Color(255, 250, 250));
         ChkAccor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kiri.png"))); // NOI18N
         ChkAccor.setSelected(true);
         ChkAccor.setFocusable(false);
@@ -690,7 +675,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         rs.getString("no_tagihan"),rs.getString("tanggal"),rs.getString("nama"),rs.getString("tanggaltempo"),
                         rs.getString("nama_perusahaan"),rs.getString("nama_bank"),Valid.SetAngka(rs.getDouble("total"))
                     });
-                    sisapiutang=sisapiutang+rs.getDouble("total");
+                    sisapiutang += rs.getDouble("total");
                 }
             } catch (Exception e) {
                 System.out.println(e);

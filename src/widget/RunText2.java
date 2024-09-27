@@ -2,11 +2,21 @@ package widget;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.GeneralPath;
-import java.util.Random;
+import java.awt.geom.*;
+import java.util.*;
 import javax.swing.*;
+import javax.swing.Timer;
  
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class RunText2 extends JPanel {
+
+    /**
+     *
+     * @param arg
+     */
     public static void main(String arg[]) {
         final RunText2 x = new RunText2();
         x.init();
@@ -34,6 +44,13 @@ public class RunText2 extends JPanel {
     }
 
     //TM Sets X,Y Grid as Integer
+
+    /**
+     *
+     * @param w
+     * @param h
+     * @param z
+     */
     public void drawShapes(int w, int h, Graphics2D z) {
         GeneralPath draw = new GeneralPath(GeneralPath.WIND_EVEN_ODD);
         //TM Sets Random generator
@@ -71,6 +88,10 @@ public class RunText2 extends JPanel {
         }
     }
 
+    /**
+     *
+     * @param g
+     */
     public void paint(Graphics g) {
         Graphics2D z = (Graphics2D) g;
         Dimension d = getSize();

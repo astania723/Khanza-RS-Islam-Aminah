@@ -1,21 +1,16 @@
 package laporan;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
 
+/**
+ *
+ * @author Kanit SIRS
+ */
 public class DlgJumlahPengunjungRalanTNI extends javax.swing.JDialog {
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
@@ -473,7 +468,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.golongan_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
@@ -481,7 +476,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -495,14 +490,14 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.golongan_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -582,7 +577,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.satuan_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
@@ -590,7 +585,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -604,14 +599,14 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.satuan_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -691,7 +686,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.pangkat_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
@@ -699,7 +694,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -713,14 +708,14 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.pangkat_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -800,7 +795,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.jabatan_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
@@ -808,7 +803,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' "+
                        "group by reg_periksa.no_rkm_medis",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -822,14 +817,14 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa inner join pasien_tni on reg_periksa.no_rkm_medis=pasien_tni.no_rkm_medis "+
                        "where pasien_tni.jabatan_tni=? and reg_periksa.status_lanjut='Ralan' and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodecari[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             for(i=0;i<jumlahcarabayar;i++){
                 kolom=Sequel.cariInteger(
                        "select count(reg_periksa.no_rkm_medis) from reg_periksa where reg_periksa.no_rkm_medis not in (select pasien_tni.no_rkm_medis from pasien_tni) and reg_periksa.status_lanjut='Ralan' "+
                        "and reg_periksa.kd_pj=? and reg_periksa.tgl_registrasi between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' ",kodebayar[i]);
-                total=total+kolom;
+                total += kolom;
                 htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(kolom)).append("</td>");
             }
             htmlContent.append("<td valign='middle' align='center'>").append(Valid.SetAngka(total)).append("</td></tr>");
@@ -845,6 +840,9 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getjumlah_pengunjung_ralan_tni());
     }

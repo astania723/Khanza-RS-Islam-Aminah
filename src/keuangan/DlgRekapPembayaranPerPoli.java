@@ -1,23 +1,11 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class DlgRekapPembayaranPerPoli extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
@@ -40,11 +28,11 @@ public class DlgRekapPembayaranPerPoli extends javax.swing.JDialog {
 
         Object[] row={"No.","Bagian/Unit","Jumlah Pasien","Pemasukan"};
         tabMode=new DefaultTableModel(null,row){
-              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
               Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Double.class
                 
              };
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -69,7 +57,7 @@ public class DlgRekapPembayaranPerPoli extends javax.swing.JDialog {
         }
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());   
         
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
     }
     
 
@@ -409,8 +397,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         while(rsmasuk.next()){
                             jmlpas=rsmasuk.getInt(2);
                             total=rsmasuk.getDouble(1);
-                            ttljmlpas=ttljmlpas+rsmasuk.getInt(2);
-                            ttltotal=ttltotal+rsmasuk.getDouble(1);
+                            ttljmlpas += rsmasuk.getInt(2);
+                            ttltotal += rsmasuk.getDouble(1);
                         }                        
                     } catch (Exception e) {
                         System.out.println("Notif 2 : "+e);

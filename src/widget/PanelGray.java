@@ -5,14 +5,10 @@
 
 package widget;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.geom.GeneralPath;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.geom.*;
+import java.awt.image.*;
+import javax.swing.*;
 
 /**
  *
@@ -32,6 +28,10 @@ public class PanelGray extends JPanel {
         //setBorder(new LineBorder(Color.darkGray));
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

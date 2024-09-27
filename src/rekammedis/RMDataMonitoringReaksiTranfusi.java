@@ -5,37 +5,18 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 
 /**
@@ -53,6 +34,7 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private String pilihan="";
     private StringBuilder htmlContent;
+    private String TANGGALMUNDUR="yes";
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -63,7 +45,7 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
         setSize(628,674);
 
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.R.M.","Nama Pasien","Umur","JK","Tgl.Lahir","Tgl.Obser","Jam Obser","Produk/Jenis Darah",
+            "No.Rawat","No.R.M.","Nama Pasien","Umur","JK","Tgl.Lahir","Tanggal","Jam","Produk/Jenis Darah",
             "No.Kantong","Lokasi Insersi","TD(mmHg)","HR(x/menit)","RR(x/menit)","Suhu(°C)","Alergi","Keterangan",
             "NIP","Nama Petugas"
         }){
@@ -130,7 +112,7 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
         LokasiInsersi.setDocument(new batasInput((byte)40).getKata(LokasiInsersi));
         Alergi.setDocument(new batasInput((byte)70).getKata(Alergi));
         Keterangan.setDocument(new batasInput((byte)70).getKata(Keterangan));
-        TCari.setDocument(new batasInput((int)100).getKata(TCari));
+        TCari.setDocument(new batasInput(100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -181,6 +163,12 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
         ChkInput.setSelected(false);
         isForm();
         jam();
+        
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
     }
 
 
@@ -195,6 +183,9 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         MnMonitoringReaksiTranfusi = new javax.swing.JMenuItem();
+        JK = new widget.TextBox();
+        Umur = new widget.TextBox();
+        TanggalRegistrasi = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -274,6 +265,15 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
             }
         });
         jPopupMenu1.add(MnMonitoringReaksiTranfusi);
+
+        JK.setHighlighter(null);
+        JK.setName("JK"); // NOI18N
+
+        Umur.setHighlighter(null);
+        Umur.setName("Umur"); // NOI18N
+
+        TanggalRegistrasi.setHighlighter(null);
+        TanggalRegistrasi.setName("TanggalRegistrasi"); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -863,7 +863,6 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
     private void TNoRwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRwKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             isRawat();
-            isPsien();
         }else{            
             Valid.pindah(evt,TCari,Tanggal);
         }
@@ -879,14 +878,16 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
         }else if(NIP.getText().trim().isEmpty()||NamaPetugas.getText().trim().isEmpty()){
             Valid.textKosong(NIP,"Petugas");
         }else{
-            if(Sequel.menyimpantf("monitoring_reaksi_tranfusi","?,?,?,?,?,?,?,?,?,?,?,?,?","Data",13,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
-                JenisDarah.getText(),NoKantong.getText(),LokasiInsersi.getText(),TD.getText(),HR.getText(),RR.getText(),Suhu.getText(),Alergi.getText(), 
-                Keterangan.getText(),NIP.getText()
-            })==true){
-                tampil();
-                emptTeks();
-            } 
+            if(akses.getkode().equals("Admin Utama")){
+                simpan();
+            }else{
+                if(TanggalRegistrasi.getText().isEmpty()){
+                    TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                }
+                if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                    simpan();
+                }
+            }
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
@@ -916,7 +917,9 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
                 hapus();
             }else{
                 if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString())){
-                    hapus();
+                    if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                        hapus();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
                 }
@@ -945,7 +948,14 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
                     ganti();
                 }else{
                     if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString())){
-                        ganti();
+                        if(Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+" "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),Sequel.ambiltanggalsekarang())==true){
+                            if(TanggalRegistrasi.getText().isEmpty()){
+                                TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
+                            }
+                            if(Sequel.cekTanggalRegistrasi(TanggalRegistrasi.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem())==true){
+                                ganti();
+                            }
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
                     }
@@ -983,14 +993,14 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             try {            
                 File g = new File("file2.css");            
-                try (BufferedWriter bg = new BufferedWriter(new FileWriter(g))) {
-                    bg.write(
-                            ".isi td{border-right: 1px solid #e2e7dd;font: 11px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi2 td{font: 11px tahoma;height:12px;background: #ffffff;color:#323232;}"+
-                                    ".isi3 td{border-right: 1px solid #e2e7dd;font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
-                                    ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"
-                    );
-                }
+                BufferedWriter bg = new BufferedWriter(new FileWriter(g));
+                bg.write(
+                        ".isi td{border-right: 1px solid #e2e7dd;font: 11px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                        ".isi2 td{font: 11px tahoma;height:12px;background: #ffffff;color:#323232;}"+                    
+                        ".isi3 td{border-right: 1px solid #e2e7dd;font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                        ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"
+                );
+                bg.close();
 
                 File f;            
                 BufferedWriter bw; 
@@ -1023,7 +1033,29 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
                                 "</tr>"
                             ); 
                             for(i=0;i<tabMode.getRowCount();i++){  
-                                htmlContent.append("<tr class='isi'><td valign='top'>").append(tabMode.getValueAt(i,0)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,1)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,2)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,3)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,4)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,5)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,6)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,7)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,8)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,9)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,10)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,11)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,12)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,13)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,14)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,15)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,16)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,17)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,18)).append("</td></tr>"); 
+                                htmlContent.append(                             
+                                    "<tr class='isi'>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,0)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,1)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,2)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,3)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,4)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,5)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,6)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,7)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,8)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,9)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,10)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,11)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,12)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,13)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,14)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,15)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,16)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,17)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,18)+"</td>"+
+                                    "</tr>"
+                                ); 
                             }            
 
                             f = new File("MonitoringReaksiTranfusi.html");            
@@ -1077,7 +1109,29 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
                                 "</tr>"
                             ); 
                             for(i=0;i<tabMode.getRowCount();i++){  
-                                htmlContent.append("<tr class='isi'><td valign='top'>").append(tabMode.getValueAt(i,0)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,1)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,2)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,3)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,4)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,5)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,6)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,7)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,8)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,9)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,10)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,11)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,12)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,13)).append("</td><td valign='top' align='center'>").append(tabMode.getValueAt(i,14)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,15)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,16)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,17)).append("</td><td valign='top'>").append(tabMode.getValueAt(i,18)).append("</td></tr>"); 
+                                htmlContent.append(                             
+                                    "<tr class='isi'>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,0)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,1)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,2)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,3)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,4)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,5)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,6)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,7)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,8)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,9)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,10)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,11)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,12)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,13)+"</td>"+
+                                        "<td valign='top' align='center'>"+tabMode.getValueAt(i,14)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,15)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,16)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,17)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,18)+"</td>"+
+                                    "</tr>"
+                                ); 
                             }            
 
                             f = new File("MonitoringReaksiTranfusi.wps");            
@@ -1111,7 +1165,9 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
                                 "\"No.Rawat\";\"No.R.M.\";\"Nama Pasien\";\"Umur\";\"JK\";\"Tgl.Lahir\";\"Tgl.Obser\";\"Jam Obser\";\"Produk/Jenis Darah\";\"No.Kantong\";\"Lokasi Insersi\";\"TD(mmHg)\";\"HR(x/menit)\";\"RR(x/menit)\";\"Suhu(°C)\";\"Alergi\";\"Keterangan\";\"NIP\";\"Nama Petugas\"\n"
                             ); 
                             for(i=0;i<tabMode.getRowCount();i++){  
-                                htmlContent.append("\"").append(tabMode.getValueAt(i,0)).append("\";\"").append(tabMode.getValueAt(i,1)).append("\";\"").append(tabMode.getValueAt(i,2)).append("\";\"").append(tabMode.getValueAt(i,3)).append("\";\"").append(tabMode.getValueAt(i,4)).append("\";\"").append(tabMode.getValueAt(i,5)).append("\";\"").append(tabMode.getValueAt(i,6)).append("\";\"").append(tabMode.getValueAt(i,7)).append("\";\"").append(tabMode.getValueAt(i,8)).append("\";\"").append(tabMode.getValueAt(i,9)).append("\";\"").append(tabMode.getValueAt(i,10)).append("\";\"").append(tabMode.getValueAt(i,11)).append("\";\"").append(tabMode.getValueAt(i,12)).append("\";\"").append(tabMode.getValueAt(i,13)).append("\";\"").append(tabMode.getValueAt(i,14)).append("\";\"").append(tabMode.getValueAt(i,15)).append("\";\"").append(tabMode.getValueAt(i,16)).append("\";\"").append(tabMode.getValueAt(i,17)).append("\";\"").append(tabMode.getValueAt(i,18)).append("\"\n"); 
+                                htmlContent.append(                             
+                                    "\""+tabMode.getValueAt(i,0)+"\";\""+tabMode.getValueAt(i,1)+"\";\""+tabMode.getValueAt(i,2)+"\";\""+tabMode.getValueAt(i,3)+"\";\""+tabMode.getValueAt(i,4)+"\";\""+tabMode.getValueAt(i,5)+"\";\""+tabMode.getValueAt(i,6)+"\";\""+tabMode.getValueAt(i,7)+"\";\""+tabMode.getValueAt(i,8)+"\";\""+tabMode.getValueAt(i,9)+"\";\""+tabMode.getValueAt(i,10)+"\";\""+tabMode.getValueAt(i,11)+"\";\""+tabMode.getValueAt(i,12)+"\";\""+tabMode.getValueAt(i,13)+"\";\""+tabMode.getValueAt(i,14)+"\";\""+tabMode.getValueAt(i,15)+"\";\""+tabMode.getValueAt(i,16)+"\";\""+tabMode.getValueAt(i,17)+"\";\""+tabMode.getValueAt(i,18)+"\"\n"
+                                ); 
                             }            
 
                             f = new File("MonitoringReaksiTranfusi.csv");            
@@ -1328,6 +1384,7 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
     private widget.ComboBox Detik;
     private widget.PanelBiasa FormInput;
     private widget.TextBox HR;
+    private widget.TextBox JK;
     private widget.ComboBox Jam;
     private widget.TextBox JenisDarah;
     private widget.TextBox Keterangan;
@@ -1348,7 +1405,9 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
+    private widget.TextBox TanggalRegistrasi;
     private widget.TextBox TglLahir;
+    private widget.TextBox Umur;
     private widget.Button btnPetugas;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel16;
@@ -1379,6 +1438,9 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
@@ -1445,6 +1507,9 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TD.setText("");
         HR.setText("");
@@ -1464,6 +1529,8 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
             TNoRw.setText(tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
             TNoRM.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());
+            Umur.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());
+            JK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
             TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             Jam.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(0,2));
             Menit.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString().substring(3,5));
@@ -1480,22 +1547,49 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
             Valid.SetTgl(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());  
         }
     }
+    
     private void isRawat() {
-         Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat='"+TNoRw.getText()+"' ",TNoRM);
-    }
-
-    private void isPsien() {
-        Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
-        Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=? ",TglLahir,TNoRM.getText());
+        try {
+            ps=koneksi.prepareStatement(
+                    "select reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,reg_periksa.tgl_registrasi,reg_periksa.umurdaftar,"+
+                    "reg_periksa.sttsumur,reg_periksa.jam_reg from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.no_rawat=?");
+            try {
+                ps.setString(1,TNoRw.getText());
+                rs=ps.executeQuery();
+                if(rs.next()){
+                    TNoRM.setText(rs.getString("no_rkm_medis"));
+                    DTPCari1.setDate(rs.getDate("tgl_registrasi"));
+                    TPasien.setText(rs.getString("nm_pasien"));
+                    JK.setText(rs.getString("jk"));
+                    Umur.setText(rs.getString("umurdaftar")+" "+rs.getString("sttsumur"));
+                    TglLahir.setText(rs.getString("tgl_lahir"));
+                    TanggalRegistrasi.setText(rs.getString("tgl_registrasi")+" "+rs.getString("jam_reg"));
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : "+e);
+        }
     }
     
+    /**
+     *
+     * @param norwt
+     * @param tgl2
+     */
     public void setNoRm(String norwt, Date tgl2) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
-        Sequel.cariIsi("select reg_periksa.tgl_registrasi from reg_periksa where reg_periksa.no_rawat='"+norwt+"'", DTPCari1);
         DTPCari2.setDate(tgl2);
         isRawat();
-        isPsien();
         ChkInput.setSelected(true);
         isForm();
     }
@@ -1528,7 +1622,18 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
                 NIP.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
-        }            
+        }  
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                Tanggal.setEditable(false);
+                Tanggal.setEnabled(false);
+                ChkKejadian.setEnabled(false);
+                Jam.setEnabled(false);
+                Menit.setEnabled(false);
+                Detik.setEnabled(false);
+            }
+        }
     }
 
     private void jam(){
@@ -1585,15 +1690,34 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        Sequel.mengedit("monitoring_reaksi_tranfusi","tgl_perawatan=? and jam_rawat=? and no_rawat=?","no_rawat=?,tgl_perawatan=?,jam_rawat=?,produk_darah=?,"+
+        if(Sequel.mengedittf("monitoring_reaksi_tranfusi","tgl_perawatan=? and jam_rawat=? and no_rawat=?","no_rawat=?,tgl_perawatan=?,jam_rawat=?,produk_darah=?,"+
             "no_kantong=?,lokasi_insersi=?,td=?,hr=?,rr=?,suhu=?,jenis_reaksi_alergi=?,keterangan=?,nip=?",16,new String[]{
             TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
             JenisDarah.getText(),NoKantong.getText(),LokasiInsersi.getText(),TD.getText(),HR.getText(),RR.getText(),Suhu.getText(),Alergi.getText(), 
             Keterangan.getText(),NIP.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),6).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),7).toString(),
             tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
-        });
-        if(tabMode.getRowCount()!=0){tampil();}
-        emptTeks();
+        })==true){
+            tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
+            tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
+            tbObat.setValueAt(TPasien.getText(),tbObat.getSelectedRow(),2);
+            tbObat.setValueAt(Umur.getText(),tbObat.getSelectedRow(),3);
+            tbObat.setValueAt(JK.getText(),tbObat.getSelectedRow(),4);
+            tbObat.setValueAt(TglLahir.getText(),tbObat.getSelectedRow(),5);
+            tbObat.setValueAt(Valid.SetTgl(Tanggal.getSelectedItem()+""),tbObat.getSelectedRow(),6);
+            tbObat.setValueAt(Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),tbObat.getSelectedRow(),7);
+            tbObat.setValueAt(JenisDarah.getText(),tbObat.getSelectedRow(),8);
+            tbObat.setValueAt(NoKantong.getText(),tbObat.getSelectedRow(),9);
+            tbObat.setValueAt(LokasiInsersi.getText(),tbObat.getSelectedRow(),10);
+            tbObat.setValueAt(TD.getText(),tbObat.getSelectedRow(),11);
+            tbObat.setValueAt(HR.getText(),tbObat.getSelectedRow(),12);
+            tbObat.setValueAt(RR.getText(),tbObat.getSelectedRow(),13);
+            tbObat.setValueAt(Suhu.getText(),tbObat.getSelectedRow(),14);
+            tbObat.setValueAt(Alergi.getText(),tbObat.getSelectedRow(),15);
+            tbObat.setValueAt(Keterangan.getText(),tbObat.getSelectedRow(),16);
+            tbObat.setValueAt(NIP.getText(),tbObat.getSelectedRow(),17);
+            tbObat.setValueAt(NamaPetugas.getText(),tbObat.getSelectedRow(),18);
+            emptTeks();
+        }
     }
 
     private void hapus() {
@@ -1605,6 +1729,23 @@ public class RMDataMonitoringReaksiTranfusi extends javax.swing.JDialog {
             emptTeks();
         }else{
             JOptionPane.showMessageDialog(null,"Gagal menghapus..!!");
+        }
+    }
+
+    private void simpan() {
+        if(Sequel.menyimpantf("monitoring_reaksi_tranfusi","?,?,?,?,?,?,?,?,?,?,?,?,?","Data",13,new String[]{
+            TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+            JenisDarah.getText(),NoKantong.getText(),LokasiInsersi.getText(),TD.getText(),HR.getText(),RR.getText(),Suhu.getText(),Alergi.getText(), 
+            Keterangan.getText(),NIP.getText()
+        })==true){
+            tabMode.addRow(new String[]{
+                TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),TglLahir.getText(),
+                Valid.SetTgl(Tanggal.getSelectedItem()+""),Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
+                JenisDarah.getText(),NoKantong.getText(),LokasiInsersi.getText(),TD.getText(),HR.getText(),RR.getText(),Suhu.getText(),Alergi.getText(), 
+                Keterangan.getText(),NIP.getText(),NamaPetugas.getText()
+            });
+            LCount.setText(""+tabMode.getRowCount());
+            emptTeks();
         }
     }
     

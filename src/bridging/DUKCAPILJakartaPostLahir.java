@@ -5,20 +5,14 @@
  */
 package bridging;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import java.io.FileInputStream;
-import java.util.Properties;
-import javax.swing.JOptionPane;
-import org.json.JSONObject;
-import org.json.XML;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import org.json.*;
+import org.springframework.http.*;
+import org.springframework.web.client.*;
 
 /**
  *
@@ -28,6 +22,10 @@ public class DUKCAPILJakartaPostLahir {
     private final Properties prop = new Properties();
     private final sekuel Sequel=new sekuel();
     private final Properties prop2 = new Properties();
+
+    /**
+     *
+     */
     public String UID="";
     private boolean status=false;
     private String URL;

@@ -11,38 +11,19 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import ipsrs.IPSRSCariSuplier;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import ipsrs.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 
 /**
  *
@@ -1256,7 +1237,7 @@ private void BtnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble("besar_bayar");
+                    total += rs.getDouble("besar_bayar");
                     tabMode.addRow(new Object[]{
                         rs.getString("tgl_bayar"),rs.getString("tgl_faktur"),rs.getString("tgl_pesan"),
                         rs.getString("tgl_tempo"),rs.getString("no_faktur"),rs.getString("nama_suplier"),rs.getString("nama_bayar"),
@@ -1314,14 +1295,25 @@ private void BtnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return no_faktur;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton(){
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbayar_pesan_non_medis());
         BtnHapus.setEnabled(akses.getbayar_pesan_non_medis());

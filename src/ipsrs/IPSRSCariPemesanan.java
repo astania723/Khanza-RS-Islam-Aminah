@@ -1,41 +1,32 @@
 package ipsrs;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.text.Document;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
-import keuangan.Jurnal;
-import keuangan.KeuanganBayarPemesananNonMedis;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import javax.swing.text.*;
+import javax.swing.text.html.*;
+import kepegawaian.*;
+import keuangan.*;
 
 public class IPSRSCariPemesanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
+
+    /**
+     *
+     */
     public  IPSRSCariSuplier suplier=new IPSRSCariSuplier(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+
+    /**
+     *
+     */
     public  IPSRSBarang barang=new IPSRSBarang(null,false);
     private PreparedStatement ps,ps2,pscaripesan,psipsrsdetailpesan;
     private riwayatnonmedis Trackbarang=new riwayatnonmedis();
@@ -1394,7 +1385,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                     tabMode.addRow(new Object[]{"","Tgl.Datang",": "+rs.getString("tgl_pesan"),"","","","Meterai",":",Valid.SetAngka(rs.getDouble("meterai"))});
                     tabMode.addRow(new Object[]{"","Jth.Tempo",": "+rs.getString("tgl_tempo"),"","","","PPN",":",Valid.SetAngka(rs.getDouble("ppn"))});
                     tabMode.addRow(new Object[]{"","Status Bayar",": "+rs.getString("status"),"","","","Tagihan",":",Valid.SetAngka(rs.getDouble("tagihan"))});
-                    tagihan=tagihan+rs.getDouble("tagihan");
+                    tagihan += rs.getDouble("tagihan");
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
@@ -1412,12 +1403,18 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }        
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         kdbar.setText("");
         nmbar.setText("");
         kdbar.requestFocus();        
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnPrint.setEnabled(akses.getpenerimaan_non_medis());
         if(akses.getkode().equals("Admin Utama")){

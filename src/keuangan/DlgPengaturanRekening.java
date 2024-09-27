@@ -1,21 +1,10 @@
 package keuangan;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -95,7 +84,7 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
             Beban_Jasa_Menejemen_Radiologi_Ranap,Utang_Jasa_Menejemen_Radiologi_Ranap,Kerugian_Klaim_BPJS_RVP,
             Lebih_Bayar_Klaim_BPJS_RVP,Piutang_BPJS_RVP,Sisa_Uang_Muka_Ranap,Kontra_Penerimaan_AsetInventaris,
             Kontra_Hibah_Aset,Hibah_Non_Medis,Kontra_Hibah_Non_Medis,Bayar_JM_Dokter,PPN_Masukan,Pengadaan_Dapur,
-            Stok_Keluar_Dapur,Kontra_Stok_Keluar_Dapur,PPN_Keluaran,Diskon_Piutang,Piutang_Tidak_Terbayar;
+            Stok_Keluar_Dapur,Kontra_Stok_Keluar_Dapur,PPN_Keluaran,Diskon_Piutang,Piutang_Tidak_Terbayar,Lebih_Bayar_Piutang;
     private String copyakun="";
     private DlgRekeningTahun rekening=new DlgRekeningTahun(null,false);
 
@@ -807,6 +796,7 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
             PPN_Keluaran=tbPengaturan.getValueAt(190,1).toString();
             Diskon_Piutang=tbPengaturan.getValueAt(191,1).toString();
             Piutang_Tidak_Terbayar=tbPengaturan.getValueAt(192,1).toString();
+            Lebih_Bayar_Piutang=tbPengaturan.getValueAt(193,1).toString();
             
             if(Pengadaan_Obat.isEmpty()||Pemesanan_Obat.isEmpty()||Kontra_Pemesanan_Obat.isEmpty()||Bayar_Pemesanan_Obat.isEmpty()||Penjualan_Obat.isEmpty()||
                     Piutang_Obat.isEmpty()||Kontra_Piutang_Obat.isEmpty()||Retur_Ke_Suplayer.isEmpty()||Kontra_Retur_Ke_Suplayer.isEmpty()||
@@ -861,7 +851,8 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
                     Harian_Ranap.isEmpty()||Uang_Muka_Ranap.isEmpty()||Piutang_Pasien_Ranap.isEmpty()||Kerugian_Klaim_BPJS_RVP.isEmpty()||Lebih_Bayar_Klaim_BPJS_RVP.isEmpty()||
                     Piutang_BPJS_RVP.isEmpty()||Sisa_Uang_Muka_Ranap.isEmpty()||Kontra_Penerimaan_AsetInventaris.isEmpty()||Kontra_Hibah_Aset.isEmpty()||
                     Hibah_Non_Medis.isEmpty()||Kontra_Hibah_Non_Medis.isEmpty()||Bayar_JM_Dokter.isEmpty()||PPN_Masukan.isEmpty()||Stok_Keluar_Dapur.isEmpty()||
-                    Kontra_Stok_Keluar_Dapur.isEmpty()||Pengadaan_Dapur.isEmpty()||PPN_Keluaran.isEmpty()||Diskon_Piutang.isEmpty()||Piutang_Tidak_Terbayar.isEmpty()){
+                    Kontra_Stok_Keluar_Dapur.isEmpty()||Pengadaan_Dapur.isEmpty()||PPN_Keluaran.isEmpty()||Diskon_Piutang.isEmpty()||Piutang_Tidak_Terbayar.isEmpty()||
+                    Lebih_Bayar_Piutang.isEmpty()){
                     JOptionPane.showMessageDialog(null,"Silahkan lengkapi seluruh data Akun...!!!!");
                     tbPengaturan.requestFocus();
             }else{
@@ -900,7 +891,7 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
                    Persediaan_Obat_Kamar_Operasi_Ranap,Harian_Ranap,Uang_Muka_Ranap,Piutang_Pasien_Ranap,Sisa_Uang_Muka_Ranap
                 });
                 Sequel.queryu("delete from set_akun");
-                Sequel.menyimpan("set_akun","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?",63,new String[]{
+                Sequel.menyimpan("set_akun","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?",64,new String[]{
                     Pengadaan_Obat,
                     Pemesanan_Obat,Kontra_Pemesanan_Obat,Bayar_Pemesanan_Obat,Penjualan_Obat,Piutang_Obat,
                     Kontra_Piutang_Obat,Retur_Ke_Suplayer,Kontra_Retur_Ke_Suplayer,Retur_Dari_pembeli,
@@ -916,7 +907,7 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
                     Kontra_Retur_Piutang_Toko,Kerugian_Klaim_BPJS_RVP,Lebih_Bayar_Klaim_BPJS_RVP,Piutang_BPJS_RVP,
                     Kontra_Penerimaan_AsetInventaris,Kontra_Hibah_Aset,Hibah_Non_Medis,Kontra_Hibah_Non_Medis,
                     Bayar_JM_Dokter,PPN_Masukan,Pengadaan_Dapur,Stok_Keluar_Dapur,Kontra_Stok_Keluar_Dapur,
-                    PPN_Keluaran,Diskon_Piutang,Piutang_Tidak_Terbayar
+                    PPN_Keluaran,Diskon_Piutang,Piutang_Tidak_Terbayar,Lebih_Bayar_Piutang
                 });
                 JOptionPane.showMessageDialog(null,"Proses selesai...!!!!");
                 tampil();
@@ -1384,6 +1375,7 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
             PPN_Keluaran="";
             Diskon_Piutang="";
             Piutang_Tidak_Terbayar="";
+            Lebih_Bayar_Piutang="";
             
             ps=koneksi.prepareStatement("select * from set_akun_ralan");
             try {
@@ -1630,6 +1622,7 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
                     PPN_Keluaran=rs.getString("PPN_Keluaran");
                     Diskon_Piutang=rs.getString("Diskon_Piutang");
                     Piutang_Tidak_Terbayar=rs.getString("Piutang_Tidak_Terbayar");
+                    Lebih_Bayar_Piutang=rs.getString("Lebih_Bayar_Piutang");
                 }               
             } catch (Exception e) {
                 System.out.println("Notif Set Akun :"+e);
@@ -2597,21 +2590,29 @@ public class DlgPengaturanRekening extends javax.swing.JDialog {
                 Sequel.cariIsi("select rekening.tipe from rekening where rekening.kd_rek=?",PPN_Keluaran),
                 Sequel.cariIsi("select rekening.balance from rekening where rekening.kd_rek=?",PPN_Keluaran)
             }); 
-            tabMode.addRow(new Object[]{" [Debet] Diskon Piutang",Diskon_Piutang,
+            tabMode.addRow(new Object[]{" [Debet] Diskon Piutang pada menu Piutang Belum Lunas",Diskon_Piutang,
                 Sequel.cariIsi("select rekening.nm_rek from rekening where rekening.kd_rek=?",Diskon_Piutang),
                 Sequel.cariIsi("select rekening.tipe from rekening where rekening.kd_rek=?",Diskon_Piutang),
                 Sequel.cariIsi("select rekening.balance from rekening where rekening.kd_rek=?",Diskon_Piutang)
             });
-            tabMode.addRow(new Object[]{" [Debet] Piutang Tidak Terbayar",Piutang_Tidak_Terbayar,
+            tabMode.addRow(new Object[]{" [Debet] Piutang Tidak Terbayar pada menu Piutang Belum Lunas",Piutang_Tidak_Terbayar,
                 Sequel.cariIsi("select rekening.nm_rek from rekening where rekening.kd_rek=?",Piutang_Tidak_Terbayar),
                 Sequel.cariIsi("select rekening.tipe from rekening where rekening.kd_rek=?",Piutang_Tidak_Terbayar),
                 Sequel.cariIsi("select rekening.balance from rekening where rekening.kd_rek=?",Piutang_Tidak_Terbayar)
+            });
+            tabMode.addRow(new Object[]{" [Kredit] Lebih Bayar Piutang pada menu Piutang Belum Lunas",Lebih_Bayar_Piutang,
+                Sequel.cariIsi("select rekening.nm_rek from rekening where rekening.kd_rek=?",Lebih_Bayar_Piutang),
+                Sequel.cariIsi("select rekening.tipe from rekening where rekening.kd_rek=?",Lebih_Bayar_Piutang),
+                Sequel.cariIsi("select rekening.balance from rekening where rekening.kd_rek=?",Lebih_Bayar_Piutang)
             });
         }catch(Exception e){
             System.out.println("Notifikasi : "+e);
         }
     }
 
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpengaturan_rekening());
     }

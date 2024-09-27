@@ -11,31 +11,16 @@
 
 package setting;
 
-import fungsi.WarnaTable;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Canvas;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.net.URL;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.net.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.filechooser.*;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.table.*;
 
 /**
  *
@@ -76,7 +61,7 @@ public class DlgRunTeks extends javax.swing.JDialog {
         }
 
         tbAdmin.setDefaultRenderer(Object.class, new WarnaTable());
-        TTeks.setDocument(new batasInput((int)1500).getKata(TTeks));
+        TTeks.setDocument(new batasInput(1500).getKata(TTeks));
     }
     Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private javax.swing.JFileChooser jfc = new JFileChooser();
@@ -579,6 +564,10 @@ private void TTeksKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TTe
 
         Image image;
 
+        /**
+         *
+         * @param file
+         */
         public void setImage(String file) {
             URL url = null;
             try {
@@ -589,11 +578,20 @@ private void TTeksKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TTe
             image = getToolkit().getImage(url);
             repaint();
         }
+
+        /**
+         *
+         * @param file
+         */
         public void setImageIcon(ImageIcon file) {
             image = file.getImage();
             repaint();
         }
 
+        /**
+         *
+         * @param g
+         */
         @Override
         public void paint(Graphics g) {
             double d = image.getHeight(this) / this.getHeight();

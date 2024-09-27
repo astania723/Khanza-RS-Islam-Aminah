@@ -11,51 +11,29 @@
 
 package keuangan;
 
-import bridging.ApiPcare;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
+import bridging.*;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
-import kepegawaian.DlgCariPetugas;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import kepegawaian.*;
 import org.apache.commons.codec.binary.Base64;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import simrskhanza.DlgKtgPerawatan;
+import org.springframework.http.*;
+import simrskhanza.*;
 
 /**
  *
  * @author dosen
  */
-public final class DlgCariPerawatanRanap extends javax.swing.JDialog {
+public class DlgCariPerawatanRanap extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -71,7 +49,15 @@ public final class DlgCariPerawatanRanap extends javax.swing.JDialog {
     private double[] totaltnd,bagianrs,bhp,jmdokter,jmperawat,kso,menejemen;
     private boolean sukses=false;
     private int jml=0,i=0,index=0;
+
+    /**
+     *
+     */
     public  DlgCariDokter dokter=new DlgCariDokter(null,false);
+
+    /**
+     *
+     */
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,ttlpendapatan=0;
     private String Suspen_Piutang_Tindakan_Ranap="",Tindakan_Ranap="",Beban_Jasa_Medik_Dokter_Tindakan_Ranap="",Utang_Jasa_Medik_Dokter_Tindakan_Ranap="",
@@ -929,12 +915,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                             
                                             if(sukses==true){
-                                                ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                                ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
-                                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,4).toString());
-                                                ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,5).toString());
-                                                ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,6).toString());
-                                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                                ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                                ttlkso += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                                ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,4).toString());
+                                                ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,5).toString());
+                                                ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,6).toString());
+                                                ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
                                                 
                                                 if(aktifpcare.equals("yes")){
                                                     simpanTindakanPCare(
@@ -971,12 +957,12 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                             
                                             if(sukses==true){
-                                                ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                                ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
-                                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,4).toString());
-                                                ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,5).toString());
-                                                ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,6).toString());
-                                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                                ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                                ttlkso += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                                ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,4).toString());
+                                                ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,5).toString());
+                                                ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,6).toString());
+                                                ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
                                                 
                                                 if(aktifpcare.equals("yes")){
                                                     simpanTindakanPCare(
@@ -1015,13 +1001,13 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                             }
                                             
                                             if(sukses==true){
-                                                ttljmdokter=ttljmdokter+Double.parseDouble(tbKamar.getValueAt(i,7).toString());
-                                                ttljmperawat=ttljmperawat+Double.parseDouble(tbKamar.getValueAt(i,8).toString());
-                                                ttlkso=ttlkso+Double.parseDouble(tbKamar.getValueAt(i,9).toString());
-                                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbKamar.getValueAt(i,4).toString());
-                                                ttljasasarana=ttljasasarana+Double.parseDouble(tbKamar.getValueAt(i,5).toString());
-                                                ttlbhp=ttlbhp+Double.parseDouble(tbKamar.getValueAt(i,6).toString());
-                                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbKamar.getValueAt(i,10).toString());
+                                                ttljmdokter += Double.parseDouble(tbKamar.getValueAt(i,7).toString());
+                                                ttljmperawat += Double.parseDouble(tbKamar.getValueAt(i,8).toString());
+                                                ttlkso += Double.parseDouble(tbKamar.getValueAt(i,9).toString());
+                                                ttlpendapatan += Double.parseDouble(tbKamar.getValueAt(i,4).toString());
+                                                ttljasasarana += Double.parseDouble(tbKamar.getValueAt(i,5).toString());
+                                                ttlbhp += Double.parseDouble(tbKamar.getValueAt(i,6).toString());
+                                                ttlmenejemen += Double.parseDouble(tbKamar.getValueAt(i,10).toString());
                                                 
                                                 if(aktifpcare.equals("yes")){
                                                     simpanTindakanPCare(
@@ -1320,6 +1306,9 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() { 
         try{   
             Valid.tabelKosong(tabMode);
@@ -1559,6 +1548,9 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         LCount.setText(""+tbKamar.getRowCount());
     }
 
+    /**
+     *
+     */
     public void emptTeks() { 
         TCari.setText("");
     }
@@ -1567,10 +1559,24 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         return tbKamar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnTambah.setEnabled(akses.gettarif_ranap());
     }
     
+    /**
+     *
+     * @param norwt
+     * @param pilihtable
+     * @param tanggal
+     * @param jam
+     * @param menit
+     * @param detik
+     * @param status
+     * @param pasien
+     */
     public void setNoRm(String norwt,String pilihtable,Date tanggal,String jam,String menit,String detik,boolean status,String pasien) {
         aktifpcare="no";
         for(i=0;i<tbKamar.getRowCount();i++){ 
@@ -1637,6 +1643,13 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         ChkJln.setSelected(status);
     }
     
+    /**
+     *
+     * @param kode
+     * @param nama
+     * @param kode2
+     * @param nama2
+     */
     public void setPetugas(String kode, String nama,String kode2, String nama2){
         kddokter.setText(kode);
         nmdokter.setText(nama);
@@ -1703,6 +1716,11 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         Sequel.cariIsi("select kategori_perawatan.nm_kategori from kategori_perawatan where kategori_perawatan.kd_kategori=? ",NmKtg,KdKtg.getText());
     }
     
+    /**
+     *
+     * @param aktif
+     * @param nokunjung
+     */
     public void setPCare(String aktif,String nokunjung){
         aktifpcare=aktif;
         nokunjungan=nokunjung;

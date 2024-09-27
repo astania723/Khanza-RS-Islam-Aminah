@@ -11,36 +11,17 @@
 
 package keuangan;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.fasterxml.jackson.databind.*;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -77,11 +58,11 @@ public class KeuanganBayarPiutangLain extends javax.swing.JDialog {
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "Tgl.Bayar","Kode","Peminjam","Cicilan(Rp)","Keterangan","No.Nota","Kode Akun","Akun Bayar"}){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class,
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -1149,6 +1130,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     */
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{    
@@ -1177,7 +1161,7 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 rs=ps.executeQuery();
                 total=0;
                 while(rs.next()){                
-                    total=total+rs.getDouble(4);
+                    total += rs.getDouble(4);
                     tabMode.addRow(new Object[]{
                         rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)
                     });
@@ -1199,6 +1183,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         LTotal.setText(Valid.SetAngka(total));
     }
 
+    /**
+     *
+     */
     public void emptTeks() {
         Kd2.setText("");
         Cicilan.setText("0");
@@ -1237,6 +1224,10 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextField(){
         return NoNota;
     }
@@ -1245,6 +1236,9 @@ private void BtnPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         return BtnKeluar;
     }
     
+    /**
+     *
+     */
     public void isCek(){
         BtnSimpan.setEnabled(akses.getbayar_piutang_lain());
         BtnHapus.setEnabled(akses.getbayar_piutang_lain());

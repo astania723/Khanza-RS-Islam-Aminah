@@ -11,24 +11,14 @@
 
 package rekammedis;
 
-import fungsi.WarnaTable;
-import fungsi.akses;
-import fungsi.batasInput;
-import fungsi.koneksiDB;
-import fungsi.sekuel;
-import fungsi.validasi;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import keuangan.Jurnal;
+import fungsi.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+import keuangan.*;
 
 /**
  *
@@ -1612,12 +1602,12 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
                                     tbTindakan.getValueAt(i,5).toString(),tbTindakan.getValueAt(i,6).toString(),tbTindakan.getValueAt(i,7).toString(), 
                                     tbTindakan.getValueAt(i,8).toString(),tbTindakan.getValueAt(i,3).toString(),"Belum"
                                 })==true){
-                                ttlpendapatan=ttlpendapatan+Double.parseDouble(tbTindakan.getValueAt(i,3).toString());
-                                ttljasasarana=ttljasasarana+Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
-                                ttlbhp=ttlbhp+Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
-                                ttljmdokter=ttljmdokter+Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
-                                ttlkso=ttlkso+Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
-                                ttlmenejemen=ttlmenejemen+Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
+                                ttlpendapatan += Double.parseDouble(tbTindakan.getValueAt(i,3).toString());
+                                ttljasasarana += Double.parseDouble(tbTindakan.getValueAt(i,4).toString());
+                                ttlbhp += Double.parseDouble(tbTindakan.getValueAt(i,5).toString());
+                                ttljmdokter += Double.parseDouble(tbTindakan.getValueAt(i,6).toString());
+                                ttlkso += Double.parseDouble(tbTindakan.getValueAt(i,7).toString());
+                                ttlmenejemen += Double.parseDouble(tbTindakan.getValueAt(i,8).toString());
                             }else{
                                 sukses=false;
                             } 
@@ -1814,6 +1804,9 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
         LCount.setText(""+tabMode.getRowCount());
     }
     
+    /**
+     *
+     */
     public void emptTeks() {
         TCari.requestFocus();
     }
@@ -1822,6 +1815,14 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
         return tbDokter;
     }
     
+    /**
+     *
+     * @param kode
+     * @param tanggal
+     * @param jam
+     * @param norawat
+     * @param nomorrm
+     */
     public void setDokter(String kode,String tanggal, String jam,String norawat,String nomorrm){
         this.kodedokter=kode;
         this.tanggaldilakukan=tanggal;
@@ -1830,6 +1831,9 @@ public class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
         this.norm=nomorrm;
     }
     
+    /**
+     *
+     */
     public void isCek(){        
         BtnTambah.setEnabled(akses.gettemplate_pemeriksaan());
     }

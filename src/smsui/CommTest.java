@@ -1,12 +1,9 @@
 
 package misc;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Enumeration;
-import java.util.Formatter;
-import org.smslib.helper.CommPortIdentifier;
-import org.smslib.helper.SerialPort;
+import java.io.*;
+import java.util.*;
+import org.smslib.helper.*;
 
 public class CommTest
 {
@@ -29,7 +26,11 @@ public class CommTest
 		return CommPortIdentifier.getPortIdentifiers();
 	}
 
-	public static void main(String[] args)
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args)
 	{
 		System.out.println("\nSearching for devices...");
 		portList = getCleanPortIdentifiers();
@@ -56,8 +57,9 @@ public class CommTest
 						outStream = serialPort.getOutputStream();
 						serialPort.enableReceiveTimeout(1000);
 						c = inStream.read();
-						while (c != -1)
-							c = inStream.read();
+						while (c != -1) {
+                                                    c = inStream.read();
+                                                }
 						outStream.write('A');
 						outStream.write('T');
 						outStream.write('\r');
